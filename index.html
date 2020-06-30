@@ -1,0 +1,389 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta name="Author" content="Nikolaus Hansen"/>
+    <meta name="keywords" content="source code,
+        evolution strategy, evolutionary algorithm, evolutionary strategy,
+        covariance matrix adaptation, CMA, CMA-ES, CMAES, 
+        black-box optimization, robust optimization, robust search, 
+       global optimization, noisy optimization"/>
+    <meta name="description" content=""/>
+    <title>The CMA Evolution Strategy</title>
+    <meta name="filter" content="translated by html2xhtml - http://www.it.uc3m.es/jaf/conversor.html"/>
+  </head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ef" vlink="#51188e" alink="#ff0000">
+
+<FONT size=-1><A HREF="index.html">UP</A></FONT>
+
+    <h2>The CMA Evolution Strategy</h2>
+    The CMA-ES (<b>C</b>ovariance
+<b>M</b>atrix
+<b>A</b>daptation
+<b>E</b>volution
+<b>S</b>trategy) is an evolutionary algorithm for difficult
+    <b>non-linear non-convex black-box optimisation</b> problems in continuous
+    domain. The CMA-ES is considered as state-of-the-art in evolutionary computation and
+    has been adopted as one of the <b>standard tool</b>s for continuous optimisation in many (probably hundreds of) research labs and industrial environments around the world. 
+    The CMA-ES is typically applied to unconstrained or
+    bounded constraint optimization problems, and search space
+    dimensions between three and a hundred. The method should be
+    applied, if derivative based methods, e.g. quasi-Newton BFGS or
+    conjugate gradient, (supposedly) fail due to a rugged search
+    landscape (e.g. discontinuities, sharp bends or ridges, noise,
+    local optima, outliers). If second order derivative based methods
+    are successful, they are usually faster than the CMA-ES: on purely
+    convex-quadratic functions, f(x)=x<SUP>T</SUP>Hx, BFGS (Matlabs
+    function fminunc) is typically faster by a factor of about ten (in
+    terms of number of objective function evaluations needed to reach
+    a target function value, assuming that gradients are not
+    available).  On the most simple quadratic function
+    f(x)=||x||<SUP>2</SUP>=x<SUP>T</SUP>x BFGS is faster by a factor
+    of about 30.
+    
+    <p>Similar to quasi-Newton methods (but not inspired by them), the CMA-ES is a <b>second
+    order</b> approach estimating a positive definite matrix within an
+    iterative procedure (more precisely: a covariance matrix, that is,
+    <I>on convex-quadratic functions</I>, closely related to the inverse
+    Hessian).  This makes the method feasible on non-separable and/or
+    badly conditioned problems. In contrast to quasi-Newton methods,
+    the CMA-ES does not use or approximate gradients and does not even
+    presume or require their existence. This makes the method feasible
+    on <b>non-smooth</b> and even non-continuous problems, as well as on
+    multimodal and/or noisy problems. It turns out to be a
+    particularly reliable and highly competitive evolutionary
+    algorithm for local optimization (<a
+    href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenaost2001">Hansen & Ostermeier
+    2001</a>) and, surprising at first sight, also for global
+    optimization (<a
+    href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenukernppsn2004">Hansen & Kern
+    2004</a>, <a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/cec2005.html"> CEC 2005</a>, <a
+    href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#gecco09-bipop">Hansen 2009</a> in <a href="http://coco.gforge.inria.fr/doku.php?id=bbob-2009-results">BBOB-2009</a>).
+      </p>
+    <p><A NAME=invariances>The CMA-ES has several <b>invariance
+    properties</b></A>. Two of them, inherited from the plain
+    evolution strategy, are (i) invariance to order preserving
+    (i.e. strictly monotonic) transformations of the objective
+    function value (that is, e.g., ||x||<SUP>2</SUP> and
+    3||x||<SUP>0.2</SUP>-100 are <I>equivalent</I> objective functions
+    with identical performance of CMA-ES), and (ii) invariance to
+    angle preserving (rigid) transformations of the search space
+    (including rotation, reflection, and translation), if the initial
+    search point is transformed accordingly. Invariances are highly
+    desirable: they imply uniform behavior on classes of functions and
+    therefore imply the generalization of empirical results.
+      </p>
+
+     <p><A NAME=parameters>The CMA-ES does not require a tedious
+     <b>parameter tuning</b> for its application</A>. In fact, the choice
+     of strategy internal parameters is not left to the user
+     (arguably with the exception of population size &lambda;).
+     Finding good (default) strategy parameters is considered as part
+     of the algorithm design, and not part of its
+     application&mdash;the aim is to have a well-performing algorithm
+     <I>as is</I>. The default population size &lambda; is
+     comparatively small to allow for fast convergence. Restarts with
+     increasing population size (<A
+     HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#augeruhansen2005a">Auger & Hansen
+     2005<A>) improve the global search performance.  For the
+     <b>application</b> of the CMA-ES, an initial solution, an initial
+     standard deviation (step-size, variables should be defined such
+     that the same standard deviations can be reasonably applied to
+     all variables, see also <A HREF="cmaes_sourcecode_page.html#practical">here</A>)
+     and, possibly, the termination criteria (e.g. a
+     function tolerance) need to be set by the user.
+
+     The most common applications are model calibration (e.g. curve fitting) 
+     and shape optimisation. 
+     
+<H3> Materials and Source Code </H3> 
+
+<ul>
+<li> 
+Four slides on randomized search and the CMA-ES
+<a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/searchandcmaslides.pdf"> 
+ (pdf)</a>. 
+</li>
+
+<li>
+A <A HREF="http://arxiv.org/abs/1604.00772">written <FONT color="#ff0000">tutorial</FONT></A>. </li> 
+
+<LI>
+<A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/gecco2013-CMA-ES-tutorial.pdf">Tutorial slides (pdf 1.8MB)</A>
+presented at the <A HREF="http://www.sigevo.org/gecco-2013">GECCO 2013</A>.  </LI>
+
+<LI>
+<A HREF="http://en.wikipedia.org/wiki/CMA-ES">CMA-ES at wikipedia</A>
+</LI>
+<LI>Comparison studies
+<UL>
+<LI>
+<A HREF=http://coco.gforge.inria.fr/doku.php?id=bbob-2009-results>BBOB 2009 Comparison with a wide variety of other algorithms on 24 benchmark functions</A> 
+</LI>
+<li>
+<A HREF="http://cma.gforge.inria.fr/cec2005">CEC 2005 Comparison with other Evolutionary Algorithms on a
+Benchmark Function Set</A>
+</li>
+<li>
+<A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#kernea2004">Kern et al (2004)</A> compare
+the CMA-ES with two other Evolution Strategies, (1+1)-ES and CSA-ES, and with two Estimation of
+Distribution Algorithms, IDEA and MBOA, on 14 separable and non-separable benchmark
+functions (<A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/kernnatcomp.pdf">pdf 827KB</A>).
+</li>
+</UL>
+<li>
+<A HREF="cmaes_sourcecode_page.html"><FONT color="#ff0000">Source code page</FONT></A> (C, C++, Java, Matlab, Octave, Python, Scilab)</li>
+
+<LI>  A list of <a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/cmaapplications.pdf">references to
+<FONT color="#ff0000">applications</FONT> (pdf)</a> of the CMA-ES (not quite exhaustive and <i>entirely</i> outdated though).
+</LI>
+
+
+</UL>
+</LI>
+</ul>
+
+<A name="chronobiography">
+<h3>Commented Bibliography (chronologically)</h3> 
+</A>
+<ol>
+<LI><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenea1995">Hansen et
+al (1995). On the adaptation of arbitrary normal mutation distributions
+in evolution strategies: The generating set adaptation.</A> In L. Eshelman
+(Ed.), <I>Proceedings of the Sixth International Conference on Genetic
+Algorithms</I>, Pittsburgh, pp.  57-64. Morgan Kaufmann.</font>
+
+<p>The generating set adaptation (GSA) is the first evolution strategy
+to our knowledge that learns a problem scaling <i>and</i> is invariant
+to coordinate system rotations.  The GSA implements the principle idea
+of CMA, to increase the likelihood of selected steps, without using
+the formalism of a covariance matrix.  Global step-size control is
+done by mutative self-adaptation. The paper also provides an algorithm
+that learns individual step-sizes and one direction (AII). AII has a
+linear number of strategy parameters and hence learns a less rich model
+quicker.
+</p>
+</LI>
+
+<LI><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenaost1996"> Hansen
+and Ostermeier (1996). Adapting arbitrary normal mutation
+distributions in evolution strategies: The covariance matrix
+adaptation.</A> In <I>Proceedings of the 1996 IEEE International
+Conference on Evolutionary Computation</I>, pp. 312-317.</font>
+
+<p>The first CMA paper, where the covariance matrix adaptation is
+introduced into the (1,&lambda;)-ES (&mu;=1). The paper emphasizes on
+the evolution path and the differences to the generating set
+adaptation (<a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenea1995">Hansen et al
+1995</a>). Using the formalism of a covariance matrix has three
+important consequences. First, path length control (cumulative
+step-size adaptation, CSA) can be used to control the global
+step-size. This will become particularly relevant when &mu; is chosen
+to be greater than 1.  Second, the eigensystem, determined by the
+covariance matrix, can give insights into the underlying problem
+structure. De facto, it turns out to be particularly useful to monitor
+the time evolution of eigenvalues of the covariance matrix. Third, the
+computational expense to <i>generate</i> a new individual reduces from
+<i>O(n<sup>3</sup>)</i> to <i>O(n<sup>2</sup>)</i>. Because the eigendecomposition can be postponed for <i>&Omega;(n)</i> iterations, the overall internal expenses become <i>O(n<sup>2</sup>)</i>. 
+</p>
+</li>
+
+<li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenaost1997"> Hansen
+and Ostermeier (1997). Convergence properties of evolution strategies
+with the derandomized covariance matrix adaptation: The
+<nobr>(&mu;/&mu;<sub>I</sub>, &lambda;)-</nobr>ES.</A> In
+<I>EUFIT'97, 5th Europ.Congr.on Intelligent Techniques and Soft
+Computing, Proceedings</I>, pp. 650-654.</font>
+
+<p>Introduction of the "multi-membered" (&mu;/&mu;,&lambda;)-CMA-ES
+with intermediate recombination of all &mu; parental
+solutions. Investigation of the effect of &mu; for small &lambda; on unimodal
+test functions, some including distorted selection. The (3/3,12)-CMA-ES is
+recommended as the best compromise for being fast and robust. </p>
+</p>
+</li>
+
+<li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenaost2001"> Hansen
+and Ostermeier (2001). Completely Derandomized Self-Adaptation in
+Evolution Strategies.</A> <I>Evolutionary Computation</I>, 9(2),
+pp. 159-195 (2001).</font>
+
+<p>A comprehensive article, where weighted recombination is
+introduced in the (&mu;/&mu;,&lambda;)-CMA-ES. Objectives and rationales
+behind the strategy are discussed as well as (default) strategy parameter
+choices in detail. Comparisons with the so-called <em>correlated mutations</em>
+and scale-up investigations, up to 320-D, on a considerable number of unimodal test
+functions are shown. On the multimodal Rastrigin function the myth
+that (local) adaptation to the topography of the function jeopardizes
+global search properties is disproved. Local adaptation 
+allows for larger step-sizes and consequently is likely to improve global
+search performance.  </p> </li>
+
+<li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenea2003">
+Hansen et al (2003). Reducing
+the Time Complexity of the Derandomized Evolution Strategy with
+Covariance Matrix Adaptation (CMA-ES).<A> <i>Evolutionary
+Computation</i>, 11(1), pp. 1-18 (2003).</font>
+
+<p>
+Extension with the so-called rank-&mu; update of the covariance matrix
+which scales up the efficiency of the CMA to large population
+sizes. The rank-&mu; update reduces the time complexity, i.e. the
+number <EM>of generations</EM> to adapt the complete matrix roughly
+from 10<i>n</i><sup><font size="-1">2</font></sup> to 20<i>n</i>. The
+other way around, the learning speed, with respect to the number of
+objective function evaluations, depends much less on the population
+size if the rank-&mu; update is used.  Reasonable population sizes
+range between 5 and 5<i>n</i>.  For larger population sizes a
+deficiency of the step-size adaptation is discovered (that has been solved in <A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenukernppsn2004">
+Hansen and Kern (2004)</A>).  Simulations on a
+number of unimodal test functions and scale-up investigations are
+presented. </p> </li>
+
+<li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenukernppsn2004">
+Hansen and Kern (2004). Evaluating the CMA Evolution Strategy on
+Multimodal Test Functions.<A> In <i> Eighth International Conference
+on Parallel Problem Solving from Nature PPSN VIII, Proceedings</i>,
+pp. 282-291.</font>
+
+<p>
+In this paper 1) the <i>weighted</i> rank-&mu; update of the
+covariance matrix is introduced. 2) the step-size adaptation problem
+discovered in <a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenea1995">Hansen et al
+(2003)</a> is addressed by a remarkably improved setting of the
+step-size control parameters:  for large population sizes the backward time
+horizon of the evolution path is diminished by increasing the
+parameter <i>c</i><sub><font size="-1">&sigma;</font></sub> and the step-size damping <i>d</i><sub><font size="-1">&sigma;</font></sub> is increased. 3) the
+influence of the population size on the performance is investigated on
+a number of multimodal functions, revealing that an increased
+population size can dramatically improve the global search
+performance. Comparisons to other optimization algorithms reveal that
+on additively decomposable (and therefore separable) functions the
+CMA-ES can be vastly outperformed, e.g., by <em>differential evolution</em>,
+while it reveals superior performance on non-separable functions.
+</p>
+</li>
+
+<li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#augeruhansen2005a"> Auger
+and Hansen (2005). A Restart CMA Evolution Strategy With Increasing
+Population Size.<A> In
+<I>IEEE Congress on Evolutionary Computation, CEC
+2005, Proceedings</I>, pp. 1769-1776. </font>
+
+<p>
+The remaining strategy parameter <em>population size</em>, &lambda;,
+that is most important for the global search performance, is removed
+by implementing a restart mechanism. Before each restart the
+population size is increased by a factor of two. Otherwise restarts
+are conducted independently. Tests on a benchmark function set of 25
+functions provided for the <a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/cec2005.html">session on
+real-parameter optimization</a> reveal highly competitive performance
+on local <em>and</em> global optimization problems, compared to the
+other submitted algorithms. </p></li>
+
+<li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenReview2006">
+  N. Hansen (2006). The CMA Evolution Strategy: A Comparing Review.</A>
+  In J.A. Lozano, P. Larra&ntilde;aga, I. Inza and E. Bengoetxea (Eds.).
+  Towards a new evolutionary computation. Advances in estimation of
+  distribution algorithms. Springer, pp. 75-102.</font>
+<p>
+The CMA is approached and analyzed from the view point of
+<em>estimating a search distribution</em>.  Important differences to
+the so-called <em>estimation of distribution algorithms</em> (EDAs)
+are revealed. 1) in CMA the distribution of the selected <i>steps</i>
+is estimated, while in EDAs the selected <i>points</i> are
+modeled. This leads invariably to larger variances in CMA. In particular, a 
+"pure EDA" converges prematurely on a linear function whereas a "pure CMA" (without step-size control) does not. 2) in EDAs the estimation is usually done from scratch,
+while in CMA the distribution is updated (at least for population size
+&lambda; < 4<I>n</I><SUP>2</SUP>). Therefore in CMA the estimation can be done
+reliably <I>independent of the population size</I> and, for a small population size, in a lesser number of function evaluations.  3) in CMA an
+additional global step-size adaptation is conducted, based on a different
+adaptation principle (cumulative step-size adaptation, or path length
+control) that often leads to a considerably larger population spread and prevents premature convergence even more effectively.
+Major concepts and design principles, namely change rates, invariance,
+and stationarity are discussed.
+</p></li>
+
+<li><font size=-1><A
+HREF="http://dx.doi.org/10.1109/CEC.2006.1688662"> Jastrebski
+and Arnold (2006).  Improving evolution strategies through active
+covariance matrix adaptation.</A> In <i>2006 IEEE World Congress on
+Computational Intelligence, Proceedings</i>,
+pp. 9719-9726</font>
+<p>
+Introduces an additional <i>negative</i> rank-&mu; update of the
+covariance matrix using the &mu; worst of the &lambda; individuals.
+All vectors for both, the original and the negative, rank-&mu; updates
+have the same weight. For population sizes up to &lambda;=4<i>n</i> a
+significant speed-up compared to the original equally weighted
+rank-&mu; update can be observed. On the discus (or tablet) function
+the speed-up exceeds a factor of two for large dimensions and small
+population sizes. While positive definiteness of the covariance matrix
+cannot be guaranteed anymore, empirically the covariance matrix
+remains always positive definite. For a larger population size
+presumably the learning parameter &beta; needs to be modified.
+</p></li>
+
+<li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#igeletal2006"> Igel et al
+(2006). A Computational Efficient Covariance Matrix Update and a
+(1+1)-CMA for Evolution Strategies.</a> In <I>Genetic and Evolutionary
+Computation Conference, GECCO 2006, Proceedings</I>,
+pp.453-460.</font>
+<p>
+This paper introduces 1) the CMA into the (1+1)-ES using an improved
+variant of a success rule based step-size adaptation in place of the
+path length control, and 2) an incremental <I>O(n<SUP>2</SUP>)</I>
+Cholesky update of the covariance matrix replacing the original
+<I>O(n<SUP>2</SUP>)</I> covariance matrix update altogether with the
+iterative <I>O(n<SUP>3</SUP>)</I> eigendecomposition of the covariance
+matrix (the latter is usually postponed until after <I>n/10</I>
+generations). The resulting algorithm is an elegant CMA variant and
+accomplishes what is expected. Nevertheless, its practical relevance
+is limited. The (1+1)-ES is slightly faster than its ","-counterpart,
+but more prone to converge to local optima. Applying the Cholesky
+update prohibits to utilize the evolution path for the covariance
+matrix update. This is a significant disadvantage as the evolution
+path considerably improves the performance on many functions and was 
+addressed in <A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#suttorp2009">Suttorp et.al. (2009)</A>.
+
+</p></li>
+
+<LI>2007- to be done. </LI>
+</ol>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11976094-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+  </body>
+</html>
+
+<FONT size=-1><A HREF="index.html">UP</A></FONT>
+<hr WIDTH="100%">
+<center><font size="-1"><i>
+last change $Date: 2016-12-15 23:47:51 +0100 (Thu, 15 Dec 2016) $
+</i></font></center>
+
+<P ALIGN="right">
+<a href="http://extremetracking.com/open?login=hanseni">
+<img src="http://t1.extreme-dm.com/i.gif" style="border: 0;"
+height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
+<script type="text/javascript"><!--
+var EXlogin='hanseni' // Login
+var EXvsrv='s10' // VServer
+EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?
+EXb=EXs.colorDepth:EXb=EXs.pixelDepth;
+navigator.javaEnabled()==1?EXjv="y":EXjv="n";
+EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
+EXd.write("<img src=http://e1.extreme-dm.com",
+"/"+EXvsrv+".g?login="+EXlogin+"&amp;",
+"jv="+EXjv+"&amp;j=y&amp;srw="+EXw+"&amp;srb="+EXb+"&amp;",
+"l="+escape(EXd.referrer)+" height=1 width=1>");//-->
+</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
+src="http://e1.extreme-dm.com/s10.g?login=hanseni&amp;j=n&amp;jv=n" />
+</div></noscript>
+</P>

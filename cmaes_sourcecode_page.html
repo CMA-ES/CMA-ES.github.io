@@ -1,0 +1,862 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+
+  <meta name="Author" content="Nikolaus Hansen">
+
+  <meta name="keywords"
+        content="evolution strategy, noisy optimization,
+        self-adaptation,
+        covariance matrix adaptation, CMA, CMA-ES, CMAES, Matlab,
+        Octave, Java, C, Scilab, source code,
+        robust optimization, noise, robust search,
+        global optimization">
+
+  <meta name="description"
+    content="Source code in Matlab, Octave, Scilab, C, and Java of the
+    CMA-evolution strategy for global optimization of rugged (noisy or multimodal)
+    search problems. ">
+  <STYLE type="text/css">
+    P.lalign {text-align: left}
+    P.calign {text-align: center}
+    P.ralign {text-align: right}
+   </STYLE>
+
+  <title>CMA Evolution Strategy Source Code</title>
+
+</head>
+<body text="#000000" bgcolor="#ffffff" link="#0000ef" vlink="#51188e"
+ alink="#ff0000">
+<table width="100%">
+<tr><td width="100%">
+<FONT size=-1><A HREF="cmaesintro.html">UP (The CMA Evolution Strategy)</A></FONT>
+</td>
+<td>
+<!-- <P class="ralign"><a href="http://petition.stopsoftwarepatents.eu/291006465860/"><img
+src="http://petition.stopsoftwarepatents.eu/banner/291006465860/ssp-181-30.gif"
+alt="stopsoftwarepatents.eu petition banner"
+width="181"
+height="30"
+border="0"
+/></a></P>
+-->
+</td>
+</tr>
+</table>
+
+
+<H1> CMA-ES Source Code
+</H1>
+
+<UL>
+<LI><A HREF="#practical"><B>Practical Hints</B></A><br>
+</LI><LI><A HREF="#code">Source Code</A><br>
+<UL>
+<LI><A HREF="#C">C (ANSI)</A><br>
+</LI><LI><A HREF="#cpp">C++</A><br>
+</LI><LI><A HREF="#fortran">Fortran</A><br>
+</LI><LI><A HREF="#java">Java</A><br>
+</LI><LI><A HREF="#matlab">Matlab and Octave</A><br>
+</LI><LI><A HREF="#python">Python</A><br>
+    <UL><LI><A HREF="#python-remarks">Remarks About Python</A><br></LI></UL>
+</LI><LI><A HREF="#R">R</A><br>
+</LI><LI><A HREF="#scilab">Scilab </A><br>
+</UL>
+</LI><LI><A HREF="#example">Example Output </A><br>
+</LI><LI><A HREF="#OOOptimizer">Object-Oriented Implementation</A><br>
+</LI><LI><A HREF="#testing">Testing Code and More Examples</A><br>
+</LI>
+</UL>
+<!-- <HR> -->
+
+<P>  This page provides implementations of the CMA-ES and links to libraries that contain such implementations. All implementations provided in this page follow very closely <a
+href="publications.html#hansenReview2006">Hansen (2006)</a>. They
+support small and large population sizes, the latter by implementing
+the rank-&micro;-update (<a
+href="publications.html#hansenea2003">Hansen et al, 2003</a>) with
+non-uniform recombination weights (<a
+href="publications.html#hansenukernppsn2004">Hansen and Kern,
+2004</a>) and an improved parameter setting for the step-size
+adaptation (<a href="publications.html#hansenukernppsn2004">Hansen and
+Kern, 2004</a>). The default population size is small (<a
+href="publications.html#hansenaost2001">Hansen and Ostermeier,
+2001)</a>. Further (optionally) supported features:
+
+<OL>
+<LI>All implementations, except for the minimalistic codes for
+reading, provide an independent restart procedure with increasing
+population size (<a href="publications.html#augeruhansen2005a">Auger
+and Hansen, 2005)</a> and standardized data output for
+visualization.
+</LI>
+<LI>All implementations, except for the minimalistic code
+for reading, optionally support a "separable/diagonal"
+initial phase, where the covariance matrix remains diagonal (<a
+href="publications.html#rosPPSN2008">Ros and Hansen, 2008</a>). The
+latter permits a faster learning of the diagonal elements and reduces the internal time complexity from quadratic to linear
+ which might be useful for dimensionalities, say, larger than a hundred.
+</LI>
+<LI>Matlab since version 3.0 and Python since version 0.9.92 support an additional uncertainty handling (<a
+href="publications.html#hansenTEC2009">Hansen et al, 2009</a>, set option <code>Noise.on='yes'</code>, however, don't rely on this option without a rough
+understanding of what it does).
+</LI>
+<LI>Matlab since version 3.40.beta and Python since version 0.9.92 implement the idea of <I>active CMA</I> (<a
+href="http://dx.doi.org/10.1109/CEC.2006.1688662">Jastrebski and Arnold, 2006</a>, see option CMA.active or CMA_active), where a "negative" covariance matrix update explicitly reduces the variance in directions where bad samples were found. The implementations differ and also deviate considerably from the original paper.
+</LI>
+<LI>Python since version 0.9.92 implements <I>selective mirrored sampling</I> (<a
+href="publications.html#mirrored2011gecco">Auger et al, 2011</a>), where a few of the worst solutions are mirrored.
+</OL>
+<A name="education">
+Minimalistic code for reading and education is provided in <A HREF="#matlab">Matlab/Octave</A> and <A HREF="#education-python">Python</A>.
+</A>
+</P>
+
+<H2><A name="practical">Practical Hints</A></H2>
+<H3><A name="encoding">Encoding of Variables</A></H3>
+The specific formulation of a (real) optimization problem has a tremendous impact on the optimization performance. In particular, a reasonable parameter encoding is essential. All parameters should be rescaled such that they have
+presumably similar sensitivity (this makes the identity as initial covariance matrix the right choice). Usually, the best approach is to write a wrapper around the objective function that transforms the parameters before the actual function call. The wrapper scales, for example, in each parameter/coordinate the value [0; 10] into the typical actual domain of the parameter/coordinate. To achieve this on-the-fly, a linear scaling of variables is provided in the Scilab and Python codes below. With this transformation, a typical initial <code>sigma</code> will be &#8776; 2, see also below.
+
+<P>
+The natural encoding of (some of) the parameters can also be "logarithmic". That is, for a parameter that must always be positive, with a ratio between typical upper and lower value being larger than 100, we might use 10<sup><I>x</I></sup> instead of <I>x</I> to call the objective function. More specifically, to achieve the parameter range [10<sup>&ndash;4</sup>,10<sup>&ndash;1</sup>], we use 10<sup>&ndash;4</sup>&times;10<sup>3<I>x</I>/10</sup> with <I>x</I> in [0; 10].  Again, the idea is to have similar sensitivity: this makes sense if we expect the change from 10<sup>&ndash;4</sup> to 10<sup>&ndash;3</sup> to have an impact similar to the change from 10<sup>&ndash;2</sup> to 10<sup>&ndash;1</sup>. In order to avoid the problem that changes of very small values have too less an impact, an alternative is to choose 10<sup>&ndash;1</sup> &times; (<I>x</I>/10)<sup>2</sup> &ge; 0. 
+In the case where only a lower bound at zero is necessary, a simple and natural transformation is <I>x</I><sup>2</sup> &times; default_x, such that <I>x</I>=1 represents the default (or initial) value and <I>x</I> remains unbounded during optimization. 
+
+<P>
+In summary, to map the values [0;10] into [<I>a</I>;<I>b</I>] we have the alternative transformations
+<I>a</I> + (<I>b-a</I>) &times; <I>x</I>/10 or
+<I>a</I> + (<I>b-a</I>) &times; (<I>x</I>/10)<sup>2</sup> &ge; <I>a</I> or
+<I>a</I> &times; (<I>b/a</I>)<sup><I>x</I>/10</sup> &ge; 0.
+
+<H3><A name="boundaries">Boundary and Constraint Handling</A></H3>
+A simple way to achieve, for example, a lower bound <i>a</i> for a variable <i>x</i> is to use <i>a</i> + <i>x</i><sup>2</sup> instead of <i>x</i> in the objective function call (as already mentioned above). Lower and upper bounds <i>a, b</i> can be achieved with <I>y</I> = <I>a</I> + (<I>b-a</I>) &times; (1 &ndash; <tt>cos</tt>(&pi; &times; <I>x</I>  / 10)) / 2, where for 0 &le; <I>x</I> &le; 10 this is a strictly increasing bijective mapping into [<I>a</I>, <I>b</I>]. <I>y</I> remains between <I>a</I> and <I>b</I> also for any other value of <I>x</I>. 
+In the very same spirit, the boundary handling implemented <A HREF="https://github.com/CMA-ES/c-cmaes/blob/master/src/boundary_transformation.h">in the C</A> and Python codes uses a piecewise either linear or quadratic function to avoid numerical subtleties (however the implemented boundary handling does not shift the domain and therefore maps the domain center <I>a</I> + (<I>b-a</I>) / 2 to itself). 
+In any case, a reasonable (linear) scaling of variables in <I>x</I> should still be taken care of when the sizes of boundary intervals and the (supposed) sensitivities do not agree. Variables that consistently end up on the (same) boundary can be removed. The Python and Scilab codes provide the means to (tentatively) remove variables from the optimization.
+
+<P>
+Another reasonably good method for handling boundaries (box-constraints) in connection with CMA-ES is described in <I>A Method for Handling Uncertainty in Evolutionary Optimization...(2009)</I> (<A HREF="TEC2009online.pdf">pdf</A>), see the prepended Addendum and Section IV B. In this method, a penalty, which is a quadratic function of the distance to the feasible domain with adaptive penalty weights, is implemented in <A HREF="#matlab">Matlab</A> and <A HREF="#python">Python<A/> codes below.
+
+<P>Addressing <B>non-linear constraints</B> is more intricate. In benign cases the optimum is not <I>very</I> close to the constraint and simple <I>resampling</I> works fine. The provided implementations do automated resampling when the objective function returns <tt>NaN</tt>. A simple (to implement) alterative is to compute &Sigma;<sub><I>i</I></sub> (<I>x</I><sub><I>i</I></sub> - <tt>domain_middle</tt><sub><I>i</I></sub>)<sup>2</sup> + <tt>a_large_constant</tt> as objective function value for infeasible solutions. This might often work better than resampling. Yet, it still might work poorly if the optimum is at the domain boundary. 
+
+<P>
+Another method to address non-linear constraints is described in <I>Multidisciplinary Optimisation in the Design of Future Space Launchers (2010)</I> (<A HREF="collange2010Chap12.pdf">pdf</A>), Section 12.4.1, but not (yet) available in any of the provided source codes.
+
+<P>
+For a very short and general overview on boundary and constraints handling (as of 2014 not entirely up-to-date though) in connection with CMA-ES, see the appendix of <A HREF="http://arxiv.org/abs/1604.00772"><I>The CMA Evolution Strategy: A Tutorial</I></A>, p.34f. 
+
+<H3><A name="initial">Initial Values</A></H3>
+After the encoding of variables, see above, the initial solution point <I>x</I><sub>0</sub> and the initial standard deviation (step-size) &sigma;<sub>0</sub> must be chosen. In a practical application, one often wants to start by trying to improve a given solution locally. In this case we choose a rather small &sigma;<sub>0</sub> (say in [0.001, 0.1], given the <I>x</I>-values "live" in [0,10]). Thereby we can also check, whether the initial solution is possibly a local optimum. When a global optimum is sought-after on rugged or multimodal landscapes, &sigma;<sub>0</sub> should be chosen such that the final desirable location (or at least some of its domain of attraction) is not far outside of <I>x</I><sub>0</sub> &pm; 2&sigma;<sub>0</sub> in each coordinate. (Remark that in <I>R<SUP>n</SUP></I>, if each boundary domain is in distance &sigma;, then the boundary corner is &sigma; &radic;<span style="text-decoration:overline"><I>n</I></span> away, which poses a slight dilemma for larger <I>n</I>.) 
+
+<H3><A name="plotting">Plotting</A></H3>
+The source code from this page writes output data that can be plotted either with the respective code or with the following stand-alone versions (the data formats are largely inter-compatible):
+<UL>
+<li>Python (needs <tt>matplotlib</tt> installed, <A HREF="#python-remarks">see below</A>), usage in Python: <tt>import cma; cma.plot()</tt> where <A HREF="https://pypi.python.org/pypi/cma"><tt>pycma</tt></A> must 
+be installed. 
+</li>
+<li>Matlab/Octave: <A HREF="https://github.com/CMA-ES/plotting-cma-data/blob/master/src/plotcmaesdat.m"><tt>plotcmaesdat.m</tt></A>
+</li>
+<!-- completely outdated: <li>R:<A HREF="plotcmaesdat.R"><tt>plotcmaesdat.R</tt></A></li> -->
+<li>Scilab: <A HREF="https://github.com/CMA-ES/plotting-cma-data/blob/master/src/plotcmaesdat.sci"><tt>plotcmaesdat.sci</tt></A>
+</li>
+</UL>
+The plotted output files must be in the current folder. See sections <A HREF="#example">Example Output</A> and <A HREF="#testing">Testing Code and More Examples</A> for examples of the resulting output.
+<P><P>
+
+<A name="code"></A>
+
+<H2><A name="C">C (ANSI)</A></H2>
+
+<P>
+<!--<A href="cmaes_c.tar.gz">cmaes_c.tar.gz</A>, <A href="cmaes_c.tar">cmaes_c.tar</A>
+--> 
+<A href="https://github.com/cma-es/c-cmaes">CMA-ES/c-cmaes</A> on GitHub 
+(<A href="https://github.com/cma-es/c-cmaes/archive/master.zip">download zip file</A>) 
+provides a pure ANSI C
+implementation in a fairly object-oriented way, where the iteration
+step can be explicitly controlled. Also several independent optimization instances can be used at the same time. Therefore, the integration into any existing program in C or C++, should be fairly easy.  The option "diagonalCovarianceMatrix" does not provide linear <I>space</I> complexity.
+</P>
+
+<H2><A name="cpp">C++</A></H2>
+A few libraries implement the CMA-ES in C++:
+<UL>
+
+  <LI> <A HREF="https://github.com/beniz/libcmaes">LIBCMAES</A> in C++11, read 
+  the <A HREF="https://github.com/beniz/libcmaes/wiki">documentation here</A>
+
+  </LI><LI> <A HREF="http://sourceforge.net/projects/shark-project/">SHARK
+  machine learning library</A> includes the <A HREF="http://image.diku.dk/shark/sphinx_pages/build/html/rest_sources/tutorials/algorithms/mocma.html"> implementation of multiobjective MO-CMA-ES </A> <!--
+  HREF="http://www.neuroinformatik.ruhr-uni-bochum.de/thbio/group/neuralnet/index.html"-->
+
+  </LI><LI> <A HREF="http://eodev.sourceforge.net/">EO Evolving
+  Objects evolutionary computation framework</A> (based on the above C code)
+
+  </LI><LI><A HREF="http://beagle.gel.ulaval.ca/">Open BEAGLE</A>, an
+  Evolutionary Computation (EC) framework
+  <!-- <A HREF="http://www.gel.ulaval.ca/~beagle/index.html"or here</A -->
+
+  </LI><LI> <A HREF="https://github.com/AlexanderFabisch/CMA-ESpp">CMA-ESpp</A> by Alexander Fabisch (based on the above C code)
+
+  </LI><LI><A
+  HREF="http://www.ks.informatik.uni-kiel.de/~paclib/PACLibDoc_released/html/index.html">PACLib
+  Perception-Action Components Library</A>
+  <!-- http://www.ks.informatik.uni-kiel.de/~paclib/PACLibDoc_released/html/classPAC_1_1CMAES.html -->
+
+  <!-- obsolete: HREF="http://www.hs.uni-hamburg.de/EN/Ins/Per/Quast/software.html"> -->
+
+  <!-- -->
+
+  <!--http://www.sspa.com/software/pest.html http://www.pesthomepage.org/ PEST -->
+
+  <!-- <A HREF="http://mcmll.sourceforge.net">Monte Carlo + Machine Learning = Library MCMLL</A> based on the above C code -->
+
+  </LI>
+</UL>
+
+<H2><A name="fortran">Fortran</A></H2>
+The <A HREF="https://github.com/muellsen/pCMALib">pCMALib</A> parallel library in FORTRAN 90.
+
+<H2><A name="java">Java</A></H2>
+A Java version is provided, where originally the core procedures from the ANSI C version were
+used:
+
+<UL>
+<LI><A href="javadoc/index.html">Documentation</A> </LI>
+
+<LI><A href="CMAExample1.java">Code example</A> and an example <A
+href="CMAEvolutionStrategy.properties">properties (parameter) file</A>
+(both part of the source below)</LI>
+
+<LI>Source as <A href="cmaes_java.jar">jar file</A>. </LI>
+
+<LI>See also <A href="https://code.google.com/p/cma-es/">here</A></LI>
+</UL>
+
+Also the following libraries implement the CMA-ES in Java.
+<UL>
+<LI><A HREF="http://commons.apache.org/math/">Apache Commons [Math]</A>
+in the class
+<A HREF="http://commons.apache.org/proper/commons-math/apidocs/index.html?org/apache/commons/math4/optim/nonlinear/scalar/noderiv/CMAESOptimizer.html">
+<!-- http://commons.apache.org/math/apidocs/org/apache/commons/math/optimization/direct/CMAESOptimizer.html -->
+CMAESOptimizer</A>
+</LI> 
+<LI><A HREF="http://www.opendino.org">OpenDino</A> as successor of <A HREF="http://www.openopal.org">OpenOpal</A> 
+<!-- <LI>  OPtimization And Learning environment
+in the class <A HREF="http://www.openopal.org/w/index.php/Documentation/Modules/OptAlgCMA">org.openopal.modules.optAlg.OptAlgCMA</A> -->
+</LI>
+</UL>
+
+<H2><A name="matlab">Matlab and Octave</A></H2>
+
+<H3>Code for Reading</H3> <P><a href="purecmaes.m">purecmaes.m</a> is a
+minimalistic implementation running in Matlab and
+Octave. It is mainly provided for educational purpose: reading, understanding
+and running basic experiments. It contains roughly 100 lines, with 20 lines
+reflecting the core implementation of the algorithm. This implementation has
+only rudimentary termination conditions implemented, under some circumstances
+it might be numerically inefficient and it should probably not be used for
+running "real" experiments.</P>
+
+<H3>Production Code</H3>
+<P><A href="count-cmaes-m.php?Down=cmaes.m">cmaes.m</A>
+(version >3.60, <a
+href="formersoftwareversions.html">former versions</a>) provides an
+interface similar to Matlab's optimization routines, e.g.  fminsearch
+and fminunc. The following (optional) variants/extensions are implemented.
+<UL><LI> option LBounds and UBounds: coordinate wise boundary handling (<a
+href="publications.html#hansenTEC2009">Hansen et al, 2009</a>)
+</LI><LI>option Noise.on: uncertainty (noise) handling (<a
+href="publications.html#hansenTEC2009">Hansen et al, 2009</a>)
+</LI><LI>option CMA.active: a substractive update of the covariance matrix, similar to <a
+href="http://dx.doi.org/10.1109/CEC.2006.1688662">Jastrebski and Arnold (2006)</a>  (set  option CMA.active = 1 with check for positive definiteness or CMA.active = 2 without checking). This version might become the default in near future.
+</LI><LI> option DiagonalOnly: only the diagonal of the
+covariance matrix is adapted for a number of initial iterations (<a href="publications.html#rosPPSN2008">Ros
+and Hansen, 2008</a>) which leads to a faster learning of a variable scaling and also reduces the internal time complexity of the algorithm from quadratic to linear (meanwhile no correlations are learned)
+</LI>
+</UL>
+The
+verbosity options have been rectified as Disp Log and Save options.
+By default (LogModulo=1), output data is written to files
+(ASCII) and <a href="https://github.com/CMA-ES/plotting-cma-data/blob/master/src/plotcmaesdat.m">plotcmaesdat.m</a> is a stand
+alone function to plots these data. The function can be used to
+investigate the output data from cmaes.m while the optimization is
+running. Under Octave plotcmaesdat.m works since Version 3,
+for earlier versions option LogPlot of cmaes.m must be set to zero
+ (package octave-forge is needed in any case).
+
+<P><A href="cmaes3.33.integer.m">cmaes3.33.integer.m</A> is an experimental
+version for variables with given granularity (e.g. mixed-integer) via option <TT>StairWidths</TT>,
+see also <A href="http://hal.inria.fr/inria-00629689/en">A CMA-ES for Mixed-Integer Nonlinear Optimization</A>.
+
+<P><A href="cmaesV255.m">cmaesV255.m</A> (version 2.55, July 2007) is
+the former version which saves the data record history internally.  <a
+href="https://github.com/CMA-ES/plotting-cma-data/blob/master/src/plotcmaesdat.m">plotcmaes.m</a> and <a
+href="https://github.com/CMA-ES/plotting-cma-data/blob/master/src/dispcmaes.m">dispcmaes.m</a> are stand alone functions to
+plot/display data output from cmaes.m before version 3. They can be
+used to investigate the output data while the
+optimization is still running.</P>
+
+<P> For Octave the package octave-forge is needed (thanks to
+Lu&iacute;s Correia for the advise). </P>
+
+<H2><A name="python">Python</A></H2>
+<A HREF="https://pypi.python.org/pypi/cma"><code>pycma</code></A> is a production code with a functional interface <code>cma.fmin()</code> and the class <code>cma.CMAEvolutionStrategy</code> with <i>ask-and-tell</i> interface (see <A href="publications.html#collette2010">Collette et al 2010</A> and <A HREF="#OOOptimizer">below</A>). An improved boundary handling is implemented and many more features that are useful in practice: a variety of termination and verbosity options, variable scaling, variable shading.
+<UL>
+    <LI>Installation of the latest release from <A HREF="https://pypi.python.org/pypi/cma">PyPI/cma</A> 
+    at the <A HREF="https://pypi.python.org/pypi">Python Package Index</A>:
+      <UL><LI>type "<code><A HREF="http://www.pip-installer.org">pip</A> -U install cma</code>" in a command shell (be aware that you might have several Python distributions, each of them providing their own <A HREF="http://www.pip-installer.org">pip</A> command)</LI></UL>
+    <LI> <A href="http://cma.gforge.inria.fr/apidocs-pycma"> API documentation</A></LI>
+    <LI> <A href="https://github.com/CMA-ES/pycma">Source code at github</A></LI> 
+    <LI>Source code and docs for version 1.x (single file)
+    <UL>
+    <LI><A href="pythoncma.html">single-page documentation</A>
+    (html, pydoc) </LI>
+    <LI><A href="html-pythoncma/frames.html">multi-page documentation</A>
+    (html, epydoc)
+    </LI>
+    </UL>
+    This (single-file) module works with Python 2.6, 2.7 (recommended) and 3.x
+    (little tested). <b>CAVEAT</b>: the interface of <code>fmin</code> and
+    <code>OOOptimizer.optimize</code> has changed since version 1.0.
+    If necessary, <A
+    href="cma_v_092.py">download the last version 0.92.06</A> of <code>cma.py</code> with the
+    old interface.
+    </LI>
+</UL>
+
+The <A HREF="https://pypi.python.org/pypi/cma"><code>pycma</code></A> module includes <A href="http://cma.gforge.inria.fr/apidocs-pycma/cma.purecma.html"><code>cma.purecma</code></A> (<A href="http://cma.gforge.inria.fr/epydoc-purecma">API epy-docs with source code</A>), a shorter implementation for <B>reading and education</B>. 
+<code>cma.purecma</code> can be used from a <A href="https://github.com/CMA-ES/pycma/blob/master/cma/purecma.py">stand alone file</A> and has a <B>minimal number of dependencies</B>, in particular it does not need the python module <code>numpy</code>. For this reason it is slower (however it runs with very competitive speed in <A HREF="http://pypy.org/">pypy</A>, a Python with just in time compilation). If the Python module <code>matplotlib</code> is available, basic plots are provided.
+
+
+<H3><A name="python-remarks">Remarks about Python (as of 2013)</H3>
+
+Python is (arguably) the <A HREF="http://pypl.github.io/PYPL.html">
+<!--"https://sites.google.com/site/pydatalog/pypl/PyPL-PopularitY-of-Programming-Language"-->
+most popular</A><!--
+(but see also <A HREF="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">here</A>)
+-->
+well-designed, general purpose, object-oriented scripting programming language. Python is available on almost every computer (since many years), and provides, based on the <TT>numpy</TT> package, an excellent (and free) <B>environment for scientific computing</B> (since not so many years). In particular the powerful &nbsp;<code><!--"http://ipython.scipy.org/moin/"--><A
+HREF="http://ipython.org/">ipython</A></code>&nbsp;<!-- (see also the <A HREF="http://ipython.org/ipython-doc/dev/interactive/tutorial.html">tutorial here</A>)--> shell (also in combination with the Jupyter notebook) provides a superset of the <code>python</code> shell and allows, for example, to easily access the functionality of <A HREF="http://matplotlib.sourceforge.net/users/installing.html"><code>matplotlib</code></A> with MATLAB/Octave-style interface (via the <code>%pylab</code> mode). Three distributions provide an easy installation of all necessary (and many more useful) tools, including <code>ipython</code>:
+
+<A name="scientific-python-distributions"></A>
+<UL><LI><A HREF="https://store.continuum.io/cshop/anaconda">Anaconda</A>
+(<A HREF="http://continuum.io/downloads.html">download here</A>)
+is a comparatively light-weight cross-platform distribution which does not interfere with other already installed Python versions (other than prepending to the system path).
+</LI>
+<LI><A HREF="http://www.enthought.com/products/epd.php">Enthought Canopy</A>, <A HREF="https://store.enthought.com/downloads/#default">download here</A> (for Mac/Windows only the free 32-bit version does not require registration), not only but in particular on non-Linux systems.
+</LI>
+<LI><A HREF="http://www.sagemath.org">Sage</A>, which is entirely open source (<code>sage -ipython</code>), with additional emphasis on symbolic computation and some sage-only functionality. For general infos see the <A HREF="http://www.sagemath.org/doc/">Sage documentation</A>, for a possibly useful install info see <A HREF="http://wiki.sagemath.org/sage_matlab">sage-matlab</A>. </LI></UL>
+
+For a more comprehensive list of re-packaged Python distributions see for example <A HREF="http://www.python.org/download/alternatives">here</A>.
+
+For more information on IDEs see for example <A HREF="http://pedrokroger.net/choosing-best-python-ide/">here</A>.
+</P>
+<P>
+
+<H4>Integer versus true division</H4>
+<b>Update (2016)</b>: An excellent and comprehensive resource on how to go about the Python 2/3 dilemma can be <A HREF="http://python-future.org/">found here<A/>.
+<p>
+In Python, the "//" operator denotes truncated division.  One of the biggest design mistakes in Python versions &le; 2.x is the division operator "/". The operator behaves depending on the type of the operands: integer, <code>1/2 == 0</code>, or float, <code>1./2 == 0.5</code>, division. This weird and bug-prone behavior, inherited from C, has been abandoned from version 3 and can fortunately also be changed in previous versions: to get the "new" ("true") division where <code>1/2 == 0.5</code> in Python 2.x, we can use <TT>python -Qnew</TT> instead of <TT>python</TT> (however this is depreciated), or type
+
+<blockquote><code>from __future__ import division</code>
+</blockquote>
+
+at the (i)python shell right after startup. The same can be used as first line in a python script or module. To change the default behavior of <TT>ipython</TT> run <code>ipython profile create</code> in the OS-shell to create a profile and add
+
+<blockquote><code>c.InteractiveShellApp.exec_lines = ['from __future__ import division']</code>
+</blockquote>
+
+in the file <tt>~/.ipython/profile_default/ipython_config.py</tt> (the line is already half prepared, commented). I also add <code>from __future__ import print_function</code> thereby enabling the print function (available since Python version 2.6, default from version 3.0) replacing the print statement (default before version 3.0).  
+</P>
+
+<H4>OS X 10.9 (Mavericks)</H4>
+ Under OS X 10.9 one might observe (very) sluggish behavior in a python shell. This is due to App Nap (putting apps to sleep to save energy) and can be resolved using the <A HREF="https://github.com/minrk/appnope">appnope</A> package.
+
+<H2><A name="R">R</A></H2>
+<UL>
+<li>
+<A
+href="http://cran.r-project.org/web/packages/cmaes/index.html">
+<!--"http://git.datensplitter.net/cgit/cmaes/"> -->
+CMA-ES in R</A> by Olaf Mersmann.
+</li>
+<li>
+<A
+href="http://cran.r-project.org/web/packages/rCMA/index.html">CMA-ES in R</A> based in the <A HREF="#java">above Java version</A>.
+</li>
+</UL>
+
+<H2><A name="scilab">Scilab</A></H2>
+Two interfaces are provided.  An object oriented
+<i>ask-and-tell</i> interface (<TT>cma_new</TT> etc.), where the loop
+control remains with the user, and a functional interface (<TT>cma_optim</TT>).
+<UL>
+
+<LI>From the <A HREF="https://atoms.scilab.org/toolboxes/CMA-ES">ATOMS Portal</A> (version 1.0, based on the below implementation)
+</LI>
+<LI><A href="sci-CMA-ES-v0.998.tar">Source v0.998 as tar file</A> for Scilab 5
+(for Scilab 4: <A href="sci-CMA-ES-v0.997.tar">v0.997 as tar file</A>), online <A href="scilabdoc/whatis.htm">documentation</A></LI>
+
+</UL>
+</P>
+
+<HR>
+
+<H2><A name="example">Example Output</A></H2>
+<P>
+An example output from a run of CMA-ES on the 12-dimensional
+Rosenbrock function, using <code>python "import cma; cma.plot()"</code> for plotting 
+(having installed Python and <A HREF="https://pypi.python.org/pypi/cma">pycma</A>).
+<br/>
+<A HREF="rosen12.png"><IMG SRC="rosen12.png" ALT="example output"/></A>
+<br/>
+The lower figures show the square root of eigenvalues (left) and of
+diagonal elements (right) of the covariance matrix C. The actual sample
+distribution has the covariance matrix &sigma;<SUP>2</SUP> C. Weights 
+for the covariance matrix are set proportional to <code>w_k = log((&lambda;+1)/2) - log(k)</code> for <code>k=1,...,&lambda;</code> however with different learning rates for positive and negative weights. 
+</P>
+
+<HR>
+
+<H2><A name="OOOptimizer">Object-Oriented Implementation  (under construction)</A></H2>
+The principle of the object-oriented <i>ask-and-tell</i> interface for optimization (see <A href="publications.html#collette2010">Collette et al 2010</A>) is shown in the following abstract class in Python pseudocode (therefore untested).
+<style type="text/css">
+pre.code {
+    font-style: Lucida,"Courier New";
+}
+
+.number {
+    color: #0080C0;
+}
+.operator {
+    color: #000000;
+}
+.string {
+    color: #008000;
+}
+.comment {
+    color: #808080;
+}
+.name {
+    color: #000000;
+}
+.error {
+    color: #FF8080;
+    border: solid 1.5pt #FF0000;
+}
+.keyword {
+    color: #0000FF;
+    font-weight: bold;
+}
+.text {
+    color: #000000;
+}
+
+</style>
+
+<pre class="code">
+<span class="keyword">class</span> <span class="name">OOOptimizer</span><span class="operator">(</span><span class="name">object</span><span class="operator">)</span><span class="operator">:</span>
+    <span class="keyword">def</span> <span class="name">__init__</span><span class="operator">(</span><span class="name">self</span><span class="operator">,</span> <span class="name">xstart</span><span class="operator">,</span> <span class="operator">*</span><span class="name">more_args</span><span class="operator">,</span> <span class="operator">**</span><span class="name">more_kwargs</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""take an initial point to start with"""</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">xstart</span> <span class="operator">=</span> <span class="name">xstart</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">iterations</span> <span class="operator">=</span> <span class="number">0</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">evaluations</span> <span class="operator">=</span> <span class="number">0</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">best_solution</span> <span class="operator">=</span> <span class="name">BestSolution</span><span class="operator">(</span><span class="operator">)</span> <span class="comment"># for keeping track</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">xcurrent</span> <span class="operator">=</span> <span class="name">self</span><span class="operator">.</span><span class="name">xstart</span><span class="operator">[</span><span class="operator">:</span><span class="operator">]</span>  <span class="comment"># a copy</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">initialize</span><span class="operator">(</span><span class="operator">*</span><span class="name">more_args</span><span class="operator">,</span> <span class="operator">**</span><span class="name">more_kwargs</span><span class="operator">)</span>  <span class="comment"># implement in derived class</span>
+
+    <span class="keyword">def</span> <span class="name">ask</span><span class="operator">(</span><span class="name">self</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""deliver (one ore more) candidate solution(s) in a list"""</span>
+        <span class="keyword">raise</span> <span class="name">NotImplementedError</span>  <span class="comment"># implement in derived class</span>
+
+    <span class="keyword">def</span> <span class="name">tell</span><span class="operator">(</span><span class="name">self</span><span class="operator">,</span> <span class="name">solutions</span><span class="operator">,</span> <span class="name">function_values</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""update internal state, prepare for next iteration"""</span>
+        <span class="comment"># book keeping</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">iterations</span> <span class="operator">+=</span> <span class="number">1</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">evaluations</span> <span class="operator">+=</span> <span class="name">len</span><span class="operator">(</span><span class="name">function_values</span><span class="operator">)</span>
+        <span class="name">ibest</span> <span class="operator">=</span> <span class="name">function_values</span><span class="operator">.</span><span class="name">index</span><span class="operator">(</span><span class="name">min</span><span class="operator">(</span><span class="name">function_values</span><span class="operator">)</span><span class="operator">)</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">xcurrent</span><span class="operator">[</span><span class="operator">:</span><span class="operator">]</span> <span class="operator">=</span> <span class="name">solutions</span><span class="operator">[</span><span class="name">ibest</span><span class="operator">]</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">best_solution</span><span class="operator">.</span><span class="name">update</span><span class="operator">(</span><span class="name">solutions</span><span class="operator">[</span><span class="name">ibest</span><span class="operator">]</span><span class="operator">,</span> <span class="name">function_values</span><span class="operator">[</span><span class="name">ibest</span><span class="operator">]</span><span class="operator">,</span> <span class="name">self</span><span class="operator">.</span><span class="name">evaluations</span><span class="operator">)</span>
+        <span class="comment"># here, more work needs to be done in a derived class</span>
+        <span class="comment"># raise NotImplementedError  # unless, e.g., pure random search</span>
+
+    <span class="keyword">def</span> <span class="name">stop</span><span class="operator">(</span><span class="name">self</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""check whether termination is in order, prevent infinite loop"""</span>
+        <span class="keyword">if</span> <span class="name">self</span><span class="operator">.</span><span class="name">evaluations</span> <span class="operator">&gt;</span> <span class="name">self</span><span class="operator">.</span><span class="name">best_solution</span><span class="operator">.</span><span class="name">get</span><span class="operator">(</span><span class="operator">)</span><span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">+</span> <span class="number">100</span><span class="operator">:</span>
+            <span class="keyword">return</span> <span class="operator">{</span><span class="string">'non-improving evaluations'</span><span class="operator">:</span><span class="number">100</span><span class="operator">}</span>
+        <span class="comment"># here more test should be done</span>
+        <span class="keyword">return</span> <span class="operator">{</span><span class="operator">}</span>
+
+    <span class="keyword">def</span> <span class="name">result</span><span class="operator">(</span><span class="name">self</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""get best solution, e.g. (x, f, possibly_more)"""</span>
+        <span class="keyword">return</span> <span class="name">self</span><span class="operator">.</span><span class="name">best_solution</span><span class="operator">.</span><span class="name">get</span><span class="operator">(</span><span class="operator">)</span> <span class="operator">+</span> <span class="operator">(</span><span class="name">self</span><span class="operator">.</span><span class="name">iterations</span><span class="operator">,</span> <span class="name">self</span><span class="operator">.</span><span class="name">xcurrent</span><span class="operator">)</span>
+
+    <span class="keyword">def</span> <span class="name">optimize</span><span class="operator">(</span><span class="name">self</span><span class="operator">,</span> <span class="name">objective_function</span><span class="operator">,</span> <span class="name">iterations</span><span class="operator">=</span><span class="number">2000</span><span class="operator">,</span> <span class="name">args</span><span class="operator">=</span><span class="operator">(</span><span class="operator">)</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""find minimizer of objective_function"""</span>
+        <span class="name">iteration</span> <span class="operator">=</span> <span class="number">0</span>
+        <span class="keyword">while</span> <span class="keyword">not</span> <span class="name">self</span><span class="operator">.</span><span class="name">stop</span><span class="operator">(</span><span class="operator">)</span> <span class="keyword">and</span> <span class="name">iteration</span> <span class="operator">&lt;</span> <span class="name">iterations</span><span class="operator">:</span>
+            <span class="name">iteration</span> <span class="operator">+=</span> <span class="number">1</span>
+            <span class="name">X</span> <span class="operator">=</span> <span class="name">self</span><span class="operator">.</span><span class="name">ask</span><span class="operator">(</span><span class="operator">)</span>         <span class="comment"># deliver candidate solutions</span>
+            <span class="name">fitvals</span> <span class="operator">=</span> <span class="operator">[</span><span class="name">objective_function</span><span class="operator">(</span><span class="name">x</span><span class="operator">,</span> <span class="operator">*</span><span class="name">args</span><span class="operator">)</span> <span class="keyword">for</span> <span class="name">x</span> <span class="keyword">in</span> <span class="name">X</span><span class="operator">]</span>
+            <span class="name">self</span><span class="operator">.</span><span class="name">tell</span><span class="operator">(</span><span class="name">X</span><span class="operator">,</span> <span class="name">fitvals</span><span class="operator">)</span>  <span class="comment"># all the work is done here</span>
+        <span class="keyword">return</span> <span class="name">self</span>
+
+<span class="keyword">class</span> <span class="name">BestSolution</span><span class="operator">(</span><span class="name">object</span><span class="operator">)</span><span class="operator">:</span>
+    <span class="string">"""keeps track of the best solution"""</span>
+    <span class="keyword">def</span> <span class="name">__init__</span><span class="operator">(</span><span class="name">self</span><span class="operator">,</span> <span class="name">x</span><span class="operator">=</span><span class="name">None</span><span class="operator">,</span> <span class="name">f</span><span class="operator">=</span><span class="name">None</span><span class="operator">,</span> <span class="name">evaluation</span><span class="operator">=</span><span class="number">0</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="name">self</span><span class="operator">.</span><span class="name">x</span><span class="operator">,</span> <span class="name">self</span><span class="operator">.</span><span class="name">f</span><span class="operator">,</span> <span class="name">self</span><span class="operator">.</span><span class="name">evaluation</span> <span class="operator">=</span> <span class="name">x</span><span class="operator">,</span> <span class="name">f</span><span class="operator">,</span> <span class="name">evaluation</span>
+    <span class="keyword">def</span> <span class="name">update</span><span class="operator">(</span><span class="name">self</span><span class="operator">,</span> <span class="name">x</span><span class="operator">,</span> <span class="name">f</span><span class="operator">,</span> <span class="name">evaluations</span><span class="operator">=</span><span class="name">None</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="keyword">if</span> <span class="name">self</span><span class="operator">.</span><span class="name">f</span> <span class="keyword">is</span> <span class="name">None</span> <span class="keyword">or</span> <span class="name">f</span> <span class="operator">&lt;</span> <span class="name">self</span><span class="operator">.</span><span class="name">f</span><span class="operator">:</span>
+            <span class="name">self</span><span class="operator">.</span><span class="name">x</span><span class="operator">,</span> <span class="name">self</span><span class="operator">.</span><span class="name">f</span><span class="operator">,</span> <span class="name">self</span><span class="operator">.</span><span class="name">evaluation</span> <span class="operator">=</span> <span class="name">x</span><span class="operator">[</span><span class="operator">:</span><span class="operator">]</span><span class="operator">,</span> <span class="name">f</span><span class="operator">,</span> <span class="name">evaluations</span>
+    <span class="keyword">def</span> <span class="name">get</span><span class="operator">(</span><span class="name">self</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="keyword">return</span> <span class="name">self</span><span class="operator">.</span><span class="name">x</span><span class="operator">,</span> <span class="name">self</span><span class="operator">.</span><span class="name">f</span><span class="operator">,</span> <span class="name">self</span><span class="operator">.</span><span class="name">evaluation</span><span class="text"></span>
+</pre>
+An implementation of an optimization class must (re-)implement at least the first three abstract methods of <code>OOOptimizer</code>: <code>__init__</code>, <code>ask</code>, <code>tell</code>. Here, only the interface to <code>__init__</code> might change, depending on the derived class. An exception is pure random search, because it does not depend on the iteration and implements like
+<style type="text/css">
+pre.code {
+    font-style: Lucida,"Courier New";
+}
+
+.number {
+    color: #0080C0;
+}
+.operator {
+    color: #000000;
+}
+.string {
+    color: #008000;
+}
+.comment {
+    color: #808080;
+}
+.name {
+    color: #000000;
+}
+.error {
+    color: #FF8080;
+    border: solid 1.5pt #FF0000;
+}
+.keyword {
+    color: #0000FF;
+    font-weight: bold;
+}
+.text {
+    color: #000000;
+}
+
+</style>
+
+<pre class="code">
+<span class="keyword">class</span> <span class="name">PureRandomSearch</span><span class="operator">(</span><span class="name">OOOptimizer</span><span class="operator">)</span><span class="operator">:</span>
+    <span class="keyword">def</span> <span class="name">ask</span><span class="operator">(</span><span class="name">self</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""delivers a single candidate solution in ask()[0],
+           distributed with mean xstart and unit variance
+        """</span>
+        <span class="keyword">import</span> <span class="name">random</span>
+        <span class="keyword">return</span> <span class="operator">[</span><span class="operator">[</span><span class="name">random</span><span class="operator">.</span><span class="name">normalvariate</span><span class="operator">(</span><span class="name">self</span><span class="operator">.</span><span class="name">xstart</span><span class="operator">[</span><span class="name">i</span><span class="operator">]</span><span class="operator">,</span> <span class="number">1</span><span class="operator">)</span> <span class="keyword">for</span> <span class="name">i</span> <span class="keyword">in</span> <span class="name">range</span><span class="operator">(</span><span class="name">len</span><span class="operator">(</span><span class="name">self</span><span class="operator">.</span><span class="name">xstart</span><span class="operator">)</span><span class="operator">)</span><span class="operator">]</span><span class="operator">]</span><span class="text"></span>
+</pre>
+The simplest use case is
+<style type="text/css">
+pre.code {
+    font-style: Lucida,"Courier New";
+}
+
+.number {
+    color: #0080C0;
+}
+.operator {
+    color: #000000;
+}
+.string {
+    color: #008000;
+}
+.comment {
+    color: #808080;
+}
+.name {
+    color: #000000;
+}
+.error {
+    color: #FF8080;
+    border: solid 1.5pt #FF0000;
+}
+.keyword {
+    color: #0000FF;
+    font-weight: bold;
+}
+.text {
+    color: #000000;
+}
+
+</style>
+
+<pre class="code">
+<span class="name">res</span> <span class="operator">=</span> <span class="name">PureRandomSearch</span><span class="operator">(</span><span class="name">my_xstart</span><span class="operator">)</span><span class="operator">.</span><span class="name">optimize</span><span class="operator">(</span><span class="name">my_function</span><span class="operator">)</span><span class="text"></span>
+</pre>
+A more typical implementation of an <code>OOOptimizer</code> subclass rewrites the following methods.
+<style type="text/css">
+pre.code {
+    font-style: Lucida,"Courier New";
+}
+
+.number {
+    color: #0080C0;
+}
+.operator {
+    color: #000000;
+}
+.string {
+    color: #008000;
+}
+.comment {
+    color: #808080;
+}
+.name {
+    color: #000000;
+}
+.error {
+    color: #FF8080;
+    border: solid 1.5pt #FF0000;
+}
+.keyword {
+    color: #0000FF;
+    font-weight: bold;
+}
+.text {
+    color: #000000;
+}
+
+</style>
+
+<pre class="code">
+<span class="keyword">class</span> <span class="name">CMAES</span><span class="operator">(</span><span class="name">OOOptimizer</span><span class="operator">)</span><span class="operator">:</span>
+    <span class="keyword">def</span> <span class="name">__init__</span><span class="operator">(</span><span class="name">self</span><span class="operator">,</span> <span class="name">xstart</span><span class="operator">,</span> <span class="name">sigma</span><span class="operator">,</span> <span class="name">popsize</span><span class="operator">=</span><span class="number">10</span><span class="operator">,</span> <span class="name">maxiter</span><span class="operator">=</span><span class="name">None</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""initial point and sigma are mandatory, default popsize is 10"""</span>
+        <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    <span class="keyword">def</span> <span class="name">initialize</span><span class="operator">(</span><span class="name">self</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""(re-)set initial state"""</span>
+        <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    <span class="keyword">def</span> <span class="name">ask</span><span class="operator">(</span><span class="name">self</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""delivers popsize candidate solutions"""</span>
+        <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    <span class="keyword">def</span> <span class="name">tell</span><span class="operator">(</span><span class="name">solutions</span><span class="operator">,</span> <span class="name">function_values</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""update multivariate normal sample distribution for next iteration"""</span>
+        <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    <span class="keyword">def</span> <span class="name">stop</span><span class="operator">(</span><span class="name">self</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="string">"""check whether termination is in order, prevent infinite loop"""</span>
+        <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="text"></span>
+</pre>
+A typical use case resembles the <code>optimize</code> method from above.
+<style type="text/css">
+pre.code {
+    font-style: Lucida,"Courier New";
+}
+
+.number {
+    color: #0080C0;
+}
+.operator {
+    color: #000000;
+}
+.string {
+    color: #008000;
+}
+.comment {
+    color: #808080;
+}
+.name {
+    color: #000000;
+}
+.error {
+    color: #FF8080;
+    border: solid 1.5pt #FF0000;
+}
+.keyword {
+    color: #0000FF;
+    font-weight: bold;
+}
+.text {
+    color: #000000;
+}
+
+</style>
+
+<pre class="code">
+<span class="name">objectivefct</span> <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+<span class="name">optim_choice</span> <span class="operator">=</span> <span class="number">1</span>
+<span class="name">long_use_case</span> <span class="operator">=</span> <span class="name">True</span>
+<span class="keyword">if</span> <span class="name">optim_choice</span> <span class="operator">==</span> <span class="number">0</span><span class="operator">:</span>
+    <span class="name">optim</span> <span class="operator">=</span> <span class="name">PureRandomSearch</span><span class="operator">(</span><span class="name">xstart</span><span class="operator">)</span>
+<span class="keyword">else</span><span class="operator">:</span>
+    <span class="name">optim</span> <span class="operator">=</span> <span class="name">barecmaes2</span><span class="operator">.</span><span class="name">CMAES</span><span class="operator">(</span><span class="name">xstart</span><span class="operator">,</span> <span class="number">1</span><span class="operator">)</span>
+<span class="keyword">if</span> <span class="name">long_use_case</span><span class="operator">:</span>
+    <span class="keyword">while</span> <span class="keyword">not</span> <span class="name">optim</span><span class="operator">.</span><span class="name">stop</span><span class="operator">(</span><span class="operator">)</span><span class="operator">:</span>
+        <span class="name">X</span> <span class="operator">=</span> <span class="name">optim</span><span class="operator">.</span><span class="name">ask</span><span class="operator">(</span><span class="operator">)</span>         <span class="comment"># deliver candidate solutions</span>
+        <span class="name">fitvals</span> <span class="operator">=</span> <span class="operator">[</span><span class="name">objectivefct</span><span class="operator">(</span><span class="name">x</span><span class="operator">)</span> <span class="keyword">for</span> <span class="name">x</span> <span class="keyword">in</span> <span class="name">X</span><span class="operator">]</span>
+        <span class="comment"># or do something more complicated to come up with fitvals</span>
+        <span class="comment"># or ask for more solutions</span>
+        <span class="name">optim</span><span class="operator">.</span><span class="name">tell</span><span class="operator">(</span><span class="name">X</span><span class="operator">,</span> <span class="name">fitvals</span><span class="operator">)</span>  <span class="comment"># all the work is done here</span>
+<span class="keyword">else</span><span class="operator">:</span>
+    <span class="name">optim</span><span class="operator">.</span><span class="name">optimize</span><span class="operator">(</span><span class="name">objectivefct</span><span class="operator">)</span>
+<span class="keyword">print</span> <span class="name">optim</span><span class="operator">.</span><span class="name">result</span><span class="operator">(</span><span class="operator">)</span><span class="text"></span>
+</pre>
+See the minimalistic Python code <A HREF="#python">above</A> for a fully working example.
+<HR>
+
+<H2><A name="testing">Testing your own source code (under construction)</A></H2> <P>
+Testing a stochastic algorithm is intricate, because the exact desired outcome is hard to determine and the algorithm
+might be "robust" with respect to bugs. The code might run well on a few test functions despite a bug that might later compromise its performance. Additionally, the precise outcome depends on tiny details (as tiny as writing <code>c+b+a</code> instead of <code>a+b+c</code> can give slightly different values. The difference is irrelevant in almost all cases, but makes testing harder).
+</P>
+
+<H3>Comparing to a trusted code</H3>
+<P>
+An effective way of testing is to compare two codes one-to-one,
+furnished with the same "random" numbers. One can use a simple
+(random) number generator. The numbers need not to be normal,
+but should be continuous and symmetric about zero. Tracking the internal state
+variables for at least two iterations must lead to identical results (apart
+from numerical effects that are usually in the order of
+10<SUP>-15</SUP>). Internal state variables are the distribution mean,
+the step-size and the covariance matrix, and furthermore the two
+evolution paths.  </P>
+
+<H3>Comparing to trusted output</H3>
+<P>For comparing outputs, at the minimum the fitness plots should be available.
+The plots generated in <a href="purecmaes.m">purecmaes.m</a> define a more
+comprehensive set of reasonable output variables: fitness, sigma,
+sqrt(eigenvalues(C)), xmean.
+</P>
+
+<P> The code should be tested on the following objective/fitness functions that can be found, for
+example, in <a href="purecmaes.m">purecmaes.m</a>, and the results
+should be compared to trusted output, e.g. the one below  &#9786;  The default test case can be 10-D.
+Besides the default population size, it is advisable to test also with a much larger population size, e.g. 10 times dimension. I usually use the following functions, more or less in this order. If not stated otherwise, we assume X0=0.1*ones and sigma0=0.1 in 10-D and default parameters.
+
+<OL>
+
+<LI><A name="f-random"> On a random
+objective function frand</A> (e.g. f(x) is uniform in [0,1] and
+independent of its input x). Step-size &sigma; and the eigenvalues of
+C should be tracked and plotted. log(&sigma;) must conduct a symmetric
+(unbiased) random walk. The iteration-wise sorted log(eigenvalues) will slowly
+drift apart, quite symmetrically but with the overall tendency to
+decrease. Eventually, the condition number of C will exceed numerically
+feasible limits (say 1e14, that is, axis ratio 1e7), which should be covered in the code as termination
+criterion.
+<table class="image" width="100%">
+<HR WIDTH="640"></HR>
+<caption align="top"><B>Random function</B></caption>
+<td>
+<P class="calign">
+<A HREF="frand10D.png"><IMG SRC="frand10D.png" ALT="Output on random function"/></A>
+</P>
+</td>
+</tr>
+</table>
+
+</LI><LI>The sphere function fsphere
+<UL>
+     <LI> it takes between 1000 and 1200 function evaluations to reach function value 1e-9
+</LI><LI> with sigma0=1e-4, it takes about 300 additional function evaluations to increase sigma at the beginning to a reasonable value, see the green line in the upper left subplot. This test can "replace" the essential test of a search algorithm on a linear function (e.g. f(x) = x(1)).
+<table class="image" width="100%">
+<HR WIDTH="640"></HR>
+<caption align="top"><B>Sphere function</B></caption>
+<td>
+<P class="calign">
+<A HREF="fsphere10D.png"><IMG SRC="fsphere10D.png" ALT="Output on Sphere function"/></A>
+</P>
+</td>
+</tr>
+</table>
+</LI>
+</UL>
+
+</LI><LI>The Ellipsoid felli, where it takes between 5000 and 6000 function evaluations to reach function value 1e-8. The
+eigenvalues (Scaling plot) get a nice regular configuration on this function. Note that both subplots to the left are invariant under any rigid transformation of the search space (including a rotation) if the initial point is transformed accordingly. This makes a rotated Ellipsoid another excellent test case.
+<table class="image" width="100%">
+<HR WIDTH="640"></HR>
+<caption align="top"><B>Ellipsoid function</B></caption>
+<td>
+<P class="calign">
+<A HREF="felli10D.png"><IMG SRC="felli10D.png" ALT="Output on Ellipsoid function"/></A>
+</P>
+</td>
+</tr>
+</table>
+
+</LI><LI>
+The Rosenbrock function frosen, the first non-separable test case where the variables are not independent. It takes between 5000 and 6000 function evaluations to reach a function value of 1e-8. With a larger initial step-size sigma0  in about 20% of the trials the local minimum will be discovered with a function value close under four.
+<table class="image" width="100%">
+<HR WIDTH="640"></HR>
+<caption align="top"><B>Rosenbrock function</B></caption>
+<td>
+<P class="calign">
+<A HREF="frosen10D.png"><IMG SRC="frosen10D.png" ALT="Output on Rosenbrock function"/></A>
+</P>
+</td>
+</tr>
+</table>
+
+</LI><LI>The multimodal Rastrigin function. Here, X0 = 5*ones (the point 0.1*ones is in the attraction basin of the global optimum),  sigma0 = 5 and population size 200. The success probability, i.e. the probability to reach the target f-value close to zero as in the below picture, is smaller than one and with smaller population sizes it becomes increasingly difficult to find the global optimum, see <a
+    href="publications.html#hansenukernppsn2004">Hansen & Kern
+    2004</a>.
+<table class="image" width="100%">
+<HR WIDTH="640"></HR>
+<caption align="top"><B>Rastrigin function</B></caption>
+<td>
+<P/>
+<P class="calign">
+<A HREF="frast10D.png"><IMG SRC="frast10D.png" ALT="Output on Rastrigin function"/></A>
+</P>
+</td>
+</tr>
+</table>
+
+</LI><LI>The Cigar fcigar.
+
+</OL>
+
+
+<P>Ideally, more dimensions should be tested, e.g. also 3 and 30, and different population sizes.
+</P>
+
+<P>I appreciate any feedback regarding the provided source code and regarding
+successful <I>and unsuccessful</I> applications or modifications of the
+CMA-ES. Mail to <sub><img src="my-email-address.png" height="14"></sub>.</P>
+
+<hr width="100%">
+<center><font size="-1"><i>
+last change $Date: 2011-06-03 19:25:09 +0200 (Fri, 03 Jun 2011) $
+</i></font></center>
+<div id="eXTReMe"><a href="http://extremetracking.com/open?login=cmaesinm">
+<P ALIGN="right">
+<img src="http://t1.extreme-dm.com/i.gif" style="border: 0;"
+height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
+<script type="text/javascript"><!--
+var EXlogin='cmaesinm' // Login
+var EXvsrv='s10' // VServer
+EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?
+EXb=EXs.colorDepth:EXb=EXs.pixelDepth;
+navigator.javaEnabled()==1?EXjv="y":EXjv="n";
+EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
+EXd.write("<img src=http://e1.extreme-dm.com",
+"/"+EXvsrv+".g?login="+EXlogin+"&amp;",
+"jv="+EXjv+"&amp;j=y&amp;srw="+EXw+"&amp;srb="+EXb+"&amp;",
+"l="+escape(EXd.referrer)+" height=1 width=1>");//-->
+</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
+src="http://e1.extreme-dm.com/s10.g?login=cmaesinm&amp;j=n&amp;jv=n" />
+</div></noscript>
+</P>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11976094-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
