@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.purecma : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.purecma</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>A minimalistic implemention of CMA-ES without using <code>numpy</code>.</p>
+<p>The Covariance Matrix Adaptation Evolution Strategy, CMA-ES, serves for
+numerical nonlinear function minimization.</p>
+<p>The <strong>main functionality</strong> is implemented in</p>
+<ol class="rst-arabic simple">
+<li>class <a href="cma.purecma.CMAES.html"><code>CMAES</code></a>, and</li>
+<li>function <a href="cma.purecma.html#fmin"><code>fmin</code></a> which is a small single-line-usage wrapper around
+<a href="cma.purecma.CMAES.html"><code>CMAES</code></a>.</li>
+</ol>
+<p>This code has two <strong>purposes</strong>:</p>
+<ol class="rst-arabic simple">
+<li>for READING and UNDERSTANDING the basic flow and the details of the
+CMA-ES <em>algorithm</em>. The source code is meant to be read. For a quick
+glance, study the first few code lines of <a href="cma.purecma.html#fmin"><code>fmin</code></a> and the code of
+method <a href="cma.purecma.CMAES.html#tell"><code>CMAES.tell</code></a>, where all the real work is done in about 20 lines
+of code (search "def tell" in the source). Otherwise, reading from
+the top is a feasible option, where the codes of <a href="cma.purecma.html#fmin"><code>fmin</code></a>,
+<a href="cma.purecma.CMAES.html#__init__"><code>CMAES.__init__</code></a>, <a href="cma.purecma.CMAES.html#ask"><code>CMAES.ask</code></a>, <a href="cma.purecma.CMAES.html#tell"><code>CMAES.tell</code></a> are of particular
+interest.</li>
+<li>apply CMA-ES when the python module <code>numpy</code> is not available.
+When <code>numpy</code> is available, <a href="cma.evolution_strategy.html#fmin"><code>cma.fmin</code></a> or <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>cma.CMAEvolutionStrategy</code></a> are
+preferred to run "serious" simulations. The latter code has many more
+lines, but usually executes faster, offers a richer user interface,
+better termination options, boundary and noise handling, injection,
+automated restarts...</li>
+</ol>
+<p>Dependencies: <a href="http://docs.python.org/library/math.html#math.exp"><code>math.exp</code></a>, <a href="http://docs.python.org/library/math.html#math.log"><code>math.log</code></a> and <a href="http://docs.python.org/library/random.html#random.normalvariate"><code>random.normalvariate</code></a> (modules
+<code>matplotlib.pylab</code> and <a href="http://docs.python.org/library/sys.html#sys"><code>sys</code></a> are optional).</p>
+<p>Testing: call <tt class="rst-docutils literal">python purecma.py</tt> at the OS shell. Tested with
+Python 2.6, 2.7, 3.3, 3.5, 3.6.</p>
+<p>URL: <a href="http://github.com/CMA-ES/pycma" class="rst-reference external" target="_top">http://github.com/CMA-ES/pycma</a></p>
+<p>Last change: September, 2017, version 3.0.0</p>
+<p>This code is released into the public domain (that is, you may
+use and modify it however you like).</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Author</td><td colspan="2">Nikolaus Hansen, 2010-2011, 2017</td></tr></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id435">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.purecma.html#fmin" data-type="Function" class="code">fmin</a></td>
+    <td><span>non-linear non-convex minimization procedure, a functional interface to CMA-ES.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.purecma.CMAESParameters.html" data-type="Class" class="code">CMAESParameters</a></td>
+    <td><span>static "internal" parameter setting for <a href="cma.purecma.CMAES.html"><code>CMAES</code></a></span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.purecma.CMAES.html" data-type="Class" class="code">CMAES</a></td>
+    <td><span>class for non-linear non-convex numerical minimization with CMA-ES.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.purecma.CMAESDataLogger.html" data-type="Class" class="code">CMAESDataLogger</a></td>
+    <td><span>data logger for class <a href="cma.purecma.CMAES.html"><code>CMAES</code></a>, that can record and plot data.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.purecma.ff.html" data-type="Class" class="code">ff</a></td>
+    <td><span>versatile collection of test functions in static methods</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.purecma.BestSolution.html" data-type="Class" class="code">BestSolution</a></td>
+    <td><span>container to keep track of the best solution seen</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.purecma.SquareMatrix.html" data-type="Class" class="code">SquareMatrix</a></td>
+    <td><span>rudimental square matrix class</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.purecma.DecomposingPositiveMatrix.html" data-type="Class" class="code">DecomposingPositiveMatrix</a></td>
+    <td><span>Symmetric matrix maintaining its own eigendecomposition.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.purecma.html#eye" data-type="Function" class="code">eye</a></td>
+    <td><span>return identity matrix as <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of "vectors" (lists themselves)</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.purecma.html#dot" data-type="Function" class="code">dot</a></td>
+    <td><span>usual dot product of "matrix" A with "vector" b.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.purecma.html#plus" data-type="Function" class="code">plus</a></td>
+    <td><span>add vectors, return a + b</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.purecma.html#minus" data-type="Function" class="code">minus</a></td>
+    <td><span>subtract vectors, return a - b</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.purecma.html#argsort" data-type="Function" class="code">argsort</a></td>
+    <td><span>return index list to get <code>a</code> in order, ie <tt class="rst-docutils literal"><span class="pre">a[argsort(a)[i]]</span> == <span class="pre">sorted(a)[i]</span></tt></span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.purecma.html#safe_str" data-type="Function" class="code">safe_str</a></td>
+    <td><span>return <tt class="rst-docutils literal">s</tt> as <a href="http://docs.python.org/library/stdtypes.html#str"><code>str</code></a> safe to <a href="http://docs.python.org/library/functions.html#eval"><code>eval</code></a> or raise an exception.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.purecma.html#eig" data-type="Function" class="code">eig</a></td>
+    <td><span>eigendecomposition of a symmetric matrix.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.purecma.html#test" data-type="Function" class="code">test</a></td>
+    <td><span>test of the <a href="cma.purecma.html"><code>purecma</code></a> module, called <tt class="rst-docutils literal">if __name__ == "__main__"</tt>.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction">
+  
+  <a name="cma.purecma.fmin">
+    
+  </a>
+  <a name="fmin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    fmin(objective_fct, xstart, sigma, args=(), maxfevals='1e3 * N**2', ftarget=None, verb_disp=100, verb_log=1, verb_save=1000):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>non-linear non-convex minimization procedure, a functional
+interface to CMA-ES.</p>
+<div class="rst-section" id="rst-parameters">
+<h1 class="heading">Parameters</h1>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code>objective_fct</code>: <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a></dt>
+<dd>a function that takes as input a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of floats (like
+[3.0, 2.2, 1.1]) and returns a single <a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a> (a scalar).
+The objective is to find <tt class="rst-docutils literal">x</tt> with <tt class="rst-docutils literal">objective_fct(x)</tt>
+to be as small as possible.</dd>
+<dt><code>xstart</code>: <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> or sequence</dt>
+<dd>list of numbers (like <code>[3.2, 2, 1]</code>), initial solution vector,
+its length defines the search space dimension.</dd>
+<dt><code>sigma</code>: <a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a></dt>
+<dd>initial step-size, standard deviation in any coordinate</dd>
+<dt><code>args</code>: <a href="http://docs.python.org/library/stdtypes.html#tuple"><code>tuple</code></a> or sequence</dt>
+<dd>additional (optional) arguments passed to <code>objective_fct</code></dd>
+<dt><code>ftarget</code>: <a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a></dt>
+<dd>target function value</dd>
+<dt><code>maxfevals</code>: <a href="http://docs.python.org/library/stdtypes.html#int"><code>int</code></a> or <a href="http://docs.python.org/library/stdtypes.html#str"><code>str</code></a></dt>
+<dd>maximal number of function evaluations, a string
+is evaluated with <tt class="rst-docutils literal">N</tt> as search space dimension</dd>
+<dt><code>verb_disp</code>: <a href="http://docs.python.org/library/stdtypes.html#int"><code>int</code></a></dt>
+<dd>display on console every <code>verb_disp</code> iteration, 0 for never</dd>
+<dt><code>verb_log</code>: <a href="http://docs.python.org/library/stdtypes.html#int"><code>int</code></a></dt>
+<dd>data logging every <code>verb_log</code> iteration, 0 for never</dd>
+<dt><code>verb_save</code>: <a href="http://docs.python.org/library/stdtypes.html#int"><code>int</code></a></dt>
+<dd>save logged data every <tt class="rst-docutils literal">verb_save * verb_log</tt> iteration</dd>
+</dl>
+</blockquote>
+</div>
+<div class="rst-section" id="rst-return">
+<h1 class="heading">Return</h1>
+<p>The <a href="http://docs.python.org/library/stdtypes.html#tuple"><code>tuple</code></a> (<tt class="rst-docutils literal">xmin</tt>:<a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a>, <tt class="rst-docutils literal">es</tt>:<a href="cma.purecma.CMAES.html"><code>CMAES</code></a>), where <tt class="rst-docutils literal">xmin</tt> is the
+best seen (evaluated) solution and <tt class="rst-docutils literal">es</tt> is the correspoding <a href="cma.purecma.CMAES.html"><code>CMAES</code></a>
+instance. Consult <tt class="rst-docutils literal">help(es.result)</tt> of property <a href="cma.purecma.CMAES.html#result"><code>result</code></a> for further
+results.</p>
+</div>
+<div class="rst-section" id="rst-example">
+<h1 class="heading">Example</h1>
+<p>The following example minimizes the function <a href="cma.purecma.ff.html#elli"><code>ff.elli</code></a>:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>try: <span class="py-keyword">import</span> cma.purecma <span class="py-keyword">as</span> purecma
+<span class="py-more">... </span><span class="py-keyword">except</span> <span class="py-builtin">ImportError</span>: <span class="py-keyword">import</span> purecma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">felli</span>(x):
+<span class="py-more">... </span>    return <span class="py-builtin">sum</span>(10**(6 * i / (<span class="py-builtin">len</span>(x)-1)) * xi**2
+<span class="py-more">... </span>               <span class="py-keyword">for</span> i, xi <span class="py-keyword">in</span> <span class="py-builtin">enumerate</span>(x))
+<span class="py-prompt">&gt;&gt;&gt; </span>res = purecma.fmin(felli, 3 * [0.5], 0.3, verb_disp=100)  <span class="py-comment"># doctest:+SKIP</span>
+<span class="py-output">evals: ax-ratio max(std)   f-value</span>
+<span class="py-output">    7:     1.0  3.4e-01  240.2716966</span>
+<span class="py-output">   14:     1.0  3.9e-01  2341.50170536</span>
+<span class="py-output">  700:   247.9  2.4e-01  0.629102574062</span>
+<span class="py-output"> 1400:  1185.9  5.3e-07  4.83466373808e-13</span>
+<span class="py-output"> 1421:  1131.2  2.9e-07  5.50167024417e-14</span>
+<span class="py-output">termination by {'tolfun': 1e-12}</span>
+<span class="py-output">best f-value = 2.72976881789e-14</span>
+<span class="py-output">solution = [5.284564665206811e-08, 2.4608091035303e-09, -1.3582873173543187e-10]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(res[0])  <span class="py-comment"># doctest:+SKIP</span>
+<span class="py-output">[5.284564665206811e-08, 2.4608091035303e-09, -1.3582873173543187e-10]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>res[1].result[1])  <span class="py-comment"># doctest:+SKIP</span>
+<span class="py-output">2.72976881789e-14</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>res[1].logger.plot()  <span class="py-comment"># doctest:+SKIP</span></pre>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>After importing <a href="cma.purecma.html"><code>purecma</code></a>, this call:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>es = purecma.fmin(pcma.ff.elli, 10 * [0.5], 0.3, verb_save=0)[1]  <span class="py-comment"># doctest:+SKIP</span></pre>
+<p>and these lines:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>es = purecma.CMAES(10 * [0.5], 0.3)
+<span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(purecma.ff.elli, callback=es.logger.add)  <span class="py-comment"># doctest:+SKIP</span></pre>
+<p>do pretty much the same. The <code>verb_save</code> parameter to <a href="cma.purecma.html#fmin"><code>fmin</code></a> adds
+the possibility to plot the saved data <em>during</em> the execution from a
+different Python shell like <tt class="rst-docutils literal"><span class="pre">pcma.CMAESDataLogger().load().plot()</span></tt>.
+For example, with <tt class="rst-docutils literal">verb_save == 3</tt> every third time the logger
+records data they are saved to disk as well.</p>
+</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.purecma.CMAES.html"><code>CMAES</code></a>, <a href="cma.interfaces.OOOptimizer.html"><code>OOOptimizer</code></a>.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.purecma.eye">
+    
+  </a>
+  <a name="eye">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    eye(dimension):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return identity matrix as <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of "vectors" (lists themselves)<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.purecma.dot">
+    
+  </a>
+  <a name="dot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    dot(A, b, transpose=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>usual dot product of "matrix" A with "vector" b.</p>
+<p><tt class="rst-docutils literal">A[i]</tt> is the i-th row of A. With <tt class="rst-docutils literal">transpose=True</tt>, A transposed
+is used.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.purecma.plus">
+    
+  </a>
+  <a name="plus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    plus(a, b):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>add vectors, return a + b<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.purecma.minus">
+    
+  </a>
+  <a name="minus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    minus(a, b):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>subtract vectors, return a - b<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.purecma.argsort">
+    
+  </a>
+  <a name="argsort">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    argsort(a):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return index list to get <code>a</code> in order, ie
+<tt class="rst-docutils literal"><span class="pre">a[argsort(a)[i]]</span> == <span class="pre">sorted(a)[i]</span></tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.purecma.safe_str">
+    
+  </a>
+  <a name="safe_str">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    safe_str(s, known_words=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return <tt class="rst-docutils literal">s</tt> as <a href="http://docs.python.org/library/stdtypes.html#str"><code>str</code></a> safe to <a href="http://docs.python.org/library/functions.html#eval"><code>eval</code></a> or raise an exception.</p>
+<p>Strings in the <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> <code>known_words</code> are replaced by their values
+surrounded with a space, which the caller considers safe to evaluate
+with <a href="http://docs.python.org/library/functions.html#eval"><code>eval</code></a> afterwards.</p>
+<p>Known issues:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>try: <span class="py-keyword">from</span> cma.purecma <span class="py-keyword">import</span> safe_str
+<span class="py-more">... </span><span class="py-keyword">except</span> <span class="py-builtin">ImportError</span>: <span class="py-keyword">from</span> purecma <span class="py-keyword">import</span> safe_str
+<span class="py-prompt">&gt;&gt;&gt; </span>safe_str(<span class="py-string">'int(p)'</span>, {<span class="py-string">'int'</span>: <span class="py-string">'int'</span>, <span class="py-string">'p'</span>: 3.1})  <span class="py-comment"># fine</span>
+<span class="py-output">' int ( 3.1 )'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>safe_str(<span class="py-string">'int(n)'</span>, {<span class="py-string">'int'</span>: <span class="py-string">'int'</span>, <span class="py-string">'n'</span>: 3.1})  <span class="py-comment"># unexpected</span>
+<span class="py-output">' i 3.1 t ( 3.1 )'</span></pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.purecma.eig">
+    
+  </a>
+  <a name="eig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    eig(C):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>eigendecomposition of a symmetric matrix.</p>
+<p>Return the eigenvalues and an orthonormal basis
+of the corresponding eigenvectors, <tt class="rst-docutils literal">(EVals, Basis)</tt>, where</p>
+<ul class="rst-simple">
+<li><tt class="rst-docutils literal">Basis[i]</tt>: <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a>, is the i-th row of <tt class="rst-docutils literal">Basis</tt></li>
+<li>the i-th column of <tt class="rst-docutils literal">Basis</tt>, ie <tt class="rst-docutils literal"><span class="pre">[Basis[j][i]</span> for j in <span class="pre">range(len(Basis))]</span></tt>
+is the i-th eigenvector with eigenvalue <tt class="rst-docutils literal">EVals[i]</tt></li>
+</ul>
+<p>Details: much slower than <code>numpy.linalg.eigh</code>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.purecma.test">
+    
+  </a>
+  <a name="test">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    test():
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>test of the <a href="cma.purecma.html"><code>purecma</code></a> module, called <tt class="rst-docutils literal">if __name__ == "__main__"</tt>.</p>
+<p>Currently only based on <a href="http://docs.python.org/library/doctest.html#doctest"><code>doctest</code></a>:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>try: <span class="py-keyword">import</span> cma.purecma <span class="py-keyword">as</span> pcma
+<span class="py-more">... </span><span class="py-keyword">except</span> <span class="py-builtin">ImportError</span>: <span class="py-keyword">import</span> purecma <span class="py-keyword">as</span> pcma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> random
+<span class="py-prompt">&gt;&gt;&gt; </span>random.seed(3)
+<span class="py-prompt">&gt;&gt;&gt; </span>xmin, es = pcma.fmin(pcma.ff.rosenbrock, 4 * [0.5], 0.5,
+<span class="py-more">... </span>                     verb_disp=0, verb_log=1)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(es.counteval)
+<span class="py-output">1680</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(es.best.evals)
+<span class="py-output">1664</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert es.best.f &lt; 1e-12
+<span class="py-prompt">&gt;&gt;&gt; </span>random.seed(5)
+<span class="py-prompt">&gt;&gt;&gt; </span>es = pcma.CMAES(4 * [0.5], 0.5)
+<span class="py-prompt">&gt;&gt;&gt; </span>es.params = pcma.CMAESParameters(es.params.dimension,
+<span class="py-more">... </span>                                 es.params.lam,
+<span class="py-more">... </span>                                 pcma.RecombinationWeights)
+<span class="py-prompt">&gt;&gt;&gt; </span>while <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>    X = es.ask()
+<span class="py-more">... </span>    es.tell(X, [pcma.ff.rosenbrock(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(<span class="py-string">"%s, %s"</span> % (pcma.ff.rosenbrock(es.result[0]) &lt; 1e-13,
+<span class="py-more">... </span>                  es.result[2] &lt; 1600))
+<span class="py-output">True, True</span></pre>
+<p>Large population size:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>random.seed(4)
+<span class="py-prompt">&gt;&gt;&gt; </span>es = pcma.CMAES(3 * [1], 1)
+<span class="py-prompt">&gt;&gt;&gt; </span>es.params = pcma.CMAESParameters(es.params.dimension, 300,
+<span class="py-more">... </span>                                 pcma.RecombinationWeights)
+<span class="py-prompt">&gt;&gt;&gt; </span>es.logger = pcma.CMAESDataLogger()
+<span class="py-prompt">&gt;&gt;&gt; </span>try:
+<span class="py-more">... </span>   es = es.optimize(pcma.ff.elli, verb_disp=0)
+<span class="py-more">... </span><span class="py-keyword">except</span> <span class="py-builtin">AttributeError</span>:  <span class="py-comment"># OOOptimizer.optimize is not available</span>
+<span class="py-more">... </span>    while <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>        X = es.ask()
+<span class="py-more">... </span>        es.tell(X, [pcma.ff.elli(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result[1] &lt; 1e13
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(es.result[2])
+<span class="py-output">9300</span></pre><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

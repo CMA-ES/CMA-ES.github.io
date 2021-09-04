@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.experimentation : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.experimentation</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div class="undocumented">No module docstring</div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id386">
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.experimentation.CompactGA.html" data-type="Class" class="code">CompactGA</a></td>
+    <td><span>Randomized search on the binary domain {0,1}^n.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.experimentation.BestSolution.html" data-type="Class" class="code">BestSolution</a></td>
+    <td><span>Helper class to keep track of the best solution (minimization).</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.experimentation.BlankClass.html" data-type="Class" class="code">BlankClass</a></td>
+    <td><span>a blank container for (Matlab-like) out-of-the-box attribute access</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.experimentation.ClassFromDict.html" data-type="Class" class="code">ClassFromDict</a></td>
+    <td><span>set class attributes from a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a></span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.experimentation.html#down_sample" data-type="Function" class="code">down_sample</a></td>
+    <td><span>return (index, x_down) if y is None, else (x_down, y_down).</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.experimentation.html#step_data" data-type="Function" class="code">step_data</a></td>
+    <td><span>return x, y for <code>pyplot.step</code> ECDF of input <code>x</code>-data</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.experimentation.html#sp1" data-type="Function" class="code">sp1</a></td>
+    <td><span>return the "average" of data in <code>a</code> under the assumption that non-finite entries contribute the same as the average finite entry and resampling is applied to get a finite entry.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.experimentation.Results.html" data-type="Class" class="code">Results</a></td>
+    <td><span>a container to communicate (changing) results via disk and with backups (of all data) in each step.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.experimentation.DataDict.html" data-type="Class" class="code">DataDict</a></td>
+    <td><span>A dictionary with a parameter value, e.g. dimension, as keys and a list/sequence of results, e.g. runtimes, as value for each key.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction">
+  
+  <a name="cma.experimentation.down_sample">
+    
+  </a>
+  <a name="down_sample">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    down_sample(x, y=None, len_=500):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return (index, x_down) if y is None, else (x_down, y_down).</p>
+<p>Example: <tt class="rst-docutils literal"><span class="pre">plot(*down_sample(mydata))</span></tt></p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.experimentation.step_data">
+    
+  </a>
+  <a name="step_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    step_data(x, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return x, y for <code>pyplot.step</code> ECDF of input <code>x</code>-data<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.experimentation.sp1">
+    
+  </a>
+  <a name="sp1">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    sp1(a):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return the "average" of data in <code>a</code> under the assumption that
+non-finite entries contribute the same as the average finite entry
+and resampling is applied to get a finite entry.</p>
+<p>This measure has been called Q-measure or success performance one. It
+is computed as the sum of all finite entries devid</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-17 12:18:17.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.fitness_models.LQModel : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.fitness_models.LQModel(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_models.html" data-type="Module" class="code">fitness_models</a></code>
+          
+          <a href="classIndex.html#cma.fitness_models.LQModel">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Up to a full quadratic model using the pseudo inverse to compute
+the model coefficients.</p>
+<p>The full model has 1 + 2n + n(n-1)/2 = n(n+3) + 1 parameters. Model
+building "works" with any number of data.</p>
+<p>Model size 1.0 doesn't work well on bbob-f10, 1.1 however works fine.</p>
+<p>TODO: change self.types: List[str] to self.type: str with only one entry</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma.fitness_models <span class="py-keyword">as</span> fm
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># fm.Logger, Logger = fm.LoggerDummy, fm.Logger</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>m = fm.LQModel()
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(30):
+<span class="py-more">... </span>    x = np.random.randn(3)
+<span class="py-more">... </span>    y = cma.ff.elli(x - 1.2)
+<span class="py-more">... </span>    _ = m.add_data_row(x, y)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.coefficients, [
+<span class="py-more">... </span>  1.44144144e+06,
+<span class="py-more">... </span> -2.40000000e+00,  -2.40000000e+03,  -2.40000000e+06,
+<span class="py-more">... </span>  1.00000000e+00,   1.00000000e+03,   1.00000000e+06,
+<span class="py-more">... </span> -4.65661287e-10,  -6.98491931e-10,   1.97906047e-09,
+<span class="py-more">... </span>  ], atol=1e-5)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.xopt, [ 1.2,  1.2,  1.2])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.xopt, [ 1.2,  1.2,  1.2])</pre>
+<p>Check the same before the full model is build:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>m = fm.LQModel()
+<span class="py-prompt">&gt;&gt;&gt; </span>m.settings.min_relative_size = 3 * m.settings.truncation_ratio
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(30):
+<span class="py-more">... </span>    x = np.random.randn(4)
+<span class="py-more">... </span>    y = cma.ff.elli(x - 1.2)
+<span class="py-more">... </span>    _ = m.add_data_row(x, y)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(m.types)
+<span class="py-output">['quadratic']</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.coefficients, [
+<span class="py-more">... </span>  1.45454544e+06,
+<span class="py-more">... </span> -2.40000000e+00,  -2.40000000e+02,  -2.40000000e+04, -2.40000000e+06,
+<span class="py-more">... </span>  1.00000000e+00,   1.00000000e+02,   1.00000000e+04,   1.00000000e+06,
+<span class="py-more">... </span>  ])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.xopt, [ 1.2,  1.2,  1.2,  1.2])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.xopt, [ 1.2,  1.2,  1.2,  1.2])</pre>
+<p>Check the Hessian in the rotated case:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>fitness = cma.fitness_transformations.Rotated(cma.ff.elli)
+<span class="py-prompt">&gt;&gt;&gt; </span>m = fm.LQModel(2, 2)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(30):
+<span class="py-more">... </span>    x = np.random.randn(4) - 5
+<span class="py-more">... </span>    y = fitness(x - 2.2)
+<span class="py-more">... </span>    _ = m.add_data_row(x, y)
+<span class="py-prompt">&gt;&gt;&gt; </span>R = fitness[1].dicMatrices[4]
+<span class="py-prompt">&gt;&gt;&gt; </span>H = np.dot(np.dot(R.T, np.diag([1, 1e2, 1e4, 1e6])), R)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.all(np.isclose(H, m.hessian))
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.xopt, 4 * [2.2])
+<span class="py-prompt">&gt;&gt;&gt; </span>m.set_xoffset([2.335, 1.2, 2, 4])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.all(np.isclose(H, m.hessian))
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.xopt, 4 * [2.2])</pre>
+<p>Check a simple linear case, the optimum is not necessarily at the
+expected position (the Hessian matrix is chosen somewhat arbitrarily)</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>m = fm.LQModel()
+<span class="py-prompt">&gt;&gt;&gt; </span>m.settings.min_relative_size = 4
+<span class="py-prompt">&gt;&gt;&gt; </span>_ = m.add_data_row([1, 1, 1], 220 + 10)
+<span class="py-prompt">&gt;&gt;&gt; </span>_ = m.add_data_row([2, 1, 1], 220)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(m.types)
+<span class="py-output">[]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.coefficients, [80, -10, 80, 80])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.allclose(m.xopt, [22, -159, -159])  <span class="py-comment"># [ 50,  -400, -400])  # depends on Hessian</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># fm.Logger = Logger</span></pre>
+<p>For results see:</p>
+<p>Hansen (2019). A Global Surrogate Model for CMA-ES. In Genetic and Evolutionary
+Computation Conference (GECCO 2019), Proceedings, ACM.</p>
+<p>lq-CMA-ES at <a href="http://lq-cma.gforge.inria.fr/ppdata-archives/pap-gecco2019/figure5/" class="rst-reference external" target="_top">http://lq-cma.gforge.inria.fr/ppdata-archives/pap-gecco2019/figure5/</a></p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id383">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#current_complexity" data-type="Method" class="code">current_complexity</a></td>
+    <td><span>degrees of freedom (nb of parameters) of the current model</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>Increase model complexity if the number of data exceeds <tt class="rst-docutils literal">max(min_relative_size * df_biggest_model_type, self.min_absolute_size)</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#reset" data-type="Method" class="code">reset</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#sorted_weights" data-type="Method" class="code">sorted_weights</a></td>
+    <td><span>regression weights in decreasing order</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#logging_trace" data-type="Method" class="code">logging_trace</a></td>
+    <td><span>some data of the current state which may be interesting to display</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#max_size" data-type="Method" class="code">max_size</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#max_df" data-type="Method" class="code">max_df</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#size" data-type="Method" class="code">size</a></td>
+    <td><span>number of data available to build the model</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#dim" data-type="Method" class="code">dim</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#update_type" data-type="Method" class="code">update_type</a></td>
+    <td><span>model type/size depends on the number of observed data</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#type" data-type="Method" class="code">type</a></td>
+    <td><span>one of the model <code>known_types</code>, depending on self.size.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#prune" data-type="Method" class="code">prune</a></td>
+    <td><span>prune data depending on size parameters</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#add_data_row" data-type="Method" class="code">add_data_row</a></td>
+    <td><span>add <code>x</code> to <code>self</code> <tt class="rst-docutils literal">if `force` or x not in self</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#add_data" data-type="Method" class="code">add_data</a></td>
+    <td><span>add a sequence of x- and y-data, sorted by y-data (best last)</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#sort" data-type="Method" class="code">sort</a></td>
+    <td><span>sort last <code>number</code> entries</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#adapt_max_relative_size" data-type="Method" class="code">adapt_max_relative_size</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#xmean" data-type="Method" class="code">xmean</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#set_xoffset" data-type="Method" class="code">set_xoffset</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#reset_Z" data-type="Method" class="code">reset_Z</a></td>
+    <td><span>set x-values Z attribute</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#expand_x" data-type="Method" class="code">expand_x</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#eval" data-type="Method" class="code">eval</a></td>
+    <td><span>return Model value of <code>x</code></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#evalpop" data-type="Method" class="code">evalpop</a></td>
+    <td><span>never used, return Model values of <tt class="rst-docutils literal">x for x in X</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#optimize" data-type="Method" class="code">optimize</a></td>
+    <td><span>this works very poorly e.g. on Rosenbrock</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#kendall" data-type="Method" class="code">kendall</a></td>
+    <td><span>return Kendall tau between true F-values (Y) and model values.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#isin" data-type="Method" class="code">isin</a></td>
+    <td><span>return False if <code>x</code> is not (anymore) in the model archive</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#index" data-type="Method" class="code">index</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#mahalanobis_norm_squared" data-type="Method" class="code">mahalanobis_norm_squared</a></td>
+    <td><span>caveat: this can be negative because hessian is not guarantied to be pos def.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#old_weighted_array" data-type="Method" class="code">old_weighted_array</a></td>
+    <td><span>return weighted Z, worst entries are clipped if possible.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#weighted_array" data-type="Method" class="code">weighted_array</a></td>
+    <td><span>return weighted Z, worst entries are clipped if possible.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#pinv" data-type="Method" class="code">pinv</a></td>
+    <td><span>return Pseudoinverse, computed unconditionally (not lazy).</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#coefficients" data-type="Method" class="code">coefficients</a></td>
+    <td><span>model coefficients that are linear in self.expand(.)</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#hessian" data-type="Method" class="code">hessian</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#b" data-type="Method" class="code">b</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#xopt" data-type="Method" class="code">xopt</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#minY" data-type="Method" class="code">minY</a></td>
+    <td><span>smallest f-values in data queue</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#eigenvalues" data-type="Method" class="code">eigenvalues</a></td>
+    <td><span>eigenvalues of the Hessian of the model</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#_prune" data-type="Method" class="code">_prune</a></td>
+    <td><span>deprecated</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#_sort" data-type="Method" class="code">_sort</a></td>
+    <td><span>old? sort last <code>number</code> entries TODO: for some reason this seems not to pass the doctest</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.LQModel.html#_hash" data-type="Method" class="code">_hash</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.current_complexity">
+    
+  </a>
+  <a name="current_complexity">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    current_complexity(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>degrees of freedom (nb of parameters) of the current model<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, max_relative_size_init=None, max_relative_size_end=None, min_relative_size=None, max_absolute_size=None, sorted_index=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Increase model complexity if the number of data exceeds
+<tt class="rst-docutils literal">max(min_relative_size * df_biggest_model_type, self.min_absolute_size)</tt>.</p>
+<p>Limit the number of kept data
+<tt class="rst-docutils literal">max(max_absolute_size, max_relative_size * max_df)</tt>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.reset">
+    
+  </a>
+  <a name="reset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    reset(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.sorted_weights">
+    
+  </a>
+  <a name="sorted_weights">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    sorted_weights(self, number=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>regression weights in decreasing order<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.logging_trace">
+    
+  </a>
+  <a name="logging_trace">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    logging_trace(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>some data of the current state which may be interesting to display<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.max_size">
+    
+  </a>
+  <a name="max_size">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    max_size(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.max_df">
+    
+  </a>
+  <a name="max_df">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    max_df(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.size">
+    
+  </a>
+  <a name="size">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    size(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>number of data available to build the model<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.dim">
+    
+  </a>
+  <a name="dim">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    dim(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.update_type">
+    
+  </a>
+  <a name="update_type">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update_type(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>model type/size depends on the number of observed data<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.type">
+    
+  </a>
+  <a name="type">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    type(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>one of the model <code>known_types</code>, depending on self.size.</p>
+<p>This may replace <a href="http://docs.python.org/library/types.html#types"><code>types</code></a>, but is not in use yet.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.fitness_models.LQModel._prune">
+    
+  </a>
+  <a name="_prune">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _prune(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>deprecated<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.prune">
+    
+  </a>
+  <a name="prune">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    prune(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>prune data depending on size parameters<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.add_data_row">
+    
+  </a>
+  <a name="add_data_row">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    add_data_row(self, x, f, prune=True, force=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>add <code>x</code> to <code>self</code> <tt class="rst-docutils literal">if `force` or x not in self</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.add_data">
+    
+  </a>
+  <a name="add_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    add_data(self, X, Y, prune=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>add a sequence of x- and y-data, sorted by y-data (best last)<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.fitness_models.LQModel._sort">
+    
+  </a>
+  <a name="_sort">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _sort(self, number=None, argsort=np.argsort):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>old? sort last <code>number</code> entries TODO: for some reason this seems not to pass the doctest<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.sort">
+    
+  </a>
+  <a name="sort">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    sort(self, number=None, argsort=np.argsort):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>sort last <code>number</code> entries<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.adapt_max_relative_size">
+    
+  </a>
+  <a name="adapt_max_relative_size">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    adapt_max_relative_size(self, tau):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.xmean">
+    
+  </a>
+  <a name="xmean">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    xmean(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.set_xoffset">
+    
+  </a>
+  <a name="set_xoffset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_xoffset(self, offset):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.reset_Z">
+    
+  </a>
+  <a name="reset_Z">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    reset_Z(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>set x-values Z attribute<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.expand_x">
+    
+  </a>
+  <a name="expand_x">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    expand_x(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.eval">
+    
+  </a>
+  <a name="eval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    eval(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return Model value of <code>x</code><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.evalpop">
+    
+  </a>
+  <a name="evalpop">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    evalpop(self, X):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>never used, return Model values of <tt class="rst-docutils literal">x for x in X</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.optimize">
+    
+  </a>
+  <a name="optimize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    optimize(self, fitness, x0, evals):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>this works very poorly e.g. on Rosenbrock</p>
+<pre class="rst-literal-block">
+x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
+</pre>
+<p>TODO (implemented, next: test): account for xopt not changing.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.kendall">
+    
+  </a>
+  <a name="kendall">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    kendall(self, number, F_model=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return Kendall tau between true F-values (Y) and model values.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.isin">
+    
+  </a>
+  <a name="isin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    isin(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return False if <code>x</code> is not (anymore) in the model archive<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.index">
+    
+  </a>
+  <a name="index">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    index(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.fitness_models.LQModel._hash">
+    
+  </a>
+  <a name="_hash">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _hash(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.mahalanobis_norm_squared">
+    
+  </a>
+  <a name="mahalanobis_norm_squared">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    mahalanobis_norm_squared(self, dx):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>caveat: this can be negative because hessian is not guarantied
+to be pos def.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.old_weighted_array">
+    
+  </a>
+  <a name="old_weighted_array">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    old_weighted_array(self, Z):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return weighted Z, worst entries are clipped if possible.</p>
+<p>Z can be a vector or a matrix.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.weighted_array">
+    
+  </a>
+  <a name="weighted_array">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    weighted_array(self, Z):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return weighted Z, worst entries are clipped if possible.</p>
+<p>Z can be a vector or a matrix.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.pinv">
+    
+  </a>
+  <a name="pinv">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    pinv(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return Pseudoinverse, computed unconditionally (not lazy).</p>
+<p><a href="cma.fitness_models.LQModel.html#pinv"><code>pinv</code></a> is usually not used directly but via the <a href="cma.fitness_models.LQModel.html#coefficients"><code>coefficients</code></a> property.</p>
+<p>Should this depend on something and/or become lazy?</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.coefficients">
+    
+  </a>
+  <a name="coefficients">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    coefficients(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>model coefficients that are linear in self.expand(.)<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.hessian">
+    
+  </a>
+  <a name="hessian">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    hessian(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.b">
+    
+  </a>
+  <a name="b">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    b(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.xopt">
+    
+  </a>
+  <a name="xopt">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    xopt(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.minY">
+    
+  </a>
+  <a name="minY">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    minY(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>smallest f-values in data queue<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.LQModel.eigenvalues">
+    
+  </a>
+  <a name="eigenvalues">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    eigenvalues(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>eigenvalues of the Hessian of the model<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

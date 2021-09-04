@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.fitness_models.SurrogatePopulation.EvaluationManager : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.fitness_models.SurrogatePopulation.EvaluationManager</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_models.html" data-type="Module" class="code">fitness_models</a>.<a href="cma.fitness_models.SurrogatePopulation.html" data-type="Class" class="code">SurrogatePopulation</a></code>
+          
+          <a href="classIndex.html#cma.fitness_models.SurrogatePopulation.EvaluationManager">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Manage incremental evaluation of a population of solutions.</p>
+<p>Evaluate solutions, add them to the model and keep track of which
+solutions were evaluated.</p>
+<p>Uses <code>model.add_data_row</code> and <code>model.eval</code>.</p>
+<p>Details: for simplicity and avoiding the copy construction, we do not
+inherit from <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a>. Hence we use <tt class="rst-docutils literal">self.X</tt> instead of <tt class="rst-docutils literal">self</tt>.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id378">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>all is based on the population (list of solutions) <code>X</code></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#add_eval" data-type="Method" class="code">add_eval</a></td>
+    <td><span>add fitness(self.X[i]), not in use</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#eval" data-type="Method" class="code">eval</a></td>
+    <td><span>add fitness(self.X[i]) to model data, mainly for internal use</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#eval_sequence" data-type="Method" class="code">eval_sequence</a></td>
+    <td><span>evaluate unevaluated entries of X[idx] until <code>number</code> entries are evaluated <em>overall</em>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#surrogate_values" data-type="Method" class="code">surrogate_values</a></td>
+    <td><span>return surrogate values of <code>model_eval</code> with smart offset.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#__len__" data-type="Method" class="code">__len__</a></td>
+    <td><span>should replace <tt class="rst-docutils literal">len(self.X)</tt> etc, not fully in use yet</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#evaluation_fraction" data-type="Method" class="code">evaluation_fraction</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#evaluations" data-type="Method" class="code">evaluations</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#remaining" data-type="Method" class="code">remaining</a></td>
+    <td><span>number of not yet evaluated solutions</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.EvaluationManager.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, X):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>all is based on the population (list of solutions) <code>X</code><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.EvaluationManager.add_eval">
+    
+  </a>
+  <a name="add_eval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    add_eval(self, i, fval):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>add fitness(self.X[i]), not in use<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.EvaluationManager.eval">
+    
+  </a>
+  <a name="eval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    eval(self, i, fitness, model_add):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>add fitness(self.X[i]) to model data, mainly for internal use<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.EvaluationManager.eval_sequence">
+    
+  </a>
+  <a name="eval_sequence">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    eval_sequence(self, number, fitness, model_add, idx=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>evaluate unevaluated entries of X[idx] until <code>number</code> entries are
+evaluated <em>overall</em>.</p>
+<p>Assumes that <tt class="rst-docutils literal">sorted(idx) == <span class="pre">list(range(len(self.X)))</span></tt>.</p>
+<p><tt class="rst-docutils literal">idx</tt> defines the evaluation sequence.</p>
+<p>The post condition is <tt class="rst-docutils literal">self.evaluations == min(number, len(self.X))</tt>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.EvaluationManager.surrogate_values">
+    
+  </a>
+  <a name="surrogate_values">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    surrogate_values(self, model_eval, true_values_if_all_available=True, f_offset=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return surrogate values of <code>model_eval</code> with smart offset.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.EvaluationManager.__len__">
+    
+  </a>
+  <a name="__len__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __len__(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>should replace <tt class="rst-docutils literal">len(self.X)</tt> etc, not fully in use yet<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.EvaluationManager.evaluation_fraction">
+    
+  </a>
+  <a name="evaluation_fraction">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    evaluation_fraction(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.EvaluationManager.evaluations">
+    
+  </a>
+  <a name="evaluations">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    evaluations(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.EvaluationManager.remaining">
+    
+  </a>
+  <a name="remaining">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    remaining(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>number of not yet evaluated solutions<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

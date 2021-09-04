@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.fitness_transformations.IntegerMixedFunction : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.fitness_transformations.IntegerMixedFunction(<a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_transformations.html" data-type="Module" class="code">fitness_transformations</a></code>
+          
+          <a href="classIndex.html#cma.fitness_transformations.IntegerMixedFunction">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>compose fitness function with some integer variables.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>f = cma.s.ft.IntegerMixedFunction(cma.ff.elli, [0, 3, 6])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f([0.2, 2]) == f([0.4, 2]) != f([1.2, 2])</pre>
+<p>It is advisable to set minstd of integer variables to
+<tt class="rst-docutils literal">1 / (2 * len(integer_variable_indices) + 1)</tt>, in which case in
+an independent model at least 33% (1 integer variable) -&gt; 39% (many
+integer variables) of the solutions should have an integer mutation
+on average. Option <tt class="rst-docutils literal">integer_variables</tt> of <a href="cma.evolution_strategy.CMAOptions.html"><code>cma.CMAOptions</code></a>
+implements this simple measure.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id412">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.IntegerMixedFunction.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>Caveat: to remain consistent, the <tt class="rst-docutils literal">list_of_inverses</tt> must be updated explicitly, if the list of function was updated after initialization.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.IntegerMixedFunction.html#_flatten" data-type="Method" class="code">_flatten</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a>:
+          </p>
+          <table class="children sortable" id="id413">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.ComposedFunction.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.ComposedFunction.html#inverse" data-type="Method" class="code">inverse</a></td>
+    <td><span>evaluate the composition of inverses on <tt class="rst-docutils literal">x</tt>.</span></td>
+  </tr>
+</table>
+          
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.fitness_transformations.Function.html" data-type="Class" class="code">Function</a> (via <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a>):
+          </p>
+          <table class="children sortable" id="id414">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found" data-type="Method" class="code">function_names_to_evaluate_first_found</a></td>
+    <td><span>attributes which are searched for to be called if no function was given to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a>.</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>initialization of <a href="cma.fitness_transformations.Function.html"><code>Function</code></a></span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.fitness_transformations.IntegerMixedFunction.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, function, integer_variable_indices, copy_arg=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.fitness_transformations.ComposedFunction.html#__init__" data-type="Method" class="code">cma.fitness_transformations.ComposedFunction.__init__</a></div>
+    
+    <div>Caveat: to remain consistent, the <tt class="rst-docutils literal">list_of_inverses</tt> must be
+updated explicitly, if the list of function was updated after
+initialization.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.fitness_transformations.IntegerMixedFunction._flatten">
+    
+  </a>
+  <a name="_flatten">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _flatten(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

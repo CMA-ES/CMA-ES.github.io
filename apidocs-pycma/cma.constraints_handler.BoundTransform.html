@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.constraints_handler.BoundTransform : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.constraints_handler.BoundTransform(<a href="cma.constraints_handler.BoundaryHandlerBase.html" data-type="Class" class="code">BoundaryHandlerBase</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.constraints_handler.html" data-type="Module" class="code">constraints_handler</a></code>
+          
+          <a href="classIndex.html#cma.constraints_handler.BoundTransform">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Handle boundaries by a smooth, piecewise linear and quadratic
+transformation into the feasible domain.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.constraints_handler <span class="py-keyword">import</span> BoundTransform
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma <span class="py-keyword">import</span> fitness_transformations <span class="py-keyword">as</span> ft
+<span class="py-prompt">&gt;&gt;&gt; </span>veq = cma.utilities.math.Mh.vequals_approximately
+<span class="py-prompt">&gt;&gt;&gt; </span>b = BoundTransform([<span class="py-builtin">None</span>, 1])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert b.bounds == [[<span class="py-builtin">None</span>], [1]]
+<span class="py-prompt">&gt;&gt;&gt; </span>assert veq(b.repair([0, 1, 1.2]), np.array([ 0., 0.975, 0.975]))
+<span class="py-prompt">&gt;&gt;&gt; </span>assert b.is_in_bounds([0, 0.5, 1])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert veq(b.transform([0, 1, 2]), [ 0.   ,  0.975,  0.2  ])
+<span class="py-prompt">&gt;&gt;&gt; </span>bounded_sphere = ft.ComposedFunction([
+<span class="py-more">... </span>        cma.ff.sphere,
+<span class="py-more">... </span>        BoundTransform([[], 5 * [-1] + [np.inf]]).transform
+<span class="py-more">... </span>    ])
+<span class="py-prompt">&gt;&gt;&gt; </span>o1 = cma.fmin(bounded_sphere, 6 * [-2], 0.5)  <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">(4_w,9)-aCMA-ES (mu_w=2.8,w_1=49%) in dimension 6 (seed=...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>o2 = cma.fmin(cma.ff.sphere, 6 * [-2], 0.5, options={
+<span class="py-more">... </span>   <span class="py-string">'BoundaryHandler'</span>: cma.s.ch.BoundTransform,
+<span class="py-more">... </span>   <span class="py-string">'bounds'</span>: [[], 5 * [-1] + [np.inf]] })  <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">(4_w,9)-aCMA-ES (mu_w=2.8,w_1=49%) in dimension 6 (seed=...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert o1[1] &lt; 5 + 1e-8 <span class="py-keyword">and</span> o2[1] &lt; 5 + 1e-8
+<span class="py-prompt">&gt;&gt;&gt; </span>b = BoundTransform([-np.random.rand(120), np.random.rand(120)])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(0, 100, 9):
+<span class="py-more">... </span>    x = (-i-1) * np.random.rand(120) + i * np.random.randn(120)
+<span class="py-more">... </span>    x_to_b = b.repair(x)
+<span class="py-more">... </span>    x2 = b.inverse(x_to_b)
+<span class="py-more">... </span>    x2_to_b = b.repair(x2)
+<span class="py-more">... </span>    x3 = b.inverse(x2_to_b)
+<span class="py-more">... </span>    x3_to_b = b.repair(x3)
+<span class="py-more">... </span>    assert veq(x_to_b, x2_to_b)
+<span class="py-more">... </span>    assert veq(x2, x3)
+<span class="py-more">... </span>    assert veq(x2_to_b, x3_to_b)</pre>
+<p>Details: this class uses <tt class="rst-docutils literal">class BoxConstraintsLinQuadTransformation</tt></p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id356">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundTransform.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>Argument bounds can be <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> or <tt class="rst-docutils literal">bounds[0]</tt> and <tt class="rst-docutils literal">bounds[1]</tt> are lower and upper domain boundaries, each is either <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> or a scalar or a list or array of appropriate size.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundTransform.html#repair" data-type="Method" class="code">repair</a></td>
+    <td><span>transforms <tt class="rst-docutils literal">x</tt> into the bounded domain.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundTransform.html#transform" data-type="Method" class="code">transform</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundTransform.html#inverse" data-type="Method" class="code">inverse</a></td>
+    <td><span>inverse transform of <tt class="rst-docutils literal">x</tt> from the bounded domain.</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.constraints_handler.BoundaryHandlerBase.html" data-type="Class" class="code">BoundaryHandlerBase</a>:
+          </p>
+          <table class="children sortable" id="id357">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>return penalty or list of penalties, by default zero(s).</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>end-iteration callback of boundary handler (abstract/empty)</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#get_bounds" data-type="Method" class="code">get_bounds</a></td>
+    <td><span><tt class="rst-docutils literal"><span class="pre">get_bounds('lower',</span> 8)</tt> returns the lower bounds in 8-D</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#has_bounds" data-type="Method" class="code">has_bounds</a></td>
+    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if any variable is bounded</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#is_in_bounds" data-type="Method" class="code">is_in_bounds</a></td>
+    <td><span>not yet tested</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#to_dim_times_two" data-type="Method" class="code">to_dim_times_two</a></td>
+    <td><span>return boundaries in format <tt class="rst-docutils literal">[[lb0, ub0], [lb1, ub1], <span class="pre">...]</span></tt>, as used by <tt class="rst-docutils literal"><span class="pre">BoxConstraints...</span></tt> class.</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#_get_bounds" data-type="Method" class="code">_get_bounds</a></td>
+    <td><span>ib == 0/1 means lower/upper bound, return a vector of length <code>dimension</code></span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.constraints_handler.BoundTransform.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, bounds=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.constraints_handler.BoundaryHandlerBase.html#__init__" data-type="Method" class="code">cma.constraints_handler.BoundaryHandlerBase.__init__</a></div>
+    
+    <div>Argument bounds can be <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> or <tt class="rst-docutils literal">bounds[0]</tt> and <tt class="rst-docutils literal">bounds[1]</tt>
+are lower and upper domain boundaries, each is either <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> or
+a scalar or a list or array of appropriate size.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.BoundTransform.repair">
+    
+  </a>
+  <a name="repair">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    repair(self, x, copy_if_changed=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.constraints_handler.BoundaryHandlerBase.html#repair" data-type="Method" class="code">cma.constraints_handler.BoundaryHandlerBase.repair</a></div>
+    
+    <div>transforms <tt class="rst-docutils literal">x</tt> into the bounded domain.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.BoundTransform.transform">
+    
+  </a>
+  <a name="transform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    transform(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.BoundTransform.inverse">
+    
+  </a>
+  <a name="inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    inverse(self, x, copy_if_changed=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.constraints_handler.BoundaryHandlerBase.html#inverse" data-type="Method" class="code">cma.constraints_handler.BoundaryHandlerBase.inverse</a></div>
+    
+    <div>inverse transform of <tt class="rst-docutils literal">x</tt> from the bounded domain.<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

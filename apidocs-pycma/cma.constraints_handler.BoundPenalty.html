@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.constraints_handler.BoundPenalty : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.constraints_handler.BoundPenalty(<a href="cma.constraints_handler.BoundaryHandlerBase.html" data-type="Class" class="code">BoundaryHandlerBase</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.constraints_handler.html" data-type="Module" class="code">constraints_handler</a></code>
+          
+          <a href="classIndex.html#cma.constraints_handler.BoundPenalty">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Compute a bound penalty and update coordinate-wise penalty weights.</p>
+<p>An instance must be updated each iteration using the <a href="cma.constraints_handler.BoundPenalty.html#update"><code>update</code></a> method.</p>
+<p>Details:</p>
+<ul class="rst-simple">
+<li>The penalty computes like <tt class="rst-docutils literal">sum(w[i] * <span class="pre">(x[i]-xfeas[i])**2)</span></tt>,
+where <tt class="rst-docutils literal">xfeas</tt> is the closest feasible (in-bounds) solution from
+<tt class="rst-docutils literal">x</tt>. The weight <tt class="rst-docutils literal">w[i]</tt> should be updated during each iteration
+using the update method.</li>
+</ul>
+<p>Example how this boundary handler is used with <a href="cma.evolution_strategy.html#fmin"><code>cma.fmin</code></a> via the
+options (<a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>) of the class <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>cma.CMAEvolutionStrategy</code></a>:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.elli, 6 * [1], 1,
+<span class="py-more">... </span>    {<span class="py-string">'BoundaryHandler'</span>: cma.BoundPenalty,
+<span class="py-more">... </span>     <span class="py-string">'bounds'</span>: [-1, 1],
+<span class="py-more">... </span>     <span class="py-string">'tolflatfitness'</span>: 10,
+<span class="py-more">... </span>     <span class="py-string">'fixed_variables'</span>: {0: 0.012, 2:0.234}
+<span class="py-more">... </span>    })  <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">(4_w,8)-aCMA-ES (mu_w=2.6,w_1=52%) in dimension 4 (seed=...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> res[1] &gt;= 13.76: <span class="py-keyword">print</span>(res)  <span class="py-comment"># should never happen</span></pre>
+<p>Reference: Hansen et al 2009, A Method for Handling Uncertainty...
+IEEE TEC, with addendum, see
+<a href="http://www.lri.fr/~hansen/TEC2009online.pdf" class="rst-reference external" target="_top">http://www.lri.fr/~hansen/TEC2009online.pdf</a></p>
+<p><strong>todo</strong>: implement a more generic interface, where this becomes a
+fitness wrapper which adds the desired penalty and the <a href="cma.constraints_handler.BoundPenalty.html#update"><code>update</code></a>
+method is used as callback argument for <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> like:</p>
+<pre class="rst-literal-block">
+f = cma.BoundPenalty(cma.ff.elli, bounds=[-1, 1])
+res = cma.fmin(f, 6 * [1], callback=f.update)
+</pre>
+<p>where callback functions should receive the same arguments as
+<code>tell</code>, namely an <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance, an array of the
+current solutions and their respective f-values. Such change is
+relatively involved. Consider also that bounds are related with the
+geno- to phenotype transformation.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id358">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundPenalty.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>Argument bounds can be <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> or <tt class="rst-docutils literal">bounds[0]</tt> and <tt class="rst-docutils literal">bounds[1]</tt> are lower  and upper domain boundaries, each is either <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> or a scalar or a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> or <code>np.array</code> of appropriate size.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundPenalty.html#repair" data-type="Method" class="code">repair</a></td>
+    <td><span>sets out-of-bounds components of <tt class="rst-docutils literal">x</tt> on the bounds.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundPenalty.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>returns the boundary violation penalty for <code>x</code>, where <code>x</code> is a single solution or a list or np.array of solutions.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundPenalty.html#feasible_ratio" data-type="Method" class="code">feasible_ratio</a></td>
+    <td><span>counts for each coordinate the number of feasible values in <tt class="rst-docutils literal">solutions</tt> and returns an <code>np.array</code> of length <tt class="rst-docutils literal">len(solutions[0])</tt> with the ratios.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundPenalty.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>updates the weights for computing a boundary penalty.</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.constraints_handler.BoundaryHandlerBase.html" data-type="Class" class="code">BoundaryHandlerBase</a>:
+          </p>
+          <table class="children sortable" id="id359">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#inverse" data-type="Method" class="code">inverse</a></td>
+    <td><span>inverse of repair if it exists, at least it should hold <tt class="rst-docutils literal">repair == repair o inverse o repair</tt></span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#get_bounds" data-type="Method" class="code">get_bounds</a></td>
+    <td><span><tt class="rst-docutils literal"><span class="pre">get_bounds('lower',</span> 8)</tt> returns the lower bounds in 8-D</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#has_bounds" data-type="Method" class="code">has_bounds</a></td>
+    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if any variable is bounded</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#is_in_bounds" data-type="Method" class="code">is_in_bounds</a></td>
+    <td><span>not yet tested</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#to_dim_times_two" data-type="Method" class="code">to_dim_times_two</a></td>
+    <td><span>return boundaries in format <tt class="rst-docutils literal">[[lb0, ub0], [lb1, ub1], <span class="pre">...]</span></tt>, as used by <tt class="rst-docutils literal"><span class="pre">BoxConstraints...</span></tt> class.</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#_get_bounds" data-type="Method" class="code">_get_bounds</a></td>
+    <td><span>ib == 0/1 means lower/upper bound, return a vector of length <code>dimension</code></span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.constraints_handler.BoundPenalty.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, bounds=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.constraints_handler.BoundaryHandlerBase.html#__init__" data-type="Method" class="code">cma.constraints_handler.BoundaryHandlerBase.__init__</a></div>
+    
+    <div>Argument bounds can be <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> or <tt class="rst-docutils literal">bounds[0]</tt> and <tt class="rst-docutils literal">bounds[1]</tt>
+are lower  and upper domain boundaries, each is either <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> or
+a scalar or a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> or <code>np.array</code> of appropriate size.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.BoundPenalty.repair">
+    
+  </a>
+  <a name="repair">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    repair(self, x, copy_if_changed=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.constraints_handler.BoundaryHandlerBase.html#repair" data-type="Method" class="code">cma.constraints_handler.BoundaryHandlerBase.repair</a></div>
+    
+    <div>sets out-of-bounds components of <tt class="rst-docutils literal">x</tt> on the bounds.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.BoundPenalty.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, x, archive, gp):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.constraints_handler.BoundaryHandlerBase.html#__call__" data-type="Method" class="code">cma.constraints_handler.BoundaryHandlerBase.__call__</a></div>
+    
+    <div>returns the boundary violation penalty for <code>x</code>,
+where <code>x</code> is a single solution or a list or np.array of solutions.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.BoundPenalty.feasible_ratio">
+    
+  </a>
+  <a name="feasible_ratio">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    feasible_ratio(self, solutions):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>counts for each coordinate the number of feasible values in
+<tt class="rst-docutils literal">solutions</tt> and returns an <code>np.array</code> of length
+<tt class="rst-docutils literal">len(solutions[0])</tt> with the ratios.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.BoundPenalty.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, function_values, es):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.constraints_handler.BoundaryHandlerBase.html#update" data-type="Method" class="code">cma.constraints_handler.BoundaryHandlerBase.update</a></div>
+    
+    <div><p>updates the weights for computing a boundary penalty.</p>
+<div class="rst-section" id="rst-arguments">
+<h1 class="heading">Arguments</h1>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">function_values</tt>:</dt>
+<dd>all function values of recent population of solutions</dd>
+<dt><tt class="rst-docutils literal">es</tt>:</dt>
+<dd><a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> object instance, in particular
+mean and variances and the methods from the attribute
+<code>gp</code> of type <a href="cma.transformations.GenoPheno.html"><code>GenoPheno</code></a> are used.</dd>
+</dl>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

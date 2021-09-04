@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.sigma_adaptation.CMAAdaptSigmaTPA : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.sigma_adaptation.CMAAdaptSigmaTPA(<a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" data-type="Class" class="code">CMAAdaptSigmaBase</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.sigma_adaptation.html" data-type="Module" class="code">sigma_adaptation</a></code>
+          
+          <a href="classIndex.html#cma.sigma_adaptation.CMAAdaptSigmaTPA">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>two point adaptation for step-size sigma.</p>
+<p>Relies on a specific sampling of the first two offspring, whose
+objective function value ranks are used to decide on the step-size
+change, see <a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html#update"><code>update</code></a> for the specifics.</p>
+<div class="rst-section" id="rst-example">
+<h1 class="heading">Example</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>cma.CMAOptions(<span class="py-string">'adapt'</span>).pprint()  <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output"> AdaptSigma='True...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(10 * [0.2], 0.1,
+<span class="py-more">... </span>    {<span class="py-string">'AdaptSigma'</span>: cma.sigma_adaptation.CMAAdaptSigmaTPA,
+<span class="py-more">... </span>     <span class="py-string">'ftarget'</span>: 1e-8})  <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">(5_w,10)-aCMA-ES (mu_w=3.2,w_1=45%) in dimension 10 (seed=...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(cma.ff.rosen)  <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">Iter...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop()
+<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result[1] &lt;= 1e-8  <span class="py-comment"># should coincide with the above</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result[2] &lt; 6500  <span class="py-comment"># typically &lt; 5500</span></pre>
+<p>References: loosely based on Hansen 2008, CMA-ES with Two-Point
+Step-Size Adaptation, more tightly based on Hansen et al. 2014,
+How to Assess Step-Size Adaptation Mechanisms in Randomized Search.</p>
+</div><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id475">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>late initialization.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>the first and second value in <tt class="rst-docutils literal">function_values</tt> must reflect two mirrored solutions.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html#check_consistency" data-type="Method" class="code">check_consistency</a></td>
+    <td><span>make consistency checks with a <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance as input</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" data-type="Class" class="code">CMAAdaptSigmaBase</a>:
+          </p>
+          <table class="children sortable" id="id476">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#initialize_base" data-type="Method" class="code">initialize_base</a></td>
+    <td><span>set parameters and state variable based on dimension, mueff and possibly further options.</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#hsig" data-type="Method" class="code">hsig</a></td>
+    <td><span>return "OK-signal" for rank-one update, <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> (OK) or <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a> (stall rank-one update), based on the length of an evolution path</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#update2" data-type="Method" class="code">update2</a></td>
+    <td><span>return sigma change factor and update self.delta.</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#_update_ps" data-type="Method" class="code">_update_ps</a></td>
+    <td><span>update the isotropic evolution path.</span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaTPA.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, dimension=None, opts=None, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#__init__" data-type="Method" class="code">cma.sigma_adaptation.CMAAdaptSigmaBase.__init__</a></div>
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaTPA.initialize">
+    
+  </a>
+  <a name="initialize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    initialize(self, N=None, opts=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>late initialization.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">N</td><td>is used for the (minor) dependency on dimension,</td></tr><tr><td></td><td class="fieldArg">opts</td><td>is used for hacking</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaTPA.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, es, function_values, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#update" data-type="Method" class="code">cma.sigma_adaptation.CMAAdaptSigmaBase.update</a></div>
+    
+    <div><p>the first and second value in <tt class="rst-docutils literal">function_values</tt>
+must reflect two mirrored solutions.</p>
+<p>Mirrored solutions must have been sampled
+in direction / in opposite direction of
+the previous mean shift, respectively.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaTPA.check_consistency">
+    
+  </a>
+  <a name="check_consistency">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    check_consistency(self, es):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#check_consistency" data-type="Method" class="code">cma.sigma_adaptation.CMAAdaptSigmaBase.check_consistency</a></div>
+    
+    <div>make consistency checks with a <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance
+as input<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

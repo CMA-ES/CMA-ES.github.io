@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.optimization_tools.BinaryEvolutionPath : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.optimization_tools.BinaryEvolutionPath(<a href="cma.optimization_tools.EvolutionPath.html" data-type="Class" class="code">EvolutionPath</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.optimization_tools.html" data-type="Module" class="code">optimization_tools</a></code>
+          
+          <a href="classIndex.html#cma.optimization_tools.BinaryEvolutionPath">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div class="undocumented">No class docstring</div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id429">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.BinaryEvolutionPath.html#probability_larger_than_one_from_binary" data-type="Method" class="code">probability_larger_than_one_from_binary</a></td>
+    <td><span>propability of path entries to be larger than one,</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.BinaryEvolutionPath.html#raw_binary_s" data-type="Method" class="code">raw_binary_s</a></td>
+    <td><span>return one of two possible values with expectation of zero.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.BinaryEvolutionPath.html#binary_s" data-type="Method" class="code">binary_s</a></td>
+    <td><span>how many increments for one decrement in stationary state</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.optimization_tools.EvolutionPath.html" data-type="Class" class="code">EvolutionPath</a>:
+          </p>
+          <table class="children sortable" id="id430">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.EvolutionPath.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.EvolutionPath.html#path" data-type="Method" class="code">path</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.optimization_tools.ExponentialSmoothing.html" data-type="Class" class="code">ExponentialSmoothing</a> (via <a href="cma.optimization_tools.EvolutionPath.html" data-type="Class" class="code">EvolutionPath</a>):
+          </p>
+          <table class="children sortable" id="id431">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.ExponentialSmoothing.html#__getitem__" data-type="Method" class="code">__getitem__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.ExponentialSmoothing.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.ExponentialSmoothing.html#_init_" data-type="Method" class="code">_init_</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.optimization_tools.BinaryEvolutionPath.probability_larger_than_one_from_binary">
+    
+  </a>
+  <a name="probability_larger_than_one_from_binary">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    probability_larger_than_one_from_binary(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>propability of path entries to be larger than one,</p>
+<p>given the input is <tt class="rst-docutils literal"><span class="pre">sign(randn())</span></tt>. Check out:</p>
+<pre class="rst-literal-block">
+n = int(1e4)
+greater_than_one = []
+ar_tc = [1.2, 1.5, 1.9, 2, 4, 8, 16, 32, 100]
+for tc in ar_tc:
+    p = cma.optimization_tools.EvolutionPath(tc)
+    for i in range(int(10 * tc)):
+        p(np.sign(np.random.randn(n)))
+    # plot(*step_data(p.path))
+    greater_than_one += [(np.mean(p.path &gt; 1) + np.mean(p.path &lt; -1)) / 2]
+</pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.optimization_tools.BinaryEvolutionPath.raw_binary_s">
+    
+  </a>
+  <a name="raw_binary_s">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    raw_binary_s(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return one of two possible values with expectation of zero.</p>
+<p>the maximum for the larger value is 1 - 0.15865525393145707 for tc      oinfty.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.optimization_tools.BinaryEvolutionPath.binary_s">
+    
+  </a>
+  <a name="binary_s">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    binary_s(self, odds_of_increment=1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>how many increments for one decrement in stationary state<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

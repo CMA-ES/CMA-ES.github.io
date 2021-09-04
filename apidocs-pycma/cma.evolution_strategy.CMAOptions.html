@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.evolution_strategy.CMAOptions : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.evolution_strategy.CMAOptions(<span title="dict">dict</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.evolution_strategy.html" data-type="Module" class="code">evolution_strategy</a></code>
+          
+          <a href="classIndex.html#cma.evolution_strategy.CMAOptions">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>a dictionary with the available options and their default values
+for class <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>.</p>
+<p><tt class="rst-docutils literal">CMAOptions()</tt> returns a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> with all available options and their
+default values with a comment string.</p>
+<p><tt class="rst-docutils literal"><span class="pre">CMAOptions('verb')</span></tt> returns a subset of recognized options that
+contain 'verb' in there keyword name or (default) value or
+description.</p>
+<p><tt class="rst-docutils literal">CMAOptions(opts)</tt> returns the subset of recognized options in
+<tt class="rst-docutils literal">dict(opts)</tt>.</p>
+<p>Option values can be "written" in a string and, when passed to <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a>
+or <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>, are evaluated using "N" and "popsize" as
+known values for dimension and population size (sample size, number
+of new solutions per iteration). All default option values are given
+as such a string.</p>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p><a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a> entries starting with <tt class="rst-docutils literal">tol</tt> are termination
+"tolerances".</p>
+<p>For <code>tolstagnation</code>, the median over the first and the second half
+of at least <code>tolstagnation</code> iterations are compared for both, the
+per-iteration best and per-iteration median function value.</p>
+</div>
+<div class="rst-section" id="rst-example">
+<h1 class="heading">Example</h1>
+<pre class="rst-literal-block">
+import cma
+cma.CMAOptions('tol')
+</pre>
+<p>is a shortcut for <tt class="rst-docutils literal"><span class="pre">cma.CMAOptions().match('tol')</span></tt> that returns all
+options that contain 'tol' in their name or description.</p>
+<p>To set an option:</p>
+<pre class="rst-literal-block">
+import cma
+opts = cma.CMAOptions()
+opts.set('tolfun', 1e-12)
+opts['tolx'] = 1e-11
+</pre>
+<p>todo: this class is overly complex and should be re-written, possibly
+with reduced functionality.</p>
+</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> (), <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>, <a href="cma.evolution_strategy._CMAParameters.html"><code>_CMAParameters</code></a></td></tr></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id368">
+  
+  <tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#defaults" data-type="Static Method" class="code">defaults</a></td>
+    <td><span>return a dictionary with default option values and description</span></td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#versatile_options" data-type="Static Method" class="code">versatile_options</a></td>
+    <td><span>return list of options that can be changed at any time (not only be initialized).</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#check" data-type="Method" class="code">check</a></td>
+    <td><span>check for ambiguous keys and move attributes into dict</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#check_values" data-type="Method" class="code">check_values</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#check_attributes" data-type="Method" class="code">check_attributes</a></td>
+    <td><span>check for attributes and moves them into the dictionary</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>return an <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a> instance.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#init" data-type="Method" class="code">init</a></td>
+    <td><span>initialize one or several options.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#set" data-type="Method" class="code">set</a></td>
+    <td><span>assign versatile options.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#complement" data-type="Method" class="code">complement</a></td>
+    <td><span>add all missing options with their default values</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#settable" data-type="Method" class="code">settable</a></td>
+    <td><span>return the subset of those options that are settable at any time.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>evaluate and return the value of option <code>key</code> on the fly, or return those options whose name or description contains <code>key</code>, case disregarded.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#corrected_key" data-type="Method" class="code">corrected_key</a></td>
+    <td><span>return the matching valid key, if <tt class="rst-docutils literal">key.lower()</tt> is a unique starting sequence to identify the valid key, <tt class="rst-docutils literal">else None</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#eval" data-type="Method" class="code">eval</a></td>
+    <td><span>Evaluates and sets the specified option value in environment <code>loc</code>. Many options need <tt class="rst-docutils literal">N</tt> to be defined in <code>loc</code>, some need <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#popsize"><code>popsize</code></a>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#evalall" data-type="Method" class="code">evalall</a></td>
+    <td><span>Evaluates all option values in environment <code>loc</code>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#match" data-type="Method" class="code">match</a></td>
+    <td><span>return all options that match, in the name or the description, with string <a href="cma.s.html"><code>s</code></a>, case is disregarded.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#to_namedtuple" data-type="Method" class="code">to_namedtuple</a></td>
+    <td><span>return options as const attributes of the returned object, only useful for inspection.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#from_namedtuple" data-type="Method" class="code">from_namedtuple</a></td>
+    <td><span>update options from a <a href="http://docs.python.org/library/collections.html#collections.namedtuple"><code>collections.namedtuple</code></a>. :See also: <a href="cma.evolution_strategy.CMAOptions.html#to_namedtuple"><code>to_namedtuple</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html#pprint" data-type="Method" class="code">pprint</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basestaticmethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.defaults">
+    
+  </a>
+  <a name="defaults">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    def
+    defaults():
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return a dictionary with default option values and description<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.versatile_options">
+    
+  </a>
+  <a name="versatile_options">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    def
+    versatile_options():
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return list of options that can be changed at any time (not
+only be initialized).</p>
+<p>Consider that this list might not be entirely up
+to date.</p>
+<p>The string ' #v ' in the default value indicates a versatile
+option that can be changed any time, however a string will not
+necessarily be evaluated again.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.check">
+    
+  </a>
+  <a name="check">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    check(self, options=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>check for ambiguous keys and move attributes into dict<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.check_values">
+    
+  </a>
+  <a name="check_values">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    check_values(self, options=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.check_attributes">
+    
+  </a>
+  <a name="check_attributes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    check_attributes(self, opts=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>check for attributes and moves them into the dictionary<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, s=None, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return an <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a> instance.</p>
+<p>Return default options if <tt class="rst-docutils literal">s is None and not kwargs</tt>,
+or all options whose name or description contains <a href="cma.s.html"><code>s</code></a>, if
+<a href="cma.s.html"><code>s</code></a> is a (search) string (case is disregarded in the match),
+or with entries from dictionary <a href="cma.s.html"><code>s</code></a> as options,
+or with kwargs as options if <tt class="rst-docutils literal">s is None</tt>,
+in any of the latter cases not complemented with default options
+or settings.</p>
+<p>Returns: see above.</p>
+<p>Details: as several options start with <tt class="rst-docutils literal">'s'</tt>, <tt class="rst-docutils literal">s=value</tt> is
+not valid as an option setting.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.init">
+    
+  </a>
+  <a name="init">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    init(self, dict_or_str, val=None, warn=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>initialize one or several options.</p>
+<div class="rst-section" id="rst-arguments">
+<h1 class="heading">Arguments</h1>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code>dict_or_str</code></dt>
+<dd>a dictionary if <tt class="rst-docutils literal">val is None</tt>, otherwise a key.
+If <code>val</code> is provided <code>dict_or_str</code> must be a valid key.</dd>
+<dt><code>val</code></dt>
+<dd>value for key</dd>
+</dl>
+</blockquote>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>Only known keys are accepted. Known keys are in <code>CMAOptions.defaults()</code></p>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.set">
+    
+  </a>
+  <a name="set">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set(self, dic, val=None, force=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>assign versatile options.</p>
+<p>Method <a href="cma.evolution_strategy.CMAOptions.html#versatile_options"><code>CMAOptions.versatile_options</code></a> () gives the versatile
+options, use <code>init()</code> to set the others.</p>
+<div class="rst-section" id="rst-arguments">
+<h1 class="heading">Arguments</h1>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code>dic</code></dt>
+<dd>either a dictionary or a key. In the latter
+case, <code>val</code> must be provided</dd>
+<dt><code>val</code></dt>
+<dd>value for <code>key</code>, approximate match is sufficient</dd>
+<dt><code>force</code></dt>
+<dd>force setting of non-versatile options, use with caution</dd>
+</dl>
+</blockquote>
+<p>This method will be most probably used with the <tt class="rst-docutils literal">opts</tt> attribute of
+a <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance.</p>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.complement">
+    
+  </a>
+  <a name="complement">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    complement(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>add all missing options with their default values<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.settable">
+    
+  </a>
+  <a name="settable">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    settable(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return the subset of those options that are settable at any
+time.</p>
+<p>Settable options are in <a href="cma.evolution_strategy.CMAOptions.html#versatile_options"><code>versatile_options</code></a> (), but the
+list might be incomplete.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, key, default=None, loc=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>evaluate and return the value of option <code>key</code> on the fly, or
+return those options whose name or description contains <code>key</code>,
+case disregarded.</p>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>Keys that contain <code>filename</code> are not evaluated.
+For <tt class="rst-docutils literal"><span class="pre">loc==None</span></tt>, <code>self</code> is used as environment
+but this does not define <tt class="rst-docutils literal">N</tt>.</p>
+</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><code>eval()</code>, <code>evalall()</code></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.corrected_key">
+    
+  </a>
+  <a name="corrected_key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    corrected_key(self, key):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return the matching valid key, if <tt class="rst-docutils literal">key.lower()</tt> is a unique
+starting sequence to identify the valid key, <tt class="rst-docutils literal">else None</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.eval">
+    
+  </a>
+  <a name="eval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    eval(self, key, default=None, loc=None, correct_key=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Evaluates and sets the specified option value in
+environment <code>loc</code>. Many options need <tt class="rst-docutils literal">N</tt> to be defined in
+<code>loc</code>, some need <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#popsize"><code>popsize</code></a>.</p>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>Keys that contain 'filename' are not evaluated.
+For <code>loc</code> is None, the self-dict is used as environment</p>
+</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><code>evalall()</code>, <a href="cma.evolution_strategy.CMAOptions.html#__call__"><code>__call__</code></a></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.evalall">
+    
+  </a>
+  <a name="evalall">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    evalall(self, loc=None, defaults=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Evaluates all option values in environment <code>loc</code>.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><code>eval()</code></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.match">
+    
+  </a>
+  <a name="match">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    match(self, s=''):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return all options that match, in the name or the description,
+with string <a href="cma.s.html"><code>s</code></a>, case is disregarded.</p>
+<p>Example: <tt class="rst-docutils literal"><span class="pre">cma.CMAOptions().match('verb')</span></tt> returns the verbosity
+options.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.to_namedtuple">
+    
+  </a>
+  <a name="to_namedtuple">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    to_namedtuple(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return options as const attributes of the returned object,
+only useful for inspection.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.from_namedtuple">
+    
+  </a>
+  <a name="from_namedtuple">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    from_namedtuple(self, t):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>update options from a <a href="http://docs.python.org/library/collections.html#collections.namedtuple"><code>collections.namedtuple</code></a>.
+:See also: <a href="cma.evolution_strategy.CMAOptions.html#to_namedtuple"><code>to_namedtuple</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy.CMAOptions.pprint">
+    
+  </a>
+  <a name="pprint">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    pprint(self, linebreak=80):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

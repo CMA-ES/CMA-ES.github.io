@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.evolution_strategy : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.evolution_strategy</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div>CMA-ES (evolution strategy), the main sub-module of <a href="cma.html"><code>cma</code></a> providing
+in particular <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>, and <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id362">
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy.InjectionWarning.html" data-type="Class" class="code">InjectionWarning</a></td>
+    <td><span>Injected solutions are not passed to tell as expected</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy.MetaParameters.html" data-type="Class" class="code">MetaParameters</a></td>
+    <td><span>collection of many meta parameters.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.evolution_strategy.html#is_feasible" data-type="Function" class="code">is_feasible</a></td>
+    <td><span>default to check feasibility of f-values.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.evolution_strategy.html#cma_default_options_" data-type="Function" class="code">cma_default_options_</a></td>
+    <td><span>use this function to get keyword completion for <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy.CMAOptions.html" data-type="Class" class="code">CMAOptions</a></td>
+    <td><span>a dictionary with the available options and their default values for class <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" data-type="Class" class="code">CMAEvolutionStrategyResult</a></td>
+    <td><span>A results tuple from <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> property <tt class="rst-docutils literal">result</tt>.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" data-type="Class" class="code">CMAEvolutionStrategy</a></td>
+    <td><span>CMA-ES stochastic optimizer class with ask-and-tell interface.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.evolution_strategy.html#fmin2" data-type="Function" class="code">fmin2</a></td>
+    <td><span>wrapper around <a href="cma.evolution_strategy.html#fmin"><code>cma.fmin</code></a> returning the tuple <tt class="rst-docutils literal">(xbest, es)</tt>,</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.evolution_strategy.html#fmin" data-type="Function" class="code">fmin</a></td>
+    <td><span>functional interface to the stochastic optimizer CMA-ES for non-convex function minimization.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.evolution_strategy.html#no_constraints" data-type="Function" class="code">no_constraints</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.evolution_strategy.html#fmin_con" data-type="Function" class="code">fmin_con</a></td>
+    <td><span>optimize f with constraints g (inequalities) and h (equalities).</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy._CMASolutionDict%200.html" data-type="Class" class="code">_CMASolutionDict 0</a></td>
+    <td><span class="undocumented">No class docstring; 1/2 methods documented</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy._CMASolutionDict.html" data-type="Class" class="code">_CMASolutionDict</a></td>
+    <td><span>a hack to get most code examples running</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html" data-type="Class" class="code">_CMAEvolutionStrategyResult</a></td>
+    <td><span>A results tuple from <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> property <tt class="rst-docutils literal">result</tt>.</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy._CMAStopDict.html" data-type="Class" class="code">_CMAStopDict</a></td>
+    <td><span>keep and update a termination condition dictionary.</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.evolution_strategy._CMAParameters.html" data-type="Class" class="code">_CMAParameters</a></td>
+    <td><span>strategy parameters like population size and learning rates.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction">
+  
+  <a name="cma.evolution_strategy.is_feasible">
+    
+  </a>
+  <a name="is_feasible">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_feasible(x, f):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>default to check feasibility of f-values.</p>
+<p>Used for rejection sampling in method <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval"><code>ask_and_eval</code></a>.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2">CMAOptions, <tt class="rst-docutils literal"><span class="pre">CMAOptions('feas')</span></tt>.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.evolution_strategy.cma_default_options_">
+    
+  </a>
+  <a name="cma_default_options_">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    cma_default_options_(AdaptSigma='True  # or False or any CMAAdaptSigmaBase class e.g. CMAAdaptSigmaTPA, CMAAdaptSigmaCSA', CMA_active='True  # negative update, conducted after the original update', CMA_cmean='1  # learning rate for the mean value', CMA_const_trace='False  # normalize trace, 1, True, "arithm", "geom", "aeig", "geig" are valid', CMA_diagonal='0*100*N/popsize**0.5  # nb of iterations with diagonal covariance matrix, True for always', CMA_eigenmethod='np.linalg.eigh  # or cma.utilities.math.eig or pygsl.eigen.eigenvectors', CMA_elitist='False  #v or "initial" or True, elitism likely impairs global search performance', CMA_injections_threshold_keep_len='1  #v keep length if Mahalanobis length is below the given relative threshold', CMA_mirrors='popsize &lt; 6  # values &lt;0.5 are interpreted as fraction, values &gt;1 as numbers (rounded), otherwise about 0.16 is used', CMA_mirrormethod='2  # 0=unconditional, 1=selective, 2=selective with delay', CMA_mu='None  # parents selection parameter, default is popsize // 2', CMA_on='1  # multiplier for all covariance matrix updates', CMA_sampler='None  # a class or instance that implements the interface of `cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass`', CMA_sampler_options='{}  # options passed to `CMA_sampler` class init as keyword arguments', CMA_rankmu='1.0  # multiplier for rank-mu update learning rate of covariance matrix', CMA_rankone='1.0  # multiplier for rank-one update learning rate of covariance matrix', CMA_recombination_weights='None  # a list, see class RecombinationWeights, overwrites CMA_mu and popsize options', CMA_dampsvec_fac='np.Inf  # tentative and subject to changes, 0.5 would be a "default" damping for sigma vector update', CMA_dampsvec_fade='0.1  # tentative fading out parameter for sigma vector update', CMA_teststds='None  # factors for non-isotropic initial distr. of C, mainly for test purpose, see CMA_stds for production', CMA_stds='None  # multipliers for sigma0 in each coordinate, not represented in C, makes scaling_of_variables obsolete', CSA_dampfac='1  #v positive multiplier for step-size damping, 0.3 is close to optimal on the sphere', CSA_damp_mueff_exponent='0.5  # zero would mean no dependency of damping on mueff, useful with CSA_disregard_length option', CSA_disregard_length='False  #v True is untested, also changes respective parameters', CSA_clip_length_value='None  #v poorly tested, [0, 0] means const length N**0.5, [-1, 1] allows a variation of +- N/(N+2), etc.', CSA_squared='False  #v use squared length for sigma-adaptation ', BoundaryHandler='BoundTransform  # or BoundPenalty, unused when ``bounds in (None, [None, None])``', bounds='[None, None]  # lower (=bounds[0]) and upper domain boundaries, each a scalar or a list/vector', conditioncov_alleviate='[1e8, 1e12]  # when to alleviate the condition in the coordinates and in main axes', eval_final_mean='True  # evaluate the final mean, which is a favorite return candidate', fixed_variables='None  # dictionary with index-value pairs like {0:1.1, 2:0.1} that are not optimized', ftarget='-inf  #v target function value, minimization', integer_variables='[]  # index list, invokes basic integer handling: prevent std dev to become too small in the given variables', is_feasible='is_feasible  #v a function that computes feasibility, by default lambda x, f: f not in (None, np.NaN)', maxfevals='inf  #v maximum number of function evaluations', maxiter='100 + 150 * (N+3)**2 // popsize**0.5  #v maximum number of iterations', mean_shift_line_samples='False #v sample two new solutions colinear to previous mean shift', mindx='0  #v minimal std in any arbitrary direction, cave interference with tol*', minstd='0  #v minimal std (scalar or vector) in any coordinate direction, cave interference with tol*', maxstd='inf  #v maximal std in any coordinate direction', pc_line_samples='False #v one line sample along the evolution path pc', popsize='4+int(3*np.log(N))  # population size, AKA lambda, number of new solution per iteration', randn='np.random.randn  #v randn(lam, N) must return an np.array of shape (lam, N), see also cma.utilities.math.randhss', scaling_of_variables='None  # deprecated, rather use fitness_transformations.ScaleCoordinates instead (or possibly CMA_stds).\n            Scale for each variable in that effective_sigma0 = sigma0*scaling. Internally the variables are divided by\n            scaling_of_variables and sigma is unchanged, default is `np.ones(N)`', seed='time  # random number seed for `numpy.random`; `None` and `0` equate to `time`, `np.nan` means "do nothing", see also option "randn"', signals_filename='cma_signals.in  # read versatile options from this file (use `None` or `""` for no file) which contains a single options dict, e.g. ``{"timeout": 0}`` to stop, string-values are evaluated, e.g. "np.inf" is valid', termination_callback='[]  #v a function or list of functions returning True for termination, called in `stop` with `self` as argument, could be abused for side effects', timeout='inf  #v stop if timeout seconds are exceeded, the string "2.5 * 60**2" evaluates to 2 hours and 30 minutes', tolconditioncov='1e14  #v stop if the condition of the covariance matrix is above `tolconditioncov`', tolfacupx='1e3  #v termination when step-size increases by tolfacupx (diverges). That is, the initial step-size was chosen far too small and better solutions were found far away from the initial solution x0', tolupsigma='1e20  #v sigma/sigma0 &gt; tolupsigma * max(eivenvals(C)**0.5) indicates "creeping behavior" with usually minor improvements', tolflatfitness='1  #v iterations tolerated with flat fitness before termination', tolfun='1e-11  #v termination criterion: tolerance in function value, quite useful', tolfunhist='1e-12  #v termination criterion: tolerance in function value history', tolfunrel='0  #v termination criterion: relative tolerance in function value: Delta f current &lt; tolfunrel * (median0 - median_min)', tolstagnation='int(100 + 100 * N**1.5 / popsize)  #v termination if no improvement over tolstagnation iterations', tolx='1e-11  #v termination criterion: tolerance in x-changes', transformation='None  # depreciated, use cma.fitness_transformations.FitnessTransformation instead.\n            [t0, t1] are two mappings, t0 transforms solutions from CMA-representation to f-representation (tf_pheno),\n            t1 is the (optional) back transformation, see class GenoPheno', typical_x='None  # used with scaling_of_variables', updatecovwait='None  #v number of iterations without distribution update, name is subject to future changes', verbose='3  #v verbosity e.g. of initial/final message, -1 is very quiet, -9 maximally quiet, may not be fully implemented', verb_append='0  # initial evaluation counter, if append, do not overwrite output files', verb_disp='100  #v verbosity: display console output every verb_disp iteration', verb_filenameprefix=CMADataLogger.default_prefix + '  # output path and filenames prefix', verb_log='1  #v verbosity: write data to files every verb_log iteration, writing can be time critical on fast to evaluate functions', verb_log_expensive='N * (N &lt;= 50)  # allow to execute eigendecomposition for logging every verb_log_expensive iteration, 0 or False for never', verb_plot='0  #v in fmin(): plot() is called every verb_plot iteration', verb_time='True  #v output timings on console', vv='{}  #? versatile set or dictionary for hacking purposes, value found in self.opts["vv"]'):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>use this function to get keyword completion for <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>.</p>
+<p><tt class="rst-docutils literal"><span class="pre">cma.CMAOptions('substr')</span></tt> provides even substring search.</p>
+<p>returns default options as a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> (not a <a href="cma.evolution_strategy.CMAOptions.html"><code>cma.CMAOptions</code></a> <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>).</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.evolution_strategy.fmin2">
+    
+  </a>
+  <a name="fmin2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    fmin2(*args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>wrapper around <a href="cma.evolution_strategy.html#fmin"><code>cma.fmin</code></a> returning the tuple <tt class="rst-docutils literal">(xbest, es)</tt>,</p>
+<p>and with the same in input arguments as <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a>. Hence a typical
+calling pattern may be:</p>
+<pre class="rst-literal-block">
+x, es = cma.fmin2(...)  # recommended pattern
+es = cma.fmin2(...)[1]  # `es` contains all available information
+x = cma.fmin2(...)[0]   # keep only the best evaluated solution
+</pre>
+<p><a href="cma.evolution_strategy.html#fmin2"><code>fmin2</code></a> is an alias for:</p>
+<pre class="rst-literal-block">
+res = fmin(...)
+return res[0], res[-2]
+</pre>
+<p><a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> from <a href="cma.evolution_strategy.html#fmin2"><code>fmin2</code></a> is:</p>
+<pre class="rst-literal-block">
+es = fmin2(...)[1]  # fmin2(...)[0] is es.result[0]
+return es.result + (es.stop(), es, es.logger)
+</pre>
+<p>The best found solution is equally available under:</p>
+<pre class="rst-literal-block">
+fmin(...)[0]
+fmin2(...)[0]
+fmin2(...)[1].result[0]
+fmin2(...)[1].result.xbest
+fmin2(...)[1].best.x
+</pre>
+<p>The incumbent, current estimate for the optimum is available under:</p>
+<pre class="rst-literal-block">
+fmin(...)[5]
+fmin2(...)[1].result[5]
+fmin2(...)[1].result.xfavorite
+</pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.evolution_strategy.fmin">
+    
+  </a>
+  <a name="fmin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    fmin(objective_function, x0, sigma0, options=None, args=(), gradf=None, restarts=0, restart_from_best='False', incpopsize=2, eval_initial_x=False, parallel_objective=None, noise_handler=None, noise_change_sigma_exponent=1, noise_kappa_exponent=0, bipop=False, callback=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>functional interface to the stochastic optimizer CMA-ES
+for non-convex function minimization.</p>
+<div class="rst-section" id="rst-calling-sequences">
+<h1 class="heading">Calling Sequences</h1>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">fmin(objective_function, x0, sigma0)</tt></dt>
+<dd>minimizes <tt class="rst-docutils literal">objective_function</tt> starting at <tt class="rst-docutils literal">x0</tt> and with
+standard deviation <tt class="rst-docutils literal">sigma0</tt> (step-size)</dd>
+<dt><tt class="rst-docutils literal">fmin(objective_function, x0, sigma0, <span class="pre">options={'ftarget':</span> <span class="pre">1e-5})</span></tt></dt>
+<dd>minimizes <tt class="rst-docutils literal">objective_function</tt> up to target function value 1e-5,
+which is typically useful for benchmarking.</dd>
+<dt><tt class="rst-docutils literal">fmin(objective_function, x0, sigma0, <span class="pre">args=('f',))</span></tt></dt>
+<dd>minimizes <tt class="rst-docutils literal">objective_function</tt> called with an additional
+argument <tt class="rst-docutils literal">'f'</tt>.</dd>
+<dt><tt class="rst-docutils literal">fmin(objective_function, x0, sigma0, <span class="pre">options={'ftarget':1e-5,</span> <span class="pre">'popsize':40})</span></tt></dt>
+<dd>uses additional options <tt class="rst-docutils literal">ftarget</tt> and <tt class="rst-docutils literal">popsize</tt></dd>
+<dt><tt class="rst-docutils literal">fmin(objective_function, esobj, None, <span class="pre">options={'maxfevals':</span> 1e5})</tt></dt>
+<dd>uses the <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> object instance <tt class="rst-docutils literal">esobj</tt> to
+optimize <tt class="rst-docutils literal">objective_function</tt>, similar to <tt class="rst-docutils literal">esobj.optimize()</tt>.</dd>
+</dl>
+</div>
+<div class="rst-section" id="rst-arguments">
+<h1 class="heading">Arguments</h1>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">objective_function</tt></dt>
+<dd>called as <tt class="rst-docutils literal">objective_function(x, *args)</tt> to be minimized.
+<tt class="rst-docutils literal">x</tt> is a one-dimensional <code>numpy.ndarray</code>. See also the
+<code>parallel_objective</code> argument.
+<tt class="rst-docutils literal">objective_function</tt> can return <code>numpy.NaN</code>, which is
+interpreted as outright rejection of solution <tt class="rst-docutils literal">x</tt> and invokes
+an immediate resampling and (re-)evaluation of a new solution
+not counting as function evaluation. The attribute
+<tt class="rst-docutils literal">variable_annotations</tt> is passed into the
+<tt class="rst-docutils literal">CMADataLogger.persistent_communication_dict</tt>.</dd>
+<dt><tt class="rst-docutils literal">x0</tt></dt>
+<dd>list or <code>numpy.ndarray</code>, initial guess of minimum solution
+before the application of the geno-phenotype transformation
+according to the <tt class="rst-docutils literal">transformation</tt> option.  It can also be
+a string holding a Python expression that is evaluated
+to yield the initial guess - this is important in case
+restarts are performed so that they start from different
+places.  Otherwise <tt class="rst-docutils literal">x0</tt> can also be a <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>cma.CMAEvolutionStrategy</code></a>
+object instance, in that case <tt class="rst-docutils literal">sigma0</tt> can be <tt class="rst-docutils literal">None</tt>.</dd>
+<dt><tt class="rst-docutils literal">sigma0</tt></dt>
+<dd>scalar, initial standard deviation in each coordinate.
+<tt class="rst-docutils literal">sigma0</tt> should be about 1/4th of the search domain width
+(where the optimum is to be expected). The variables in
+<tt class="rst-docutils literal">objective_function</tt> should be scaled such that they
+presumably have similar sensitivity.
+See also <a href="cma.fitness_transformations.ScaleCoordinates.html"><code>ScaleCoordinates</code></a>.</dd>
+<dt><tt class="rst-docutils literal">options</tt></dt>
+<dd>a dictionary with additional options passed to the constructor
+of class <tt class="rst-docutils literal">CMAEvolutionStrategy</tt>, see <tt class="rst-docutils literal">cma.CMAOptions</tt> ()
+for a list of available options.</dd>
+<dt><tt class="rst-docutils literal"><span class="pre">args=()</span></tt></dt>
+<dd>arguments to be used to call the <tt class="rst-docutils literal">objective_function</tt></dd>
+<dt><tt class="rst-docutils literal">gradf=None</tt></dt>
+<dd>gradient of f, where <tt class="rst-docutils literal">len(gradf(x, *args)) == len(x)</tt>.
+<tt class="rst-docutils literal">gradf</tt> is called once in each iteration if
+<tt class="rst-docutils literal">gradf is not None</tt>.</dd>
+<dt><tt class="rst-docutils literal">restarts=0</tt></dt>
+<dd>number of restarts with increasing population size, see also
+parameter <tt class="rst-docutils literal">incpopsize</tt>, implementing the IPOP-CMA-ES restart
+strategy, see also parameter <tt class="rst-docutils literal">bipop</tt>; to restart from
+different points (recommended), pass <tt class="rst-docutils literal">x0</tt> as a string.</dd>
+<dt><tt class="rst-docutils literal">restart_from_best=False</tt></dt>
+<dd>which point to restart from</dd>
+<dt><tt class="rst-docutils literal">incpopsize=2</tt></dt>
+<dd>multiplier for increasing the population size <tt class="rst-docutils literal">popsize</tt> before
+each restart</dd>
+<dt><tt class="rst-docutils literal">parallel_objective</tt></dt>
+<dd>an objective function that accepts a list of <code>numpy.ndarray</code> as
+input and returns a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a>, which is mostly used instead of
+<code>objective_function</code>, but for the initial (also initial
+elitist) and the final evaluations unless
+<tt class="rst-docutils literal">not callable(objective_function)</tt>. If <tt class="rst-docutils literal">parallel_objective</tt>
+is given, the <tt class="rst-docutils literal">objective_function</tt> (first argument) may be
+<tt class="rst-docutils literal">None</tt>.</dd>
+<dt><tt class="rst-docutils literal">eval_initial_x=None</tt></dt>
+<dd>evaluate initial solution, for <tt class="rst-docutils literal">None</tt> only with elitist option</dd>
+<dt><tt class="rst-docutils literal">noise_handler=None</tt></dt>
+<dd>a <tt class="rst-docutils literal">NoiseHandler</tt> class or instance or <tt class="rst-docutils literal">None</tt>. Example:
+<tt class="rst-docutils literal">cma.fmin(f, 6 * [1], 1, noise_handler=cma.NoiseHandler(6))</tt>
+see <tt class="rst-docutils literal">help(cma.NoiseHandler)</tt>.</dd>
+<dt><tt class="rst-docutils literal">noise_change_sigma_exponent=1</tt></dt>
+<dd>exponent for the sigma increment provided by the noise handler for
+additional noise treatment. 0 means no sigma change.</dd>
+<dt><tt class="rst-docutils literal">noise_evaluations_as_kappa=0</tt></dt>
+<dd>instead of applying reevaluations, the "number of evaluations"
+is (ab)used as scaling factor kappa (experimental).</dd>
+<dt><tt class="rst-docutils literal">bipop=False</tt></dt>
+<dd>if <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a>, run as BIPOP-CMA-ES; BIPOP is a special restart
+strategy switching between two population sizings - small
+(like the default CMA, but with more focused search) and
+large (progressively increased as in IPOP). This makes the
+algorithm perform well both on functions with many regularly
+or irregularly arranged local optima (the latter by frequently
+restarting with small populations).  For the <code>bipop</code> parameter
+to actually take effect, also select non-zero number of
+(IPOP) restarts; the recommended setting is <tt class="rst-docutils literal"><span class="pre">restarts&lt;=9</span></tt>
+and <code>x0</code> passed as a string using <code>numpy.rand</code> to generate
+initial solutions. Note that small-population restarts
+do not count into the total restart count.</dd>
+<dt><tt class="rst-docutils literal">callback=None</tt></dt>
+<dd><a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a> or list of callables called at the end of each
+iteration with the current <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance
+as argument.</dd>
+</dl>
+</div>
+<div class="rst-section" id="rst-optional-arguments">
+<h1 class="heading">Optional Arguments</h1>
+<p>All values in the <code>options</code> dictionary are evaluated if they are of
+type <a href="http://docs.python.org/library/stdtypes.html#str"><code>str</code></a>, besides <code>verb_filenameprefix</code>, see class <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a> for
+details. The full list is available by calling <tt class="rst-docutils literal">cma.CMAOptions()</tt>.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>cma.CMAOptions()  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">{...</span></pre>
+<p>Subsets of options can be displayed, for example like
+<tt class="rst-docutils literal"><span class="pre">cma.CMAOptions('tol')</span></tt>, or <tt class="rst-docutils literal"><span class="pre">cma.CMAOptions('bound')</span></tt>,
+see also class <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>.</p>
+</div>
+<div class="rst-section" id="rst-return">
+<h1 class="heading">Return</h1>
+<p>Return the list provided in <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#result"><code>CMAEvolutionStrategy.result</code></a> appended
+with termination conditions, an <a href="cma.interfaces.OOOptimizer.html"><code>OOOptimizer</code></a> and a <a href="cma.interfaces.BaseDataLogger.html"><code>BaseDataLogger</code></a>:</p>
+<pre class="rst-literal-block">
+res = es.result + (es.stop(), es, logger)
+</pre>
+<dl class="rst-docutils">
+<dt>where</dt>
+<dd><ul class="rst-first rst-last rst-simple">
+<li><tt class="rst-docutils literal">res[0]</tt> (<tt class="rst-docutils literal">xopt</tt>) -- best evaluated solution</li>
+<li><tt class="rst-docutils literal">res[1]</tt> (<tt class="rst-docutils literal">fopt</tt>) -- respective function value</li>
+<li><tt class="rst-docutils literal">res[2]</tt> (<tt class="rst-docutils literal">evalsopt</tt>) -- respective number of function evaluations</li>
+<li><tt class="rst-docutils literal">res[3]</tt> (<tt class="rst-docutils literal">evals</tt>) -- number of overall conducted objective function evaluations</li>
+<li><tt class="rst-docutils literal">res[4]</tt> (<tt class="rst-docutils literal">iterations</tt>) -- number of overall conducted iterations</li>
+<li><tt class="rst-docutils literal">res[5]</tt> (<tt class="rst-docutils literal">xmean</tt>) -- mean of the final sample distribution</li>
+<li><tt class="rst-docutils literal">res[6]</tt> (<tt class="rst-docutils literal">stds</tt>) -- effective stds of the final sample distribution</li>
+<li><tt class="rst-docutils literal"><span class="pre">res[-3]</span></tt> (<tt class="rst-docutils literal">stop</tt>) -- termination condition(s) in a dictionary</li>
+<li><tt class="rst-docutils literal"><span class="pre">res[-2]</span></tt> (<tt class="rst-docutils literal">cmaes</tt>) -- class <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance</li>
+<li><tt class="rst-docutils literal"><span class="pre">res[-1]</span></tt> (<tt class="rst-docutils literal">logger</tt>) -- class <a href="cma.logger.CMADataLogger.html"><code>CMADataLogger</code></a> instance</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>This function is an interface to the class <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>. The
+latter class should be used when full control over the iteration loop
+of the optimizer is desired.</p>
+</div>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<p>The following example calls <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> optimizing the Rosenbrock function
+in 10-D with initial solution 0.1 and initial step-size 0.5. The
+options are specified for the usage with the <a href="http://docs.python.org/library/doctest.html#doctest"><code>doctest</code></a> module.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># cma.CMAOptions()  # returns all possible options</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>options = {<span class="py-string">'CMA_diagonal'</span>:100, <span class="py-string">'seed'</span>:1234, <span class="py-string">'verb_time'</span>:0}
+<span class="py-prompt">&gt;&gt;&gt;</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.rosen, [0.1] * 10, 0.3, options)  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(5_w,10)-aCMA-ES (mu_w=3.2,w_1=45%) in dimension 10 (seed=1234...)</span>
+<span class="py-output">   Covariance matrix is diagonal for 100 iterations (1/ccov=26...</span>
+<span class="py-output">Iterat #Fevals   function value  axis ratio  sigma ...</span>
+<span class="py-output">    1     10 ...</span>
+<span class="py-output">termination on tolfun=1e-11 ...</span>
+<span class="py-output">final/bestever f-value = ...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert res[1] &lt; 1e-12  <span class="py-comment"># f-value of best found solution</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert res[2] &lt; 8000  <span class="py-comment"># evaluations</span></pre>
+<p>The above call is pretty much equivalent with the slightly more
+verbose call:</p>
+<pre class="rst-literal-block">
+res = cma.CMAEvolutionStrategy([0.1] * 10, 0.3,
+            options=options).optimize(cma.ff.rosen).result
+</pre>
+<p>where <code>optimize</code> returns a <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance. The
+following example calls <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> optimizing the Rastrigin function
+in 3-D with random initial solution in [-2,2], initial step-size 0.5
+and the BIPOP restart strategy (that progressively increases population).
+The options are specified for the usage with the <a href="http://docs.python.org/library/doctest.html#doctest"><code>doctest</code></a> module.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># cma.CMAOptions()  # returns all possible options</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>options = {<span class="py-string">'seed'</span>:12345, <span class="py-string">'verb_time'</span>:0, <span class="py-string">'ftarget'</span>: 1e-8}
+<span class="py-prompt">&gt;&gt;&gt;</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.rastrigin, <span class="py-keyword">lambda</span> : 2. * np.random.rand(3) - 1, 0.5,
+<span class="py-more">... </span>               options, restarts=9, bipop=<span class="py-builtin">True</span>)  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(3_w,7)-aCMA-ES (mu_w=2.3,w_1=58%) in dimension 3 (seed=12345...</span></pre>
+<p>In either case, the method:</p>
+<pre class="rst-literal-block">
+cma.plot();
+</pre>
+<p>(based on <code>matplotlib.pyplot</code>) produces a plot of the run and, if
+necessary:</p>
+<pre class="rst-literal-block">
+cma.s.figshow()
+</pre>
+<p>shows the plot in a window. Finally:</p>
+<pre class="rst-literal-block">
+cma.s.figsave('myfirstrun')  # figsave from matplotlib.pyplot
+</pre>
+<p>will save the figure in a png.</p>
+<p>We can use the gradient like</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.rosen, np.zeros(10), 0.1,
+<span class="py-more">... </span>            options = {<span class="py-string">'ftarget'</span>:1e-8,},
+<span class="py-more">... </span>            gradf=cma.ff.grad_rosen,
+<span class="py-more">... </span>        )  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(5_w,...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert cma.ff.rosen(res[0]) &lt; 1e-8
+<span class="py-prompt">&gt;&gt;&gt; </span>assert res[2] &lt; 3600  <span class="py-comment"># 1% are &gt; 3300</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert res[3] &lt; 3600  <span class="py-comment"># 1% are &gt; 3300</span></pre>
+<p>If solution can only be comparatively ranked, either use
+<a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> directly or the objective accepts a list
+of solutions as input:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">parallel_sphere</span>(X): return [cma.ff.sphere(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X]
+<span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.fmin2(<span class="py-builtin">None</span>, 3 * [0], 0.1, {<span class="py-string">'verbose'</span>: -9},
+<span class="py-more">... </span>                  parallel_objective=parallel_sphere)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result[1] &lt; 1e-9</pre>
+</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>, <a href="cma.interfaces.OOOptimizer.html#optimize"><code>OOOptimizer.optimize</code></a>, <a href="cma.logger.html#plot"><code>plot</code></a>,
+<a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <code>scipy.optimize.fmin</code></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.evolution_strategy.no_constraints">
+    
+  </a>
+  <a name="no_constraints">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    no_constraints(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.evolution_strategy.fmin_con">
+    
+  </a>
+  <a name="fmin_con">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    fmin_con(objective_function, x0, sigma0, g=no_constraints, h=no_constraints, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>optimize f with constraints g (inequalities) and h (equalities).</p>
+<p>Construct an Augmented Lagrangian instance <tt class="rst-docutils literal">f_aug_lag</tt> of class
+<a href="cma.constraints_handler.AugmentedLagrangian.html"><code>cma.constraints_handler.AugmentedLagrangian</code></a> from f and g and h and
+<tt class="rst-docutils literal">return cma.fmin2(f_aug_lag, x0, sigma0, **kwargs)</tt>.</p>
+<p>See <a href="cma.evolution_strategy.html#fmin"><code>cma.fmin</code></a> for further parameters.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.evolution_strategy.fmin_con(
+<span class="py-more">... </span>            cma.ff.sphere, 3 * [0], 1, h=<span class="py-keyword">lambda</span> x: [x[0]**2 - 1],
+<span class="py-more">... </span>            options={<span class="py-string">'termination_callback'</span>: <span class="py-keyword">lambda</span> es: -1e-5 &lt; es.mean[0]**2 - 1 &lt; 1e-5,
+<span class="py-more">... </span>                     <span class="py-string">'verbose'</span>:-9})
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'callback'</span> <span class="py-keyword">in</span> es.stop()
+<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result.evaluations &lt; 1500  <span class="py-comment"># 10%-ish above 1000, 1%-ish above 1300</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert (<span class="py-builtin">sum</span>(es.mean**2) - 1)**2 &lt; 1e-9</pre>
+<p>Details: this is a versatile function subject to changes. It is possible to access
+the <a href="cma.constraints_handler.AugmentedLagrangian.html"><code>AugmentedLagrangian</code></a> instance like</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>al = es.objective_function_complements[0]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">isinstance</span>(al, cma.constraints_handler.AugmentedLagrangian)
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># al.logger.plot()  # plots the evolution of AL coefficients</span></pre><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

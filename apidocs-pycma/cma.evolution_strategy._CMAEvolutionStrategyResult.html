@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.evolution_strategy._CMAEvolutionStrategyResult : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class private"><code>cma.evolution_strategy._CMAEvolutionStrategyResult(<span title="tuple">tuple</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.evolution_strategy.html" data-type="Module" class="code">evolution_strategy</a></code>
+          
+          <a href="classIndex.html#cma.evolution_strategy._CMAEvolutionStrategyResult">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>A results tuple from <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> property <tt class="rst-docutils literal">result</tt>.</p>
+<p>This tuple contains in the given position</p>
+<ul class="rst-simple">
+<li>0 best solution evaluated, <tt class="rst-docutils literal">xbest</tt></li>
+<li>1 objective function value of best solution, <tt class="rst-docutils literal">f(xbest)</tt></li>
+<li>2 evaluation count when <tt class="rst-docutils literal">xbest</tt> was evaluated</li>
+<li>3 evaluations overall done</li>
+<li>4 iterations</li>
+<li>5 distribution mean in "phenotype" space, to be considered as
+current best estimate of the optimum</li>
+<li>6 effective standard deviations, give a lower bound on the expected
+coordinate-wise distance to the true optimum of (very) approximately
+std_i * dimension**0.5 / min(mueff, dimension) / 1.2 / 5
+~ std_i * dimension**0.5 / min(popsize / 0.4, dimension) / 5, where
+mueff = CMAEvolutionStrategy.sp.weights.mueff ~ 0.3 * popsize.</li>
+</ul>
+<p>The penalized best solution of the last completed iteration can be
+accessed via attribute <tt class="rst-docutils literal">pop_sorted[0]</tt> of <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>
+and the respective objective function value via <tt class="rst-docutils literal">fit.fit[0]</tt>.</p>
+<p>Details:</p>
+<ul class="rst-simple">
+<li>This class is of purely declarative nature and for providing this
+docstring. It does not provide any further functionality.</li>
+<li><tt class="rst-docutils literal"><span class="pre">list(fit.fit).find(0)</span></tt> is the index of the first sampled solution
+of the last completed iteration in <tt class="rst-docutils literal">pop_sorted</tt>.</li>
+</ul><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id369">
+  
+  <tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html#_generate" data-type="Static Method" class="code">_generate</a></td>
+    <td><span>return a results tuple of type <a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html"><code>CMAEvolutionStrategyResult</code></a>.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basestaticmethod private">
+  
+  <a name="cma.evolution_strategy._CMAEvolutionStrategyResult._generate">
+    
+  </a>
+  <a name="_generate">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    def
+    _generate(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return a results tuple of type <a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html"><code>CMAEvolutionStrategyResult</code></a>.</p>
+<p><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html#_generate"><code>_generate</code></a> is a surrogate for the <tt class="rst-docutils literal">__init__</tt> method, which
+cannot be used to initialize the immutable <a href="http://docs.python.org/library/stdtypes.html#tuple"><code>tuple</code></a> super class.</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

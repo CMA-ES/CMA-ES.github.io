@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.experimentation.CompactGA : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.experimentation.CompactGA(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.experimentation.html" data-type="Module" class="code">experimentation</a></code>
+          
+          <a href="classIndex.html#cma.experimentation.CompactGA">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Randomized search on the binary domain {0,1}^n.</p>
+<p>cGA samples two different solutions per iteration.</p>
+<p>Minimal example:</p>
+<pre class="rst-literal-block">
+dimension = 20
+opt = CompactGA(dimension * [0.5])  # initialise in domain middle
+while opt.best.f &gt; 0 and not opt.stop:
+    opt.iterate(sum)
+print("%d: fbest=%f" % (opt.evaluation, opt.best.f))
+</pre>
+<p>finds argmin_{x in {0, 1}**20} sum(x) in <tt class="rst-docutils literal">opt.result</tt>.</p>
+<p>Reference: Harik et al 1999.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id387">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.CompactGA.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>takes as input the initial vector of probabilities to sample 1 vs 0.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.CompactGA.html#iterate" data-type="Method" class="code">iterate</a></td>
+    <td><span>one iteration with <tt class="rst-docutils literal">f</tt> as fitness function to be minimized</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.CompactGA.html#stop" data-type="Method" class="code">stop</a></td>
+    <td><span>dictionary containing satisfied termination conditions</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.CompactGA.html#result" data-type="Method" class="code">result</a></td>
+    <td><span>for the time being <a href="cma.experimentation.CompactGA.html#result"><code>result</code></a> is the best seen solution</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.experimentation.CompactGA.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, mean_):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>takes as input the initial vector of probabilities to sample 1 vs 0.</p>
+<p>The vector length defines the dimension. Initial values of the
+probability vector, which is also the distribution mean, are
+usually chosen to be 0.5.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.CompactGA.iterate">
+    
+  </a>
+  <a name="iterate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    iterate(self, f):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>one iteration with <tt class="rst-docutils literal">f</tt> as fitness function to be minimized<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.CompactGA.stop">
+    
+  </a>
+  <a name="stop">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    stop(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>dictionary containing satisfied termination conditions<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.CompactGA.result">
+    
+  </a>
+  <a name="result">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    result(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>for the time being <a href="cma.experimentation.CompactGA.html#result"><code>result</code></a> is the best seen solution<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-17 12:18:17.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

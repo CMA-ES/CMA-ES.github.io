@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.fitness_transformations.Function : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.fitness_transformations.Function(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_transformations.html" data-type="Module" class="code">fitness_transformations</a></code>
+          
+          <a href="classIndex.html#cma.fitness_transformations.Function">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        <p>Known subclasses: <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">cma.fitness_transformations.ComposedFunction</a>, <a href="cma.fitness_transformations.Expensify.html" data-type="Class" class="code">cma.fitness_transformations.Expensify</a>, <a href="cma.fitness_transformations.GlueArguments.html" data-type="Class" class="code">cma.fitness_transformations.GlueArguments</a>, <a href="cma.fitness_transformations.NoisyFitness.html" data-type="Class" class="code">cma.fitness_transformations.NoisyFitness</a>, <a href="cma.fitness_transformations.SomeNaNFitness.html" data-type="Class" class="code">cma.fitness_transformations.SomeNaNFitness</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>a declarative base class, indicating that a derived class instance
+"is" a (fitness/objective) function.</p>
+<p>A <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a> passed to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a> is called as the fitness
+<a href="cma.fitness_transformations.Function.html"><code>Function</code></a>, otherwise the <code>_eval</code> method is called, if defined in the
+derived class, when the <a href="cma.fitness_transformations.Function.html"><code>Function</code></a> instance is called. If the input
+argument is a matrix or a list of vectors, the method is called for
+each vector individually like
+<tt class="rst-docutils literal">_eval(numpy.asarray(vector)) for vector in matrix</tt>.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.fitness_transformations <span class="py-keyword">import</span>  Function
+<span class="py-prompt">&gt;&gt;&gt; </span>f = Function(cma.ff.rosen)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f.evaluations == 0
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f([2, 3]) == cma.ff.rosen([2, 3])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f.evaluations == 1
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f([[1], [2]]) == [cma.ff.rosen([1]), cma.ff.rosen([2])]
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f.evaluations == 3
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">Fsphere</span>(Function):
+<span class="py-more">... </span>    <span class="py-keyword">def</span> <span class="py-defname">_eval</span>(self, x):
+<span class="py-more">... </span>        return <span class="py-builtin">sum</span>(x**2)
+<span class="py-prompt">&gt;&gt;&gt; </span>fsphere = Fsphere()
+<span class="py-prompt">&gt;&gt;&gt; </span>assert fsphere.evaluations == 0
+<span class="py-prompt">&gt;&gt;&gt; </span>assert fsphere([2, 3]) == 4 + 9 <span class="py-keyword">and</span> fsphere([[2], [3]]) == [4, 9]
+<span class="py-prompt">&gt;&gt;&gt; </span>assert fsphere.evaluations == 3
+<span class="py-prompt">&gt;&gt;&gt; </span>Fsphere.__init__ = <span class="py-keyword">lambda</span> self: <span class="py-builtin">None</span>  <span class="py-comment"># overwrites Function.__init__</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert Fsphere()([2]) == 4  <span class="py-comment"># which is perfectly fine to do</span></pre>
+<p>Details:</p>
+<ul class="rst-simple">
+<li>When called, a class instance calls either the function passed to
+<a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a> or, if none was given, tries to call any of the
+<a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found"><code>function_names_to_evaluate_first_found</code></a>, first come first serve.
+By default, <tt class="rst-docutils literal">function_names_to_evaluate_first_found == ["_eval"]</tt>.</li>
+<li>This class cannot move to module <a href="cma.fitness_functions.html"><code>fitness_functions</code></a>, because the
+latter uses <code>fitness_transformations.rotate</code>.</li>
+</ul><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id386">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found" data-type="Method" class="code">function_names_to_evaluate_first_found</a></td>
+    <td><span>attributes which are searched for to be called if no function was given to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>allows to define the fitness_function to be called, doesn't need to be ever called</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>initialization of <a href="cma.fitness_transformations.Function.html"><code>Function</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.fitness_transformations.Function.function_names_to_evaluate_first_found">
+    
+  </a>
+  <a name="function_names_to_evaluate_first_found">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    function_names_to_evaluate_first_found(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>attributes which are searched for to be called if no function
+was given to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a>.</p>
+<p>The first present match is used.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_transformations.Function.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, fitness_function=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">cma.fitness_transformations.ComposedFunction</a>, <a href="cma.fitness_transformations.Expensify.html" data-type="Class" class="code">cma.fitness_transformations.Expensify</a>, <a href="cma.fitness_transformations.GlueArguments.html" data-type="Class" class="code">cma.fitness_transformations.GlueArguments</a>, <a href="cma.fitness_transformations.NoisyFitness.html" data-type="Class" class="code">cma.fitness_transformations.NoisyFitness</a>, <a href="cma.fitness_transformations.SomeNaNFitness.html" data-type="Class" class="code">cma.fitness_transformations.SomeNaNFitness</a></div>
+    
+    <div>allows to define the fitness_function to be called, doesn't
+need to be ever called<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_transformations.Function.initialize">
+    
+  </a>
+  <a name="initialize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    initialize(self, fitness_function):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>initialization of <a href="cma.fitness_transformations.Function.html"><code>Function</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_transformations.Function.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">cma.fitness_transformations.ComposedFunction</a>, <a href="cma.fitness_transformations.Expensify.html" data-type="Class" class="code">cma.fitness_transformations.Expensify</a>, <a href="cma.fitness_transformations.GlueArguments.html" data-type="Class" class="code">cma.fitness_transformations.GlueArguments</a>, <a href="cma.fitness_transformations.NoisyFitness.html" data-type="Class" class="code">cma.fitness_transformations.NoisyFitness</a>, <a href="cma.fitness_transformations.SomeNaNFitness.html" data-type="Class" class="code">cma.fitness_transformations.SomeNaNFitness</a></div>
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

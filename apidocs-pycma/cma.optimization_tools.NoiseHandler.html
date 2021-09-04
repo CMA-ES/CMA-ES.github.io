@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.optimization_tools.NoiseHandler : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.optimization_tools.NoiseHandler(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.optimization_tools.html" data-type="Module" class="code">optimization_tools</a></code>
+          
+          <a href="classIndex.html#cma.optimization_tools.NoiseHandler">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Noise handling according to [Hansen et al 2009, A Method for
+Handling Uncertainty in Evolutionary Optimization...]</p>
+<p>The interface of this class is yet versatile and subject to changes.</p>
+<p>The noise handling follows closely [Hansen et al 2009] in the
+measurement part, but the implemented treatment is slightly
+different: for <tt class="rst-docutils literal">noiseS &gt; 0</tt>, <tt class="rst-docutils literal">evaluations</tt> (time) and sigma are
+increased by <tt class="rst-docutils literal">alpha</tt>. For <tt class="rst-docutils literal">noiseS &lt; 0</tt>, <tt class="rst-docutils literal">evaluations</tt> (time)
+is decreased by <tt class="rst-docutils literal"><span class="pre">alpha**(1/4)</span></tt>.</p>
+<p>The (second) parameter <tt class="rst-docutils literal">evaluations</tt> defines the maximal number
+of evaluations for a single fitness computation. If it is a list,
+the smallest element defines the minimal number and if the list has
+three elements, the median value is the start value for
+<tt class="rst-docutils literal">evaluations</tt>.</p>
+<p><a href="cma.optimization_tools.NoiseHandler.html"><code>NoiseHandler</code></a> serves to control the noise via steps-size
+increase and number of re-evaluations, for example via <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> or
+with <code>ask_and_eval</code>.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<p>Minimal example together with <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> on a non-noisy function:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.elli, 7 * [1], 1, noise_handler=cma.NoiseHandler(7))  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(4_w,9)-aCMA-ES (mu_w=2.8,...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert res[1] &lt; 1e-8
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.elli, 6 * [1], 1, {<span class="py-string">'AdaptSigma'</span>:cma.sigma_adaptation.CMAAdaptSigmaTPA},
+<span class="py-more">... </span>         noise_handler=cma.NoiseHandler(6))  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(4_w,...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert res[1] &lt; 1e-8</pre>
+<p>in dimension 7 (which needs to be given tice). More verbose example
+in the optimization loop with a noisy function defined in <tt class="rst-docutils literal">func</tt>:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma, numpy <span class="py-keyword">as</span> np
+<span class="py-prompt">&gt;&gt;&gt; </span>func = <span class="py-keyword">lambda</span> x: cma.ff.sphere(x) * (1 + 4 * np.random.randn() / <span class="py-builtin">len</span>(x))  <span class="py-comment"># cma.ff.noisysphere</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(np.ones(10), 1)  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(5_w,10)-aCMA-ES (mu_w=3.2,...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>nh = cma.NoiseHandler(es.N, maxevals=[1, 1, 30])
+<span class="py-prompt">&gt;&gt;&gt; </span>while <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>    X, fit_vals = es.ask_and_eval(func, evaluations=nh.evaluations)
+<span class="py-more">... </span>    es.tell(X, fit_vals)  <span class="py-comment"># prepare for next iteration</span>
+<span class="py-more">... </span>    es.sigma *= nh(X, fit_vals, func, es.ask)  <span class="py-comment"># see method __call__</span>
+<span class="py-more">... </span>    es.countevals += nh.evaluations_just_done  <span class="py-comment"># this is a hack, not important though</span>
+<span class="py-more">... </span>    es.logger.add(more_data = [nh.evaluations, nh.noiseS])  <span class="py-comment"># add a data point</span>
+<span class="py-more">... </span>    es.disp()
+<span class="py-more">... </span>    <span class="py-comment"># nh.maxevals = ...  it might be useful to start with smaller values and then increase</span>
+<span class="py-more">... </span>               <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">Iterat...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(es.stop())
+<span class="py-more">... </span>               <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">{...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(es.result[-2])  <span class="py-comment"># take mean value, the best solution is totally off</span>
+<span class="py-more">... </span>               <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">[...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">sum</span>(es.result[-2]**2) &lt; 1e-9
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(X[np.argmin(fit_vals)])  <span class="py-comment"># not bad, but probably worse than the mean</span>
+<span class="py-more">... </span>               <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">[...</span></pre>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># es.logger.plot()</span></pre>
+<p>The command <tt class="rst-docutils literal">logger.plot()</tt> will plot the logged data.</p>
+<p>The noise options of fmin` control a <a href="cma.optimization_tools.NoiseHandler.html"><code>NoiseHandler</code></a> instance
+similar to this example. The command <tt class="rst-docutils literal"><span class="pre">cma.CMAOptions('noise')</span></tt>
+lists in effect the parameters of <a href="cma.optimization_tools.NoiseHandler.html#__init__"><code>__init__</code></a> apart from
+<tt class="rst-docutils literal">aggregate</tt>.</p>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>The parameters reevals, theta, c_s, and alpha_t are set differently
+than in the original publication, see method <a href="cma.optimization_tools.NoiseHandler.html#__init__"><code>__init__</code></a>. For a
+very small population size, say popsize &lt;= 5, the measurement
+technique based on rank changes is likely to fail.</p>
+</div>
+<div class="rst-section" id="rst-missing-features">
+<h1 class="heading">Missing Features</h1>
+<p>In case no noise is found, <tt class="rst-docutils literal">self.lam_reeval</tt> should be adaptive
+and get at least as low as 1 (however the possible savings from this
+are rather limited). Another option might be to decide during the
+first call by a quantitative analysis of fitness values whether
+<tt class="rst-docutils literal">lam_reeval</tt> is set to zero. More generally, an automatic noise
+mode detection might also set the covariance matrix learning rates
+to smaller values.</p>
+</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval"><code>CMAEvolutionStrategy.ask_and_eval</code></a></td></tr></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id433">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.NoiseHandler.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>Parameters are:</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.NoiseHandler.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>proceed with noise measurement, set anew attributes <tt class="rst-docutils literal">evaluations</tt> (proposed number of evaluations to "treat" noise) and <tt class="rst-docutils literal">evaluations_just_done</tt> and return a factor for increasing sigma.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.NoiseHandler.html#treat" data-type="Method" class="code">treat</a></td>
+    <td><span>adapt self.evaluations depending on the current measurement value and return <tt class="rst-docutils literal">sigma_fac in (1.0, self.alphasigma)</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.NoiseHandler.html#reeval" data-type="Method" class="code">reeval</a></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.NoiseHandler.html#update_measure" data-type="Method" class="code">update_measure</a></td>
+    <td><span>updated noise level measure using two fitness lists <tt class="rst-docutils literal">self.fit</tt> and <tt class="rst-docutils literal">self.fitre</tt>, return <tt class="rst-docutils literal">self.noiseS, all_individual_measures</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.optimization_tools.NoiseHandler.html#indices" data-type="Method" class="code">indices</a></td>
+    <td><span>return the set of indices to be reevaluated for noise measurement.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.optimization_tools.NoiseHandler.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, N, maxevals=[1, 1, 1], aggregate=np.median, reevals=None, epsilon=1e-07, parallel=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Parameters are:</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">N</tt></dt>
+<dd>dimension, (only) necessary to adjust the internal
+"alpha"-parameters</dd>
+<dt><tt class="rst-docutils literal">maxevals</tt></dt>
+<dd>maximal value for <tt class="rst-docutils literal">self.evaluations</tt>, where
+<tt class="rst-docutils literal">self.evaluations</tt> function calls are aggregated for
+noise treatment. With <tt class="rst-docutils literal">maxevals == 0</tt> the noise
+handler is (temporarily) "switched off". If <code>maxevals</code>
+is a list, min value and (for &gt;2 elements) median are
+used to define minimal and initial value of
+<tt class="rst-docutils literal">self.evaluations</tt>. Choosing <tt class="rst-docutils literal">maxevals &gt; 1</tt> is only
+reasonable, if also the original <tt class="rst-docutils literal">fit</tt> values (that
+are passed to <a href="cma.optimization_tools.NoiseHandler.html#__call__"><code>__call__</code></a>) are computed by aggregation of
+<tt class="rst-docutils literal">self.evaluations</tt> values (otherwise the values are
+not comparable), as it is done within <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a>.</dd>
+<dt><tt class="rst-docutils literal">aggregate</tt></dt>
+<dd>function to aggregate single f-values to a 'fitness', e.g.
+<tt class="rst-docutils literal">np.median</tt>.</dd>
+<dt><tt class="rst-docutils literal">reevals</tt></dt>
+<dd>number of solutions to be reevaluated for noise
+measurement, can be a float, by default set to <tt class="rst-docutils literal">2 +
+popsize/20</tt>, where <tt class="rst-docutils literal">popsize = len(fit)</tt> in
+<tt class="rst-docutils literal">__call__</tt>. zero switches noise handling off.</dd>
+<dt><tt class="rst-docutils literal">epsilon</tt></dt>
+<dd>multiplier for perturbation of the reevaluated solutions</dd>
+<dt><tt class="rst-docutils literal">parallel</tt></dt>
+<dd>a single f-call with all resampled solutions</dd>
+</dl><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a>, <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval"><code>CMAEvolutionStrategy.ask_and_eval</code></a></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.optimization_tools.NoiseHandler.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, X, fit, func, ask=None, args=()):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>proceed with noise measurement, set anew attributes <tt class="rst-docutils literal">evaluations</tt>
+(proposed number of evaluations to "treat" noise) and <tt class="rst-docutils literal">evaluations_just_done</tt>
+and return a factor for increasing sigma.</p>
+<div class="rst-section" id="rst-parameters">
+<h1 class="heading">Parameters</h1>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">X</tt></dt>
+<dd>a list/sequence/vector of solutions</dd>
+<dt><tt class="rst-docutils literal">fit</tt></dt>
+<dd>the respective list of function values</dd>
+<dt><tt class="rst-docutils literal">func</tt></dt>
+<dd>the objective function, <tt class="rst-docutils literal">fit[i]</tt> corresponds to
+<tt class="rst-docutils literal">func(X[i], *args)</tt></dd>
+<dt><tt class="rst-docutils literal">ask</tt></dt>
+<dd>a method to generate a new, slightly disturbed solution. The
+argument is (only) mandatory if <tt class="rst-docutils literal">epsilon</tt> is not zero, see
+<a href="cma.optimization_tools.NoiseHandler.html#__init__"><code>__init__</code></a>.</dd>
+<dt><tt class="rst-docutils literal">args</tt></dt>
+<dd>optional additional arguments to <tt class="rst-docutils literal">func</tt></dd>
+</dl>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>Calls the methods <a href="cma.optimization_tools.NoiseHandler.html#reeval"><code>reeval</code></a>, <a href="cma.optimization_tools.NoiseHandler.html#update_measure"><code>update_measure</code></a> and <tt class="rst-docutils literal">treat` in
+this order. ``self.evaluations</tt> is adapted within the method
+<a href="cma.optimization_tools.NoiseHandler.html#treat"><code>treat</code></a>.</p>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.optimization_tools.NoiseHandler.treat">
+    
+  </a>
+  <a name="treat">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    treat(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>adapt self.evaluations depending on the current measurement
+value and return <tt class="rst-docutils literal">sigma_fac in (1.0, self.alphasigma)</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.optimization_tools.NoiseHandler.reeval">
+    
+  </a>
+  <a name="reeval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    reeval(self, X, fit, func, ask, args=()):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>store two fitness lists, <code>fit</code> and <tt class="rst-docutils literal">fitre</tt> reevaluating some
+solutions in <code>X</code>.
+<tt class="rst-docutils literal">self.evaluations</tt> evaluations are done for each reevaluated
+fitness value.
+See <a href="cma.optimization_tools.NoiseHandler.html#__call__"><code>__call__</code></a>, where <a href="cma.optimization_tools.NoiseHandler.html#reeval"><code>reeval</code></a> is called.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.optimization_tools.NoiseHandler.update_measure">
+    
+  </a>
+  <a name="update_measure">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update_measure(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>updated noise level measure using two fitness lists <tt class="rst-docutils literal">self.fit</tt> and
+<tt class="rst-docutils literal">self.fitre</tt>, return <tt class="rst-docutils literal">self.noiseS, all_individual_measures</tt>.</p>
+<p>Assumes that <tt class="rst-docutils literal">self.idx</tt> contains the indices where the fitness
+lists differ.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.optimization_tools.NoiseHandler.indices">
+    
+  </a>
+  <a name="indices">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    indices(self, fit):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return the set of indices to be reevaluated for noise
+measurement.</p>
+<p>Given the first values are the earliest, this is a useful policy
+also with a time changing objective.</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

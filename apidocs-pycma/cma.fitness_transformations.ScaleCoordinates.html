@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.fitness_transformations.ScaleCoordinates : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.fitness_transformations.ScaleCoordinates(<a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_transformations.html" data-type="Module" class="code">fitness_transformations</a></code>
+          
+          <a href="classIndex.html#cma.fitness_transformations.ScaleCoordinates">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>compose a (fitness) function with a scaling for each variable
+(more concisely, a coordinate-wise affine transformation).</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>f = cma.ScaleCoordinates(cma.ff.sphere, [100, 1])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f[0] == cma.ff.sphere  <span class="py-comment"># first element of f-composition</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f(<span class="py-builtin">range</span>(1, 6)) == 100**2 + <span class="py-builtin">sum</span>([x**2 <span class="py-keyword">for</span> x <span class="py-keyword">in</span> <span class="py-builtin">range</span>(2, 6)])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f([2.1]) == 210**2 == f(2.1)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f(20 * [1]) == 100**2 + 19
+<span class="py-prompt">&gt;&gt;&gt; </span>assert np.all(f.inverse(f.scale_and_offset([1, 2, 3, 4])) ==
+<span class="py-more">... </span>              np.asarray([1, 2, 3, 4]))
+<span class="py-prompt">&gt;&gt;&gt; </span>f = cma.ScaleCoordinates(f, [-2, 7], [2, 3, 4]) <span class="py-comment"># last is recycled</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>f([5, 6]) == <span class="py-builtin">sum</span>(x**2 <span class="py-keyword">for</span> x <span class="py-keyword">in</span> [100 * -2 * (5 - 2), 7 * (6 - 3)])
+<span class="py-output">True</span></pre><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id400">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.ScaleCoordinates.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.ScaleCoordinates.html#scale_and_offset" data-type="Method" class="code">scale_and_offset</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.ScaleCoordinates.html#inverse" data-type="Method" class="code">inverse</a></td>
+    <td><span>inverse of coordinate-wise affine transformation <tt class="rst-docutils literal">y / multipliers + zero</tt></span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a>:
+          </p>
+          <table class="children sortable" id="id401">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.ComposedFunction.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.fitness_transformations.Function.html" data-type="Class" class="code">Function</a> (via <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a>):
+          </p>
+          <table class="children sortable" id="id402">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found" data-type="Method" class="code">function_names_to_evaluate_first_found</a></td>
+    <td><span>attributes which are searched for to be called if no function was given to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a>.</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>initialization of <a href="cma.fitness_transformations.Function.html"><code>Function</code></a></span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.fitness_transformations.ScaleCoordinates.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, fitness_function, multipliers=None, zero=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.fitness_transformations.ComposedFunction.html#__init__" data-type="Method" class="code">cma.fitness_transformations.ComposedFunction.__init__</a></div>
+    
+    <div>For both arguments, <tt class="rst-docutils literal">multipliers</tt> and <tt class="rst-docutils literal">zero</tt>, to fit in
+case the length of the given input, superfluous trailing
+elements are ignored or the last element is recycled.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">fitness_function</td><td>a <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a> object</td></tr><tr><td></td><td class="fieldArg">multipliers</td><td>coordinate-wise multipliers.</td></tr><tr><td></td><td class="fieldArg">zero</td><td>defines a new zero in preimage space, that is,
+calling the <a href="cma.fitness_transformations.ScaleCoordinates.html"><code>ScaleCoordinates</code></a> instance returns
+<tt class="rst-docutils literal">fitness_function(multipliers * (x - zero))</tt>.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_transformations.ScaleCoordinates.scale_and_offset">
+    
+  </a>
+  <a name="scale_and_offset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    scale_and_offset(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_transformations.ScaleCoordinates.inverse">
+    
+  </a>
+  <a name="inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    inverse(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.fitness_transformations.ComposedFunction.html#inverse" data-type="Method" class="code">cma.fitness_transformations.ComposedFunction.inverse</a></div>
+    
+    <div>inverse of coordinate-wise affine transformation
+<tt class="rst-docutils literal">y / multipliers + zero</tt><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

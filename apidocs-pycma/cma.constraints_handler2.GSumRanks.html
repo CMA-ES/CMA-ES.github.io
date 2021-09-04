@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.constraints_handler2.GSumRanks : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.constraints_handler2.GSumRanks</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.constraints_handler2.html" data-type="Module" class="code">constraints_handler2</a></code>
+          
+          <a href="classIndex.html#cma.constraints_handler2.GSumRanks">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Compute a rank-based penalty from constraints functions.</p>
+<p>The penalty for feasible solutions is zero. The penalty for the i-th best
+infeasible solution is in ]i-1, i[.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id371">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler2.GSumRanks.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>g_vec is a list or tuple of functions</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler2.GSumRanks.html#distance" data-type="Method" class="code">distance</a></td>
+    <td><span>G-space distance to feasibility of g-values vector G</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler2.GSumRanks.html#distances" data-type="Method" class="code">distances</a></td>
+    <td><span>depends on g-values of last call</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler2.GSumRanks.html#g_transform" data-type="Method" class="code">g_transform</a></td>
+    <td><span>maps g in [0, inf] to [0, 1/2]</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler2.GSumRanks.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>return weighted ranksum plus tanh(sum g+) / 2 for each x in X.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.constraints_handler2.GSumRanks.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, g_vec, increment=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>g_vec is a list or tuple of functions<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler2.GSumRanks.distance">
+    
+  </a>
+  <a name="distance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    distance(self, G, normtype=1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>G-space distance to feasibility of g-values vector G<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler2.GSumRanks.distances">
+    
+  </a>
+  <a name="distances">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    distances(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>depends on g-values of last call<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler2.GSumRanks.g_transform">
+    
+  </a>
+  <a name="g_transform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    g_transform(self, g):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>maps g in [0, inf] to [0, 1/2]<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler2.GSumRanks.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, X):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return weighted ranksum plus tanh(sum g+) / 2 for each x in X.</p>
+<p>TODO: The penalty of the best infeasible solution is in ]0,1[.
+This may not be desired and somewhat counteracts the weight adaptation.
+Which weight adaptation?</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-17 12:18:17.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.__init__ : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.__init__</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Package <a href="cma.html"><code>cma</code></a> implements the CMA-ES (Covariance Matrix Adaptation
+Evolution Strategy).</p>
+<p>CMA-ES is a stochastic optimizer for robust non-linear non-convex
+derivative- and function-value-free numerical optimization.</p>
+<p>This implementation can be used with Python versions &gt;= 2.7, namely,
+it was tested with 2.7, 3.5, 3.6, 3.7, 3.8.</p>
+<p>CMA-ES searches for a minimizer (a solution x in <span class="rst-formula"><i>R</i><sup><i>n</i></sup></span>) of an
+objective function f (cost function), such that f(x) is minimal.
+Regarding f, only a passably reliable ranking of the candidate
+solutions in each iteration is necessary. Neither the function values
+itself, nor the gradient of f need to be available or do matter (like
+in the downhill simplex Nelder-Mead algorithm). Some termination
+criteria however depend on actual f-values.</p>
+<p>The <a href="cma.html"><code>cma</code></a> module provides two independent implementations of the
+CMA-ES algorithm in the classes <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>cma.CMAEvolutionStrategy</code></a> and
+<a href="cma.purecma.CMAES.html"><code>cma.purecma.CMAES</code></a>.</p>
+<p>In each implementation two interfaces are provided:</p>
+<ul class="rst-simple">
+<li><dl class="rst-first rst-docutils">
+<dt>functions <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> and <a href="cma.purecma.html#fmin"><code>purecma.fmin</code></a>:</dt>
+<dd>run a complete minimization of the passed objective function with
+CMA-ES. <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> also provides optional restarts and noise handling.</dd>
+</dl>
+</li>
+<li><dl class="rst-first rst-docutils">
+<dt>class <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> and <a href="cma.purecma.CMAES.html"><code>purecma.CMAES</code></a>:</dt>
+<dd>allow for minimization such that the control of the iteration
+loop remains with the user.</dd>
+</dl>
+</li>
+</ul>
+<p>The <a href="cma.html"><code>cma</code></a> package root provides shortcuts to these and other classes and
+functions.</p>
+<p>Used external packages are <code>numpy</code> (only <a href="cma.purecma.html"><code>purecma</code></a> does not depend on
+<code>numpy</code>) and <code>matplotlib.pyplot</code> (for <a href="cma.logger.html#plot"><code>plot</code></a> etc., optional but highly
+recommended).</p>
+<div class="rst-section" id="rst-install">
+<h1 class="heading">Install</h1>
+<p>To use the module, the folder <tt class="rst-docutils literal">cma</tt> only needs to be visible in the
+python path, e.g. in the current working directory.</p>
+<p>To install the module from pipy, type:</p>
+<pre class="rst-literal-block">
+pip install cma
+</pre>
+<p>from the command line.</p>
+<p>To install the module from a <tt class="rst-docutils literal">cma</tt> folder:</p>
+<pre class="rst-literal-block">
+pip install -e cma
+</pre>
+<p>To upgrade the currently installed version use additionally the <tt class="rst-docutils literal"><span class="pre">-U</span></tt>
+option.</p>
+</div>
+<div class="rst-section" id="rst-testing">
+<h1 class="heading">Testing</h1>
+<p>From the system shell:</p>
+<pre class="rst-literal-block">
+python -m cma.test -h
+python -m cma.test
+python -c "import cma.test; cma.test.main()"  # the same
+</pre>
+<p>or from any (i)python shell:</p>
+<pre class="rst-literal-block">
+import cma.test
+cma.test.main()
+</pre>
+<p>should run without complaints in about between 20 and 100 seconds.</p>
+</div>
+<div class="rst-section" id="rst-example">
+<h1 class="heading">Example</h1>
+<p>From a python shell:</p>
+<pre class="rst-literal-block">
+import cma
+help(cma)  # "this" help message, use cma? in ipython
+help(cma.fmin)
+help(cma.CMAEvolutionStrategy)
+help(cma.CMAOptions)
+cma.CMAOptions('tol')  # display 'tolerance' termination options
+cma.CMAOptions('verb') # display verbosity options
+res = cma.fmin(cma.ff.tablet, 15 * [1], 1)
+es = cma.CMAEvolutionStrategy(15 * [1], 1).optimize(cma.ff.tablet)
+help(es.result)
+res[0], es.result[0]  # best evaluated solution
+res[5], es.result[5]  # mean solution, presumably better with noise
+</pre>
+</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Authors</td><td colspan="2">Nikolaus Hansen, 2008-</td></tr><tr><td></td><td colspan="2">Petr Baudis, 2014</td></tr><tr><td></td><td colspan="2">Youhei Akimoto, 2017-</td></tr><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> (), <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a></td></tr><tr class="fieldStart"><td class="fieldName">Unknown Field: license</td><td colspan="2">BSD 3-Clause, see LICENSE file.</td></tr></table></div>
+      </div>
+
+      <div id="splitTables">
+        
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

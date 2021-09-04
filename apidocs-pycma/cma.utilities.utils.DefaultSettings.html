@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.utilities.utils.DefaultSettings : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.utilities.utils.DefaultSettings(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.utilities.html" data-type="Package" class="code">utilities</a>.<a href="cma.utilities.utils.html" data-type="Module" class="code">utils</a></code>
+          
+          <a href="classIndex.html#cma.utilities.utils.DefaultSettings">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        <p>Known subclasses: <a href="cma.fitness_models.LQModelSettings.html" data-type="Class" class="code">cma.fitness_models.LQModelSettings</a>, <a href="cma.fitness_models.ModelInjectionCallbackSettings.html" data-type="Class" class="code">cma.fitness_models.ModelInjectionCallbackSettings</a>, <a href="cma.fitness_models.SurrogatePopulationSettings.html" data-type="Class" class="code">cma.fitness_models.SurrogatePopulationSettings</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>resembling somewhat <a href="http://docs.python.org/library/types.html#types.SimpleNamespace"><code>types.SimpleNamespace</code></a> from Python &gt;=3.3
+but with instantiation and resembling even more the <code>dataclass</code> decorator
+from Python &gt;=3.7.</p>
+<p><tt class="rst-docutils literal">MyClassSettings(DefaultSettings)</tt> is preferably used by assigning a settings
+attribute in <tt class="rst-docutils literal">__init__</tt> like:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">MyClass</span>:
+<span class="py-more">... </span>    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, a, b=<span class="py-builtin">None</span>, param1=<span class="py-builtin">None</span>, c=3):
+<span class="py-more">... </span>        self.settings = MyClassSettings(<span class="py-builtin">locals</span>(), 1, self)</pre>
+<p>The <code>1</code> signals, purely for consistency checking, that one parameter defined
+in <tt class="rst-docutils literal">MyClassSettings</tt> is to be set from <tt class="rst-docutils literal">locals()</tt>. <tt class="rst-docutils literal">MyClassSettings</tt>
+doesn't use any names which are already defined in <tt class="rst-docutils literal">self.__dict__</tt>. The
+settings are defined in a derived parameter class like</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.fitness_models <span class="py-keyword">import</span> DefaultSettings
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">MyClassSettings</span>(DefaultSettings):
+<span class="py-more">... </span>    param1 = 123
+<span class="py-more">... </span>    val2 = <span class="py-builtin">False</span>
+<span class="py-more">... </span>    another_par = <span class="py-builtin">None</span>  <span class="py-comment"># we need to assign at least None always</span></pre>
+<p>The main purpose is, with the least effort, (i) to separate
+parameters/settings of a class from its remaining attributes, and (ii) to be
+flexible as to which of these parameters are arguments to <tt class="rst-docutils literal">__init__</tt>.
+Parameters can always be modified after instantiation. Further advantages
+are (a) no typing of <tt class="rst-docutils literal">self.</tt> to assign the default value or the passed
+parameter value (the latter are assigned "automatically") and (b) no
+confusing name change between the passed option and attribute name is
+possible.</p>
+<p>The class does not allow to overwrite the default value with <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>.</p>
+<p>Now any of these parameters can be used or re-assigned like</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>c = MyClass(0.1)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.settings.param1 == 123
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c = MyClass(2, param1=<span class="py-builtin">False</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.settings.param1 <span class="py-keyword">is</span> <span class="py-builtin">False</span>
+<span class="py-output">True</span></pre><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id504">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.DefaultSettings.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>Overwrite default settings in case.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.DefaultSettings.html#__str__" data-type="Method" class="code">__str__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.DefaultSettings.html#_set_from_defaults" data-type="Method" class="code">_set_from_defaults</a></td>
+    <td><span>defaults are taken from the class attributes</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.DefaultSettings.html#_set_from_input" data-type="Method" class="code">_set_from_input</a></td>
+    <td><span>Only existing parameters/attributes and non-None values are set.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.utilities.utils.DefaultSettings.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, params, number_of_params, obj):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Overwrite default settings in case.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">params</td><td>A dictionary (usually locals()) containing the parameters to set/overwrite</td></tr><tr><td></td><td class="fieldArg">number_of_params</td><td>Number of parameters to set/overwrite</td></tr><tr><td></td><td class="fieldArg">obj</td><td>elements of obj.__dict__ are in the ignore list.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.DefaultSettings.__str__">
+    
+  </a>
+  <a name="__str__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __str__(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.utilities.utils.DefaultSettings._set_from_defaults">
+    
+  </a>
+  <a name="_set_from_defaults">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _set_from_defaults(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>defaults are taken from the class attributes<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.utilities.utils.DefaultSettings._set_from_input">
+    
+  </a>
+  <a name="_set_from_input">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _set_from_input(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Only existing parameters/attributes and non-None values are set.</p>
+<p>The number of parameters is cross-checked.</p>
+<p>Remark: we could select only the last arguments
+of obj.__init__.__func__.__code__.co_varnames
+which have defaults obj.__init__.__func__.__defaults__ (we do
+not need the defaults)</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

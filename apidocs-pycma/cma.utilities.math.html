@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.utilities.math : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.utilities.math</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.utilities.html" data-type="Package" class="code">utilities</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div>various math utilities, notably <a href="cma.utilities.math.html#eig"><code>eig</code></a> and a collection of simple
+functions in <a href="cma.utilities.math.MathHelperFunctions.html"><code>Mh</code></a><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id491">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.math.html#randhss" data-type="Function" class="code">randhss</a></td>
+    <td><span><code>n</code> iid <code>dim</code>-dimensional vectors with length <tt class="rst-docutils literal">norm_(vector)</tt>.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.math.html#randhss_mixin" data-type="Function" class="code">randhss_mixin</a></td>
+    <td><span><code>n</code> iid vectors uniformly distributed on the hypersphere surface with mixing in of normal distribution, which can be beneficial in smaller dimension.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.math.html#to_correlation_matrix" data-type="Function" class="code">to_correlation_matrix</a></td>
+    <td><span>change C in place into a correlation matrix, AKA whitening</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.math.html#eig" data-type="Function" class="code">eig</a></td>
+    <td><span>eigendecomposition of a symmetric matrix, much slower than <code>numpy.linalg.eigh</code>, return <tt class="rst-docutils literal">(EVals, Basis)</tt>, the eigenvalues and an orthonormal basis of the corresponding eigenvectors, where</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.math.MathHelperFunctions.html" data-type="Class" class="code">MathHelperFunctions</a></td>
+    <td><span>static convenience math helper functions, if the function name is preceded with an "a", a numpy array is returned</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.math.html#_sqrt_len" data-type="Function" class="code">_sqrt_len</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction private">
+  
+  <a name="cma.utilities.math._sqrt_len">
+    
+  </a>
+  <a name="_sqrt_len">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _sqrt_len(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.math.randhss">
+    
+  </a>
+  <a name="randhss">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    randhss(n, dim, norm_=_sqrt_len, randn=np.random.randn):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p><code>n</code> iid <code>dim</code>-dimensional vectors with length <tt class="rst-docutils literal">norm_(vector)</tt>.</p>
+<p>The vectors are uniformly distributed on a hypersphere surface.</p>
+<p>CMA-ES diverges with popsize 100 in 15-D without option
+'CSA_clip_length_value': [0,0].</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.math <span class="py-keyword">import</span> randhss
+<span class="py-prompt">&gt;&gt;&gt; </span>dim = 3
+<span class="py-prompt">&gt;&gt;&gt; </span>assert dim - 1e-7 &lt; <span class="py-builtin">sum</span>(randhss(1, dim)[0]**2) &lt; dim + 1e-7</pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.math.randhss_mixin">
+    
+  </a>
+  <a name="randhss_mixin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    randhss_mixin(n, dim, norm_=_sqrt_len, c=lambda d: 1.0d, randn=np.random.randn):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><code>n</code> iid vectors uniformly distributed on the hypersphere surface with
+mixing in of normal distribution, which can be beneficial in smaller
+dimension.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.math.to_correlation_matrix">
+    
+  </a>
+  <a name="to_correlation_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    to_correlation_matrix(c):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>change C in place into a correlation matrix, AKA whitening<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.math.eig">
+    
+  </a>
+  <a name="eig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    eig(C):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>eigendecomposition of a symmetric matrix, much slower than
+<code>numpy.linalg.eigh</code>, return <tt class="rst-docutils literal">(EVals, Basis)</tt>, the eigenvalues
+and an orthonormal basis of the corresponding eigenvectors, where</p>
+<blockquote>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">Basis[i]</tt></dt>
+<dd>the i-th row of <tt class="rst-docutils literal">Basis</tt></dd>
+<dt>columns of <tt class="rst-docutils literal">Basis</tt>, <tt class="rst-docutils literal"><span class="pre">[Basis[j][i]</span> for j in <span class="pre">range(len(Basis))]</span></tt></dt>
+<dd>the i-th eigenvector with eigenvalue <tt class="rst-docutils literal">EVals[i]</tt></dd>
+</dl>
+</blockquote><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

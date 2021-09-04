@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.purecma.DecomposingMatrix : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.purecma.DecomposingMatrix(<a href="cma.purecma.SquareMatrix.html" data-type="Class" class="code">SquareMatrix</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.purecma.html" data-type="Module" class="code">purecma</a></code>
+          
+          <a href="classIndex.html#cma.purecma.DecomposingMatrix">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Symmetric matrix maintaining its own eigendecomposition.</p>
+<p>If <tt class="rst-docutils literal">isinstance(C, DecomposingMatrix)</tt>, the eigendecomposion is the
+return values of <a href="cma.purecma.html#eig"><code>eig</code></a> and stored in the attributes <code>eigenbasis</code> and
+<code>eigenvalues</code> such that the i-th eigenvector is:</p>
+<pre class="rst-literal-block">
+[row[i] for row in C.eigenbasis]  # or equivalently
+[C.eigenbasis[j][i] for j in range(len(C.eigenbasis))]
+</pre>
+<p>with eigenvalue <tt class="rst-docutils literal">C.eigenvalues[i]</tt> and hence:</p>
+<pre class="rst-literal-block">
+C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
+</pre><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id71">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.DecomposingMatrix.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>initialize with identity matrix</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.DecomposingMatrix.html#update_eigensystem" data-type="Method" class="code">update_eigensystem</a></td>
+    <td><span>Execute eigendecomposition of <code>self</code> if <tt class="rst-docutils literal">current_eval &gt; lazy_gap_evals + last_updated_eval</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.DecomposingMatrix.html#enforce_symmetry" data-type="Method" class="code">enforce_symmetry</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.purecma.SquareMatrix.html" data-type="Class" class="code">SquareMatrix</a>:
+          </p>
+          <table class="children sortable" id="id72">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.SquareMatrix.html#multiply_with" data-type="Method" class="code">multiply_with</a></td>
+    <td><span>multiply matrix in place with <code>factor</code></span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.SquareMatrix.html#addouter" data-type="Method" class="code">addouter</a></td>
+    <td><span>Add in place <code>factor</code> times outer product of vector <code>b</code>,</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.SquareMatrix.html#diag" data-type="Method" class="code">diag</a></td>
+    <td><span>diagonal of the matrix as a copy (save to change)</span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.purecma.DecomposingMatrix.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, dimension):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.purecma.SquareMatrix.html#__init__" data-type="Method" class="code">cma.purecma.SquareMatrix.__init__</a></div>
+    
+    <div>initialize with identity matrix<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.purecma.DecomposingMatrix.update_eigensystem">
+    
+  </a>
+  <a name="update_eigensystem">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update_eigensystem(self, current_eval, lazy_gap_evals):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Execute eigendecomposition of <code>self</code> if
+<tt class="rst-docutils literal">current_eval &gt; lazy_gap_evals + last_updated_eval</tt>.</p>
+<p>Assumes (for sake of simplicity) that <code>self</code> is positive
+definite and hence raises a <a href="http://docs.python.org/library/exceptions.html#exceptions.RuntimeError"><code>RuntimeError</code></a> otherwise.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.purecma.DecomposingMatrix.enforce_symmetry">
+    
+  </a>
+  <a name="enforce_symmetry">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    enforce_symmetry(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2017-09-06 13:44:00.
+      </address>
+
+    </div>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

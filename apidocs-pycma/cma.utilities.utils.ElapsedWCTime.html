@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.utilities.utils.ElapsedWCTime : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.utilities.utils.ElapsedWCTime(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.utilities.html" data-type="Package" class="code">utilities</a>.<a href="cma.utilities.utils.html" data-type="Module" class="code">utils</a></code>
+          
+          <a href="classIndex.html#cma.utilities.utils.ElapsedWCTime">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>measure elapsed cumulative time while not paused and elapsed time
+since last tic.</p>
+<p>Use attribute <a href="cma.utilities.utils.ElapsedWCTime.html#tic"><code>tic</code></a> and methods <a href="cma.utilities.utils.ElapsedWCTime.html#pause"><code>pause</code></a> () and <a href="cma.utilities.utils.ElapsedWCTime.html#reset"><code>reset</code></a> ()
+to control the timer. Use attributes <a href="cma.utilities.utils.ElapsedWCTime.html#toc"><code>toc</code></a> and <a href="cma.utilities.utils.ElapsedWCTime.html#elapsed"><code>elapsed</code></a> to see
+timing results.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>e = cma.utilities.utils.ElapsedWCTime().pause()  <span class="py-comment"># (re)start later</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert e.paused <span class="py-keyword">and</span> e.elapsed == e.toc &lt; 0.1
+<span class="py-prompt">&gt;&gt;&gt; </span>assert e.toc == e.tic &lt; 0.1  <span class="py-comment"># timer starts here</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert e.toc &lt;= e.tic  <span class="py-comment"># toc is usually a few microseconds smaller</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-keyword">not</span> e.paused    <span class="py-comment"># the timer is now running due to tic</span></pre>
+<p>Details: the attribute <tt class="rst-docutils literal">paused</tt> equals to the time [s] when paused or
+to zero when the timer is running.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id500">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.ElapsedWCTime.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>add time offset in seconds and start timing</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.ElapsedWCTime.html#reset" data-type="Method" class="code">reset</a></td>
+    <td><span>reset to initial state and start timing</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.ElapsedWCTime.html#pause" data-type="Method" class="code">pause</a></td>
+    <td><span>pause timer, resume with <a href="cma.utilities.utils.ElapsedWCTime.html#tic"><code>tic</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.ElapsedWCTime.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>depreciated return elapsed time (for backwards compatibility)</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.ElapsedWCTime.html#tic" data-type="Method" class="code">tic</a></td>
+    <td><span>return <a href="cma.utilities.utils.ElapsedWCTime.html#toc"><code>toc</code></a> and restart tic/toc last-round-timer.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.ElapsedWCTime.html#elapsed" data-type="Method" class="code">elapsed</a></td>
+    <td><span>elapsed time while not paused, measured since creation or last <a href="cma.utilities.utils.ElapsedWCTime.html#reset"><code>reset</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.ElapsedWCTime.html#toc" data-type="Method" class="code">toc</a></td>
+    <td><span>return elapsed time since last <a href="cma.utilities.utils.ElapsedWCTime.html#tic"><code>tic</code></a></span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.utilities.utils.ElapsedWCTime.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, time_offset=0):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>add time offset in seconds and start timing<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.ElapsedWCTime.reset">
+    
+  </a>
+  <a name="reset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    reset(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>reset to initial state and start timing<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.ElapsedWCTime.pause">
+    
+  </a>
+  <a name="pause">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    pause(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>pause timer, resume with <a href="cma.utilities.utils.ElapsedWCTime.html#tic"><code>tic</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.ElapsedWCTime.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>depreciated return elapsed time (for backwards compatibility)<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.ElapsedWCTime.tic">
+    
+  </a>
+  <a name="tic">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    tic(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return <a href="cma.utilities.utils.ElapsedWCTime.html#toc"><code>toc</code></a> and restart tic/toc last-round-timer.</p>
+<p>In case, also resume from <a href="cma.utilities.utils.ElapsedWCTime.html#pause"><code>pause</code></a>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.ElapsedWCTime.elapsed">
+    
+  </a>
+  <a name="elapsed">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    elapsed(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>elapsed time while not paused, measured since creation or last
+<a href="cma.utilities.utils.ElapsedWCTime.html#reset"><code>reset</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.ElapsedWCTime.toc">
+    
+  </a>
+  <a name="toc">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    toc(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return elapsed time since last <a href="cma.utilities.utils.ElapsedWCTime.html#tic"><code>tic</code></a><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

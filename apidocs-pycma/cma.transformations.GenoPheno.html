@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.transformations.GenoPheno : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.transformations.GenoPheno(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.transformations.html" data-type="Module" class="code">transformations</a></code>
+          
+          <a href="classIndex.html#cma.transformations.GenoPheno">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Genotype-phenotype transformation.</p>
+<p>Method <a href="cma.transformations.GenoPheno.html#pheno"><code>pheno</code></a> provides the transformation from geno- to phenotype,
+that is from the internal representation to the representation used
+in the objective function. Method <a href="cma.transformations.GenoPheno.html#geno"><code>geno</code></a> provides the "inverse" pheno-
+to genotype transformation. The geno-phenotype transformation comprises,
+in this order:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>insert fixed variables (with the phenotypic values)</li>
+<li>affine linear transformation (first scaling then shift)</li>
+<li>user-defined transformation</li>
+<li>repair (e.g. into feasible domain due to boundaries)</li>
+<li>re-assign fixed variables their original phenotypic value</li>
+</ul>
+</blockquote>
+<p>By default all transformations are the identity. The repair is only
+applied, if the transformation is given as argument to the method
+<a href="cma.transformations.GenoPheno.html#pheno"><code>pheno</code></a>.</p>
+<p><a href="cma.transformations.GenoPheno.html#geno"><code>geno</code></a> is only necessary, if solutions have been injected.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id489">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.GenoPheno.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>return <a href="cma.transformations.GenoPheno.html"><code>GenoPheno</code></a> instance with phenotypic dimension <code>dim</code>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.GenoPheno.html#pheno" data-type="Method" class="code">pheno</a></td>
+    <td><span>maps the genotypic input argument into the phenotypic space, see help for class <a href="cma.transformations.GenoPheno.html"><code>GenoPheno</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.GenoPheno.html#geno" data-type="Method" class="code">geno</a></td>
+    <td><span>maps the phenotypic input argument into the genotypic space, that is, computes essentially the inverse of <tt class="rst-docutils literal">pheno</tt>.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.transformations.GenoPheno.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, dim, scaling=None, typical_x=None, fixed_values=None, tf=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return <a href="cma.transformations.GenoPheno.html"><code>GenoPheno</code></a> instance with phenotypic dimension <code>dim</code>.</p>
+<div class="rst-section" id="rst-keyword-arguments">
+<h1 class="heading">Keyword Arguments</h1>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code>scaling</code></dt>
+<dd>the diagonal of a scaling transformation matrix, multipliers
+in the genotyp-phenotyp transformation, see <code>typical_x</code></dd>
+<dt><code>typical_x</code></dt>
+<dd><tt class="rst-docutils literal">pheno = scaling*geno + typical_x</tt></dd>
+<dt><code>fixed_values</code></dt>
+<dd>a dictionary of variable indices and values, like <tt class="rst-docutils literal">{0:2.0, 2:1.1}</tt>,
+that are not subject to change, negative indices are ignored
+(they act like incommenting the index), values are phenotypic
+values.</dd>
+<dt><code>tf</code></dt>
+<dd><p class="rst-first">list of two user-defined transformation functions, or <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>.</p>
+<p><tt class="rst-docutils literal">tf[0]</tt> is a function that transforms the internal representation
+as used by the optimizer into a solution as used by the
+objective function. <tt class="rst-docutils literal">tf[1]</tt> does the back-transformation.
+For example:</p>
+<pre class="rst-literal-block">
+tf_0 = lambda x: [xi**2 for xi in x]
+tf_1 = lambda x: [abs(xi)**0.5 fox xi in x]
+</pre>
+<p>or "equivalently" without the <code>lambda</code> construct:</p>
+<pre class="rst-literal-block">
+def tf_0(x):
+    return [xi**2 for xi in x]
+def tf_1(x):
+    return [abs(xi)**0.5 fox xi in x]
+</pre>
+<p class="rst-last"><tt class="rst-docutils literal"><span class="pre">tf=[tf_0,</span> tf_1]</tt> is a reasonable way to guaranty that only positive
+values are used in the objective function.</p>
+</dd>
+</dl>
+</blockquote>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>If <tt class="rst-docutils literal">tf_0</tt> is not the identity and <tt class="rst-docutils literal">tf_1</tt> is ommitted,
+the genotype of <tt class="rst-docutils literal">x0</tt> cannot be computed consistently and
+"injection" of phenotypic solutions is likely to lead to
+unexpected results.</p>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.GenoPheno.pheno">
+    
+  </a>
+  <a name="pheno">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    pheno(self, x, into_bounds=None, copy=True, archive=None, iteration=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>maps the genotypic input argument into the phenotypic space,
+see help for class <a href="cma.transformations.GenoPheno.html"><code>GenoPheno</code></a></p>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>If <tt class="rst-docutils literal">copy</tt>, values from <tt class="rst-docutils literal">x</tt> are copied if changed under the
+transformation.</p>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.GenoPheno.geno">
+    
+  </a>
+  <a name="geno">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    geno(self, y, from_bounds=None, copy=True, repair=None, archive=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>maps the phenotypic input argument into the genotypic space,
+that is, computes essentially the inverse of <tt class="rst-docutils literal">pheno</tt>.</p>
+<p>By default a copy is made only to prevent to modify <tt class="rst-docutils literal">y</tt>.</p>
+<p>The inverse of the user-defined transformation (if any)
+is only needed if external solutions are injected, it is not
+applied to the initial solution x0.</p>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p><tt class="rst-docutils literal">geno</tt> searches first in <tt class="rst-docutils literal">archive</tt> for the genotype of
+<tt class="rst-docutils literal">y</tt> and returns the found value, typically unrepaired.
+Otherwise, first <tt class="rst-docutils literal">from_bounds</tt> is applied, to revert a
+projection into the bound domain (if necessary) and <tt class="rst-docutils literal">pheno</tt>
+is reverted. <tt class="rst-docutils literal">repair</tt> is applied last, and is usually the
+method <tt class="rst-docutils literal">CMAEvolutionStrategy.repair_genotype</tt> that limits the
+Mahalanobis norm of <tt class="rst-docutils literal">geno(y) - mean</tt>.</p>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

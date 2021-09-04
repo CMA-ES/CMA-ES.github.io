@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.sigma_adaptation.CMAAdaptSigmaCSA : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.sigma_adaptation.CMAAdaptSigmaCSA(<a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" data-type="Class" class="code">CMAAdaptSigmaBase</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.sigma_adaptation.html" data-type="Module" class="code">sigma_adaptation</a></code>
+          
+          <a href="classIndex.html#cma.sigma_adaptation.CMAAdaptSigmaCSA">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>CSA cumulative step-size adaptation AKA path length control.</p>
+<p>As of 2017, CSA is considered as the default step-size control method
+within CMA-ES.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id471">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>postpone initialization to a method call where dimension and mueff should be known.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>set parameters and state variable based on dimension, mueff and possibly further options.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html#update2" data-type="Method" class="code">update2</a></td>
+    <td><span>call <tt class="rst-docutils literal">self._update_ps(es)</tt> and update self.delta.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>call <tt class="rst-docutils literal">self._update_ps(es)</tt> and update <tt class="rst-docutils literal">es.sigma</tt>.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html#_update_ps" data-type="Method" class="code">_update_ps</a></td>
+    <td><span>update path with isotropic delta mean, possibly clipped.</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" data-type="Class" class="code">CMAAdaptSigmaBase</a>:
+          </p>
+          <table class="children sortable" id="id472">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#initialize_base" data-type="Method" class="code">initialize_base</a></td>
+    <td><span>set parameters and state variable based on dimension, mueff and possibly further options.</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#hsig" data-type="Method" class="code">hsig</a></td>
+    <td><span>return "OK-signal" for rank-one update, <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> (OK) or <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a> (stall rank-one update), based on the length of an evolution path</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#check_consistency" data-type="Method" class="code">check_consistency</a></td>
+    <td><span>make consistency checks with a <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance as input</span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaCSA.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#__init__" data-type="Method" class="code">cma.sigma_adaptation.CMAAdaptSigmaBase.__init__</a></div>
+    
+    <div>postpone initialization to a method call where dimension and mueff should be known.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaCSA.initialize">
+    
+  </a>
+  <a name="initialize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    initialize(self, es):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>set parameters and state variable based on dimension,
+mueff and possibly further options.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaCSA._update_ps">
+    
+  </a>
+  <a name="_update_ps">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _update_ps(self, es):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#_update_ps" data-type="Method" class="code">cma.sigma_adaptation.CMAAdaptSigmaBase._update_ps</a></div>
+    
+    <div><p>update path with isotropic delta mean, possibly clipped.</p>
+<p>From input argument <code>es</code>, the attributes isotropic_mean_shift,
+opts['CSA_clip_length_value'], and N are used.
+opts['CSA_clip_length_value'] can be a single value, the upper
+bound parameter, such that:</p>
+<pre class="rst-literal-block">
+max_len = sqrt(N) + opts['CSA_clip_length_value'] * N / (N+2)
+</pre>
+<p>or a list with lower and upper bound parameters.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaCSA.update2">
+    
+  </a>
+  <a name="update2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update2(self, es, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#update2" data-type="Method" class="code">cma.sigma_adaptation.CMAAdaptSigmaBase.update2</a></div>
+    
+    <div><p>call <tt class="rst-docutils literal">self._update_ps(es)</tt> and update self.delta.</p>
+<p>Return change factor of self.delta.</p>
+<p>From input <code>es</code>, either attribute N or const.chiN is used.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaCSA.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, es, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#update" data-type="Method" class="code">cma.sigma_adaptation.CMAAdaptSigmaBase.update</a></div>
+    
+    <div><p>call <tt class="rst-docutils literal">self._update_ps(es)</tt> and update <tt class="rst-docutils literal">es.sigma</tt>.</p>
+<p>Legacy method replaced by <a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html#update2"><code>update2</code></a>.</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

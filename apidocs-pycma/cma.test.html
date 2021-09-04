@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.test : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.test</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>test module of <a href="cma.html"><code>cma</code></a> package.</p>
+<p>Usage:</p>
+<pre class="rst-literal-block">
+python -m cma.test -h    # print this docstring
+python -m cma.test       # doctest all (listed) files
+python -m cma.test list  # list files to be doctested
+python -m cma.test interfaces.py [file2 [file3 [...]]] # doctest only these
+</pre>
+<p>or possibly by executing this file as a script:</p>
+<pre class="rst-literal-block">
+python cma/test.py  # same options as above work
+cma/test.py         # the same
+</pre>
+<p>or equivalently by passing Python code:</p>
+<pre class="rst-literal-block">
+python -c "import cma.test; cma.test.main()"  # doctest all (listed) files
+python -c "import cma.test; cma.test.main('list')"  # show files in doctest list
+python -c "import cma.test; cma.test.main('interfaces.py [file2 [file3 [...]]]')"
+python -c "import cma.test; help(cma.test)"  # print this docstring
+</pre>
+<p>File(name)s are interpreted within the package. Without a filename
+argument, all files from attribute <code>files_for_doc_test</code> are tested.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id477">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.test.html#is_str" data-type="Function" class="code">is_str</a></td>
+    <td><span><a href="http://docs.python.org/library/stdtypes.html#bytes"><code>bytes</code></a> (in Python 3) also fit the bill</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.test.html#various_doctests" data-type="Function" class="code">various_doctests</a></td>
+    <td><span>various doc tests.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.test.html#doctest_files" data-type="Function" class="code">doctest_files</a></td>
+    <td><span>doctest all (listed) files of the <a href="cma.html"><code>cma</code></a> package.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.test.html#get_version" data-type="Function" class="code">get_version</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.test.html#main" data-type="Function" class="code">main</a></td>
+    <td><span>test the <a href="cma.html"><code>cma</code></a> package.</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.test.html#_clean_up" data-type="Function" class="code">_clean_up</a></td>
+    <td><span>(permanently) remove entries in <tt class="rst-docutils literal">folder</tt> which begin with any of <tt class="rst-docutils literal">start_matches</tt>, where <tt class="rst-docutils literal">""</tt> matches any string, and which are not in <tt class="rst-docutils literal">protected</tt>.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction private">
+  
+  <a name="cma.test._clean_up">
+    
+  </a>
+  <a name="_clean_up">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _clean_up(folder, start_matches, protected):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>(permanently) remove entries in <tt class="rst-docutils literal">folder</tt> which begin with any of
+<tt class="rst-docutils literal">start_matches</tt>, where <tt class="rst-docutils literal">""</tt> matches any string, and which are not
+in <tt class="rst-docutils literal">protected</tt>.</p>
+<p>CAVEAT: use with care, as with <tt class="rst-docutils literal">"", ""</tt> as second and third
+arguments this could delete all files in <tt class="rst-docutils literal">folder</tt>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.test.is_str">
+    
+  </a>
+  <a name="is_str">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_str(var):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><a href="http://docs.python.org/library/stdtypes.html#bytes"><code>bytes</code></a> (in Python 3) also fit the bill<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.test.various_doctests">
+    
+  </a>
+  <a name="various_doctests">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    various_doctests():
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>various doc tests.</p>
+<p>This function describes test cases and might in future become
+helpful as an experimental tutorial as well. The main testing feature
+at the moment is by doctest with <tt class="rst-docutils literal">cma.test.main()</tt> in a Python shell
+or by <tt class="rst-docutils literal">python <span class="pre">-m</span> cma.test</tt> in a system shell.</p>
+<p>A simple first overall test:</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.elli, 3*[1], 1,
+<span class="py-more">... </span>               {<span class="py-string">'CMA_diagonal'</span>:2, <span class="py-string">'seed'</span>:1, <span class="py-string">'verb_time'</span>:0})
+<span class="py-more">... </span>               <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">(3_w,7)-aCMA-ES (mu_w=2.3,w_1=58%) in dimension 3 (seed=1,...)</span>
+<span class="py-output">   Covariance matrix is diagonal for 2 iterations (1/ccov=6...</span>
+<span class="py-output">Iterat #Fevals   function value  axis ratio  sigma ...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert res[1] &lt; 1e-6
+<span class="py-prompt">&gt;&gt;&gt; </span>assert res[2] &lt; 2000</pre>
+</blockquote>
+<p>Testing output file consistency with diagonal option:</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> val <span class="py-keyword">in</span> (0, <span class="py-builtin">True</span>, 2, 3):
+<span class="py-more">... </span>    _ = cma.fmin(cma.ff.sphere, 3 * [1], 1,
+<span class="py-more">... </span>                 {<span class="py-string">'verb_disp'</span>:0, <span class="py-string">'CMA_diagonal'</span>:val, <span class="py-string">'maxiter'</span>:5})
+<span class="py-more">... </span>    _ = cma.CMADataLogger().load()</pre>
+</blockquote>
+<p>Test on the Rosenbrock function with 3 restarts. The first trial only
+finds the local optimum, which happens in about 20% of the cases.</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.rosen, 4 * [-1], 0.01,
+<span class="py-more">... </span>               options={<span class="py-string">'ftarget'</span>:1e-6,
+<span class="py-more">... </span>                    <span class="py-string">'verb_time'</span>:0, <span class="py-string">'verb_disp'</span>:500,
+<span class="py-more">... </span>                    <span class="py-string">'seed'</span>:3},
+<span class="py-more">... </span>               restarts=3)
+<span class="py-more">... </span>               <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">(4_w,8)-aCMA-ES (mu_w=2.6,w_1=52%) in dimension 4 (seed=3,...)</span>
+<span class="py-output">Iterat #Fevals ...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert res[1] &lt;= 1e-6</pre>
+</blockquote>
+<p>Notice the different termination conditions. Termination on the target
+function value ftarget prevents further restarts.</p>
+<p>Test of scaling_of_variables option</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>opts = cma.CMAOptions()
+<span class="py-prompt">&gt;&gt;&gt; </span>opts[<span class="py-string">'seed'</span>] = 4567
+<span class="py-prompt">&gt;&gt;&gt; </span>opts[<span class="py-string">'verb_disp'</span>] = 0
+<span class="py-prompt">&gt;&gt;&gt; </span>opts[<span class="py-string">'CMA_const_trace'</span>] = <span class="py-builtin">True</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># rescaling of third variable: for searching in  roughly</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment">#   x0 plus/minus 1e3*sigma0 (instead of plus/minus sigma0)</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>opts[<span class="py-string">'scaling_of_variables'</span>] = [1, 1, 1e3, 1]
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.rosen, 4 * [0.1], 0.1, opts)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert res[1] &lt; 1e-9
+<span class="py-prompt">&gt;&gt;&gt; </span>es = res[-2]
+<span class="py-prompt">&gt;&gt;&gt; </span>es.result_pretty()  <span class="py-comment"># doctest: +ELLIPSIS</span>
+<span class="py-output">termination on tolfun=1e-11</span>
+<span class="py-output">final/bestever f-value = ...</span></pre>
+</blockquote>
+<p>The printed std deviations reflect the actual value in the
+parameters of the function (not the one in the internal
+representation which can be different).</p>
+<p>Test of CMA_stds scaling option.</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>opts = cma.CMAOptions()
+<span class="py-prompt">&gt;&gt;&gt; </span>s = 5 * [1]
+<span class="py-prompt">&gt;&gt;&gt; </span>s[0] = 1e3
+<span class="py-prompt">&gt;&gt;&gt; </span>opts.set(<span class="py-string">'CMA_stds'</span>, s)  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">{'...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>opts.set(<span class="py-string">'verb_disp'</span>, 0)  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">{'...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.cigar, 5 * [0.1], 0.1, opts)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert res[1] &lt; 1800</pre>
+</blockquote>
+<p>Testing combination of <tt class="rst-docutils literal">fixed_variables</tt> and <tt class="rst-docutils literal">CMA_stds</tt> options.</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>options = {
+<span class="py-more">... </span>    <span class="py-string">'fixed_variables'</span>:{1:2.345},
+<span class="py-more">... </span>    <span class="py-string">'CMA_stds'</span>: 4 * [1],
+<span class="py-more">... </span>    <span class="py-string">'minstd'</span>: 3 * [1]}
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(4 * [1], 1, options) <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(3_w,7)-aCMA-ES (mu_w=2.3,w_1=58%) in dimension 3 (seed=...</span></pre>
+</blockquote>
+<p>Test of elitism:</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.rastrigin, 10 * [0.1], 2,
+<span class="py-more">... </span>      {<span class="py-string">'CMA_elitist'</span>:<span class="py-string">'initial'</span>, <span class="py-string">'ftarget'</span>:1e-3, <span class="py-string">'verbose'</span>:-9})
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> res[7]</pre>
+</blockquote>
+<p>Test CMA_on option and similar:</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.sphere, 4 * [1], 2,
+<span class="py-more">... </span>     {<span class="py-string">'CMA_on'</span>:<span class="py-builtin">False</span>, <span class="py-string">'ftarget'</span>:1e-8, <span class="py-string">'verbose'</span>:-9})
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> res[7] <span class="py-keyword">and</span> res[2] &lt; 1e3
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.sphere, 3 * [1], 2,
+<span class="py-more">... </span>     {<span class="py-string">'CMA_rankone'</span>:0, <span class="py-string">'CMA_rankmu'</span>:0, <span class="py-string">'ftarget'</span>:1e-8,
+<span class="py-more">... </span>      <span class="py-string">'verbose'</span>:-9})
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> res[7] <span class="py-keyword">and</span> res[2] &lt; 1e3
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.sphere, 2 * [1], 2,
+<span class="py-more">... </span>     {<span class="py-string">'CMA_rankone'</span>:0, <span class="py-string">'ftarget'</span>:1e-8, <span class="py-string">'verbose'</span>:-9})
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> res[7] <span class="py-keyword">and</span> res[2] &lt; 1e3
+<span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.sphere, 2 * [1], 2,
+<span class="py-more">... </span>     {<span class="py-string">'CMA_rankmu'</span>:0, <span class="py-string">'ftarget'</span>:1e-8, <span class="py-string">'verbose'</span>:-9})
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> res[7] <span class="py-keyword">and</span> res[2] &lt; 1e3</pre>
+</blockquote>
+<p>Check rotational invariance:</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>felli = cma.s.ft.Shifted(cma.ff.elli)
+<span class="py-prompt">&gt;&gt;&gt; </span>frot = cma.s.ft.Rotated(felli)
+<span class="py-prompt">&gt;&gt;&gt; </span>res_elli = cma.CMAEvolutionStrategy(3 * [1], 1,
+<span class="py-more">... </span>          {<span class="py-string">'ftarget'</span>: 1e-8}).optimize(felli).result
+<span class="py-more">... </span>                 <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(3_w,7)-...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>res_rot = cma.CMAEvolutionStrategy(3 * [1], 1,
+<span class="py-more">... </span>        {<span class="py-string">'ftarget'</span>: 1e-8}).optimize(frot).result
+<span class="py-more">... </span>                 <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(3_w,7)-...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert res_rot[3] &lt; 2 * res_elli[3]</pre>
+</blockquote>
+<p>Both condition alleviation transformations are applied during this
+test, first in iteration 62, second in iteration 257:</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>ftabletrot = cma.fitness_transformations.Rotated(cma.ff.tablet, seed=10)
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(4 * [1], 1, {
+<span class="py-more">... </span>                                  <span class="py-string">'tolconditioncov'</span>:<span class="py-builtin">False</span>,
+<span class="py-more">... </span>                                  <span class="py-string">'seed'</span>: 8,
+<span class="py-more">... </span>                                  <span class="py-string">'CMA_mirrors'</span>: 0,
+<span class="py-more">... </span>                                  <span class="py-string">'ftarget'</span>: 1e-9,
+<span class="py-more">... </span>                               })  <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-output">(4_w...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>while <span class="py-keyword">not</span> es.stop() <span class="py-keyword">and</span> es.countiter &lt; 82:
+<span class="py-more">... </span>   X = es.ask()
+<span class="py-more">... </span>   es.tell(X, [cma.ff.elli(x, cond=1e22) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])  <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-output">NOTE ...iteration=81...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>while <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>   X = es.ask()
+<span class="py-more">... </span>   es.tell(X, [ftabletrot(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])  <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert es.countiter &lt;= 344 <span class="py-keyword">and</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop(), (
+<span class="py-more">... </span>            <span class="py-string">"transformation bug in alleviate_condition?"</span>,
+<span class="py-more">... </span>            es.countiter, es.stop())</pre>
+</blockquote>
+<p>Integer handling:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> warnings
+<span class="py-prompt">&gt;&gt;&gt; </span>idx = [0, 1, 5, -1]
+<span class="py-prompt">&gt;&gt;&gt; </span>f = cma.s.ft.IntegerMixedFunction(cma.ff.elli, idx)
+<span class="py-prompt">&gt;&gt;&gt; </span>with warnings.catch_warnings(record=<span class="py-builtin">True</span>) <span class="py-keyword">as</span> warns:
+<span class="py-more">... </span>    es = cma.CMAEvolutionStrategy(4 * [5], 10, <span class="py-builtin">dict</span>(
+<span class="py-more">... </span>                  ftarget=1e-9, seed=5,
+<span class="py-more">... </span>                  integer_variables=idx
+<span class="py-more">... </span>               ))  <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-output">(4_w,8)-...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>warns[0].message  <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-output">UserWarning('integer index 5 not in range of dimension 4 ()'...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(f)  <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-output">Iterat #Fevals   function value ...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop() <span class="py-keyword">and</span> es.result[3] &lt; 1800</pre>
+<p>Parallel objective:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">parallel_sphere</span>(X): return [cma.ff.sphere(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X]
+<span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.fmin2(cma.ff.sphere, 3 * [0], 0.1, {
+<span class="py-more">... </span>    <span class="py-string">'verbose'</span>: -9, <span class="py-string">'eval_final_mean'</span>: <span class="py-builtin">True</span>, <span class="py-string">'CMA_elitist'</span>: <span class="py-string">'initial'</span>},
+<span class="py-more">... </span>                  parallel_objective=parallel_sphere)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result[1] &lt; 1e-9
+<span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.fmin2(<span class="py-builtin">None</span>, 3 * [0], 0.1, {
+<span class="py-more">... </span>    <span class="py-string">'verbose'</span>: -9, <span class="py-string">'eval_final_mean'</span>: <span class="py-builtin">True</span>, <span class="py-string">'CMA_elitist'</span>: <span class="py-string">'initial'</span>},
+<span class="py-more">... </span>                  parallel_objective=parallel_sphere)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result[1] &lt; 1e-9</pre>
+<p>Some sort of interactive control via an options file:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(4 * [2], 1, <span class="py-builtin">dict</span>(
+<span class="py-more">... </span>                     signals_filename=<span class="py-string">'cma_signals.in'</span>,
+<span class="py-more">... </span>                     verbose=-9))
+<span class="py-prompt">&gt;&gt;&gt; </span>s = es.stop()
+<span class="py-prompt">&gt;&gt;&gt; </span>es = es.optimize(cma.ff.sphere)</pre>
+<p>Test of huge lambda:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(3 * [0.91], 1, {
+<span class="py-more">... </span>    <span class="py-string">'verbose'</span>: -9,
+<span class="py-more">... </span>    <span class="py-string">'popsize'</span>: 200,
+<span class="py-more">... </span>    <span class="py-string">'ftarget'</span>: 1e-8 })
+<span class="py-prompt">&gt;&gt;&gt; </span>es = es.optimize(cma.ff.tablet)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> es.result.evaluations &gt; 5000: <span class="py-keyword">print</span>(es.result.evalutions, es.result)</pre>
+<p>For VD- and VkD-CMA, see <a href="cma.restricted_gaussian_sampler.html"><code>cma.restricted_gaussian_sampler</code></a>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.test.doctest_files">
+    
+  </a>
+  <a name="doctest_files">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    doctest_files(file_list=files_for_doctest, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>doctest all (listed) files of the <a href="cma.html"><code>cma</code></a> package.</p>
+<p>Details: accepts <tt class="rst-docutils literal">verbose</tt> and all other keyword arguments that
+<a href="http://docs.python.org/library/doctest.html#doctest.testfile"><code>doctest.testfile</code></a> would accept, while negative <tt class="rst-docutils literal">verbose</tt> values
+are passed as 0.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.test.get_version">
+    
+  </a>
+  <a name="get_version">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    get_version():
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.test.main">
+    
+  </a>
+  <a name="main">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    main(*args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>test the <a href="cma.html"><code>cma</code></a> package.</p>
+<p>The first argument can be '-h' or '--help' or 'list' to list all
+files to be tested. Otherwise, arguments can be file(name)s to be
+tested, where names are interpreted relative to the package root
+and a leading 'cma' + path separator is ignored.</p>
+<p>By default all files are tested.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><tt class="rst-docutils literal">python <span class="pre">-c</span> "import cma.test; help(cma.test)"</tt></td></tr></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

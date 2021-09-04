@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.bbobbenchmarks : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.bbobbenchmarks</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>BBOB noiseless testbed.</p>
+<p>The optimisation test functions are represented as classes <a href="cma.bbobbenchmarks.F1.html"><code>F1</code></a> to
+<a href="cma.bbobbenchmarks.F24.html"><code>F24</code></a> (and <a href="cma.bbobbenchmarks.F101.html"><code>F101</code></a> to <a href="cma.bbobbenchmarks.F130.html"><code>F130</code></a>).</p>
+<p>This module implements the class <a href="cma.bbobbenchmarks.BBOBFunction.html"><code>BBOBFunction</code></a> and
+sub-classes:</p>
+<ul class="rst-simple">
+<li>class <a href="cma.bbobbenchmarks.BBOBNfreeFunction.html"><code>BBOBNfreeFunction</code></a> which have all the methods common to the
+classes <a href="cma.bbobbenchmarks.F1.html"><code>F1</code></a> to <a href="cma.bbobbenchmarks.F24.html"><code>F24</code></a></li>
+<li>classes <a href="cma.bbobbenchmarks.BBOBGaussFunction.html"><code>BBOBGaussFunction</code></a>, <a href="cma.bbobbenchmarks.BBOBCauchyFunction.html"><code>BBOBCauchyFunction</code></a>,
+<a href="cma.bbobbenchmarks.BBOBUniformFunction.html"><code>BBOBUniformFunction</code></a> which have methods in classes from
+<a href="cma.bbobbenchmarks.F101.html"><code>F101</code></a> to <a href="cma.bbobbenchmarks.F130.html"><code>F130</code></a></li>
+</ul>
+<p>Module attributes:</p>
+<ul class="rst-simple">
+<li><code>dictbbob</code> is a dictionary such that dictbbob[2] contains
+the test function class F2 and f2 = dictbbob[2]() returns
+the instance 0 of the test function that can be
+called as f2([1,2,3]).</li>
+<li><code>nfreeIDs</code> == range(1,25) indices for the noiseless functions that can be
+found in dictbbob</li>
+<li><code>noisyIDs</code> == range(101, 131) indices for the noisy functions that can be
+found in dictbbob. We have nfreeIDs + noisyIDs == sorted(dictbbob.keys())</li>
+<li><code>nfreeinfos</code> function infos</li>
+</ul>
+<p>Examples:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma <span class="py-keyword">import</span> bbobbenchmarks <span class="py-keyword">as</span> bn
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> s <span class="py-keyword">in</span> bn.nfreeinfos:
+<span class="py-more">... </span>   <span class="py-keyword">print</span>(s)
+<span class="py-output">1: Noise-free Sphere function</span>
+<span class="py-output">2: Separable ellipsoid with monotone transformation</span>
+<span class="py-output">&lt;BLANKLINE&gt;</span>
+<span class="py-output">    Parameter: condition number (default 1e6)</span>
+<span class="py-output">&lt;BLANKLINE&gt;</span>
+<span class="py-output">&lt;BLANKLINE&gt;</span>
+<span class="py-output">3: Rastrigin with monotone transformation separable "condition" 10</span>
+<span class="py-output">4: skew Rastrigin-Bueche, condition 10, skew-"condition" 100</span>
+<span class="py-output">5: Linear slope</span>
+<span class="py-output">6: Attractive sector function</span>
+<span class="py-output">7: Step-ellipsoid, condition 100, noise-free</span>
+<span class="py-output">8: Rosenbrock noise-free</span>
+<span class="py-output">9: Rosenbrock, rotated</span>
+<span class="py-output">10: Ellipsoid with monotone transformation, condition 1e6</span>
+<span class="py-output">11: Discus (tablet) with monotone transformation, condition 1e6</span>
+<span class="py-output">12: Bent cigar with asymmetric space distortion, condition 1e6</span>
+<span class="py-output">13: Sharp ridge</span>
+<span class="py-output">14: Sum of different powers, between x^2 and x^6, noise-free</span>
+<span class="py-output">15: Rastrigin with asymmetric non-linear distortion, "condition" 10</span>
+<span class="py-output">16: Weierstrass, condition 100</span>
+<span class="py-output">17: Schaffers F7 with asymmetric non-linear transformation, condition 10</span>
+<span class="py-output">18: Schaffers F7 with asymmetric non-linear transformation, condition 1000</span>
+<span class="py-output">19: F8F2 sum of Griewank-Rosenbrock 2-D blocks, noise-free</span>
+<span class="py-output">20: Schwefel with tridiagonal variable transformation</span>
+<span class="py-output">21: Gallagher with 101 Gaussian peaks, condition up to 1000, one global rotation, noise-free</span>
+<span class="py-output">22: Gallagher with 21 Gaussian peaks, condition up to 1000, one global rotation</span>
+<span class="py-output">23: Katsuura function</span>
+<span class="py-output">24: Lunacek bi-Rastrigin, condition 100</span>
+<span class="py-output">&lt;BLANKLINE&gt;</span>
+<span class="py-output">    in PPSN 2008, Rastrigin part rotated and scaled</span>
+<span class="py-output">&lt;BLANKLINE&gt;</span>
+<span class="py-output">&lt;BLANKLINE&gt;</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>f3 = bn.F3(13)  <span class="py-comment"># instantiate instance 13 of function f3</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>f3([0, 1, 2]) <span class="py-comment"># short-cut for f3.evaluate([0, 1, 2]) # doctest:+ELLIPSIS</span>
+<span class="py-output">59.8733529...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(bn.instantiate(5)[1])  <span class="py-comment"># returns function instance and optimal f-value</span>
+<span class="py-output">51.53</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(bn.nfreeIDs) <span class="py-comment"># list noise-free functions</span>
+<span class="py-output">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> bn.nfreeIDs: <span class="py-comment"># evaluate all noiseless functions once</span>
+<span class="py-more">... </span>   <span class="py-keyword">print</span>(bn.instantiate(i)[0]([0., 0., 0., 0.])) <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-output">-77.2745459...</span>
+<span class="py-output">6180022.8217...</span>
+<span class="py-output">92.987750752...</span>
+<span class="py-output">92.987750752...</span>
+<span class="py-output">140.51011761...</span>
+<span class="py-output">70877.955412...</span>
+<span class="py-output">-72.550520219...</span>
+<span class="py-output">33355.792472...</span>
+<span class="py-output">-339.94</span>
+<span class="py-output">4374717.4934...</span>
+<span class="py-output">15631566.348...</span>
+<span class="py-output">4715481.086...</span>
+<span class="py-output">550.59978390...</span>
+<span class="py-output">-17.299175622...</span>
+<span class="py-output">27.363312851...</span>
+<span class="py-output">-227.82783352...</span>
+<span class="py-output">-24.330591878...</span>
+<span class="py-output">131.42015934...</span>
+<span class="py-output">40.710373742...</span>
+<span class="py-output">6160.8178292...</span>
+<span class="py-output">376.74688954...</span>
+<span class="py-output">107.83042676...</span>
+<span class="py-output">220.48226655...</span>
+<span class="py-output">106.09476738...</span></pre><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id2">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#compute_xopt" data-type="Function" class="code">compute_xopt</a></td>
+    <td><span>Generate a random vector used as optimum argument.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#compute_rotation" data-type="Function" class="code">compute_rotation</a></td>
+    <td><span>Returns an orthogonal basis.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#monotoneTFosc" data-type="Function" class="code">monotoneTFosc</a></td>
+    <td><span>Maps [-inf,inf] to [-inf,inf] with different constants for positive and negative part.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#defaultboundaryhandling" data-type="Function" class="code">defaultboundaryhandling</a></td>
+    <td><span>Returns a float penalty for being outside of boundaries [-5, 5]</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#gauss" data-type="Function" class="code">gauss</a></td>
+    <td><span>Samples N standard normally distributed numbers being the same for a given seed</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#unif" data-type="Function" class="code">unif</a></td>
+    <td><span>Generates N uniform numbers with starting seed.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#fGauss" data-type="Function" class="code">fGauss</a></td>
+    <td><span>Returns Gaussian model noisy value.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#fUniform" data-type="Function" class="code">fUniform</a></td>
+    <td><span>Returns uniform model noisy value.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#fCauchy" data-type="Function" class="code">fCauchy</a></td>
+    <td><span>Returns Cauchy model noisy value</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.AbstractTestFunction.html" data-type="Class" class="code">AbstractTestFunction</a></td>
+    <td><span>Abstract class for test functions.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.BBOBFunction.html" data-type="Class" class="code">BBOBFunction</a></td>
+    <td><span>Abstract class of BBOB test functions.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" data-type="Class" class="code">BBOBNfreeFunction</a></td>
+    <td><span>Class of the noise-free functions of BBOB.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.BBOBGaussFunction.html" data-type="Class" class="code">BBOBGaussFunction</a></td>
+    <td><span>Class of the Gauss noise functions of BBOB.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.BBOBUniformFunction.html" data-type="Class" class="code">BBOBUniformFunction</a></td>
+    <td><span>Class of the uniform noise functions of BBOB.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.BBOBCauchyFunction.html" data-type="Class" class="code">BBOBCauchyFunction</a></td>
+    <td><span>Class of the Cauchy noise functions of BBOB.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F1.html" data-type="Class" class="code">F1</a></td>
+    <td><span>Noise-free Sphere function</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F101.html" data-type="Class" class="code">F101</a></td>
+    <td><span>Sphere with moderate Gauss noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F102.html" data-type="Class" class="code">F102</a></td>
+    <td><span>Sphere with moderate uniform noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F103.html" data-type="Class" class="code">F103</a></td>
+    <td><span>Sphere with moderate Cauchy noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F107.html" data-type="Class" class="code">F107</a></td>
+    <td><span>Sphere with  Gauss noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F108.html" data-type="Class" class="code">F108</a></td>
+    <td><span>Sphere with uniform noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F109.html" data-type="Class" class="code">F109</a></td>
+    <td><span>Sphere with Cauchy noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F2.html" data-type="Class" class="code">F2</a></td>
+    <td><span>Separable ellipsoid with monotone transformation</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F3.html" data-type="Class" class="code">F3</a></td>
+    <td><span>Rastrigin with monotone transformation separable "condition" 10</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F4.html" data-type="Class" class="code">F4</a></td>
+    <td><span>skew Rastrigin-Bueche, condition 10, skew-"condition" 100</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F5.html" data-type="Class" class="code">F5</a></td>
+    <td><span>Linear slope</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F6.html" data-type="Class" class="code">F6</a></td>
+    <td><span>Attractive sector function</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F7.html" data-type="Class" class="code">F7</a></td>
+    <td><span>Step-ellipsoid, condition 100, noise-free</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F113.html" data-type="Class" class="code">F113</a></td>
+    <td><span>Step-ellipsoid with gauss noise, condition 100</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F114.html" data-type="Class" class="code">F114</a></td>
+    <td><span>Step-ellipsoid with uniform noise, condition 100</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F115.html" data-type="Class" class="code">F115</a></td>
+    <td><span>Step-ellipsoid with Cauchy noise, condition 100</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F8.html" data-type="Class" class="code">F8</a></td>
+    <td><span>Rosenbrock noise-free</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F104.html" data-type="Class" class="code">F104</a></td>
+    <td><span>Rosenbrock non-rotated with moderate Gauss noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F105.html" data-type="Class" class="code">F105</a></td>
+    <td><span>Rosenbrock non-rotated with moderate uniform noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F106.html" data-type="Class" class="code">F106</a></td>
+    <td><span>Rosenbrock non-rotated with moderate Cauchy noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F110.html" data-type="Class" class="code">F110</a></td>
+    <td><span>Rosenbrock non-rotated with Gauss noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F111.html" data-type="Class" class="code">F111</a></td>
+    <td><span>Rosenbrock non-rotated with uniform noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F112.html" data-type="Class" class="code">F112</a></td>
+    <td><span>Rosenbrock non-rotated with Cauchy noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F9.html" data-type="Class" class="code">F9</a></td>
+    <td><span>Rosenbrock, rotated</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F10.html" data-type="Class" class="code">F10</a></td>
+    <td><span>Ellipsoid with monotone transformation, condition 1e6</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F116.html" data-type="Class" class="code">F116</a></td>
+    <td><span>Ellipsoid with Gauss noise, monotone x-transformation, condition 1e4</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F117.html" data-type="Class" class="code">F117</a></td>
+    <td><span>Ellipsoid with uniform noise, monotone x-transformation, condition 1e4</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F118.html" data-type="Class" class="code">F118</a></td>
+    <td><span>Ellipsoid with Cauchy noise, monotone x-transformation, condition 1e4</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F11.html" data-type="Class" class="code">F11</a></td>
+    <td><span>Discus (tablet) with monotone transformation, condition 1e6</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F12.html" data-type="Class" class="code">F12</a></td>
+    <td><span>Bent cigar with asymmetric space distortion, condition 1e6</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F13.html" data-type="Class" class="code">F13</a></td>
+    <td><span>Sharp ridge</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F14.html" data-type="Class" class="code">F14</a></td>
+    <td><span>Sum of different powers, between x^2 and x^6, noise-free</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F119.html" data-type="Class" class="code">F119</a></td>
+    <td><span>Sum of different powers with Gauss noise, between x^2 and x^6</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F120.html" data-type="Class" class="code">F120</a></td>
+    <td><span>Sum of different powers with uniform noise, between x^2 and x^6</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F121.html" data-type="Class" class="code">F121</a></td>
+    <td><span>Sum of different powers with seldom Cauchy noise, between x^2 and x^6</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F15.html" data-type="Class" class="code">F15</a></td>
+    <td><span>Rastrigin with asymmetric non-linear distortion, "condition" 10</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F16.html" data-type="Class" class="code">F16</a></td>
+    <td><span>Weierstrass, condition 100</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F17.html" data-type="Class" class="code">F17</a></td>
+    <td><span>Schaffers F7 with asymmetric non-linear transformation, condition 10</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F18.html" data-type="Class" class="code">F18</a></td>
+    <td><span>Schaffers F7 with asymmetric non-linear transformation, condition 1000</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F122.html" data-type="Class" class="code">F122</a></td>
+    <td><span>Schaffers F7 with Gauss noise, with asymmetric non-linear transformation, condition 10</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F123.html" data-type="Class" class="code">F123</a></td>
+    <td><span>Schaffers F7 with uniform noise, asymmetric non-linear transformation, condition 10</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F124.html" data-type="Class" class="code">F124</a></td>
+    <td><span>Schaffers F7 with seldom Cauchy noise, asymmetric non-linear transformation, condition 10</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F19.html" data-type="Class" class="code">F19</a></td>
+    <td><span>F8F2 sum of Griewank-Rosenbrock 2-D blocks, noise-free</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F125.html" data-type="Class" class="code">F125</a></td>
+    <td><span>F8F2 sum of Griewank-Rosenbrock 2-D blocks with Gauss noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F126.html" data-type="Class" class="code">F126</a></td>
+    <td><span>F8F2 sum of Griewank-Rosenbrock 2-D blocks with uniform noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F127.html" data-type="Class" class="code">F127</a></td>
+    <td><span>F8F2 sum of Griewank-Rosenbrock 2-D blocks with seldom Cauchy noise</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F20.html" data-type="Class" class="code">F20</a></td>
+    <td><span>Schwefel with tridiagonal variable transformation</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F21.html" data-type="Class" class="code">F21</a></td>
+    <td><span>Gallagher with 101 Gaussian peaks, condition up to 1000, one global rotation, noise-free</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F22.html" data-type="Class" class="code">F22</a></td>
+    <td><span>Gallagher with 21 Gaussian peaks, condition up to 1000, one global rotation</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F128.html" data-type="Class" class="code">F128</a></td>
+    <td><span>Gallagher with 101 Gaussian peaks with Gauss noise, condition up to 1000, one global rotation</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F129.html" data-type="Class" class="code">F129</a></td>
+    <td><span>Gallagher with 101 Gaussian peaks with uniform noise, condition up to 1000, one global rotation</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F130.html" data-type="Class" class="code">F130</a></td>
+    <td><span>Gallagher with 101 Gaussian peaks with seldom Cauchy noise, condition up to 1000, one global rotation</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F23.html" data-type="Class" class="code">F23</a></td>
+    <td><span>Katsuura function</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks.F24.html" data-type="Class" class="code">F24</a></td>
+    <td><span>Lunacek bi-Rastrigin, condition 100</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#instantiate" data-type="Function" class="code">instantiate</a></td>
+    <td><span>Returns test function ifun, by default instance 0, and its optimal f-value.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#get_param" data-type="Function" class="code">get_param</a></td>
+    <td><span>Returns the parameter values of the function ifun.</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#_myrandn" data-type="Function" class="code">_myrandn</a></td>
+    <td><span>Normal random distribution sampling.</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.bbobbenchmarks.html#_myrand" data-type="Function" class="code">_myrand</a></td>
+    <td><span>Uniform random distribution sampling.</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks._FSphere.html" data-type="Class" class="code">_FSphere</a></td>
+    <td><span>Abstract Sphere function.</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks._FStepEllipsoid.html" data-type="Class" class="code">_FStepEllipsoid</a></td>
+    <td><span>Abstract Step-ellipsoid, condition 100</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks._FRosenbrock.html" data-type="Class" class="code">_FRosenbrock</a></td>
+    <td><span>Abstract Rosenbrock, non-rotated</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks._FEllipsoid.html" data-type="Class" class="code">_FEllipsoid</a></td>
+    <td><span>Abstract Ellipsoid with monotone transformation.</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks._FDiffPow.html" data-type="Class" class="code">_FDiffPow</a></td>
+    <td><span>Abstract Sum of different powers, between x^2 and x^6.</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks._FSchaffersF7.html" data-type="Class" class="code">_FSchaffersF7</a></td>
+    <td><span>Abstract Schaffers F7 with asymmetric non-linear transformation, condition 10</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks._F8F2.html" data-type="Class" class="code">_F8F2</a></td>
+    <td><span>Abstract F8F2 sum of Griewank-Rosenbrock 2-D blocks</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks._FGallagher.html" data-type="Class" class="code">_FGallagher</a></td>
+    <td><span>Abstract Gallagher with nhighpeaks Gaussian peaks, condition up to 1000, one global rotation</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><a href="cma.bbobbenchmarks._FTemplate.html" data-type="Class" class="code">_FTemplate</a></td>
+    <td><span>Template based on F1</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.compute_xopt">
+    
+  </a>
+  <a name="compute_xopt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    compute_xopt(rseed, dim):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Generate a random vector used as optimum argument.</p>
+<p>Rounded by four digits, but never to zero.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.compute_rotation">
+    
+  </a>
+  <a name="compute_rotation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    compute_rotation(seed, dim):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns an orthogonal basis.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.monotoneTFosc">
+    
+  </a>
+  <a name="monotoneTFosc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    monotoneTFosc(f):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Maps [-inf,inf] to [-inf,inf] with different constants
+for positive and negative part.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.defaultboundaryhandling">
+    
+  </a>
+  <a name="defaultboundaryhandling">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    defaultboundaryhandling(x, fac):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns a float penalty for being outside of boundaries [-5, 5]<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.gauss">
+    
+  </a>
+  <a name="gauss">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    gauss(N, seed):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Samples N standard normally distributed numbers
+being the same for a given seed<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.unif">
+    
+  </a>
+  <a name="unif">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    unif(N, inseed):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Generates N uniform numbers with starting seed.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.bbobbenchmarks._myrandn">
+    
+  </a>
+  <a name="_myrandn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _myrandn(size):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Normal random distribution sampling.</p>
+<p>For testing and comparing purpose.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.bbobbenchmarks._myrand">
+    
+  </a>
+  <a name="_myrand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _myrand(size):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Uniform random distribution sampling.</p>
+<p>For testing and comparing purpose.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.fGauss">
+    
+  </a>
+  <a name="fGauss">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    fGauss(ftrue, beta):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns Gaussian model noisy value.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.fUniform">
+    
+  </a>
+  <a name="fUniform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    fUniform(ftrue, alpha, beta):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns uniform model noisy value.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.fCauchy">
+    
+  </a>
+  <a name="fCauchy">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    fCauchy(ftrue, alpha, p):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Returns Cauchy model noisy value</p>
+<p>Cauchy with median 1e3*alpha and with p=0.2, zero otherwise</p>
+<p>P(Cauchy &gt; 1,10,100,1000) = 0.25, 0.032, 0.0032, 0.00032</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.instantiate">
+    
+  </a>
+  <a name="instantiate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    instantiate(ifun, iinstance=0, param=None, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns test function ifun, by default instance 0,
+and its optimal f-value.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.bbobbenchmarks.get_param">
+    
+  </a>
+  <a name="get_param">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    get_param(ifun):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns the parameter values of the function ifun.<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

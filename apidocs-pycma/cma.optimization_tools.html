@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.optimization_tools : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.optimization_tools</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div>Utility classes and functionalities loosely related to optimization<table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id424">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.optimization_tools.html#semilogy_signed" data-type="Function" class="code">semilogy_signed</a></td>
+    <td><span>signed semilogy plot.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.optimization_tools.html#contour_data" data-type="Function" class="code">contour_data</a></td>
+    <td><span>generate x,y,z-data for contour plot.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.optimization_tools.html#step_data" data-type="Function" class="code">step_data</a></td>
+    <td><span>return x, y ECDF data for ECDF plot. Smoothing may look strange in a semilogx plot.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.optimization_tools.BestSolution.html" data-type="Class" class="code">BestSolution</a></td>
+    <td><span>container to keep track of the best solution seen.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.optimization_tools.ExponentialSmoothing.html" data-type="Class" class="code">ExponentialSmoothing</a></td>
+    <td><span>not in use (yet)</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.optimization_tools.EvolutionPath.html" data-type="Class" class="code">EvolutionPath</a></td>
+    <td><span>not in use (yet)</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.optimization_tools.BinaryEvolutionPath.html" data-type="Class" class="code">BinaryEvolutionPath</a></td>
+    <td><span class="undocumented">No class docstring; 3/3 methods documented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.optimization_tools.OldEvolutionPath.html" data-type="Class" class="code">OldEvolutionPath</a></td>
+    <td><span>not in use (yet)</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.optimization_tools.NoiseHandler.html" data-type="Class" class="code">NoiseHandler</a></td>
+    <td><span>Noise handling according to [Hansen et al 2009, A Method for Handling Uncertainty in Evolutionary Optimization...]</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.optimization_tools.Sections.html" data-type="Class" class="code">Sections</a></td>
+    <td><span>plot sections through an objective function.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction">
+  
+  <a name="cma.optimization_tools.semilogy_signed">
+    
+  </a>
+  <a name="semilogy_signed">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    semilogy_signed(x=None, y=None, yoffset=0, minabsy=None, iabscissa=1, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>signed semilogy plot.</p>
+<p><tt class="rst-docutils literal"><span class="pre">plt.yscale('symlog',</span> linthreshy=min(abs(data[data != <span class="pre">0])))</span></tt> should
+do the same job as least as good.</p>
+<p><code>y</code> (or <code>x</code> if <code>y</code> is <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>) is a data array, by default read from
+<code>outcmaesxmean.dat</code> or (first) from the default logger output file
+like:</p>
+<pre class="rst-literal-block">
+xy = cma.logger.CMADataLogger().load().data['xmean']
+x, y = xy[:, iabscissa], xy[:, 5:]
+semilogy_signed(x, y)
+</pre>
+<p>Plotted is <code>y - yoffset</code> vs <code>x</code> for positive values as a semilogy plot
+and for negative values as a semilogy plot of absolute values with
+inverted axis.</p>
+<p><code>minabsy</code> controls the minimum shown value away from zero, which can
+be useful if extremely small non-zero values occur in the data.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.optimization_tools.contour_data">
+    
+  </a>
+  <a name="contour_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    contour_data(fct, x_range, y_range=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>generate x,y,z-data for contour plot.</p>
+<p><code>fct</code> is a 2-D function.
+<code>x</code>- and <code>y_range</code> are <code>iterable</code> (e.g. <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> or arrays)
+to define the meshgrid.</p>
+<p>CAVEAT: this function calls <code>fct</code> <tt class="rst-docutils literal">len(list(x_range)) * len(list(y_range))</tt>
+times. Hence using <a href="cma.optimization_tools.Sections.html"><code>Sections</code></a> may be the better first choice to
+investigate an expensive function.</p>
+<p>Example:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
+<span class="py-more">...</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">example</span>():  <span class="py-comment"># def avoids doctest execution</span>
+<span class="py-more">... </span>    <span class="py-keyword">from</span> matplotlib <span class="py-keyword">import</span> pyplot <span class="py-keyword">as</span> plt
+<span class="py-more">...</span>
+<span class="py-more">... </span>    X, Y, Z = contour_data(<span class="py-keyword">lambda</span> x: <span class="py-builtin">sum</span>([xi**2 <span class="py-keyword">for</span> xi <span class="py-keyword">in</span> x]),
+<span class="py-more">... </span>                           np.arange(0.90, 1.10, 0.02),
+<span class="py-more">... </span>                           np.arange(-0.10, 0.10, 0.02))
+<span class="py-more">... </span>    CS = plt.contour(X, Y, Z)
+<span class="py-more">... </span>    plt.axes().set_aspect(<span class="py-string">'equal'</span>)
+<span class="py-more">... </span>    plt.clabel(CS)</pre>
+<p>See <a href="cma.fitness_transformations.FixVariables.html"><code>cma.fitness_transformations.FixVariables</code></a> to create a 2-D
+function from a d-D function, e.g. like</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-more">...</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>fd = cma.ff.elli
+<span class="py-prompt">&gt;&gt;&gt; </span>x0 = np.zeros(22)
+<span class="py-prompt">&gt;&gt;&gt; </span>indices_to_vary = [2, 4]
+<span class="py-prompt">&gt;&gt;&gt; </span>f2 = cma.fitness_transformations.FixVariables(fd,
+<span class="py-more">... </span>         <span class="py-builtin">dict</span>((i, x0[i]) <span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(<span class="py-builtin">len</span>(x0))
+<span class="py-more">... </span>                         <span class="py-keyword">if</span> i <span class="py-keyword">not</span> <span class="py-keyword">in</span> indices_to_vary))
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">isinstance</span>(f2, cma.fitness_transformations.FixVariables)
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">isinstance</span>(f2, cma.fitness_transformations.ComposedFunction)
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>f2[0] <span class="py-keyword">is</span> fd, <span class="py-builtin">len</span>(f2) == 2
+<span class="py-output">(True, True)</span></pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.optimization_tools.step_data">
+    
+  </a>
+  <a name="step_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    step_data(data, smooth_corners=0.1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return x, y ECDF data for ECDF plot. Smoothing may look strange
+in a semilogx plot.<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.fitness_transformations.GlueArguments : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.fitness_transformations.GlueArguments(<a href="cma.fitness_transformations.Function.html" data-type="Class" class="code">Function</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_transformations.html" data-type="Module" class="code">fitness_transformations</a></code>
+          
+          <a href="classIndex.html#cma.fitness_transformations.GlueArguments">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>from a <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a> return a <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a> with arguments attached.</p>
+<p>See also <a href="http://docs.python.org/library/functools.html#functools.partial"><code>functools.partial</code></a> which has the same functionality and
+interface.</p>
+<p>An ellipsoid function with condition number <tt class="rst-docutils literal">1e4</tt> is created by
+<tt class="rst-docutils literal">felli1e4 = cma.s.ft.GlueArguments(cma.ff.elli, cond=1e4)</tt>.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>f = cma.fitness_transformations.GlueArguments(cma.ff.elli,
+<span class="py-more">... </span>                                              cond=1e1)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f([1, 2]) == 1**2 + 1e1 * 2**2</pre><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id389">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.GlueArguments.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>define function, <tt class="rst-docutils literal">args</tt>, and <tt class="rst-docutils literal">kwargs</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.GlueArguments.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>call function with at least one additional argument and attached args and kwargs.</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.fitness_transformations.Function.html" data-type="Class" class="code">Function</a>:
+          </p>
+          <table class="children sortable" id="id390">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found" data-type="Method" class="code">function_names_to_evaluate_first_found</a></td>
+    <td><span>attributes which are searched for to be called if no function was given to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a>.</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>initialization of <a href="cma.fitness_transformations.Function.html"><code>Function</code></a></span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.fitness_transformations.GlueArguments.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, fitness_function, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.fitness_transformations.Function.html#__init__" data-type="Method" class="code">cma.fitness_transformations.Function.__init__</a></div>
+    
+    <div><p>define function, <tt class="rst-docutils literal">args</tt>, and <tt class="rst-docutils literal">kwargs</tt>.</p>
+<p><tt class="rst-docutils literal">args</tt> are appended to arguments passed in the call, <tt class="rst-docutils literal">kwargs</tt>
+are updated with keyword arguments passed in the call.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_transformations.GlueArguments.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, x, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.fitness_transformations.Function.html#__call__" data-type="Method" class="code">cma.fitness_transformations.Function.__call__</a></div>
+    
+    <div>call function with at least one additional argument and
+attached args and kwargs.<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

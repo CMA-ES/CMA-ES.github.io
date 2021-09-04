@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.fitness_transformations.FixVariables : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.fitness_transformations.FixVariables(<a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_transformations.html" data-type="Module" class="code">fitness_transformations</a></code>
+          
+          <a href="classIndex.html#cma.fitness_transformations.FixVariables">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Insert variables with given values, thereby reducing the
+dimensionality of the resulting composed function.</p>
+<p>The constructor takes <tt class="rst-docutils literal">index_value_pairs</tt>, a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> or <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of
+pairs, as input and returns a function with smaller preimage space
+than input function <tt class="rst-docutils literal">f</tt>.</p>
+<p>Fixing variable 3 and 5 works like</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.fitness_transformations <span class="py-keyword">import</span> FixVariables
+<span class="py-prompt">&gt;&gt;&gt; </span>index_value_pairs = [[2, 0.2], [4, 0.4]]
+<span class="py-prompt">&gt;&gt;&gt; </span>fun = FixVariables(cma.ff.elli, index_value_pairs)
+<span class="py-prompt">&gt;&gt;&gt; </span>fun[1](4 * [1]) == [ 1.,  1.,  0.2,  1.,  0.4, 1.]
+<span class="py-output">True</span></pre>
+</blockquote>
+<p>Or starting from a given current solution in the larger space from
+which we pick the fixed values:</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.fitness_transformations <span class="py-keyword">import</span> FixVariables
+<span class="py-prompt">&gt;&gt;&gt; </span>current_solution = [0.1 * i <span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(5)]
+<span class="py-prompt">&gt;&gt;&gt; </span>fixed_indices = [2, 4]
+<span class="py-prompt">&gt;&gt;&gt; </span>index_value_pairs = [[i, current_solution[i]]  <span class="py-comment"># fix these</span>
+<span class="py-more">... </span>                                    <span class="py-keyword">for</span> i <span class="py-keyword">in</span> fixed_indices]
+<span class="py-prompt">&gt;&gt;&gt; </span>fun = FixVariables(cma.ff.elli, index_value_pairs)
+<span class="py-prompt">&gt;&gt;&gt; </span>fun[1](4 * [1]) == [ 1.,  1.,  0.2,  1.,  0.4, 1.]
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert (current_solution ==  <span class="py-comment"># list with same values</span>
+<span class="py-more">... </span>           fun.transform(fun.insert_variables(current_solution)))
+<span class="py-prompt">&gt;&gt;&gt; </span>assert (current_solution ==  <span class="py-comment"># list with same values</span>
+<span class="py-more">... </span>           fun.insert_variables(fun.transform(current_solution)))</pre>
+</blockquote>
+<p>Details: this might replace the <tt class="rst-docutils literal">fixed_variables</tt> option in
+<a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a> in future, but hasn't been thoroughly tested yet.</p>
+<p>Supersedes <code>ExpandSolution</code>.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id403">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.FixVariables.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>return <code>f</code> with reduced dimensionality.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.FixVariables.html#transform" data-type="Method" class="code">transform</a></td>
+    <td><span>transform <code>x</code> such that it could be used as argument to <code>self</code>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.FixVariables.html#insert_variables" data-type="Method" class="code">insert_variables</a></td>
+    <td><span>return <code>x</code> with inserted fixed values</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a>:
+          </p>
+          <table class="children sortable" id="id404">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.ComposedFunction.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.ComposedFunction.html#inverse" data-type="Method" class="code">inverse</a></td>
+    <td><span>evaluate the composition of inverses on <tt class="rst-docutils literal">x</tt>.</span></td>
+  </tr>
+</table>
+          
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.fitness_transformations.Function.html" data-type="Class" class="code">Function</a> (via <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a>):
+          </p>
+          <table class="children sortable" id="id405">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found" data-type="Method" class="code">function_names_to_evaluate_first_found</a></td>
+    <td><span>attributes which are searched for to be called if no function was given to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a>.</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_transformations.Function.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>initialization of <a href="cma.fitness_transformations.Function.html"><code>Function</code></a></span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.fitness_transformations.FixVariables.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, f, index_value_pairs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.fitness_transformations.ComposedFunction.html#__init__" data-type="Method" class="code">cma.fitness_transformations.ComposedFunction.__init__</a></div>
+    
+    <div><p>return <code>f</code> with reduced dimensionality.</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">index_value_pairs</tt>:</dt>
+<dd>variables</dd>
+</dl><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_transformations.FixVariables.transform">
+    
+  </a>
+  <a name="transform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    transform(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>transform <code>x</code> such that it could be used as argument to <code>self</code>.</p>
+<p>Return a list or array, usually dismissing some elements of
+<code>x</code>. <tt class="rst-docutils literal">fun.transform</tt> is the inverse of
+<tt class="rst-docutils literal">fun.insert_variables == fun[1]</tt>, that is
+<tt class="rst-docutils literal">np.all(x == <span class="pre">fun.transform(fun.insert_variables(x)))</span> is True</tt>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_transformations.FixVariables.insert_variables">
+    
+  </a>
+  <a name="insert_variables">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    insert_variables(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <code>x</code> with inserted fixed values<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

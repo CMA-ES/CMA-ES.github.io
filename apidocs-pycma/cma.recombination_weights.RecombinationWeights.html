@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.recombination_weights.RecombinationWeights : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.recombination_weights.RecombinationWeights(<span title="list">list</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.recombination_weights.html" data-type="Module" class="code">recombination_weights</a></code>
+          
+          <a href="classIndex.html#cma.recombination_weights.RecombinationWeights">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>a list of decreasing (recombination) weight values.</p>
+<p>To be used in the update of the covariance matrix C in CMA-ES as
+<tt class="rst-docutils literal">w_i</tt>:</p>
+<pre class="rst-literal-block">
+C &lt;- (1 - c1 - cmu * sum w_i) C + c1 ... + cmu sum w_i y_i y_i^T
+</pre>
+<p>After calling <a href="cma.recombination_weights.RecombinationWeights.html#finalize_negative_weights"><code>finalize_negative_weights</code></a>, the weights
+<tt class="rst-docutils literal">w_i</tt> let <tt class="rst-docutils literal">1 - c1 - cmu * sum w_i = 1</tt> and guaranty positive
+definiteness of C if <tt class="rst-docutils literal">y_i^T <span class="pre">C^-1</span> y_i &lt;= dimension</tt> for all
+<tt class="rst-docutils literal">w_i &lt; 0</tt>.</p>
+<p>Class attributes/properties:</p>
+<ul class="rst-simple">
+<li><tt class="rst-docutils literal">lambda_</tt>: number of weights, alias for <tt class="rst-docutils literal">len(self)</tt></li>
+<li><tt class="rst-docutils literal">mu</tt>: number of strictly positive weights, i.e.
+<tt class="rst-docutils literal"><span class="pre">sum([wi</span> &gt; 0 for wi in self])</tt></li>
+<li><tt class="rst-docutils literal">mueff</tt>: variance effective number of positive weights, i.e.
+<tt class="rst-docutils literal">1 / <span class="pre">sum([self[i]**2</span> for i in <span class="pre">range(self.mu)])</span></tt> where
+<tt class="rst-docutils literal">1 == <span class="pre">sum([self[i]</span> for i in <span class="pre">range(self.mu)])**2</span></tt></li>
+<li><a href="cma.recombination_weights.RecombinationWeights.html#mueffminus"><code>mueffminus</code></a>: variance effective number of negative weights</li>
+<li><a href="cma.recombination_weights.RecombinationWeights.html#positive_weights"><code>positive_weights</code></a>: <code>np.array</code> of the strictly positive weights</li>
+<li><tt class="rst-docutils literal">finalized</tt>: <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if class instance is ready to use</li>
+</ul>
+<p>Class methods not inherited from <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a>:</p>
+<ul class="rst-simple">
+<li><a href="cma.recombination_weights.RecombinationWeights.html#finalize_negative_weights"><code>finalize_negative_weights</code></a>: main method</li>
+<li><a href="cma.recombination_weights.RecombinationWeights.html#zero_negative_weights"><code>zero_negative_weights</code></a>: set negative weights to zero, leads to
+<tt class="rst-docutils literal">finalized</tt> to be <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a>.</li>
+<li><a href="cma.recombination_weights.RecombinationWeights.html#set_attributes_from_weights"><code>set_attributes_from_weights</code></a>: useful when weight values are
+"manually" changed, removed or inserted</li>
+<li><a href="cma.recombination_weights.RecombinationWeights.html#asarray"><code>asarray</code></a>: alias for <tt class="rst-docutils literal">np.asarray(self)</tt></li>
+<li><a href="cma.recombination_weights.RecombinationWeights.html#do_asserts"><code>do_asserts</code></a>: check consistency of weight values, passes also when
+not yet <tt class="rst-docutils literal">finalized</tt></li>
+</ul>
+<p>Usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># from recombination_weights import RecombinationWeights</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.recombination_weights <span class="py-keyword">import</span> RecombinationWeights
+<span class="py-prompt">&gt;&gt;&gt; </span>dimension, popsize = 5, 7
+<span class="py-prompt">&gt;&gt;&gt; </span>weights = RecombinationWeights(popsize)
+<span class="py-prompt">&gt;&gt;&gt; </span>c1 = 2. / (dimension + 1)**2  <span class="py-comment"># caveat: __future___ division</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>cmu = weights.mueff / (weights.mueff + dimension**2)
+<span class="py-prompt">&gt;&gt;&gt; </span>weights.finalize_negative_weights(dimension, c1, cmu)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(<span class="py-string">'weights = [%s]'</span> % <span class="py-string">', '</span>.join(<span class="py-string">"%.2f"</span> % w <span class="py-keyword">for</span> w <span class="py-keyword">in</span> weights))
+<span class="py-output">weights = [0.59, 0.29, 0.12, 0.00, -0.31, -0.57, -0.79]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(<span class="py-string">"sum=%.2f, c1+cmu*sum=%.2f"</span> % (<span class="py-builtin">sum</span>(weights),
+<span class="py-more">... </span>                                     c1 + cmu * <span class="py-builtin">sum</span>(weights)))
+<span class="py-output">sum=-0.67, c1+cmu*sum=0.00</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(<span class="py-string">'mueff=%.1f, mueffminus=%.1f, mueffall=%.1f'</span> % (
+<span class="py-more">... </span>      weights.mueff,
+<span class="py-more">... </span>      weights.mueffminus,
+<span class="py-more">... </span>      <span class="py-builtin">sum</span>(<span class="py-builtin">abs</span>(w) <span class="py-keyword">for</span> w <span class="py-keyword">in</span> weights)**2 /
+<span class="py-more">... </span>        <span class="py-builtin">sum</span>(w**2 <span class="py-keyword">for</span> w <span class="py-keyword">in</span> weights)))
+<span class="py-output">mueff=2.3, mueffminus=2.7, mueffall=4.8</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>weights = RecombinationWeights(popsize)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(<span class="py-string">"sum=%.2f, mu=%d, sumpos=%.2f, sumneg=%.2f"</span> % (
+<span class="py-more">... </span>      <span class="py-builtin">sum</span>(weights),
+<span class="py-more">... </span>      weights.mu,
+<span class="py-more">... </span>      <span class="py-builtin">sum</span>(weights[:weights.mu]),
+<span class="py-more">... </span>      <span class="py-builtin">sum</span>(weights[weights.mu:])))
+<span class="py-output">sum=0.00, mu=3, sumpos=1.00, sumneg=-1.00</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(<span class="py-string">'weights = [%s]'</span> % <span class="py-string">', '</span>.join(<span class="py-string">"%.2f"</span> % w <span class="py-keyword">for</span> w <span class="py-keyword">in</span> weights))
+<span class="py-output">weights = [0.59, 0.29, 0.12, 0.00, -0.19, -0.34, -0.47]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>weights = RecombinationWeights(21)
+<span class="py-prompt">&gt;&gt;&gt; </span>weights.finalize_negative_weights(3, 0.081, 0.28)
+<span class="py-prompt">&gt;&gt;&gt; </span>weights.insert(weights.mu, 0)  <span class="py-comment"># add zero weight in the middle</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>weights = weights.set_attributes_from_weights()  <span class="py-comment"># change lambda_</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert weights.lambda_ == 22
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(<span class="py-string">"sum=%.2f, mu=%d, sumpos=%.2f"</span> %
+<span class="py-more">... </span>      (<span class="py-builtin">sum</span>(weights), weights.mu, <span class="py-builtin">sum</span>(weights[:weights.mu])))
+<span class="py-output">sum=0.24, mu=10, sumpos=1.00</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(<span class="py-string">'weights = [%s]%%'</span> % <span class="py-string">', '</span>.join([<span class="py-string">"%.1f"</span> % (100*weights[i])
+<span class="py-more">... </span>                                    <span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(0, 22, 5)]))
+<span class="py-output">weights = [27.0, 6.8, 0.0, -6.1, -11.7]%</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>weights.zero_negative_weights()  <span class="py-comment">#  doctest:+ELLIPSIS</span>
+<span class="py-output">[0.270...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-string">"%.2f, %.2f"</span> % (<span class="py-builtin">sum</span>(weights), <span class="py-builtin">sum</span>(weights[weights.mu:]))
+<span class="py-output">'1.00, 0.00'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>mu = <span class="py-builtin">int</span>(weights.mu / 2)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(<span class="py-builtin">len</span>(weights)):
+<span class="py-more">... </span>    weights[i] = 1. / mu <span class="py-keyword">if</span> i &lt; mu <span class="py-keyword">else</span> 0
+<span class="py-prompt">&gt;&gt;&gt; </span>weights = weights.set_attributes_from_weights()
+<span class="py-prompt">&gt;&gt;&gt; </span>5 * <span class="py-string">"%.1f  "</span> % (<span class="py-builtin">sum</span>(w <span class="py-keyword">for</span> w <span class="py-keyword">in</span> weights <span class="py-keyword">if</span> w &gt; 0),
+<span class="py-more">... </span>                <span class="py-builtin">sum</span>(w <span class="py-keyword">for</span> w <span class="py-keyword">in</span> weights <span class="py-keyword">if</span> w &lt; 0),
+<span class="py-more">... </span>                weights.mu,
+<span class="py-more">... </span>                weights.mueff,
+<span class="py-more">... </span>                weights.mueffminus)
+<span class="py-output">'1.0  0.0  5.0  5.0  0.0  '</span></pre>
+<p>Reference: Hansen 2016, arXiv:1604.00772.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id447">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>return recombination weights <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a>, post condition is <tt class="rst-docutils literal">sum(self) == 0 and sum(self.positive_weights) == 1</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#set_attributes_from_weights" data-type="Method" class="code">set_attributes_from_weights</a></td>
+    <td><span>make the class attribute values consistent with weights, in case after (re-)setting the weights from input parameter <tt class="rst-docutils literal">weights</tt>, post condition is also <tt class="rst-docutils literal">sum(self.postive_weights) == 1</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#finalize_negative_weights" data-type="Method" class="code">finalize_negative_weights</a></td>
+    <td><span>finalize negative weights using <tt class="rst-docutils literal">dimension</tt> and learning rates <tt class="rst-docutils literal">c1</tt> and <tt class="rst-docutils literal">cmu</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#zero_negative_weights" data-type="Method" class="code">zero_negative_weights</a></td>
+    <td><span>finalize by setting all negative weights to zero</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#do_asserts" data-type="Method" class="code">do_asserts</a></td>
+    <td><span>assert consistency.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#lambda_" data-type="Method" class="code">lambda_</a></td>
+    <td><span>alias for <tt class="rst-docutils literal">len(self)</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#mueffminus" data-type="Method" class="code">mueffminus</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#positive_weights" data-type="Method" class="code">positive_weights</a></td>
+    <td><span>all (strictly) positive weights as <tt class="rst-docutils literal">np.array</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#asarray" data-type="Method" class="code">asarray</a></td>
+    <td><span>return weights as numpy array</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#_negative_weights_set_sum" data-type="Method" class="code">_negative_weights_set_sum</a></td>
+    <td><span>set sum of negative weights to <tt class="rst-docutils literal"><span class="pre">-abs(value)</span></tt></span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.recombination_weights.RecombinationWeights.html#_negative_weights_limit_sum" data-type="Method" class="code">_negative_weights_limit_sum</a></td>
+    <td><span>lower bound the sum of negative weights to <tt class="rst-docutils literal"><span class="pre">-abs(value)</span></tt>.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.recombination_weights.RecombinationWeights.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, len_):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return recombination weights <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a>, post condition is
+<tt class="rst-docutils literal">sum(self) == 0 and sum(self.positive_weights) == 1</tt>.</p>
+<p>Positive and negative weights sum to 1 and -1, respectively.
+The number of positive weights, <tt class="rst-docutils literal">self.mu</tt>, is about
+<tt class="rst-docutils literal">len_/2</tt>. Weights are strictly decreasing.</p>
+<p><a href="cma.recombination_weights.RecombinationWeights.html#finalize_negative_weights"><code>finalize_negative_weights</code></a> (...) or <a href="cma.recombination_weights.RecombinationWeights.html#zero_negative_weights"><code>zero_negative_weights</code></a> ()
+should be called to finalize the negative weights.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">len_</td><td>AKA <tt class="rst-docutils literal">lambda</tt> is the number of weights, see
+attribute <a href="cma.recombination_weights.RecombinationWeights.html#lambda_"><code>lambda_</code></a> which is an alias for <tt class="rst-docutils literal">len(self)</tt>.
+Alternatively, a list of "raw" weights can be provided.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.recombination_weights.RecombinationWeights.set_attributes_from_weights">
+    
+  </a>
+  <a name="set_attributes_from_weights">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_attributes_from_weights(self, weights=None, do_asserts=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>make the class attribute values consistent with weights, in
+case after (re-)setting the weights from input parameter <tt class="rst-docutils literal">weights</tt>,
+post condition is also <tt class="rst-docutils literal">sum(self.postive_weights) == 1</tt>.</p>
+<p>This method allows to set or change the weight list manually,
+e.g. like <tt class="rst-docutils literal"><span class="pre">weights[:]</span> = new_list</tt> or using the <code>pop</code>,
+<code>insert</code> etc. generic <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> methods to change the list.
+Currently, weights must be non-increasing and the first weight
+must be strictly positive and the last weight not larger than
+zero. Then all <tt class="rst-docutils literal">weights</tt> are normalized such that the
+positive weights sum to one.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.recombination_weights.RecombinationWeights.finalize_negative_weights">
+    
+  </a>
+  <a name="finalize_negative_weights">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    finalize_negative_weights(self, dimension, c1, cmu, pos_def=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>finalize negative weights using <tt class="rst-docutils literal">dimension</tt> and learning
+rates <tt class="rst-docutils literal">c1</tt> and <tt class="rst-docutils literal">cmu</tt>.</p>
+<p>This is a rather intricate method which makes this class
+useful. The negative weights are scaled to achieve
+in this order:</p>
+<ol class="rst-arabic simple">
+<li>zero decay, i.e. <tt class="rst-docutils literal">c1 + cmu * sum w == 0</tt>,</li>
+<li>a learning rate respecting mueff, i.e. <tt class="rst-docutils literal">sum <span class="pre">|w|^-</span> / sum <span class="pre">|w|^+</span>
+&lt;= 1 + 2 * self.mueffminus / (self.mueff + 2)</tt>,</li>
+<li>if <code>pos_def</code> guaranty positive definiteness when sum w^+ = 1
+and all negative input vectors used later have at most their
+dimension as squared Mahalanobis norm. This is accomplished by
+guarantying <tt class="rst-docutils literal"><span class="pre">(dimension-1)</span> * cmu * sum <span class="pre">|w|^-</span> &lt; 1 - c1 - cmu</tt>
+via setting <tt class="rst-docutils literal">sum <span class="pre">|w|^-</span> &lt;= (1 - c1 <span class="pre">-cmu)</span> / dimension / cmu</tt>.</li>
+</ol>
+<p>The latter two conditions do not change the weights with default
+population size.</p>
+<p>Details:</p>
+<ul class="rst-simple">
+<li>To guaranty 3., the input vectors associated to negative
+weights must obey ||.||^2 &lt;= dimension in Mahalanobis norm.</li>
+<li>The third argument, <tt class="rst-docutils literal">cmu</tt>, usually depends on the
+(raw) weights, in particular it depends on <tt class="rst-docutils literal">self.mueff</tt>.
+For this reason the calling syntax
+<tt class="rst-docutils literal">weights = <span class="pre">RecombinationWeights(...).finalize_negative_weights(...)</span></tt>
+is not supported.</li>
+</ul><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.recombination_weights.RecombinationWeights.zero_negative_weights">
+    
+  </a>
+  <a name="zero_negative_weights">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    zero_negative_weights(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>finalize by setting all negative weights to zero<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.recombination_weights.RecombinationWeights._negative_weights_set_sum">
+    
+  </a>
+  <a name="_negative_weights_set_sum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _negative_weights_set_sum(self, value):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>set sum of negative weights to <tt class="rst-docutils literal"><span class="pre">-abs(value)</span></tt></p>
+<p>Precondition: the last weight must no be greater than zero.</p>
+<p>Details: if no negative weight exists, all zero weights with index
+lambda / 2 or greater become uniformely negative.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.recombination_weights.RecombinationWeights._negative_weights_limit_sum">
+    
+  </a>
+  <a name="_negative_weights_limit_sum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _negative_weights_limit_sum(self, value):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>lower bound the sum of negative weights to <tt class="rst-docutils literal"><span class="pre">-abs(value)</span></tt>.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.recombination_weights.RecombinationWeights.do_asserts">
+    
+  </a>
+  <a name="do_asserts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    do_asserts(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>assert consistency.</p>
+<p>Assert:</p>
+<ul class="rst-simple">
+<li>attribute values of <tt class="rst-docutils literal">lambda_, mu, mueff, mueffminus</tt></li>
+<li>value of first and last weight</li>
+<li>monotonicity of weights</li>
+<li>sum of positive weights to be one</li>
+</ul><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.recombination_weights.RecombinationWeights.lambda_">
+    
+  </a>
+  <a name="lambda_">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    lambda_(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>alias for <tt class="rst-docutils literal">len(self)</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.recombination_weights.RecombinationWeights.mueffminus">
+    
+  </a>
+  <a name="mueffminus">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    mueffminus(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.recombination_weights.RecombinationWeights.positive_weights">
+    
+  </a>
+  <a name="positive_weights">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    positive_weights(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>all (strictly) positive weights as <tt class="rst-docutils literal">np.array</tt>.</p>
+<p>Useful to implement recombination for the new mean vector.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.recombination_weights.RecombinationWeights.asarray">
+    
+  </a>
+  <a name="asarray">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    asarray(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return weights as numpy array<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

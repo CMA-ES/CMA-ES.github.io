@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.fitness_models.SurrogatePopulation : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.fitness_models.SurrogatePopulation(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_models.html" data-type="Module" class="code">fitness_models</a></code>
+          
+          <a href="classIndex.html#cma.fitness_models.SurrogatePopulation">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>surrogate f-values for a population.</p>
+<p>See also <a href="cma.fitness_models.SurrogatePopulation.html#__call__"><code>__call__</code></a> method.</p>
+<p>What is new:</p>
+<ul class="rst-simple">
+<li>the model is built with &gt;=3 evaluations (compared to LS-CMA and lmm-CMA)</li>
+<li>the model is linear at first, then diagonal, then full</li>
+<li>the model uses the fitness ranks as weights for weighted regression.</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma.fitness_models <span class="py-keyword">as</span> fm
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.fitness_transformations <span class="py-keyword">import</span> Function <span class="py-keyword">as</span> FFun  <span class="py-comment"># adds evaluations attribute</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># fm.Logger, Logger = fm.LoggerDummy, fm.Logger</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>surrogate = fm.SurrogatePopulation(cma.ff.elli)</pre>
+<p>Example using the ask-and-tell interface:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> fitfun <span class="py-keyword">in</span> [FFun(cma.ff.elli), FFun(cma.ff.sectorsphere)]:
+<span class="py-more">... </span>    es = cma.CMAEvolutionStrategy(5 * [1], 2.2,
+<span class="py-more">... </span>                   {<span class="py-string">'CMA_injections_threshold_keep_len'</span>: 1,
+<span class="py-more">... </span>                    <span class="py-string">'ftarget'</span>:1e-9, <span class="py-string">'verbose'</span>: -9, <span class="py-string">'seed'</span>:3})
+<span class="py-more">... </span>    surrogate = fm.SurrogatePopulation(fitfun)
+<span class="py-more">... </span>    while <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>        X = es.ask()
+<span class="py-more">... </span>        es.tell(X, surrogate(X))  <span class="py-comment"># surrogate evaluation</span>
+<span class="py-more">... </span>        es.inject([surrogate.model.xopt])
+<span class="py-more">... </span>        <span class="py-comment"># es.disp(); es.logger.add()  # ineffective with verbose=-9</span>
+<span class="py-more">... </span>    <span class="py-keyword">print</span>(fitfun.evaluations)  <span class="py-comment"># was: (sig=2.2) 12 161, 18 131, 18 150, 18 82, 15 59, 15 87, 15 132, 18 83, 18 55, 18 68</span>
+<span class="py-more">... </span>    assert <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop()
+<span class="py-output">18</span>
+<span class="py-output">68</span></pre>
+<p>Example using the <tt class="rst-docutils literal">parallel_objective</tt> interface to <a href="cma.evolution_strategy.html#fmin"><code>cma.fmin</code></a>:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> fitfun, evals <span class="py-keyword">in</span> [[FFun(cma.ff.elli), 22], [FFun(cma.ff.ellirot), 40]]:
+<span class="py-more">... </span>    surrogate = fm.SurrogatePopulation(fitfun)
+<span class="py-more">... </span>    inject_xopt = fm.ModelInjectionCallback(surrogate.model)  <span class="py-comment"># must use the same model</span>
+<span class="py-more">... </span>    xopt, es = cma.fmin2(<span class="py-builtin">None</span>, 5 * [1], 2.2,
+<span class="py-more">... </span>                     {<span class="py-string">'CMA_injections_threshold_keep_len'</span>: 1,
+<span class="py-more">... </span>                      <span class="py-string">'ftarget'</span>:1e-12, <span class="py-string">'verbose'</span>: -9},
+<span class="py-more">... </span>                     parallel_objective=surrogate,
+<span class="py-more">... </span>                     callback=inject_xopt)
+<span class="py-more">... </span>    <span class="py-comment"># print(fitfun.evaluations)</span>
+<span class="py-more">... </span>    assert fitfun.evaluations == es.result.evaluations
+<span class="py-more">... </span>    assert es.result[1] &lt; 1e-12
+<span class="py-more">... </span>    assert es.result[2] &lt; evals
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># fm.Logger = Logger</span></pre><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id377">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>If <tt class="rst-docutils literal">model is None</tt>, a default <a href="cma.fitness_models.LQModel.html"><code>LQModel</code></a> instance is used. By setting <code>self.model</code> to <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>, only the <code>fitness</code> for each population member is evaluated in each call.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html" data-type="Class" class="code">EvaluationManager</a></td>
+    <td><span>Manage incremental evaluation of a population of solutions.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.fitness_models.SurrogatePopulation.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>return population f-values.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, fitness, model=None, model_max_size_factor=None, tau_truth_threshold=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>If <tt class="rst-docutils literal">model is None</tt>, a default <a href="cma.fitness_models.LQModel.html"><code>LQModel</code></a> instance is used. By
+setting <code>self.model</code> to <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>, only the <code>fitness</code> for each
+population member is evaluated in each call.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.fitness_models.SurrogatePopulation.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, X):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return population f-values.</p>
+<p>Also update the underlying model. Evaluate at least one solution on the
+true fitness. The smallest returned value is never smaller than the
+smallest truly evaluated value.</p>
+<p>Uses (this may not be a complete list):
+<code>model.settings.max_absolute_size</code>, <code>model.settings.truncation_ratio</code>,
+<code>model.size</code>, <code>model.sort</code>, <code>model.eval</code>, <code>model.reset</code>, <code>model.add_data_row</code>,
+<code>model.kendall</code>, <code>model.adapt_max_relative_size</code>, relies on default value
+zero for <tt class="rst-docutils literal">max_absolute_size</tt>.</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

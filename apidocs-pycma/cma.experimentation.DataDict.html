@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.experimentation.DataDict : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.experimentation.DataDict(<span title="collections.defaultdict">defaultdict</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.experimentation.html" data-type="Module" class="code">experimentation</a></code>
+          
+          <a href="classIndex.html#cma.experimentation.DataDict">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>A dictionary with a parameter value, e.g. dimension, as keys and
+a list/sequence of results, e.g. runtimes, as value for each key.</p>
+<p>This class provides simple computations on this kind of data,
+like <tt class="rst-docutils literal">x, y = .xy_arrays() == sorted(keys), sp1(values)</tt>.</p>
+<p>A main functionality is the method <a href="cma.experimentation.DataDict.html#clean"><code>clean</code></a>, which joins all entries
+which have almost equal keys. This allows to have a <a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a> parameter
+as key.</p>
+<p>If the dictionary values are not lists, one may get rather unexpected
+results or exceptions.</p>
+<p>Details: this class allows to use <a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a> values as keys when
+<a href="cma.experimentation.DataDict.html#clean_key"><code>clean_key</code></a> and <a href="cma.experimentation.DataDict.html#set_clean"><code>set_clean</code></a> are used to access the data in the
+<a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>. Inheriting from <a href="http://docs.python.org/library/collections.html#collections.defaultdict"><code>defaultdict</code></a> with <tt class="rst-docutils literal">[]</tt> as default value,
+the syntax:</p>
+<pre class="rst-literal-block">
+data = DataDict()
+data[first_key] += [first_data_point]
+</pre>
+<p>without initialization of the key value works perfectly fine.</p>
+<p>Caveat: small values are considered as the same key, even if they are
+close to zero. Either use a different comparison via the <code>equal</code>
+keyword parameter, or use <tt class="rst-docutils literal">1 / key_value</tt> or <code>log(key_value)`</code>.</p>
+<p>TODO: consider <code>numpy.allclose</code> for almost equal comparison</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id391">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>Use <tt class="rst-docutils literal">dict(dict_.data or dict_)</tt>, and <code>dict_.meta_data</code> for initialization.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#xy_arrays" data-type="Method" class="code">xy_arrays</a></td>
+    <td><span>return an array of sorted keys and an array of the respectively aggregated values of this <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#argmin" data-type="Method" class="code">argmin</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#clean" data-type="Method" class="code">clean</a></td>
+    <td><span>merge keys which have almost the same value</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#clean_key" data-type="Method" class="code">clean_key</a></td>
+    <td><span>set similar key values all to be <code>key</code>, return <code>key</code>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#get_near" data-type="Method" class="code">get_near</a></td>
+    <td><span>get the merged values list of all nearby keys.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#set_clean" data-type="Method" class="code">set_clean</a></td>
+    <td><span>join all entries with similar <code>key</code> and return the new value, a joined list of all respective values.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#successes" data-type="Method" class="code">successes</a></td>
+    <td><span>return a class instance with attributes <code>x</code> (i.e. keys), <code>n</code>, <code>nsucc</code>, and <code>rate</code>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#percentile" data-type="Method" class="code">percentile</a></td>
+    <td><span>percentile based on bootstrapping</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#__repr__" data-type="Method" class="code">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.DataDict.html#_near_key" data-type="Method" class="code">_near_key</a></td>
+    <td><span>return a key in self which is <tt class="rst-docutils literal">equal</tt> to <tt class="rst-docutils literal">key</tt> and otherwise <tt class="rst-docutils literal">key</tt>.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, dict_=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Use <tt class="rst-docutils literal">dict(dict_.data or dict_)</tt>, and <code>dict_.meta_data</code> for
+initialization.</p>
+<p>Details: <code>dict_.meta_data</code> are not copied.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.xy_arrays">
+    
+  </a>
+  <a name="xy_arrays">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    xy_arrays(self, agg=sp1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return an array of sorted keys and an array of the respectively
+aggregated values of this <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>.</p>
+<p>For example to be used as
+<tt class="rst-docutils literal"><span class="pre">plot(*Sweep('data-sweep-dim').sorted_arrays())</span></tt>.</p>
+<p>Parameter <code>agg</code> determines the function to be used to aggregate
+data values, by default <a href="cma.experimentation.html#sp1"><code>sp1</code></a></p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.argmin">
+    
+  </a>
+  <a name="argmin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    argmin(self, agg=sp1, slack=1.0, slack_index_shift=1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.clean">
+    
+  </a>
+  <a name="clean">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    clean(self, equal=lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>merge keys which have almost the same value<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.clean_key">
+    
+  </a>
+  <a name="clean_key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    clean_key(self, key, equal=lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>set similar key values all to be <code>key</code>, return <code>key</code>.</p>
+<p>Use method <a href="cma.experimentation.DataDict.html#set_clean"><code>set_clean</code></a> to access and change the clean-key
+dictionary <em>value</em> more conveniently.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.get_near">
+    
+  </a>
+  <a name="get_near">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    get_near(self, key, equal=lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>get the merged values list of all nearby keys.</p>
+<p>Caveat: the returned value is a new list</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.experimentation.DataDict.html#clean"><code>clean</code></a>, <a href="cma.experimentation.DataDict.html#set_clean"><code>set_clean</code></a>.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.set_clean">
+    
+  </a>
+  <a name="set_clean">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_clean(self, key):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>join all entries with similar <code>key</code> and return the new value,
+a joined list of all respective values.</p>
+<p>Example:</p>
+<pre class="rst-literal-block">
+data.set_clean(key) += [new_data_point]
+
+# same as
+data[data.clean_key(key)] += [new_data_point]
+
+# similar as
+data[key] += [new_data_point]
+data.clean()  # cleans *all* keys
+</pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.experimentation.DataDict._near_key">
+    
+  </a>
+  <a name="_near_key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _near_key(self, key, equal=lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06, exclude=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return a key in self which is <tt class="rst-docutils literal">equal</tt> to <tt class="rst-docutils literal">key</tt> and otherwise <tt class="rst-docutils literal">key</tt>.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.successes">
+    
+  </a>
+  <a name="successes">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    successes(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return a class instance with attributes <code>x</code> (i.e. keys), <code>n</code>,
+<code>nsucc</code>, and <code>rate</code>.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.percentile">
+    
+  </a>
+  <a name="percentile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    percentile(self, prctile, agg=sp1, samples=100):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>percentile based on bootstrapping<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.DataDict.__repr__">
+    
+  </a>
+  <a name="__repr__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __repr__(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-17 12:18:17.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

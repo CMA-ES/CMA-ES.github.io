@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.constraints_handler2 : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.constraints_handler2</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>2019: constraints handling classes based on ranks</p>
+<p>TODO: rename to constraints_by_rank</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id367">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler2.html#nbfeas" data-type="Function" class="code">nbfeas</a></td>
+    <td><span>return number of <code>g_values</code> that are &lt;= 0</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.constraints_handler2.Glinear.html" data-type="Class" class="code">Glinear</a></td>
+    <td><span>a linear bound constraint function on variable i.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.constraints_handler2.RankWeight.html" data-type="Class" class="code">RankWeight</a></td>
+    <td><span>A weight that adapts depending on observed values.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.constraints_handler2.FSumRanks.html" data-type="Class" class="code">FSumRanks</a></td>
+    <td><span>Testing rank-based optimization of individual functions, for example the sphere function formulated in each coordinate as f_i(x) = x_i^2.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.constraints_handler2.GSumRanks.html" data-type="Class" class="code">GSumRanks</a></td>
+    <td><span>Compute a rank-based penalty from constraints functions.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.constraints_handler2.FGSumRanks.html" data-type="Class" class="code">FGSumRanks</a></td>
+    <td><span>TODO: prevent negative f-values but how?</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.constraints_handler2.SignTracker.html" data-type="Class" class="code">SignTracker</a></td>
+    <td><span>count the number of times g changes to the more extreme and reset when crossing zero.</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler2.html#_progressive_ranks" data-type="Function" class="code">_progressive_ranks</a></td>
+    <td><span>return progressive rank values as int((r**2 + r) / 2) = 0, 1, 3, 6, 10, 15, 21,...</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler2.html#_new_rank_correlation" data-type="Function" class="code">_new_rank_correlation</a></td>
+    <td><span>compute correlation between ranks and &lt;x_best-x_worst, x&gt;-ranking</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction private">
+  
+  <a name="cma.constraints_handler2._progressive_ranks">
+    
+  </a>
+  <a name="_progressive_ranks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _progressive_ranks(arf):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return progressive rank values as int((r**2 + r) / 2) = 0, 1, 3, 6, 10, 15, 21,...<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.constraints_handler2._new_rank_correlation">
+    
+  </a>
+  <a name="_new_rank_correlation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _new_rank_correlation(X, ranks=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>compute correlation between ranks and &lt;x_best-x_worst, x&gt;-ranking<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.constraints_handler2.nbfeas">
+    
+  </a>
+  <a name="nbfeas">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    nbfeas(g_values):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return number of <code>g_values</code> that are &lt;= 0<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-17 12:18:17.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

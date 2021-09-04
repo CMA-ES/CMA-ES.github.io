@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.bbob.NormalizedCocoProblem : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.bbob.NormalizedCocoProblem</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.bbob.html" data-type="Module" class="code">bbob</a></code>
+          
+          <a href="classIndex.html#cma.bbob.NormalizedCocoProblem">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>A translated and shifted coco problem with all-zeros as</p>
+<p>global minimum and 0 as optimal function value.</p>
+<p>Example:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cocoex
+<span class="py-prompt">&gt;&gt;&gt; </span>bbob = cocoex.Suite(<span class="py-string">'bbob'</span>, <span class="py-string">''</span>, <span class="py-string">''</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>dimension = 10
+<span class="py-prompt">&gt;&gt;&gt; </span>f6 = NormalizedCocoProblem(bbob, 6, dimension)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert f6(dimension * [0]) == 0</pre><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id6">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.bbob.NormalizedCocoProblem.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>return a "normalized" coco problem.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.bbob.NormalizedCocoProblem.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>Main functionality, return f(x), where <tt class="rst-docutils literal"><span class="pre">f(zeros)==0</span></tt> is the minimizer</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.bbob.NormalizedCocoProblem.html#constraint" data-type="Method" class="code">constraint</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.bbob.NormalizedCocoProblem.html#_inherit_attributes" data-type="Method" class="code">_inherit_attributes</a></td>
+    <td><span>link attributes from <code>f</code>.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.bbob.NormalizedCocoProblem.html#_inherit_docstrings" data-type="Method" class="code">_inherit_docstrings</a></td>
+    <td><span>set method <tt class="rst-docutils literal">__doc__</tt> attributes from <code>f</code></span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.bbob.NormalizedCocoProblem.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, suite, fun_nb, dimension, instance=1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return a "normalized" coco problem.</p>
+<p><code>suite</code> must be a <code>cocoex.Suite</code> instance, the further
+parameters <code>fun_nb</code>, <code>dimension</code>, <code>instance</code> are passed to
+<code>suite.get_problem_by_function_dimension_instance</code>.</p>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>The original coco problem resides in attribute <code>f</code>.</p>
+<p>The returned "normalized" version of the function is useful
+to make single experiments with algorithms which are invariant
+under x- and f-translations. The output of the experiments
+is (much) easier to interpret for the normalized version.</p>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.bbob.NormalizedCocoProblem.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Main functionality, return f(x), where <tt class="rst-docutils literal"><span class="pre">f(zeros)==0</span></tt> is the minimizer<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.bbob.NormalizedCocoProblem.constraint">
+    
+  </a>
+  <a name="constraint">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    constraint(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.bbob.NormalizedCocoProblem._inherit_attributes">
+    
+  </a>
+  <a name="_inherit_attributes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _inherit_attributes(self, f):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>link attributes from <code>f</code>.</p>
+<p>This might not always lead to the expected result.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.bbob.NormalizedCocoProblem._inherit_docstrings">
+    
+  </a>
+  <a name="_inherit_docstrings">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _inherit_docstrings(self, f):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>set method <tt class="rst-docutils literal">__doc__</tt> attributes from <code>f</code><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-17 12:18:17.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

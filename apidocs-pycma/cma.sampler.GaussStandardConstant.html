@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.sampler.GaussStandardConstant : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.sampler.GaussStandardConstant(<a href="cma.sampler.GaussSampler.html" data-type="Class" class="code">GaussSampler</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.sampler.html" data-type="Module" class="code">sampler</a></code>
+          
+          <a href="classIndex.html#cma.sampler.GaussStandardConstant">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Standard Multi-variate normal distribution with zero mean.</p>
+<p>No update/change of distribution parameters.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id456">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>declarative init, doesn't need to be executed</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#variances" data-type="Method" class="code">variances</a></td>
+    <td><span>vector of coordinate-wise (marginal) variances</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#sample" data-type="Method" class="code">sample</a></td>
+    <td><span>return list of i.i.d. samples.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>do nothing</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#transform" data-type="Method" class="code">transform</a></td>
+    <td><span>transform <tt class="rst-docutils literal">x</tt> as implied from the distribution parameters</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#transform_inverse" data-type="Method" class="code">transform_inverse</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#norm" data-type="Method" class="code">norm</a></td>
+    <td><span>return Mahalanobis norm of <code>x</code> w.r.t. the statistical model</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#__imul__" data-type="Method" class="code">__imul__</a></td>
+    <td><span>variance multiplier</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#condition_number" data-type="Method" class="code">condition_number</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#covariance_matrix" data-type="Method" class="code">covariance_matrix</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussStandardConstant.html#correlation_matrix" data-type="Method" class="code">correlation_matrix</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.sampler.GaussSampler.html" data-type="Class" class="code">GaussSampler</a>:
+          </p>
+          <table class="children sortable" id="id457">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sampler.GaussSampler.html#chin" data-type="Method" class="code">chin</a></td>
+    <td><span>approximation of the expected length when isotropic with variance 1.</span></td>
+  </tr>
+</table>
+          
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" data-type="Class" class="code">StatisticalModelSamplerWithZeroMeanBaseClass</a> (via <a href="cma.sampler.GaussSampler.html" data-type="Class" class="code">GaussSampler</a>):
+          </p>
+          <table class="children sortable" id="id458">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#parameters" data-type="Method" class="code">parameters</a></td>
+    <td><span>return <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation_inverse" data-type="Method" class="code">to_linear_transformation_inverse</a></td>
+    <td><span>return inverse of associated linear transformation</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation" data-type="Method" class="code">to_linear_transformation</a></td>
+    <td><span>return associated linear transformation</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#inverse_hessian_scalar_correction" data-type="Method" class="code">inverse_hessian_scalar_correction</a></td>
+    <td><span>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt> fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt></span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, dimension, randn=np.random.randn, quadratic=False, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.sampler.GaussSampler.html#__init__" data-type="Method" class="code">cma.sampler.GaussSampler.__init__</a></div>
+    
+    <div>declarative init, doesn't need to be executed<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.variances">
+    
+  </a>
+  <a name="variances">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    variances(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#variances" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.variances</a></div>
+    
+    <div>vector of coordinate-wise (marginal) variances<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.sample">
+    
+  </a>
+  <a name="sample">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    sample(self, number, same_length=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#sample" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.sample</a></div>
+    
+    <div>return list of i.i.d. samples.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">number</td><td>is the number of samples.</td></tr><tr><td></td><td class="fieldArg">update</td><td>controls a possibly lazy update of the sampler.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, vectors, weights):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#update" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.update</a></div>
+    
+    <div>do nothing<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.transform">
+    
+  </a>
+  <a name="transform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    transform(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform</a></div>
+    
+    <div>transform <tt class="rst-docutils literal">x</tt> as implied from the distribution parameters<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.transform_inverse">
+    
+  </a>
+  <a name="transform_inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    transform_inverse(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse</a></div>
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.norm">
+    
+  </a>
+  <a name="norm">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    norm(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#norm" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.norm</a></div>
+    
+    <div>return Mahalanobis norm of <code>x</code> w.r.t. the statistical model<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.__imul__">
+    
+  </a>
+  <a name="__imul__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __imul__(self, factor):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__imul__" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__imul__</a></div>
+    
+    <div>variance multiplier<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.condition_number">
+    
+  </a>
+  <a name="condition_number">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    condition_number(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#condition_number" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.condition_number</a></div>
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.covariance_matrix">
+    
+  </a>
+  <a name="covariance_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    covariance_matrix(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#covariance_matrix" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.covariance_matrix</a></div>
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.sampler.GaussStandardConstant.correlation_matrix">
+    
+  </a>
+  <a name="correlation_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    correlation_matrix(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

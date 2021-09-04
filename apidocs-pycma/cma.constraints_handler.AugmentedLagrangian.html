@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.constraints_handler.AugmentedLagrangian : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.constraints_handler.AugmentedLagrangian(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.constraints_handler.html" data-type="Module" class="code">constraints_handler</a></code>
+          
+          <a href="classIndex.html#cma.constraints_handler.AugmentedLagrangian">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Augmented Lagrangian with adaptation of the coefficients</p>
+<p>for minimization, implemented after Atamna et al FOGA 2017,
+Algorithm 1 and Sect 8.2, <a href="https://hal.inria.fr/hal-01455379/document" class="rst-reference external" target="_top">https://hal.inria.fr/hal-01455379/document</a>.</p>
+<p>Input <code>dimension</code> is the search space dimension, boolean <code>equality</code>
+may be an iterable of length of number of constraints indicating the
+type for each constraint.</p>
+<p>Below, the objective function value is denoted as <tt class="rst-docutils literal">f = f(x)</tt>, the
+constraints values as <tt class="rst-docutils literal">g = g(x) &lt;= 0</tt>, the penalties compute to
+<tt class="rst-docutils literal">penalties(x) = self(g(x)) = lam g + mu g^2 / 2</tt> (if g &gt; -lam / mu) for
+each element of g, as returned by calling the instance with g as argument.</p>
+<p>The penalized "fitness" value <tt class="rst-docutils literal">f + sum(self(g))</tt> shall be minimized.
+lam and mu are the Lagrange multipliers or coefficients.</p>
+<p>An additional method, <a href="cma.constraints_handler.AugmentedLagrangian.html#set_coefficients"><code>set_coefficients</code></a> allows to initialize the
+Lagrange multipliers from data.</p>
+<p>A short example (and doctest):</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.constraints_handler <span class="py-keyword">import</span> AugmentedLagrangian, PopulationEvaluator
+<span class="py-prompt">&gt;&gt;&gt; </span>m = 2  <span class="py-comment"># number of constraints</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">objective</span>(x):
+<span class="py-more">... </span>    return <span class="py-builtin">sum</span>(x[m:]**2) + <span class="py-builtin">sum</span>((x[:m] - 1)**2) - m
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">constraints</span>(x):
+<span class="py-more">... </span>    return x[:m]
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(3 * [1], 1, {
+<span class="py-more">... </span>         <span class="py-string">'termination_callback'</span>: <span class="py-keyword">lambda</span> es: <span class="py-builtin">sum</span>(es.mean**2) &lt; 1e-8})  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(3_w,7)-aCMA-ES...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>al = AugmentedLagrangian(es.N)  <span class="py-comment"># lam and mu still need to be set</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># al.chi_domega = 1.15  # is the new default, which seems to give better results than the original value</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># al.lam, al.mu = ...  # we could set the initial Lagrange coefficients here</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>while <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>    eva = PopulationEvaluator(objective, constraints)(es.ask(), m=es.mean)
+<span class="py-more">... </span>    al.set_coefficients(eva.F, eva.G)  <span class="py-comment"># set lam and mu, not part of the original algorithm</span>
+<span class="py-more">... </span>    al.update(eva.m[<span class="py-string">'f'</span>], eva.m[<span class="py-string">'g'</span>])
+<span class="py-more">... </span>    es.tell(eva.X, [f + <span class="py-builtin">sum</span>(al(g)) <span class="py-keyword">for</span> f, g <span class="py-keyword">in</span> <span class="py-builtin">zip</span>(eva.F, eva.G)])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> es.result.evaluations &gt; 3100:
+<span class="py-more">... </span>    <span class="py-keyword">print</span>(<span class="py-string">"evaluations %d !&lt; 3100. 1500 is normal, 2700 happens rarely"</span> % es.result.evaluations)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'callback'</span> <span class="py-keyword">in</span> es.stop()
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">len</span>(eva.feasibility_ratios) == m
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">sum</span>(eva.feasibility_ratios &lt; 0) == <span class="py-builtin">sum</span>(eva.feasibility_ratios &gt; 1) == 0</pre>
+<p>Details: the input <code>dimension</code> is needed to compute the default change
+rate <code>chi_domega</code> (if <tt class="rst-docutils literal">chi_domega is None</tt>), to compute initial
+coefficients and to compare between h and g to update mu. The default
+dependency of <code>chi_domega</code> on the dimension seems to be however
+suboptimal. Setting <tt class="rst-docutils literal">self.chi_domega = 1.15</tt> as is the current
+default seems to give better results than the original setting.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id361">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>if <tt class="rst-docutils literal">chi_domega is None</tt>, set to the original (worse) setting <tt class="rst-docutils literal"><span class="pre">2**(0.2</span> / dimension)</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#m" data-type="Method" class="code">m</a></td>
+    <td><span>number of constraints, raise <a href="http://docs.python.org/library/exceptions.html#exceptions.TypeError"><code>TypeError</code></a> if not set yet</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#feasibility_ratios" data-type="Method" class="code">feasibility_ratios</a></td>
+    <td><span>or bias for equality constraints, versatile interface may change</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_m" data-type="Method" class="code">set_m</a></td>
+    <td><span>initialize attributes which depend on the number of constraints.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_coefficients" data-type="Method" class="code">set_coefficients</a></td>
+    <td><span>compute initial coefficients based on some f- and g-values.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#isequality" data-type="Method" class="code">isequality</a></td>
+    <td><span>bool array, <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if <code>i</code>-th constraint is an equality constraint</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>return <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of AL penalties for constraints values in <code>g</code>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>f is a scalar, g is a vector.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#_init_" data-type="Method" class="code">_init_</a></td>
+    <td><span>allow to reset the logger with a single call</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#_check_dtypes" data-type="Method" class="code">_check_dtypes</a></td>
+    <td><span>in case the user set the attributes</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, dimension, equality=False, chi_domega=2**0.2):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>if <tt class="rst-docutils literal">chi_domega is None</tt>, set to the original (worse) setting <tt class="rst-docutils literal"><span class="pre">2**(0.2</span> / dimension)</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian._init_">
+    
+  </a>
+  <a name="_init_">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _init_(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>allow to reset the logger with a single call<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.m">
+    
+  </a>
+  <a name="m">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    m(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>number of constraints, raise <a href="http://docs.python.org/library/exceptions.html#exceptions.TypeError"><code>TypeError</code></a> if not set yet<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.feasibility_ratios">
+    
+  </a>
+  <a name="feasibility_ratios">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    feasibility_ratios(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>or bias for equality constraints, versatile interface may change<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.set_m">
+    
+  </a>
+  <a name="set_m">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_m(self, m):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>initialize attributes which depend on the number of constraints.</p>
+<p>This requires the <code>lam</code> attribute to be <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> and deletes all
+previously set or adapted <code>mu</code> coefficients.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian._check_dtypes">
+    
+  </a>
+  <a name="_check_dtypes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _check_dtypes(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>in case the user set the attributes<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.set_coefficients">
+    
+  </a>
+  <a name="set_coefficients">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_coefficients(self, F, G):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>compute initial coefficients based on some f- and g-values.</p>
+<p>The formulas to set the coefficients:</p>
+<pre class="rst-literal-block">
+lam = iqr(f) / (sqrt(n) * iqr(g))
+mu = 2 * iqr(f) / (5 * n * (iqr(g) + iqr(g**2)))
+</pre>
+<p>are taken out of thin air and not thoroughly tested. They are
+additionally protected against division by zero.</p>
+<p>Each row of <code>G</code> represents the constraints of one sample measure.</p>
+<p>Set lam and mu until a population contains more than 10% infeasible
+and more than 10% feasible at the same time. Afterwards, this at least...?...</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.isequality">
+    
+  </a>
+  <a name="isequality">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    isequality(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>bool array, <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if <code>i</code>-th constraint is an equality constraint<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, g):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of AL penalties for constraints values in <code>g</code>.</p>
+<p>Penalties are zero in the optimum and can be negative down to
+<tt class="rst-docutils literal"><span class="pre">-lam**2</span> / mu / 2</tt>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, f, g):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>f is a scalar, g is a vector.</p>
+<p>Update Lagrange multipliers based on Atamna et al 2017. f and g are
+supposed to have been computed from the distribution mean.</p>
+<p>Details: do nothing if Lagrange coefficients <code>lam</code> were not yet set.</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

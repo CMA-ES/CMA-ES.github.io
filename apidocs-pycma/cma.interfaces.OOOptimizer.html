@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.interfaces.OOOptimizer : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.interfaces.OOOptimizer(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.interfaces.html" data-type="Module" class="code">interfaces</a></code>
+          
+          <a href="classIndex.html#cma.interfaces.OOOptimizer">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        <p>Known subclasses: <a href="cma.purecma.CMAES.html" data-type="Class" class="code">cma.purecma.CMAES</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>abstract base class for an Object Oriented Optimizer interface.</p>
+<p>Relevant methods are <a href="cma.interfaces.OOOptimizer.html#__init__"><code>__init__</code></a>, <a href="cma.interfaces.OOOptimizer.html#ask"><code>ask</code></a>, <a href="cma.interfaces.OOOptimizer.html#tell"><code>tell</code></a>, <a href="cma.interfaces.OOOptimizer.html#optimize"><code>optimize</code></a> and <a href="cma.interfaces.OOOptimizer.html#stop"><code>stop</code></a>,
+and property <a href="cma.interfaces.OOOptimizer.html#result"><code>result</code></a>. Only <a href="cma.interfaces.OOOptimizer.html#optimize"><code>optimize</code></a> is fully implemented in this
+base class.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<p>All examples minimize the function <a href="cma.fitness_functions.html#elli"><code>elli</code></a>, the output is not shown.
+(A preferred environment to execute all examples is <tt class="rst-docutils literal">ipython</tt>.)</p>
+<p>First we need:</p>
+<pre class="rst-literal-block">
+# CMAEvolutionStrategy derives from the OOOptimizer class
+from cma import CMAEvolutionStrategy
+from cma.fitness_functions import elli
+</pre>
+<p>The shortest example uses the inherited method
+<a href="cma.interfaces.OOOptimizer.html#optimize"><code>OOOptimizer.optimize</code></a>:</p>
+<pre class="rst-literal-block">
+es = CMAEvolutionStrategy(8 * [0.1], 0.5).optimize(elli)
+</pre>
+<p>The input parameters to <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> are specific to this
+inherited class. The remaining functionality is based on interface
+defined by <a href="cma.interfaces.OOOptimizer.html"><code>OOOptimizer</code></a>. We might have a look at the result:</p>
+<pre class="rst-literal-block">
+print(es.result[0])  # best solution and
+print(es.result[1])  # its function value
+</pre>
+<p>Virtually the same example can be written with an explicit loop
+instead of using <a href="cma.interfaces.OOOptimizer.html#optimize"><code>optimize</code></a>. This gives the necessary insight into
+the <a href="cma.interfaces.OOOptimizer.html"><code>OOOptimizer</code></a> class interface and entire control over the
+iteration loop:</p>
+<pre class="rst-literal-block">
+# a new CMAEvolutionStrategy instance
+optim = CMAEvolutionStrategy(9 * [0.5], 0.3)
+
+# this loop resembles optimize()
+while not optim.stop():  # iterate
+    X = optim.ask()      # get candidate solutions
+    f = [elli(x) for x in X]  # evaluate solutions
+    #  in case do something else that needs to be done
+    optim.tell(X, f)     # do all the real "update" work
+    optim.disp(20)       # display info every 20th iteration
+    optim.logger.add()   # log another "data line", non-standard
+
+# final output
+print('termination by', optim.stop())
+print('best f-value =', optim.result[1])
+print('best solution =', optim.result[0])
+optim.logger.plot()  # if matplotlib is available
+</pre>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>Most of the work is done in the methods <a href="cma.interfaces.OOOptimizer.html#tell"><code>tell</code></a> or <a href="cma.interfaces.OOOptimizer.html#ask"><code>ask</code></a>. The property
+<a href="cma.interfaces.OOOptimizer.html#result"><code>result</code></a> provides more useful output.</p>
+</div><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id417">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span><tt class="rst-docutils literal">xstart</tt> is a mandatory argument</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>(re-)set to the initial state</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#ask" data-type="Method" class="code">ask</a></td>
+    <td><span>abstract method, AKA "get" or "sample_distribution", deliver new candidate solution(s), a list of "vectors"</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#tell" data-type="Method" class="code">tell</a></td>
+    <td><span>abstract method, AKA "update", pass f-values and prepare for next iteration</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#stop" data-type="Method" class="code">stop</a></td>
+    <td><span>abstract method, return satisfied termination conditions in a dictionary like <tt class="rst-docutils literal">{'termination reason': value, <span class="pre">...}</span></tt> or <tt class="rst-docutils literal">{}</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#disp" data-type="Method" class="code">disp</a></td>
+    <td><span>abstract method, display some iteration info when <tt class="rst-docutils literal">self.iteration_counter % modulo &lt; 1</tt>, using a reasonable default for <code>modulo</code> if <tt class="rst-docutils literal">modulo is None</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#result" data-type="Method" class="code">result</a></td>
+    <td><span>abstract property, contain <tt class="rst-docutils literal">(x, f(x), <span class="pre">...)</span></tt>, that is, the minimizer, its function value, ...</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#optimize" data-type="Method" class="code">optimize</a></td>
+    <td><span>find minimizer of <tt class="rst-docutils literal">objective_fct</tt>.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#_prepare_callback_list" data-type="Method" class="code">_prepare_callback_list</a></td>
+    <td><span>return a list of callbacks including <tt class="rst-docutils literal">self.logger.add</tt>.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#_force_final_logging" data-type="Method" class="code">_force_final_logging</a></td>
+    <td><span>try force the logger to log NOW</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.interfaces.OOOptimizer.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, xstart, *more_mandatory_args, **optional_kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAES.html" data-type="Class" class="code">cma.purecma.CMAES</a></div>
+    
+    <div><tt class="rst-docutils literal">xstart</tt> is a mandatory argument<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.interfaces.OOOptimizer.initialize">
+    
+  </a>
+  <a name="initialize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    initialize(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>(re-)set to the initial state<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.interfaces.OOOptimizer.ask">
+    
+  </a>
+  <a name="ask">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    ask(self, **optional_kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAES.html" data-type="Class" class="code">cma.purecma.CMAES</a></div>
+    
+    <div>abstract method, AKA "get" or "sample_distribution", deliver
+new candidate solution(s), a list of "vectors"<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.interfaces.OOOptimizer.tell">
+    
+  </a>
+  <a name="tell">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    tell(self, solutions, function_values):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAES.html" data-type="Class" class="code">cma.purecma.CMAES</a></div>
+    
+    <div>abstract method, AKA "update", pass f-values and prepare for
+next iteration<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.interfaces.OOOptimizer.stop">
+    
+  </a>
+  <a name="stop">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    stop(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAES.html" data-type="Class" class="code">cma.purecma.CMAES</a></div>
+    
+    <div><p>abstract method, return satisfied termination conditions in a
+dictionary like <tt class="rst-docutils literal">{'termination reason': value, <span class="pre">...}</span></tt> or <tt class="rst-docutils literal">{}</tt>.</p>
+<p>For example <tt class="rst-docutils literal">{'tolfun': <span class="pre">1e-12}</span></tt>, or the empty dictionary <tt class="rst-docutils literal">{}</tt>.</p>
+<p>TODO: this should rather be a property!? Unfortunately, a change
+would break backwards compatibility.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.interfaces.OOOptimizer.disp">
+    
+  </a>
+  <a name="disp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    disp(self, modulo=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAES.html" data-type="Class" class="code">cma.purecma.CMAES</a></div>
+    
+    <div>abstract method, display some iteration info when
+<tt class="rst-docutils literal">self.iteration_counter % modulo &lt; 1</tt>, using a reasonable
+default for <code>modulo</code> if <tt class="rst-docutils literal">modulo is None</tt>.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.interfaces.OOOptimizer.result">
+    
+  </a>
+  <a name="result">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    result(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAES.html" data-type="Class" class="code">cma.purecma.CMAES</a></div>
+    
+    <div>abstract property, contain <tt class="rst-docutils literal">(x, f(x), <span class="pre">...)</span></tt>, that is, the
+minimizer, its function value, ...<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.interfaces.OOOptimizer.optimize">
+    
+  </a>
+  <a name="optimize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    optimize(self, objective_fct, maxfun=None, iterations=None, min_iterations=1, args=(), verb_disp=None, callback=None, n_jobs=0, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>find minimizer of <tt class="rst-docutils literal">objective_fct</tt>.</p>
+<p>CAVEAT: the return value for <a href="cma.interfaces.OOOptimizer.html#optimize"><code>optimize</code></a> has changed to <tt class="rst-docutils literal">self</tt>,
+allowing for a call like:</p>
+<pre class="rst-literal-block">
+solver = OOOptimizer(x0).optimize(f)
+</pre>
+<p>and investigate the state of the solver.</p>
+<div class="rst-section" id="rst-arguments">
+<h1 class="heading">Arguments</h1>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">objective_fct</tt>: f(x: array_like) -&gt; float</dt>
+<dd>function be to minimized</dd>
+<dt><tt class="rst-docutils literal">maxfun</tt>: number</dt>
+<dd>maximal number of function evaluations</dd>
+<dt><tt class="rst-docutils literal">iterations</tt>: number</dt>
+<dd>number of (maximal) iterations, while <tt class="rst-docutils literal">not self.stop()</tt>,
+it can be useful to conduct only one iteration at a time.</dd>
+<dt><tt class="rst-docutils literal">min_iterations</tt>: number</dt>
+<dd>minimal number of iterations, even if <tt class="rst-docutils literal">not self.stop()</tt></dd>
+<dt><tt class="rst-docutils literal">args</tt>: sequence_like</dt>
+<dd>arguments passed to <tt class="rst-docutils literal">objective_fct</tt></dd>
+<dt><tt class="rst-docutils literal">verb_disp</tt>: number</dt>
+<dd>print to screen every <tt class="rst-docutils literal">verb_disp</tt> iteration, if <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>
+the value from <tt class="rst-docutils literal">self.logger</tt> is "inherited", if
+available.</dd>
+<dt><tt class="rst-docutils literal">callback</tt>: callable or list of callables</dt>
+<dd>callback function called like <tt class="rst-docutils literal">callback(self)</tt> or
+a list of call back functions called in the same way. If
+available, <tt class="rst-docutils literal">self.logger.add</tt> is added to this list.
+TODO: currently there is no way to prevent this other than
+changing the code of <a href="cma.interfaces.OOOptimizer.html#_prepare_callback_list"><code>_prepare_callback_list</code></a>.</dd>
+<dt><tt class="rst-docutils literal">n_jobs=0</tt>: number of processes to be acquired for</dt>
+<dd>multiprocessing to parallelize calls to <code>objective_fct</code>.
+Must be &gt;1 to expect any speed-up or <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> or <code>-1</code>, which
+both default to the number of available CPUs. The default
+<tt class="rst-docutils literal">n_jobs=0</tt> avoids the use of multiprocessing altogether.</dd>
+</dl>
+<p><tt class="rst-docutils literal">return self</tt>, that is, the <a href="cma.interfaces.OOOptimizer.html"><code>OOOptimizer</code></a> instance.</p>
+</div>
+<div class="rst-section" id="rst-example">
+<h1 class="heading">Example</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(7 * [0.1], 0.1
+<span class="py-more">... </span>             ).optimize(cma.ff.rosen, verb_disp=100)
+<span class="py-more">... </span>                  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(4_w,9)-aCMA-ES (mu_w=2.8,w_1=49%) in dimension 7 (seed=...)</span>
+<span class="py-output">Iterat #Fevals   function value  axis ratio  sigma ...</span>
+<span class="py-output">    1      9 ...</span>
+<span class="py-output">    2     18 ...</span>
+<span class="py-output">    3     27 ...</span>
+<span class="py-output">  100    900 ...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>cma.s.Mh.vequals_approximately(es.result[0], 7 * [1], 1e-5)
+<span class="py-output">True</span></pre>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.interfaces.OOOptimizer._prepare_callback_list">
+    
+  </a>
+  <a name="_prepare_callback_list">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _prepare_callback_list(self, callback):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return a list of callbacks including <tt class="rst-docutils literal">self.logger.add</tt>.</p>
+<p><tt class="rst-docutils literal">callback</tt> can be a <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a> or a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> (or iterable) of
+callables. Otherwise a <a href="http://docs.python.org/library/exceptions.html#exceptions.ValueError"><code>ValueError</code></a> exception is raised.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.interfaces.OOOptimizer._force_final_logging">
+    
+  </a>
+  <a name="_force_final_logging">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _force_final_logging(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>try force the logger to log NOW<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

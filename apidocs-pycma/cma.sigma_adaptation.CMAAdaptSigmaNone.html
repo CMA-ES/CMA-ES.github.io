@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.sigma_adaptation.CMAAdaptSigmaNone : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.sigma_adaptation.CMAAdaptSigmaNone(<a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" data-type="Class" class="code">CMAAdaptSigmaBase</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.sigma_adaptation.html" data-type="Module" class="code">sigma_adaptation</a></code>
+          
+          <a href="classIndex.html#cma.sigma_adaptation.CMAAdaptSigmaNone">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div>constant step-size sigma<table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id467">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaNone.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>no update, <tt class="rst-docutils literal">es.sigma</tt> remains constant.</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" data-type="Class" class="code">CMAAdaptSigmaBase</a>:
+          </p>
+          <table class="children sortable" id="id468">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#initialize_base" data-type="Method" class="code">initialize_base</a></td>
+    <td><span>set parameters and state variable based on dimension, mueff and possibly further options.</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#hsig" data-type="Method" class="code">hsig</a></td>
+    <td><span>return "OK-signal" for rank-one update, <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> (OK) or <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a> (stall rank-one update), based on the length of an evolution path</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#update2" data-type="Method" class="code">update2</a></td>
+    <td><span>return sigma change factor and update self.delta.</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#check_consistency" data-type="Method" class="code">check_consistency</a></td>
+    <td><span>make consistency checks with a <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance as input</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#_update_ps" data-type="Method" class="code">_update_ps</a></td>
+    <td><span>update the isotropic evolution path.</span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.sigma_adaptation.CMAAdaptSigmaNone.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, es, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#update" data-type="Method" class="code">cma.sigma_adaptation.CMAAdaptSigmaBase.update</a></div>
+    
+    <div>no update, <tt class="rst-docutils literal">es.sigma</tt> remains constant.<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

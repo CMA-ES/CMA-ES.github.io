@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.evolution_strategy._CMAStopDict : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class private"><code>cma.evolution_strategy._CMAStopDict(<span title="dict">dict</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.evolution_strategy.html" data-type="Module" class="code">evolution_strategy</a></code>
+          
+          <a href="classIndex.html#cma.evolution_strategy._CMAStopDict">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>keep and update a termination condition dictionary.</p>
+<p>The dictionary is "usually" empty and returned by
+<code>CMAEvolutionStrategy.stop()</code>. The class methods entirely depend on
+<a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> class attributes.</p>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>This class is not relevant for the end-user and could be a nested
+class, but nested classes cannot be serialized.</p>
+</div>
+<div class="rst-section" id="rst-example">
+<h1 class="heading">Example</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(4 * [1], 1, {<span class="py-string">'verbose'</span>:-9})  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(es.stop())
+<span class="py-output">{}</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(cma.ff.sphere, verb_disp=0)  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">&lt;...</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>es.stop()[<span class="py-string">'tolfun'</span>] == 1e-11
+<span class="py-output">True</span></pre>
+</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><code>OOOptimizer.stop()</code>, <code>CMAEvolutionStrategy.stop()</code></td></tr></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id371">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy._CMAStopDict.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy._CMAStopDict.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>update and return the termination conditions dictionary</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy._CMAStopDict.html#clear" data-type="Method" class="code">clear</a></td>
+    <td><span>empty the stopdict</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy._CMAStopDict.html#_update" data-type="Method" class="code">_update</a></td>
+    <td><span>Test termination criteria and update dictionary</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy._CMAStopDict.html#_addstop" data-type="Method" class="code">_addstop</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.evolution_strategy._CMAStopDict.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, d={}):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy._CMAStopDict.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, es=None, check=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>update and return the termination conditions dictionary<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.evolution_strategy._CMAStopDict._update">
+    
+  </a>
+  <a name="_update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _update(self, es):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Test termination criteria and update dictionary<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.evolution_strategy._CMAStopDict._addstop">
+    
+  </a>
+  <a name="_addstop">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _addstop(self, key, cond=True, val=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.evolution_strategy._CMAStopDict.clear">
+    
+  </a>
+  <a name="clear">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    clear(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>empty the stopdict<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

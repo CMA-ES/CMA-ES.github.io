@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.utilities.utils : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.utilities.utils</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.utilities.html" data-type="Package" class="code">utilities</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div>various utilities not related to optimization<table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id493">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#seval" data-type="Function" class="code">seval</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#is_" data-type="Function" class="code">is_</a></td>
+    <td><span>intuitive handling of variable truth value also for <code>numpy</code> arrays.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#is_one" data-type="Function" class="code">is_one</a></td>
+    <td><span>return True if var == 1 or ones vector</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#is_not" data-type="Function" class="code">is_not</a></td>
+    <td><span>see <a href="cma.utilities.utils.html#is_"><code>is_</code></a></span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#is_any" data-type="Function" class="code">is_any</a></td>
+    <td><span>return <tt class="rst-docutils literal">any(is_(v) for v in var_list)</tt></span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#is_all" data-type="Function" class="code">is_all</a></td>
+    <td><span>return <tt class="rst-docutils literal">all(is_(v) for v in var_list)</tt></span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#is_str" data-type="Function" class="code">is_str</a></td>
+    <td><span><a href="http://docs.python.org/library/stdtypes.html#bytes"><code>bytes</code></a> (in Python 3) also fit the bill.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#is_nan" data-type="Function" class="code">is_nan</a></td>
+    <td><span>return <tt class="rst-docutils literal">np.isnan(var)</tt> or <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a> if <code>var</code> is not numeric</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#is_vector_list" data-type="Function" class="code">is_vector_list</a></td>
+    <td><span>make an educated guess whether <tt class="rst-docutils literal">x</tt> is a list of vectors.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#as_vector_list" data-type="Function" class="code">as_vector_list</a></td>
+    <td><span>a tool to handle a vector or a list of vectors in the same way, return a list of vectors and a function to revert the "list making".</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#rglen" data-type="Function" class="code">rglen</a></td>
+    <td><span>return generator <tt class="rst-docutils literal"><span class="pre">range(len(.))</span></tt> with shortcut <tt class="rst-docutils literal"><span class="pre">rglen(.)</span></tt></span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#recycled" data-type="Function" class="code">recycled</a></td>
+    <td><span>return <tt class="rst-docutils literal">vec</tt> with the last element recycled to <tt class="rst-docutils literal">dim</tt> if <tt class="rst-docutils literal">len(vec)</tt> doesn't fail, else <tt class="rst-docutils literal">vec</tt>.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#argsort" data-type="Function" class="code">argsort</a></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#ranks" data-type="Function" class="code">ranks</a></td>
+    <td><span>return ranks of entries starting with zero based on Pythons <a href="http://docs.python.org/library/functions.html#sorted"><code>sorted</code></a>.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#zero_values_indices" data-type="Function" class="code">zero_values_indices</a></td>
+    <td><span>generate increasing index pairs <tt class="rst-docutils literal">(i, j)</tt> with <tt class="rst-docutils literal">all(diffs[i:j] == 0)</tt></span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#pprint" data-type="Function" class="code">pprint</a></td>
+    <td><span>nicely formated print</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#num2str" data-type="Function" class="code">num2str</a></td>
+    <td><span>returns the shortest string representation.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#print_warning" data-type="Function" class="code">print_warning</a></td>
+    <td><span>Poor man's maxwarns: warn only if <tt class="rst-docutils literal"><span class="pre">iteration&lt;=maxwarns</span></tt></span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#print_message" data-type="Function" class="code">print_message</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#set_attributes_from_dict" data-type="Function" class="code">set_attributes_from_dict</a></td>
+    <td><span>assign, for example, all arguments given to an <tt class="rst-docutils literal">__init__</tt> method to attributes in <tt class="rst-docutils literal">self</tt> or <tt class="rst-docutils literal">self.params</tt> or <tt class="rst-docutils literal">self.args</tt>.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#download_file" data-type="Function" class="code">download_file</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.utilities.utils.html#extract_targz" data-type="Function" class="code">extract_targz</a></td>
+    <td><span>filename must be a valid path in the tar</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.BlancClass.html" data-type="Class" class="code">BlancClass</a></td>
+    <td><span>blanc container class to have a collection of attributes.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.DictClass.html" data-type="Class" class="code">DictClass</a></td>
+    <td><span>A class wrapped over <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> to use class .-notation.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.DerivedDictBase.html" data-type="Class" class="code">DerivedDictBase</a></td>
+    <td><span>for conveniently adding methods/functionality to a dictionary.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.SolutionDict.html" data-type="Class" class="code">SolutionDict</a></td>
+    <td><span>dictionary with computation of an hash key.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.DataDict.html" data-type="Class" class="code">DataDict</a></td>
+    <td><span>a dictionary of lists (of data)</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.ExclusionListOfVectors.html" data-type="Class" class="code">ExclusionListOfVectors</a></td>
+    <td><span>For delayed selective mirrored sampling</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.ElapsedWCTime.html" data-type="Class" class="code">ElapsedWCTime</a></td>
+    <td><span>measure elapsed cumulative time while not paused and elapsed time since last tic.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.TimingWrapper.html" data-type="Class" class="code">TimingWrapper</a></td>
+    <td><span>wrap a timer around a callable.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.DictFromTagsInString.html" data-type="Class" class="code">DictFromTagsInString</a></td>
+    <td><span>read from a string or file all key-value pairs within all <tt class="rst-docutils literal"><span class="pre">&lt;python&gt;...&lt;/python&gt;</span></tt> tags and return a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.MoreToWrite.html" data-type="Class" class="code">MoreToWrite</a></td>
+    <td><span>make sure that this list does not grow unbounded</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.DefaultSettings.html" data-type="Class" class="code">DefaultSettings</a></td>
+    <td><span>resembling somewhat <a href="http://docs.python.org/library/types.html#types.SimpleNamespace"><code>types.SimpleNamespace</code></a> from Python &gt;=3.3 but with instantiation and resembling even more the <code>dataclass</code> decorator from Python &gt;=3.7.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.utilities.utils.ListOfCallables.html" data-type="Class" class="code">ListOfCallables</a></td>
+    <td><span>A <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of callables that can be called like a single <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a>.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction">
+  
+  <a name="cma.utilities.utils.seval">
+    
+  </a>
+  <a name="seval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    seval(s, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.is_">
+    
+  </a>
+  <a name="is_">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_(var):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>intuitive handling of variable truth value also for <code>numpy</code> arrays.</p>
+<p>Return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> for any non-empty container, otherwise the truth value of the
+scalar <code>var</code>.</p>
+<p>Caveat of the most unintuitive case: [0] evaluates to True, like [0, 0].</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.utils <span class="py-keyword">import</span> is_
+<span class="py-prompt">&gt;&gt;&gt; </span>is_({}) <span class="py-keyword">or</span> is_(()) <span class="py-keyword">or</span> is_(0) <span class="py-keyword">or</span> is_(<span class="py-builtin">None</span>) <span class="py-keyword">or</span> is_(np.array(0))
+<span class="py-output">False</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>is_({0:0}) <span class="py-keyword">and</span> is_((0,)) <span class="py-keyword">and</span> is_(np.array([0]))
+<span class="py-output">True</span></pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.is_one">
+    
+  </a>
+  <a name="is_one">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_one(var):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return True if var == 1 or ones vector<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.is_not">
+    
+  </a>
+  <a name="is_not">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_not(var):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>see <a href="cma.utilities.utils.html#is_"><code>is_</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.is_any">
+    
+  </a>
+  <a name="is_any">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_any(var_list):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <tt class="rst-docutils literal">any(is_(v) for v in var_list)</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.is_all">
+    
+  </a>
+  <a name="is_all">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_all(var_list):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <tt class="rst-docutils literal">all(is_(v) for v in var_list)</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.is_str">
+    
+  </a>
+  <a name="is_str">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_str(var):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p><a href="http://docs.python.org/library/stdtypes.html#bytes"><code>bytes</code></a> (in Python 3) also fit the bill.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.utils <span class="py-keyword">import</span> is_str
+<span class="py-prompt">&gt;&gt;&gt; </span>assert is_str(b<span class="py-string">'a'</span>) * is_str(<span class="py-string">'a'</span>) * is_str(u<span class="py-string">'a'</span>) * is_str(r<span class="py-string">'b'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-keyword">not</span> is_str([1]) <span class="py-keyword">and</span> <span class="py-keyword">not</span> is_str(1)</pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.is_nan">
+    
+  </a>
+  <a name="is_nan">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_nan(var):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <tt class="rst-docutils literal">np.isnan(var)</tt> or <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a> if <code>var</code> is not numeric<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.is_vector_list">
+    
+  </a>
+  <a name="is_vector_list">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    is_vector_list(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>make an educated guess whether <tt class="rst-docutils literal">x</tt> is a list of vectors.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.utils <span class="py-keyword">import</span> is_vector_list <span class="py-keyword">as</span> ivl
+<span class="py-prompt">&gt;&gt;&gt; </span>assert ivl([[0], [0]]) <span class="py-keyword">and</span> <span class="py-keyword">not</span> ivl([1,2,3])</pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.as_vector_list">
+    
+  </a>
+  <a name="as_vector_list">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    as_vector_list(X):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>a tool to handle a vector or a list of vectors in the same way,
+return a list of vectors and a function to revert the "list making".</p>
+<p>Useful when we might either have a single solution vector or a
+set/list/population of vectors to deal with.</p>
+<p>Namely, this function allows to replace a slightly more verbose:</p>
+<pre class="rst-literal-block">
+was_list = utils.is_vector_list(X)
+X = X if was_list else [X]
+# work work work on X, e.g.
+res = [x[0] + 1 for x in X]
+res = res if was_list else res[0]
+</pre>
+<p>with:</p>
+<pre class="rst-literal-block">
+X, revert = utils.as_vector_list(X)
+# work work work on X, e.g.
+res = [x[0] + 2 for x in X]
+res, ... = revert(res, ...)  # also allows to revert X, if desired
+</pre>
+<p>Testing:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities <span class="py-keyword">import</span> utils
+<span class="py-prompt">&gt;&gt;&gt; </span>X = [3]  <span class="py-comment"># a single vector</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>X, revert_vlist = utils.as_vector_list(X)  <span class="py-comment"># BEGIN</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert X == [[3]]  <span class="py-comment"># a list with one element</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># work work work on X as a list of vectors, e.g.</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>res = [x[0] + 1 <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X]
+<span class="py-prompt">&gt;&gt;&gt; </span>X, res = revert_vlist(X, res)  <span class="py-comment"># END</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert res == 4
+<span class="py-prompt">&gt;&gt;&gt; </span>assert X[0] == 3</pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.rglen">
+    
+  </a>
+  <a name="rglen">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    rglen(ar):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return generator <tt class="rst-docutils literal"><span class="pre">range(len(.))</span></tt> with shortcut <tt class="rst-docutils literal"><span class="pre">rglen(.)</span></tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.recycled">
+    
+  </a>
+  <a name="recycled">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    recycled(vec, dim=None, as_=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return <tt class="rst-docutils literal">vec</tt> with the last element recycled to <tt class="rst-docutils literal">dim</tt> if
+<tt class="rst-docutils literal">len(vec)</tt> doesn't fail, else <tt class="rst-docutils literal">vec</tt>.</p>
+<p>If <tt class="rst-docutils literal">dim</tt> is not given, <tt class="rst-docutils literal">len(as_)</tt> is used if available, else a
+scalar is returned.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.argsort">
+    
+  </a>
+  <a name="argsort">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    argsort(a, reverse=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return index list to get <code>a</code> in order, ie
+<tt class="rst-docutils literal"><span class="pre">a[argsort(a)[i]]</span> == <span class="pre">sorted(a)[i]</span></tt>, which leads to unexpected
+results with <code>np.nan</code> entries, because any comparison with <code>np.nan</code>
+is <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a>.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.ranks">
+    
+  </a>
+  <a name="ranks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    ranks(a, reverse=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return ranks of entries starting with zero based on Pythons <a href="http://docs.python.org/library/functions.html#sorted"><code>sorted</code></a>.</p>
+<p>This leads to unreasonable results with <code>np.nan</code> values.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.zero_values_indices">
+    
+  </a>
+  <a name="zero_values_indices">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    zero_values_indices(diffs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>generate increasing index pairs <tt class="rst-docutils literal">(i, j)</tt> with <tt class="rst-docutils literal">all(diffs[i:j] == 0)</tt></p>
+<p>and <tt class="rst-docutils literal">diffs[j] != 0 or j == len(diffs)</tt>, thereby identifying "flat
+spots/areas" in <code>diffs</code>.</p>
+<p>Returns the respective generator type.</p>
+<p>Not anymore used to smoothen ECDFs.</p>
+<p>Example:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.utils <span class="py-keyword">import</span> zero_values_indices
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i, j <span class="py-keyword">in</span> zero_values_indices([0, 0.1, 0, 0, 3.2, 0, 2.1]):
+<span class="py-more">... </span>    <span class="py-keyword">print</span>((i, j))
+<span class="py-output">(0, 1)</span>
+<span class="py-output">(2, 4)</span>
+<span class="py-output">(5, 6)</span></pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.pprint">
+    
+  </a>
+  <a name="pprint">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    pprint(to_be_printed):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>nicely formated print<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.num2str">
+    
+  </a>
+  <a name="num2str">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    num2str(val, significant_digits=2, force_rounding=False, max_predecimal_digits=5, max_postdecimal_leading_zeros=1, remove_trailing_zeros=True, desired_length=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>returns the shortest string representation.</p>
+<p>Generally, display either <tt class="rst-docutils literal">significant_digits</tt> digits or its true
+value, whichever is shorter.</p>
+<p><tt class="rst-docutils literal">force_rounding</tt> shows no more than the desired number of significant
+digits, which means, e.g., <tt class="rst-docutils literal">12345</tt>  becomes <tt class="rst-docutils literal">12000</tt>.</p>
+<p><tt class="rst-docutils literal">remove_trailing_zeros</tt> removes zeros, if and only if the value is
+exactly.</p>
+<p><tt class="rst-docutils literal">desired_length</tt> adds digits up to the desired length.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities <span class="py-keyword">import</span> utils
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>([utils.num2str(val) <span class="py-keyword">for</span> val <span class="py-keyword">in</span> [12345, 1234.5, 123.45,
+<span class="py-more">... </span>      12.345, 1.2345, .12345, .012345, .0012345]])
+<span class="py-output">['12345', '1234', '123', '12', '1.2', '0.12', '0.012', '1.2e-3']</span></pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.print_warning">
+    
+  </a>
+  <a name="print_warning">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    print_warning(msg, method_name=None, class_name=None, iteration=None, verbose=None, maxwarns=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Poor man's maxwarns: warn only if <tt class="rst-docutils literal"><span class="pre">iteration&lt;=maxwarns</span></tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.print_message">
+    
+  </a>
+  <a name="print_message">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    print_message(msg, method_name=None, class_name=None, iteration=None, verbose=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.set_attributes_from_dict">
+    
+  </a>
+  <a name="set_attributes_from_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_attributes_from_dict(self, dict_, initial_params_dict_name=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>assign, for example, all arguments given to an <tt class="rst-docutils literal">__init__</tt>
+method to attributes in <tt class="rst-docutils literal">self</tt> or <tt class="rst-docutils literal">self.params</tt> or <tt class="rst-docutils literal">self.args</tt>.</p>
+<p>If <tt class="rst-docutils literal">initial_params_dict_name</tt> is given, <tt class="rst-docutils literal">dict_</tt> is also copied
+into an attribute of <tt class="rst-docutils literal">self</tt> with name <tt class="rst-docutils literal">initial_params_dict_name</tt>:</p>
+<pre class="rst-literal-block">
+setattr(self, initial_params_dict_name, dict_.copy())
+</pre>
+<p>and the <tt class="rst-docutils literal">self</tt> key is removed from the copied <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> if present.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.utils <span class="py-keyword">import</span> set_attributes_from_dict
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">C</span>(<span class="py-builtin">object</span>):
+<span class="py-more">... </span>    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, arg1, arg2, arg3=<span class="py-builtin">None</span>):
+<span class="py-more">... </span>        assert <span class="py-builtin">len</span>(<span class="py-builtin">locals</span>()) == 4  <span class="py-comment"># arguments are locally visible</span>
+<span class="py-more">... </span>        set_attributes_from_dict(self, <span class="py-builtin">locals</span>())
+<span class="py-prompt">&gt;&gt;&gt; </span>c = C(1, 22)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert c.arg1 == 1 <span class="py-keyword">and</span> c.arg2 == 22 <span class="py-keyword">and</span> c.arg3 <span class="py-keyword">is</span> <span class="py-builtin">None</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">len</span>(c.__dict__) == 3 <span class="py-keyword">and</span> <span class="py-keyword">not</span> <span class="py-builtin">hasattr</span>(c, <span class="py-string">'self'</span>)</pre>
+<p>Details:</p>
+<ul>
+<li><p class="rst-first">The entry <tt class="rst-docutils literal"><span class="pre">dict_['self']</span></tt> is always ignored.</p>
+</li>
+<li><p class="rst-first">Alternatively:</p>
+<pre class="rst-literal-block">
+self.args = locals().copy()
+self.args.pop('self', None)  # not strictly necessary
+</pre>
+<p>puts all arguments into <tt class="rst-docutils literal">self.args: dict</tt>.</p>
+</li>
+</ul><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.download_file">
+    
+  </a>
+  <a name="download_file">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    download_file(url, target_dir='.', target_name=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.utilities.utils.extract_targz">
+    
+  </a>
+  <a name="extract_targz">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    extract_targz(tarname, filename=None, target_dir='.'):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>filename must be a valid path in the tar<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

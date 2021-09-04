@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.purecma.CMAES : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.purecma.CMAES(<a href="cma.interfaces.OOOptimizer.html" data-type="Class" class="code">OOOptimizer</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.purecma.html" data-type="Module" class="code">purecma</a></code>
+          
+          <a href="classIndex.html#cma.purecma.CMAES">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>class for non-linear non-convex numerical minimization with CMA-ES.</p>
+<p>The class implements the interface define in <a href="cma.interfaces.OOOptimizer.html"><code>OOOptimizer</code></a>, namely
+the methods <a href="cma.purecma.CMAES.html#__init__"><code>__init__</code></a>, <a href="cma.purecma.CMAES.html#ask"><code>ask</code></a>, <a href="cma.purecma.CMAES.html#tell"><code>tell</code></a>, <a href="cma.purecma.CMAES.html#stop"><code>stop</code></a>, <a href="cma.purecma.CMAES.html#disp"><code>disp</code></a> and property
+<a href="cma.purecma.CMAES.html#result"><code>result</code></a>.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<p>The Jupyter notebook or IPython are the favorite environments to
+execute these examples, both in <tt class="rst-docutils literal">%pylab</tt> mode. All examples
+minimize the function <a href="cma.purecma.ff.html#elli"><code>elli</code></a>, output is not shown.</p>
+<p>First we need to import the module we want to use. We import <a href="cma.purecma.html"><code>purecma</code></a>
+from <a href="cma.html"><code>cma</code></a> as (aliased to) <tt class="rst-docutils literal">pcma</tt>:</p>
+<pre class="rst-literal-block">
+from cma import purecma as pcma
+</pre>
+<p>The shortest example uses the inherited method
+<a href="cma.interfaces.OOOptimizer.html#optimize"><code>OOOptimizer.optimize</code></a>:</p>
+<pre class="rst-literal-block">
+es = pcma.CMAES(8 * [0.1], 0.5).optimize(pcma.ff.elli)
+</pre>
+<p>See method <a href="cma.purecma.CMAES.html#__init__"><code>CMAES.__init__</code></a> for a documentation of the input
+parameters to <a href="cma.purecma.CMAES.html"><code>CMAES</code></a>. We might have a look at the result:</p>
+<pre class="rst-literal-block">
+print(es.result[0])  # best solution and
+print(es.result[1])  # its function value
+</pre>
+<p><a href="cma.purecma.CMAES.html#result"><code>result</code></a> is a property of <a href="cma.purecma.CMAES.html"><code>CMAES</code></a>. In order to display more exciting
+output, we may use the <a href="cma.purecma.CMAESDataLogger.html"><code>CMAESDataLogger</code></a> instance in the <a href="cma.logger.html"><code>logger</code></a>
+attribute of <a href="cma.purecma.CMAES.html"><code>CMAES</code></a>:</p>
+<pre class="rst-literal-block">
+es.logger.plot()  # if matplotlib is available
+</pre>
+<p>Virtually the same example can be written with an explicit loop
+instead of using <code>optimize</code>, see also <a href="cma.purecma.html#fmin"><code>fmin</code></a>. This gives insight
+into the <a href="cma.purecma.CMAES.html"><code>CMAES</code></a> class interface and entire control over the
+iteration loop:</p>
+<pre class="rst-literal-block">
+pcma.fmin??  # print source, works in jupyter/ipython only
+es = pcma.CMAES(9 * [0.5], 0.3)  # calls CMAES.__init__()
+
+# this loop resembles the method optimize
+while not es.stop():  # iterate
+    X = es.ask()      # get candidate solutions
+    f = [pcma.ff.elli(x) for x in X]  # evaluate solutions
+    es.tell(X, f)     # do all the real work
+    es.disp(20)       # display info every 20th iteration
+    es.logger.add(es) # log another "data line"
+
+# final output
+print('termination by', es.stop())
+print('best f-value =', es.result[1])
+print('best solution =', es.result[0])
+
+print('potentially better solution xmean =', es.result[5])
+print("let's check f(xmean) = ", pcma.ff.elli(es.result[5]))
+es.logger.plot()  # if matplotlib is available
+</pre>
+<p>A very similar example which may also save the logged data within
+the loop is the implementation of function <a href="cma.purecma.html#fmin"><code>fmin</code></a>.</p>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>Most of the work is done in the method <a href="cma.purecma.CMAES.html#tell"><code>tell</code></a>. The property
+<a href="cma.purecma.CMAES.html#result"><code>result</code></a> contains more useful output.</p>
+</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.purecma.html#fmin"><code>fmin</code></a>, <a href="cma.interfaces.OOOptimizer.html#optimize"><code>OOOptimizer.optimize</code></a></td></tr></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id437">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.CMAES.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>Instantiate <a href="cma.purecma.CMAES.html"><code>CMAES</code></a> object instance using <code>xstart</code> and <code>sigma</code>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.CMAES.html#ask" data-type="Method" class="code">ask</a></td>
+    <td><span>sample lambda candidate solutions</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.CMAES.html#tell" data-type="Method" class="code">tell</a></td>
+    <td><span>update the evolution paths and the distribution parameters m, sigma, and C within CMA-ES.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.CMAES.html#stop" data-type="Method" class="code">stop</a></td>
+    <td><span>return satisfied termination conditions in a dictionary,</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.CMAES.html#result" data-type="Method" class="code">result</a></td>
+    <td><span>the <a href="http://docs.python.org/library/stdtypes.html#tuple"><code>tuple</code></a> <tt class="rst-docutils literal">(xbest, f(xbest), evaluations_xbest, evaluations, iterations, xmean, stds)</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.purecma.CMAES.html#disp" data-type="Method" class="code">disp</a></td>
+    <td><span><a href="http://docs.python.org/library/functions.html#print"><code>print</code></a> some iteration info to <code>stdout</code></span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.interfaces.OOOptimizer.html" data-type="Class" class="code">OOOptimizer</a>:
+          </p>
+          <table class="children sortable" id="id438">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>(re-)set to the initial state</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#optimize" data-type="Method" class="code">optimize</a></td>
+    <td><span>find minimizer of <tt class="rst-docutils literal">objective_fct</tt>.</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#_prepare_callback_list" data-type="Method" class="code">_prepare_callback_list</a></td>
+    <td><span>return a list of callbacks including <tt class="rst-docutils literal">self.logger.add</tt>.</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><a href="cma.interfaces.OOOptimizer.html#_force_final_logging" data-type="Method" class="code">_force_final_logging</a></td>
+    <td><span>try force the logger to log NOW</span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.purecma.CMAES.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, xstart, sigma, popsize=CMAESParameters.default_popsize, ftarget=None, maxfevals='100 * popsize + 150 * (N + 3)**2 * popsize**0.5', randn=random_normalvariate):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.OOOptimizer.html#__init__" data-type="Method" class="code">cma.interfaces.OOOptimizer.__init__</a></div>
+    
+    <div><p>Instantiate <a href="cma.purecma.CMAES.html"><code>CMAES</code></a> object instance using <code>xstart</code> and <code>sigma</code>.</p>
+<div class="rst-section" id="rst-parameters">
+<h1 class="heading">Parameters</h1>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code>xstart</code>: <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a></dt>
+<dd>of numbers (like <tt class="rst-docutils literal">[3, 2, 1.2]</tt>), initial
+solution vector</dd>
+<dt><code>sigma</code>: <a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a></dt>
+<dd>initial step-size (standard deviation in each coordinate)</dd>
+<dt><code>popsize</code>: <a href="http://docs.python.org/library/stdtypes.html#int"><code>int</code></a> or <a href="http://docs.python.org/library/stdtypes.html#str"><code>str</code></a></dt>
+<dd>population size, number of candidate samples per iteration</dd>
+<dt><code>maxfevals</code>: <a href="http://docs.python.org/library/stdtypes.html#int"><code>int</code></a> or <a href="http://docs.python.org/library/stdtypes.html#str"><code>str</code></a></dt>
+<dd>maximal number of function evaluations, a string is
+evaluated with <tt class="rst-docutils literal">N</tt> as search space dimension</dd>
+<dt><code>ftarget</code>: <a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a></dt>
+<dd>target function value</dd>
+<dt><code>randn</code>: <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a></dt>
+<dd>normal random number generator, by default
+<a href="http://docs.python.org/library/random.html#random.normalvariate"><code>random.normalvariate</code></a></dd>
+</dl>
+</blockquote>
+<p>Details: this method initializes the dynamic state variables and
+creates a <a href="cma.purecma.CMAESParameters.html"><code>CMAESParameters</code></a> instance for static parameters.</p>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.purecma.CMAES.ask">
+    
+  </a>
+  <a name="ask">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    ask(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.OOOptimizer.html#ask" data-type="Method" class="code">cma.interfaces.OOOptimizer.ask</a></div>
+    
+    <div><p>sample lambda candidate solutions</p>
+<p>distributed according to:</p>
+<pre class="rst-literal-block">
+m + sigma * Normal(0,C) = m + sigma * B * D * Normal(0,I)
+                        = m + B * D * sigma * Normal(0,I)
+</pre>
+<p>and return a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of the sampled "vectors".</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.purecma.CMAES.tell">
+    
+  </a>
+  <a name="tell">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    tell(self, arx, fitvals):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.OOOptimizer.html#tell" data-type="Method" class="code">cma.interfaces.OOOptimizer.tell</a></div>
+    
+    <div><p>update the evolution paths and the distribution parameters m,
+sigma, and C within CMA-ES.</p>
+<div class="rst-section" id="rst-parameters">
+<h1 class="heading">Parameters</h1>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code>arx</code>: <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of "row vectors"</dt>
+<dd>a list of candidate solution vectors, presumably from
+calling <a href="cma.purecma.CMAES.html#ask"><code>ask</code></a>. <tt class="rst-docutils literal"><span class="pre">arx[k][i]</span></tt> is the i-th element of
+solution vector k.</dd>
+<dt><code>fitvals</code>: <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a></dt>
+<dd>the corresponding objective function values, to be
+minimised</dd>
+</dl>
+</blockquote>
+</div><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.purecma.CMAES.stop">
+    
+  </a>
+  <a name="stop">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    stop(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.OOOptimizer.html#stop" data-type="Method" class="code">cma.interfaces.OOOptimizer.stop</a></div>
+    
+    <div><p>return satisfied termination conditions in a dictionary,</p>
+<p>generally speaking like <tt class="rst-docutils literal"><span class="pre">{'termination_reason':value,</span> <span class="pre">...}</span></tt>,
+for example <tt class="rst-docutils literal"><span class="pre">{'tolfun':1e-12}</span></tt>, or the empty <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> <tt class="rst-docutils literal">{}</tt>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.purecma.CMAES.result">
+    
+  </a>
+  <a name="result">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    result(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.OOOptimizer.html#result" data-type="Method" class="code">cma.interfaces.OOOptimizer.result</a></div>
+    
+    <div>the <a href="http://docs.python.org/library/stdtypes.html#tuple"><code>tuple</code></a> <tt class="rst-docutils literal">(xbest, f(xbest), evaluations_xbest, evaluations,
+iterations, xmean, stds)</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.purecma.CMAES.disp">
+    
+  </a>
+  <a name="disp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    disp(self, verb_modulo=1):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.interfaces.OOOptimizer.html#disp" data-type="Method" class="code">cma.interfaces.OOOptimizer.disp</a></div>
+    
+    <div><a href="http://docs.python.org/library/functions.html#print"><code>print</code></a> some iteration info to <code>stdout</code><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

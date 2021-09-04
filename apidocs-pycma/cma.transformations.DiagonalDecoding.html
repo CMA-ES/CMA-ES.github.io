@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.transformations.DiagonalDecoding : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.transformations.DiagonalDecoding(<a href="cma.transformations.AdaptiveDecoding.html" data-type="Class" class="code">AdaptiveDecoding</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.transformations.html" data-type="Module" class="code">transformations</a></code>
+          
+          <a href="classIndex.html#cma.transformations.DiagonalDecoding">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Diagonal linear transformation.</p>
+<p>Supports <tt class="rst-docutils literal">self * a</tt>, <tt class="rst-docutils literal">a * self</tt>, <tt class="rst-docutils literal">a / self</tt>, <tt class="rst-docutils literal">self *= a</tt>,
+as if <tt class="rst-docutils literal">self</tt> is an np.array. Problem: <tt class="rst-docutils literal">np.array</tt> does
+broadcasting.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.transformations <span class="py-keyword">import</span> DiagonalDecoding <span class="py-keyword">as</span> DD</pre>
+<p>References: N. Hansen (2008). Adaptive Encoding: How to render search
+coordinate system invariant. In PPSN Parallel Problem Solving from
+Nature X, pp. 205-214.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id487">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span><tt class="rst-docutils literal">len(scaling)</tt> determines the dimension.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#transform" data-type="Method" class="code">transform</a></td>
+    <td><span>apply the transformation / decoding AKA geno-pheno tf</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#transform_inverse" data-type="Method" class="code">transform_inverse</a></td>
+    <td><span>inverse transformation (encoding), might return None</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#__array__" data-type="Method" class="code">__array__</a></td>
+    <td><span><tt class="rst-docutils literal">sigma * self</tt> tries to call <tt class="rst-docutils literal">self.__array__()</tt> if <tt class="rst-docutils literal">isinstance(sigma, np.float64)</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#equals" data-type="Method" class="code">equals</a></td>
+    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if the diagonal equals to <tt class="rst-docutils literal">x</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#__imul__" data-type="Method" class="code">__imul__</a></td>
+    <td><span>define <tt class="rst-docutils literal">self *= factor</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#__mul__" data-type="Method" class="code">__mul__</a></td>
+    <td><span>multiplication with array or scalar</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#__rmul__" data-type="Method" class="code">__rmul__</a></td>
+    <td><span><tt class="rst-docutils literal">x * self</tt> works (only) if <code>x</code> is a scalar</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#__rdiv__" data-type="Method" class="code">__rdiv__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#__rtruediv__" data-type="Method" class="code">__rtruediv__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#__pow__" data-type="Method" class="code">__pow__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>AKA update.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#condition_number" data-type="Method" class="code">condition_number</a></td>
+    <td><span>return condition number of the squared transformation matrix</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#correlation_matrix" data-type="Method" class="code">correlation_matrix</a></td>
+    <td><span>return correlation matrix or None</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.DiagonalDecoding.html#tolist" data-type="Method" class="code">tolist</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.transformations.AdaptiveDecoding.html" data-type="Class" class="code">AdaptiveDecoding</a>:
+          </p>
+          <table class="children sortable" id="id488">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.AdaptiveDecoding.html#norm" data-type="Method" class="code">norm</a></td>
+    <td><span>return norm of <tt class="rst-docutils literal">x</tt> prior to the transformation</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.transformations.AdaptiveDecoding.html#update_now" data-type="Method" class="code">update_now</a></td>
+    <td><span>update model here, if lazy update is implemented</span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, scaling):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.transformations.AdaptiveDecoding.html#__init__" data-type="Method" class="code">cma.transformations.AdaptiveDecoding.__init__</a></div>
+    
+    <div><p><tt class="rst-docutils literal">len(scaling)</tt> determines the dimension.</p>
+<p>The initial transformation is (typically) <code>np.diag(scaling)</code>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.transform">
+    
+  </a>
+  <a name="transform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    transform(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.transformations.AdaptiveDecoding.html#transform" data-type="Method" class="code">cma.transformations.AdaptiveDecoding.transform</a></div>
+    
+    <div>apply the transformation / decoding AKA geno-pheno tf<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.transform_inverse">
+    
+  </a>
+  <a name="transform_inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    transform_inverse(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.transformations.AdaptiveDecoding.html#transform_inverse" data-type="Method" class="code">cma.transformations.AdaptiveDecoding.transform_inverse</a></div>
+    
+    <div>inverse transformation (encoding), might return None<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.__array__">
+    
+  </a>
+  <a name="__array__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __array__(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><tt class="rst-docutils literal">sigma * self</tt> tries to call <tt class="rst-docutils literal">self.__array__()</tt> if
+<tt class="rst-docutils literal">isinstance(sigma, np.float64)</tt>.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.equals">
+    
+  </a>
+  <a name="equals">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    equals(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if the diagonal equals to <tt class="rst-docutils literal">x</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.__imul__">
+    
+  </a>
+  <a name="__imul__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __imul__(self, factor):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>define <tt class="rst-docutils literal">self *= factor</tt>.</p>
+<p>As a shortcut for:</p>
+<pre class="rst-literal-block">
+self = self.__imul__(factor)
+</pre><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.__mul__">
+    
+  </a>
+  <a name="__mul__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __mul__(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.transformations.AdaptiveDecoding.html#__mul__" data-type="Method" class="code">cma.transformations.AdaptiveDecoding.__mul__</a></div>
+    
+    <div>multiplication with array or scalar<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.__rmul__">
+    
+  </a>
+  <a name="__rmul__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __rmul__(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><tt class="rst-docutils literal">x * self</tt> works (only) if <code>x</code> is a scalar<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.__rdiv__">
+    
+  </a>
+  <a name="__rdiv__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __rdiv__(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.__rtruediv__">
+    
+  </a>
+  <a name="__rtruediv__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __rtruediv__(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.__pow__">
+    
+  </a>
+  <a name="__pow__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __pow__(self, power):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, vectors, weights):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.transformations.AdaptiveDecoding.html#update" data-type="Method" class="code">cma.transformations.AdaptiveDecoding.update</a></div>
+    
+    <div><p>AKA update.</p>
+<p><tt class="rst-docutils literal">vectors</tt> are "isotropic", e.g.:</p>
+<pre class="rst-literal-block">
+sm = StatisticalModel...()
+ad = AdaptiveDecoding...()
+z = sm.sample(1)[0]
+y = ad * z  # decoding applied
+x = m + y  # candidate solution
+ad.tell([sm.transform_inverse(z)], [0.1])
+sm.update([y / ad], [0.01]) # remark that y / ad != z
+</pre>
+<p>where the symmetric transformation <tt class="rst-docutils literal">sm.transform_inverse(z)</tt>
+makes <tt class="rst-docutils literal">z</tt> isotropic.</p>
+<p>TODO: what exactly does this mean, is this a generic
+construction, is this even the right construction?</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">vectors</td><td>is a list of samples.</td></tr><tr><td></td><td class="fieldArg">weights</td><td>define a learning rate for each vector.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.condition_number">
+    
+  </a>
+  <a name="condition_number">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    condition_number(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.transformations.AdaptiveDecoding.html#condition_number" data-type="Method" class="code">cma.transformations.AdaptiveDecoding.condition_number</a></div>
+    
+    <div>return condition number of the squared transformation matrix<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.correlation_matrix">
+    
+  </a>
+  <a name="correlation_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    correlation_matrix(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.transformations.AdaptiveDecoding.html#correlation_matrix" data-type="Method" class="code">cma.transformations.AdaptiveDecoding.correlation_matrix</a></div>
+    
+    <div>return correlation matrix or None<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.transformations.DiagonalDecoding.tolist">
+    
+  </a>
+  <a name="tolist">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    tolist(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

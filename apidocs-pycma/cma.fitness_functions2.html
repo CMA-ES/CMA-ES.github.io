@@ -1,0 +1,1766 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.fitness_functions2 : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code>cma.fitness_functions2</code> <small>module documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
+          
+          
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>versatile container for test objective functions.</p>
+<p>For the time being this is probably best used like:</p>
+<pre class="rst-literal-block">
+from cma.fitness_functions2 import ff
+</pre>
+<p>Tested with:</p>
+<pre class="rst-literal-block">
+import cma, cma.fitness_functions2
+cma.ff2 = cma.fitness_functions2
+cma.ff2.__dict__
+dff, dff2 = dir(cma.ff), dir(cma.ff2)
+for f in dff2:
+    if f in dff and f not in ('BBOB', 'epslow',
+                              'fun_as_arg') and not f.startswith('_'):
+        try:
+            getattr(cma.ff, f)(aa([1.,2,3])) == getattr(cma.ff2, f)(aa([1.,2,3]))
+        except:
+            try:
+                assert getattr(cma.ff, f)(aa([1.,2,3]), cma.ff.sphere)                               == getattr(cma.ff2, f)(aa([1.,2,3]), cma.ff2.sphere)
+            except:
+                assert all(getattr(cma.ff, f)(aa([1.,2,3]), cma.ff.sphere)
+                           == getattr(cma.ff2, f)(aa([1.,2,3]), cma.ff2.sphere))
+</pre><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id394">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#somenan" data-type="Function" class="code">somenan</a></td>
+    <td><span>returns sometimes np.NaN, otherwise fun(x)</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#epslow" data-type="Function" class="code">epslow</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#rand" data-type="Function" class="code">rand</a></td>
+    <td><span>Random test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#linear" data-type="Function" class="code">linear</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#lineard" data-type="Function" class="code">lineard</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#sphere" data-type="Function" class="code">sphere</a></td>
+    <td><span>Sphere (squared norm) test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#subspace_sphere" data-type="Function" class="code">subspace_sphere</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#pnorm" data-type="Function" class="code">pnorm</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#grad_sphere" data-type="Function" class="code">grad_sphere</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#grad_to_one" data-type="Function" class="code">grad_to_one</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#sphere_pos" data-type="Function" class="code">sphere_pos</a></td>
+    <td><span>Sphere (squared norm) test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#spherewithoneconstraint" data-type="Function" class="code">spherewithoneconstraint</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#elliwithoneconstraint" data-type="Function" class="code">elliwithoneconstraint</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#spherewithnconstraints" data-type="Function" class="code">spherewithnconstraints</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#noisysphere" data-type="Function" class="code">noisysphere</a></td>
+    <td><span>noise=10 does not work with default popsize, <tt class="rst-docutils literal">cma.NoiseHandler(dimension, 1e7)</tt> helps</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#spherew" data-type="Function" class="code">spherew</a></td>
+    <td><span>Sphere (squared norm) with sum x_i = 1 test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#epslowsphere" data-type="Function" class="code">epslowsphere</a></td>
+    <td><span>TODO: define as wrapper</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#partsphere" data-type="Function" class="code">partsphere</a></td>
+    <td><span>Sphere (squared norm) test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#sectorsphere" data-type="Function" class="code">sectorsphere</a></td>
+    <td><span>asymmetric Sphere (squared norm) test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#cornersphere" data-type="Function" class="code">cornersphere</a></td>
+    <td><span>Sphere (squared norm) test objective function constraint to the corner</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#cornerelli" data-type="Function" class="code">cornerelli</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#cornerellirot" data-type="Function" class="code">cornerellirot</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#normalSkew" data-type="Function" class="code">normalSkew</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#noiseC" data-type="Function" class="code">noiseC</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#noise" data-type="Function" class="code">noise</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#cigar" data-type="Function" class="code">cigar</a></td>
+    <td><span>Cigar test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#grad_cigar" data-type="Function" class="code">grad_cigar</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#diagonal_cigar" data-type="Function" class="code">diagonal_cigar</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#tablet" data-type="Function" class="code">tablet</a></td>
+    <td><span>Tablet test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#grad_tablet" data-type="Function" class="code">grad_tablet</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#cigtab" data-type="Function" class="code">cigtab</a></td>
+    <td><span>Cigtab test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#cigtab2" data-type="Function" class="code">cigtab2</a></td>
+    <td><span>cigtab with 5% long and short axes.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#twoaxes" data-type="Function" class="code">twoaxes</a></td>
+    <td><span>Cigtab test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#ellirot" data-type="Function" class="code">ellirot</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#hyperelli" data-type="Function" class="code">hyperelli</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#halfelli" data-type="Function" class="code">halfelli</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#elli" data-type="Function" class="code">elli</a></td>
+    <td><span>Ellipsoid test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#grad_elli" data-type="Function" class="code">grad_elli</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#fun_as_arg" data-type="Function" class="code">fun_as_arg</a></td>
+    <td><span><tt class="rst-docutils literal">fun_as_arg(x, fun, *more_args)</tt> calls <tt class="rst-docutils literal">fun(x, *more_args)</tt>.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#grad_numerical" data-type="Function" class="code">grad_numerical</a></td>
+    <td><span>symmetric gradient</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#elliconstraint" data-type="Function" class="code">elliconstraint</a></td>
+    <td><span>ellipsoid test objective function with "constraints"</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#rosen" data-type="Function" class="code">rosen</a></td>
+    <td><span>Rosenbrock test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#grad_rosen" data-type="Function" class="code">grad_rosen</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#rosen_chained" data-type="Function" class="code">rosen_chained</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#diffpow" data-type="Function" class="code">diffpow</a></td>
+    <td><span>Diffpow test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#rosenelli" data-type="Function" class="code">rosenelli</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#ridge" data-type="Function" class="code">ridge</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#ridgecircle" data-type="Function" class="code">ridgecircle</a></td>
+    <td><span>happy cat by HG Beyer</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#happycat" data-type="Function" class="code">happycat</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#flat" data-type="Function" class="code">flat</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#ackley" data-type="Function" class="code">ackley</a></td>
+    <td><span>default domain is <tt class="rst-docutils literal"><span class="pre">[-32.768,</span> <span class="pre">32.768]^n</span></tt></span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#branin" data-type="Function" class="code">branin</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#goldsteinprice" data-type="Function" class="code">goldsteinprice</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#griewank" data-type="Function" class="code">griewank</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#rastrigin" data-type="Function" class="code">rastrigin</a></td>
+    <td><span>Rastrigin test objective function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#schaffer" data-type="Function" class="code">schaffer</a></td>
+    <td><span>Schaffer function x0 in [-100..100]</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#schwefelelli" data-type="Function" class="code">schwefelelli</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#schwefelmult" data-type="Function" class="code">schwefelmult</a></td>
+    <td><span>multimodal Schwefel function with domain -500..500</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#schwefel2_22" data-type="Function" class="code">schwefel2_22</a></td>
+    <td><span>Schwefel 2.22 function</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#optprob" data-type="Function" class="code">optprob</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#lincon" data-type="Function" class="code">lincon</a></td>
+    <td><span>ridge like linear function with one linear constraint</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#rosen_nesterov" data-type="Function" class="code">rosen_nesterov</a></td>
+    <td><span>needs exponential number of steps in a non-increasing f-sequence.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#powel_singular" data-type="Function" class="code">powel_singular</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#styblinski_tang" data-type="Function" class="code">styblinski_tang</a></td>
+    <td><span>in [-5, 5] found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#trid" data-type="Function" class="code">trid</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#bukin" data-type="Function" class="code">bukin</a></td>
+    <td><span>Bukin function from Wikipedia, generalized simplistically from 2-D.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#zerosum" data-type="Function" class="code">zerosum</a></td>
+    <td><span>abs(sum xi) has an n-1 dimensionsal solution space.</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#_median" data-type="Function" class="code">_median</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.fitness_functions2.html#_iqr" data-type="Function" class="code">_iqr</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction private">
+  
+  <a name="cma.fitness_functions2._median">
+    
+  </a>
+  <a name="_median">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _median(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.fitness_functions2._iqr">
+    
+  </a>
+  <a name="_iqr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _iqr(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.somenan">
+    
+  </a>
+  <a name="somenan">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    somenan(x, fun, p=0.1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>returns sometimes np.NaN, otherwise fun(x)<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.epslow">
+    
+  </a>
+  <a name="epslow">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    epslow(fun, eps=1e-07, Neff=lambda x: int(len(x)**0.5)):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.rand">
+    
+  </a>
+  <a name="rand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    rand(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Random test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.linear">
+    
+  </a>
+  <a name="linear">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    linear(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.lineard">
+    
+  </a>
+  <a name="lineard">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    lineard(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.sphere">
+    
+  </a>
+  <a name="sphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    sphere(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Sphere (squared norm) test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.subspace_sphere">
+    
+  </a>
+  <a name="subspace_sphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    subspace_sphere(x, visible_ratio=12):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.pnorm">
+    
+  </a>
+  <a name="pnorm">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    pnorm(x, p=0.5):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.grad_sphere">
+    
+  </a>
+  <a name="grad_sphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    grad_sphere(x, *args):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.grad_to_one">
+    
+  </a>
+  <a name="grad_to_one">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    grad_to_one(x, *args):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.sphere_pos">
+    
+  </a>
+  <a name="sphere_pos">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    sphere_pos(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Sphere (squared norm) test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.spherewithoneconstraint">
+    
+  </a>
+  <a name="spherewithoneconstraint">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    spherewithoneconstraint(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.elliwithoneconstraint">
+    
+  </a>
+  <a name="elliwithoneconstraint">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    elliwithoneconstraint(x, idx=[-1]):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.spherewithnconstraints">
+    
+  </a>
+  <a name="spherewithnconstraints">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    spherewithnconstraints(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.noisysphere">
+    
+  </a>
+  <a name="noisysphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    noisysphere(x, noise=2.1e-09, cond=1.0, noise_offset=0.1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>noise=10 does not work with default popsize, <tt class="rst-docutils literal">cma.NoiseHandler(dimension, 1e7)</tt> helps<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.spherew">
+    
+  </a>
+  <a name="spherew">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    spherew(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Sphere (squared norm) with sum x_i = 1 test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.epslowsphere">
+    
+  </a>
+  <a name="epslowsphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    epslowsphere(x, eps=1e-07, Neff=lambda x: int(len(x)**0.5)):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>TODO: define as wrapper<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.partsphere">
+    
+  </a>
+  <a name="partsphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    partsphere(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Sphere (squared norm) test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.sectorsphere">
+    
+  </a>
+  <a name="sectorsphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    sectorsphere(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>asymmetric Sphere (squared norm) test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.cornersphere">
+    
+  </a>
+  <a name="cornersphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    cornersphere(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Sphere (squared norm) test objective function constraint to the corner<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.cornerelli">
+    
+  </a>
+  <a name="cornerelli">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    cornerelli(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.cornerellirot">
+    
+  </a>
+  <a name="cornerellirot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    cornerellirot(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.normalSkew">
+    
+  </a>
+  <a name="normalSkew">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    normalSkew(f):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.noiseC">
+    
+  </a>
+  <a name="noiseC">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    noiseC(x, func=sphere, fac=10, expon=0.8):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.noise">
+    
+  </a>
+  <a name="noise">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    noise(x, func=sphere, fac=10, expon=1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.cigar">
+    
+  </a>
+  <a name="cigar">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    cigar(x, rot=0, cond=1000000.0, noise=0):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Cigar test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.grad_cigar">
+    
+  </a>
+  <a name="grad_cigar">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    grad_cigar(x, *args):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.diagonal_cigar">
+    
+  </a>
+  <a name="diagonal_cigar">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    diagonal_cigar(x, cond=1000000.0):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.tablet">
+    
+  </a>
+  <a name="tablet">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    tablet(x, cond=1000000.0, rot=0):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Tablet test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.grad_tablet">
+    
+  </a>
+  <a name="grad_tablet">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    grad_tablet(x, *args):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.cigtab">
+    
+  </a>
+  <a name="cigtab">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    cigtab(y):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Cigtab test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.cigtab2">
+    
+  </a>
+  <a name="cigtab2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    cigtab2(x, condition=100000000.0, n_axes=None, n_short_axes=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>cigtab with 5% long and short axes.</p>
+<p><code>n_axes: int</code>, if not <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>, sets the number of long axes to
+<code>n_axes</code> and also the number of short axes if <code>n_short_axes</code> is
+<a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.twoaxes">
+    
+  </a>
+  <a name="twoaxes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    twoaxes(y):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Cigtab test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.ellirot">
+    
+  </a>
+  <a name="ellirot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    ellirot(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.hyperelli">
+    
+  </a>
+  <a name="hyperelli">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    hyperelli(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.halfelli">
+    
+  </a>
+  <a name="halfelli">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    halfelli(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.elli">
+    
+  </a>
+  <a name="elli">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    elli(x, rot=0, xoffset=0, cond=1000000.0, actuator_noise=0.0, both=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Ellipsoid test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.grad_elli">
+    
+  </a>
+  <a name="grad_elli">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    grad_elli(x, *args):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.fun_as_arg">
+    
+  </a>
+  <a name="fun_as_arg">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    fun_as_arg(x, *args):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p><tt class="rst-docutils literal">fun_as_arg(x, fun, *more_args)</tt> calls <tt class="rst-docutils literal">fun(x, *more_args)</tt>.</p>
+<p>Use case:</p>
+<pre class="rst-literal-block">
+fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
+</pre>
+<p>calls fun_as_args(x, args) and grad_numerical(x, fun, args=args)</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.grad_numerical">
+    
+  </a>
+  <a name="grad_numerical">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    grad_numerical(x, func, epsilon=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>symmetric gradient<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.elliconstraint">
+    
+  </a>
+  <a name="elliconstraint">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    elliconstraint(x, cfac=100000000.0, tough=True, cond=1000000.0):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>ellipsoid test objective function with "constraints"<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.rosen">
+    
+  </a>
+  <a name="rosen">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    rosen(x, alpha=100.0):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Rosenbrock test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.grad_rosen">
+    
+  </a>
+  <a name="grad_rosen">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    grad_rosen(x, *args):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.rosen_chained">
+    
+  </a>
+  <a name="rosen_chained">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    rosen_chained(x, alpha=100.0):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.diffpow">
+    
+  </a>
+  <a name="diffpow">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    diffpow(x, rot=0):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Diffpow test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.rosenelli">
+    
+  </a>
+  <a name="rosenelli">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    rosenelli(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.ridge">
+    
+  </a>
+  <a name="ridge">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    ridge(x, expo=2):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.ridgecircle">
+    
+  </a>
+  <a name="ridgecircle">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    ridgecircle(x, expo=0.5):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>happy cat by HG Beyer<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.happycat">
+    
+  </a>
+  <a name="happycat">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    happycat(x, alpha=1.08):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.flat">
+    
+  </a>
+  <a name="flat">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    flat(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.ackley">
+    
+  </a>
+  <a name="ackley">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    ackley(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>default domain is <tt class="rst-docutils literal"><span class="pre">[-32.768,</span> <span class="pre">32.768]^n</span></tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.branin">
+    
+  </a>
+  <a name="branin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    branin(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.goldsteinprice">
+    
+  </a>
+  <a name="goldsteinprice">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    goldsteinprice(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.griewank">
+    
+  </a>
+  <a name="griewank">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    griewank(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.rastrigin">
+    
+  </a>
+  <a name="rastrigin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    rastrigin(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Rastrigin test objective function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.schaffer">
+    
+  </a>
+  <a name="schaffer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    schaffer(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Schaffer function x0 in [-100..100]<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.schwefelelli">
+    
+  </a>
+  <a name="schwefelelli">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    schwefelelli(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.schwefelmult">
+    
+  </a>
+  <a name="schwefelmult">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    schwefelmult(x, pen_fac=10000.0):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>multimodal Schwefel function with domain -500..500<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.schwefel2_22">
+    
+  </a>
+  <a name="schwefel2_22">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    schwefel2_22(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Schwefel 2.22 function<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.optprob">
+    
+  </a>
+  <a name="optprob">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    optprob(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.lincon">
+    
+  </a>
+  <a name="lincon">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    lincon(x, theta=0.01):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>ridge like linear function with one linear constraint<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.rosen_nesterov">
+    
+  </a>
+  <a name="rosen_nesterov">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    rosen_nesterov(x, rho=100):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>needs exponential number of steps in a non-increasing
+f-sequence.</p>
+<p>x_0 = (-1,1,...,1)
+See Jarre (2011) "On Nesterov's Smooth Chebyshev-Rosenbrock
+Function"</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.powel_singular">
+    
+  </a>
+  <a name="powel_singular">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    powel_singular(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.styblinski_tang">
+    
+  </a>
+  <a name="styblinski_tang">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    styblinski_tang(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>in [-5, 5]
+found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.trid">
+    
+  </a>
+  <a name="trid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    trid(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.bukin">
+    
+  </a>
+  <a name="bukin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    bukin(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Bukin function from Wikipedia, generalized simplistically from 2-D.</p>
+<p><a href="http://en.wikipedia.org/wiki/Test_functions_for_optimization" class="rst-reference external" target="_top">http://en.wikipedia.org/wiki/Test_functions_for_optimization</a></p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.fitness_functions2.zerosum">
+    
+  </a>
+  <a name="zerosum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    zerosum(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>abs(sum xi) has an n-1 dimensionsal solution space.</p>
+<p><a href="http://infinity77.net/global_optimization/test_functions_nd_Z.html#go_benchmark.ZeroSum" class="rst-reference external" target="_top">http://infinity77.net/global_optimization/test_functions_nd_Z.html#go_benchmark.ZeroSum</a>
+<a href="https://github.com/CMA-ES/c-cmaes/issues/19#issue-323799789" class="rst-reference external" target="_top">https://github.com/CMA-ES/c-cmaes/issues/19#issue-323799789</a></p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-17 12:18:17.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

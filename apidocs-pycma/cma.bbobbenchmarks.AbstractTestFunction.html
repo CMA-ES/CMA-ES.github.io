@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.bbobbenchmarks.AbstractTestFunction : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.bbobbenchmarks.AbstractTestFunction(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.bbobbenchmarks.html" data-type="Module" class="code">bbobbenchmarks</a></code>
+          
+          <a href="classIndex.html#cma.bbobbenchmarks.AbstractTestFunction">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        <p>Known subclasses: <a href="cma.bbobbenchmarks.BBOBFunction.html" data-type="Class" class="code">cma.bbobbenchmarks.BBOBFunction</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Abstract class for test functions.</p>
+<p>Defines methods to be implemented in test functions which are to be
+provided to method setfun of class Logger.
+In particular, (a) the attribute fopt and (b) the method _evalfull.</p>
+<p>The _evalfull method returns two values, the possibly noisy value and
+the noise-free value. The latter is only meant to be for recording purpose.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id3">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.bbobbenchmarks.AbstractTestFunction.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>Returns the objective function value of argument x.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.bbobbenchmarks.AbstractTestFunction.html#evaluate" data-type="Method" class="code">evaluate</a></td>
+    <td><span>Returns the objective function value (in case noisy).</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.bbobbenchmarks.AbstractTestFunction.html#getfopt" data-type="Method" class="code">getfopt</a></td>
+    <td><span>Returns the best function value of this instance of the function.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.bbobbenchmarks.AbstractTestFunction.html#setfopt" data-type="Method" class="code">setfopt</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.bbobbenchmarks.AbstractTestFunction.html#_evalfull" data-type="Method" class="code">_evalfull</a></td>
+    <td><span>return noisy and noise-free value, the latter for recording purpose.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.bbobbenchmarks.AbstractTestFunction.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Returns the objective function value of argument x.</p>
+<p>Example:</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma <span class="py-keyword">import</span> bbobbenchmarks <span class="py-keyword">as</span> bn
+<span class="py-prompt">&gt;&gt;&gt; </span>f3 = bn.F3(13) <span class="py-comment"># instantiate function 3 on instance 13</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>59.8733529 &lt; f3([0, 1, 2]) &lt; 59.87335292 <span class="py-comment"># call f3, same as f3.evaluate([0, 1, 2])</span>
+<span class="py-output">True</span></pre>
+</blockquote><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.bbobbenchmarks.AbstractTestFunction.evaluate">
+    
+  </a>
+  <a name="evaluate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    evaluate(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns the objective function value (in case noisy).<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.bbobbenchmarks.AbstractTestFunction._evalfull">
+    
+  </a>
+  <a name="_evalfull">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _evalfull(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <a href="cma.bbobbenchmarks._F8F2.html" data-type="Class" class="code">cma.bbobbenchmarks._F8F2</a>, <a href="cma.bbobbenchmarks._FDiffPow.html" data-type="Class" class="code">cma.bbobbenchmarks._FDiffPow</a>, <a href="cma.bbobbenchmarks._FEllipsoid.html" data-type="Class" class="code">cma.bbobbenchmarks._FEllipsoid</a>, <a href="cma.bbobbenchmarks._FGallagher.html" data-type="Class" class="code">cma.bbobbenchmarks._FGallagher</a>, <a href="cma.bbobbenchmarks._FRosenbrock.html" data-type="Class" class="code">cma.bbobbenchmarks._FRosenbrock</a>, <a href="cma.bbobbenchmarks._FSchaffersF7.html" data-type="Class" class="code">cma.bbobbenchmarks._FSchaffersF7</a>, <a href="cma.bbobbenchmarks._FSphere.html" data-type="Class" class="code">cma.bbobbenchmarks._FSphere</a>, <a href="cma.bbobbenchmarks._FStepEllipsoid.html" data-type="Class" class="code">cma.bbobbenchmarks._FStepEllipsoid</a>, <a href="cma.bbobbenchmarks._FTemplate.html" data-type="Class" class="code">cma.bbobbenchmarks._FTemplate</a>, <a href="cma.bbobbenchmarks.F11.html" data-type="Class" class="code">cma.bbobbenchmarks.F11</a>, <a href="cma.bbobbenchmarks.F12.html" data-type="Class" class="code">cma.bbobbenchmarks.F12</a>, <a href="cma.bbobbenchmarks.F13.html" data-type="Class" class="code">cma.bbobbenchmarks.F13</a>, <a href="cma.bbobbenchmarks.F15.html" data-type="Class" class="code">cma.bbobbenchmarks.F15</a>, <a href="cma.bbobbenchmarks.F16.html" data-type="Class" class="code">cma.bbobbenchmarks.F16</a>, <a href="cma.bbobbenchmarks.F2.html" data-type="Class" class="code">cma.bbobbenchmarks.F2</a>, <a href="cma.bbobbenchmarks.F20.html" data-type="Class" class="code">cma.bbobbenchmarks.F20</a>, <a href="cma.bbobbenchmarks.F23.html" data-type="Class" class="code">cma.bbobbenchmarks.F23</a>, <a href="cma.bbobbenchmarks.F24.html" data-type="Class" class="code">cma.bbobbenchmarks.F24</a>, <a href="cma.bbobbenchmarks.F3.html" data-type="Class" class="code">cma.bbobbenchmarks.F3</a>, <a href="cma.bbobbenchmarks.F4.html" data-type="Class" class="code">cma.bbobbenchmarks.F4</a>, <a href="cma.bbobbenchmarks.F5.html" data-type="Class" class="code">cma.bbobbenchmarks.F5</a>, <a href="cma.bbobbenchmarks.F6.html" data-type="Class" class="code">cma.bbobbenchmarks.F6</a>, <a href="cma.bbobbenchmarks.F9.html" data-type="Class" class="code">cma.bbobbenchmarks.F9</a></div>
+    
+    <div>return noisy and noise-free value, the latter for recording purpose.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.bbobbenchmarks.AbstractTestFunction.getfopt">
+    
+  </a>
+  <a name="getfopt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    getfopt(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns the best function value of this instance of the function.<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.bbobbenchmarks.AbstractTestFunction.setfopt">
+    
+  </a>
+  <a name="setfopt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    setfopt(self, fopt):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

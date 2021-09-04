@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.utilities.utils.SolutionDict : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.utilities.utils.SolutionDict(<a href="cma.utilities.utils.DerivedDictBase.html" data-type="Class" class="code">DerivedDictBase</a>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.utilities.html" data-type="Package" class="code">utilities</a>.<a href="cma.utilities.utils.html" data-type="Module" class="code">utils</a></code>
+          
+          <a href="classIndex.html#cma.utilities.utils.SolutionDict">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        <p>Known subclasses: <a href="cma.evolution_strategy._CMASolutionDict%200.html" data-type="Class" class="code">cma.evolution_strategy._CMASolutionDict 0</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>dictionary with computation of an hash key.</p>
+<p>The hash key is generated from the inserted solution and a stack of
+previously inserted same solutions is provided. Each entry is meant
+to store additional information related to the solution.</p>
+<blockquote>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma.utilities.utils <span class="py-keyword">as</span> utils, numpy <span class="py-keyword">as</span> np
+<span class="py-prompt">&gt;&gt;&gt; </span>d = utils.SolutionDict()
+<span class="py-prompt">&gt;&gt;&gt; </span>x = np.array([1,2,4])
+<span class="py-prompt">&gt;&gt;&gt; </span>d[x] = {<span class="py-string">'f'</span>: <span class="py-builtin">sum</span>(x**2), <span class="py-string">'iteration'</span>: 1}
+<span class="py-prompt">&gt;&gt;&gt; </span>assert d[x][<span class="py-string">'iteration'</span>] == 1
+<span class="py-prompt">&gt;&gt;&gt; </span>assert d.get(x) == (d[x] <span class="py-keyword">if</span> d.key(x) <span class="py-keyword">in</span> d.keys() <span class="py-keyword">else</span> <span class="py-builtin">None</span>)</pre>
+</blockquote>
+<p>TODO: data_with_same_key behaves like a stack (see setitem and
+delitem), but rather should behave like a queue?! A queue is less
+consistent with the operation self[key] = ..., if
+self.data_with_same_key[key] is not empty.</p>
+<p>TODO: iteration key is used to clean up without error management</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id496">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.SolutionDict.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.SolutionDict.html#key" data-type="Method" class="code">key</a></td>
+    <td><span>compute key of <tt class="rst-docutils literal">x</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.SolutionDict.html#__setitem__" data-type="Method" class="code">__setitem__</a></td>
+    <td><span>define <tt class="rst-docutils literal">self[key] = value</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.SolutionDict.html#__getitem__" data-type="Method" class="code">__getitem__</a></td>
+    <td><span>define access <tt class="rst-docutils literal">self[key]</tt></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.SolutionDict.html#__delitem__" data-type="Method" class="code">__delitem__</a></td>
+    <td><span>remove only most current key-entry of list with same keys</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.SolutionDict.html#truncate" data-type="Method" class="code">truncate</a></td>
+    <td><span>delete old entries to prevent bloat</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><a href="cma.utilities.utils.SolutionDict.html#_hash" data-type="Static Method" class="code">_hash</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <a href="cma.utilities.utils.DerivedDictBase.html" data-type="Class" class="code">DerivedDictBase</a>:
+          </p>
+          <table class="children sortable" id="id497">
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.DerivedDictBase.html#__len__" data-type="Method" class="code">__len__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.DerivedDictBase.html#__contains__" data-type="Method" class="code">__contains__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><a href="cma.utilities.utils.DerivedDictBase.html#__iter__" data-type="Method" class="code">__iter__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.utilities.utils.SolutionDict.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.utilities.utils.DerivedDictBase.html#__init__" data-type="Method" class="code">cma.utilities.utils.DerivedDictBase.__init__</a></div><div class="interfaceinfo">overridden in <a href="cma.evolution_strategy._CMASolutionDict%200.html" data-type="Class" class="code">cma.evolution_strategy._CMASolutionDict 0</a></div>
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  <a name="cma.utilities.utils.SolutionDict._hash">
+    
+  </a>
+  <a name="_hash">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    def
+    _hash(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.SolutionDict.key">
+    
+  </a>
+  <a name="key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    key(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>compute key of <tt class="rst-docutils literal">x</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.SolutionDict.__setitem__">
+    
+  </a>
+  <a name="__setitem__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __setitem__(self, key, value):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.utilities.utils.DerivedDictBase.html#__setitem__" data-type="Method" class="code">cma.utilities.utils.DerivedDictBase.__setitem__</a></div>
+    
+    <div>define <tt class="rst-docutils literal">self[key] = value</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.SolutionDict.__getitem__">
+    
+  </a>
+  <a name="__getitem__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __getitem__(self, key):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.utilities.utils.DerivedDictBase.html#__getitem__" data-type="Method" class="code">cma.utilities.utils.DerivedDictBase.__getitem__</a></div>
+    
+    <div>define access <tt class="rst-docutils literal">self[key]</tt><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.SolutionDict.__delitem__">
+    
+  </a>
+  <a name="__delitem__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __delitem__(self, key):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <a href="cma.utilities.utils.DerivedDictBase.html#__delitem__" data-type="Method" class="code">cma.utilities.utils.DerivedDictBase.__delitem__</a></div>
+    
+    <div>remove only most current key-entry of list with same keys<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.utilities.utils.SolutionDict.truncate">
+    
+  </a>
+  <a name="truncate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    truncate(self, max_len, min_iter):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>delete old entries to prevent bloat<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

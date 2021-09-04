@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.experimentation.Results : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.experimentation.Results(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.experimentation.html" data-type="Module" class="code">experimentation</a></code>
+          
+          <a href="classIndex.html#cma.experimentation.Results">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>a container to communicate (changing) results via disk and with
+backups (of all data) in each step.</p>
+<p>The <tt class="rst-docutils literal">data</tt> attribute is a dictionary which contains all "results"
+data. Any new container reads previously saved data (with the same
+name) on initialization.</p>
+<p>Use cases:</p>
+<pre class="rst-literal-block">
+# save my_data_dict to file 'sweep_data.pydata'
+# thereby appending/updating existing data
+Results('sweep_data').save(my_data_dict)
+# load these (combined) data back
+my_data_dict = Results('sweep_data').load().data
+
+# save data after each trial
+res = Results('sweep_data')  # appends/merges data in case
+for dim in dimensions:
+    for ...:
+        ret = fmin(...)
+        res.data[dim][...] = ret.evals if ret.success else np.inf
+        res.save()  # like this we can never lose data
+</pre>
+<p>Details: Saving/loading of nonfinite values with <a href="http://docs.python.org/library/ast.html#ast.literat_eval"><code>ast.literat_eval</code></a> is
+covered with the <tt class="rst-docutils literal">value_string_mappings</tt> attribute.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id390">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.Results.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.Results.html#load" data-type="Method" class="code">load</a></td>
+    <td><span>TODO: this should optionally append to current data?</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.Results.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>Append data from <tt class="rst-docutils literal">filename</tt> to <tt class="rst-docutils literal">self.data</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.Results.html#save" data-type="Method" class="code">save</a></td>
+    <td><span>update <code>self.data</code> with <code>data</code> and save to disk</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.Results.html#backup" data-type="Method" class="code">backup</a></td>
+    <td><span>append data to backup file</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.Results.html#_value_to_string" data-type="Method" class="code">_value_to_string</a></td>
+    <td><span>return "correct" value</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.Results.html#_values_to_string" data-type="Method" class="code">_values_to_string</a></td>
+    <td><span>replace values with strings or vice versa.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.experimentation.Results.html#_arrays" data-type="Method" class="code">_arrays</a></td>
+    <td><span>return a flat list of (references to) all non-dicts in data.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.experimentation.Results.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, name=None, values_to_string=(np.inf, np.nan), verbose=1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.Results.load">
+    
+  </a>
+  <a name="load">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    load(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>TODO: this should optionally append to current data?<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.Results.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, filename, backup=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Append data from <tt class="rst-docutils literal">filename</tt> to <tt class="rst-docutils literal">self.data</tt>.</p>
+<p>To update self with a <tt class="rst-docutils literal">data</tt> <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> instead a file, call
+<tt class="rst-docutils literal">self.data.update(data)</tt>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.Results.save">
+    
+  </a>
+  <a name="save">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    save(self, backup=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>update <code>self.data</code> with <code>data</code> and save to disk<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.experimentation.Results._value_to_string">
+    
+  </a>
+  <a name="_value_to_string">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _value_to_string(self, val, inverse=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return "correct" value<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.experimentation.Results._values_to_string">
+    
+  </a>
+  <a name="_values_to_string">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _values_to_string(self, inverse=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>replace values with strings or vice versa.</p>
+<p>Values to be replaced are defined at instance creation.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.experimentation.Results._arrays">
+    
+  </a>
+  <a name="_arrays">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _arrays(self, data=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return a flat list of (references to) all non-dicts in data.</p>
+<p>Traverses recursively down into dictionaries.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.experimentation.Results.backup">
+    
+  </a>
+  <a name="backup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    backup(self, data=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>append data to backup file<table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-17 12:18:17.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>
