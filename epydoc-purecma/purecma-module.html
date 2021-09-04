@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>purecma</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;purecma
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="purecma-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module purecma</h1><p class="nomargin-top"><span class="codelink"><a href="purecma-pysrc.html">source&nbsp;code</a></span></p>
+<p>A minimalistic implemention of CMA-ES without using <code class="link">numpy</code>.</p>
+<p>The Covariance Matrix Adaptation Evolution Strategy, CMA-ES, serves for
+numerical nonlinear function minimization.</p>
+<p>The <strong>main functionality</strong> is implemented in</p>
+<ol class="rst-arabic simple">
+<li>class <a href="purecma.CMAES-class.html" class="link">CMAES</a>, and</li>
+<li>function <a href="purecma-module.html#fmin" class="link">fmin</a> which is a small single-line-usage wrapper around
+<a href="purecma.CMAES-class.html" class="link">CMAES</a>.</li>
+</ol>
+<p>This code has two <strong>purposes</strong>:</p>
+<ol class="rst-arabic simple">
+<li>for READING and UNDERSTANDING the basic flow and the details of the
+CMA-ES <em>algorithm</em>. The source code is meant to be read. For a quick
+glance, study the first few code lines of <a href="purecma-module.html#fmin" class="link">fmin</a> and the code of
+method <a href="purecma.CMAES-class.html#tell" class="link">CMAES.tell</a>, where all the real work is done in about 20 lines
+of code (search &quot;def tell&quot; in the source). Otherwise, reading from
+the top is a feasible option, where the codes of <a href="purecma-module.html#fmin" class="link">fmin</a>,
+<a href="purecma.CMAES-class.html#__init__" class="link">CMAES.__init__</a>, <a href="purecma.CMAES-class.html#ask" class="link">CMAES.ask</a>, <a href="purecma.CMAES-class.html#tell" class="link">CMAES.tell</a> are of particular
+interest.</li>
+<li>apply CMA-ES when the python module <code class="link">numpy</code> is not available.
+When <code class="link">numpy</code> is available, <code class="link">cma.fmin</code> or <code class="link">cma.CMAEvolutionStrategy</code> are
+preferred to run &quot;serious&quot; simulations. The latter code has many more
+lines, but usually executes faster, offers a richer user interface,
+better termination options, boundary and noise handling, injection,
+automated restarts...</li>
+</ol>
+<p>Dependencies: <code class="link">math.exp</code>, <code class="link">math.log</code> and <code class="link">random.normalvariate</code> (modules
+<code class="link">matplotlib.pylab</code> and <code class="link">sys</code> are optional).</p>
+<p>Testing: call <tt class="rst-docutils literal">python purecma.py</tt> at the OS shell. Tested with
+Python 2.6, 2.7, 3.3, 3.5, 3.6.</p>
+<p>URL: <a class="rst-reference external" href="http://github.com/CMA-ES/pycma" target="_top">http://github.com/CMA-ES/pycma</a></p>
+<p>Last change: September, 2017, version 3.0.0</p>
+<p>This code is released into the public domain (that is, you may
+use and modify it however you like).</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Nikolaus Hansen, 2010-2011, 2017
+      </p>
+      <p><strong>Version:</strong>
+        3.0.0
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="purecma.CMAESParameters-class.html" class="summary-name">CMAESParameters</a><br />
+      static &quot;internal&quot; parameter setting for <a href="purecma.CMAES-class.html" class="link">CMAES</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="purecma.CMAES-class.html" class="summary-name">CMAES</a><br />
+      class for non-linear non-convex numerical minimization with CMA-ES.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="purecma.CMAESDataLogger-class.html" class="summary-name">CMAESDataLogger</a><br />
+      data logger for class <a href="purecma.CMAES-class.html" class="link">CMAES</a>, that can record and plot data.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="purecma.ff-class.html" class="summary-name">ff</a><br />
+      versatile collection of test functions in static methods
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="purecma.BestSolution-class.html" class="summary-name">BestSolution</a><br />
+      container to keep track of the best solution seen
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="purecma.SquareMatrix-class.html" class="summary-name">SquareMatrix</a><br />
+      rudimental square matrix class
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="purecma.DecomposingPositiveMatrix-class.html" class="summary-name">DecomposingPositiveMatrix</a><br />
+      Symmetric matrix maintaining its own eigendecomposition.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="purecma-module.html#fmin" class="summary-sig-name">fmin</a>(<span class="summary-sig-arg">objective_fct</span>,
+        <span class="summary-sig-arg">xstart</span>,
+        <span class="summary-sig-arg">sigma</span>,
+        <span class="summary-sig-arg">args</span>=<span class="summary-sig-default"><code class="variable-group">(</code><code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">maxfevals</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">1e3 * N**2</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">ftarget</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">verb_disp</span>=<span class="summary-sig-default">100</span>,
+        <span class="summary-sig-arg">verb_log</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">verb_save</span>=<span class="summary-sig-default">1000</span>)</span><br />
+      non-linear non-convex minimization procedure, a functional
+interface to CMA-ES.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#fmin">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="eye"></a><span class="summary-sig-name">eye</span>(<span class="summary-sig-arg">dimension</span>)</span><br />
+      return identity matrix as <code class="link">list</code> of &quot;vectors&quot; (lists themselves)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#eye">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="purecma-module.html#dot" class="summary-sig-name">dot</a>(<span class="summary-sig-arg">A</span>,
+        <span class="summary-sig-arg">b</span>,
+        <span class="summary-sig-arg">transpose</span>=<span class="summary-sig-default">False</span>)</span><br />
+      usual dot product of &quot;matrix&quot; A with &quot;vector&quot; b.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#dot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="plus"></a><span class="summary-sig-name">plus</span>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">b</span>)</span><br />
+      add vectors, return a + b</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#plus">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="minus"></a><span class="summary-sig-name">minus</span>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">b</span>)</span><br />
+      subtract vectors, return a - b</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#minus">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="argsort"></a><span class="summary-sig-name">argsort</span>(<span class="summary-sig-arg">a</span>)</span><br />
+      return index list to get <code class="link">a</code> in order, ie
+<tt class="rst-docutils literal"><span class="pre">a[argsort(a)[i]]</span> == <span class="pre">sorted(a)[i]</span></tt></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#argsort">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="purecma-module.html#safe_str" class="summary-sig-name">safe_str</a>(<span class="summary-sig-arg">s</span>,
+        <span class="summary-sig-arg">known_words</span>=<span class="summary-sig-default">None</span>)</span><br />
+      return <tt class="rst-docutils literal">s</tt> as <code class="link">str</code> safe to <code class="link">eval</code> or raise an exception.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#safe_str">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="purecma-module.html#eig" class="summary-sig-name">eig</a>(<span class="summary-sig-arg">C</span>)</span><br />
+      eigendecomposition of a symmetric matrix.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#eig">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="purecma-module.html#test" class="summary-sig-name">test</a>()</span><br />
+      test of the <a href="purecma-module.html" class="link">purecma</a> module, called <tt class="rst-docutils literal">if __name__ == &quot;__main__&quot;</tt>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#test">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RecombinationWeights"></a><span class="summary-name">RecombinationWeights</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__author__"></a><span class="summary-name">__author__</span> = <code title="'Nikolaus Hansen'"><code class="variable-quote">'</code><code class="variable-string">Nikolaus Hansen</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="fmin"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">fmin</span>(<span class="sig-arg">objective_fct</span>,
+        <span class="sig-arg">xstart</span>,
+        <span class="sig-arg">sigma</span>,
+        <span class="sig-arg">args</span>=<span class="sig-default"><code class="variable-group">(</code><code class="variable-group">)</code></span>,
+        <span class="sig-arg">maxfevals</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">1e3 * N**2</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">ftarget</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">verb_disp</span>=<span class="sig-default">100</span>,
+        <span class="sig-arg">verb_log</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">verb_save</span>=<span class="sig-default">1000</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="purecma-pysrc.html#fmin">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>non-linear non-convex minimization procedure, a functional
+interface to CMA-ES.</p>
+<div class="rst-section" id="rst-parameters">
+<h1 class="heading">Parameters</h1>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code class="link">objective_fct</code>: <code class="link">callable</code></dt>
+<dd>a function that takes as input a <code class="link">list</code> of floats (like
+[3.0, 2.2, 1.1]) and returns a single <code class="link">float</code> (a scalar).
+The objective is to find <tt class="rst-docutils literal">x</tt> with <tt class="rst-docutils literal">objective_fct(x)</tt>
+to be as small as possible.</dd>
+<dt><code class="link">xstart</code>: <code class="link">list</code> or sequence</dt>
+<dd>list of numbers (like <code class="link">[3.2, 2, 1]</code>), initial solution vector</dd>
+<dt><code class="link">sigma</code>: <code class="link">float</code></dt>
+<dd>initial step-size, standard deviation in any coordinate</dd>
+<dt><code class="link">args</code>: <code class="link">tuple</code> or sequence</dt>
+<dd>arguments to <code class="link">objective_fct</code></dd>
+<dt><code class="link">ftarget</code>: <code class="link">float</code></dt>
+<dd>target function value</dd>
+<dt><code class="link">maxfevals</code>: <code class="link">int</code> or <code class="link">str</code></dt>
+<dd>maximal number of function evaluations, a string
+is evaluated with <tt class="rst-docutils literal">N</tt> being the search space dimension</dd>
+<dt><code class="link">verb_disp</code>: <code class="link">int</code></dt>
+<dd>display on console every <code class="link">verb_disp</code> iteration, 0 for never</dd>
+<dt><code class="link">verb_log</code>: <code class="link">int</code></dt>
+<dd>data logging every <code class="link">verb_log</code> iteration, 0 for never</dd>
+<dt><code class="link">verb_save</code>: <code class="link">int</code></dt>
+<dd>save logged data every <tt class="rst-docutils literal">verb_save * verb_log</tt> iteration</dd>
+</dl>
+</blockquote>
+</div>
+<div class="rst-section" id="rst-return">
+<h1 class="heading">Return</h1>
+<p>The <code class="link">tuple</code> (<tt class="rst-docutils literal">xmin</tt>:<code class="link">list</code>, <tt class="rst-docutils literal">es</tt>:<a href="purecma.CMAES-class.html" class="link">CMAES</a>), where <tt class="rst-docutils literal">xmin</tt> is the
+best seen (evaluated) solution and <tt class="rst-docutils literal">es</tt> is the correspoding <a href="purecma.CMAES-class.html" class="link">CMAES</a>
+instance. Consult <tt class="rst-docutils literal">help(es.result)</tt> of property <code class="link">result</code> for further
+results.</p>
+</div>
+<div class="rst-section" id="rst-example">
+<h1 class="heading">Example</h1>
+<p>The following example minimizes the function <a href="purecma.ff-class.html#elli" class="link">ff.elli</a>:</p>
+<pre class="rst-literal-block">
+&gt;&gt; from cma import purecma, ff
+&gt;&gt; res = purecma.fmin(ff.elli, 3 * [0.5], 0.3, verb_disp=100)
+evals: ax-ratio max(std)   f-value
+    7:     1.0  3.4e-01  240.2716966
+   14:     1.0  3.9e-01  2341.50170536
+  700:   247.9  2.4e-01  0.629102574062
+ 1400:  1185.9  5.3e-07  4.83466373808e-13
+ 1421:  1131.2  2.9e-07  5.50167024417e-14
+termination by {'tolfun': 1e-12}
+best f-value = 2.72976881789e-14
+solution = [5.284564665206811e-08, 2.4608091035303e-09, -1.3582873173543187e-10]
+&gt;&gt; print(res[0])
+[5.284564665206811e-08, 2.4608091035303e-09, -1.3582873173543187e-10]
+&gt;&gt; print(res[1].result[1])
+2.72976881789e-14
+&gt;&gt; res[1].logger.plot()  # needs pylab/matplotlib to be installed
+</pre>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>This call:</p>
+<pre class="rst-literal-block">
+&gt;&gt; import cma.purecma as pcma
+&gt;&gt; pcma.fmin(pcma.ff.elli, 10 * [0.5], 0.3, verb_save=0)
+</pre>
+<p>and these lines:</p>
+<pre class="rst-literal-block">
+&gt;&gt; import cma.purecma as pcma
+&gt;&gt; es.logger = pcma.CMAESDataLogger()
+&gt;&gt; pcma.CMAES(10 * [0.5], 0.3).optimize(pcma.ff.elli,
+...                                     callback=es.logger.add)
+</pre>
+<p>do pretty much the same. The <code class="link">verb_save</code> parameter to <a href="purecma-module.html#fmin" class="link">fmin</a> adds
+the possibility to plot the saved data <em>during</em> the execution from a
+different Python shell like <tt class="rst-docutils literal"><span class="pre">pcma.CMAESDataLogger().load().plot()</span></tt>.
+For example, with <tt class="rst-docutils literal">verb_save == 3</tt> every third time the logger
+records data they are saved to disk as well.</p>
+</div>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="purecma.CMAES-class.html" class="link">CMAES</a>, OOOptimizer.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="dot"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">dot</span>(<span class="sig-arg">A</span>,
+        <span class="sig-arg">b</span>,
+        <span class="sig-arg">transpose</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="purecma-pysrc.html#dot">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>usual dot product of &quot;matrix&quot; A with &quot;vector&quot; b.</p>
+<p><tt class="rst-docutils literal">A[i]</tt> is the i-th row of A. With <tt class="rst-docutils literal">transpose=True</tt>, A transposed
+is used.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="safe_str"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">safe_str</span>(<span class="sig-arg">s</span>,
+        <span class="sig-arg">known_words</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="purecma-pysrc.html#safe_str">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>return <tt class="rst-docutils literal">s</tt> as <code class="link">str</code> safe to <code class="link">eval</code> or raise an exception.</p>
+<p>Strings in the <code class="link">dict</code> <code class="link">known_words</code> are replaced by their values
+surrounded with a space, which the caller considers safe to evaluate
+with <code class="link">eval</code> afterwards.</p>
+<p>Known issues:</p>
+<pre class="rst-literal-block">
+&gt;&gt;&gt; from cma.purecma import safe_str
+&gt;&gt;&gt; safe_str('int(p)', {'int': 'int', 'p': 3.1})  # fine
+' int ( 3.1 )'
+&gt;&gt;&gt; safe_str('int(n)', {'int': 'int', 'n': 3.1})  # unexpected
+' i 3.1 t ( 3.1 )'
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="eig"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">eig</span>(<span class="sig-arg">C</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="purecma-pysrc.html#eig">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>eigendecomposition of a symmetric matrix.</p>
+<p>Return the eigenvalues and an orthonormal basis
+of the corresponding eigenvectors, <tt class="rst-docutils literal">(EVals, Basis)</tt>, where</p>
+<ul class="rst-simple">
+<li><tt class="rst-docutils literal">Basis[i]</tt>: <code class="link">list</code>, is the i-th row of <tt class="rst-docutils literal">Basis</tt></li>
+<li>the i-th column of <tt class="rst-docutils literal">Basis</tt>, ie <tt class="rst-docutils literal"><span class="pre">[Basis[j][i]</span> for j in <span class="pre">range(len(Basis))]</span></tt>
+is the i-th eigenvector with eigenvalue <tt class="rst-docutils literal">EVals[i]</tt></li>
+</ul>
+<p>Details: much slower than <code class="link">numpy.linalg.eigh</code>.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="test"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">test</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="purecma-pysrc.html#test">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>test of the <a href="purecma-module.html" class="link">purecma</a> module, called <tt class="rst-docutils literal">if __name__ == &quot;__main__&quot;</tt>.</p>
+<p>Currently only based on <code class="link">doctest</code>:</p>
+<pre class="rst-literal-block">
+&gt;&gt;&gt; try: import cma.purecma as pcma
+... except ImportError: import purecma as pcma
+&gt;&gt;&gt; import random
+&gt;&gt;&gt; random.seed(3)
+&gt;&gt;&gt; xmin, es = pcma.fmin(pcma.ff.rosenbrock, 4 * [0.5], 0.5,
+...                      verb_disp=0, verb_log=1)
+&gt;&gt;&gt; print(es.counteval)
+1680
+&gt;&gt;&gt; print(es.best.evals)
+1664
+&gt;&gt;&gt; assert es.best.f &lt; 1e-12
+&gt;&gt;&gt; random.seed(5)
+&gt;&gt;&gt; es = pcma.CMAES(4 * [0.5], 0.5)
+&gt;&gt;&gt; es.params = pcma.CMAESParameters(es.params.dimension,
+...                                  es.params.lam,
+...                                  pcma.RecombinationWeights)
+&gt;&gt;&gt; while not es.stop():
+...     X = es.ask()
+...     es.tell(X, [pcma.ff.rosenbrock(x) for x in X])
+&gt;&gt;&gt; print(&quot;%s, %d&quot; % (pcma.ff.rosenbrock(es.result[0]) &lt; 1e13,
+...                   es.result[2]))
+True, 1584
+</pre>
+<p>Large population size:</p>
+<pre class="rst-literal-block">
+&gt;&gt;&gt; try: import cma.purecma as pcma
+... except ImportError: import purecma as pcma
+&gt;&gt;&gt; import random
+&gt;&gt;&gt; random.seed(4)
+&gt;&gt;&gt; es = pcma.CMAES(3 * [1], 1)
+&gt;&gt;&gt; es.params = pcma.CMAESParameters(es.params.dimension, 300,
+...                                  pcma.RecombinationWeights)
+&gt;&gt;&gt; es.logger = pcma.CMAESDataLogger()
+&gt;&gt;&gt; try:
+...    es = es.optimize(pcma.ff.elli, verb_disp=0)
+... except AttributeError:  # OOOptimizer.optimize is not available
+...     while not es.stop():
+...         X = es.ask()
+...         es.tell(X, [pcma.ff.elli(x) for x in X])
+&gt;&gt;&gt; assert es.result[1] &lt; 1e13
+&gt;&gt;&gt; print(es.result[2])
+9300
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Sep 10 15:07:27 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

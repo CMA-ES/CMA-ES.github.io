@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>purecma.CMAES</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="purecma-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="purecma-module.html">Module&nbsp;purecma</a> ::
+        Class&nbsp;CMAES
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="purecma.CMAES-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class CMAES</h1><p class="nomargin-top"><span class="codelink"><a href="purecma-pysrc.html#CMAES">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+object --+
+         |
+        <strong class="uidshort">CMAES</strong>
+</pre>
+
+<hr />
+<p>class for non-linear non-convex numerical minimization with CMA-ES.</p>
+<p>The class implements the interface define in OOOptimizer, namely
+the methods <a href="purecma.CMAES-class.html#__init__" class="link">__init__</a>, <a href="purecma.CMAES-class.html#ask" class="link">ask</a>, <a href="purecma.CMAES-class.html#tell" class="link">tell</a>, <a href="purecma.CMAES-class.html#stop" class="link">stop</a>, <a href="purecma.CMAES-class.html#disp" class="link">disp</a> and property
+<a href="purecma.CMAES-class.html#result" class="link">result</a>.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<p>The Jupyter notebook or IPython are the favorite environments to
+execute these examples, both in <tt class="rst-docutils literal">%pylab</tt> mode. All examples
+minimize the function <code class="link">elli</code>, output is not shown.</p>
+<p>First we need to import the module we want to use. We import <a href="purecma-module.html" class="link">purecma</a>
+from <code class="link">cma</code> as (aliased to) <tt class="rst-docutils literal">pcma</tt>:</p>
+<pre class="rst-literal-block">
+from cma import purecma as pcma
+</pre>
+<p>The shortest example uses the inherited method
+<code class="link">OOOptimizer.optimize</code>:</p>
+<pre class="rst-literal-block">
+es = pcma.CMAES(8 * [0.1], 0.5).optimize(pcma.ff.elli)
+</pre>
+<p>See method <a href="purecma.CMAES-class.html#__init__" class="link">CMAES.__init__</a> for a documentation of the input
+parameters to <a href="purecma.CMAES-class.html" class="link">CMAES</a>. We might have a look at the result:</p>
+<pre class="rst-literal-block">
+print(es.result[0])  # best solution and
+print(es.result[1])  # its function value
+</pre>
+<p><a href="purecma.CMAES-class.html#result" class="link">result</a> is a property of <a href="purecma.CMAES-class.html" class="link">CMAES</a>. In order to display more exciting
+output, we may use the <a href="purecma.CMAESDataLogger-class.html" class="link">CMAESDataLogger</a> instance in the <code class="link">logger</code>
+attribute of <a href="purecma.CMAES-class.html" class="link">CMAES</a>:</p>
+<pre class="rst-literal-block">
+es.logger.plot()  # if matplotlib is available
+</pre>
+<p>Virtually the same example can be written with an explicit loop
+instead of using <code class="link">optimize</code>, see also <a href="purecma-module.html#fmin" class="link">fmin</a>. This gives insight
+into the <a href="purecma.CMAES-class.html" class="link">CMAES</a> class interface and entire control over the
+iteration loop:</p>
+<pre class="rst-literal-block">
+pcma.fmin??  # print source, works in jupyter/ipython only
+es = pcma.CMAES(9 * [0.5], 0.3)  # calls CMAES.__init__()
+
+# this loop resembles the method optimize
+while not es.stop():  # iterate
+    X = es.ask()      # get candidate solutions
+    f = [pcma.ff.elli(x) for x in X]  # evaluate solutions
+    es.tell(X, f)     # do all the real work
+    es.disp(20)       # display info every 20th iteration
+    es.logger.add(es) # log another &quot;data line&quot;
+
+# final output
+print('termination by', es.stop())
+print('best f-value =', es.result[1])
+print('best solution =', es.result[0])
+
+print('potentially better solution xmean =', es.result[5])
+print(&quot;let's check f(xmean) = &quot;, pcma.ff.elli(es.result[5]))
+es.logger.plot()  # if matplotlib is available
+</pre>
+<p>A very similar example which may also save the logged data within
+the loop is the implementation of function <a href="purecma-module.html#fmin" class="link">fmin</a>.</p>
+</div>
+<div class="rst-section" id="rst-details">
+<h1 class="heading">Details</h1>
+<p>Most of the work is done in the method <a href="purecma.CMAES-class.html#tell" class="link">tell</a>. The property
+<a href="purecma.CMAES-class.html#result" class="link">result</a> contains more useful output.</p>
+</div>
+
+<hr />
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="purecma-module.html#fmin" class="link">fmin</a>, <code class="link">OOOptimizer.optimize</code>
+      </p>
+</div><!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="purecma.CMAES-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">xstart</span>,
+        <span class="summary-sig-arg">sigma</span>,
+        <span class="summary-sig-arg">popsize</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">4 + int(3 * log(N))</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">ftarget</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">maxfevals</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">100 * popsize + 150 * (N + 3)**2 * popsize**0.5</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">randn</span>=<span class="summary-sig-default">&lt;bound method Random.normalvariate of &lt;random.Random object at<code class="variable-ellipsis">...</code></span>)</span><br />
+      Instantiate <a href="purecma.CMAES-class.html" class="link">CMAES</a> object instance using <code class="link">xstart</code> and <code class="link">sigma</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#CMAES.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="purecma.CMAES-class.html#ask" class="summary-sig-name">ask</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      sample lambda candidate solutions</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#CMAES.ask">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="purecma.CMAES-class.html#tell" class="summary-sig-name">tell</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">arx</span>,
+        <span class="summary-sig-arg">fitvals</span>)</span><br />
+      update the evolution paths and the distribution parameters m,
+sigma, and C within CMA-ES.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#CMAES.tell">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="purecma.CMAES-class.html#stop" class="summary-sig-name">stop</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      return satisfied termination conditions in a dictionary,</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#CMAES.stop">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="disp"></a><span class="summary-sig-name">disp</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">verb_modulo</span>=<span class="summary-sig-default">1</span>)</span><br />
+      <code class="link">print</code> some iteration info to <code class="link">stdout</code></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="purecma-pysrc.html#CMAES.disp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="purecma.CMAES-class.html#result" class="summary-name">result</a><br />
+      the <code class="link">tuple</code> <tt class="rst-docutils literal">(xbest, f(xbest), evaluations_xbest, evaluations,
+iterations, xmean, stds)</tt>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">xstart</span>,
+        <span class="sig-arg">sigma</span>,
+        <span class="sig-arg">popsize</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">4 + int(3 * log(N))</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">ftarget</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">maxfevals</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">100 * popsize + 150 * (N + 3)**2 * popsize**0.5</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">randn</span>=<span class="sig-default">&lt;bound method Random.normalvariate of &lt;random.Random object at<code class="variable-ellipsis">...</code></span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="purecma-pysrc.html#CMAES.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Instantiate <a href="purecma.CMAES-class.html" class="link">CMAES</a> object instance using <code class="link">xstart</code> and <code class="link">sigma</code>.</p>
+<div class="rst-section" id="rst-parameters">
+<h1 class="heading">Parameters</h1>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code class="link">xstart</code>: <code class="link">list</code></dt>
+<dd>of numbers (like <tt class="rst-docutils literal">[3, 2, 1.2]</tt>), initial
+solution vector</dd>
+<dt><code class="link">sigma</code>: <code class="link">float</code></dt>
+<dd>initial step-size (standard deviation in each coordinate)</dd>
+<dt><code class="link">popsize</code>: <code class="link">int</code> or <code class="link">str</code></dt>
+<dd>population size, number of candidate samples per iteration</dd>
+<dt><code class="link">maxfevals</code>: <code class="link">int</code> or <code class="link">str</code></dt>
+<dd>maximal number of function evaluations, a string is
+evaluated with <tt class="rst-docutils literal">N</tt> as search space dimension</dd>
+<dt><code class="link">ftarget</code>: <code class="link">float</code></dt>
+<dd>target function value</dd>
+<dt><code class="link">randn</code>: <code class="link">callable</code></dt>
+<dd>normal random number generator, by default
+<code class="link">random.normalvariate</code></dd>
+</dl>
+</blockquote>
+<p>Details: this method initializes the dynamic state variables and
+creates a <a href="purecma.CMAESParameters-class.html" class="link">CMAESParameters</a> instance for static parameters.</p>
+</div>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ask"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ask</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="purecma-pysrc.html#CMAES.ask">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>sample lambda candidate solutions</p>
+<p>distributed according to:</p>
+<pre class="rst-literal-block">
+m + sigma * Normal(0,C) = m + sigma * B * D * Normal(0,I)
+                        = m + B * D * sigma * Normal(0,I)
+</pre>
+<p>and return a <code class="link">list</code> of the sampled &quot;vectors&quot;.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="tell"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">tell</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">arx</span>,
+        <span class="sig-arg">fitvals</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="purecma-pysrc.html#CMAES.tell">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>update the evolution paths and the distribution parameters m,
+sigma, and C within CMA-ES.</p>
+<div class="rst-section" id="rst-parameters">
+<h1 class="heading">Parameters</h1>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code class="link">arx</code>: <code class="link">list</code> of &quot;row vectors&quot;</dt>
+<dd>a list of candidate solution vectors, presumably from
+calling <a href="purecma.CMAES-class.html#ask" class="link">ask</a>. <tt class="rst-docutils literal"><span class="pre">arx[k][i]</span></tt> is the i-th element of
+solution vector k.</dd>
+<dt><code class="link">fitvals</code>: <code class="link">list</code></dt>
+<dd>the corresponding objective function values, to be
+minimised</dd>
+</dl>
+</blockquote>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="stop"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">stop</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="purecma-pysrc.html#CMAES.stop">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>return satisfied termination conditions in a dictionary,</p>
+<p>generally speaking like <tt class="rst-docutils literal"><span class="pre">{'termination_reason':value,</span> <span class="pre">...}</span></tt>,
+for example <tt class="rst-docutils literal"><span class="pre">{'tolfun':1e-12}</span></tt>, or the empty <code class="link">dict</code> <tt class="rst-docutils literal">{}</tt>.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="result"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">result</h3>
+  the <code class="link">tuple</code> <tt class="rst-docutils literal">(xbest, f(xbest), evaluations_xbest, evaluations,
+iterations, xmean, stds)</tt>
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><i>unreachable</i>.result(<span class="summary-sig-arg">self</span>)</span>
+        - the <code class="link">tuple</code> <tt class="rst-docutils literal">(xbest, f(xbest), evaluations_xbest, evaluations,
+iterations, xmean, stds)</tt>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="purecma-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Sep 10 15:07:27 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
