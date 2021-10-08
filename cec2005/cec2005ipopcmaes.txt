@@ -1,0 +1,39 @@
+ A Restart CMA Evolution Strategy With Increasing Population Size
+             Anne Auger and Nikolaus Hansen
+
+In this paper we introduce a restart-CMA-evolution strategy, where
+the population size is increased for each restart (IPOP). By
+increasing the population size the search characteristic becomes
+more global after each restart. The IPOP-CMA-ES is evaluated on
+the test suit of 25 functions designed for the special session on
+real-parameter optimization of CEC 2005.  Its performance is
+compared to a local restart strategy with constant small
+population size. On unimodal functions the performance is similar.
+On multi-modal functions the local restart strategy significantly
+outperforms IPOP in 4 test cases whereas IPOP performs
+significantly better in 29 out of 60 tested cases.
+
+ERRATA: 
+
+End of Section 2, stopping criterion "noeffectcoord":
+
+  "Stop if adding 0.2-standard deviation in each coordinate does
+  change ..."
+
+should be 
+
+  "Stop if adding 0.2-standard deviation in any coordinate does
+  not change ..."
+
+
+The following has been pointed out by Xiao-Min Hu from the Sun
+Yat-sen University: 
+
+1) On function F4 the initial search point was chosen by
+  mistake as Xup + (Xup-Xlow)*rand instead of Xlow +
+  (Xup-Xlow)*rand The corrected initialization will
+  presumably give better result.
+
+2) On some function the boundary setting was omitted, but
+  this has most probably no impact on the results.  
+

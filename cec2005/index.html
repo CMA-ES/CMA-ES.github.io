@@ -1,0 +1,335 @@
+<html>
+<head>
+    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+    
+  <meta name="GENERATOR"
+ content="Mozilla/4.08 [en] (X11; I; Linux 2.0.35 i686) [Netscape]">
+    
+  <meta name="Author" content="Nikolaus Hansen">
+    
+  <meta name="keywords"
+ content="real parameter optimization contest, 
+        congress on evolutionary computation 2005,
+        evolution strategy,
+        covariance matrix adaptation, CMA, CMA-ES, CMAES, 
+        robust optimization, robust search, 
+       global optimization">
+    
+  <meta name="description"
+ content="">
+  <title>2005 IEEE Congress on Evolutionary Computation: Session on
+Real-Parameter Optimization</title>
+</head>
+
+
+<body text="#000000" bgcolor="#ffffff" link="#0000ef" vlink="#51188e"
+ alink="#ff0000">
+<FONT size=-1><A HREF="../index.html">UP</A></FONT>
+
+<h1> <font size="+1">Comparison of Evolutionary Algorithms on a
+Benchmark Function Set </font> 
+</h1>
+
+<P>
+<B>The Task</B>. Black-box optimization of 25 benchmark functions
+under thoroughly defined experimental and recording conditions for the
+<I>2005 IEEE Congress on Evolutionary Computation: Session on
+Real-Parameter Optimization</I> (see <A HREF="#links">resources links
+below</A>). 17 papers were submitted, 11 were accepted, thereunder
+hybrid methods.
+</P>
+
+<P>
+<B>Algorithms</B>.
+We submitted two
+algorithms.
+
+<UL>
+<LI>L-CMA-ES (<A HREF="#augeruhansen2005b">Auger and
+Hansen 2005b</A>): A CMA evolution strategy with small population size and
+<EM>small initial step-size</EM> to emphasize on local search
+characteristics. Independent restarts are conducted until the target
+function value is reached or the maximum number of function
+evaluations is exceeded. 
+</LI>
+
+<LI>G-CMA-ES (<A HREF="#augeruhansen2005a">Auger and Hansen
+2005a</A>): A CMA evolution strategy restarted with increasing
+population size (IPOP). Independent restarts are conducted with
+increasing population size until the target function value is reached
+or the maximum number of function evaluations is exceeded. With the
+initial small population size the algorithm converges fast, with
+the succeeding larger population sizes the global search performance is
+emphasized in subsequent restarts.  </LI>
+
+</UL>
+
+</P>
+
+<P>
+<B>Results</B>.  The following figures show the comparison of
+performance results from the 11 algorithms for search space dimension
+10 and 30 on different function subsets. The expected number of
+function evaluations to reach the target function value is denoted
+with FEs (equivalent to the performance measure SP1 in <A
+HREF="#augeruhansen2005b">Auger and Hansen 2005b</A>) and normalized
+by the value of the best algorithm on the respective function,
+FEs<SUB>best</SUB>. Shown is, for each algorithm, the empirical
+cumulative distribution function of FEs / FEs<SUB>best</SUB> over
+different sets of functions in 10 and 30D.  Small values for FEs /
+FEs<SUB>best</SUB> and therefore large values of the graphs (the
+cumulative distribution function) are preferable.
+
+
+<TABLE border="0" ALIGN=center>
+<TR> 
+<TH>  </TH>
+<TH> All functions solved by at least one algorithm </TH>
+<TH> Unimodal functions </TH>
+<TH> Multimodal functions </TH>
+</TR> 
+<TR> 
+<TD>10D</TD>
+<TD>
+<A HREF="cececdfallN10.png"><IMG SRC="cececdfallN10.png" WIDTH="364"
+ALIGN=LEFT style="border-style: none" ALT="performance distributions"></A> <br>
+</TD>
+<TD>
+<A HREF="cececdfuniN10.png">
+            <IMG SRC="cececdfuniN10.png" WIDTH="364"
+           ALIGN=LEFT style="border-style: none" 
+	   ALT="performance distributions"></A>
+ </TD>
+<TD>
+<A HREF="cececdfmultimodN10.png">
+            <IMG SRC="cececdfmultimodN10.png" WIDTH="364"
+           ALIGN=LEFT style="border-style: none" 
+	   ALT="performance distributions"></A>
+ </TD>
+<TR>
+<TD>30D</TD>
+<TD>
+<A HREF="cececdfallN30.png"><IMG SRC="cececdfallN30.png" WIDTH="364"
+ALIGN=LEFT style="border-style: none" ALT="performance distributions"></A> <br>
+</TD>
+<TD>
+<A HREF="cececdfuniN30.png">
+            <IMG SRC="cececdfuniN30.png" WIDTH="364"
+           ALIGN=LEFT style="border-style: none" 
+	   ALT="performance distributions"></A>
+ </TD>
+<TD>
+<A HREF="cececdfmultimodN30.png">
+            <IMG SRC="cececdfmultimodN30.png" WIDTH="364"
+           ALIGN=LEFT style="border-style: none" 
+	   ALT="performance distributions"></A>
+ </TD>
+</TR>
+
+</TABLE> 
+
+The algorithms are referenced in the comparison of results in the <A
+HREF="#links">Resources</A> section below.
+
+</P><P><I>How to read the graphs.</I> In the lower left figure (all
+solved functions in 30D) we find for FEs / FEs<SUB>best</SUB> = 2
+(x-axis) a value of about 0.82 (y-axis) for the graph of G-CMA-ES
+(uppermost graph). That means, on 82% of the functions G-CMA-ES was
+at most 2 times slower than the best algorithm (in terms of expected
+number of function evaluations). For FEs / FEs<SUB>best</SUB> = 10 we
+find a value of 1 in the distribution graph, meaning that G-CMA-ES was
+maximum 10 times slower on all of the functions. The right most values
+of the graphs give the ratio of ever solved functions, ranging here
+between 100% for G-CMA-ES and just under 20% for BLX-MA and DE (due to
+the comparatively low number of overall allowed function evaluations).
+
+</P><P>
+<B>Discussion</B>. Compared to all contributed algorithms the G-CMA-ES
+appears to be advantageous from three perspectives.
+
+<OL>
+<LI>The G-CMA-ES performes best in terms of number of function
+  evaluations to reach the target function value
+
+<UL>
+<LI>over all solved functions (left figures)
+</LI>
+
+<LI>on the subset of unimodal functions (middle figures) </LI>
+
+<LI>on the subset of solved multimodal functions (right figures)
+</LI>
+
+</LI>
+</UL>
+
+The G-CMA-ES performes best, in terms of ranking of the final function
+value, on the remaining subset of functions, where no algorithm
+reached the target function value in any trial (see comparison of
+results in the <A HREF="#links">Resources</A> section below).
+
+On two separable functions the CMA-ES is considerably outperformed by
+other contributed algorithms.
+
+<LI>No parameter tuning is conducted for the CMA-ES which appears to be true also
+for L-SaDE, BLX-MA, DMS-L-PSO, BLX-GL50, and CoEVO. The default
+parameter values were applied for CMA-ES.  </LI>
+
+
+<LI>The CMA-ES exhibits the most <A
+HREF="../cmaesintro.html#invariances">invariance properties</A> together
+with EDA.  </LI>
+
+</OL>
+
+
+</P><P> <B>Interpretation</B>. Hypothetical explanations for the performance advantage
+of the CMA-ES are the following (still valid in June 2011).  
+
+<OL>
+<LI>On unimodal functions: 
+<UL>
+<LI>The population size is small in the beginning.
+</LI>
+<LI>The population can get an (arbitrarily) elongated shape along <em>any</em>
+direction in search space without collapsing
+into a lower dimensional subspace even for small population size.
+</LI>
+<LI> Step-size control effectively prevents premature convergence
+<em>and</em> allows for fast convergence to an optimum. This is not a
+contradiction in terms.
+</LI>
+</UL>
+</LI>
+<LI>On multi-modal functions the <EM>population spread</EM>  is decisive. 
+</LI>
+<UL>
+<LI>Even for a small population size the population spread is
+comparatively large, due to the cumulative step-size adaptation (path
+length control), and hinders convergence to the very closest local
+optimum.
+</LI>
+<LI>Larger population sizes are used after each restart. The larger
+population sizes can facilitate a larger population spread for longer
+time periods and therefore a "more global" search. Here, the covariance
+matrix update facilitates a comparatively large population spread.
+</LI>
+</UL>
+</LI>
+</OL>
+</P>
+
+</P><P> <B>Remarks</B>.
+<UL>
+<LI>
+The CMA-ES was the only non-elitistic algorithm in the competition. 
+</LI><LI>There has been an inconsistency with the boundary handling in the experimental setup, which is, at least in part, now documented in the respective batch files. On some functions, boundary handling has a significant impact on the performance. 
+</LI>
+</UL>
+
+<HR>
+<P>
+<B>
+<A name=links>Resources</A>
+</B> 
+
+<ul>
+ 
+  <LI><A NAME=comparisonslides> A
+  more  detailed <A HREF="cec2005compareresults.pdf">comparison of
+  results (slides in pdf)</A> </A></LI>
+  
+  <LI>Analysis of the results in the paper Garcia et al (2009), <A
+  HREF="http://sci2s.ugr.es/keel/pdf/keel/articulo/2009-garcia-JH.pdf">A study on the use of non-parametric tests for analyzing the evolutionary algorithms' behaviour: a case study on the CEC'2005 Special Session on Real Parameter Optimization</A>, <I>Journal of Heuristics</I> 15(6): 617-644.  
+  </LI>
+
+  <li> <a href="Tech-Report-May-30-05.pdf">Benchmark function
+  definitions (pdf)</a> </LI>
+
+  <li> For all session related resources see <A
+  HREF="http://www.ntu.edu.sg/home/EPNSugan/index_files/CEC-05/CEC05.htm">CEC05
+  Session</A> at <A HREF="http://www.ntu.edu.sg/home/EPNSugan/">
+  http://www.ntu.edu.sg/home/EPNSugan </A> </li>
+
+  <LI> CMA Evolution Strategy
+  <UL>
+     <LI>  A  <A HREF="../cmaesintro.html">short introduction</A> into the 
+           CMA-ES</LI>
+     <LI> The 
+     <A HREF="http://cma.gforge.inria.fr/cmaes_sourcecode_page.html">latest source code</A>
+     </LI>
+
+    <LI> The used <A HREF="cmaes050316.m">Matlab code</A> in this
+    comparison study, used within <a href="CEC2005_batch_f1.m">this
+    batch file</a> (increasing population size, IPOP-CMA-ES, G-CMA-ES)
+    and <a href="CEC2005_batch_local_f1.m">this batch file</a> (local
+    search with constant small population size and small initial step-size, 
+    LS-CMA-ES, L-CMA-ES)</LI>
+
+    <LI> All results, data, figures and source code <a
+    href="cec05_benchmarks_cmaes.tar.gz">(tar.gz 18MB)</a></LI>
+
+  </UL>
+  </LI>
+</UL>
+</P>
+
+<P>
+<B>
+References
+</B> 
+
+<OL>
+
+<LI><A name=augeruhansen2005a>Auger, A, and Hansen, N. (2005a). A
+Restart CMA Evolution Strategy With Increasing Population Size.</A> In
+<I>Proceedings of the IEEE Congress on Evolutionary Computation, CEC
+2005</I>, pp. 1769-1776 (<A HREF="cec2005ipopcmaes.txt">abstract & erratum</A>,
+<A HREF="cec2005ipopcmaes.pdf">paper in pdf</A>).</LI>
+
+<LI><A name=augeruhansen2005b>Auger, A, and Hansen,
+N. (2005b). Performance Evaluation of an Advanced Local Search
+Evolutionary Algorithm.</A> In <I>Proceedings of the IEEE Congress on
+Evolutionary Computation, CEC 2005</I>, pp.1777-1784 (<A
+HREF="cec2005localcmaes.txt">abstract & erratum</A>, <A
+HREF="cec2005localcmaes.pdf">paper in pdf</A>).</LI>
+
+
+</OL>
+</P>
+
+<P>
+<B>
+Acknowledgment
+</B> 
+We are extremely grateful to Stefan Kern for his contribution to this work. 
+</P>
+
+<hr width="100%"> 
+<FONT size=-1><A HREF="../index.html">UP</A></FONT>
+<center><small>updated June, 2011</small></center>
+
+<P ALIGN="right">
+<a href="http://extremetracking.com/open?login=cec2005i">
+<img src="http://t1.extreme-dm.com/i.gif" style="border: 0;"
+height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
+<script type="text/javascript"><!--
+var EXlogin='cec2005i' // Login
+var EXvsrv='s10' // VServer
+EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?
+EXb=EXs.colorDepth:EXb=EXs.pixelDepth;
+navigator.javaEnabled()==1?EXjv="y":EXjv="n";
+EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
+EXd.write("<img src=http://e1.extreme-dm.com",
+"/"+EXvsrv+".g?login="+EXlogin+"&amp;",
+"jv="+EXjv+"&amp;j=y&amp;srw="+EXw+"&amp;srb="+EXb+"&amp;",
+"l="+escape(EXd.referrer)+" height=1 width=1>");//-->
+</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
+src="http://e1.extreme-dm.com/s10.g?login=cec2005i&amp;j=n&amp;jv=n" />
+</div></noscript>
+</P>
+
+</body>
+</html>

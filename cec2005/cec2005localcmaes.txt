@@ -1,0 +1,45 @@
+  Performance Evaluation of an Advanced Local Search
+               Evolutionary Algorithm
+
+            Anne Auger and Nikolaus Hansen
+
+One natural question when testing performance of global
+optimization algorithm is: how performances compare to a restart
+local search algorithm. One purpose of this paper is to provide
+results for such comparisons. To this end, the performances of a
+restart (advanced) local-search strategy, the CMA-ES with small
+initial step-size, are investigated on the 25 functions of the CEC
+2005 real-parameter optimization test suit. The second aim is to
+clarify the theoretical background of the performance criterion
+proposed to quantitatively compare the search algorithms. The
+theoretical analysis allows us to generalize the criterion
+proposed and to define a new criterion that can be applied more
+appropriate in a different context.
+
+ERRATA: 
+
+1) End of Section 3, stopping criterion "noeffectcoord":
+
+  "Stop if adding 0.2-standard deviation in each coordinate does
+  change ..."
+
+should be 
+
+  "Stop if adding 0.2-standard deviation in any coordinate does
+  not change ..."
+
+The following has been pointed out by Xiao-Min Hu from the Sun
+Yat-sen University: 
+
+1) On function F4 the initial search point was
+  chosen by mistake as 
+
+     Xup  + (Xup-Xlow)*rand    instead of 
+     Xlow + (Xup-Xlow)*rand 
+
+  for each coordinate.  Xiao-Min Hu reported significantly
+  better results when using the corrected initialization.
+
+2) On some function the boundary setting was omitted, but
+  this has most probably no impact on the results.  
+
