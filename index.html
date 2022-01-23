@@ -221,7 +221,7 @@ search performance.  </p> </li>
 <li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenea2003">
 Hansen et al (2003). Reducing
 the Time Complexity of the Derandomized Evolution Strategy with
-Covariance Matrix Adaptation (CMA-ES).<A> <i>Evolutionary
+Covariance Matrix Adaptation (CMA-ES).</A> <i>Evolutionary
 Computation</i>, 11(1), pp. 1-18 (2003).</font>
 
 <p>
@@ -265,7 +265,7 @@ while it reveals superior performance on non-separable functions.
 
 <li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#augeruhansen2005a"> Auger
 and Hansen (2005). A Restart CMA Evolution Strategy With Increasing
-Population Size.<A> In
+Population Size.</A> In
 <I>IEEE Congress on Evolutionary Computation, CEC
 2005, Proceedings</I>, pp. 1769-1776. </font>
 
@@ -310,8 +310,7 @@ covariance matrix adaptation.</A> In <i>2006 IEEE World Congress on
 Computational Intelligence, Proceedings</i>,
 pp. 9719-9726</font>
 <p>
-Introduces an additional <i>negative</i> rank-&mu; update of the
-covariance matrix using the &mu; worst of the &lambda; individuals.
+A <i>negative</i> rank-&mu; update of the covariance matrix is introduced using the &mu; worst of the &lambda; individuals.
 All vectors for both, the original and the negative, rank-&mu; updates
 have the same weight. For population sizes up to &lambda;=4<i>n</i> a
 significant speed-up compared to the original equally weighted
@@ -347,7 +346,68 @@ addressed in <A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publicat
 
 </p></li>
 
-<LI>2007- to be done. </LI>
+<li><font size=-1><A HREF="https://doi.org/10.1162/evco.2007.15.1.1">Igel et al (2007). Covariance Matrix Adaptation for Multi-objective Optimization.</A> <I>Evolutionary Computation</I> 15 (1): 1–28.</font>
+  <p>
+    MO-CMA-ES is a multi-objective algorithm maintaining several (1+1)-CMA-ES algorithms in parallel to approximate the pareto set. The algorithm is based on non-dominated sorting. <A HREF="https://doi.org/10.1007/978-3-540-70928-2_16">Igel et al (2007)</A> introduce steady-state selection into this algorithm. <A HREF="https://dl.acm.org/doi/10.1145/1830483.1830573">Voß et al (2010)</A> improve the step-size adaptation.
+  </p></li>
+
+  <li><font size=-1><A HREF="https://link.springer.com/content/pdf/10.1007%2F978-3-540-87700-4_30.pdf">Ros and Hansen (2008). A Simple Modification in CMA-ES Achieving Linear Time and Space Complexity.</A> In <i><A HREF="https://link.springer.com/book/10.1007/978-3-540-87700-4"> Tenth International Conference
+    on Parallel Problem Solving from Nature PPSN X, Proceedings</A></i>,
+    pp. 296-305.</font>
+    <p>
+      A simple change in the covariance matrix update restricts the update to the diagonal elements of the matrix, AKA separable or diagonal CMA-ES. As the most important consequence, the learning rate for the covariance matrix update can be increase from roughly <I>O(1/n<SUP>2</SUP>)</I> to <I>O(1/n)</I>. Also, internal time and memory complexity become linear in the dimension. However, the main feature of CMA-ES to learn dependencies between variables is lost. Yet, surprisingly, the sep-CMA-ES remains competitive on the Rosenbrock function in dimension larger than a hundred.
+    </p>
+</li>
+
+<li><font size=-1><A HREF="https://doi.org/10.1145/1570256.1570333">Hansen (2009). Benchmarking a BI-Population CMA-ES on the BBOB-2009
+    Function Testbed</A>. <I>Proceedings of the 11th Annual Conference Companion on Genetic and Evolutionary Computation Conference: Late Breaking Papers</I>, pp. 2389–2396.</font>
+    <p>
+      The BIPOP-CMA-ES has a restart scheme with two modes: the original IPOP mode (Auger and Hansen 2005) and a mode with small population size. The resulting algorithm should be considered as a simple portfolio between the IPOP-CMA-ES and a CMA-ES with independent restarts where the initial conditions for mean and step-size vary. The latter mode allows to solve some weakly structured multi-modal functions that IPOP-CMA-ES fails to solve.
+    </p></li>
+
+<li><font size=-1><A HREF="https://doi.org/10.1145/1830761.1830788">Hansen and Ros (2010). 
+  Benchmarking a weighted negative covariance matrix update
+  on the BBOB-2010 noiseless testbed</A>. In <I>Proceedings Companion of the 12th Annual Conference Companion on Genetic and Evolutionary Computation Conference</I>, pp. 1673–1680.</font>
+    <p>The idea of using different recombination weights (Hansen and Ostermeier 2001) is combined with the idea of active CMA-ES (Jastrebski and Arnold 2006) using negative weights for the covariance matrix update. This combination is straightforward and has become the default implementation of CMA-ES.
+</p></li>
+
+<!-- Anne Auger, Dimo Brockhoff, Nikolaus Hansen
+Mirrored Sampling in Evolution Strategies With Weighted Recombination
+Genetic and Evolutionary Computation Conference (GECCO 2011), SIGEVO, Jul 2011, Dublin, Ireland. pp.861-868, ⟨10.1145/2001576.2001694⟩
+inria-00612522
+DOI : 10.1145/2001576.2001694 -->
+
+<li><font size=-1><A HREF="https://link.springer.com/content/pdf/10.1007%2F978-3-642-32937-1_30.pdf">Loshchilov et al (2012). Alternative Restart Strategies for CMA-ES.</A> In <i><A HREF="https://link.springer.com/book/10.1007/978-3-642-32937-1"> 12th International Conference on Parallel Problem Solving from Nature PPSN XI, Proceedings</A></i>, pp. 296-305.</font>
+    <p>
+      The initial step-size is an important parameter for the performance on multi-modal functions. Surprisingly, a relatively small initial step-size can significantly outperform the usual default choice on some multi-modal functions even when a large population is needed. This gives rise to consider more intricate variation schemes for the initial step-size using also smaller step-sizes not only when the population size is small.
+    </p></li>
+
+<!-- Dirk Arnold, Nikolaus Hansen
+A (1+1)-CMA-ES for Constrained Optimisation
+GECCO, ACM, Jul 2012, Philadelphia, United States. pp.297-304, ⟨10.1145/2330163.2330207⟩
+hal-00696268
+DOI : 10.1145/2330163.2330207
+  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li><LI>2012- to be continued. </LI>
 </ol>
 
 <script type="text/javascript">
