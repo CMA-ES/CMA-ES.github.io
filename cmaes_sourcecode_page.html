@@ -73,41 +73,41 @@ border="0"
 <!-- <HR> -->
 
 <P>  This page provides implementations of the CMA-ES and links to libraries that contain such implementations. All implementations provided in this page follow very closely <a
-href="publications.html#hansenReview2006">Hansen (2006)</a>. They
+href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenReview2006">Hansen (2006)</a>. They
 support small and large population sizes, the latter by implementing
 the rank-&micro;-update (<a
-href="publications.html#hansenea2003">Hansen et al, 2003</a>) with
+href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenea2003">Hansen et al, 2003</a>) with
 non-uniform recombination weights (<a
-href="publications.html#hansenukernppsn2004">Hansen and Kern,
+href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenukernppsn2004">Hansen and Kern,
 2004</a>) and an improved parameter setting for the step-size
-adaptation (<a href="publications.html#hansenukernppsn2004">Hansen and
+adaptation (<a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenukernppsn2004">Hansen and
 Kern, 2004</a>). The default population size is small (<a
-href="publications.html#hansenaost2001">Hansen and Ostermeier,
+href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenaost2001">Hansen and Ostermeier,
 2001)</a>. Further (optionally) supported features:
 
 <OL>
 <LI>All implementations, except for the minimalistic codes for
 reading, provide an independent restart procedure with increasing
-population size (<a href="publications.html#augeruhansen2005a">Auger
+population size (<a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#augeruhansen2005a">Auger
 and Hansen, 2005)</a> and standardized data output for
 visualization.
 </LI>
 <LI>All implementations, except for the minimalistic code
 for reading, optionally support a "separable/diagonal"
 initial phase, where the covariance matrix remains diagonal (<a
-href="publications.html#rosPPSN2008">Ros and Hansen, 2008</a>). The
+href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#rosPPSN2008">Ros and Hansen, 2008</a>). The
 latter permits a faster learning of the diagonal elements and reduces the internal time complexity from quadratic to linear
  which might be useful for dimensionalities, say, larger than a hundred.
 </LI>
 <LI>Matlab since version 3.0 and Python since version 0.9.92 support an additional uncertainty handling (<a
-href="publications.html#hansenTEC2009">Hansen et al, 2009</a>, set option <code>Noise.on='yes'</code>, however, don't rely on this option without a rough
+href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenTEC2009">Hansen et al, 2009</a>, set option <code>Noise.on='yes'</code>, however, don't rely on this option without a rough
 understanding of what it does).
 </LI>
 <LI>Matlab since version 3.40.beta and Python since version 0.9.92 implement the idea of <I>active CMA</I> (<a
 href="http://dx.doi.org/10.1109/CEC.2006.1688662">Jastrebski and Arnold, 2006</a>, see option CMA.active or CMA_active), where a "negative" covariance matrix update explicitly reduces the variance in directions where bad samples were found. The implementations differ and also deviate considerably from the original paper.
 </LI>
 <LI>Python since version 0.9.92 implements <I>selective mirrored sampling</I> (<a
-href="publications.html#mirrored2011gecco">Auger et al, 2011</a>), where a few of the worst solutions are mirrored.
+href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#mirrored2011gecco">Auger et al, 2011</a>), where a few of the worst solutions are mirrored.
 </OL>
 <A name="education">
 Minimalistic code for reading and education is provided in <A HREF="#matlab">Matlab/Octave</A> and <A HREF="#education-python">Python</A>.
@@ -418,7 +418,7 @@ for the covariance matrix are set proportional to <code>w_k = log((&lambda;+1)/2
 <HR>
 
 <H2><A name="OOOptimizer">Object-Oriented Implementation  (under construction)</A></H2>
-The principle of the object-oriented <i>ask-and-tell</i> interface for optimization (see <A href="publications.html#collette2010">Collette et al 2010</A>) is shown in the following abstract class in Python pseudocode (therefore untested).
+The principle of the object-oriented <i>ask-and-tell</i> interface for optimization (see <A href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#collette2010">Collette et al 2010</A>) is shown in the following abstract class in Python pseudocode (therefore untested).
 <style type="text/css">
 pre.code {
     font-style: Lucida,"Courier New";
@@ -797,7 +797,7 @@ The Rosenbrock function frosen, the first non-separable test case where the vari
 </table>
 
 </LI><LI>The multimodal Rastrigin function. Here, X0 = 5*ones (the point 0.1*ones is in the attraction basin of the global optimum),  sigma0 = 5 and population size 200. The success probability, i.e. the probability to reach the target f-value close to zero as in the below picture, is smaller than one and with smaller population sizes it becomes increasingly difficult to find the global optimum, see <a
-    href="publications.html#hansenukernppsn2004">Hansen & Kern
+    href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenukernppsn2004">Hansen & Kern
     2004</a>.
 <table class="image" width="100%">
 <HR WIDTH="640"></HR>
