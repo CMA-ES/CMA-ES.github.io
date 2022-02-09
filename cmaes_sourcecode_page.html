@@ -259,18 +259,17 @@ running "real" experiments.</P>
 
 <H3>Production Code</H3>
 <P><A href="cmaes.m">cmaes.m</A>
-(version >3.60, <a
-href="formersoftwareversions.html">former versions</a>) provides an
+(version >3.60) provides an
 interface similar to Matlab's optimization routines, e.g.  fminsearch
 and fminunc. The following (optional) variants/extensions are implemented.
 <UL><LI> option LBounds and UBounds: coordinate wise boundary handling (<a
-href="publications.html#hansenTEC2009">Hansen et al, 2009</a>)
+href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenTEC2009">Hansen et al, 2009</a>)
 </LI><LI>option Noise.on: uncertainty (noise) handling (<a
-href="publications.html#hansenTEC2009">Hansen et al, 2009</a>)
+href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenTEC2009">Hansen et al, 2009</a>)
 </LI><LI>option CMA.active: a substractive update of the covariance matrix, similar to <a
 href="http://dx.doi.org/10.1109/CEC.2006.1688662">Jastrebski and Arnold (2006)</a>  (set  option CMA.active = 1 with check for positive definiteness or CMA.active = 2 without checking). This version might become the default in near future.
 </LI><LI> option DiagonalOnly: only the diagonal of the
-covariance matrix is adapted for a number of initial iterations (<a href="publications.html#rosPPSN2008">Ros
+covariance matrix is adapted for a number of initial iterations (<a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#rosPPSN2008">Ros
 and Hansen, 2008</a>) which leads to a faster learning of a variable scaling and also reduces the internal time complexity of the algorithm from quadratic to linear (meanwhile no correlations are learned)
 </LI>
 </UL>
@@ -300,7 +299,7 @@ optimization is still running.</P>
 Lu&iacute;s Correia for the advise). </P>
 
 <H2><A name="python">Python</A></H2>
-<A HREF="https://pypi.python.org/pypi/cma"><code>pycma</code></A> is a production code with a functional interface <code>cma.fmin()</code> and the class <code>cma.CMAEvolutionStrategy</code> with <i>ask-and-tell</i> interface (see <A href="publications.html#collette2010">Collette et al 2010</A> and <A HREF="#OOOptimizer">below</A>). An improved boundary handling is implemented and many more features that are useful in practice: a variety of termination and verbosity options, variable scaling, variable shading.
+<A HREF="https://pypi.python.org/pypi/cma"><code>pycma</code></A> is a production code with a functional interface <code>cma.fmin()</code> and the class <code>cma.CMAEvolutionStrategy</code> with <i>ask-and-tell</i> interface (see <A href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#collette2010">Collette et al 2010</A> and <A HREF="#OOOptimizer">below</A>). An improved boundary handling is implemented and many more features that are useful in practice: a variety of termination and verbosity options, variable scaling, variable shading.
 <UL>
     <LI>Installation of the latest release from <A HREF="https://pypi.python.org/pypi/cma">PyPI/cma</A> 
     at the <A HREF="https://pypi.python.org/pypi">Python Package Index</A>:
