@@ -263,7 +263,7 @@ parallel with a simple modification of the example (however
 multiprocessing seems not always reliable):</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.fitness_functions <span class="py-keyword">import</span> elli  <span class="py-comment"># cannot be an instance method</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.fitness_transformations <span class="py-keyword">import</span> EvalParallel2
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.optimization_tools <span class="py-keyword">import</span> EvalParallel2
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(22 * [0.0], 1.0, {<span class="py-string">'maxiter'</span>:10})  <span class="py-comment"># doctest:+ELLIPSIS</span>
 <span class="py-output">(6_w,13)-aCMA-ES (mu_w=...</span>
 <span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>with EvalParallel2(elli, es.popsize + 1) <span class="py-keyword">as</span> eval_all:
@@ -297,8 +297,8 @@ multiprocessing seems not always reliable):</p>
 </div>
 <div class="rst-section" id="rst-details">
 <h1 class="heading">Details</h1>
-<p>The following two enhancements are implemented, the latter is turned
-on by default for very small population size only.</p>
+<p>The following two enhancements are implemented, the latter is only
+turned on by default for very small population sizes.</p>
 <p><em>Active CMA</em> is implemented with option <tt class="rst-docutils literal">CMA_active</tt> and
 conducts an update of the covariance matrix with negative weights.
 The negative update is implemented, such that positive definiteness
@@ -313,18 +313,26 @@ The method <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eva
 selectively mirrored vectors within the iteration
 (<tt class="rst-docutils literal"><span class="pre">CMA_mirrormethod==1</span></tt>). Otherwise, or if <tt class="rst-docutils literal"><span class="pre">CMA_mirromethod==2</span></tt>,
 selective mirrors are injected for the next iteration.
-In selective mirroring, only the worst solutions are  mirrored. With
+In selective mirroring, only the worst solutions are mirrored. With
 the default small number of mirrors, <em>pairwise selection</em> (where at
 most one of the two mirrors contribute to the update of the
 distribution mean) is implicitly guarantied under selective
 mirroring and therefore not explicitly implemented.</p>
+<p>Update: pairwise selection for injected mirrors is also applied in the
+covariance matrix update: for all injected solutions, as for those from
+TPA, this is now implemented in that the recombination weights are
+constrained to be nonnegative for injected solutions in the covariance
+matrix (otherwise recombination weights are anyway nonnegative). This
+is a precaution to prevent failure when injected solutions are
+systematically bad (see e.g. <a href="https://github.com/CMA-ES/pycma/issues/124" class="rst-reference external" target="_top">https://github.com/CMA-ES/pycma/issues/124</a>),
+but may not be "optimal" for mirrors.</p>
 <p>References: Brockhoff et al, PPSN 2010, Auger et al, GECCO 2011.</p>
 </div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> (), <a href="cma.interfaces.OOOptimizer.html"><code>OOOptimizer</code></a>, <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#plot"><code>plot</code></a> (), <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask"><code>ask</code></a> (),
 <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell"><code>tell</code></a> (), <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval"><code>ask_and_eval</code></a> ()</td></tr></table></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id370">
+        <table class="children sortable" id="id375">
   
   <tr class="method">
     
@@ -471,6 +479,16 @@ mirroring and therefore not explicitly implemented.</p>
     <td>Method</td>
     <td><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#_prepare_injection_directions" data-type="Method" class="code">_prepare_injection_directions</a></td>
     <td><span>provide genotypic directions for TPA and selective mirroring, with no specific length normalization, to be used in the coming iteration.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#_record_rankings" data-type="Method" class="code">_record_rankings</a></td>
+    <td><span>do nothing by default, otherwise assign to <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#_record_rankings_"><code>_record_rankings_</code></a> after instantiation</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#_record_rankings_" data-type="Method" class="code">_record_rankings_</a></td>
+    <td><span>compute ranks of <code>vals</code> in <code>function_values</code> and</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
@@ -1045,6 +1063,47 @@ solutions but might change in future.</p>
 <span class="py-output">CMAEvolutionStrategyResult(xbest=array([...</span></pre>
 </div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2">class <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask"><code>ask</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval"><code>ask_and_eval</code></a>, <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a></td></tr></table></div>
   </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings">
+    
+  </a>
+  <a name="_record_rankings">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _record_rankings(self, vals, function_values):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>do nothing by default, otherwise assign to <a href="cma.evolution_strategy.CMAEvolutionStrategy.html#_record_rankings_"><code>_record_rankings_</code></a> after instantiation<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">
+    
+  </a>
+  <a name="_record_rankings_">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _record_rankings_(self, vals, function_values):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>compute ranks of <code>vals</code> in <code>function_values</code> and</p>
+<p>in <code>self.fit.fit</code> and store the results in <code>_recorded_rankings</code>.
+The ranking differences between two solutions appear to be similar
+in the current and last iteration.</p><table class="fieldTable"></table></div>
+  </div>
 </div><div class="basemethod">
   
   <a name="cma.evolution_strategy.CMAEvolutionStrategy.inject">
@@ -1545,7 +1604,7 @@ care for large mueff.</p><table class="fieldTable"></table></div>
 
       </div>
       <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
       </address>
 
     </div>

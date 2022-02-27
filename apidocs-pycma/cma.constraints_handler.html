@@ -71,13 +71,83 @@
   </tr><tr class="class">
     
     <td>Class</td>
+    <td><a href="cma.constraints_handler.ConstrainedSolutionsArchive.html" data-type="Class" class="code">ConstrainedSolutionsArchive</a></td>
+    <td><span>Biobjective Pareto archive to store some Pareto optimal solutions for constrained optimization.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
     <td><a href="cma.constraints_handler.PopulationEvaluator.html" data-type="Class" class="code">PopulationEvaluator</a></td>
     <td><span>evaluate and store f- and g-values of a population in attributes F and G.</span></td>
   </tr><tr class="class">
     
     <td>Class</td>
+    <td><a href="cma.constraints_handler.DequeCDF.html" data-type="Class" class="code">DequeCDF</a></td>
+    <td><span>a queue with (in case) element-wise cdf computation.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.constraints_handler.LoggerList.html" data-type="Class" class="code">LoggerList</a></td>
+    <td><span>list of loggers with plot method</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.constraints_handler.CountLastSameChanges.html" data-type="Class" class="code">CountLastSameChanges</a></td>
+    <td><span>An array/list of successive same-sign counts.</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler.html#constraints_info_dict" data-type="Function" class="code">constraints_info_dict</a></td>
+    <td><span>return dictionary with arg values, mainly there to unify names</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
     <td><a href="cma.constraints_handler.AugmentedLagrangian.html" data-type="Class" class="code">AugmentedLagrangian</a></td>
     <td><span>Augmented Lagrangian with adaptation of the coefficients</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html" data-type="Class" class="code">ConstrainedFitnessAL</a></td>
+    <td><span>Construct an unconstrained objective function from constraints.</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler.html#_g_pos_max" data-type="Function" class="code">_g_pos_max</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler.html#_g_pos_sum" data-type="Function" class="code">_g_pos_sum</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler.html#_g_pos_squared_sum" data-type="Function" class="code">_g_pos_squared_sum</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler.html#_log_g" data-type="Function" class="code">_log_g</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler.html#_log_feas_events" data-type="Function" class="code">_log_feas_events</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler.html#_log_lam" data-type="Function" class="code">_log_lam</a></td>
+    <td><span>for active constraints, lam is generally positive because Dg and Df are opposed</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler.html#_log_mu" data-type="Function" class="code">_log_mu</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><a href="cma.constraints_handler.html#_get_favorite_solution" data-type="Function" class="code">_get_favorite_solution</a></td>
+    <td><span>avoid unpicklable lambda construct</span></td>
   </tr>
 </table>
         
@@ -87,11 +157,182 @@
 
       <div id="childList">
 
-        
+        <div class="basefunction private">
+  
+  <a name="cma.constraints_handler._g_pos_max">
+    
+  </a>
+  <a name="_g_pos_max">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _g_pos_max(gvals):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.constraints_handler._g_pos_sum">
+    
+  </a>
+  <a name="_g_pos_sum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _g_pos_sum(gvals):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.constraints_handler._g_pos_squared_sum">
+    
+  </a>
+  <a name="_g_pos_squared_sum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _g_pos_squared_sum(gvals):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.constraints_handler._log_g">
+    
+  </a>
+  <a name="_log_g">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _log_g(s):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.constraints_handler._log_feas_events">
+    
+  </a>
+  <a name="_log_feas_events">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _log_feas_events(s):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.constraints_handler._log_lam">
+    
+  </a>
+  <a name="_log_lam">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _log_lam(s):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>for active constraints, lam is generally positive because Dg and Df are opposed<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.constraints_handler._log_mu">
+    
+  </a>
+  <a name="_log_mu">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _log_mu(s):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cma.constraints_handler.constraints_info_dict">
+    
+  </a>
+  <a name="constraints_info_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    constraints_info_dict(count, x, f, g, g_al):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return dictionary with arg values, mainly there to unify names<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cma.constraints_handler._get_favorite_solution">
+    
+  </a>
+  <a name="_get_favorite_solution">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _get_favorite_solution(es):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>avoid unpicklable lambda construct<table class="fieldTable"></table></div>
+  </div>
+</div>
 
       </div>
       <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
       </address>
 
     </div>

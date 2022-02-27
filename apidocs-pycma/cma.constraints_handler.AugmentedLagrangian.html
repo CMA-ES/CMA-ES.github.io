@@ -45,7 +45,9 @@
         <div><p>Augmented Lagrangian with adaptation of the coefficients</p>
 <p>for minimization, implemented after Atamna et al FOGA 2017,
 Algorithm 1 and Sect 8.2, <a href="https://hal.inria.fr/hal-01455379/document" class="rst-reference external" target="_top">https://hal.inria.fr/hal-01455379/document</a>.</p>
-<p>Input <code>dimension</code> is the search space dimension, boolean <code>equality</code>
+<p><a href="cma.constraints_handler.ConstrainedFitnessAL.html"><code>cma.ConstrainedFitnessAL</code></a> provides a (more) user-friendly interface to
+the <a href="cma.constraints_handler.AugmentedLagrangian.html"><code>AugmentedLagrangian</code></a> class.</p>
+<p>Input <a href="cma.constraints_handler.CountLastSameChanges.html#dimension"><code>dimension</code></a> is the search space dimension, boolean <code>equality</code>
 may be an iterable of length of number of constraints indicating the
 type for each constraint.</p>
 <p>Below, the objective function value is denoted as <tt class="rst-docutils literal">f = f(x)</tt>, the
@@ -81,27 +83,66 @@ Lagrange multipliers from data.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'callback'</span> <span class="py-keyword">in</span> es.stop()
 <span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">len</span>(eva.feasibility_ratios) == m
 <span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">sum</span>(eva.feasibility_ratios &lt; 0) == <span class="py-builtin">sum</span>(eva.feasibility_ratios &gt; 1) == 0</pre>
-<p>Details: the input <code>dimension</code> is needed to compute the default change
+<p>Details: the input <a href="cma.constraints_handler.CountLastSameChanges.html#dimension"><code>dimension</code></a> is needed to compute the default change
 rate <code>chi_domega</code> (if <tt class="rst-docutils literal">chi_domega is None</tt>), to compute initial
 coefficients and to compare between h and g to update mu. The default
 dependency of <code>chi_domega</code> on the dimension seems to be however
 suboptimal. Setting <tt class="rst-docutils literal">self.chi_domega = 1.15</tt> as is the current
-default seems to give better results than the original setting.</p><table class="fieldTable"></table></div>
+default seems to give better results than the original setting.</p>
+<p>More testing based on the simpler <a href="cma.constraints_handler.ConstrainedFitnessAL.html"><code>ConstrainedFitnessAL</code></a> interface:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> algorithm, evals <span class="py-keyword">in</span> <span class="py-builtin">zip</span>((0, 1, 2, 3), (2000, 2200, 1500, 1800)):
+<span class="py-more">... </span>    alf = cma.ConstrainedFitnessAL(cma.ff.sphere, <span class="py-keyword">lambda</span> x: [x[0] + 1], 3,
+<span class="py-more">... </span>                                   find_feasible_first=<span class="py-builtin">True</span>)
+<span class="py-more">... </span>    _ = alf.al.set_algorithm(algorithm)
+<span class="py-more">... </span>    alf.al.logging = <span class="py-builtin">False</span>
+<span class="py-more">... </span>    x, es = cma.fmin2(alf, 3 * [1], 0.1, {<span class="py-string">'verbose'</span>:-9, <span class="py-string">'seed'</span>:algorithm},  <span class="py-comment"># verbosity+seed for doctest only</span>
+<span class="py-more">... </span>                      callback=alf.update)
+<span class="py-more">... </span>    assert <span class="py-builtin">sum</span>((es.mean - [-1, 0, 0])**2) &lt; 1e-9, (algorithm, es.mean)
+<span class="py-more">... </span>    assert es.countevals &lt; evals, (algorithm, es.countevals)
+<span class="py-more">... </span>    assert alf.best_feas.f &lt; 10, (algorithm, <span class="py-builtin">str</span>(alf.best_feas))
+<span class="py-more">... </span>    <span class="py-comment"># print(algorithm, es.countevals, ) #alf.best_feas.__dict__)</span></pre><table class="fieldTable"></table></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id361">
+        <table class="children sortable" id="id365">
   
   <tr class="method">
     
     <td>Method</td>
     <td><a href="cma.constraints_handler.AugmentedLagrangian.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>if <tt class="rst-docutils literal">chi_domega is None</tt>, set to the original (worse) setting <tt class="rst-docutils literal"><span class="pre">2**(0.2</span> / dimension)</tt></span></td>
+    <td><span>use <code>set_algorithm()</code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_atamna2017" data-type="Method" class="code">set_atamna2017</a></td>
+    <td><span>Atamna et al 2017 parameter settings</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_dufosse2020" data-type="Method" class="code">set_dufosse2020</a></td>
+    <td><span>Dufosse &amp; Hansen 2020 parameter settings</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_algorithm" data-type="Method" class="code">set_algorithm</a></td>
+    <td><span>if algorithm not <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>, set it and return self,</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
     <td><a href="cma.constraints_handler.AugmentedLagrangian.html#m" data-type="Method" class="code">m</a></td>
     <td><span>number of constraints, raise <a href="http://docs.python.org/library/exceptions.html#exceptions.TypeError"><code>TypeError</code></a> if not set yet</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#is_initialized" data-type="Method" class="code">is_initialized</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#count_initialized" data-type="Method" class="code">count_initialized</a></td>
+    <td><span>number of constraints with initialized coefficients</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -130,8 +171,43 @@ default seems to give better results than the original setting.</p><table class=
   </tr><tr class="method">
     
     <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muplus2" data-type="Method" class="code">muplus2</a></td>
+    <td><span>provisorial function to correct mu plus condition, original is <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muminus2" data-type="Method" class="code">muminus2</a></td>
+    <td><span>provisorial function to correct mu minus condition, original is <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muplus3" data-type="Method" class="code">muplus3</a></td>
+    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be increased, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muminus3" data-type="Method" class="code">muminus3</a></td>
+    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be reduced, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muplus4" data-type="Method" class="code">muplus4</a></td>
+    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be increased, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muminus4" data-type="Method" class="code">muminus4</a></td>
+    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be reduced, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
     <td><a href="cma.constraints_handler.AugmentedLagrangian.html#update" data-type="Method" class="code">update</a></td>
     <td><span>f is a scalar, g is a vector.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#_set_parameters" data-type="Method" class="code">_set_parameters</a></td>
+    <td><span>set parameters based on the value of <code>self.algorithm</code></span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
@@ -162,13 +238,91 @@ default seems to give better results than the original setting.</p><table class=
   <div class="functionHeader">
     
     def
-    __init__(self, dimension, equality=False, chi_domega=2**0.2):
+    __init__(self, dimension, equality=False):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>if <tt class="rst-docutils literal">chi_domega is None</tt>, set to the original (worse) setting <tt class="rst-docutils literal"><span class="pre">2**(0.2</span> / dimension)</tt><table class="fieldTable"></table></div>
+    <div>use <code>set_algorithm()</code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.set_atamna2017">
+    
+  </a>
+  <a name="set_atamna2017">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_atamna2017(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Atamna et al 2017 parameter settings<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.set_dufosse2020">
+    
+  </a>
+  <a name="set_dufosse2020">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_dufosse2020(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Dufosse &amp; Hansen 2020 parameter settings<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian._set_parameters">
+    
+  </a>
+  <a name="_set_parameters">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _set_parameters(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>set parameters based on the value of <code>self.algorithm</code><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.set_algorithm">
+    
+  </a>
+  <a name="set_algorithm">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_algorithm(self, algorithm=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>if algorithm not <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>, set it and return self,</p>
+<p>otherwise return current algorithm value which should be an integer.</p>
+<p>Values &lt; 1 are the (new) default, 1 == Atamna et al 2017, 2 == modified 1.</p><table class="fieldTable"></table></div>
   </div>
 </div><div class="basemethod private">
   
@@ -207,6 +361,44 @@ default seems to give better results than the original setting.</p><table class=
     
     
     <div>number of constraints, raise <a href="http://docs.python.org/library/exceptions.html#exceptions.TypeError"><code>TypeError</code></a> if not set yet<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.is_initialized">
+    
+  </a>
+  <a name="is_initialized">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    is_initialized(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.count_initialized">
+    
+  </a>
+  <a name="count_initialized">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    count_initialized(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>number of constraints with initialized coefficients<table class="fieldTable"></table></div>
   </div>
 </div><div class="basemethod">
   
@@ -338,6 +530,120 @@ and more than 10% feasible at the same time. Afterwards, this at least...?...</p
   </div>
 </div><div class="basemethod">
   
+  <a name="cma.constraints_handler.AugmentedLagrangian.muplus2">
+    
+  </a>
+  <a name="muplus2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    muplus2(self, g, i, threshold=0.4):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>provisorial function to correct mu plus condition, original is <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muminus2">
+    
+  </a>
+  <a name="muminus2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    muminus2(self, g, i, threshold=0.05):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>provisorial function to correct mu minus condition, original is <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muplus3">
+    
+  </a>
+  <a name="muplus3">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    muplus3(self, g, i, threshold=0.95):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be increased, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muminus3">
+    
+  </a>
+  <a name="muminus3">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    muminus3(self, g, i, threshold=0.9):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be reduced, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muplus4">
+    
+  </a>
+  <a name="muplus4">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    muplus4(self, g, i, threshold=0.95):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be increased, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muminus4">
+    
+  </a>
+  <a name="muminus4">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    muminus4(self, g, i, threshold=0.9):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be reduced, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
   <a name="cma.constraints_handler.AugmentedLagrangian.update">
     
   </a>
@@ -362,7 +668,7 @@ supposed to have been computed from the distribution mean.</p>
 
       </div>
       <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
       </address>
 
     </div>

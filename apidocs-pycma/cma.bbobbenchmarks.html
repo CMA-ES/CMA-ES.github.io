@@ -68,42 +68,46 @@ found in dictbbob. We have nfreeIDs + noisyIDs == sorted(dictbbob.keys())</li>
 </ul>
 <p>Examples:</p>
 <pre class="py-doctest">
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma <span class="py-keyword">import</span> bbobbenchmarks <span class="py-keyword">as</span> bn
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> s <span class="py-keyword">in</span> bn.nfreeinfos:
-<span class="py-more">... </span>   <span class="py-keyword">print</span>(s)
-<span class="py-output">1: Noise-free Sphere function</span>
-<span class="py-output">2: Separable ellipsoid with monotone transformation</span>
-<span class="py-output">&lt;BLANKLINE&gt;</span>
-<span class="py-output">    Parameter: condition number (default 1e6)</span>
-<span class="py-output">&lt;BLANKLINE&gt;</span>
-<span class="py-output">&lt;BLANKLINE&gt;</span>
-<span class="py-output">3: Rastrigin with monotone transformation separable "condition" 10</span>
-<span class="py-output">4: skew Rastrigin-Bueche, condition 10, skew-"condition" 100</span>
-<span class="py-output">5: Linear slope</span>
-<span class="py-output">6: Attractive sector function</span>
-<span class="py-output">7: Step-ellipsoid, condition 100, noise-free</span>
-<span class="py-output">8: Rosenbrock noise-free</span>
-<span class="py-output">9: Rosenbrock, rotated</span>
-<span class="py-output">10: Ellipsoid with monotone transformation, condition 1e6</span>
-<span class="py-output">11: Discus (tablet) with monotone transformation, condition 1e6</span>
-<span class="py-output">12: Bent cigar with asymmetric space distortion, condition 1e6</span>
-<span class="py-output">13: Sharp ridge</span>
-<span class="py-output">14: Sum of different powers, between x^2 and x^6, noise-free</span>
-<span class="py-output">15: Rastrigin with asymmetric non-linear distortion, "condition" 10</span>
-<span class="py-output">16: Weierstrass, condition 100</span>
-<span class="py-output">17: Schaffers F7 with asymmetric non-linear transformation, condition 10</span>
-<span class="py-output">18: Schaffers F7 with asymmetric non-linear transformation, condition 1000</span>
-<span class="py-output">19: F8F2 sum of Griewank-Rosenbrock 2-D blocks, noise-free</span>
-<span class="py-output">20: Schwefel with tridiagonal variable transformation</span>
-<span class="py-output">21: Gallagher with 101 Gaussian peaks, condition up to 1000, one global rotation, noise-free</span>
-<span class="py-output">22: Gallagher with 21 Gaussian peaks, condition up to 1000, one global rotation</span>
-<span class="py-output">23: Katsuura function</span>
-<span class="py-output">24: Lunacek bi-Rastrigin, condition 100</span>
-<span class="py-output">&lt;BLANKLINE&gt;</span>
-<span class="py-output">    in PPSN 2008, Rastrigin part rotated and scaled</span>
-<span class="py-output">&lt;BLANKLINE&gt;</span>
-<span class="py-output">&lt;BLANKLINE&gt;</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>f3 = bn.F3(13)  <span class="py-comment"># instantiate instance 13 of function f3</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma <span class="py-keyword">import</span> bbobbenchmarks <span class="py-keyword">as</span> bn</pre>
+<p>This does not work with <tt class="rst-docutils literal">python <span class="pre">-OO</span></tt>:</p>
+<pre class="rst-literal-block">
+&gt;&gt; for s in bn.nfreeinfos:
+..    print(s)
+1: Noise-free Sphere function
+2: Separable ellipsoid with monotone transformation
+&lt;BLANKLINE&gt;
+    Parameter: condition number (default 1e6)
+&lt;BLANKLINE&gt;
+&lt;BLANKLINE&gt;
+3: Rastrigin with monotone transformation separable "condition" 10
+4: skew Rastrigin-Bueche, condition 10, skew-"condition" 100
+5: Linear slope
+6: Attractive sector function
+7: Step-ellipsoid, condition 100, noise-free
+8: Rosenbrock noise-free
+9: Rosenbrock, rotated
+10: Ellipsoid with monotone transformation, condition 1e6
+11: Discus (tablet) with monotone transformation, condition 1e6
+12: Bent cigar with asymmetric space distortion, condition 1e6
+13: Sharp ridge
+14: Sum of different powers, between x^2 and x^6, noise-free
+15: Rastrigin with asymmetric non-linear distortion, "condition" 10
+16: Weierstrass, condition 100
+17: Schaffers F7 with asymmetric non-linear transformation, condition 10
+18: Schaffers F7 with asymmetric non-linear transformation, condition 1000
+19: F8F2 sum of Griewank-Rosenbrock 2-D blocks, noise-free
+20: Schwefel with tridiagonal variable transformation
+21: Gallagher with 101 Gaussian peaks, condition up to 1000, one global rotation, noise-free
+22: Gallagher with 21 Gaussian peaks, condition up to 1000, one global rotation
+23: Katsuura function
+24: Lunacek bi-Rastrigin, condition 100
+&lt;BLANKLINE&gt;
+    in PPSN 2008, Rastrigin part rotated and scaled
+&lt;BLANKLINE&gt;
+&lt;BLANKLINE&gt;
+</pre>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>f3 = bn.F3(13)  <span class="py-comment"># instantiate instance 13 of function f3</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>f3([0, 1, 2]) <span class="py-comment"># short-cut for f3.evaluate([0, 1, 2]) # doctest:+ELLIPSIS</span>
 <span class="py-output">59.8733529...</span>
 <span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(bn.instantiate(5)[1])  <span class="py-comment"># returns function instance and optimal f-value</span>
@@ -819,7 +823,7 @@ and its optimal f-value.<table class="fieldTable"></table></div>
 
       </div>
       <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
       </address>
 
     </div>

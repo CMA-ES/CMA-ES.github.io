@@ -67,7 +67,7 @@ argument, all files from attribute <code>files_for_doc_test</code> are tested.</
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id477">
+        <table class="children sortable" id="id485">
   
   <tr class="function">
     
@@ -173,27 +173,32 @@ helpful as an experimental tutorial as well. The main testing feature
 at the moment is by doctest with <tt class="rst-docutils literal">cma.test.main()</tt> in a Python shell
 or by <tt class="rst-docutils literal">python <span class="pre">-m</span> cma.test</tt> in a system shell.</p>
 <p>A simple first overall test:</p>
-<blockquote>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.elli, 3*[1], 1,
-<span class="py-more">... </span>               {<span class="py-string">'CMA_diagonal'</span>:2, <span class="py-string">'seed'</span>:1, <span class="py-string">'verb_time'</span>:0})
-<span class="py-more">... </span>               <span class="py-comment"># doctest: +ELLIPSIS</span>
-<span class="py-output">(3_w,7)-aCMA-ES (mu_w=2.3,w_1=58%) in dimension 3 (seed=1,...)</span>
-<span class="py-output">   Covariance matrix is diagonal for 2 iterations (1/ccov=6...</span>
-<span class="py-output">Iterat #Fevals   function value  axis ratio  sigma ...</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert res[1] &lt; 1e-6
+<span class="py-more">... </span>               {<span class="py-string">'CMA_diagonal'</span>:2, <span class="py-string">'seed'</span>:1, <span class="py-string">'verbose'</span>:-9})
+<span class="py-prompt">&gt;&gt;&gt; </span>assert res[1] &lt; 1e-6
 <span class="py-prompt">&gt;&gt;&gt; </span>assert res[2] &lt; 2000</pre>
-</blockquote>
+<p>Testing <code>args</code> argument:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">maxcorr</span>(m):
+<span class="py-more">... </span>    val = 0
+<span class="py-more">... </span>    <span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(<span class="py-builtin">len</span>(m)):
+<span class="py-more">... </span>        <span class="py-keyword">for</span> j <span class="py-keyword">in</span> <span class="py-builtin">range</span>(i + 1, <span class="py-builtin">len</span>(m)):
+<span class="py-more">... </span>            val = <span class="py-builtin">max</span>((val, <span class="py-builtin">abs</span>(m[i, j])))
+<span class="py-more">... </span>    return val
+<span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.fmin2(cma.ff.elli, [1, 0, 0], 0.5, {<span class="py-string">'verbose'</span>:-9}, args=[<span class="py-builtin">True</span>])  <span class="py-comment"># rotated</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert maxcorr(es.sm.correlation_matrix) &gt; 0.9, es.sm.correlation_matrix
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy([1, 0, 0], 0.5,
+<span class="py-more">... </span>                              {<span class="py-string">'verbose'</span>:-9}).optimize(cma.ff.elli, args=[1])
+<span class="py-prompt">&gt;&gt;&gt; </span>assert maxcorr(es.sm.correlation_matrix) &gt; 0.9, es.sm.correlation_matrix</pre>
 <p>Testing output file consistency with diagonal option:</p>
-<blockquote>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> val <span class="py-keyword">in</span> (0, <span class="py-builtin">True</span>, 2, 3):
 <span class="py-more">... </span>    _ = cma.fmin(cma.ff.sphere, 3 * [1], 1,
 <span class="py-more">... </span>                 {<span class="py-string">'verb_disp'</span>:0, <span class="py-string">'CMA_diagonal'</span>:val, <span class="py-string">'maxiter'</span>:5})
 <span class="py-more">... </span>    _ = cma.CMADataLogger().load()</pre>
-</blockquote>
 <p>Test on the Rosenbrock function with 3 restarts. The first trial only
 finds the local optimum, which happens in about 20% of the cases.</p>
 <blockquote>
@@ -365,7 +370,17 @@ test, first in iteration 62, second in iteration 257:</p>
 <span class="py-more">... </span>    <span class="py-string">'ftarget'</span>: 1e-8 })
 <span class="py-prompt">&gt;&gt;&gt; </span>es = es.optimize(cma.ff.tablet)
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> es.result.evaluations &gt; 5000: <span class="py-keyword">print</span>(es.result.evalutions, es.result)</pre>
-<p>For VD- and VkD-CMA, see <a href="cma.restricted_gaussian_sampler.html"><code>cma.restricted_gaussian_sampler</code></a>.</p><table class="fieldTable"></table></div>
+<p>For VD- and VkD-CMA, see <a href="cma.restricted_gaussian_sampler.html"><code>cma.restricted_gaussian_sampler</code></a>.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> sys
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>assert cma.interfaces.EvalParallel2 <span class="py-keyword">is</span> <span class="py-keyword">not</span> <span class="py-builtin">None</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>try:
+<span class="py-more">... </span>    with warnings.catch_warnings(record=<span class="py-builtin">True</span>) <span class="py-keyword">as</span> warn:
+<span class="py-more">... </span>        with cma.optimization_tools.EvalParallel2(cma.ff.elli) <span class="py-keyword">as</span> eval_all:
+<span class="py-more">... </span>            res = eval_all([[1,2], [3,4]])
+<span class="py-more">... </span><span class="py-keyword">except</span>:
+<span class="py-more">... </span>    assert sys.version[0] == <span class="py-string">'2'</span></pre><table class="fieldTable"></table></div>
   </div>
 </div><div class="basefunction">
   
@@ -436,7 +451,7 @@ and a leading 'cma' + path separator is ignored.</p>
 
       </div>
       <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
       </address>
 
     </div>

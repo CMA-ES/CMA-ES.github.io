@@ -46,7 +46,7 @@
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id424">
+        <table class="children sortable" id="id430">
   
   <tr class="function">
     
@@ -66,8 +66,18 @@
   </tr><tr class="class">
     
     <td>Class</td>
+    <td><a href="cma.optimization_tools.EvalParallel2.html" data-type="Class" class="code">EvalParallel2</a></td>
+    <td><span>A class and context manager for parallel evaluations.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
     <td><a href="cma.optimization_tools.BestSolution.html" data-type="Class" class="code">BestSolution</a></td>
     <td><span>container to keep track of the best solution seen.</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><a href="cma.optimization_tools.BestSolution2.html" data-type="Class" class="code">BestSolution2</a></td>
+    <td><span>minimal tracker of a smallest f-value with variable meta-info</span></td>
   </tr><tr class="class">
     
     <td>Class</td>
@@ -165,19 +175,30 @@ to define the meshgrid.</p>
 <p>CAVEAT: this function calls <code>fct</code> <tt class="rst-docutils literal">len(list(x_range)) * len(list(y_range))</tt>
 times. Hence using <a href="cma.optimization_tools.Sections.html"><code>Sections</code></a> may be the better first choice to
 investigate an expensive function.</p>
-<p>Example:</p>
+<p>Examples:</p>
 <pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma <span class="py-keyword">import</span> optimization_tools
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
 <span class="py-more">...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">example</span>():  <span class="py-comment"># def avoids doctest execution</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">plt_contour</span>():  <span class="py-comment"># def avoids doctest execution</span>
 <span class="py-more">... </span>    <span class="py-keyword">from</span> matplotlib <span class="py-keyword">import</span> pyplot <span class="py-keyword">as</span> plt
 <span class="py-more">...</span>
-<span class="py-more">... </span>    X, Y, Z = contour_data(<span class="py-keyword">lambda</span> x: <span class="py-builtin">sum</span>([xi**2 <span class="py-keyword">for</span> xi <span class="py-keyword">in</span> x]),
-<span class="py-more">... </span>                           np.arange(0.90, 1.10, 0.02),
-<span class="py-more">... </span>                           np.arange(-0.10, 0.10, 0.02))
+<span class="py-more">... </span>    X, Y, Z = optimization_tools.contour_data(
+<span class="py-more">... </span>                  <span class="py-keyword">lambda</span> x: <span class="py-builtin">sum</span>([xi**2 <span class="py-keyword">for</span> xi <span class="py-keyword">in</span> x]),
+<span class="py-more">... </span>                  np.arange(0.90, 1.10, 0.02),
+<span class="py-more">... </span>                  np.arange(-0.10, 0.10, 0.02))
 <span class="py-more">... </span>    CS = plt.contour(X, Y, Z)
-<span class="py-more">... </span>    plt.axes().set_aspect(<span class="py-string">'equal'</span>)
-<span class="py-more">... </span>    plt.clabel(CS)</pre>
+<span class="py-more">... </span>    plt.gca().set_aspect(<span class="py-string">'equal'</span>)
+<span class="py-more">... </span>    plt.clabel(CS)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">plt_surface</span>():  <span class="py-comment"># def avoids doctest execution</span>
+<span class="py-more">... </span>    <span class="py-keyword">from</span> matplotlib <span class="py-keyword">import</span> pyplot <span class="py-keyword">as</span> plt
+<span class="py-more">... </span>    <span class="py-keyword">from</span> mpl_toolkits <span class="py-keyword">import</span> mplot3d
+<span class="py-more">...</span>
+<span class="py-more">... </span>    X, Y, Z = optimization_tools.contour_data(
+<span class="py-more">... </span>                  <span class="py-keyword">lambda</span> x: <span class="py-builtin">sum</span>([xi**2 <span class="py-keyword">for</span> xi <span class="py-keyword">in</span> x]),
+<span class="py-more">... </span>                  np.arange(-1, 1.1, 0.02))
+<span class="py-more">... </span>    ax = plt.axes(projection=<span class="py-string">'3d'</span>)
+<span class="py-more">... </span>    ax.plot_surface(X, Y, Z, cmap=<span class="py-string">'viridis'</span>, edgecolor=<span class="py-string">'none'</span>)</pre>
 <p>See <a href="cma.fitness_transformations.FixVariables.html"><code>cma.fitness_transformations.FixVariables</code></a> to create a 2-D
 function from a d-D function, e.g. like</p>
 <pre class="py-doctest">
@@ -220,7 +241,7 @@ in a semilogx plot.<table class="fieldTable"></table></div>
 
       </div>
       <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-19 17:54:08.
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
       </address>
 
     </div>
