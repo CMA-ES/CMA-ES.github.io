@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.constraints_handler.ConstrainedFitnessAL : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.constraints_handler.ConstrainedFitnessAL</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.constraints_handler.html" data-type="Module" class="code">constraints_handler</a></code>
+          
+          <a href="classIndex.html#cma.constraints_handler.ConstrainedFitnessAL">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Construct an unconstrained objective function from constraints.</p>
+<p>This class constructs an unconstrained "fitness" function (to be
+minimized) from an objective function and an inequality constraints
+function (which returns a list of constraint values). An
+equality constraint <tt class="rst-docutils literal">h(x) == 0</tt> must be expressed as two inequality
+constraints like <tt class="rst-docutils literal">[h(x) - eps, <span class="pre">-h(x)</span> - eps]</tt> with <tt class="rst-docutils literal">eps &gt;= 0</tt>.
+Non-positive values &lt;= 0 are considered feasible.</p>
+<p>The <a href="cma.constraints_handler.ConstrainedFitnessAL.html#update"><code>update</code></a> method of the class instance needs to be called after each
+iteration. Depending on the setting of <code>which</code>, <a href="cma.constraints_handler.ConstrainedFitnessAL.html#update"><code>update</code></a> may call
+<tt class="rst-docutils literal">get_solution(es)</tt> which shall return the solution to be used for the
+constraints handling update, by default <tt class="rst-docutils literal">_get_favorite_solution ==
+lambda es: es.ask(1, <span class="pre">sigma_fac=0)[0]</span></tt>. The additional evaluation of
+objective and constraints is avoided by the default <tt class="rst-docutils literal"><span class="pre">which='best'</span></tt>,
+using the best solution in the current iteration.</p>
+<p><code>find_feasible_first</code> optimizes to get a feasible solution first, which
+only works if no equality constraints are implemented. For this reason
+the default is <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a>.</p>
+<p>Minimal example (verbosity set for doctesting):</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">constraints</span>(x):  <span class="py-comment"># define the constraint</span>
+<span class="py-more">... </span>    return [x[0] + 1, x[1]]  <span class="py-comment"># shall be &lt;= 0</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>cfun = cma.ConstrainedFitnessAL(cma.ff.sphere, constraints,
+<span class="py-more">... </span>                                find_feasible_first=<span class="py-builtin">True</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(3 * [1.1], 0.1,
+<span class="py-more">... </span>                  {<span class="py-string">'tolstagnation'</span>: 0, <span class="py-string">'verbose'</span>:-9})  <span class="py-comment"># verbosity for doctest only</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>es = es.optimize(cfun, callback=cfun.update)
+<span class="py-prompt">&gt;&gt;&gt; </span>x = es.result.xfavorite</pre>
+<p>The best <code>x</code> return value of <a href="cma.evolution_strategy.html#fmin2"><code>cma.fmin2</code></a> may not be useful, because
+the underlying function changes over time. Therefore, we use
+<code>es.result.xfavorite</code>, which is still not guarantied to be a feasible
+solution. Alternatively, <code>cfun.best_feas.x</code> contains the best evaluated
+feasible solution. However, this is not necessarily expected to be a
+good solution, see below.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">sum</span>((x - [-1, 0, 0])**2) &lt; 1e-9, x
+<span class="py-prompt">&gt;&gt;&gt; </span>assert es.countevals &lt; 2200, es.countevals
+<span class="py-prompt">&gt;&gt;&gt; </span>assert cfun.best_feas.f &lt; 10, <span class="py-builtin">str</span>(cfun.best_feas)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># print(es.countevals, cfun.best_feas.__dict__)</span></pre>
+<p>To find a final feasible solution (close to <code>es.result.xfavorite</code>) we
+can use the current <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> instance <code>es</code>:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>x = cfun.find_feasible(es)  <span class="py-comment"># uses es.optimize to find (another) feasible solution</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>assert constraints(x)[0] &lt;= 0, (x, cfun.best_feas.x)
+<span class="py-prompt">&gt;&gt;&gt; </span>assert cfun.best_feas.f &lt; 1 + 2e-6, <span class="py-builtin">str</span>(cfun.best_feas)</pre>
+<p>Details: The fitness, to be minimized, is changing over time such that
+the overall minimal value does not indicate the best solution.</p>
+<p>The construction is based on the <a href="cma.constraints_handler.AugmentedLagrangian.html"><code>AugmentedLagrangian</code></a> class. If, as by
+default, <tt class="rst-docutils literal">self.finding_feasible is False</tt>, the fitness equals <tt class="rst-docutils literal">f(x)
++ sum_i (lam_i x g_i + mu_i x g_i / 2)</tt> where <tt class="rst-docutils literal">g_i = max(g_i(x),
+<span class="pre">-lam_i</span> / mu_i)</tt> and lam_i and mu_i are generally positive and
+dynamically adapted coefficients. Only lam_i can change the position of
+the optimum in the feasible domain (and hence must converge to the
+right value).</p>
+<p>When <tt class="rst-docutils literal">self.finding_feasible is True</tt>, the fitness equals to <tt class="rst-docutils literal">sum_i
+(g_i &gt; 0) x g_i^2</tt> and omits <tt class="rst-docutils literal">f + sum_i lam_i g_i</tt> altogether.
+Whenever a feasible solution is found, the <code>finding_feasible</code> flag is
+reset to <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a>.</p>
+<p><code>find_feasible(es)</code> sets <tt class="rst-docutils literal">finding_feasible = True</tt> and uses
+<code>es.optimize</code> to optimize <code>self.__call__</code>. This works well with
+<a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> but may easily fail with solvers that do not
+consistently pass over the optimum in search space but approach the
+optimum from one side only. This is not advisable if the feasible
+domain has zero volume, e.g. when <code>g</code> models an equality like
+<tt class="rst-docutils literal">g = lambda x: [h(x), <span class="pre">-h(x)]</span></tt>.</p>
+<p>An equality constraint, h(x) = 0, cannot be handled like h**2 &lt;= 0,
+because the Augmented Lagrangian requires the derivative at h == 0 to
+be non-zero. Using abs(h) &lt;= 0 leads to divergence of coefficient mu
+and the condition number. The best way is apparently using the two
+inequality constraints [h &lt;= 0, -h &lt;= 0], which seems to work perfectly
+well. The underlying <a href="cma.constraints_handler.AugmentedLagrangian.html"><code>AugmentedLagrangian</code></a> class also accepts equality
+constraints.</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id366">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span>constructor with lazy initialization.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#reset" data-type="Method" class="code">reset</a></td>
+    <td><span>reset dynamic components</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#al" data-type="Method" class="code">al</a></td>
+    <td><span><a href="cma.constraints_handler.AugmentedLagrangian.html"><code>AugmentedLagrangian</code></a> class instance</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#set_mu_lam" data-type="Method" class="code">set_mu_lam</a></td>
+    <td><span>set AL coefficients</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#initialize" data-type="Method" class="code">initialize</a></td>
+    <td><span>set search space dimension explicitely</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><span>return AL fitness, append f and g values to <code>self.F</code> and <code>self.G</code>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#find_feasible" data-type="Method" class="code">find_feasible</a></td>
+    <td><span>find feasible solution by calling <tt class="rst-docutils literal">es.optimize(self)</tt>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>update AL coefficients, may be used as callback to <a href="cma.interfaces.OOOptimizer.html#optimize"><code>OOOptimizer.optimize</code></a>.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#log_in_es" data-type="Method" class="code">log_in_es</a></td>
+    <td><span>a hack to have something in the cma-logger divers plot.</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#_reset" data-type="Method" class="code">_reset</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#_reset_archives" data-type="Method" class="code">_reset_archives</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#_reset_arrays" data-type="Method" class="code">_reset_arrays</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#_is_feasible" data-type="Method" class="code">_is_feasible</a></td>
+    <td><span>return True if last evaluated solution (or <code>gvals</code>) was feasible</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#_best_fg" data-type="Method" class="code">_best_fg</a></td>
+    <td><span>return current best f, g, where best is determined by the Augmented Lagrangian</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#_fg_values" data-type="Method" class="code">_fg_values</a></td>
+    <td><span>f, g values used to update the Augmented Lagrangian coefficients</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.ConstrainedFitnessAL.html#_update_best" data-type="Method" class="code">_update_best</a></td>
+    <td><span>keep track of best solution and best feasible solution</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, fun, constraints, dimension=None, which='best', find_feasible_first=False, get_solution=_get_favorite_solution, logging=None, archives=archive_aggregators):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>constructor with lazy initialization.</p>
+<p>If <tt class="rst-docutils literal">which in ['mean', 'solution']</tt>, <code>get_solution</code> is called
+(with the argument passed to the <a href="cma.constraints_handler.ConstrainedFitnessAL.html#update"><code>update</code></a> method) to determine the
+solution used to update the AL coefficients.</p>
+<p>If <code>find_feasible_first</code>, only the constraints are optimized until
+the first (fully) feasible solution is found.</p>
+<p><a href="http://docs.python.org/library/logging.html#logging"><code>logging</code></a> is the iteration gap for logging constraints related
+data, in <a href="cma.constraints_handler.AugmentedLagrangian.html"><code>AugmentedLagrangian</code></a>. 0 means no logging and negative
+values have unspecified behavior.</p>
+<p><code>archives</code> are the aggregator functions for constraints for
+non-dominated biobjective archives. By default, the second
+objective is <tt class="rst-docutils literal">max(g_+)</tt>, <tt class="rst-docutils literal">sum(g_+)</tt> or <tt class="rst-docutils literal"><span class="pre">sum(g_+^2)</span></tt>,
+respectively. <tt class="rst-docutils literal">archives=True</tt> invokes the same behavior.
+<tt class="rst-docutils literal">archives=False</tt> or an empty <code>tupel</code> prevents maintaining
+archives.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL._reset">
+    
+  </a>
+  <a name="_reset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _reset(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL.reset">
+    
+  </a>
+  <a name="reset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    reset(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>reset dynamic components<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL._reset_archives">
+    
+  </a>
+  <a name="_reset_archives">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _reset_archives(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL._reset_arrays">
+    
+  </a>
+  <a name="_reset_arrays">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _reset_arrays(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL._is_feasible">
+    
+  </a>
+  <a name="_is_feasible">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _is_feasible(self, gvals=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return True if last evaluated solution (or <code>gvals</code>) was feasible<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL.al">
+    
+  </a>
+  <a name="al">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    al(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><a href="cma.constraints_handler.AugmentedLagrangian.html"><code>AugmentedLagrangian</code></a> class instance<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL.set_mu_lam">
+    
+  </a>
+  <a name="set_mu_lam">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    set_mu_lam(self, mu, lam):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>set AL coefficients<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL.initialize">
+    
+  </a>
+  <a name="initialize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    initialize(self, dimension):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>set search space dimension explicitely<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __call__(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return AL fitness, append f and g values to <code>self.F</code> and <code>self.G</code>.</p>
+<p>If <code>self.finding_feasible</code>, <code>fun(x)</code> is not called and <tt class="rst-docutils literal">f = np.nan</tt>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL.find_feasible">
+    
+  </a>
+  <a name="find_feasible">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    find_feasible(self, es, termination=('maxiter', 'maxfevals'), aggregator=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>find feasible solution by calling <tt class="rst-docutils literal">es.optimize(self)</tt>.</p>
+<p>Return best ever feasible solution <code>self.best_feas.x</code>.
+See also <code>self.best_feas.info</code>.</p>
+<p><code>aggregator</code>, defaulting to <code>self.find_feasible_aggregator</code>, is the
+constraints aggregation function used as objective function to be
+minimized. <code>aggregator</code> takes as input all constraint values and
+returns a value &lt;= 0 if and only if the solution is feasible.</p>
+<p>Terminate when either (another) feasible solution was found or any
+of the <code>termination</code> keys is matched in <code>es.stop()</code>.</p><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL._best_fg">
+    
+  </a>
+  <a name="_best_fg">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    _best_fg(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return current best f, g, where best is determined by the Augmented Lagrangian<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL._fg_values">
+    
+  </a>
+  <a name="_fg_values">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _fg_values(self, es):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>f, g values used to update the Augmented Lagrangian coefficients<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL._update_best">
+    
+  </a>
+  <a name="_update_best">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    _update_best(self, x, f, g, g_al=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>keep track of best solution and best feasible solution<table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, es):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>update AL coefficients, may be used as callback to <a href="cma.interfaces.OOOptimizer.html#optimize"><code>OOOptimizer.optimize</code></a>.</p>
+<dl class="rst-docutils">
+<dt>TODO: decide what happens when <a href="cma.constraints_handler.ConstrainedFitnessAL.html#__call__"><code>__call__</code></a> was never called:</dt>
+<dd>ignore (as for now) or update based on xfavorite by calling self(xfavorite),
+assuming that update was called on purpose?
+When method is not best, it should work without even call self(xfavorite).</dd>
+</dl><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.ConstrainedFitnessAL.log_in_es">
+    
+  </a>
+  <a name="log_in_es">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    log_in_es(self, es, f, g):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>a hack to have something in the cma-logger divers plot.</p>
+<p>Append the sum of positive g-values and the number of infeasible
+constraints, displayed like 10**(number/10) (mapping [0, 10] to [1,
+10]) if number &lt; 10, to <code>es.more_to_write</code>.</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cma.constraints_handler.CountLastSameChanges : API documentation</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="apidocs.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            cma API Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="showPrivate">
+      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code>cma.constraints_handler.CountLastSameChanges</code> <small>class documentation</small></h1>
+
+        <span id="partOf">
+          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.constraints_handler.html" data-type="Module" class="code">constraints_handler</a></code>
+          
+          <a href="classIndex.html#cma.constraints_handler.CountLastSameChanges">(View In Hierarchy)</a>
+        </span>
+      </div>
+
+      <div class="extrasDocstring">
+        
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>An array/list of successive same-sign counts.</p>
+<p><tt class="rst-docutils literal">.same_changes[i]</tt> counts how often the same sign was successively
+observed during <tt class="rst-docutils literal"><span class="pre">update(...,</span> i, change)</tt>. When the sign flips,
+<tt class="rst-docutils literal">.same_changes[i]</tt> is reset to 1 or -1.</p>
+<p><a href="cma.constraints_handler.CountLastSameChanges.html#init"><code>init</code></a> needs to be called before the class instance can be used.
+A valid use case is <tt class="rst-docutils literal">lsc = <span class="pre">CountLastSameChanges().init(dimension)</span></tt>.</p>
+<p>TODO: parameters may need to depend on population size?</p><table class="fieldTable"></table></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id364">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.CountLastSameChanges.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.CountLastSameChanges.html#init" data-type="Method" class="code">init</a></td>
+    <td><span>do not overwrite user-set values unless <code>force</code></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.CountLastSameChanges.html#dimension" data-type="Method" class="code">dimension</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.CountLastSameChanges.html#update" data-type="Method" class="code">update</a></td>
+    <td><span>update <tt class="rst-docutils literal">same_changes[i]</tt> count based on the sign of <code>change</code></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><a href="cma.constraints_handler.CountLastSameChanges.html#shape_exponent" data-type="Method" class="code">shape_exponent</a></td>
+    <td><span>return value to be added to exponent from change count.</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cma.constraints_handler.CountLastSameChanges.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    __init__(self, parent=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.CountLastSameChanges.init">
+    
+  </a>
+  <a name="init">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    init(self, dimension, force=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>do not overwrite user-set values unless <code>force</code><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.CountLastSameChanges.dimension">
+    
+  </a>
+  <a name="dimension">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    def
+    dimension(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div class="undocumented">Undocumented</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.CountLastSameChanges.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    update(self, i, change):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>update <tt class="rst-docutils literal">same_changes[i]</tt> count based on the sign of <code>change</code><table class="fieldTable"></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cma.constraints_handler.CountLastSameChanges.shape_exponent">
+    
+  </a>
+  <a name="shape_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    def
+    shape_exponent(self, i):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return value to be added to exponent from change count.</p>
+<p>return a positive/negative value (or zero) when the last change was
+respectively postive/negative.</p>
+<p>The value is zero for the first <code>chi_exponent_threshold</code> same changes
+and increases linearly for the next <code>chi_exponent_threshold</code> same changes
+and then stays at the threshold value as long as the change does not
+flip sign.</p><table class="fieldTable"></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
+      </address>
+
+    </div>
+
+    <script type="text/javascript" src="pydoctor.js"></script>
+
+  </body>
+</html>
