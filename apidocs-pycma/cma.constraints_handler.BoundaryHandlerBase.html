@@ -2,107 +2,141 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.constraints_handler.BoundaryHandlerBase : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.constraints_handler.BoundaryHandlerBase</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.constraints_handler.BoundaryHandlerBase(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints_handler</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.BoundaryHandlerBase.html" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase">BoundaryHandlerBase</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.constraints_handler.html" data-type="Module" class="code">constraints_handler</a></code>
-          
-          <a href="classIndex.html#cma.constraints_handler.BoundaryHandlerBase">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        <p>Known subclasses: <a href="cma.constraints_handler.BoundNone.html" data-type="Class" class="code">cma.constraints_handler.BoundNone</a>, <a href="cma.constraints_handler.BoundPenalty.html" data-type="Class" class="code">cma.constraints_handler.BoundPenalty</a>, <a href="cma.constraints_handler.BoundTransform.html" data-type="Class" class="code">cma.constraints_handler.BoundTransform</a></p>
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">BoundaryHandlerBase</span>(object):</code></p><p>Known subclasses: <code><a href="cma.constraints_handler.BoundNone.html" class="internal-link">cma.constraints_handler.BoundNone</a></code>, <code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link">cma.constraints_handler.BoundPenalty</a></code>, <code><a href="cma.constraints_handler.BoundTransform.html" class="internal-link">cma.constraints_handler.BoundTransform</a></code></p>
+        <p><a href="classIndex.html#cma.constraints_handler.BoundaryHandlerBase">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
-        <div>quick hack versatile base class<table class="fieldTable"></table></div>
+        <div>quick hack versatile base class</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id353">
+        <table class="children sortable" id="id384">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><code><a href="#__call__" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.__call__">__call__</a></code></td>
+    <td>return penalty or list of penalties, by default zero(s).</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.__init__">__init__</a></code></td>
     <td><span class="undocumented">No summary</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#__call__" data-type="Method" class="code">__call__</a></td>
-    <td><span>return penalty or list of penalties, by default zero(s).</span></td>
+    <td><code><a href="#get_bounds" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.get_bounds">get​_bounds</a></code></td>
+    <td><tt class="rst-docutils literal"><span class="pre">get_bounds('lower',</span> 8)</tt> returns the lower bounds in 8-D</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#update" data-type="Method" class="code">update</a></td>
-    <td><span>end-iteration callback of boundary handler (abstract/empty)</span></td>
+    <td><code><a href="#has_bounds" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.has_bounds">has​_bounds</a></code></td>
+    <td>return <code>True</code> if any variable is bounded</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#repair" data-type="Method" class="code">repair</a></td>
-    <td><span>projects infeasible values on the domain bound, might be overwritten by derived class</span></td>
+    <td><code><a href="#idx_out_of_bounds" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.idx_out_of_bounds">idx​_out​_of​_bounds</a></code></td>
+    <td>return index list of out-of-bound values in <code>x</code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#inverse" data-type="Method" class="code">inverse</a></td>
-    <td><span>inverse of repair if it exists, at least it should hold <tt class="rst-docutils literal">repair == repair o inverse o repair</tt></span></td>
+    <td><code><a href="#inverse" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.inverse">inverse</a></code></td>
+    <td>inverse of repair if it exists, at least it should hold <tt class="rst-docutils literal">repair == repair o inverse o repair</tt></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#get_bounds" data-type="Method" class="code">get_bounds</a></td>
-    <td><span><tt class="rst-docutils literal"><span class="pre">get_bounds('lower',</span> 8)</tt> returns the lower bounds in 8-D</span></td>
+    <td><code><a href="#is_in_bounds" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.is_in_bounds">is​_in​_bounds</a></code></td>
+    <td>not yet tested</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#has_bounds" data-type="Method" class="code">has_bounds</a></td>
-    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if any variable is bounded</span></td>
+    <td><code><a href="#repair" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.repair">repair</a></code></td>
+    <td>projects infeasible values on the domain bound, might be overwritten by derived class</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#is_in_bounds" data-type="Method" class="code">is_in_bounds</a></td>
-    <td><span>not yet tested</span></td>
+    <td><code><a href="#to_dim_times_two" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.to_dim_times_two">to​_dim​_times​_two</a></code></td>
+    <td>return boundaries in format <tt class="rst-docutils literal">[[lb0, ub0], [lb1, ub1], <span class="pre">...]</span></tt>, as used by <tt class="rst-docutils literal"><span class="pre">BoxConstraints...</span></tt> class.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#idx_out_of_bounds" data-type="Method" class="code">idx_out_of_bounds</a></td>
-    <td><span>return index list of out-of-bound values in <code>x</code>.</span></td>
-  </tr><tr class="method">
+    <td><code><a href="#update" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.update">update</a></code></td>
+    <td>end-iteration callback of boundary handler (abstract/empty)</td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#to_dim_times_two" data-type="Method" class="code">to_dim_times_two</a></td>
-    <td><span>return boundaries in format <tt class="rst-docutils literal">[[lb0, ub0], [lb1, ub1], <span class="pre">...]</span></tt>, as used by <tt class="rst-docutils literal"><span class="pre">BoxConstraints...</span></tt> class.</span></td>
+    <td>Instance Variable</td>
+    <td><code><a href="#bounds" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase.bounds">bounds</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.BoundaryHandlerBase.html#_get_bounds" data-type="Method" class="code">_get_bounds</a></td>
-    <td><span>ib == 0/1 means lower/upper bound, return a vector of length <a href="cma.constraints_handler.CountLastSameChanges.html#dimension"><code>dimension</code></a></span></td>
+    <td><code><a href="#_get_bounds" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase._get_bounds">​_get​_bounds</a></code></td>
+    <td>ib == 0/1 means lower/upper bound, return a vector of length <code>dimension</code></td>
   </tr>
 </table>
         
@@ -114,29 +148,6 @@
 
         <div class="basemethod">
   
-  <a name="cma.constraints_handler.BoundaryHandlerBase.__init__">
-    
-  </a>
-  <a name="__init__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __init__(self, bounds):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.constraints_handler.BoundNone.html" data-type="Class" class="code">cma.constraints_handler.BoundNone</a>, <a href="cma.constraints_handler.BoundPenalty.html" data-type="Class" class="code">cma.constraints_handler.BoundPenalty</a>, <a href="cma.constraints_handler.BoundTransform.html" data-type="Class" class="code">cma.constraints_handler.BoundTransform</a></div>
-    
-    <div><p>bounds are not copied, but possibly modified and
-put into a normalized form: <tt class="rst-docutils literal">bounds</tt> can be <tt class="rst-docutils literal">None</tt>
-or <tt class="rst-docutils literal">[lb, ub]</tt> where <tt class="rst-docutils literal">lb</tt> and <tt class="rst-docutils literal">ub</tt> are
-either None or a vector (which can have <tt class="rst-docutils literal">None</tt> entries).</p>
-<p>Generally, the last entry is recycled to compute bounds
-for any dimension.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.constraints_handler.BoundaryHandlerBase.__call__">
     
@@ -146,77 +157,44 @@ for any dimension.</p><table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    __call__(self, solutions, *args, **kwargs):
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, solutions, *args, **kwargs):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.constraints_handler.BoundPenalty.html" data-type="Class" class="code">cma.constraints_handler.BoundPenalty</a></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link">cma.constraints_handler.BoundPenalty</a></code></div>
     
     <div><p>return penalty or list of penalties, by default zero(s).</p>
 <p>This interface seems too specifically tailored to the derived
-BoundPenalty class, it should maybe change.</p><table class="fieldTable"></table></div>
+BoundPenalty class, it should maybe change.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.BoundaryHandlerBase.update">
+  
+  <a name="cma.constraints_handler.BoundaryHandlerBase.__init__">
     
   </a>
-  <a name="update">
+  <a name="__init__">
     
   </a>
   <div class="functionHeader">
     
-    def
-    update(self, *args, **kwargs):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, bounds):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.constraints_handler.BoundPenalty.html" data-type="Class" class="code">cma.constraints_handler.BoundPenalty</a></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.constraints_handler.BoundNone.html" class="internal-link">cma.constraints_handler.BoundNone</a></code>, <code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link">cma.constraints_handler.BoundPenalty</a></code>, <code><a href="cma.constraints_handler.BoundTransform.html" class="internal-link">cma.constraints_handler.BoundTransform</a></code></div>
     
-    <div>end-iteration callback of boundary handler (abstract/empty)<table class="fieldTable"></table></div>
+    <div><p>bounds are not copied, but possibly modified and
+put into a normalized form: <tt class="rst-docutils literal">bounds</tt> can be <tt class="rst-docutils literal">None</tt>
+or <tt class="rst-docutils literal">[lb, ub]</tt> where <tt class="rst-docutils literal">lb</tt> and <tt class="rst-docutils literal">ub</tt> are
+either None or a vector (which can have <tt class="rst-docutils literal">None</tt> entries).</p>
+<p>Generally, the last entry is recycled to compute bounds
+for any dimension.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.BoundaryHandlerBase.repair">
-    
-  </a>
-  <a name="repair">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    repair(self, x, copy_if_changed=True):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.constraints_handler.BoundPenalty.html" data-type="Class" class="code">cma.constraints_handler.BoundPenalty</a>, <a href="cma.constraints_handler.BoundTransform.html" data-type="Class" class="code">cma.constraints_handler.BoundTransform</a></div>
-    
-    <div>projects infeasible values on the domain bound, might be
-overwritten by derived class<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.constraints_handler.BoundaryHandlerBase.inverse">
-    
-  </a>
-  <a name="inverse">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    inverse(self, y, copy_if_changed=True):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.constraints_handler.BoundTransform.html" data-type="Class" class="code">cma.constraints_handler.BoundTransform</a></div>
-    
-    <div>inverse of repair if it exists, at least it should hold
-<tt class="rst-docutils literal">repair == repair o inverse o repair</tt><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.constraints_handler.BoundaryHandlerBase.get_bounds">
     
@@ -226,36 +204,16 @@ overwritten by derived class<table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    get_bounds(self, which, dimension):
+    <span class="py-keyword">def</span> <span class="py-defname">get_bounds</span>(self, which, dimension):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><tt class="rst-docutils literal"><span class="pre">get_bounds('lower',</span> 8)</tt> returns the lower bounds in 8-D<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.constraints_handler.BoundaryHandlerBase._get_bounds">
-    
-  </a>
-  <a name="_get_bounds">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _get_bounds(self, ib, dimension):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>ib == 0/1 means lower/upper bound, return a vector of length
-<a href="cma.constraints_handler.CountLastSameChanges.html#dimension"><code>dimension</code></a><table class="fieldTable"></table></div>
+    <div><tt class="rst-docutils literal"><span class="pre">get_bounds('lower',</span> 8)</tt> returns the lower bounds in 8-D</div>
   </div>
 </div><div class="basemethod">
+  
   
   <a name="cma.constraints_handler.BoundaryHandlerBase.has_bounds">
     
@@ -265,35 +223,16 @@ overwritten by derived class<table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    has_bounds(self):
+    <span class="py-keyword">def</span> <span class="py-defname">has_bounds</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if any variable is bounded<table class="fieldTable"></table></div>
+    <div>return <code>True</code> if any variable is bounded</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.BoundaryHandlerBase.is_in_bounds">
-    
-  </a>
-  <a name="is_in_bounds">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    is_in_bounds(self, x):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.constraints_handler.BoundNone.html" data-type="Class" class="code">cma.constraints_handler.BoundNone</a></div>
-    
-    <div>not yet tested<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.constraints_handler.BoundaryHandlerBase.idx_out_of_bounds">
     
@@ -303,18 +242,78 @@ overwritten by derived class<table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    idx_out_of_bounds(self, x):
+    <span class="py-keyword">def</span> <span class="py-defname">idx_out_of_bounds</span>(self, x):
     
   </div>
   <div class="docstring functionBody">
     
     
     <div><p>return index list of out-of-bound values in <code>x</code>.</p>
-<p><tt class="rst-docutils literal">if bounds.idx_out_of_bounds</tt> evaluates to <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if and only if
-<code>x</code> is out of bounds.</p><table class="fieldTable"></table></div>
+<p><tt class="rst-docutils literal">if bounds.idx_out_of_bounds</tt> evaluates to <code>True</code> if and only if
+<code>x</code> is out of bounds.</p>
+</div>
   </div>
 </div><div class="basemethod">
+  
+  
+  <a name="cma.constraints_handler.BoundaryHandlerBase.inverse">
+    
+  </a>
+  <a name="inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">inverse</span>(self, y, copy_if_changed=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.constraints_handler.BoundTransform.html" class="internal-link">cma.constraints_handler.BoundTransform</a></code></div>
+    
+    <div>inverse of repair if it exists, at least it should hold
+<tt class="rst-docutils literal">repair == repair o inverse o repair</tt></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.constraints_handler.BoundaryHandlerBase.is_in_bounds">
+    
+  </a>
+  <a name="is_in_bounds">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_in_bounds</span>(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.constraints_handler.BoundNone.html" class="internal-link">cma.constraints_handler.BoundNone</a></code></div>
+    
+    <div>not yet tested</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.constraints_handler.BoundaryHandlerBase.repair">
+    
+  </a>
+  <a name="repair">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">repair</span>(self, x, copy_if_changed=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link">cma.constraints_handler.BoundPenalty</a></code>, <code><a href="cma.constraints_handler.BoundTransform.html" class="internal-link">cma.constraints_handler.BoundTransform</a></code></div>
+    
+    <div>projects infeasible values on the domain bound, might be
+overwritten by derived class</div>
+  </div>
+</div><div class="basemethod">
+  
   
   <a name="cma.constraints_handler.BoundaryHandlerBase.to_dim_times_two">
     
@@ -324,26 +323,89 @@ overwritten by derived class<table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    to_dim_times_two(self, bounds):
+    <span class="py-keyword">def</span> <span class="py-defname">to_dim_times_two</span>(self, bounds):
     
   </div>
   <div class="docstring functionBody">
     
     
     <div>return boundaries in format <tt class="rst-docutils literal">[[lb0, ub0], [lb1, ub1], <span class="pre">...]</span></tt>,
-as used by <tt class="rst-docutils literal"><span class="pre">BoxConstraints...</span></tt> class.<table class="fieldTable"></table></div>
+as used by <tt class="rst-docutils literal"><span class="pre">BoxConstraints...</span></tt> class.</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.constraints_handler.BoundaryHandlerBase.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link">cma.constraints_handler.BoundPenalty</a></code></div>
+    
+    <div>end-iteration callback of boundary handler (abstract/empty)</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.BoundaryHandlerBase.bounds">
+    
+  </a>
+  <a name="bounds">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">bounds</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.constraints_handler.BoundaryHandlerBase._get_bounds">
+    
+  </a>
+  <a name="_get_bounds">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_get_bounds</span>(self, ib, dimension):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>ib == 0/1 means lower/upper bound, return a vector of length
+<code>dimension</code></div>
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

@@ -2,92 +2,126 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.utilities.math : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.utilities.math</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="module"><code>cma.utilities.math</code> <small>module documentation</small></h1>
+        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code><wbr></wbr>.<code><a href="cma.utilities.math.html" class="internal-link" title="cma.utilities.math">math</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.utilities.html" data-type="Package" class="code">utilities</a></code>
-          
-          
-        </span>
+      <div class="categoryHeader">
+        module documentation
       </div>
 
       <div class="extrasDocstring">
         
+        <p></p>
       </div>
 
       <div class="moduleDocstring">
-        <div>various math utilities, notably <a href="cma.utilities.math.html#eig"><code>eig</code></a> and a collection of simple
-functions in <a href="cma.utilities.math.MathHelperFunctions.html"><code>Mh</code></a><table class="fieldTable"></table></div>
+        <div>various math utilities, notably <code><a href="#eig" class="internal-link" title="cma.utilities.math.eig">eig</a></code> and a collection of simple
+functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">Mh</a></code></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id499">
+        <table class="children sortable" id="id534">
   
-  <tr class="function">
-    
-    <td>Function</td>
-    <td><a href="cma.utilities.math.html#randhss" data-type="Function" class="code">randhss</a></td>
-    <td><span><code>n</code> iid <code>dim</code>-dimensional vectors with length <tt class="rst-docutils literal">norm_(vector)</tt>.</span></td>
-  </tr><tr class="function">
-    
-    <td>Function</td>
-    <td><a href="cma.utilities.math.html#randhss_mixin" data-type="Function" class="code">randhss_mixin</a></td>
-    <td><span><code>n</code> iid vectors uniformly distributed on the hypersphere surface with mixing in of normal distribution, which can be beneficial in smaller dimension.</span></td>
-  </tr><tr class="function">
-    
-    <td>Function</td>
-    <td><a href="cma.utilities.math.html#to_correlation_matrix" data-type="Function" class="code">to_correlation_matrix</a></td>
-    <td><span>change C in place into a correlation matrix, AKA whitening</span></td>
-  </tr><tr class="function">
-    
-    <td>Function</td>
-    <td><a href="cma.utilities.math.html#moving_average" data-type="Function" class="code">moving_average</a></td>
-    <td><span>rolling average without biasing boundary effects.</span></td>
-  </tr><tr class="function">
-    
-    <td>Function</td>
-    <td><a href="cma.utilities.math.html#Hessian" data-type="Function" class="code">Hessian</a></td>
-    <td><span>Hessian estimate for <code>f</code> at <code>x0</code></span></td>
-  </tr><tr class="function">
-    
-    <td>Function</td>
-    <td><a href="cma.utilities.math.html#eig" data-type="Function" class="code">eig</a></td>
-    <td><span>eigendecomposition of a symmetric matrix, much slower than <code>numpy.linalg.eigh</code>, return <tt class="rst-docutils literal">(EVals, Basis)</tt>, the eigenvalues and an orthonormal basis of the corresponding eigenvectors, where</span></td>
-  </tr><tr class="class">
+  
+  <tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.utilities.math.MathHelperFunctions.html" data-type="Class" class="code">MathHelperFunctions</a></td>
-    <td><span>static convenience math helper functions, if the function name is preceded with an "a", a numpy array is returned</span></td>
+    <td><code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">​Math​Helper​Functions</a></code></td>
+    <td>static convenience math helper functions, if the function name is preceded with an "a", a numpy array is returned</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#eig" class="internal-link" title="cma.utilities.math.eig">eig</a></code></td>
+    <td>eigendecomposition of a symmetric matrix, much slower than <code>numpy.linalg.eigh</code>, return <tt class="rst-docutils literal">(EVals, Basis)</tt>, the eigenvalues and an orthonormal basis of the corresponding eigenvectors, where</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#geometric_sd" class="internal-link" title="cma.utilities.math.geometric_sd">geometric​_sd</a></code></td>
+    <td>return geometric standard deviation of <code>vals</code>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Hessian" class="internal-link" title="cma.utilities.math.Hessian">​Hessian</a></code></td>
+    <td>Hessian estimate for <code>f</code> at <code>x0</code></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#moving_average" class="internal-link" title="cma.utilities.math.moving_average">moving​_average</a></code></td>
+    <td>rolling average without biasing boundary effects.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#randhss" class="internal-link" title="cma.utilities.math.randhss">randhss</a></code></td>
+    <td><code>n</code> iid <code>dim</code>-dimensional vectors with length <tt class="rst-docutils literal">norm_(vector)</tt>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#randhss_mixin" class="internal-link" title="cma.utilities.math.randhss_mixin">randhss​_mixin</a></code></td>
+    <td><code>n</code> iid vectors uniformly distributed on the hypersphere surface with mixing in of normal distribution, which can be beneficial in smaller dimension.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#to_correlation_matrix" class="internal-link" title="cma.utilities.math.to_correlation_matrix">to​_correlation​_matrix</a></code></td>
+    <td>change C in place into a correlation matrix, AKA whitening</td>
   </tr><tr class="function private">
     
     <td>Function</td>
-    <td><a href="cma.utilities.math.html#_sqrt_len" data-type="Function" class="code">_sqrt_len</a></td>
+    <td><code><a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">​_sqrt​_len</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -98,139 +132,8 @@ functions in <a href="cma.utilities.math.MathHelperFunctions.html"><code>Mh</cod
 
       <div id="childList">
 
-        <div class="basefunction private">
+        <div class="basefunction">
   
-  <a name="cma.utilities.math._sqrt_len">
-    
-  </a>
-  <a name="_sqrt_len">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _sqrt_len(x):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basefunction">
-  
-  <a name="cma.utilities.math.randhss">
-    
-  </a>
-  <a name="randhss">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    randhss(n, dim, norm_=_sqrt_len, randn=np.random.randn):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p><code>n</code> iid <code>dim</code>-dimensional vectors with length <tt class="rst-docutils literal">norm_(vector)</tt>.</p>
-<p>The vectors are uniformly distributed on a hypersphere surface.</p>
-<p>CMA-ES diverges with popsize 100 in 15-D without option
-'CSA_clip_length_value': [0,0].</p>
-<pre class="py-doctest">
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.math <span class="py-keyword">import</span> randhss
-<span class="py-prompt">&gt;&gt;&gt; </span>dim = 3
-<span class="py-prompt">&gt;&gt;&gt; </span>assert dim - 1e-7 &lt; <span class="py-builtin">sum</span>(randhss(1, dim)[0]**2) &lt; dim + 1e-7</pre><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basefunction">
-  
-  <a name="cma.utilities.math.randhss_mixin">
-    
-  </a>
-  <a name="randhss_mixin">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    randhss_mixin(n, dim, norm_=_sqrt_len, c=lambda d: 1.0d, randn=np.random.randn):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><code>n</code> iid vectors uniformly distributed on the hypersphere surface with
-mixing in of normal distribution, which can be beneficial in smaller
-dimension.<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basefunction">
-  
-  <a name="cma.utilities.math.to_correlation_matrix">
-    
-  </a>
-  <a name="to_correlation_matrix">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    to_correlation_matrix(c):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>change C in place into a correlation matrix, AKA whitening<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basefunction">
-  
-  <a name="cma.utilities.math.moving_average">
-    
-  </a>
-  <a name="moving_average">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    moving_average(x, w=7):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>rolling average without biasing boundary effects.</p>
-<p>The first entries give the average over all first
-values (until the window width is reached).</p>
-<p>If <code>w</code> is not an integer, expontential smoothing with weights
-proportionate to <tt class="rst-docutils literal">(1 - <span class="pre">1/w)**i</span></tt> summing to one is executed, thereby
-putting about 1 - exp(-1) ≈ 0.63 of the weight sum on the last <code>w</code>
-entries.</p>
-<p>Details: the average is mainly based on <code>np.convolve</code>, whereas
-exponential smoothing is for the time being numerically inefficient and
-scales quadratically with the length of <code>x</code>.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basefunction">
-  
-  <a name="cma.utilities.math.Hessian">
-    
-  </a>
-  <a name="Hessian">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    Hessian(f, x0, eps=1e-06):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>Hessian estimate for <code>f</code> at <code>x0</code><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basefunction">
   
   <a name="cma.utilities.math.eig">
     
@@ -240,8 +143,7 @@ scales quadratically with the length of <code>x</code>.</p><table class="fieldTa
   </a>
   <div class="functionHeader">
     
-    def
-    eig(C):
+    <span class="py-keyword">def</span> <span class="py-defname">eig</span>(C):
     
   </div>
   <div class="docstring functionBody">
@@ -257,18 +159,180 @@ and an orthonormal basis of the corresponding eigenvectors, where</p>
 <dt>columns of <tt class="rst-docutils literal">Basis</tt>, <tt class="rst-docutils literal"><span class="pre">[Basis[j][i]</span> for j in <span class="pre">range(len(Basis))]</span></tt></dt>
 <dd>the i-th eigenvector with eigenvalue <tt class="rst-docutils literal">EVals[i]</tt></dd>
 </dl>
-</blockquote><table class="fieldTable"></table></div>
+</blockquote>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.utilities.math.geometric_sd">
+    
+  </a>
+  <a name="geometric_sd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">geometric_sd</span>(vals, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return geometric standard deviation of <code>vals</code>.</p>
+<p>The gsd is invariant under linear scaling and independent
+of the choice of the log-exp base.</p>
+<p><tt class="rst-docutils literal">kwargs</tt> are passed to <code>np.std</code>, in particular <code>ddof</code>.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.utilities.math.Hessian">
+    
+  </a>
+  <a name="Hessian">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Hessian</span>(f, x0, eps=1e-06):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Hessian estimate for <code>f</code> at <code>x0</code></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.utilities.math.moving_average">
+    
+  </a>
+  <a name="moving_average">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">moving_average</span>(x, w=7):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>rolling average without biasing boundary effects.</p>
+<p>The first entries give the average over all first
+values (until the window width is reached).</p>
+<p>If <code>w</code> is not an integer, expontential smoothing with weights
+proportionate to <tt class="rst-docutils literal">(1 - <span class="pre">1/w)**i</span></tt> summing to one is executed, thereby
+putting about 1 - exp(-1) ≈ 0.63 of the weight sum on the last <code>w</code>
+entries.</p>
+<p>Details: the average is mainly based on <code>np.convolve</code>, whereas
+exponential smoothing is for the time being numerically inefficient and
+scales quadratically with the length of <code>x</code>.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.utilities.math.randhss">
+    
+  </a>
+  <a name="randhss">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">randhss</span>(n, dim, norm_=<a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt_len</a>, randn=np.random.randn):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p><code>n</code> iid <code>dim</code>-dimensional vectors with length <tt class="rst-docutils literal">norm_(vector)</tt>.</p>
+<p>The vectors are uniformly distributed on a hypersphere surface.</p>
+<p>CMA-ES diverges with popsize 100 in 15-D without option
+'CSA_clip_length_value': [0,0].</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.math <span class="py-keyword">import</span> randhss
+<span class="py-prompt">&gt;&gt;&gt; </span>dim = 3
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> dim - 1e-7 &lt; <span class="py-builtin">sum</span>(randhss(1, dim)[0]**2) &lt; dim + 1e-7</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.utilities.math.randhss_mixin">
+    
+  </a>
+  <a name="randhss_mixin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">randhss_mixin</span>(n, dim, norm_=<a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt_len</a>, c=(lambda d: 1.0 / d), randn=np.random.randn):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><code>n</code> iid vectors uniformly distributed on the hypersphere surface with
+mixing in of normal distribution, which can be beneficial in smaller
+dimension.</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.utilities.math.to_correlation_matrix">
+    
+  </a>
+  <a name="to_correlation_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">to_correlation_matrix</span>(c):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>change C in place into a correlation matrix, AKA whitening</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="cma.utilities.math._sqrt_len">
+    
+  </a>
+  <a name="_sqrt_len">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_sqrt_len</span>(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

@@ -2,77 +2,121 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.logger : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.logger</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="module"><code>cma.logger</code> <small>module documentation</small></h1>
+        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.logger.html" class="internal-link" title="cma.logger">logger</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
-          
-          
-        </span>
+      <div class="categoryHeader">
+        module documentation
       </div>
 
       <div class="extrasDocstring">
         
+        <p></p>
       </div>
 
       <div class="moduleDocstring">
-        <div>logger class mainly to be used with <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a><table class="fieldTable"></table></div>
+        <div>logger class mainly to be used with <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id426">
+        <table class="children sortable" id="id460">
+  
   
   <tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.logger.CMADataLogger.html" data-type="Class" class="code">CMADataLogger</a></td>
-    <td><span>data logger for class <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>.</span></td>
-  </tr><tr class="function">
-    
-    <td>Function</td>
-    <td><a href="cma.logger.html#plot" data-type="Function" class="code">plot</a></td>
-    <td><span>plot data from files written by a <a href="cma.logger.CMADataLogger.html"><code>CMADataLogger</code></a>, the call <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a shortcut for <tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).plot(**argsdict)</span></tt></span></td>
-  </tr><tr class="function">
-    
-    <td>Function</td>
-    <td><a href="cma.logger.html#disp" data-type="Function" class="code">disp</a></td>
-    <td><span>displays selected data from (files written by) the class <a href="cma.logger.CMADataLogger.html"><code>CMADataLogger</code></a>.</span></td>
+    <td><code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">​CMAData​Logger</a></code></td>
+    <td>data logger for class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.logger.LoggerDummy.html" data-type="Class" class="code">LoggerDummy</a></td>
-    <td><span>use to fake a <a href="cma.logger.Logger.html"><code>Logger</code></a> in non-verbose setting</span></td>
+    <td><code><a href="cma.logger.Logger.html" class="internal-link" title="cma.logger.Logger">​Logger</a></code></td>
+    <td>log an arbitrary number of data (a data row) per "timestep".</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.logger.Logger.html" data-type="Class" class="code">Logger</a></td>
-    <td><span>log an arbitrary number of data (a data row) per "timestep".</span></td>
+    <td><code><a href="cma.logger.LoggerDummy.html" class="internal-link" title="cma.logger.LoggerDummy">​Logger​Dummy</a></code></td>
+    <td>use to fake a <code><a href="cma.logger.Logger.html" class="internal-link" title="cma.logger.Logger">Logger</a></code> in non-verbose setting</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#disp" class="internal-link" title="cma.logger.disp">disp</a></code></td>
+    <td>displays selected data from (files written by) the class <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot" class="internal-link" title="cma.logger.plot">plot</a></code></td>
+    <td>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, the call <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a shortcut for <tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).plot(**argsdict)</span></tt></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#smartlogygrid" class="internal-link" title="cma.logger.smartlogygrid">smartlogygrid</a></code></td>
+    <td>turn on grid and also minor grid depending on y-limits</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#__author__" class="internal-link" title="cma.logger.__author__">__author__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#last_figure_number" class="internal-link" title="cma.logger.last_figure_number">last​_figure​_number</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
@@ -84,6 +128,55 @@
 
         <div class="basefunction">
   
+  
+  <a name="cma.logger.disp">
+    
+  </a>
+  <a name="disp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(name=None, idx=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>displays selected data from (files written by) the class
+<code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>.</p>
+<p>The call <tt class="rst-docutils literal">cma.disp(name, idx)</tt> is a shortcut for
+<tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).disp(idx)</span></tt>.</p>
+<div class="rst-section" id="rst-arguments">
+<h2 class="heading">Arguments</h2>
+<dl class="rst-docutils">
+<dt><code>name</code></dt>
+<dd>name of the logger, filename prefix, <code>None</code> evaluates to
+the default <tt class="rst-docutils literal">'outcma/cma'</tt></dd>
+<dt><code>idx</code></dt>
+<dd>indices corresponding to rows in the data file; by
+default the first five, then every 100-th, and the last
+10 rows. Too large index values are removed.</dd>
+</dl>
+<p>The best ever observed iteration is also printed by default.</p>
+</div>
+<div class="rst-section" id="rst-examples">
+<h2 class="heading">Examples</h2>
+<pre class="rst-literal-block">
+import cma
+from numpy import r_
+# assume some data are available from previous runs
+cma.disp(None, r_[0, -1])  # first and last
+cma.disp(None, r_[0:int(1e9):100, -1]) # every 100-th and last
+cma.disp(idx=r_[0, -10:0]) # first and ten last
+cma.disp(idx=r_[0:int(1e9):1000, -10:0])
+</pre>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.logger.CMADataLogger.html#disp" class="internal-link" title="cma.logger.CMADataLogger.disp">CMADataLogger.disp</a></code></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="cma.logger.plot">
     
   </a>
@@ -92,18 +185,17 @@
   </a>
   <div class="functionHeader">
     
-    def
-    plot(name=None, fig=None, abscissa=1, iteridx=None, plot_mean=False, foffset=1e-19, x_opt=None, fontsize=7, downsample_to=3000.0, xsemilog=None, xnormalize=None, addcols=0, **kwargs):
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(name=None, fig=None, abscissa=1, iteridx=None, plot_mean=False, foffset=1e-19, x_opt=None, fontsize=7, downsample_to=3000.0, xsemilog=None, xnormalize=None, addcols=0, **kwargs):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>plot data from files written by a <a href="cma.logger.CMADataLogger.html"><code>CMADataLogger</code></a>,
+    <div><p>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>,
 the call <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a shortcut for
 <tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).plot(**argsdict)</span></tt></p>
 <div class="rst-section" id="rst-arguments">
-<h1 class="heading">Arguments</h1>
+<h2 class="heading">Arguments</h2>
 <dl class="rst-docutils">
 <dt><code>name</code></dt>
 <dd>name of the logger, filename prefix, None evaluates to
@@ -123,10 +215,10 @@ to take the difference.</dd>
 <dt><code>xsemilog</code></dt>
 <dd>customized semilog plot for x-values</dd>
 </dl>
-<p>Return <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a></p>
+<p>Return <code>None</code></p>
 </div>
 <div class="rst-section" id="rst-examples">
-<h1 class="heading">Examples</h1>
+<h2 class="heading">Examples</h2>
 <pre class="rst-literal-block">
 cma.plot()  # the optimization might be still
             # running in a different shell
@@ -138,68 +230,86 @@ cdl = cma.CMADataLogger().downsampling().plot()
 </pre>
 </div>
 <div class="rst-section" id="rst-details">
-<h1 class="heading">Details</h1>
+<h2 class="heading">Details</h2>
 <p>Data from codes in other languages (C, Java, Matlab, Scilab) have the same
 format and can be plotted just the same.</p>
-</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.logger.CMADataLogger.html"><code>CMADataLogger</code></a>, <a href="cma.logger.CMADataLogger.html#plot"><code>CMADataLogger.plot</code></a></td></tr></table></div>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, <code><a href="cma.logger.CMADataLogger.html#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">CMADataLogger.plot</a></code></td></tr></table></div>
   </div>
 </div><div class="basefunction">
   
-  <a name="cma.logger.disp">
+  
+  <a name="cma.logger.smartlogygrid">
     
   </a>
-  <a name="disp">
+  <a name="smartlogygrid">
     
   </a>
   <div class="functionHeader">
     
-    def
-    disp(name=None, idx=None):
+    <span class="py-keyword">def</span> <span class="py-defname">smartlogygrid</span>(**kwargs):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>displays selected data from (files written by) the class
-<a href="cma.logger.CMADataLogger.html"><code>CMADataLogger</code></a>.</p>
-<p>The call <tt class="rst-docutils literal">cma.disp(name, idx)</tt> is a shortcut for
-<tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).disp(idx)</span></tt>.</p>
-<div class="rst-section" id="rst-arguments">
-<h1 class="heading">Arguments</h1>
-<dl class="rst-docutils">
-<dt><code>name</code></dt>
-<dd>name of the logger, filename prefix, <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> evaluates to
-the default <tt class="rst-docutils literal">'outcma/cma'</tt></dd>
-<dt><code>idx</code></dt>
-<dd>indices corresponding to rows in the data file; by
-default the first five, then every 100-th, and the last
-10 rows. Too large index values are removed.</dd>
-</dl>
-<p>The best ever observed iteration is also printed by default.</p>
-</div>
-<div class="rst-section" id="rst-examples">
-<h1 class="heading">Examples</h1>
-<pre class="rst-literal-block">
-import cma
-from numpy import r_
-# assume some data are available from previous runs
-cma.disp(None, r_[0, -1])  # first and last
-cma.disp(None, r_[0:int(1e9):100, -1]) # every 100-th and last
-cma.disp(idx=r_[0, -10:0]) # first and ten last
-cma.disp(idx=r_[0:int(1e9):1000, -10:0])
-</pre>
-</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.logger.CMADataLogger.html#disp"><code>CMADataLogger.disp</code></a></td></tr></table></div>
+    <div>turn on grid and also minor grid depending on y-limits</div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.logger.__author__">
+    
+  </a>
+  <a name="__author__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__author__</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.logger.last_figure_number">
+    
+  </a>
+  <a name="last_figure_number">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">last_figure_number</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

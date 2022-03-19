@@ -2,170 +2,424 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.restricted_gaussian_sampler.GaussVkDSampler : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.restricted_gaussian_sampler.GaussVkDSampler</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.restricted_gaussian_sampler.GaussVkDSampler(<a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" data-type="Class" class="code">StatisticalModelSamplerWithZeroMeanBaseClass</a>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted_gaussian_sampler</a></code><wbr></wbr>.<code><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler">GaussVkDSampler</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.restricted_gaussian_sampler.html" data-type="Module" class="code">restricted_gaussian_sampler</a></code>
-          
-          <a href="classIndex.html#cma.restricted_gaussian_sampler.GaussVkDSampler">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">GaussVkDSampler</span>(<a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a>):</code></p>
+        <p><a href="classIndex.html#cma.restricted_gaussian_sampler.GaussVkDSampler">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>Restricted Gaussian Sampler for VkD-CMA
 O(N*k^2 + k^3) Time/Space Variant of CMA-ES with C = D * (I + V * V^T) * D</p>
 <div class="rst-section" id="rst-references">
-<h1 class="heading">References</h1>
+<h2 class="heading">References</h2>
 <p>[1] Youhei Akimoto and Nikolaus Hansen.
 Online Model Selection for Restricted Covariance Matrix Adaptation.
 In Proc. of PPSN 2016, pp. 3--13 (2016)
 [2] Youhei Akimoto and Nikolaus Hansen.
 Projection-Based Restricted Covariance Matrix Adaptation for High
 Dimension. In Proc. of GECCO 2016, pp. 197--204 (2016)</p>
-</div><table class="fieldTable"></table></div>
+</div>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id458">
+        <table class="children sortable" id="id492">
+  
   
   <tr class="staticmethod">
     
     <td>Static Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#extend_cma_options" data-type="Static Method" class="code">extend_cma_options</a></td>
-    <td><span>return correct options to run <a href="cma.evolution_strategy.html#fmin"><code>cma.fmin</code></a> or initialize <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>cma.CMAEvolutionStrategy</code></a> using the <a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html"><code>GaussVkDSampler</code></a> AKA VkD-CMA-ES</span></td>
+    <td><code><a href="#extend_cma_options" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.extend_cma_options">extend​_cma​_options</a></code></td>
+    <td>return correct options to run <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">cma.fmin</a></code> or initialize <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">cma.CMAEvolutionStrategy</a></code> using the <code><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler">GaussVkDSampler</a></code> AKA VkD-CMA-ES</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>pass dimension of the underlying sample space</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#sample" data-type="Method" class="code">sample</a></td>
-    <td><span>return list of i.i.d. samples.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#update" data-type="Method" class="code">update</a></td>
-    <td><span><tt class="rst-docutils literal">vectors</tt> is a list of samples, <tt class="rst-docutils literal">weights</tt> a corrsponding list of learning rates</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#parameters_old" data-type="Method" class="code">parameters_old</a></td>
-    <td><span>return <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#parameters" data-type="Method" class="code">parameters</a></td>
-    <td><span>return <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#norm" data-type="Method" class="code">norm</a></td>
-    <td><span>return Mahalanobis norm of <code>x</code> w.r.t. the statistical model</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#condition_number" data-type="Method" class="code">condition_number</a></td>
+    <td><code><a href="#__imul__" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.__imul__">__imul__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#covariance_matrix" data-type="Method" class="code">covariance_matrix</a></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.__init__">__init__</a></code></td>
+    <td>pass dimension of the underlying sample space</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_condition_numbers" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.get_condition_numbers">get​_condition​_numbers</a></code></td>
+    <td>get the condition numbers of D**2 and (I + VV')</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#inverse_hessian_scalar_correction" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.inverse_hessian_scalar_correction">inverse​_hessian​_scalar​_correction</a></code></td>
+    <td>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt> fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#norm" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.norm">norm</a></code></td>
+    <td>return Mahalanobis norm of <code>x</code> w.r.t. the statistical model</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#parameters" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.parameters">parameters</a></code></td>
+    <td>return <code>dict</code> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#parameters_old" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.parameters_old">parameters​_old</a></code></td>
+    <td>return <code>dict</code> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#sample" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.sample">sample</a></code></td>
+    <td>return list of i.i.d. samples.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#to_linear_transformation" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.to_linear_transformation">to​_linear​_transformation</a></code></td>
+    <td>return associated linear transformation</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#to_linear_transformation_inverse" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.to_linear_transformation_inverse">to​_linear​_transformation​_inverse</a></code></td>
+    <td>return inverse of associated linear transformation</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#transform" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.transform">transform</a></code></td>
+    <td>transform <tt class="rst-docutils literal">x</tt> as implied from the distribution parameters</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#transform_inverse" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.transform_inverse">transform​_inverse</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#variances" data-type="Method" class="code">variances</a></td>
-    <td><span>vector of coordinate-wise (marginal) variances</span></td>
-  </tr><tr class="method">
+    <td><code><a href="#update" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.update">update</a></code></td>
+    <td><tt class="rst-docutils literal">vectors</tt> is a list of samples, <tt class="rst-docutils literal">weights</tt> a corrsponding list of learning rates</td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#correlation_matrix" data-type="Method" class="code">correlation_matrix</a></td>
+    <td>Instance Variable</td>
+    <td><code><a href="#accepted_slowdown" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.accepted_slowdown">accepted​_slowdown</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method">
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#transform" data-type="Method" class="code">transform</a></td>
-    <td><span>transform <tt class="rst-docutils literal">x</tt> as implied from the distribution parameters</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#transform_inverse" data-type="Method" class="code">transform_inverse</a></td>
+    <td>Instance Variable</td>
+    <td><code><a href="#cs" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.cs">cs</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method">
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#to_linear_transformation_inverse" data-type="Method" class="code">to_linear_transformation_inverse</a></td>
-    <td><span>return inverse of associated linear transformation</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#to_linear_transformation" data-type="Method" class="code">to_linear_transformation</a></td>
-    <td><span>return associated linear transformation</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#inverse_hessian_scalar_correction" data-type="Method" class="code">inverse_hessian_scalar_correction</a></td>
-    <td><span>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt> fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt></span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#__imul__" data-type="Method" class="code">__imul__</a></td>
+    <td>Instance Variable</td>
+    <td><code><a href="#D" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.D">D</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method">
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#get_condition_numbers" data-type="Method" class="code">get_condition_numbers</a></td>
-    <td><span>get the condition numbers of D**2 and (I + VV')</span></td>
+    <td>Instance Variable</td>
+    <td><code><a href="#ds" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.ds">ds</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#dx" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.dx">dx</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ema_log_d" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.ema_log_d">ema​_log​_d</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ema_log_s" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.ema_log_s">ema​_log​_s</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ema_log_sigma" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.ema_log_sigma">ema​_log​_sigma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#factor_diag_slope" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.factor_diag_slope">factor​_diag​_slope</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#factor_sigma_slope" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.factor_sigma_slope">factor​_sigma​_slope</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#flg_injection" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.flg_injection">flg​_injection</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#itr_after_k_inc" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.itr_after_k_inc">itr​_after​_k​_inc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#k" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.k">k</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#k_active" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.k_active">k​_active</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#k_adapt_decay" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.k_adapt_decay">k​_adapt​_decay</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#k_adapt_factor" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.k_adapt_factor">k​_adapt​_factor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#k_adapt_wait" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.k_adapt_wait">k​_adapt​_wait</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#k_dec_cond" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.k_dec_cond">k​_dec​_cond</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#k_inc_cond" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.k_inc_cond">k​_inc​_cond</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#kadapt" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.kadapt">kadapt</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#kmax" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.kmax">kmax</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#kmin" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.kmin">kmin</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#last_log_cond_corr" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.last_log_cond_corr">last​_log​_cond​_corr</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#last_log_d" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.last_log_d">last​_log​_d</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#last_log_sigma" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.last_log_sigma">last​_log​_sigma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lndiag_change" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.lndiag_change">lndiag​_change</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lnlambda_change" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.lnlambda_change">lnlambda​_change</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lnsigma_change" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.lnsigma_change">lnsigma​_change</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#N" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.N">N</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#opt_conv" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.opt_conv">opt​_conv</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pc" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.pc">pc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ps" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.ps">ps</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#randn" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.randn">randn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#S" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.S">S</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#sigma" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.sigma">sigma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#sigma_fac" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.sigma_fac">sigma​_fac</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#U" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.U">U</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#V" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.V">V</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#weights" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.weights">weights</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#condition_number" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.condition_number">condition​_number</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#correlation_matrix" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.correlation_matrix">correlation​_matrix</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#covariance_matrix" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.covariance_matrix">covariance​_matrix</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#variances" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler.variances">variances</a></code></td>
+    <td>vector of coordinate-wise (marginal) variances</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#_get_params" data-type="Method" class="code">_get_params</a></td>
-    <td><span>Return the learning rate cone, cmu, cc depending on k</span></td>
-  </tr><tr class="method private">
-    
-    <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#_get_params2" data-type="Method" class="code">_get_params2</a></td>
+    <td><code><a href="#_get_log_determinant_of_cov" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler._get_log_determinant_of_cov">​_get​_log​_determinant​_of​_cov</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html#_get_log_determinant_of_cov" data-type="Method" class="code">_get_log_determinant_of_cov</a></td>
+    <td><code><a href="#_get_params" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler._get_params">​_get​_params</a></code></td>
+    <td>Return the learning rate cone, cmu, cc depending on k</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_get_params2" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler._get_params2">​_get​_params2</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_debug" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler._debug">​_debug</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_mueff" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler._mueff">​_mueff</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_parameters" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler._parameters">​_parameters</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
+          <p class="inheritedFrom">
+            Inherited from <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a></code>:
+          </p>
+          <table class="children sortable" id="id493">
+  
+  
+  <tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_lam" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._lam">​_lam</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
 
           
       </div>
@@ -173,6 +427,7 @@ Dimension. In Proc. of GECCO 2016, pp. 197--204 (2016)</p>
       <div id="childList">
 
         <div class="basestaticmethod">
+  
   
   <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.extend_cma_options">
     
@@ -182,358 +437,17 @@ Dimension. In Proc. of GECCO 2016, pp. 197--204 (2016)</p>
   </a>
   <div class="functionHeader">
     @staticmethod<br />
-    def
-    extend_cma_options(opts=None):
+    <span class="py-keyword">def</span> <span class="py-defname">extend_cma_options</span>(opts=None):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>return correct options to run <a href="cma.evolution_strategy.html#fmin"><code>cma.fmin</code></a> or initialize
-<a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>cma.CMAEvolutionStrategy</code></a> using the <a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html"><code>GaussVkDSampler</code></a> AKA VkD-CMA-ES<table class="fieldTable"></table></div>
+    <div>return correct options to run <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">cma.fmin</a></code> or initialize
+<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">cma.CMAEvolutionStrategy</a></code> using the <code><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler">GaussVkDSampler</a></code> AKA VkD-CMA-ES</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.__init__">
-    
-  </a>
-  <a name="__init__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __init__(self, dimension, randn=np.random.randn, kadapt=True, **kwargs):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__init__" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__init__</a></div>
-    
-    <div>pass dimension of the underlying sample space<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.sample">
-    
-  </a>
-  <a name="sample">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    sample(self, number, update=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#sample" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.sample</a></div>
-    
-    <div>return list of i.i.d. samples.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">number</td><td>is the number of samples.</td></tr><tr><td></td><td class="fieldArg">update</td><td>controls a possibly lazy update of the sampler.</td></tr></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.update">
-    
-  </a>
-  <a name="update">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    update(self, vectors, weights):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#update" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.update</a></div>
-    
-    <div><tt class="rst-docutils literal">vectors</tt> is a list of samples, <tt class="rst-docutils literal">weights</tt> a corrsponding
-list of learning rates<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler._get_params">
-    
-  </a>
-  <a name="_get_params">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _get_params(self, weights, k):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>Return the learning rate cone, cmu, cc depending on k</p>
-<div class="rst-section" id="rst-parameters">
-<h1 class="heading">Parameters</h1>
-<dl class="rst-docutils">
-<dt>weights <span class="classifier-delimiter">:</span> <span class="rst-classifier">list of float</span></dt>
-<dd>the weight values for vectors used to update the distribution</dd>
-<dt>k <span class="classifier-delimiter">:</span> <span class="rst-classifier">int</span></dt>
-<dd>the number of vectors for covariance matrix</dd>
-</dl>
-</div>
-<div class="rst-section" id="rst-returns">
-<h1 class="heading">Returns</h1>
-<dl class="rst-docutils">
-<dt>cone, cmu, cc <span class="classifier-delimiter">:</span> <span class="rst-classifier">float in [0, 1]. Learning rates for rank-one, rank-mu,</span></dt>
-<dd>and the cumulation factor for rank-one.</dd>
-</dl>
-</div><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler._get_params2">
-    
-  </a>
-  <a name="_get_params2">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _get_params2(self, mueff, k):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.parameters_old">
-    
-  </a>
-  <a name="parameters_old">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    parameters_old(self, weights):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.recombination_weights.RecombinationWeights.html"><code>RecombinationWeights</code></a></td></tr></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.parameters">
-    
-  </a>
-  <a name="parameters">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    parameters(self, mueff=None, **kwargs):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#parameters" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.parameters</a></div>
-    
-    <div>return <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.recombination_weights.RecombinationWeights.html"><code>RecombinationWeights</code></a></td></tr></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.norm">
-    
-  </a>
-  <a name="norm">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    norm(self, x):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#norm" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.norm</a></div>
-    
-    <div>return Mahalanobis norm of <code>x</code> w.r.t. the statistical model<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.condition_number">
-    
-  </a>
-  <a name="condition_number">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    condition_number(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#condition_number" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.condition_number</a></div>
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.covariance_matrix">
-    
-  </a>
-  <a name="covariance_matrix">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    covariance_matrix(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#covariance_matrix" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.covariance_matrix</a></div>
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.variances">
-    
-  </a>
-  <a name="variances">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    variances(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#variances" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.variances</a></div>
-    
-    <div>vector of coordinate-wise (marginal) variances<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.correlation_matrix">
-    
-  </a>
-  <a name="correlation_matrix">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    correlation_matrix(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.transform">
-    
-  </a>
-  <a name="transform">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    transform(self, x):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform</a></div>
-    
-    <div>transform <tt class="rst-docutils literal">x</tt> as implied from the distribution parameters<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.transform_inverse">
-    
-  </a>
-  <a name="transform_inverse">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    transform_inverse(self, x):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse</a></div>
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.to_linear_transformation_inverse">
-    
-  </a>
-  <a name="to_linear_transformation_inverse">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    to_linear_transformation_inverse(self, reset=False):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation_inverse" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation_inverse</a></div>
-    
-    <div>return inverse of associated linear transformation<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.to_linear_transformation">
-    
-  </a>
-  <a name="to_linear_transformation">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    to_linear_transformation(self, reset=False):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation</a></div>
-    
-    <div>return associated linear transformation<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.inverse_hessian_scalar_correction">
-    
-  </a>
-  <a name="inverse_hessian_scalar_correction">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    inverse_hessian_scalar_correction(self, mean, X, f):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#inverse_hessian_scalar_correction" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.inverse_hessian_scalar_correction</a></div>
-    
-    <div>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt>
-fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.__imul__">
     
@@ -543,35 +457,35 @@ fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span>
   </a>
   <div class="functionHeader">
     
-    def
-    __imul__(self, factor):
+    <span class="py-keyword">def</span> <span class="py-defname">__imul__</span>(self, factor):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__imul__" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__imul__</a></div>
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__imul__" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__imul__</a></code></div>
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
-</div><div class="basemethod private">
+</div><div class="basemethod">
   
-  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler._get_log_determinant_of_cov">
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.__init__">
     
   </a>
-  <a name="_get_log_determinant_of_cov">
+  <a name="__init__">
     
   </a>
   <div class="functionHeader">
     
-    def
-    _get_log_determinant_of_cov(self):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, dimension, randn=np.random.randn, kadapt=True, **kwargs):
     
   </div>
   <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__init__" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__init__</a></code></div>
     
-    
-    <div class="undocumented">Undocumented</div>
+    <div>pass dimension of the underlying sample space</div>
   </div>
 </div><div class="basemethod">
+  
   
   <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.get_condition_numbers">
     
@@ -581,8 +495,7 @@ fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span>
   </a>
   <div class="functionHeader">
     
-    def
-    get_condition_numbers(self):
+    <span class="py-keyword">def</span> <span class="py-defname">get_condition_numbers</span>(self):
     
   </div>
   <div class="docstring functionBody">
@@ -593,25 +506,1217 @@ fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span>
 at most the product of the return values. It might be safe to stop
 a run if the product of the return values reaches 1e14.</p>
 <div class="rst-section" id="rst-returns">
-<h1 class="heading">Returns</h1>
+<h2 class="heading">Returns</h2>
 <dl class="rst-docutils">
 <dt>float</dt>
 <dd>condition number of D</dd>
 <dt>float</dt>
 <dd>condition number of I + VV'</dd>
 </dl>
-</div><table class="fieldTable"></table></div>
+</div>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.inverse_hessian_scalar_correction">
+    
+  </a>
+  <a name="inverse_hessian_scalar_correction">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">inverse_hessian_scalar_correction</span>(self, mean, X, f):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#inverse_hessian_scalar_correction" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.inverse_hessian_scalar_correction</a></code></div>
+    
+    <div>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt>
+fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.norm">
+    
+  </a>
+  <a name="norm">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">norm</span>(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#norm" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.norm</a></code></div>
+    
+    <div>return Mahalanobis norm of <code>x</code> w.r.t. the statistical model</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.parameters">
+    
+  </a>
+  <a name="parameters">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parameters</span>(self, mueff=None, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#parameters" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.parameters</a></code></div>
+    
+    <div>return <code>dict</code> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code>RecombinationWeights</code></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.parameters_old">
+    
+  </a>
+  <a name="parameters_old">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parameters_old</span>(self, weights):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <code>dict</code> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code>RecombinationWeights</code></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.sample">
+    
+  </a>
+  <a name="sample">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sample</span>(self, number, update=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#sample" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.sample</a></code></div>
+    
+    <div>return list of i.i.d. samples.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">number</span></td><td class="fieldArgDesc">is the number of samples.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">update</span></td><td class="fieldArgDesc">controls a possibly lazy update of the sampler.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.to_linear_transformation">
+    
+  </a>
+  <a name="to_linear_transformation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">to_linear_transformation</span>(self, reset=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation</a></code></div>
+    
+    <div>return associated linear transformation</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.to_linear_transformation_inverse">
+    
+  </a>
+  <a name="to_linear_transformation_inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">to_linear_transformation_inverse</span>(self, reset=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation_inverse" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation_inverse</a></code></div>
+    
+    <div>return inverse of associated linear transformation</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.transform">
+    
+  </a>
+  <a name="transform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">transform</span>(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform</a></code></div>
+    
+    <div>transform <tt class="rst-docutils literal">x</tt> as implied from the distribution parameters</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.transform_inverse">
+    
+  </a>
+  <a name="transform_inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">transform_inverse</span>(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, vectors, weights):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#update" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.update</a></code></div>
+    
+    <div><tt class="rst-docutils literal">vectors</tt> is a list of samples, <tt class="rst-docutils literal">weights</tt> a corrsponding
+list of learning rates</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.accepted_slowdown">
+    
+  </a>
+  <a name="accepted_slowdown">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">accepted_slowdown</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.cs">
+    
+  </a>
+  <a name="cs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cs</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.D">
+    
+  </a>
+  <a name="D">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">D</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.ds">
+    
+  </a>
+  <a name="ds">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ds</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.dx">
+    
+  </a>
+  <a name="dx">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">dx</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.ema_log_d">
+    
+  </a>
+  <a name="ema_log_d">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ema_log_d</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.ema_log_s">
+    
+  </a>
+  <a name="ema_log_s">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ema_log_s</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.ema_log_sigma">
+    
+  </a>
+  <a name="ema_log_sigma">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ema_log_sigma</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.factor_diag_slope">
+    
+  </a>
+  <a name="factor_diag_slope">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">factor_diag_slope</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.factor_sigma_slope">
+    
+  </a>
+  <a name="factor_sigma_slope">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">factor_sigma_slope</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.flg_injection">
+    
+  </a>
+  <a name="flg_injection">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">flg_injection</span>: <code>bool</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.itr_after_k_inc">
+    
+  </a>
+  <a name="itr_after_k_inc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">itr_after_k_inc</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.k">
+    
+  </a>
+  <a name="k">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">k</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.k_active">
+    
+  </a>
+  <a name="k_active">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">k_active</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.k_adapt_decay">
+    
+  </a>
+  <a name="k_adapt_decay">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">k_adapt_decay</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.k_adapt_factor">
+    
+  </a>
+  <a name="k_adapt_factor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">k_adapt_factor</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.k_adapt_wait">
+    
+  </a>
+  <a name="k_adapt_wait">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">k_adapt_wait</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.k_dec_cond">
+    
+  </a>
+  <a name="k_dec_cond">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">k_dec_cond</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.k_inc_cond">
+    
+  </a>
+  <a name="k_inc_cond">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">k_inc_cond</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.kadapt">
+    
+  </a>
+  <a name="kadapt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">kadapt</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.kmax">
+    
+  </a>
+  <a name="kmax">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">kmax</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.kmin">
+    
+  </a>
+  <a name="kmin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">kmin</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.last_log_cond_corr">
+    
+  </a>
+  <a name="last_log_cond_corr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">last_log_cond_corr</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.last_log_d">
+    
+  </a>
+  <a name="last_log_d">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">last_log_d</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.last_log_sigma">
+    
+  </a>
+  <a name="last_log_sigma">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">last_log_sigma</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.lndiag_change">
+    
+  </a>
+  <a name="lndiag_change">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lndiag_change</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.lnlambda_change">
+    
+  </a>
+  <a name="lnlambda_change">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lnlambda_change</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.lnsigma_change">
+    
+  </a>
+  <a name="lnsigma_change">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lnsigma_change</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.N">
+    
+  </a>
+  <a name="N">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">N</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.opt_conv">
+    
+  </a>
+  <a name="opt_conv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">opt_conv</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.pc">
+    
+  </a>
+  <a name="pc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pc</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.ps">
+    
+  </a>
+  <a name="ps">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ps</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.randn">
+    
+  </a>
+  <a name="randn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">randn</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.S">
+    
+  </a>
+  <a name="S">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">S</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.sigma">
+    
+  </a>
+  <a name="sigma">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">sigma</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.sigma_fac">
+    
+  </a>
+  <a name="sigma_fac">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">sigma_fac</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.U">
+    
+  </a>
+  <a name="U">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">U</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.V">
+    
+  </a>
+  <a name="V">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">V</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.weights">
+    
+  </a>
+  <a name="weights">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">weights</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.condition_number">
+    
+  </a>
+  <a name="condition_number">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">condition_number</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#condition_number" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.condition_number</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.correlation_matrix">
+    
+  </a>
+  <a name="correlation_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">correlation_matrix</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.covariance_matrix">
+    
+  </a>
+  <a name="covariance_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">covariance_matrix</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#covariance_matrix" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.covariance_matrix</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler.variances">
+    
+  </a>
+  <a name="variances">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">variances</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#variances" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.variances</a></code></div>
+    
+    <div>vector of coordinate-wise (marginal) variances</div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler._get_log_determinant_of_cov">
+    
+  </a>
+  <a name="_get_log_determinant_of_cov">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_get_log_determinant_of_cov</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler._get_params">
+    
+  </a>
+  <a name="_get_params">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_get_params</span>(self, weights, k):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Return the learning rate cone, cmu, cc depending on k</p>
+<div class="rst-section" id="rst-parameters">
+<h2 class="heading">Parameters</h2>
+<dl class="rst-docutils">
+<dt>weights <span class="classifier-delimiter">:</span> <span class="rst-classifier">list of float</span></dt>
+<dd>the weight values for vectors used to update the distribution</dd>
+<dt>k <span class="classifier-delimiter">:</span> <span class="rst-classifier">int</span></dt>
+<dd>the number of vectors for covariance matrix</dd>
+</dl>
+</div>
+<div class="rst-section" id="rst-returns">
+<h2 class="heading">Returns</h2>
+<dl class="rst-docutils">
+<dt>cone, cmu, cc <span class="classifier-delimiter">:</span> <span class="rst-classifier">float in [0, 1]. Learning rates for rank-one, rank-mu,</span></dt>
+<dd>and the cumulation factor for rank-one.</dd>
+</dl>
+</div>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler._get_params2">
+    
+  </a>
+  <a name="_get_params2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_get_params2</span>(self, mueff, k):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler._debug">
+    
+  </a>
+  <a name="_debug">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_debug</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler._mueff">
+    
+  </a>
+  <a name="_mueff">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_mueff</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_mueff" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._mueff</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.restricted_gaussian_sampler.GaussVkDSampler._parameters">
+    
+  </a>
+  <a name="_parameters">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_parameters</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_parameters" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._parameters</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

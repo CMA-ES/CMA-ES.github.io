@@ -2,53 +2,81 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.utilities.utils.DictFromTagsInString : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.utilities.utils.DictFromTagsInString</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.utilities.utils.DictFromTagsInString(<span title="dict">dict</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code><wbr></wbr>.<code><a href="cma.utilities.utils.html" class="internal-link" title="cma.utilities.utils">utils</a></code><wbr></wbr>.<code><a href="cma.utilities.utils.DictFromTagsInString.html" class="internal-link" title="cma.utilities.utils.DictFromTagsInString">DictFromTagsInString</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.utilities.html" data-type="Package" class="code">utilities</a>.<a href="cma.utilities.utils.html" data-type="Module" class="code">utils</a></code>
-          
-          <a href="classIndex.html#cma.utilities.utils.DictFromTagsInString">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">DictFromTagsInString</span>(dict):</code></p>
+        <p><a href="classIndex.html#cma.utilities.utils.DictFromTagsInString">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>read from a string or file all key-value pairs within all
-<tt class="rst-docutils literal"><span class="pre">&lt;python&gt;...&lt;/python&gt;</span></tt> tags and return a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>.</p>
+<tt class="rst-docutils literal"><span class="pre">&lt;python&gt;...&lt;/python&gt;</span></tt> tags and return a <code>dict</code>.</p>
 <p>Within the tags valid Python code is expected: either a list of
 key-value pairs <tt class="rst-docutils literal">[[key1, value1], [key2, value2], <span class="pre">...]</span></tt> or a
 dictionary <tt class="rst-docutils literal">{ key1: value1, key2: value2, <span class="pre">...}</span></tt>. A key can be any
 immutable object, while it is often a string or a number.</p>
-<p>The <a href="cma.utilities.utils.DictFromTagsInString.html#as_python_tag"><code>as_python_tag</code></a> attribute provides the respective (tagged) string.
+<p>The <code><a href="#as_python_tag" class="internal-link" title="cma.utilities.utils.DictFromTagsInString.as_python_tag">as_python_tag</a></code> attribute provides the respective (tagged) string.
 The <tt class="rst-docutils literal">tag_string</tt> attribute defines the tag identifier, 'python' by
 default, and can be change if desired at any time.</p>
 <pre class="py-doctest">
@@ -57,52 +85,58 @@ default, and can be change if desired at any time.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span>s += <span class="py-string">'&lt;python&gt; {"annotations": [2, 3]} &lt;/python&gt;'</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>d = DictFromTagsInString(s)
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># now d.update can be used to read more tagged strings/files/...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span>assert d.tag_string == <span class="py-string">'python'</span>  <span class="py-comment"># can be set to any other value</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> d.tag_string == <span class="py-string">'python'</span>  <span class="py-comment"># can be set to any other value</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>d.tag_string = <span class="py-string">'pyt'</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># now 'pyt' tags can/will be read (only)</span>
-<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">str</span>(d).startswith(<span class="py-string">'&lt;pyt&gt;{'</span>) <span class="py-keyword">and</span> <span class="py-builtin">str</span>(d).endswith(<span class="py-string">'}&lt;/pyt&gt;'</span>)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">len</span>(d) == 2 <span class="py-keyword">and</span> d[33] == 44 <span class="py-keyword">and</span> d[<span class="py-string">'annotations'</span>] == [2, 3]</pre>
-<p>When the same key appears several times, its value is overwritten.</p><table class="fieldTable"></table></div>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">str</span>(d).startswith(<span class="py-string">'&lt;pyt&gt;{'</span>) <span class="py-keyword">and</span> <span class="py-builtin">str</span>(d).endswith(<span class="py-string">'}&lt;/pyt&gt;'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(d) == 2 <span class="py-keyword">and</span> d[33] == 44 <span class="py-keyword">and</span> d[<span class="py-string">'annotations'</span>] == [2, 3]</pre><p>When the same key appears several times, its value is overwritten.</p>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id510">
+        <table class="children sortable" id="id545">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.utilities.utils.DictFromTagsInString.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>for input args see <a href="cma.utilities.utils.DictFromTagsInString.html#update"><code>update</code></a> method.</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.utilities.utils.DictFromTagsInString.__init__">__init__</a></code></td>
+    <td>for input args see <code><a href="#update" class="internal-link" title="cma.utilities.utils.DictFromTagsInString.update">update</a></code> method.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.utilities.utils.DictFromTagsInString.html#update" data-type="Method" class="code">update</a></td>
-    <td><span>only one of the first four arguments is accepted at a time, return <tt class="rst-docutils literal">self</tt>.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.utilities.utils.DictFromTagsInString.html#as_python_tag" data-type="Method" class="code">as_python_tag</a></td>
+    <td><code><a href="#__repr__" class="internal-link" title="cma.utilities.utils.DictFromTagsInString.__repr__">__repr__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.utilities.utils.DictFromTagsInString.html#__repr__" data-type="Method" class="code">__repr__</a></td>
+    <td><code><a href="#update" class="internal-link" title="cma.utilities.utils.DictFromTagsInString.update">update</a></code></td>
+    <td>only one of the first four arguments is accepted at a time, return <tt class="rst-docutils literal">self</tt>.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tag_string" class="internal-link" title="cma.utilities.utils.DictFromTagsInString.tag_string">tag​_string</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#as_python_tag" class="internal-link" title="cma.utilities.utils.DictFromTagsInString.as_python_tag">as​_python​_tag</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.utilities.utils.DictFromTagsInString.html#_start" data-type="Method" class="code">_start</a></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method private">
+    <td><code><a href="#_eval_python_tag" class="internal-link" title="cma.utilities.utils.DictFromTagsInString._eval_python_tag">​_eval​_python​_tag</a></code></td>
+    <td>read [key, value] pairs from a <code>list</code> or a <code>dict</code> within all <tt class="rst-docutils literal">&lt;self.tag_str&gt;</tt> tags in <tt class="rst-docutils literal">str_</tt> and return a <code>dict</code>.</td>
+  </tr><tr class="property private">
     
-    <td>Method</td>
-    <td><a href="cma.utilities.utils.DictFromTagsInString.html#_end" data-type="Method" class="code">_end</a></td>
+    <td>Property</td>
+    <td><code><a href="#_end" class="internal-link" title="cma.utilities.utils.DictFromTagsInString._end">​_end</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method private">
+  </tr><tr class="property private">
     
-    <td>Method</td>
-    <td><a href="cma.utilities.utils.DictFromTagsInString.html#_eval_python_tag" data-type="Method" class="code">_eval_python_tag</a></td>
-    <td><span>read [key, value] pairs from a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> or a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> within all <tt class="rst-docutils literal">&lt;self.tag_str&gt;</tt> tags in <tt class="rst-docutils literal">str_</tt> and return a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>.</span></td>
+    <td>Property</td>
+    <td><code><a href="#_start" class="internal-link" title="cma.utilities.utils.DictFromTagsInString._start">​_start</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
@@ -114,6 +148,7 @@ default, and can be change if desired at any time.</p>
 
         <div class="basemethod">
   
+  
   <a name="cma.utilities.utils.DictFromTagsInString.__init__">
     
   </a>
@@ -122,57 +157,16 @@ default, and can be change if desired at any time.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self, *args, **kwargs):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, *args, **kwargs):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>for input args see <a href="cma.utilities.utils.DictFromTagsInString.html#update"><code>update</code></a> method.<table class="fieldTable"></table></div>
+    <div>for input args see <code><a href="#update" class="internal-link" title="cma.utilities.utils.DictFromTagsInString.update">update</a></code> method.</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.utilities.utils.DictFromTagsInString.update">
-    
-  </a>
-  <a name="update">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    update(self, string_=None, filename=None, file_=None, dict_=None, tag_string=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>only one of the first four arguments is accepted at a time,
-return <tt class="rst-docutils literal">self</tt>.</p>
-<p>If the first argument has no keyword, it is assumed to be a string
-to be parsed for tags.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.utilities.utils.DictFromTagsInString.as_python_tag">
-    
-  </a>
-  <a name="as_python_tag">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    as_python_tag(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.utilities.utils.DictFromTagsInString.__repr__">
     
@@ -182,54 +176,79 @@ to be parsed for tags.</p><table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    __repr__(self):
+    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
-</div><div class="basemethod private">
+</div><div class="basemethod">
   
-  <a name="cma.utilities.utils.DictFromTagsInString._start">
+  
+  <a name="cma.utilities.utils.DictFromTagsInString.update">
     
   </a>
-  <a name="_start">
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, string_=None, filename=None, file_=None, dict_=None, tag_string=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>only one of the first four arguments is accepted at a time,
+return <tt class="rst-docutils literal">self</tt>.</p>
+<p>If the first argument has no keyword, it is assumed to be a string
+to be parsed for tags.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.utilities.utils.DictFromTagsInString.tag_string">
+    
+  </a>
+  <a name="tag_string">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tag_string</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.utilities.utils.DictFromTagsInString.as_python_tag">
+    
+  </a>
+  <a name="as_python_tag">
     
   </a>
   <div class="functionHeader">
     @property<br />
-    def
-    _start(self):
+    <span class="py-defname">as_python_tag</span> =
     
   </div>
-  <div class="docstring functionBody">
+  <div class="functionBody">
     
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div><div class="basemethod private">
   
-  <a name="cma.utilities.utils.DictFromTagsInString._end">
-    
-  </a>
-  <a name="_end">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    _end(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod private">
   
   <a name="cma.utilities.utils.DictFromTagsInString._eval_python_tag">
     
@@ -239,40 +258,84 @@ to be parsed for tags.</p><table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    _eval_python_tag(self, str_):
+    <span class="py-keyword">def</span> <span class="py-defname">_eval_python_tag</span>(self, str_):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>read [key, value] pairs from a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> or a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> within all
-<tt class="rst-docutils literal">&lt;self.tag_str&gt;</tt> tags in <tt class="rst-docutils literal">str_</tt> and return a <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>.</p>
+    <div><p>read [key, value] pairs from a <code>list</code> or a <code>dict</code> within all
+<tt class="rst-docutils literal">&lt;self.tag_str&gt;</tt> tags in <tt class="rst-docutils literal">str_</tt> and return a <code>dict</code>.</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.utils <span class="py-keyword">import</span> DictFromTagsInString
 <span class="py-prompt">&gt;&gt;&gt; </span>s = <span class="py-string">'&lt;py&gt; [[33, 44], ["annotations", []]] &lt;/py&gt;'</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>s += <span class="py-string">'&lt;py&gt;[["annotations", [1,2,3]]] &lt;/py&gt;'</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>d = DictFromTagsInString()
-<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">len</span>(d) == 0
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(d) == 0
 <span class="py-prompt">&gt;&gt;&gt; </span>d.update(s)  <span class="py-comment"># still empty as default tag is not &lt;py&gt;</span>
 <span class="py-output">&lt;python&gt;{}&lt;/python&gt;</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">len</span>(d) == 0
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(d) == 0
 <span class="py-prompt">&gt;&gt;&gt; </span>d.tag_string = <span class="py-string">"py"</span>  <span class="py-comment"># set desired tag</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>d.update(s)  <span class="py-comment"># doctest:+ELLIPSIS</span>
 <span class="py-output">&lt;py&gt;{...</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">len</span>(d) == 2
-<span class="py-prompt">&gt;&gt;&gt; </span>assert d[33] == 44 <span class="py-keyword">and</span> <span class="py-builtin">len</span>(d[<span class="py-string">"annotations"</span>]) == 3</pre><table class="fieldTable"></table></div>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(d) == 2
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> d[33] == 44 <span class="py-keyword">and</span> <span class="py-builtin">len</span>(d[<span class="py-string">"annotations"</span>]) == 3</pre></div>
+  </div>
+</div><div class="baseproperty private">
+  
+  
+  <a name="cma.utilities.utils.DictFromTagsInString._end">
+    
+  </a>
+  <a name="_end">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">_end</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty private">
+  
+  
+  <a name="cma.utilities.utils.DictFromTagsInString._start">
+    
+  </a>
+  <a name="_start">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">_start</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

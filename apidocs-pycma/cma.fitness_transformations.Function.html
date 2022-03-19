@@ -2,51 +2,79 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.fitness_transformations.Function : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.fitness_transformations.Function</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.fitness_transformations.Function(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness_transformations</a></code><wbr></wbr>.<code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_transformations.html" data-type="Module" class="code">fitness_transformations</a></code>
-          
-          <a href="classIndex.html#cma.fitness_transformations.Function">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        <p>Known subclasses: <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">cma.fitness_transformations.ComposedFunction</a>, <a href="cma.fitness_transformations.Expensify.html" data-type="Class" class="code">cma.fitness_transformations.Expensify</a>, <a href="cma.fitness_transformations.GlueArguments.html" data-type="Class" class="code">cma.fitness_transformations.GlueArguments</a>, <a href="cma.fitness_transformations.NoisyFitness.html" data-type="Class" class="code">cma.fitness_transformations.NoisyFitness</a>, <a href="cma.fitness_transformations.SomeNaNFitness.html" data-type="Class" class="code">cma.fitness_transformations.SomeNaNFitness</a>, <a href="cma.fitness_transformations.StackFunction.html" data-type="Class" class="code">cma.fitness_transformations.StackFunction</a></p>
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">Function</span>(object):</code></p><p>Known subclasses: <code><a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link">cma.fitness_transformations.ComposedFunction</a></code>, <code><a href="cma.fitness_transformations.Expensify.html" class="internal-link">cma.fitness_transformations.Expensify</a></code>, <code><a href="cma.fitness_transformations.GlueArguments.html" class="internal-link">cma.fitness_transformations.GlueArguments</a></code>, <code><a href="cma.fitness_transformations.NoisyFitness.html" class="internal-link">cma.fitness_transformations.NoisyFitness</a></code>, <code><a href="cma.fitness_transformations.SomeNaNFitness.html" class="internal-link">cma.fitness_transformations.SomeNaNFitness</a></code>, <code><a href="cma.fitness_transformations.StackFunction.html" class="internal-link">cma.fitness_transformations.StackFunction</a></code></p>
+        <p><a href="classIndex.html#cma.fitness_transformations.Function">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>a declarative base class, indicating that a derived class instance
 "is" a (fitness/objective) function.</p>
-<p>A <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a> passed to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a> is called as the fitness
-<a href="cma.fitness_transformations.Function.html"><code>Function</code></a>, otherwise the <a href="cma.fitness_transformations.StackFunction.html#_eval"><code>_eval</code></a> method is called, if defined in the
-derived class, when the <a href="cma.fitness_transformations.Function.html"><code>Function</code></a> instance is called. If the input
+<p>A <code><a href="cma.fitness_transformations.Expensify.html#callable" class="internal-link" title="cma.fitness_transformations.Expensify.callable">callable</a></code> passed to <code><a href="#__init__" class="internal-link" title="cma.fitness_transformations.Function.__init__">__init__</a></code> is called as the fitness
+<code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a></code>, otherwise the <code><a href="cma.fitness_transformations.StackFunction.html#_eval" class="internal-link" title="cma.fitness_transformations.StackFunction._eval">_eval</a></code> method is called, if defined in the
+derived class, when the <code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a></code> instance is called. If the input
 argument is a matrix or a list of vectors, the method is called for
 each vector individually like
 <tt class="rst-docutils literal">_eval(numpy.asarray(vector)) for vector in matrix</tt>.</p>
@@ -54,53 +82,84 @@ each vector individually like
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.fitness_transformations <span class="py-keyword">import</span>  Function
 <span class="py-prompt">&gt;&gt;&gt; </span>f = Function(cma.ff.rosen)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert f.evaluations == 0
-<span class="py-prompt">&gt;&gt;&gt; </span>assert f([2, 3]) == cma.ff.rosen([2, 3])
-<span class="py-prompt">&gt;&gt;&gt; </span>assert f.evaluations == 1
-<span class="py-prompt">&gt;&gt;&gt; </span>assert f([[1], [2]]) == [cma.ff.rosen([1]), cma.ff.rosen([2])]
-<span class="py-prompt">&gt;&gt;&gt; </span>assert f.evaluations == 3
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> f.evaluations == 0
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> f([2, 3]) == cma.ff.rosen([2, 3])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> f.evaluations == 1
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> f([[1], [2]]) == [cma.ff.rosen([1]), cma.ff.rosen([2])]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> f.evaluations == 3
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">Fsphere</span>(Function):
 <span class="py-more">... </span>    <span class="py-keyword">def</span> <span class="py-defname">_eval</span>(self, x):
-<span class="py-more">... </span>        return <span class="py-builtin">sum</span>(x**2)
+<span class="py-more">... </span>        <span class="py-keyword">return</span> <span class="py-builtin">sum</span>(x**2)
 <span class="py-prompt">&gt;&gt;&gt; </span>fsphere = Fsphere()
-<span class="py-prompt">&gt;&gt;&gt; </span>assert fsphere.evaluations == 0
-<span class="py-prompt">&gt;&gt;&gt; </span>assert fsphere([2, 3]) == 4 + 9 <span class="py-keyword">and</span> fsphere([[2], [3]]) == [4, 9]
-<span class="py-prompt">&gt;&gt;&gt; </span>assert fsphere.evaluations == 3
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> fsphere.evaluations == 0
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> fsphere([2, 3]) == 4 + 9 <span class="py-keyword">and</span> fsphere([[2], [3]]) == [4, 9]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> fsphere.evaluations == 3
 <span class="py-prompt">&gt;&gt;&gt; </span>Fsphere.__init__ = <span class="py-keyword">lambda</span> self: <span class="py-builtin">None</span>  <span class="py-comment"># overwrites Function.__init__</span>
-<span class="py-prompt">&gt;&gt;&gt; </span>assert Fsphere()([2]) == 4  <span class="py-comment"># which is perfectly fine to do</span></pre>
-<p>Details:</p>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> Fsphere()([2]) == 4  <span class="py-comment"># which is perfectly fine to do</span></pre><p>Details:</p>
 <ul class="rst-simple">
 <li>When called, a class instance calls either the function passed to
-<a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a> or, if none was given, tries to call any of the
-<a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found"><code>function_names_to_evaluate_first_found</code></a>, first come first serve.
+<code><a href="#__init__" class="internal-link" title="cma.fitness_transformations.Function.__init__">__init__</a></code> or, if none was given, tries to call any of the
+<code><a href="#function_names_to_evaluate_first_found" class="internal-link" title="cma.fitness_transformations.Function.function_names_to_evaluate_first_found">function_names_to_evaluate_first_found</a></code>, first come first serve.
 By default, <tt class="rst-docutils literal">function_names_to_evaluate_first_found == ["_eval"]</tt>.</li>
-<li>This class cannot move to module <a href="cma.fitness_functions.html"><code>fitness_functions</code></a>, because the
-latter uses <code>fitness_transformations.rotate</code>.</li>
-</ul><table class="fieldTable"></table></div>
+<li>This class cannot move to module <code><a href="cma.fitness_functions.html" class="internal-link" title="cma.fitness_functions">fitness_functions</a></code>, because the
+latter uses <code><a href="cma.fitness_transformations.html#rotate" class="internal-link" title="cma.fitness_transformations.rotate">fitness_transformations.rotate</a></code>.</li>
+</ul>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id390">
+        <table class="children sortable" id="id424">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found" data-type="Method" class="code">function_names_to_evaluate_first_found</a></td>
-    <td><span>attributes which are searched for to be called if no function was given to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a>.</span></td>
+    <td><code><a href="#__call__" class="internal-link" title="cma.fitness_transformations.Function.__call__">__call__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.fitness_transformations.Function.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>allows to define the fitness_function to be called, doesn't need to be ever called</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.fitness_transformations.Function.__init__">__init__</a></code></td>
+    <td>allows to define the fitness_function to be called, doesn't need to be ever called</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.fitness_transformations.Function.html#initialize" data-type="Method" class="code">initialize</a></td>
-    <td><span>initialization of <a href="cma.fitness_transformations.Function.html"><code>Function</code></a></span></td>
-  </tr><tr class="method">
+    <td><code><a href="#initialize" class="internal-link" title="cma.fitness_transformations.Function.initialize">initialize</a></code></td>
+    <td>initialization of <code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a></code></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.fitness_transformations.Function.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td>Instance Variable</td>
+    <td><code><a href="#evaluations" class="internal-link" title="cma.fitness_transformations.Function.evaluations">evaluations</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ftarget" class="internal-link" title="cma.fitness_transformations.Function.ftarget">ftarget</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#target_hit_at" class="internal-link" title="cma.fitness_transformations.Function.target_hit_at">target​_hit​_at</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#function_names_to_evaluate_first_found" class="internal-link" title="cma.fitness_transformations.Function.function_names_to_evaluate_first_found">function​_names​_to​_evaluate​_first​_found</a></code></td>
+    <td>attributes which are searched for to be called if no function was given to <code><a href="#__init__" class="internal-link" title="cma.fitness_transformations.Function.__init__">__init__</a></code>.</td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_function_names_to_evaluate_first_found" class="internal-link" title="cma.fitness_transformations.Function._function_names_to_evaluate_first_found">​_function​_names​_to​_evaluate​_first​_found</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__callable" class="internal-link" title="cma.fitness_transformations.Function.__callable">__callable</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__initialized" class="internal-link" title="cma.fitness_transformations.Function.__initialized">__initialized</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -113,65 +172,6 @@ latter uses <code>fitness_transformations.rotate</code>.</li>
 
         <div class="basemethod">
   
-  <a name="cma.fitness_transformations.Function.function_names_to_evaluate_first_found">
-    
-  </a>
-  <a name="function_names_to_evaluate_first_found">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    function_names_to_evaluate_first_found(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>attributes which are searched for to be called if no function
-was given to <a href="cma.fitness_transformations.Function.html#__init__"><code>__init__</code></a>.</p>
-<p>The first present match is used.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.fitness_transformations.Function.__init__">
-    
-  </a>
-  <a name="__init__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __init__(self, fitness_function=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">cma.fitness_transformations.ComposedFunction</a>, <a href="cma.fitness_transformations.Expensify.html" data-type="Class" class="code">cma.fitness_transformations.Expensify</a>, <a href="cma.fitness_transformations.GlueArguments.html" data-type="Class" class="code">cma.fitness_transformations.GlueArguments</a>, <a href="cma.fitness_transformations.NoisyFitness.html" data-type="Class" class="code">cma.fitness_transformations.NoisyFitness</a>, <a href="cma.fitness_transformations.SomeNaNFitness.html" data-type="Class" class="code">cma.fitness_transformations.SomeNaNFitness</a>, <a href="cma.fitness_transformations.StackFunction.html" data-type="Class" class="code">cma.fitness_transformations.StackFunction</a></div>
-    
-    <div>allows to define the fitness_function to be called, doesn't
-need to be ever called<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.fitness_transformations.Function.initialize">
-    
-  </a>
-  <a name="initialize">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    initialize(self, fitness_function):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>initialization of <a href="cma.fitness_transformations.Function.html"><code>Function</code></a><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.fitness_transformations.Function.__call__">
     
@@ -181,25 +181,211 @@ need to be ever called<table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    __call__(self, *args, **kwargs):
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, *args, **kwargs):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">cma.fitness_transformations.ComposedFunction</a>, <a href="cma.fitness_transformations.Expensify.html" data-type="Class" class="code">cma.fitness_transformations.Expensify</a>, <a href="cma.fitness_transformations.GlueArguments.html" data-type="Class" class="code">cma.fitness_transformations.GlueArguments</a>, <a href="cma.fitness_transformations.NoisyFitness.html" data-type="Class" class="code">cma.fitness_transformations.NoisyFitness</a>, <a href="cma.fitness_transformations.SomeNaNFitness.html" data-type="Class" class="code">cma.fitness_transformations.SomeNaNFitness</a></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link">cma.fitness_transformations.ComposedFunction</a></code>, <code><a href="cma.fitness_transformations.Expensify.html" class="internal-link">cma.fitness_transformations.Expensify</a></code>, <code><a href="cma.fitness_transformations.GlueArguments.html" class="internal-link">cma.fitness_transformations.GlueArguments</a></code>, <code><a href="cma.fitness_transformations.NoisyFitness.html" class="internal-link">cma.fitness_transformations.NoisyFitness</a></code>, <code><a href="cma.fitness_transformations.SomeNaNFitness.html" class="internal-link">cma.fitness_transformations.SomeNaNFitness</a></code></div>
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.fitness_transformations.Function.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, fitness_function=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link">cma.fitness_transformations.ComposedFunction</a></code>, <code><a href="cma.fitness_transformations.Expensify.html" class="internal-link">cma.fitness_transformations.Expensify</a></code>, <code><a href="cma.fitness_transformations.GlueArguments.html" class="internal-link">cma.fitness_transformations.GlueArguments</a></code>, <code><a href="cma.fitness_transformations.NoisyFitness.html" class="internal-link">cma.fitness_transformations.NoisyFitness</a></code>, <code><a href="cma.fitness_transformations.SomeNaNFitness.html" class="internal-link">cma.fitness_transformations.SomeNaNFitness</a></code>, <code><a href="cma.fitness_transformations.StackFunction.html" class="internal-link">cma.fitness_transformations.StackFunction</a></code></div>
+    
+    <div>allows to define the fitness_function to be called, doesn't
+need to be ever called</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.fitness_transformations.Function.initialize">
+    
+  </a>
+  <a name="initialize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">initialize</span>(self, fitness_function):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>initialization of <code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a></code></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_transformations.Function.evaluations">
+    
+  </a>
+  <a name="evaluations">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">evaluations</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_transformations.Function.ftarget">
+    
+  </a>
+  <a name="ftarget">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ftarget</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_transformations.Function.target_hit_at">
+    
+  </a>
+  <a name="target_hit_at">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">target_hit_at</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.fitness_transformations.Function.function_names_to_evaluate_first_found">
+    
+  </a>
+  <a name="function_names_to_evaluate_first_found">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">function_names_to_evaluate_first_found</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p>attributes which are searched for to be called if no function
+was given to <code><a href="#__init__" class="internal-link" title="cma.fitness_transformations.Function.__init__">__init__</a></code>.</p>
+<p>The first present match is used.</p>
+</div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="cma.fitness_transformations.Function._function_names_to_evaluate_first_found">
+    
+  </a>
+  <a name="_function_names_to_evaluate_first_found">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_function_names_to_evaluate_first_found</span>: <code>list[<wbr></wbr>str]</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.fitness_transformations.Function.__callable">
+    
+  </a>
+  <a name="__callable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__callable</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.fitness_transformations.Function.__initialized">
+    
+  </a>
+  <a name="__initialized">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__initialized</span>: <code>bool</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

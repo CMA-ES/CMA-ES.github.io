@@ -2,94 +2,139 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.interfaces.BaseDataLogger : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.interfaces.BaseDataLogger</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.interfaces.BaseDataLogger(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.interfaces.html" class="internal-link" title="cma.interfaces">interfaces</a></code><wbr></wbr>.<code><a href="cma.interfaces.BaseDataLogger.html" class="internal-link" title="cma.interfaces.BaseDataLogger">BaseDataLogger</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.interfaces.html" data-type="Module" class="code">interfaces</a></code>
-          
-          <a href="classIndex.html#cma.interfaces.BaseDataLogger">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        <p>Known subclasses: <a href="cma.purecma.CMAESDataLogger.html" data-type="Class" class="code">cma.purecma.CMAESDataLogger</a></p>
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">BaseDataLogger</span>(object):</code></p><p>Known subclasses: <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></p>
+        <p><a href="classIndex.html#cma.interfaces.BaseDataLogger">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>abstract base class for a data logger that can be used with an
-<a href="cma.interfaces.OOOptimizer.html"><code>OOOptimizer</code></a>.</p>
-<p>Details: attribute <code>modulo</code> is used in <a href="cma.interfaces.OOOptimizer.html#optimize"><code>OOOptimizer.optimize</code></a>.</p><table class="fieldTable"></table></div>
+<code><a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a></code>.</p>
+<p>Details: attribute <code>modulo</code> is used in <code><a href="cma.interfaces.OOOptimizer.html#optimize" class="internal-link" title="cma.interfaces.OOOptimizer.optimize">OOOptimizer.optimize</a></code>.</p>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id425">
+        <table class="children sortable" id="id459">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.interfaces.BaseDataLogger.__init__">__init__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#register" data-type="Method" class="code">register</a></td>
-    <td><span>register an optimizer <tt class="rst-docutils literal">optim</tt>, only needed if method <a href="cma.interfaces.BaseDataLogger.html#add"><code>add</code></a> is called without passing the <tt class="rst-docutils literal">optim</tt> argument</span></td>
+    <td><code><a href="#add" class="internal-link" title="cma.interfaces.BaseDataLogger.add">add</a></code></td>
+    <td>abstract method, add a "data point" from the state of <tt class="rst-docutils literal">optim</tt> into the logger.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#add" data-type="Method" class="code">add</a></td>
-    <td><span>abstract method, add a "data point" from the state of <tt class="rst-docutils literal">optim</tt> into the logger.</span></td>
+    <td><code><a href="#disp" class="internal-link" title="cma.interfaces.BaseDataLogger.disp">disp</a></code></td>
+    <td>abstract method, display some data trace</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#disp" data-type="Method" class="code">disp</a></td>
-    <td><span>abstract method, display some data trace</span></td>
+    <td><code><a href="#load" class="internal-link" title="cma.interfaces.BaseDataLogger.load">load</a></code></td>
+    <td>load data from file <code>name</code> or <code>self.filename</code></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#plot" data-type="Method" class="code">plot</a></td>
-    <td><span>abstract method, plot data</span></td>
+    <td><code><a href="#plot" class="internal-link" title="cma.interfaces.BaseDataLogger.plot">plot</a></code></td>
+    <td>abstract method, plot data</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#save" data-type="Method" class="code">save</a></td>
-    <td><span>save data to file <code>name</code> or <code>self.filename</code></span></td>
+    <td><code><a href="#register" class="internal-link" title="cma.interfaces.BaseDataLogger.register">register</a></code></td>
+    <td>register an optimizer <tt class="rst-docutils literal">optim</tt>, only needed if method <code><a href="#add" class="internal-link" title="cma.interfaces.BaseDataLogger.add">add</a></code> is called without passing the <tt class="rst-docutils literal">optim</tt> argument</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#load" data-type="Method" class="code">load</a></td>
-    <td><span>load data from file <code>name</code> or <code>self.filename</code></span></td>
-  </tr><tr class="method">
+    <td><code><a href="#save" class="internal-link" title="cma.interfaces.BaseDataLogger.save">save</a></code></td>
+    <td>save data to file <code>name</code> or <code>self.filename</code></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#data" data-type="Method" class="code">data</a></td>
-    <td><span>logged data in a dictionary</span></td>
+    <td>Instance Variable</td>
+    <td><code><a href="#filename" class="internal-link" title="cma.interfaces.BaseDataLogger.filename">filename</a></code></td>
+    <td>file to save to or load from unless specified otherwise</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#optim" class="internal-link" title="cma.interfaces.BaseDataLogger.optim">optim</a></code></td>
+    <td>object instance to be logging data from</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#data" class="internal-link" title="cma.interfaces.BaseDataLogger.data">data</a></code></td>
+    <td>logged data in a dictionary</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_data" class="internal-link" title="cma.interfaces.BaseDataLogger._data">​_data</a></code></td>
+    <td><code>dict</code> of logged data</td>
   </tr>
 </table>
         
@@ -101,6 +146,7 @@
 
         <div class="basemethod">
   
+  
   <a name="cma.interfaces.BaseDataLogger.__init__">
     
   </a>
@@ -109,36 +155,16 @@
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAESDataLogger.html" data-type="Class" class="code">cma.purecma.CMAESDataLogger</a></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.interfaces.BaseDataLogger.register">
-    
-  </a>
-  <a name="register">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    register(self, optim, *args, **kwargs):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>register an optimizer <tt class="rst-docutils literal">optim</tt>, only needed if method <a href="cma.interfaces.BaseDataLogger.html#add"><code>add</code></a> is
-called without passing the <tt class="rst-docutils literal">optim</tt> argument<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.interfaces.BaseDataLogger.add">
     
@@ -148,19 +174,20 @@ called without passing the <tt class="rst-docutils literal">optim</tt> argument<
   </a>
   <div class="functionHeader">
     
-    def
-    add(self, optim=None, more_data=None, **kwargs):
+    <span class="py-keyword">def</span> <span class="py-defname">add</span>(self, optim=None, more_data=None, **kwargs):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAESDataLogger.html" data-type="Class" class="code">cma.purecma.CMAESDataLogger</a></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
     
     <div><p>abstract method, add a "data point" from the state of <tt class="rst-docutils literal">optim</tt>
 into the logger.</p>
 <p>The argument <tt class="rst-docutils literal">optim</tt> can be omitted if <tt class="rst-docutils literal">optim</tt> was
-<tt class="rst-docutils literal">register</tt> ()-ed before, acts like an event handler</p><table class="fieldTable"></table></div>
+<tt class="rst-docutils literal">register</tt> ()-ed before, acts like an event handler</p>
+</div>
   </div>
 </div><div class="basemethod">
+  
   
   <a name="cma.interfaces.BaseDataLogger.disp">
     
@@ -170,54 +197,16 @@ into the logger.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    disp(self, *args, **kwargs):
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self, *args, **kwargs):
     
   </div>
   <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
     
-    
-    <div>abstract method, display some data trace<table class="fieldTable"></table></div>
+    <div>abstract method, display some data trace</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.interfaces.BaseDataLogger.plot">
-    
-  </a>
-  <a name="plot">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    plot(self, *args, **kwargs):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAESDataLogger.html" data-type="Class" class="code">cma.purecma.CMAESDataLogger</a></div>
-    
-    <div>abstract method, plot data<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.interfaces.BaseDataLogger.save">
-    
-  </a>
-  <a name="save">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    save(self, name=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAESDataLogger.html" data-type="Class" class="code">cma.purecma.CMAESDataLogger</a></div>
-    
-    <div>save data to file <code>name</code> or <code>self.filename</code><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.interfaces.BaseDataLogger.load">
     
@@ -227,16 +216,114 @@ into the logger.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    load(self, name=None):
+    <span class="py-keyword">def</span> <span class="py-defname">load</span>(self, name=None):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.purecma.CMAESDataLogger.html" data-type="Class" class="code">cma.purecma.CMAESDataLogger</a></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
     
-    <div>load data from file <code>name</code> or <code>self.filename</code><table class="fieldTable"></table></div>
+    <div>load data from file <code>name</code> or <code>self.filename</code></div>
   </div>
 </div><div class="basemethod">
+  
+  
+  <a name="cma.interfaces.BaseDataLogger.plot">
+    
+  </a>
+  <a name="plot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
+    
+    <div>abstract method, plot data</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.interfaces.BaseDataLogger.register">
+    
+  </a>
+  <a name="register">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">register</span>(self, optim, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
+    
+    <div>register an optimizer <tt class="rst-docutils literal">optim</tt>, only needed if method <code><a href="#add" class="internal-link" title="cma.interfaces.BaseDataLogger.add">add</a></code> is
+called without passing the <tt class="rst-docutils literal">optim</tt> argument</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.interfaces.BaseDataLogger.save">
+    
+  </a>
+  <a name="save">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">save</span>(self, name=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
+    
+    <div>save data to file <code>name</code> or <code>self.filename</code></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.interfaces.BaseDataLogger.filename">
+    
+  </a>
+  <a name="filename">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">filename</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>file to save to or load from unless specified otherwise</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.interfaces.BaseDataLogger.optim">
+    
+  </a>
+  <a name="optim">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">optim</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>object instance to be logging data from</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
   
   <a name="cma.interfaces.BaseDataLogger.data">
     
@@ -246,25 +333,50 @@ into the logger.</p>
   </a>
   <div class="functionHeader">
     @property<br />
-    def
-    data(self):
+    <span class="py-defname">data</span> =
     
   </div>
-  <div class="docstring functionBody">
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
+    
+    <div>logged data in a dictionary</div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.interfaces.BaseDataLogger._data">
+    
+  </a>
+  <a name="_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_data</span> =
+    
+  </div>
+  <div class="functionBody">
     
     
-    <div>logged data in a dictionary<table class="fieldTable"></table></div>
+    <div><code>dict</code> of logged data</div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

@@ -2,47 +2,75 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="package"><code>cma</code> <small>package documentation</small></h1>
+        <h1 class="package"><code><code><a href="index.html" class="internal-link">cma</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          
-          
-          
-        </span>
+      <div class="categoryHeader">
+        package documentation
       </div>
 
       <div class="extrasDocstring">
         
+        <p></p>
       </div>
 
       <div class="moduleDocstring">
-        <div><p>Package <a href="cma.html"><code>cma</code></a> implements the CMA-ES (Covariance Matrix Adaptation
+        <div><p>Package <code><a href="index.html" class="internal-link">cma</a></code> implements the CMA-ES (Covariance Matrix Adaptation
 Evolution Strategy).</p>
 <p>CMA-ES is a stochastic optimizer for robust non-linear non-convex
 derivative- and function-value-free numerical optimization.</p>
@@ -55,31 +83,31 @@ solutions in each iteration is necessary. Neither the function values
 itself, nor the gradient of f need to be available or do matter (like
 in the downhill simplex Nelder-Mead algorithm). Some termination
 criteria however depend on actual f-values.</p>
-<p>The <a href="cma.html"><code>cma</code></a> module provides two independent implementations of the
-CMA-ES algorithm in the classes <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>cma.CMAEvolutionStrategy</code></a> and
-<a href="cma.purecma.CMAES.html"><code>cma.purecma.CMAES</code></a>.</p>
+<p>The <code><a href="index.html" class="internal-link">cma</a></code> module provides two independent implementations of the
+CMA-ES algorithm in the classes <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">cma.CMAEvolutionStrategy</a></code> and
+<code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code>.</p>
 <p>In each implementation two interfaces are provided:</p>
 <ul class="rst-simple">
 <li><dl class="rst-first rst-docutils">
-<dt>functions <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> and <a href="cma.purecma.html#fmin"><code>purecma.fmin</code></a>:</dt>
+<dt>functions <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> and <code><a href="cma.purecma.html#fmin" class="internal-link" title="cma.purecma.fmin">purecma.fmin</a></code>:</dt>
 <dd>run a complete minimization of the passed objective function with
-CMA-ES. <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> also provides optional restarts and noise handling.</dd>
+CMA-ES. <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> also provides optional restarts and noise handling.</dd>
 </dl>
 </li>
 <li><dl class="rst-first rst-docutils">
-<dt>class <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> and <a href="cma.purecma.CMAES.html"><code>purecma.CMAES</code></a>:</dt>
+<dt>class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> and <code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">purecma.CMAES</a></code>:</dt>
 <dd>allow for minimization such that the control of the iteration
 loop remains with the user.</dd>
 </dl>
 </li>
 </ul>
-<p>The <a href="cma.html"><code>cma</code></a> package root provides shortcuts to these and other classes and
+<p>The <code><a href="index.html" class="internal-link">cma</a></code> package root provides shortcuts to these and other classes and
 functions.</p>
-<p>Used external packages are <code>numpy</code> (only <a href="cma.purecma.html"><code>purecma</code></a> does not depend on
-<code>numpy</code>) and <code>matplotlib.pyplot</code> (for <a href="cma.logger.html#plot"><code>plot</code></a> etc., optional but highly
+<p>Used external packages are <code>numpy</code> (only <code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code> does not depend on
+<code>numpy</code>) and <code>matplotlib.pyplot</code> (for <code><a href="cma.logger.html#plot" class="internal-link" title="cma.logger.plot">plot</a></code> etc., optional but highly
 recommended).</p>
 <div class="rst-section" id="rst-install">
-<h1 class="heading">Install</h1>
+<h2 class="heading">Install</h2>
 <p>To use the module, the folder <tt class="rst-docutils literal">cma</tt> only needs to be visible in the
 python path, e.g. in the current working directory.</p>
 <p>To install the module from pipy, type:</p>
@@ -95,7 +123,7 @@ pip install -e cma
 option.</p>
 </div>
 <div class="rst-section" id="rst-testing">
-<h1 class="heading">Testing</h1>
+<h2 class="heading">Testing</h2>
 <p>From the system shell:</p>
 <pre class="rst-literal-block">
 python -m cma.test -h
@@ -110,7 +138,7 @@ cma.test.main()
 <p>should run without complaints in about between 20 and 100 seconds.</p>
 </div>
 <div class="rst-section" id="rst-example">
-<h1 class="heading">Example</h1>
+<h2 class="heading">Example</h2>
 <p>From a python shell:</p>
 <pre class="rst-literal-block">
 import cma
@@ -126,126 +154,212 @@ help(es.result)
 res[0], es.result[0]  # best evaluated solution
 res[5], es.result[5]  # mean solution, presumably better with noise
 </pre>
-</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Authors</td><td colspan="2">Nikolaus Hansen, 2008-</td></tr><tr><td></td><td colspan="2">Petr Baudis, 2014</td></tr><tr><td></td><td colspan="2">Youhei Akimoto, 2017-</td></tr><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> (), <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a></td></tr><tr class="fieldStart"><td class="fieldName">Unknown Field: license</td><td colspan="2">BSD 3-Clause, see LICENSE file.</td></tr></table></div>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Authors</td></tr><tr><td colspan="2">Nikolaus Hansen, 2008-</td></tr><tr><td colspan="2">Petr Baudis, 2014</td></tr><tr><td colspan="2">Youhei Akimoto, 2017-</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> (), <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Unknown Field: license</td></tr><tr><td colspan="2">BSD 3-Clause, see LICENSE file.</td></tr></table></div>
       </div>
 
       <div id="splitTables">
         <table class="children sortable" id="id1">
   
-  <tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.bbobbenchmarks.html" data-type="Module" class="code">bbobbenchmarks</a></td>
-    <td><span>BBOB noiseless testbed.</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.constraints_handler.html" data-type="Module" class="code">constraints_handler</a></td>
-    <td><span>A collection of boundary and (in future) constraints handling classes.</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.evolution_strategy.html" data-type="Module" class="code">evolution_strategy</a></td>
-    <td><span>CMA-ES (evolution strategy), the main sub-module of <a href="cma.html"><code>cma</code></a> providing in particular <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>, and <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a></span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.fitness_functions.html" data-type="Module" class="code">fitness_functions</a></td>
-    <td><span>versatile container for test objective functions.</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.fitness_models.html" data-type="Module" class="code">fitness_models</a></td>
-    <td><span>Fitness surrogate model classes and handler for incremental evaluations.</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.fitness_transformations.html" data-type="Module" class="code">fitness_transformations</a></td>
-    <td><span>Wrapper for objective functions like noise, rotation, gluing args</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.interfaces.html" data-type="Module" class="code">interfaces</a></td>
-    <td><span>Very few interface defining base class definitions</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.logger.html" data-type="Module" class="code">logger</a></td>
-    <td><span>logger class mainly to be used with <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a></span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.optimization_tools.html" data-type="Module" class="code">optimization_tools</a></td>
-    <td><span>Utility classes and functionalities loosely related to optimization</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.purecma.html" data-type="Module" class="code">purecma</a></td>
-    <td><span>A minimalistic implemention of CMA-ES without using <code>numpy</code>.</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.recombination_weights.html" data-type="Module" class="code">recombination_weights</a></td>
-    <td><span class="undocumented">No summary</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.restricted_gaussian_sampler.html" data-type="Module" class="code">restricted_gaussian_sampler</a></td>
-    <td><span>VD-CMA and VkD-CMA</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.s.html" data-type="Module" class="code">s</a></td>
-    <td><span>versatile shortcuts for quick typing in an (i)python shell or even <tt class="rst-docutils literal">from cma.s import *</tt> in interactive sessions.</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.sampler.html" data-type="Module" class="code">sampler</a></td>
-    <td><span>Collection of classes that sample from parametrized distributions and provide an update mechanism of the distribution parameters.</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.sigma_adaptation.html" data-type="Module" class="code">sigma_adaptation</a></td>
-    <td><span>step-size adaptation classes, currently tightly linked to CMA, because <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#hsig"><code>hsig</code></a> is computed in the base class</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.test.html" data-type="Module" class="code">test</a></td>
-    <td><span>test module of <a href="cma.html"><code>cma</code></a> package.</span></td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><a href="cma.transformations.html" data-type="Module" class="code">transformations</a></td>
-    <td><span>Search space transformation and encoding/decoding classes</span></td>
-  </tr><tr class="package">
+  
+  <tr class="package">
     
     <td>Package</td>
-    <td><a href="cma.utilities.html" data-type="Package" class="code">utilities</a></td>
-    <td><span>various unspecific utilities</span></td>
+    <td><code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code></td>
+    <td>various unspecific utilities</td>
   </tr><tr class="module">
     
     <td>Module</td>
-    <td><a href="cma.wrapper.html" data-type="Module" class="code">wrapper</a></td>
-    <td><span>Interface wrappers for the <a href="cma.html"><code>cma</code></a> module.</span></td>
+    <td><code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code></td>
+    <td>BBOB noiseless testbed.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints​_handler</a></code></td>
+    <td>A collection of boundary and (in future) constraints handling classes.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution​_strategy</a></code></td>
+    <td>CMA-ES (evolution strategy), the main sub-module of <code><a href="index.html" class="internal-link">cma</a></code> providing in particular <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, and <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code></td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.fitness_functions.html" class="internal-link" title="cma.fitness_functions">fitness​_functions</a></code></td>
+    <td>versatile container for test objective functions.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness​_models</a></code></td>
+    <td>Fitness surrogate model classes and handler for incremental evaluations.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness​_transformations</a></code></td>
+    <td>Wrapper for objective functions like noise, rotation, gluing args</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.interfaces.html" class="internal-link" title="cma.interfaces">interfaces</a></code></td>
+    <td>Very few interface defining base class definitions</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.logger.html" class="internal-link" title="cma.logger">logger</a></code></td>
+    <td>logger class mainly to be used with <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization​_tools</a></code></td>
+    <td>Utility classes and functionalities loosely related to optimization</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code></td>
+    <td>A minimalistic implemention of CMA-ES without using <code>numpy</code>.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.recombination_weights.html" class="internal-link" title="cma.recombination_weights">recombination​_weights</a></code></td>
+    <td><code><a href="cma.recombination_weights.RecombinationWeights.html" class="internal-link" title="cma.recombination_weights.RecombinationWeights">RecombinationWeights</a></code> is a list of recombination weights for the CMA-ES.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted​_gaussian​_sampler</a></code></td>
+    <td>VD-CMA and VkD-CMA</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code></td>
+    <td>versatile shortcuts for quick typing in an (i)python shell or even <tt class="rst-docutils literal">from cma.s import *</tt> in interactive sessions.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.sampler.html" class="internal-link" title="cma.sampler">sampler</a></code></td>
+    <td>Collection of classes that sample from parametrized distributions and provide an update mechanism of the distribution parameters.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.sigma_adaptation.html" class="internal-link" title="cma.sigma_adaptation">sigma​_adaptation</a></code></td>
+    <td>step-size adaptation classes, currently tightly linked to CMA, because <code><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#hsig" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.hsig">hsig</a></code> is computed in the base class</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.test.html" class="internal-link" title="cma.test">test</a></code></td>
+    <td>test module of <code><a href="index.html" class="internal-link">cma</a></code> package.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code></td>
+    <td>Search space transformation and encoding/decoding classes</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.wrapper.html" class="internal-link" title="cma.wrapper">wrapper</a></code></td>
+    <td>Interface wrappers for the <code><a href="index.html" class="internal-link">cma</a></code> module.</td>
   </tr>
 </table>
         
 
-          
+          <p class="fromInitPy">From <code>__init__.py</code>:</p><table class="children sortable" id="id2">
+  
+  
+  <tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#___author__" class="internal-link" title="cma.___author__">__​_author__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#__license__" class="internal-link" title="cma.__license__">__license__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#__version__" class="internal-link" title="cma.__version__">__version__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
       </div>
 
       <div id="childList">
 
-        
+        <div class="basevariable">
+  
+  
+  <a name="cma.___author__">
+    
+  </a>
+  <a name="___author__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">___author__</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.__license__">
+    
+  </a>
+  <a name="__license__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__license__</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.__version__">
+    
+  </a>
+  <a name="__version__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__version__</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

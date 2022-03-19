@@ -2,71 +2,102 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.constraints_handler.DequeCDF : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.constraints_handler.DequeCDF</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.constraints_handler.DequeCDF(<span title="collections.deque">_collections.deque</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints_handler</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.DequeCDF.html" class="internal-link" title="cma.constraints_handler.DequeCDF">DequeCDF</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.constraints_handler.html" data-type="Module" class="code">constraints_handler</a></code>
-          
-          <a href="classIndex.html#cma.constraints_handler.DequeCDF">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">DequeCDF</span>(_collections.deque):</code></p>
+        <p><a href="classIndex.html#cma.constraints_handler.DequeCDF">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>a queue with (in case) element-wise cdf computation.</p>
-<p>The <code>deque</code> is here used like a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> with maximum length functionality,
-the (inherited) constructor takes <code>maxlen</code> as keyword argument (since Python 2.6).</p>
+<p>The <code>deque</code> is here used like a <code>list</code> with maximum length functionality,
+the (inherited) constructor takes <code><a href="cma.constraints_handler.ConstrainedSolutionsArchive.html#maxlen" class="internal-link" title="cma.constraints_handler.ConstrainedSolutionsArchive.maxlen">maxlen</a></code> as keyword argument (since Python 2.6).</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>d = cma.constraints_handler.DequeCDF(maxlen=22)
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(5):
 <span class="py-more">... </span>    d.append([i])
-<span class="py-prompt">&gt;&gt;&gt; </span>d.cdf(0, 0), d.cdf(0, 2), d.cdf(0, 2.1), d.cdf(0, 22.1), d.cdf(0, 4, 2)
-<span class="py-output">(0.1, 0.5, 0.6, 1.0, 0.75)</span></pre><table class="fieldTable"></table></div>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-string">' '</span>.join([<span class="py-string">'{:.2}'</span>.format(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span>
+<span class="py-more">... </span>                  [d.cdf(0, 0), d.cdf(0, 2), d.cdf(0, 2.1), d.cdf(0, 22.1), d.cdf(0, 4, 2)]])
+<span class="py-output">'0.1 0.5 0.6 1.0 0.75'</span>
+</pre></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id362">
+        <table class="children sortable" id="id393">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.DequeCDF.html#cdf" data-type="Method" class="code">cdf</a></td>
-    <td><span>return ecdf(<code>val</code>) from the <code>i</code>-th element of the last <code>len_</code> values in self,</span></td>
+    <td><code><a href="#cdf" class="internal-link" title="cma.constraints_handler.DequeCDF.cdf">cdf</a></code></td>
+    <td>return ecdf(<code>val</code>) from the <code>i</code>-th element of the last <code>len_</code> values in self,</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.DequeCDF.html#cdf1" data-type="Method" class="code">cdf1</a></td>
-    <td><span>return ECDF at <code>val</code> in case this is a <code>deque</code> of scalars</span></td>
+    <td><code><a href="#cdf1" class="internal-link" title="cma.constraints_handler.DequeCDF.cdf1">cdf1</a></code></td>
+    <td>return ECDF at <code>val</code> in case this is a <code>deque</code> of scalars</td>
   </tr>
 </table>
         
@@ -78,6 +109,7 @@ the (inherited) constructor takes <code>maxlen</code> as keyword argument (since
 
         <div class="basemethod">
   
+  
   <a name="cma.constraints_handler.DequeCDF.cdf">
     
   </a>
@@ -86,8 +118,7 @@ the (inherited) constructor takes <code>maxlen</code> as keyword argument (since
   </a>
   <div class="functionHeader">
     
-    def
-    cdf(self, i, val=0, len_=None):
+    <span class="py-keyword">def</span> <span class="py-defname">cdf</span>(self, i, val=0, len_=None):
     
   </div>
   <div class="docstring functionBody">
@@ -96,9 +127,11 @@ the (inherited) constructor takes <code>maxlen</code> as keyword argument (since
     <div><p>return ecdf(<code>val</code>) from the <code>i</code>-th element of the last <code>len_</code>
 values in self,</p>
 <p>in other words, the ratio of values in <tt class="rst-docutils literal"><span class="pre">self[-len_:][i]</span></tt> to
-be smaller than <code>val</code>.</p><table class="fieldTable"></table></div>
+be smaller than <code>val</code>.</p>
+</div>
   </div>
 </div><div class="basemethod">
+  
   
   <a name="cma.constraints_handler.DequeCDF.cdf1">
     
@@ -108,25 +141,29 @@ be smaller than <code>val</code>.</p><table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    cdf1(self, val=0, len_=None):
+    <span class="py-keyword">def</span> <span class="py-defname">cdf1</span>(self, val=0, len_=None):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>return ECDF at <code>val</code> in case this is a <code>deque</code> of scalars<table class="fieldTable"></table></div>
+    <div>return ECDF at <code>val</code> in case this is a <code>deque</code> of scalars</div>
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

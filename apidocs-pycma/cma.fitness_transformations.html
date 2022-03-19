@@ -2,117 +2,151 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.fitness_transformations : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.fitness_transformations</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="module"><code>cma.fitness_transformations</code> <small>module documentation</small></h1>
+        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness_transformations</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
-          
-          
-        </span>
+      <div class="categoryHeader">
+        module documentation
       </div>
 
       <div class="extrasDocstring">
         
+        <p></p>
       </div>
 
       <div class="moduleDocstring">
-        <div>Wrapper for objective functions like noise, rotation, gluing args<table class="fieldTable"></table></div>
+        <div>Wrapper for objective functions like noise, rotation, gluing args</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id389">
+        <table class="children sortable" id="id423">
+  
   
   <tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.Function.html" data-type="Class" class="code">Function</a></td>
-    <td><span>a declarative base class, indicating that a derived class instance "is" a (fitness/objective) function.</span></td>
+    <td><code><a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link" title="cma.fitness_transformations.ComposedFunction">​Composed​Function</a></code></td>
+    <td>compose an arbitrary number of functions.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.ComposedFunction.html" data-type="Class" class="code">ComposedFunction</a></td>
-    <td><span>compose an arbitrary number of functions.</span></td>
+    <td><code><a href="cma.fitness_transformations.Expensify.html" class="internal-link" title="cma.fitness_transformations.Expensify">​Expensify</a></code></td>
+    <td>Add waiting time to each evaluation, to simulate "expensive" behavior</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.StackFunction.html" data-type="Class" class="code">StackFunction</a></td>
-    <td><span>a function that returns <tt class="rst-docutils literal"><span class="pre">f1(x[:n1])</span> + <span class="pre">f2(x[n1:])</span></tt>.</span></td>
+    <td><code><a href="cma.fitness_transformations.FBoundTransform.html" class="internal-link" title="cma.fitness_transformations.FBoundTransform">​FBound​Transform</a></code></td>
+    <td>shortcut for <tt class="rst-docutils literal"><span class="pre">ComposedFunction([f,</span> <span class="pre">BoundTransform(bounds).transform])</span></tt>, see also below.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.GlueArguments.html" data-type="Class" class="code">GlueArguments</a></td>
-    <td><span>deprecated, use <a href="http://docs.python.org/library/functools.html#functools.partial"><code>functools.partial</code></a> or <a href="http://docs.python.org/library/functools.html#functools.partial"><code>cma.fitness_transformations.partial</code></a> instead, which has the same functionality and interface.</span></td>
+    <td><code><a href="cma.fitness_transformations.FixVariables.html" class="internal-link" title="cma.fitness_transformations.FixVariables">​Fix​Variables</a></code></td>
+    <td>Insert variables with given values, thereby reducing the dimensionality of the resulting composed function.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.FBoundTransform.html" data-type="Class" class="code">FBoundTransform</a></td>
-    <td><span>shortcut for <tt class="rst-docutils literal"><span class="pre">ComposedFunction([f,</span> <span class="pre">BoundTransform(bounds).transform])</span></tt>, see also below.</span></td>
+    <td><code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">​Function</a></code></td>
+    <td>a declarative base class, indicating that a derived class instance "is" a (fitness/objective) function.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.Rotated.html" data-type="Class" class="code">Rotated</a></td>
-    <td><span>return a rotated version of a function for testing purpose.</span></td>
+    <td><code><a href="cma.fitness_transformations.GlueArguments.html" class="internal-link" title="cma.fitness_transformations.GlueArguments">​Glue​Arguments</a></code></td>
+    <td>deprecated, use <code>functools.partial</code> or <code>cma.fitness_transformations.partial</code> instead, which has the same functionality and interface.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.Shifted.html" data-type="Class" class="code">Shifted</a></td>
-    <td><span>compose a function with a shift in x-space.</span></td>
+    <td><code><a href="cma.fitness_transformations.IntegerMixedFunction.html" class="internal-link" title="cma.fitness_transformations.IntegerMixedFunction">​Integer​Mixed​Function</a></code></td>
+    <td>compose fitness function with some integer variables.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.ScaleCoordinates.html" data-type="Class" class="code">ScaleCoordinates</a></td>
-    <td><span>compose a (fitness) function with a scaling for each variable (more concisely, a coordinate-wise affine transformation).</span></td>
+    <td><code><a href="cma.fitness_transformations.NoisyFitness.html" class="internal-link" title="cma.fitness_transformations.NoisyFitness">​Noisy​Fitness</a></code></td>
+    <td>apply noise via <tt class="rst-docutils literal">f += rel_noise(dim) * f + abs_noise(dim)</tt></td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.FixVariables.html" data-type="Class" class="code">FixVariables</a></td>
-    <td><span>Insert variables with given values, thereby reducing the dimensionality of the resulting composed function.</span></td>
+    <td><code><a href="cma.fitness_transformations.Rotated.html" class="internal-link" title="cma.fitness_transformations.Rotated">​Rotated</a></code></td>
+    <td>return a rotated version of a function for testing purpose.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.Expensify.html" data-type="Class" class="code">Expensify</a></td>
-    <td><span>Add waiting time to each evaluation, to simulate "expensive" behavior</span></td>
+    <td><code><a href="cma.fitness_transformations.ScaleCoordinates.html" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates">​Scale​Coordinates</a></code></td>
+    <td>compose a (fitness) function with a scaling for each variable (more concisely, a coordinate-wise affine transformation).</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.SomeNaNFitness.html" data-type="Class" class="code">SomeNaNFitness</a></td>
-    <td><span>transform <tt class="rst-docutils literal">fitness_function</tt> to return sometimes <tt class="rst-docutils literal">NaN</tt></span></td>
+    <td><code><a href="cma.fitness_transformations.Shifted.html" class="internal-link" title="cma.fitness_transformations.Shifted">​Shifted</a></code></td>
+    <td>compose a function with a shift in x-space.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.NoisyFitness.html" data-type="Class" class="code">NoisyFitness</a></td>
-    <td><span>apply noise via <tt class="rst-docutils literal">f += rel_noise(dim) * f + abs_noise(dim)</tt></span></td>
+    <td><code><a href="cma.fitness_transformations.SomeNaNFitness.html" class="internal-link" title="cma.fitness_transformations.SomeNaNFitness">​Some​Na​NFitness</a></code></td>
+    <td>transform <tt class="rst-docutils literal">fitness_function</tt> to return sometimes <tt class="rst-docutils literal">NaN</tt></td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_transformations.IntegerMixedFunction.html" data-type="Class" class="code">IntegerMixedFunction</a></td>
-    <td><span>compose fitness function with some integer variables.</span></td>
+    <td><code><a href="cma.fitness_transformations.StackFunction.html" class="internal-link" title="cma.fitness_transformations.StackFunction">​Stack​Function</a></code></td>
+    <td>a function that returns <tt class="rst-docutils literal"><span class="pre">f1(x[:n1])</span> + <span class="pre">f2(x[n1:])</span></tt>.</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#rotate" class="internal-link" title="cma.fitness_transformations.rotate">rotate</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
@@ -122,16 +156,41 @@
 
       <div id="childList">
 
-        
+        <div class="basevariable">
+  
+  
+  <a name="cma.fitness_transformations.rotate">
+    
+  </a>
+  <a name="rotate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">rotate</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

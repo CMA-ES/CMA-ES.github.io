@@ -2,92 +2,121 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.transformations : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.transformations</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="module"><code>cma.transformations</code> <small>module documentation</small></h1>
+        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
-          
-          
-        </span>
+      <div class="categoryHeader">
+        module documentation
       </div>
 
       <div class="extrasDocstring">
         
+        <p></p>
       </div>
 
       <div class="moduleDocstring">
-        <div>Search space transformation and encoding/decoding classes<table class="fieldTable"></table></div>
+        <div>Search space transformation and encoding/decoding classes</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id486">
+        <table class="children sortable" id="id521">
+  
   
   <tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.transformations.ConstRandnShift.html" data-type="Class" class="code">ConstRandnShift</a></td>
-    <td><span><tt class="rst-docutils literal"><span class="pre">ConstRandnShift()(x)</span></tt> adds a fixed realization of <tt class="rst-docutils literal">stddev * randn(len(x))</tt> to the vector <tt class="rst-docutils literal">x</tt>.</span></td>
+    <td><code><a href="cma.transformations.AdaptiveDecoding.html" class="internal-link" title="cma.transformations.AdaptiveDecoding">​Adaptive​Decoding</a></code></td>
+    <td>base class for adaptive decoding.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.transformations.Rotation.html" data-type="Class" class="code">Rotation</a></td>
-    <td><span>implement an orthogonal linear transformation for each dimension.</span></td>
+    <td><code><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation">​Box​Constraints​Lin​Quad​Transformation</a></code></td>
+    <td>implement a bijective, monotonous transformation between <tt class="rst-docutils literal">[lb - al, ub + au]</tt> and <tt class="rst-docutils literal">[lb, ub]</tt>.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.transformations.BoxConstraintsTransformationBase.html" data-type="Class" class="code">BoxConstraintsTransformationBase</a></td>
-    <td><span>Implements a transformation into boundaries and is used in top level boundary handling classes.</span></td>
+    <td><code><a href="cma.transformations.BoxConstraintsTransformationBase.html" class="internal-link" title="cma.transformations.BoxConstraintsTransformationBase">​Box​Constraints​Transformation​Base</a></code></td>
+    <td>Implements a transformation into boundaries and is used in top level boundary handling classes.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html" data-type="Class" class="code">BoxConstraintsLinQuadTransformation</a></td>
-    <td><span>implement a bijective, monotonous transformation between <tt class="rst-docutils literal">[lb - al, ub + au]</tt> and <tt class="rst-docutils literal">[lb, ub]</tt>.</span></td>
+    <td><code><a href="cma.transformations.ConstRandnShift.html" class="internal-link" title="cma.transformations.ConstRandnShift">​Const​Randn​Shift</a></code></td>
+    <td><tt class="rst-docutils literal"><span class="pre">ConstRandnShift()(x)</span></tt> adds a fixed realization of <tt class="rst-docutils literal">stddev * randn(len(x))</tt> to the vector <tt class="rst-docutils literal">x</tt>.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html" data-type="Class" class="code">AdaptiveDecoding</a></td>
-    <td><span>base class for adaptive decoding.</span></td>
+    <td><code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link" title="cma.transformations.DiagonalDecoding">​Diagonal​Decoding</a></code></td>
+    <td>Diagonal linear transformation.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.transformations.DiagonalDecoding.html" data-type="Class" class="code">DiagonalDecoding</a></td>
-    <td><span>Diagonal linear transformation.</span></td>
+    <td><code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">​Geno​Pheno</a></code></td>
+    <td>Genotype-phenotype transformation.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.transformations.GenoPheno.html" data-type="Class" class="code">GenoPheno</a></td>
-    <td><span>Genotype-phenotype transformation.</span></td>
+    <td><code><a href="cma.transformations.Rotation.html" class="internal-link" title="cma.transformations.Rotation">​Rotation</a></code></td>
+    <td>implement an orthogonal linear transformation for each dimension.</td>
   </tr><tr class="class private">
     
     <td>Class</td>
-    <td><a href="cma.transformations._BoxConstraintsTransformationTemplate.html" data-type="Class" class="code">_BoxConstraintsTransformationTemplate</a></td>
-    <td><span>copy/paste this template to implement a new boundary handling transformation</span></td>
+    <td><code><a href="cma.transformations._BoxConstraintsTransformationTemplate.html" class="internal-link" title="cma.transformations._BoxConstraintsTransformationTemplate">_​Box​Constraints​Transformation​Template</a></code></td>
+    <td>copy/paste this template to implement a new boundary handling transformation</td>
   </tr>
 </table>
         
@@ -100,13 +129,18 @@
         
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

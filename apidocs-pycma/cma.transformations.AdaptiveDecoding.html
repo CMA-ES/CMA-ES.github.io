@@ -2,43 +2,71 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.transformations.AdaptiveDecoding : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.transformations.AdaptiveDecoding</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.transformations.AdaptiveDecoding(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code><wbr></wbr>.<code><a href="cma.transformations.AdaptiveDecoding.html" class="internal-link" title="cma.transformations.AdaptiveDecoding">AdaptiveDecoding</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.transformations.html" data-type="Module" class="code">transformations</a></code>
-          
-          <a href="classIndex.html#cma.transformations.AdaptiveDecoding">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        <p>Known subclasses: <a href="cma.transformations.DiagonalDecoding.html" data-type="Class" class="code">cma.transformations.DiagonalDecoding</a></p>
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">AdaptiveDecoding</span>(object):</code></p><p>Known subclasses: <code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link">cma.transformations.DiagonalDecoding</a></code></p>
+        <p><a href="classIndex.html#cma.transformations.AdaptiveDecoding">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
@@ -46,57 +74,59 @@
 <p>The adaptive decoding class is "dual" to the StasticalModel class,
 in that for linear transformations adapting either one or the other
 is equivalent.</p>
-<p>TODO: this is a stump</p><table class="fieldTable"></table></div>
+<p>TODO: this is a stump</p>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id494">
+        <table class="children sortable" id="id529">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span><tt class="rst-docutils literal">len(scaling)</tt> determines the dimension.</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.transformations.AdaptiveDecoding.__init__">__init__</a></code></td>
+    <td><tt class="rst-docutils literal">len(scaling)</tt> determines the dimension.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html#transform" data-type="Method" class="code">transform</a></td>
-    <td><span>apply the transformation / decoding AKA geno-pheno tf</span></td>
+    <td><code><a href="#__mul__" class="internal-link" title="cma.transformations.AdaptiveDecoding.__mul__">__mul__</a></code></td>
+    <td>A linear transformation expressed by multiplication</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html#transform_inverse" data-type="Method" class="code">transform_inverse</a></td>
-    <td><span>inverse transformation (encoding), might return None</span></td>
+    <td><code><a href="#norm" class="internal-link" title="cma.transformations.AdaptiveDecoding.norm">norm</a></code></td>
+    <td>return norm of <tt class="rst-docutils literal">x</tt> prior to the transformation</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html#__mul__" data-type="Method" class="code">__mul__</a></td>
-    <td><span>A linear transformation expressed by multiplication</span></td>
+    <td><code><a href="#transform" class="internal-link" title="cma.transformations.AdaptiveDecoding.transform">transform</a></code></td>
+    <td>apply the transformation / decoding AKA geno-pheno tf</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html#update" data-type="Method" class="code">update</a></td>
-    <td><span>AKA update.</span></td>
+    <td><code><a href="#transform_inverse" class="internal-link" title="cma.transformations.AdaptiveDecoding.transform_inverse">transform​_inverse</a></code></td>
+    <td>inverse transformation (encoding), might return None</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html#norm" data-type="Method" class="code">norm</a></td>
-    <td><span>return norm of <tt class="rst-docutils literal">x</tt> prior to the transformation</span></td>
+    <td><code><a href="#update" class="internal-link" title="cma.transformations.AdaptiveDecoding.update">update</a></code></td>
+    <td>AKA update.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html#update_now" data-type="Method" class="code">update_now</a></td>
-    <td><span>update model here, if lazy update is implemented</span></td>
-  </tr><tr class="method">
+    <td><code><a href="#update_now" class="internal-link" title="cma.transformations.AdaptiveDecoding.update_now">update​_now</a></code></td>
+    <td>update model here, if lazy update is implemented</td>
+  </tr><tr class="property">
     
-    <td>Method</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html#correlation_matrix" data-type="Method" class="code">correlation_matrix</a></td>
-    <td><span>return correlation matrix or None</span></td>
-  </tr><tr class="method">
+    <td>Property</td>
+    <td><code><a href="#condition_number" class="internal-link" title="cma.transformations.AdaptiveDecoding.condition_number">condition​_number</a></code></td>
+    <td>return condition number of the squared transformation matrix</td>
+  </tr><tr class="property">
     
-    <td>Method</td>
-    <td><a href="cma.transformations.AdaptiveDecoding.html#condition_number" data-type="Method" class="code">condition_number</a></td>
-    <td><span>return condition number of the squared transformation matrix</span></td>
+    <td>Property</td>
+    <td><code><a href="#correlation_matrix" class="internal-link" title="cma.transformations.AdaptiveDecoding.correlation_matrix">correlation​_matrix</a></code></td>
+    <td>return correlation matrix or None</td>
   </tr>
 </table>
         
@@ -108,6 +138,7 @@ is equivalent.</p>
 
         <div class="basemethod">
   
+  
   <a name="cma.transformations.AdaptiveDecoding.__init__">
     
   </a>
@@ -116,55 +147,18 @@ is equivalent.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self, scaling):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, scaling):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.transformations.DiagonalDecoding.html" data-type="Class" class="code">cma.transformations.DiagonalDecoding</a></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link">cma.transformations.DiagonalDecoding</a></code></div>
     
     <div><p><tt class="rst-docutils literal">len(scaling)</tt> determines the dimension.</p>
-<p>The initial transformation is (typically) <code>np.diag(scaling)</code>.</p><table class="fieldTable"></table></div>
+<p>The initial transformation is (typically) <code>np.diag(scaling)</code>.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.transformations.AdaptiveDecoding.transform">
-    
-  </a>
-  <a name="transform">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    transform(self, x):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.transformations.DiagonalDecoding.html" data-type="Class" class="code">cma.transformations.DiagonalDecoding</a></div>
-    
-    <div>apply the transformation / decoding AKA geno-pheno tf<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.transformations.AdaptiveDecoding.transform_inverse">
-    
-  </a>
-  <a name="transform_inverse">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    transform_inverse(self, x):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.transformations.DiagonalDecoding.html" data-type="Class" class="code">cma.transformations.DiagonalDecoding</a></div>
-    
-    <div>inverse transformation (encoding), might return None<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.transformations.AdaptiveDecoding.__mul__">
     
@@ -174,16 +168,73 @@ is equivalent.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    __mul__(self, x):
+    <span class="py-keyword">def</span> <span class="py-defname">__mul__</span>(self, x):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.transformations.DiagonalDecoding.html" data-type="Class" class="code">cma.transformations.DiagonalDecoding</a></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link">cma.transformations.DiagonalDecoding</a></code></div>
     
-    <div>A linear transformation expressed by multiplication<table class="fieldTable"></table></div>
+    <div>A linear transformation expressed by multiplication</div>
   </div>
 </div><div class="basemethod">
+  
+  
+  <a name="cma.transformations.AdaptiveDecoding.norm">
+    
+  </a>
+  <a name="norm">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">norm</span>(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return norm of <tt class="rst-docutils literal">x</tt> prior to the transformation</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.transformations.AdaptiveDecoding.transform">
+    
+  </a>
+  <a name="transform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">transform</span>(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link">cma.transformations.DiagonalDecoding</a></code></div>
+    
+    <div>apply the transformation / decoding AKA geno-pheno tf</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.transformations.AdaptiveDecoding.transform_inverse">
+    
+  </a>
+  <a name="transform_inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">transform_inverse</span>(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link">cma.transformations.DiagonalDecoding</a></code></div>
+    
+    <div>inverse transformation (encoding), might return None</div>
+  </div>
+</div><div class="basemethod">
+  
   
   <a name="cma.transformations.AdaptiveDecoding.update">
     
@@ -193,12 +244,11 @@ is equivalent.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    update(self, vectors, weights):
+    <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, vectors, weights):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.transformations.DiagonalDecoding.html" data-type="Class" class="code">cma.transformations.DiagonalDecoding</a></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link">cma.transformations.DiagonalDecoding</a></code></div>
     
     <div><p>AKA update.</p>
 <p><tt class="rst-docutils literal">vectors</tt> are "isotropic", e.g.:</p>
@@ -214,28 +264,11 @@ sm.update([y / ad], [0.01]) # remark that y / ad != z
 <p>where the symmetric transformation <tt class="rst-docutils literal">sm.transform_inverse(z)</tt>
 makes <tt class="rst-docutils literal">z</tt> isotropic.</p>
 <p>TODO: what exactly does this mean, is this a generic
-construction, is this even the right construction?</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">vectors</td><td>is a list of samples.</td></tr><tr><td></td><td class="fieldArg">weights</td><td>define a learning rate for each vector.</td></tr></table></div>
+construction, is this even the right construction?</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vectors</span></td><td class="fieldArgDesc">is a list of samples.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">weights</span></td><td class="fieldArgDesc">define a learning rate for each vector.</td></tr></table></div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.transformations.AdaptiveDecoding.norm">
-    
-  </a>
-  <a name="norm">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    norm(self, x):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return norm of <tt class="rst-docutils literal">x</tt> prior to the transformation<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.transformations.AdaptiveDecoding.update_now">
     
@@ -245,35 +278,16 @@ construction, is this even the right construction?</p><table class="fieldTable">
   </a>
   <div class="functionHeader">
     
-    def
-    update_now(self, lazy_update_gap=None):
+    <span class="py-keyword">def</span> <span class="py-defname">update_now</span>(self, lazy_update_gap=None):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>update model here, if lazy update is implemented<table class="fieldTable"></table></div>
+    <div>update model here, if lazy update is implemented</div>
   </div>
-</div><div class="basemethod">
+</div><div class="baseproperty">
   
-  <a name="cma.transformations.AdaptiveDecoding.correlation_matrix">
-    
-  </a>
-  <a name="correlation_matrix">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    correlation_matrix(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.transformations.DiagonalDecoding.html" data-type="Class" class="code">cma.transformations.DiagonalDecoding</a></div>
-    
-    <div>return correlation matrix or None<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.transformations.AdaptiveDecoding.condition_number">
     
@@ -283,25 +297,50 @@ construction, is this even the right construction?</p><table class="fieldTable">
   </a>
   <div class="functionHeader">
     @property<br />
-    def
-    condition_number(self):
+    <span class="py-defname">condition_number</span> =
     
   </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <a href="cma.transformations.DiagonalDecoding.html" data-type="Class" class="code">cma.transformations.DiagonalDecoding</a></div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link">cma.transformations.DiagonalDecoding</a></code></div>
     
-    <div>return condition number of the squared transformation matrix<table class="fieldTable"></table></div>
+    <div>return condition number of the squared transformation matrix</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.transformations.AdaptiveDecoding.correlation_matrix">
+    
+  </a>
+  <a name="correlation_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">correlation_matrix</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link">cma.transformations.DiagonalDecoding</a></code></div>
+    
+    <div>return correlation matrix or None</div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

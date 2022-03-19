@@ -2,43 +2,71 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.transformations.BoxConstraintsLinQuadTransformation : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.transformations.BoxConstraintsLinQuadTransformation</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.transformations.BoxConstraintsLinQuadTransformation(<a href="cma.transformations.BoxConstraintsTransformationBase.html" data-type="Class" class="code">BoxConstraintsTransformationBase</a>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code><wbr></wbr>.<code><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation">BoxConstraintsLinQuadTransformation</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.transformations.html" data-type="Module" class="code">transformations</a></code>
-          
-          <a href="classIndex.html#cma.transformations.BoxConstraintsLinQuadTransformation">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">BoxConstraintsLinQuadTransformation</span>(<a href="cma.transformations.BoxConstraintsTransformationBase.html" class="internal-link" title="cma.transformations.BoxConstraintsTransformationBase">BoxConstraintsTransformationBase</a>):</code></p>
+        <p><a href="classIndex.html#cma.transformations.BoxConstraintsLinQuadTransformation">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
@@ -58,7 +86,7 @@ ub + 3*au]</tt>. The transformation is periodically expanded beyond
 the limits (somewhat resembling the shape <tt class="rst-docutils literal"><span class="pre">sin(x-pi/2))</span></tt> with a
 period of <tt class="rst-docutils literal">2 * (ub - lb + al + au)</tt>.</p>
 <div class="rst-section" id="rst-details">
-<h1 class="heading">Details</h1>
+<h2 class="heading">Details</h2>
 <p>Partly due to numerical considerations depend the values <tt class="rst-docutils literal">al</tt> and
 <tt class="rst-docutils literal">au</tt> on <tt class="rst-docutils literal">abs(lb)</tt> and <tt class="rst-docutils literal">abs(ub)</tt> which makes the
 transformation non-translation invariant. In particular, the linear
@@ -68,7 +96,7 @@ contrast to <tt class="rst-docutils literal"><span class="pre">sin(.)</span></tt
 <tt class="rst-docutils literal"><span class="pre">-1e99</span></tt> or upper bound of <tt class="rst-docutils literal">np.Inf</tt> or bound <tt class="rst-docutils literal">None</tt>.</p>
 </div>
 <div class="rst-section" id="rst-examples">
-<h1 class="heading">Examples</h1>
+<h2 class="heading">Examples</h2>
 <p>Example to use with cma:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> warnings
@@ -76,121 +104,147 @@ contrast to <tt class="rst-docutils literal"><span class="pre">sin(.)</span></tt
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.transformations <span class="py-keyword">import</span> BoxConstraintsLinQuadTransformation
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># only the first variable has an upper bound</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>tf = BoxConstraintsLinQuadTransformation([[1,2], [1,<span class="py-builtin">None</span>]]) <span class="py-comment"># second==last pair is re-cycled</span>
-<span class="py-prompt">&gt;&gt;&gt; </span>with warnings.catch_warnings(record=<span class="py-builtin">True</span>) <span class="py-keyword">as</span> warns:
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">with</span> warnings.catch_warnings(record=<span class="py-builtin">True</span>) <span class="py-keyword">as</span> warns:
 <span class="py-more">... </span>    x, es = cma.fmin2(cma.ff.elli, 9 * [2], 1,
 <span class="py-more">... </span>                {<span class="py-string">'transformation'</span>: [tf.transform, tf.inverse],
 <span class="py-more">... </span>                 <span class="py-string">'verb_disp'</span>:0, <span class="py-string">'tolflatfitness'</span>: 1e9, <span class="py-string">'verbose'</span>: -2})
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">not</span> warns <span class="py-keyword">or</span> <span class="py-builtin">str</span>(warns[0].message).startswith((<span class="py-string">'in class GenoPheno: user defi'</span>,
 <span class="py-more">... </span>                                  <span class="py-string">'flat fitness'</span>))
-<span class="py-output">True</span></pre>
-<p>or:</p>
+<span class="py-output">True</span>
+</pre><p>or:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(4 * [2], 1, {<span class="py-string">'verbose'</span>:0, <span class="py-string">'verb_log'</span>:0})  <span class="py-comment"># doctest: +ELLIPSIS</span>
 <span class="py-output">(4_w,8)-aCMA-ES (mu_w=...</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>with warnings.catch_warnings(record=<span class="py-builtin">True</span>) <span class="py-keyword">as</span> warns:  <span class="py-comment"># flat fitness warning, not necessary anymore</span>
-<span class="py-more">... </span>    while <span class="py-keyword">not</span> es.stop():
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">with</span> warnings.catch_warnings(record=<span class="py-builtin">True</span>) <span class="py-keyword">as</span> warns:  <span class="py-comment"># flat fitness warning, not necessary anymore</span>
+<span class="py-more">... </span>    <span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
 <span class="py-more">... </span>        X = es.ask()
 <span class="py-more">... </span>        f = [cma.ff.elli(tf(x)) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X]  <span class="py-comment"># tf(x)==tf.transform(x)</span>
 <span class="py-more">... </span>        es.tell(X, f)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'tolflatfitness'</span> <span class="py-keyword">in</span> es.stop(), <span class="py-builtin">str</span>(es.stop())</pre>
-<p>Example of the internal workings:</p>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-string">'tolflatfitness'</span> <span class="py-keyword">in</span> es.stop(), <span class="py-builtin">str</span>(es.stop())</pre><p>Example of the internal workings:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.transformations <span class="py-keyword">import</span> BoxConstraintsLinQuadTransformation
 <span class="py-prompt">&gt;&gt;&gt; </span>tf = BoxConstraintsLinQuadTransformation([[1,2], [1,11], [1,11]])
 <span class="py-prompt">&gt;&gt;&gt; </span>tf.bounds
 <span class="py-output">[[1, 2], [1, 11], [1, 11]]</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>tf([1.5, 1.5, 1.5])
+<span class="py-prompt">&gt;&gt;&gt; </span>tf([1.5, 1.5, 1.5])
 <span class="py-output">[1.5, 1.5, 1.5]</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">list</span>(np.round(tf([1.52, -2.2, -0.2, 2, 4, 10.4]), 9))
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">list</span>(np.round(tf([1.52, -2.2, -0.2, 2, 4, 10.4]), 9))
 <span class="py-output">[1.52, 4.0, 2.0, 2.0, 4.0, 10.4]</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>res = np.round(tf._au, 2)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">list</span>(res[:4]) == [ 0.15, 0.6, 0.6, 0.6]
+<span class="py-prompt">&gt;&gt;&gt; </span>res = np.round(tf._au, 2)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">list</span>(res[:4]) == [ 0.15, 0.6, 0.6, 0.6]
 <span class="py-prompt">&gt;&gt;&gt; </span>res = [<span class="py-builtin">round</span>(x, 2) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> tf.shift_or_mirror_into_invertible_domain([1.52, -12.2, -0.2, 2, 4, 10.4])]
-<span class="py-prompt">&gt;&gt;&gt; </span>assert res == [1.52, 9.2, 2.0, 2.0, 4.0, 10.4]
-<span class="py-prompt">&gt;&gt;&gt; </span>tmp = tf([1])  <span class="py-comment"># call with lower dimension</span></pre>
-</div><table class="fieldTable"></table></div>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> res == [1.52, 9.2, 2.0, 2.0, 4.0, 10.4]
+<span class="py-prompt">&gt;&gt;&gt; </span>tmp = tf([1])  <span class="py-comment"># call with lower dimension</span></pre></div>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id492">
+        <table class="children sortable" id="id527">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span><tt class="rst-docutils literal">x</tt> is defined in <tt class="rst-docutils literal">[lb - 3*al, ub + au + r - 2*al]</tt> with <tt class="rst-docutils literal">r = ub - lb + al + au</tt>, and <tt class="rst-docutils literal">x == transformation(x)</tt> in <tt class="rst-docutils literal">[lb + al, ub - au]</tt>.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#initialize" data-type="Method" class="code">initialize</a></td>
-    <td><span>see <tt class="rst-docutils literal">__init__</tt></span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#__call__" data-type="Method" class="code">__call__</a></td>
+    <td><code><a href="#__call__" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation.__call__">__call__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#idx_infeasible" data-type="Method" class="code">idx_infeasible</a></td>
-    <td><span>return indices of "infeasible" variables, that is, variables that do not directly map into the feasible domain such that <tt class="rst-docutils literal">tf.inverse(tf(x)) == x</tt>.</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation.__init__">__init__</a></code></td>
+    <td><tt class="rst-docutils literal">x</tt> is defined in <tt class="rst-docutils literal">[lb - 3*al, ub + au + r - 2*al]</tt> with <tt class="rst-docutils literal">r = ub - lb + al + au</tt>, and <tt class="rst-docutils literal">x == transformation(x)</tt> in <tt class="rst-docutils literal">[lb + al, ub - au]</tt>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#is_feasible_i" data-type="Method" class="code">is_feasible_i</a></td>
-    <td><span>return True if value <tt class="rst-docutils literal">x</tt> is in the invertible domain of variable <tt class="rst-docutils literal">i</tt></span></td>
+    <td><code><a href="#idx_infeasible" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation.idx_infeasible">idx​_infeasible</a></code></td>
+    <td>return indices of "infeasible" variables, that is, variables that do not directly map into the feasible domain such that <tt class="rst-docutils literal">tf.inverse(tf(x)) == x</tt>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#is_loosely_feasible_i" data-type="Method" class="code">is_loosely_feasible_i</a></td>
-    <td><span>never used</span></td>
+    <td><code><a href="#initialize" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation.initialize">initialize</a></code></td>
+    <td>see <tt class="rst-docutils literal">__init__</tt></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#shift_or_mirror_into_invertible_domain" data-type="Method" class="code">shift_or_mirror_into_invertible_domain</a></td>
-    <td><span>parameter <tt class="rst-docutils literal">solution_genotype</tt> is changed.</span></td>
+    <td><code><a href="#is_feasible_i" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation.is_feasible_i">is​_feasible​_i</a></code></td>
+    <td>return True if value <tt class="rst-docutils literal">x</tt> is in the invertible domain of variable <tt class="rst-docutils literal">i</tt></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#is_loosely_feasible_i" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation.is_loosely_feasible_i">is​_loosely​_feasible​_i</a></code></td>
+    <td>never used</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#shift_or_mirror_into_invertible_domain" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation.shift_or_mirror_into_invertible_domain">shift​_or​_mirror​_into​_invertible​_domain</a></code></td>
+    <td>parameter <tt class="rst-docutils literal">solution_genotype</tt> is changed.</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#_shift_or_mirror_into_invertible_i" data-type="Method" class="code">_shift_or_mirror_into_invertible_i</a></td>
-    <td><span>shift into the invertible domain [lb - ab, ub + au], mirror close to boundaries in order to get a smooth transformation everywhere</span></td>
+    <td><code><a href="#_inverse_i" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation._inverse_i">​_inverse​_i</a></code></td>
+    <td>return inverse of y in component i</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#_transform_i" data-type="Method" class="code">_transform_i</a></td>
-    <td><span>return transform of x in component i</span></td>
+    <td><code><a href="#_shift_or_mirror_into_invertible_i" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation._shift_or_mirror_into_invertible_i">​_shift​_or​_mirror​_into​_invertible​_i</a></code></td>
+    <td>shift into the invertible domain [lb - ab, ub + au], mirror close to boundaries in order to get a smooth transformation everywhere</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html#_inverse_i" data-type="Method" class="code">_inverse_i</a></td>
-    <td><span>return inverse of y in component i</span></td>
+    <td><code><a href="#_transform_i" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation._transform_i">​_transform​_i</a></code></td>
+    <td>return transform of x in component i</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_al" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation._al">​_al</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_au" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation._au">​_au</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_lb" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation._lb">​_lb</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_ub" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation._ub">​_ub</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
           <p class="inheritedFrom">
-            Inherited from <a href="cma.transformations.BoxConstraintsTransformationBase.html" data-type="Class" class="code">BoxConstraintsTransformationBase</a>:
+            Inherited from <code><a href="cma.transformations.BoxConstraintsTransformationBase.html" class="internal-link" title="cma.transformations.BoxConstraintsTransformationBase">BoxConstraintsTransformationBase</a></code>:
           </p>
-          <table class="children sortable" id="id493">
+          <table class="children sortable" id="id528">
+  
   
   <tr class="basemethod">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsTransformationBase.html#bounds_i" data-type="Method" class="code">bounds_i</a></td>
-    <td><span>return <tt class="rst-docutils literal">[ith_lower_bound, ith_upper_bound]</tt></span></td>
+    <td><code><a href="cma.transformations.BoxConstraintsTransformationBase.html#bounds_i" class="internal-link" title="cma.transformations.BoxConstraintsTransformationBase.bounds_i">bounds​_i</a></code></td>
+    <td>return <tt class="rst-docutils literal">[ith_lower_bound, ith_upper_bound]</tt></td>
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsTransformationBase.html#inverse" data-type="Method" class="code">inverse</a></td>
+    <td><code><a href="cma.transformations.BoxConstraintsTransformationBase.html#inverse" class="internal-link" title="cma.transformations.BoxConstraintsTransformationBase.inverse">inverse</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="cma.transformations.BoxConstraintsTransformationBase.html#bounds" class="internal-link" title="cma.transformations.BoxConstraintsTransformationBase.bounds">bounds</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="basemethod private">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsTransformationBase.html#_lowerupperval" data-type="Method" class="code">_lowerupperval</a></td>
+    <td><code><a href="cma.transformations.BoxConstraintsTransformationBase.html#_index" class="internal-link" title="cma.transformations.BoxConstraintsTransformationBase._index">​_index</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="basemethod private">
     
     <td>Method</td>
-    <td><a href="cma.transformations.BoxConstraintsTransformationBase.html#_index" data-type="Method" class="code">_index</a></td>
+    <td><code><a href="cma.transformations.BoxConstraintsTransformationBase.html#_lowerupperval" class="internal-link" title="cma.transformations.BoxConstraintsTransformationBase._lowerupperval">​_lowerupperval</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -203,51 +257,6 @@ contrast to <tt class="rst-docutils literal"><span class="pre">sin(.)</span></tt
 
         <div class="basemethod">
   
-  <a name="cma.transformations.BoxConstraintsLinQuadTransformation.__init__">
-    
-  </a>
-  <a name="__init__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __init__(self, bounds):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.transformations.BoxConstraintsTransformationBase.html#__init__" data-type="Method" class="code">cma.transformations.BoxConstraintsTransformationBase.__init__</a></div>
-    
-    <div><p><tt class="rst-docutils literal">x</tt> is defined in <tt class="rst-docutils literal">[lb - 3*al, ub + au + r - 2*al]</tt> with
-<tt class="rst-docutils literal">r = ub - lb + al + au</tt>, and <tt class="rst-docutils literal">x == transformation(x)</tt> in
-<tt class="rst-docutils literal">[lb + al, ub - au]</tt>.</p>
-<p><tt class="rst-docutils literal">beta*x - alphal = beta*x - alphau</tt> is then defined in
-<tt class="rst-docutils literal">[lb, ub]</tt>.</p>
-<p><tt class="rst-docutils literal">alphal</tt> and <tt class="rst-docutils literal">alphau</tt> represent the same value,
-but respectively numerically better suited for values close to
-lb and ub.</p>
-<p>todo: revise this to be more comprehensible.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.transformations.BoxConstraintsLinQuadTransformation.initialize">
-    
-  </a>
-  <a name="initialize">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    initialize(self, length=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.transformations.BoxConstraintsTransformationBase.html#initialize" data-type="Method" class="code">cma.transformations.BoxConstraintsTransformationBase.initialize</a></div>
-    
-    <div>see <tt class="rst-docutils literal">__init__</tt><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.transformations.BoxConstraintsLinQuadTransformation.__call__">
     
@@ -257,16 +266,44 @@ lb and ub.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    __call__(self, solution_genotype, copy=True):
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, solution_genotype, copy=True):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.transformations.BoxConstraintsTransformationBase.html#__call__" data-type="Method" class="code">cma.transformations.BoxConstraintsTransformationBase.__call__</a></div>
+    <div class="interfaceinfo">overrides <code><a href="cma.transformations.BoxConstraintsTransformationBase.html#__call__" class="internal-link">cma.transformations.BoxConstraintsTransformationBase.__call__</a></code></div>
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div><div class="basemethod">
+  
+  
+  <a name="cma.transformations.BoxConstraintsLinQuadTransformation.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, bounds):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.transformations.BoxConstraintsTransformationBase.html#__init__" class="internal-link">cma.transformations.BoxConstraintsTransformationBase.__init__</a></code></div>
+    
+    <div><p><tt class="rst-docutils literal">x</tt> is defined in <tt class="rst-docutils literal">[lb - 3*al, ub + au + r - 2*al]</tt> with
+<tt class="rst-docutils literal">r = ub - lb + al + au</tt>, and <tt class="rst-docutils literal">x == transformation(x)</tt> in
+<tt class="rst-docutils literal">[lb + al, ub - au]</tt>.</p>
+<p><tt class="rst-docutils literal">beta*x - alphal = beta*x - alphau</tt> is then defined in
+<tt class="rst-docutils literal">[lb, ub]</tt>.</p>
+<p><tt class="rst-docutils literal">alphal</tt> and <tt class="rst-docutils literal">alphau</tt> represent the same value,
+but respectively numerically better suited for values close to
+lb and ub.</p>
+<p>todo: revise this to be more comprehensible.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
   
   <a name="cma.transformations.BoxConstraintsLinQuadTransformation.idx_infeasible">
     
@@ -276,8 +313,7 @@ lb and ub.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    idx_infeasible(self, solution_genotype):
+    <span class="py-keyword">def</span> <span class="py-defname">idx_infeasible</span>(self, solution_genotype):
     
   </div>
   <div class="docstring functionBody">
@@ -285,9 +321,29 @@ lb and ub.</p>
     
     <div>return indices of "infeasible" variables, that is,
 variables that do not directly map into the feasible domain such that
-<tt class="rst-docutils literal">tf.inverse(tf(x)) == x</tt>.<table class="fieldTable"></table></div>
+<tt class="rst-docutils literal">tf.inverse(tf(x)) == x</tt>.</div>
   </div>
 </div><div class="basemethod">
+  
+  
+  <a name="cma.transformations.BoxConstraintsLinQuadTransformation.initialize">
+    
+  </a>
+  <a name="initialize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">initialize</span>(self, length=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.transformations.BoxConstraintsTransformationBase.html#initialize" class="internal-link">cma.transformations.BoxConstraintsTransformationBase.initialize</a></code></div>
+    
+    <div>see <tt class="rst-docutils literal">__init__</tt></div>
+  </div>
+</div><div class="basemethod">
+  
   
   <a name="cma.transformations.BoxConstraintsLinQuadTransformation.is_feasible_i">
     
@@ -297,17 +353,17 @@ variables that do not directly map into the feasible domain such that
   </a>
   <div class="functionHeader">
     
-    def
-    is_feasible_i(self, x, i):
+    <span class="py-keyword">def</span> <span class="py-defname">is_feasible_i</span>(self, x, i):
     
   </div>
   <div class="docstring functionBody">
     
     
     <div>return True if value <tt class="rst-docutils literal">x</tt> is in the invertible domain of
-variable <tt class="rst-docutils literal">i</tt><table class="fieldTable"></table></div>
+variable <tt class="rst-docutils literal">i</tt></div>
   </div>
 </div><div class="basemethod">
+  
   
   <a name="cma.transformations.BoxConstraintsLinQuadTransformation.is_loosely_feasible_i">
     
@@ -317,16 +373,16 @@ variable <tt class="rst-docutils literal">i</tt><table class="fieldTable"></tabl
   </a>
   <div class="functionHeader">
     
-    def
-    is_loosely_feasible_i(self, x, i):
+    <span class="py-keyword">def</span> <span class="py-defname">is_loosely_feasible_i</span>(self, x, i):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>never used<table class="fieldTable"></table></div>
+    <div>never used</div>
   </div>
 </div><div class="basemethod">
+  
   
   <a name="cma.transformations.BoxConstraintsLinQuadTransformation.shift_or_mirror_into_invertible_domain">
     
@@ -336,58 +392,20 @@ variable <tt class="rst-docutils literal">i</tt><table class="fieldTable"></tabl
   </a>
   <div class="functionHeader">
     
-    def
-    shift_or_mirror_into_invertible_domain(self, solution_genotype, copy=False):
+    <span class="py-keyword">def</span> <span class="py-defname">shift_or_mirror_into_invertible_domain</span>(self, solution_genotype, copy=False):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.transformations.BoxConstraintsTransformationBase.html#shift_or_mirror_into_invertible_domain" data-type="Method" class="code">cma.transformations.BoxConstraintsTransformationBase.shift_or_mirror_into_invertible_domain</a></div>
+    <div class="interfaceinfo">overrides <code><a href="cma.transformations.BoxConstraintsTransformationBase.html#shift_or_mirror_into_invertible_domain" class="internal-link">cma.transformations.BoxConstraintsTransformationBase.shift_or_mirror_into_invertible_domain</a></code></div>
     
     <div><p>parameter <tt class="rst-docutils literal">solution_genotype</tt> is changed.</p>
 <p>The domain is
 <tt class="rst-docutils literal">[lb - al, ub + au]</tt> and in <tt class="rst-docutils literal">[lb - 2*al - (ub - lb) / 2, lb - al]</tt>
-mirroring is applied.</p><table class="fieldTable"></table></div>
+mirroring is applied.</p>
+</div>
   </div>
 </div><div class="basemethod private">
   
-  <a name="cma.transformations.BoxConstraintsLinQuadTransformation._shift_or_mirror_into_invertible_i">
-    
-  </a>
-  <a name="_shift_or_mirror_into_invertible_i">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _shift_or_mirror_into_invertible_i(self, x, i):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>shift into the invertible domain [lb - ab, ub + au], mirror close to
-boundaries in order to get a smooth transformation everywhere<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.transformations.BoxConstraintsLinQuadTransformation._transform_i">
-    
-  </a>
-  <a name="_transform_i">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _transform_i(self, x, i):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.transformations.BoxConstraintsTransformationBase.html#_transform_i" data-type="Method" class="code">cma.transformations.BoxConstraintsTransformationBase._transform_i</a></div>
-    
-    <div>return transform of x in component i<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
   
   <a name="cma.transformations.BoxConstraintsLinQuadTransformation._inverse_i">
     
@@ -397,25 +415,148 @@ boundaries in order to get a smooth transformation everywhere<table class="field
   </a>
   <div class="functionHeader">
     
-    def
-    _inverse_i(self, y, i):
+    <span class="py-keyword">def</span> <span class="py-defname">_inverse_i</span>(self, y, i):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.transformations.BoxConstraintsTransformationBase.html#_inverse_i" data-type="Method" class="code">cma.transformations.BoxConstraintsTransformationBase._inverse_i</a></div>
+    <div class="interfaceinfo">overrides <code><a href="cma.transformations.BoxConstraintsTransformationBase.html#_inverse_i" class="internal-link">cma.transformations.BoxConstraintsTransformationBase._inverse_i</a></code></div>
     
-    <div>return inverse of y in component i<table class="fieldTable"></table></div>
+    <div>return inverse of y in component i</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.transformations.BoxConstraintsLinQuadTransformation._shift_or_mirror_into_invertible_i">
+    
+  </a>
+  <a name="_shift_or_mirror_into_invertible_i">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_shift_or_mirror_into_invertible_i</span>(self, x, i):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>shift into the invertible domain [lb - ab, ub + au], mirror close to
+boundaries in order to get a smooth transformation everywhere</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.transformations.BoxConstraintsLinQuadTransformation._transform_i">
+    
+  </a>
+  <a name="_transform_i">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_transform_i</span>(self, x, i):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.transformations.BoxConstraintsTransformationBase.html#_transform_i" class="internal-link">cma.transformations.BoxConstraintsTransformationBase._transform_i</a></code></div>
+    
+    <div>return transform of x in component i</div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.transformations.BoxConstraintsLinQuadTransformation._al">
+    
+  </a>
+  <a name="_al">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_al</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.transformations.BoxConstraintsLinQuadTransformation._au">
+    
+  </a>
+  <a name="_au">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_au</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.transformations.BoxConstraintsLinQuadTransformation._lb">
+    
+  </a>
+  <a name="_lb">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_lb</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.transformations.BoxConstraintsTransformationBase.html#_lb" class="internal-link">cma.transformations.BoxConstraintsTransformationBase._lb</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.transformations.BoxConstraintsLinQuadTransformation._ub">
+    
+  </a>
+  <a name="_ub">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ub</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.transformations.BoxConstraintsTransformationBase.html#_ub" class="internal-link">cma.transformations.BoxConstraintsTransformationBase._ub</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

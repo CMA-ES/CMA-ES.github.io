@@ -2,63 +2,91 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.evolution_strategy._CMAParameters : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.evolution_strategy._CMAParameters</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class private"><code>cma.evolution_strategy._CMAParameters(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class private"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy._CMAParameters.html" class="internal-link" title="cma.evolution_strategy._CMAParameters">_CMAParameters</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.evolution_strategy.html" data-type="Module" class="code">evolution_strategy</a></code>
-          
-          <a href="classIndex.html#cma.evolution_strategy._CMAParameters">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">_CMAParameters</span>(object):</code></p>
+        <p><a href="classIndex.html#cma.evolution_strategy._CMAParameters">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>strategy parameters like population size and learning rates.</p>
 <dl class="rst-docutils">
 <dt>Note:</dt>
-<dd>contrary to <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <a href="cma.evolution_strategy._CMAParameters.html"><code>_CMAParameters</code></a> is not (yet) part of the
+<dd>contrary to <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy._CMAParameters.html" class="internal-link" title="cma.evolution_strategy._CMAParameters">_CMAParameters</a></code> is not (yet) part of the
 "user-interface" and subject to future changes (it might become
-a <a href="http://docs.python.org/library/collections.html#collections.namedtuple"><code>collections.namedtuple</code></a>)</dd>
+a <code>collections.namedtuple</code>)</dd>
 </dl>
 <div class="rst-section" id="rst-example">
-<h1 class="heading">Example</h1>
+<h2 class="heading">Example</h2>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(20 * [0.1], 1)  <span class="py-comment">#doctest: +ELLIPSIS</span>
 <span class="py-output">(6_w,12)-aCMA-ES (mu_w=3.7,w_1=40%) in dimension 20 (seed=...)</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt;</span>
+<span class="py-prompt">&gt;&gt;&gt;</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">type</span>(es.sp)  <span class="py-comment"># sp contains the strategy parameters</span>
 <span class="py-output">&lt;class 'cma.evolution_strategy._CMAParameters'&gt;</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>es.sp.disp()  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>es.sp.disp()  <span class="py-comment">#doctest: +ELLIPSIS</span>
 <span class="py-output">{'CMA_on': True,</span>
 <span class="py-output"> 'N': 20,</span>
 <span class="py-output"> 'c1': 0.00437235...,</span>
@@ -83,28 +111,39 @@ a <a href="http://docs.python.org/library/collections.html#collections.namedtupl
 <span class="py-output">             -0.2917332686...,</span>
 <span class="py-output">             -0.3562788884...,</span>
 <span class="py-output">             -0.4152044225...]}</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt;</span></pre>
-</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a></td></tr></table></div>
+<span class="py-prompt">&gt;&gt;&gt;</span></pre></div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></td></tr></table></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id377">
+        <table class="children sortable" id="id409">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.evolution_strategy._CMAParameters.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>Compute strategy parameters, mainly depending on dimension and population size, by calling <a href="cma.evolution_strategy._CMAParameters.html#set"><code>set</code></a></span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.evolution_strategy._CMAParameters.__init__">__init__</a></code></td>
+    <td>Compute strategy parameters, mainly depending on dimension and population size, by calling <code><a href="#set" class="internal-link" title="cma.evolution_strategy._CMAParameters.set">set</a></code></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.evolution_strategy._CMAParameters.html#set" data-type="Method" class="code">set</a></td>
-    <td><span>Compute strategy parameters as a function of dimension and population size</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.evolution_strategy._CMAParameters.html#disp" data-type="Method" class="code">disp</a></td>
+    <td><code><a href="#disp" class="internal-link" title="cma.evolution_strategy._CMAParameters.disp">disp</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set" class="internal-link" title="cma.evolution_strategy._CMAParameters.set">set</a></code></td>
+    <td>Compute strategy parameters as a function of dimension and population size</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#N" class="internal-link" title="cma.evolution_strategy._CMAParameters.N">N</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#popsize" class="internal-link" title="cma.evolution_strategy._CMAParameters.popsize">popsize</a></code></td>
+    <td>number of candidation solutions per iteration, AKA population size</td>
   </tr>
 </table>
         
@@ -116,6 +155,7 @@ a <a href="http://docs.python.org/library/collections.html#collections.namedtupl
 
         <div class="basemethod">
   
+  
   <a name="cma.evolution_strategy._CMAParameters.__init__">
     
   </a>
@@ -124,37 +164,17 @@ a <a href="http://docs.python.org/library/collections.html#collections.namedtupl
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self, N, opts, ccovfac=1, verbose=True):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, N, opts, ccovfac=1, verbose=True):
     
   </div>
   <div class="docstring functionBody">
     
     
     <div>Compute strategy parameters, mainly depending on
-dimension and population size, by calling <a href="cma.evolution_strategy._CMAParameters.html#set"><code>set</code></a><table class="fieldTable"></table></div>
+dimension and population size, by calling <code><a href="#set" class="internal-link" title="cma.evolution_strategy._CMAParameters.set">set</a></code></div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.evolution_strategy._CMAParameters.set">
-    
-  </a>
-  <a name="set">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    set(self, opts, popsize=None, ccovfac=1, verbose=True):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>Compute strategy parameters as a function
-of dimension and population size<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.evolution_strategy._CMAParameters.disp">
     
@@ -164,25 +184,89 @@ of dimension and population size<table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    disp(self):
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.evolution_strategy._CMAParameters.set">
+    
+  </a>
+  <a name="set">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set</span>(self, opts, popsize=None, ccovfac=1, verbose=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Compute strategy parameters as a function
+of dimension and population size</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._CMAParameters.N">
+    
+  </a>
+  <a name="N">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">N</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._CMAParameters.popsize">
+    
+  </a>
+  <a name="popsize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">popsize</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>number of candidation solutions per iteration, AKA population size</div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

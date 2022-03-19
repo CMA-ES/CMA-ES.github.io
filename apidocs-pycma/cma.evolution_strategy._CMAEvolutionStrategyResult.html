@@ -2,47 +2,75 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.evolution_strategy._CMAEvolutionStrategyResult : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.evolution_strategy._CMAEvolutionStrategyResult</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class private"><code>cma.evolution_strategy._CMAEvolutionStrategyResult(<span title="tuple">tuple</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class private"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy._CMAEvolutionStrategyResult">_CMAEvolutionStrategyResult</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.evolution_strategy.html" data-type="Module" class="code">evolution_strategy</a></code>
-          
-          <a href="classIndex.html#cma.evolution_strategy._CMAEvolutionStrategyResult">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">_CMAEvolutionStrategyResult</span>(tuple):</code></p>
+        <p><a href="classIndex.html#cma.evolution_strategy._CMAEvolutionStrategyResult">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
-        <div><p>A results tuple from <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> property <tt class="rst-docutils literal">result</tt>.</p>
+        <div><p>A results tuple from <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> property <tt class="rst-docutils literal">result</tt>.</p>
 <p>This tuple contains in the given position</p>
 <ul class="rst-simple">
 <li>0 best solution evaluated, <tt class="rst-docutils literal">xbest</tt></li>
@@ -59,7 +87,7 @@ std_i * dimension**0.5 / min(mueff, dimension) / 1.2 / 5
 mueff = CMAEvolutionStrategy.sp.weights.mueff ~ 0.3 * popsize.</li>
 </ul>
 <p>The penalized best solution of the last completed iteration can be
-accessed via attribute <tt class="rst-docutils literal">pop_sorted[0]</tt> of <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>
+accessed via attribute <tt class="rst-docutils literal">pop_sorted[0]</tt> of <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>
 and the respective objective function value via <tt class="rst-docutils literal">fit.fit[0]</tt>.</p>
 <p>Details:</p>
 <ul class="rst-simple">
@@ -67,17 +95,19 @@ and the respective objective function value via <tt class="rst-docutils literal"
 docstring. It does not provide any further functionality.</li>
 <li><tt class="rst-docutils literal"><span class="pre">list(fit.fit).find(0)</span></tt> is the index of the first sampled solution
 of the last completed iteration in <tt class="rst-docutils literal">pop_sorted</tt>.</li>
-</ul><table class="fieldTable"></table></div>
+</ul>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id374">
+        <table class="children sortable" id="id405">
+  
   
   <tr class="staticmethod private">
     
     <td>Static Method</td>
-    <td><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html#_generate" data-type="Static Method" class="code">_generate</a></td>
-    <td><span>return a results tuple of type <a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html"><code>CMAEvolutionStrategyResult</code></a>.</span></td>
+    <td><code><a href="#_generate" class="internal-link" title="cma.evolution_strategy._CMAEvolutionStrategyResult._generate">​_generate</a></code></td>
+    <td>return a results tuple of type <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">CMAEvolutionStrategyResult</a></code>.</td>
   </tr>
 </table>
         
@@ -89,6 +119,7 @@ of the last completed iteration in <tt class="rst-docutils literal">pop_sorted</
 
         <div class="basestaticmethod private">
   
+  
   <a name="cma.evolution_strategy._CMAEvolutionStrategyResult._generate">
     
   </a>
@@ -97,27 +128,32 @@ of the last completed iteration in <tt class="rst-docutils literal">pop_sorted</
   </a>
   <div class="functionHeader">
     @staticmethod<br />
-    def
-    _generate(self):
+    <span class="py-keyword">def</span> <span class="py-defname">_generate</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>return a results tuple of type <a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html"><code>CMAEvolutionStrategyResult</code></a>.</p>
-<p><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html#_generate"><code>_generate</code></a> is a surrogate for the <tt class="rst-docutils literal">__init__</tt> method, which
-cannot be used to initialize the immutable <a href="http://docs.python.org/library/stdtypes.html#tuple"><code>tuple</code></a> super class.</p><table class="fieldTable"></table></div>
+    <div><p>return a results tuple of type <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">CMAEvolutionStrategyResult</a></code>.</p>
+<p><code><a href="#_generate" class="internal-link" title="cma.evolution_strategy._CMAEvolutionStrategyResult._generate">_generate</a></code> is a surrogate for the <tt class="rst-docutils literal">__init__</tt> method, which
+cannot be used to initialize the immutable <code>tuple</code> super class.</p>
+</div>
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

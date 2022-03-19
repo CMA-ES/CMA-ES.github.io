@@ -2,76 +2,331 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.evolution_strategy.MetaParameters : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.evolution_strategy.MetaParameters</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.evolution_strategy.MetaParameters(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.MetaParameters.html" class="internal-link" title="cma.evolution_strategy.MetaParameters">MetaParameters</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.evolution_strategy.html" data-type="Module" class="code">evolution_strategy</a></code>
-          
-          <a href="classIndex.html#cma.evolution_strategy.MetaParameters">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">MetaParameters</span>(object):</code></p>
+        <p><a href="classIndex.html#cma.evolution_strategy.MetaParameters">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>collection of many meta parameters.</p>
 <p>Meta parameters are either annotated constants or refer to
-options from <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a> or are arguments to <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a> or to the
-<a href="cma.optimization_tools.NoiseHandler.html"><code>NoiseHandler</code></a> class constructor.</p>
-<p><a href="cma.evolution_strategy.MetaParameters.html"><code>MetaParameters</code></a> take only effect if the source code is modified by
+options from <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code> or are arguments to <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> or to the
+<code><a href="cma.optimization_tools.NoiseHandler.html" class="internal-link" title="cma.optimization_tools.NoiseHandler">NoiseHandler</a></code> class constructor.</p>
+<p><code><a href="cma.evolution_strategy.MetaParameters.html" class="internal-link" title="cma.evolution_strategy.MetaParameters">MetaParameters</a></code> take only effect if the source code is modified by
 a meta parameter weaver module searching for ## meta_parameters....
 and modifying the next line.</p>
 <div class="rst-section" id="rst-details">
-<h1 class="heading">Details</h1>
-<p>This code contains a single class instance <code>meta_parameters</code></p>
-<p>Some interfaces rely on parameters being either <a href="http://docs.python.org/library/stdtypes.html#int"><code>int</code></a> or
-<a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a> only. More sophisticated choices are implemented via
+<h2 class="heading">Details</h2>
+<p>This code contains a single class instance <code><a href="cma.evolution_strategy.html#meta_parameters" class="internal-link" title="cma.evolution_strategy.meta_parameters">meta_parameters</a></code></p>
+<p>Some interfaces rely on parameters being either <code>int</code> or
+<code>float</code> only. More sophisticated choices are implemented via
 <tt class="rst-docutils literal">choice_value = {1: 'this', 2: 'or <span class="pre">that'}[int_param_value]</span></tt> here.</p>
 </div>
 <div class="rst-section" id="rst-caveat">
-<h1 class="heading">CAVEAT</h1>
-<p><code>meta_parameters</code> should not be used to determine default
+<h2 class="heading">CAVEAT</h2>
+<p><code><a href="cma.evolution_strategy.html#meta_parameters" class="internal-link" title="cma.evolution_strategy.meta_parameters">meta_parameters</a></code> should not be used to determine default
 arguments, because these are assigned only once and for all during
 module import.</p>
-</div><table class="fieldTable"></table></div>
+</div>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id368">
+        <table class="children sortable" id="id399">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.evolution_strategy.MetaParameters.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>assign settings to be used</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.evolution_strategy.MetaParameters.__init__">__init__</a></code></td>
+    <td>assign settings to be used</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#c1_exponent" class="internal-link" title="cma.evolution_strategy.MetaParameters.c1_exponent">c1​_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#c1_multiplier" class="internal-link" title="cma.evolution_strategy.MetaParameters.c1_multiplier">c1​_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cact_exponent" class="internal-link" title="cma.evolution_strategy.MetaParameters.cact_exponent">cact​_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cc_exponent" class="internal-link" title="cma.evolution_strategy.MetaParameters.cc_exponent">cc​_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cc_multiplier" class="internal-link" title="cma.evolution_strategy.MetaParameters.cc_multiplier">cc​_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_active" class="internal-link" title="cma.evolution_strategy.MetaParameters.CMA_active">​CMA_active</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_cmean" class="internal-link" title="cma.evolution_strategy.MetaParameters.CMA_cmean">​CMA_cmean</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_dampsvec_fac" class="internal-link" title="cma.evolution_strategy.MetaParameters.CMA_dampsvec_fac">​CMA_dampsvec_fac</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_dampsvec_fade" class="internal-link" title="cma.evolution_strategy.MetaParameters.CMA_dampsvec_fade">​CMA_dampsvec_fade</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_elitist" class="internal-link" title="cma.evolution_strategy.MetaParameters.CMA_elitist">​CMA_elitist</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_mirrors" class="internal-link" title="cma.evolution_strategy.MetaParameters.CMA_mirrors">​CMA_mirrors</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cmu_exponent" class="internal-link" title="cma.evolution_strategy.MetaParameters.cmu_exponent">cmu​_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cmu_multiplier" class="internal-link" title="cma.evolution_strategy.MetaParameters.cmu_multiplier">cmu​_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cs_exponent" class="internal-link" title="cma.evolution_strategy.MetaParameters.cs_exponent">cs​_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cs_multiplier" class="internal-link" title="cma.evolution_strategy.MetaParameters.cs_multiplier">cs​_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_clip_length_value" class="internal-link" title="cma.evolution_strategy.MetaParameters.CSA_clip_length_value">​CSA_clip_length_value</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_damp_mueff_exponent" class="internal-link" title="cma.evolution_strategy.MetaParameters.CSA_damp_mueff_exponent">​CSA_damp_mueff_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_dampfac" class="internal-link" title="cma.evolution_strategy.MetaParameters.CSA_dampfac">​CSA_dampfac</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_disregard_length" class="internal-link" title="cma.evolution_strategy.MetaParameters.CSA_disregard_length">​CSA_disregard_length</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_squared" class="internal-link" title="cma.evolution_strategy.MetaParameters.CSA_squared">​CSA_squared</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#incpopsize" class="internal-link" title="cma.evolution_strategy.MetaParameters.incpopsize">incpopsize</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lambda_exponent" class="internal-link" title="cma.evolution_strategy.MetaParameters.lambda_exponent">lambda​_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#maxiter_multiplier" class="internal-link" title="cma.evolution_strategy.MetaParameters.maxiter_multiplier">maxiter​_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#maxstd" class="internal-link" title="cma.evolution_strategy.MetaParameters.maxstd">maxstd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mean_shift_line_samples" class="internal-link" title="cma.evolution_strategy.MetaParameters.mean_shift_line_samples">mean​_shift​_line​_samples</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mindx" class="internal-link" title="cma.evolution_strategy.MetaParameters.mindx">mindx</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#minstd" class="internal-link" title="cma.evolution_strategy.MetaParameters.minstd">minstd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_aggregate" class="internal-link" title="cma.evolution_strategy.MetaParameters.noise_aggregate">noise​_aggregate</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_alphaevals" class="internal-link" title="cma.evolution_strategy.MetaParameters.noise_alphaevals">noise​_alphaevals</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_alphaevalsdown_exponent" class="internal-link" title="cma.evolution_strategy.MetaParameters.noise_alphaevalsdown_exponent">noise​_alphaevalsdown​_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_alphasigma" class="internal-link" title="cma.evolution_strategy.MetaParameters.noise_alphasigma">noise​_alphasigma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_choose_reeval" class="internal-link" title="cma.evolution_strategy.MetaParameters.noise_choose_reeval">noise​_choose​_reeval</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_reeval_multiplier" class="internal-link" title="cma.evolution_strategy.MetaParameters.noise_reeval_multiplier">noise​_reeval​_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_theta" class="internal-link" title="cma.evolution_strategy.MetaParameters.noise_theta">noise​_theta</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pc_line_samples" class="internal-link" title="cma.evolution_strategy.MetaParameters.pc_line_samples">pc​_line​_samples</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#restart_from_best" class="internal-link" title="cma.evolution_strategy.MetaParameters.restart_from_best">restart​_from​_best</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#restarts" class="internal-link" title="cma.evolution_strategy.MetaParameters.restarts">restarts</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#sigma0" class="internal-link" title="cma.evolution_strategy.MetaParameters.sigma0">sigma0</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolfacupx" class="internal-link" title="cma.evolution_strategy.MetaParameters.tolfacupx">tolfacupx</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolfun" class="internal-link" title="cma.evolution_strategy.MetaParameters.tolfun">tolfun</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolfunhist" class="internal-link" title="cma.evolution_strategy.MetaParameters.tolfunhist">tolfunhist</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolfunrel" class="internal-link" title="cma.evolution_strategy.MetaParameters.tolfunrel">tolfunrel</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolstagnation_multiplier" class="internal-link" title="cma.evolution_strategy.MetaParameters.tolstagnation_multiplier">tolstagnation​_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolupsigma" class="internal-link" title="cma.evolution_strategy.MetaParameters.tolupsigma">tolupsigma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolx" class="internal-link" title="cma.evolution_strategy.MetaParameters.tolx">tolx</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
@@ -83,6 +338,7 @@ module import.</p>
 
         <div class="basemethod">
   
+  
   <a name="cma.evolution_strategy.MetaParameters.__init__">
     
   </a>
@@ -91,25 +347,929 @@ module import.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>assign settings to be used<table class="fieldTable"></table></div>
+    <div>assign settings to be used</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.c1_exponent">
+    
+  </a>
+  <a name="c1_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">c1_exponent</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.c1_multiplier">
+    
+  </a>
+  <a name="c1_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">c1_multiplier</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.cact_exponent">
+    
+  </a>
+  <a name="cact_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cact_exponent</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.cc_exponent">
+    
+  </a>
+  <a name="cc_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cc_exponent</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.cc_multiplier">
+    
+  </a>
+  <a name="cc_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cc_multiplier</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CMA_active">
+    
+  </a>
+  <a name="CMA_active">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_active</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CMA_cmean">
+    
+  </a>
+  <a name="CMA_cmean">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_cmean</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CMA_dampsvec_fac">
+    
+  </a>
+  <a name="CMA_dampsvec_fac">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_dampsvec_fac</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CMA_dampsvec_fade">
+    
+  </a>
+  <a name="CMA_dampsvec_fade">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_dampsvec_fade</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CMA_elitist">
+    
+  </a>
+  <a name="CMA_elitist">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_elitist</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CMA_mirrors">
+    
+  </a>
+  <a name="CMA_mirrors">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_mirrors</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.cmu_exponent">
+    
+  </a>
+  <a name="cmu_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cmu_exponent</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.cmu_multiplier">
+    
+  </a>
+  <a name="cmu_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cmu_multiplier</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.cs_exponent">
+    
+  </a>
+  <a name="cs_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cs_exponent</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.cs_multiplier">
+    
+  </a>
+  <a name="cs_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cs_multiplier</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CSA_clip_length_value">
+    
+  </a>
+  <a name="CSA_clip_length_value">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_clip_length_value</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CSA_damp_mueff_exponent">
+    
+  </a>
+  <a name="CSA_damp_mueff_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_damp_mueff_exponent</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CSA_dampfac">
+    
+  </a>
+  <a name="CSA_dampfac">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_dampfac</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CSA_disregard_length">
+    
+  </a>
+  <a name="CSA_disregard_length">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_disregard_length</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.CSA_squared">
+    
+  </a>
+  <a name="CSA_squared">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_squared</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.incpopsize">
+    
+  </a>
+  <a name="incpopsize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">incpopsize</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.lambda_exponent">
+    
+  </a>
+  <a name="lambda_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lambda_exponent</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.maxiter_multiplier">
+    
+  </a>
+  <a name="maxiter_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">maxiter_multiplier</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.maxstd">
+    
+  </a>
+  <a name="maxstd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">maxstd</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.mean_shift_line_samples">
+    
+  </a>
+  <a name="mean_shift_line_samples">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mean_shift_line_samples</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.mindx">
+    
+  </a>
+  <a name="mindx">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mindx</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.minstd">
+    
+  </a>
+  <a name="minstd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">minstd</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.noise_aggregate">
+    
+  </a>
+  <a name="noise_aggregate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_aggregate</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.noise_alphaevals">
+    
+  </a>
+  <a name="noise_alphaevals">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_alphaevals</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.noise_alphaevalsdown_exponent">
+    
+  </a>
+  <a name="noise_alphaevalsdown_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_alphaevalsdown_exponent</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.noise_alphasigma">
+    
+  </a>
+  <a name="noise_alphasigma">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_alphasigma</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.noise_choose_reeval">
+    
+  </a>
+  <a name="noise_choose_reeval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_choose_reeval</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.noise_reeval_multiplier">
+    
+  </a>
+  <a name="noise_reeval_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_reeval_multiplier</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.noise_theta">
+    
+  </a>
+  <a name="noise_theta">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_theta</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.pc_line_samples">
+    
+  </a>
+  <a name="pc_line_samples">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pc_line_samples</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.restart_from_best">
+    
+  </a>
+  <a name="restart_from_best">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">restart_from_best</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.restarts">
+    
+  </a>
+  <a name="restarts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">restarts</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.sigma0">
+    
+  </a>
+  <a name="sigma0">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">sigma0</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.tolfacupx">
+    
+  </a>
+  <a name="tolfacupx">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolfacupx</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.tolfun">
+    
+  </a>
+  <a name="tolfun">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolfun</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.tolfunhist">
+    
+  </a>
+  <a name="tolfunhist">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolfunhist</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.tolfunrel">
+    
+  </a>
+  <a name="tolfunrel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolfunrel</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.tolstagnation_multiplier">
+    
+  </a>
+  <a name="tolstagnation_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolstagnation_multiplier</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.tolupsigma">
+    
+  </a>
+  <a name="tolupsigma">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolupsigma</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.MetaParameters.tolx">
+    
+  </a>
+  <a name="tolx">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolx</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

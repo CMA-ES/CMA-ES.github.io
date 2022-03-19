@@ -2,48 +2,76 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.fitness_models.SurrogatePopulation : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.fitness_models.SurrogatePopulation</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.fitness_models.SurrogatePopulation(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness_models</a></code><wbr></wbr>.<code><a href="cma.fitness_models.SurrogatePopulation.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation">SurrogatePopulation</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.fitness_models.html" data-type="Module" class="code">fitness_models</a></code>
-          
-          <a href="classIndex.html#cma.fitness_models.SurrogatePopulation">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">SurrogatePopulation</span>(object):</code></p>
+        <p><a href="classIndex.html#cma.fitness_models.SurrogatePopulation">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>surrogate f-values for a population.</p>
-<p>See also <a href="cma.fitness_models.SurrogatePopulation.html#__call__"><code>__call__</code></a> method.</p>
+<p>See also <code><a href="#__call__" class="internal-link" title="cma.fitness_models.SurrogatePopulation.__call__">__call__</a></code> method.</p>
 <p>What is new:</p>
 <ul class="rst-simple">
 <li>the model is built with &gt;=3 evaluations (compared to LS-CMA and lmm-CMA)</li>
@@ -55,24 +83,23 @@
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma.fitness_models <span class="py-keyword">as</span> fm
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.fitness_transformations <span class="py-keyword">import</span> Function <span class="py-keyword">as</span> FFun  <span class="py-comment"># adds evaluations attribute</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># fm.Logger, Logger = fm.LoggerDummy, fm.Logger</span>
-<span class="py-prompt">&gt;&gt;&gt; </span>surrogate = fm.SurrogatePopulation(cma.ff.elli)</pre>
-<p>Example using the ask-and-tell interface:</p>
+<span class="py-prompt">&gt;&gt;&gt; </span>surrogate = fm.SurrogatePopulation(cma.ff.elli)</pre><p>Example using the ask-and-tell interface:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> fitfun <span class="py-keyword">in</span> [FFun(cma.ff.elli), FFun(cma.ff.sectorsphere)]:
 <span class="py-more">... </span>    es = cma.CMAEvolutionStrategy(5 * [1], 2.2,
 <span class="py-more">... </span>                   {<span class="py-string">'CMA_injections_threshold_keep_len'</span>: 1,
 <span class="py-more">... </span>                    <span class="py-string">'ftarget'</span>:1e-9, <span class="py-string">'verbose'</span>: -9, <span class="py-string">'seed'</span>:3})
 <span class="py-more">... </span>    surrogate = fm.SurrogatePopulation(fitfun)
-<span class="py-more">... </span>    while <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>    <span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
 <span class="py-more">... </span>        X = es.ask()
 <span class="py-more">... </span>        es.tell(X, surrogate(X))  <span class="py-comment"># surrogate evaluation</span>
 <span class="py-more">... </span>        es.inject([surrogate.model.xopt])
 <span class="py-more">... </span>        <span class="py-comment"># es.disp(); es.logger.add()  # ineffective with verbose=-9</span>
-<span class="py-more">... </span>    <span class="py-keyword">print</span>(fitfun.evaluations)  <span class="py-comment"># was: (sig=2.2) 12 161, 18 131, 18 150, 18 82, 15 59, 15 87, 15 132, 18 83, 18 55, 18 68</span>
-<span class="py-more">... </span>    assert <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop()
+<span class="py-more">... </span>    <span class="py-builtin">print</span>(fitfun.evaluations)  <span class="py-comment"># was: (sig=2.2) 12 161, 18 131, 18 150, 18 82, 15 59, 15 87, 15 132, 18 83, 18 55, 18 68</span>
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop()
 <span class="py-output">18</span>
-<span class="py-output">68</span></pre>
-<p>Example using the <tt class="rst-docutils literal">parallel_objective</tt> interface to <a href="cma.evolution_strategy.html#fmin"><code>cma.fmin</code></a>:</p>
+<span class="py-output">68</span>
+</pre><p>Example using the <tt class="rst-docutils literal">parallel_objective</tt> interface to <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">cma.fmin</a></code>:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> fitfun, evals <span class="py-keyword">in</span> [[FFun(cma.ff.elli), 22], [FFun(cma.ff.ellirot), 40]]:
 <span class="py-more">... </span>    surrogate = fm.SurrogatePopulation(fitfun)
@@ -83,30 +110,71 @@
 <span class="py-more">... </span>                     parallel_objective=surrogate,
 <span class="py-more">... </span>                     callback=inject_xopt)
 <span class="py-more">... </span>    <span class="py-comment"># print(fitfun.evaluations)</span>
-<span class="py-more">... </span>    assert fitfun.evaluations == es.result.evaluations
-<span class="py-more">... </span>    assert es.result[1] &lt; 1e-12
-<span class="py-more">... </span>    assert es.result[2] &lt; evals
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># fm.Logger = Logger</span></pre><table class="fieldTable"></table></div>
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> fitfun.evaluations == es.result.evaluations
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> es.result[1] &lt; 1e-12
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> es.result[2] &lt; evals
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># fm.Logger = Logger</span></pre></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id382">
+        <table class="children sortable" id="id415">
   
-  <tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.fitness_models.SurrogatePopulation.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>If <tt class="rst-docutils literal">model is None</tt>, a default <a href="cma.fitness_models.LQModel.html"><code>LQModel</code></a> instance is used. By setting <code>self.model</code> to <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>, only the <code>fitness</code> for each population member is evaluated in each call.</span></td>
-  </tr><tr class="class">
+  
+  <tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html" data-type="Class" class="code">EvaluationManager</a></td>
-    <td><span>Manage incremental evaluation of a population of solutions.</span></td>
+    <td><code><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation.EvaluationManager">​Evaluation​Manager</a></code></td>
+    <td>Manage incremental evaluation of a population of solutions.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.fitness_models.SurrogatePopulation.html#__call__" data-type="Method" class="code">__call__</a></td>
-    <td><span>return population f-values.</span></td>
+    <td><code><a href="#__call__" class="internal-link" title="cma.fitness_models.SurrogatePopulation.__call__">__call__</a></code></td>
+    <td>return population f-values.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.fitness_models.SurrogatePopulation.__init__">__init__</a></code></td>
+    <td>If <tt class="rst-docutils literal">model is None</tt>, a default <code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel">LQModel</a></code> instance is used. By setting <code>self.model</code> to <code>None</code>, only the <code><a href="#fitness" class="internal-link" title="cma.fitness_models.SurrogatePopulation.fitness">fitness</a></code> for each population member is evaluated in each call.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#count" class="internal-link" title="cma.fitness_models.SurrogatePopulation.count">count</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#evals" class="internal-link" title="cma.fitness_models.SurrogatePopulation.evals">evals</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#evaluations" class="internal-link" title="cma.fitness_models.SurrogatePopulation.evaluations">evaluations</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#fitness" class="internal-link" title="cma.fitness_models.SurrogatePopulation.fitness">fitness</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#logger" class="internal-link" title="cma.fitness_models.SurrogatePopulation.logger">logger</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#logger_eigenvalues" class="internal-link" title="cma.fitness_models.SurrogatePopulation.logger_eigenvalues">logger​_eigenvalues</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#model" class="internal-link" title="cma.fitness_models.SurrogatePopulation.model">model</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#settings" class="internal-link" title="cma.fitness_models.SurrogatePopulation.settings">settings</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
@@ -118,26 +186,6 @@
 
         <div class="basemethod">
   
-  <a name="cma.fitness_models.SurrogatePopulation.__init__">
-    
-  </a>
-  <a name="__init__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __init__(self, fitness, model=None, model_max_size_factor=None, tau_truth_threshold=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>If <tt class="rst-docutils literal">model is None</tt>, a default <a href="cma.fitness_models.LQModel.html"><code>LQModel</code></a> instance is used. By
-setting <code>self.model</code> to <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>, only the <code>fitness</code> for each
-population member is evaluated in each call.<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.fitness_models.SurrogatePopulation.__call__">
     
@@ -147,8 +195,7 @@ population member is evaluated in each call.<table class="fieldTable"></table></
   </a>
   <div class="functionHeader">
     
-    def
-    __call__(self, X):
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, X):
     
   </div>
   <div class="docstring functionBody">
@@ -162,18 +209,205 @@ smallest truly evaluated value.</p>
 <code>model.settings.max_absolute_size</code>, <code>model.settings.truncation_ratio</code>,
 <code>model.size</code>, <code>model.sort</code>, <code>model.eval</code>, <code>model.reset</code>, <code>model.add_data_row</code>,
 <code>model.kendall</code>, <code>model.adapt_max_relative_size</code>, relies on default value
-zero for <tt class="rst-docutils literal">max_absolute_size</tt>.</p><table class="fieldTable"></table></div>
+zero for <tt class="rst-docutils literal">max_absolute_size</tt>.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.fitness_models.SurrogatePopulation.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, fitness, model=None, model_max_size_factor=None, tau_truth_threshold=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>If <tt class="rst-docutils literal">model is None</tt>, a default <code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel">LQModel</a></code> instance is used. By
+setting <code>self.model</code> to <code>None</code>, only the <code><a href="#fitness" class="internal-link" title="cma.fitness_models.SurrogatePopulation.fitness">fitness</a></code> for each
+population member is evaluated in each call.</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_models.SurrogatePopulation.count">
+    
+  </a>
+  <a name="count">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">count</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_models.SurrogatePopulation.evals">
+    
+  </a>
+  <a name="evals">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">evals</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_models.SurrogatePopulation.evaluations">
+    
+  </a>
+  <a name="evaluations">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">evaluations</span>: <code>float</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_models.SurrogatePopulation.fitness">
+    
+  </a>
+  <a name="fitness">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">fitness</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_models.SurrogatePopulation.logger">
+    
+  </a>
+  <a name="logger">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_models.SurrogatePopulation.logger_eigenvalues">
+    
+  </a>
+  <a name="logger_eigenvalues">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger_eigenvalues</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_models.SurrogatePopulation.model">
+    
+  </a>
+  <a name="model">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">model</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_models.SurrogatePopulation.settings">
+    
+  </a>
+  <a name="settings">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">settings</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

@@ -2,52 +2,80 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.constraints_handler.AugmentedLagrangian : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.constraints_handler.AugmentedLagrangian</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.constraints_handler.AugmentedLagrangian(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints_handler</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian">AugmentedLagrangian</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.constraints_handler.html" data-type="Module" class="code">constraints_handler</a></code>
-          
-          <a href="classIndex.html#cma.constraints_handler.AugmentedLagrangian">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">AugmentedLagrangian</span>(object):</code></p>
+        <p><a href="classIndex.html#cma.constraints_handler.AugmentedLagrangian">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>Augmented Lagrangian with adaptation of the coefficients</p>
 <p>for minimization, implemented after Atamna et al FOGA 2017,
-Algorithm 1 and Sect 8.2, <a href="https://hal.inria.fr/hal-01455379/document" class="rst-reference external" target="_top">https://hal.inria.fr/hal-01455379/document</a>.</p>
-<p><a href="cma.constraints_handler.ConstrainedFitnessAL.html"><code>cma.ConstrainedFitnessAL</code></a> provides a (more) user-friendly interface to
-the <a href="cma.constraints_handler.AugmentedLagrangian.html"><code>AugmentedLagrangian</code></a> class.</p>
-<p>Input <a href="cma.constraints_handler.CountLastSameChanges.html#dimension"><code>dimension</code></a> is the search space dimension, boolean <code>equality</code>
+Algorithm 1 and Sect 8.2, <a class="rst-reference external" href="https://hal.inria.fr/hal-01455379/document" target="_top">https://hal.inria.fr/hal-01455379/document</a>.</p>
+<p><code><a href="cma.constraints_handler.ConstrainedFitnessAL.html" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL">cma.ConstrainedFitnessAL</a></code> provides a (more) user-friendly interface to
+the <code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian">AugmentedLagrangian</a></code> class.</p>
+<p>Input <code><a href="#dimension" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.dimension">dimension</a></code> is the search space dimension, boolean <code>equality</code>
 may be an iterable of length of number of constraints indicating the
 type for each constraint.</p>
 <p>Below, the objective function value is denoted as <tt class="rst-docutils literal">f = f(x)</tt>, the
@@ -56,7 +84,7 @@ constraints values as <tt class="rst-docutils literal">g = g(x) &lt;= 0</tt>, th
 each element of g, as returned by calling the instance with g as argument.</p>
 <p>The penalized "fitness" value <tt class="rst-docutils literal">f + sum(self(g))</tt> shall be minimized.
 lam and mu are the Lagrange multipliers or coefficients.</p>
-<p>An additional method, <a href="cma.constraints_handler.AugmentedLagrangian.html#set_coefficients"><code>set_coefficients</code></a> allows to initialize the
+<p>An additional method, <code><a href="#set_coefficients" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_coefficients">set_coefficients</a></code> allows to initialize the
 Lagrange multipliers from data.</p>
 <p>A short example (and doctest):</p>
 <pre class="py-doctest">
@@ -64,32 +92,31 @@ Lagrange multipliers from data.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.constraints_handler <span class="py-keyword">import</span> AugmentedLagrangian, PopulationEvaluator
 <span class="py-prompt">&gt;&gt;&gt; </span>m = 2  <span class="py-comment"># number of constraints</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">objective</span>(x):
-<span class="py-more">... </span>    return <span class="py-builtin">sum</span>(x[m:]**2) + <span class="py-builtin">sum</span>((x[:m] - 1)**2) - m
+<span class="py-more">... </span>    <span class="py-keyword">return</span> <span class="py-builtin">sum</span>(x[m:]**2) + <span class="py-builtin">sum</span>((x[:m] - 1)**2) - m
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">constraints</span>(x):
-<span class="py-more">... </span>    return x[:m]
+<span class="py-more">... </span>    <span class="py-keyword">return</span> x[:m]
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(3 * [1], 1, {
 <span class="py-more">... </span>         <span class="py-string">'termination_callback'</span>: <span class="py-keyword">lambda</span> es: <span class="py-builtin">sum</span>(es.mean**2) &lt; 1e-8})  <span class="py-comment">#doctest: +ELLIPSIS</span>
 <span class="py-output">(3_w,7)-aCMA-ES...</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>al = AugmentedLagrangian(es.N)  <span class="py-comment"># lam and mu still need to be set</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>al = AugmentedLagrangian(es.N)  <span class="py-comment"># lam and mu still need to be set</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># al.chi_domega = 1.15  # is the new default, which seems to give better results than the original value</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># al.lam, al.mu = ...  # we could set the initial Lagrange coefficients here</span>
-<span class="py-prompt">&gt;&gt;&gt; </span>while <span class="py-keyword">not</span> es.stop():
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
 <span class="py-more">... </span>    eva = PopulationEvaluator(objective, constraints)(es.ask(), m=es.mean)
 <span class="py-more">... </span>    al.set_coefficients(eva.F, eva.G)  <span class="py-comment"># set lam and mu, not part of the original algorithm</span>
 <span class="py-more">... </span>    al.update(eva.m[<span class="py-string">'f'</span>], eva.m[<span class="py-string">'g'</span>])
 <span class="py-more">... </span>    es.tell(eva.X, [f + <span class="py-builtin">sum</span>(al(g)) <span class="py-keyword">for</span> f, g <span class="py-keyword">in</span> <span class="py-builtin">zip</span>(eva.F, eva.G)])
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> es.result.evaluations &gt; 3100:
-<span class="py-more">... </span>    <span class="py-keyword">print</span>(<span class="py-string">"evaluations %d !&lt; 3100. 1500 is normal, 2700 happens rarely"</span> % es.result.evaluations)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-string">'callback'</span> <span class="py-keyword">in</span> es.stop()
-<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">len</span>(eva.feasibility_ratios) == m
-<span class="py-prompt">&gt;&gt;&gt; </span>assert <span class="py-builtin">sum</span>(eva.feasibility_ratios &lt; 0) == <span class="py-builtin">sum</span>(eva.feasibility_ratios &gt; 1) == 0</pre>
-<p>Details: the input <a href="cma.constraints_handler.CountLastSameChanges.html#dimension"><code>dimension</code></a> is needed to compute the default change
-rate <code>chi_domega</code> (if <tt class="rst-docutils literal">chi_domega is None</tt>), to compute initial
+<span class="py-more">... </span>    <span class="py-builtin">print</span>(<span class="py-string">"evaluations %d !&lt; 3100. 1500 is normal, 2700 happens rarely"</span> % es.result.evaluations)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-string">'callback'</span> <span class="py-keyword">in</span> es.stop()
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(eva.feasibility_ratios) == m
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">sum</span>(eva.feasibility_ratios &lt; 0) == <span class="py-builtin">sum</span>(eva.feasibility_ratios &gt; 1) == 0</pre><p>Details: the input <code><a href="#dimension" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.dimension">dimension</a></code> is needed to compute the default change
+rate <code><a href="#chi_domega" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.chi_domega">chi_domega</a></code> (if <tt class="rst-docutils literal">chi_domega is None</tt>), to compute initial
 coefficients and to compare between h and g to update mu. The default
-dependency of <code>chi_domega</code> on the dimension seems to be however
+dependency of <code><a href="#chi_domega" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.chi_domega">chi_domega</a></code> on the dimension seems to be however
 suboptimal. Setting <tt class="rst-docutils literal">self.chi_domega = 1.15</tt> as is the current
 default seems to give better results than the original setting.</p>
-<p>More testing based on the simpler <a href="cma.constraints_handler.ConstrainedFitnessAL.html"><code>ConstrainedFitnessAL</code></a> interface:</p>
+<p>More testing based on the simpler <code><a href="cma.constraints_handler.ConstrainedFitnessAL.html" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL">ConstrainedFitnessAL</a></code> interface:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> algorithm, evals <span class="py-keyword">in</span> <span class="py-builtin">zip</span>((0, 1, 2, 3), (2000, 2200, 1500, 1800)):
@@ -99,125 +126,261 @@ default seems to give better results than the original setting.</p>
 <span class="py-more">... </span>    alf.al.logging = <span class="py-builtin">False</span>
 <span class="py-more">... </span>    x, es = cma.fmin2(alf, 3 * [1], 0.1, {<span class="py-string">'verbose'</span>:-9, <span class="py-string">'seed'</span>:algorithm},  <span class="py-comment"># verbosity+seed for doctest only</span>
 <span class="py-more">... </span>                      callback=alf.update)
-<span class="py-more">... </span>    assert <span class="py-builtin">sum</span>((es.mean - [-1, 0, 0])**2) &lt; 1e-9, (algorithm, es.mean)
-<span class="py-more">... </span>    assert es.countevals &lt; evals, (algorithm, es.countevals)
-<span class="py-more">... </span>    assert alf.best_feas.f &lt; 10, (algorithm, <span class="py-builtin">str</span>(alf.best_feas))
-<span class="py-more">... </span>    <span class="py-comment"># print(algorithm, es.countevals, ) #alf.best_feas.__dict__)</span></pre><table class="fieldTable"></table></div>
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> <span class="py-builtin">sum</span>((es.mean - [-1, 0, 0])**2) &lt; 1e-9, (algorithm, es.mean)
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> es.countevals &lt; evals, (algorithm, es.countevals)
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> alf.best_feas.f &lt; 10, (algorithm, <span class="py-builtin">str</span>(alf.best_feas))
+<span class="py-more">... </span>    <span class="py-comment"># print(algorithm, es.countevals, ) #alf.best_feas.__dict__)</span></pre></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id365">
+        <table class="children sortable" id="id396">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>use <code>set_algorithm()</code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</span></td>
+    <td><code><a href="#__call__" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.__call__">__call__</a></code></td>
+    <td>return <code>list</code> of AL penalties for constraints values in <code><a href="#g" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g">g</a></code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_atamna2017" data-type="Method" class="code">set_atamna2017</a></td>
-    <td><span>Atamna et al 2017 parameter settings</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.__init__">__init__</a></code></td>
+    <td>use <code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set_algorithm()</a></code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_dufosse2020" data-type="Method" class="code">set_dufosse2020</a></td>
-    <td><span>Dufosse &amp; Hansen 2020 parameter settings</span></td>
+    <td><code><a href="#muminus2" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muminus2">muminus2</a></code></td>
+    <td>provisorial function to correct mu minus condition, original is <code>True</code></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_algorithm" data-type="Method" class="code">set_algorithm</a></td>
-    <td><span>if algorithm not <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>, set it and return self,</span></td>
+    <td><code><a href="#muminus3" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muminus3">muminus3</a></code></td>
+    <td>return <code>True</code> if mu should be reduced, else <code>False</code></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#m" data-type="Method" class="code">m</a></td>
-    <td><span>number of constraints, raise <a href="http://docs.python.org/library/exceptions.html#exceptions.TypeError"><code>TypeError</code></a> if not set yet</span></td>
+    <td><code><a href="#muminus4" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muminus4">muminus4</a></code></td>
+    <td>return <code>True</code> if mu should be reduced, else <code>False</code></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#is_initialized" data-type="Method" class="code">is_initialized</a></td>
+    <td><code><a href="#muplus2" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muplus2">muplus2</a></code></td>
+    <td>provisorial function to correct mu plus condition, original is <code>True</code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#muplus3" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muplus3">muplus3</a></code></td>
+    <td>return <code>True</code> if mu should be increased, else <code>False</code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#muplus4" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muplus4">muplus4</a></code></td>
+    <td>return <code>True</code> if mu should be increased, else <code>False</code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set​_algorithm</a></code></td>
+    <td>if algorithm not <code>None</code>, set it and return self,</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_atamna2017" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_atamna2017">set​_atamna2017</a></code></td>
+    <td>Atamna et al 2017 parameter settings</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_coefficients" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_coefficients">set​_coefficients</a></code></td>
+    <td>compute initial coefficients based on some f- and g-values.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_dufosse2020" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_dufosse2020">set​_dufosse2020</a></code></td>
+    <td>Dufosse &amp; Hansen 2020 parameter settings</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_m" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_m">set​_m</a></code></td>
+    <td>initialize attributes which depend on the number of constraints.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#update" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.update">update</a></code></td>
+    <td>f is a scalar, g is a vector.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.algorithm">algorithm</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method">
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#count_initialized" data-type="Method" class="code">count_initialized</a></td>
-    <td><span>number of constraints with initialized coefficients</span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#chi_domega" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.chi_domega">chi​_domega</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#feasibility_ratios" data-type="Method" class="code">feasibility_ratios</a></td>
-    <td><span>or bias for equality constraints, versatile interface may change</span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#count" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count">count</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_m" data-type="Method" class="code">set_m</a></td>
-    <td><span>initialize attributes which depend on the number of constraints.</span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#count_calls" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_calls">count​_calls</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#set_coefficients" data-type="Method" class="code">set_coefficients</a></td>
-    <td><span>compute initial coefficients based on some f- and g-values.</span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#count_g_in_penalized_domain" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_g_in_penalized_domain">count​_g​_in​_penalized​_domain</a></code></td>
+    <td>number of times g induced a penality in __call__ since last update</td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#isequality" data-type="Method" class="code">isequality</a></td>
-    <td><span>bool array, <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if <code>i</code>-th constraint is an equality constraint</span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#count_mu_last_same_changes" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_mu_last_same_changes">count​_mu​_last​_same​_changes</a></code></td>
+    <td>number of same changes of mu, -3 means it decreased in all last three iterations</td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#__call__" data-type="Method" class="code">__call__</a></td>
-    <td><span>return <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of AL penalties for constraints values in <code>g</code>.</span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#counts" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.counts">counts</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muplus2" data-type="Method" class="code">muplus2</a></td>
-    <td><span>provisorial function to correct mu plus condition, original is <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a></span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#dgamma" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.dgamma">dgamma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muminus2" data-type="Method" class="code">muminus2</a></td>
-    <td><span>provisorial function to correct mu minus condition, original is <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a></span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#dimension" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.dimension">dimension</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muplus3" data-type="Method" class="code">muplus3</a></td>
-    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be increased, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a></span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#f" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.f">f</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muminus3" data-type="Method" class="code">muminus3</a></td>
-    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be reduced, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a></span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#F" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.F">F</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muplus4" data-type="Method" class="code">muplus4</a></td>
-    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be increased, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a></span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#g" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g">g</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#muminus4" data-type="Method" class="code">muminus4</a></td>
-    <td><span>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be reduced, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a></span></td>
-  </tr><tr class="method">
+    <td>Instance Variable</td>
+    <td><code><a href="#G" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.G">G</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#update" data-type="Method" class="code">update</a></td>
-    <td><span>f is a scalar, g is a vector.</span></td>
+    <td>Instance Variable</td>
+    <td><code><a href="#g_all" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g_all">g​_all</a></code></td>
+    <td>all g-values from calling the class, recorded but not in use</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#g_history" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g_history">g​_history</a></code></td>
+    <td>g-values from calling update</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#k1" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.k1">k1</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#k2" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.k2">k2</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lam" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.lam">lam</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lam_opt" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.lam_opt">lam​_opt</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#logger_mu_conditions" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.logger_mu_conditions">logger​_mu​_conditions</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#loggers" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.loggers">loggers</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#logging" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.logging">logging</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mu" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.mu">mu</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mucdf3_horizon" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.mucdf3_horizon">mucdf3​_horizon</a></code></td>
+    <td>number of data to compute cdf for mu adaptation</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#count_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_initialized">count​_initialized</a></code></td>
+    <td>number of constraints with initialized coefficients</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#feasibility_ratios" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.feasibility_ratios">feasibility​_ratios</a></code></td>
+    <td>or bias for equality constraints, versatile interface may change</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#is_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.is_initialized">is​_initialized</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#isequality" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.isequality">isequality</a></code></td>
+    <td>bool array, <code>True</code> if <code>i</code>-th constraint is an equality constraint</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#m" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.m">m</a></code></td>
+    <td>number of constraints, raise <code>TypeError</code> if not set yet</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#_set_parameters" data-type="Method" class="code">_set_parameters</a></td>
-    <td><span>set parameters based on the value of <code>self.algorithm</code></span></td>
+    <td><code><a href="#_check_dtypes" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._check_dtypes">​_check​_dtypes</a></code></td>
+    <td>in case the user set the attributes</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#_init_" data-type="Method" class="code">_init_</a></td>
-    <td><span>allow to reset the logger with a single call</span></td>
+    <td><code><a href="#_init_" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._init_">​_init​_</a></code></td>
+    <td>allow to reset the logger with a single call</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.constraints_handler.AugmentedLagrangian.html#_check_dtypes" data-type="Method" class="code">_check_dtypes</a></td>
-    <td><span>in case the user set the attributes</span></td>
+    <td><code><a href="#_set_parameters" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._set_parameters">​_set​_parameters</a></code></td>
+    <td>set parameters based on the value of <code>self.algorithm</code></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_count_noupdate" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._count_noupdate">​_count​_noupdate</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_equality" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._equality">​_equality</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._initialized">​_initialized</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
@@ -229,6 +392,29 @@ default seems to give better results than the original setting.</p>
 
         <div class="basemethod">
   
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, g):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>return <code>list</code> of AL penalties for constraints values in <code><a href="#g" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g">g</a></code>.</p>
+<p>Penalties are zero in the optimum and can be negative down to
+<tt class="rst-docutils literal"><span class="pre">-lam**2</span> / mu / 2</tt>.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
   <a name="cma.constraints_handler.AugmentedLagrangian.__init__">
     
   </a>
@@ -237,73 +423,130 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self, dimension, equality=False):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, dimension, equality=False):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>use <code>set_algorithm()</code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults<table class="fieldTable"></table></div>
+    <div>use <code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set_algorithm()</a></code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.AugmentedLagrangian.set_atamna2017">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muminus2">
     
   </a>
-  <a name="set_atamna2017">
+  <a name="muminus2">
     
   </a>
   <div class="functionHeader">
     
-    def
-    set_atamna2017(self):
+    <span class="py-keyword">def</span> <span class="py-defname">muminus2</span>(self, g, i, threshold=0.05):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>Atamna et al 2017 parameter settings<table class="fieldTable"></table></div>
+    <div>provisorial function to correct mu minus condition, original is <code>True</code></div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.AugmentedLagrangian.set_dufosse2020">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muminus3">
     
   </a>
-  <a name="set_dufosse2020">
+  <a name="muminus3">
     
   </a>
   <div class="functionHeader">
     
-    def
-    set_dufosse2020(self):
+    <span class="py-keyword">def</span> <span class="py-defname">muminus3</span>(self, g, i, threshold=0.9):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>Dufosse &amp; Hansen 2020 parameter settings<table class="fieldTable"></table></div>
+    <div>return <code>True</code> if mu should be reduced, else <code>False</code></div>
   </div>
-</div><div class="basemethod private">
+</div><div class="basemethod">
   
-  <a name="cma.constraints_handler.AugmentedLagrangian._set_parameters">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muminus4">
     
   </a>
-  <a name="_set_parameters">
+  <a name="muminus4">
     
   </a>
   <div class="functionHeader">
     
-    def
-    _set_parameters(self):
+    <span class="py-keyword">def</span> <span class="py-defname">muminus4</span>(self, g, i, threshold=0.9):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>set parameters based on the value of <code>self.algorithm</code><table class="fieldTable"></table></div>
+    <div>return <code>True</code> if mu should be reduced, else <code>False</code></div>
   </div>
 </div><div class="basemethod">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muplus2">
+    
+  </a>
+  <a name="muplus2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">muplus2</span>(self, g, i, threshold=0.4):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>provisorial function to correct mu plus condition, original is <code>True</code></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muplus3">
+    
+  </a>
+  <a name="muplus3">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">muplus3</span>(self, g, i, threshold=0.95):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <code>True</code> if mu should be increased, else <code>False</code></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.muplus4">
+    
+  </a>
+  <a name="muplus4">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">muplus4</span>(self, g, i, threshold=0.95):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return <code>True</code> if mu should be increased, else <code>False</code></div>
+  </div>
+</div><div class="basemethod">
+  
   
   <a name="cma.constraints_handler.AugmentedLagrangian.set_algorithm">
     
@@ -313,153 +556,38 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    set_algorithm(self, algorithm=None):
+    <span class="py-keyword">def</span> <span class="py-defname">set_algorithm</span>(self, algorithm=None):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>if algorithm not <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>, set it and return self,</p>
+    <div><p>if algorithm not <code>None</code>, set it and return self,</p>
 <p>otherwise return current algorithm value which should be an integer.</p>
-<p>Values &lt; 1 are the (new) default, 1 == Atamna et al 2017, 2 == modified 1.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian._init_">
-    
-  </a>
-  <a name="_init_">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _init_(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>allow to reset the logger with a single call<table class="fieldTable"></table></div>
+<p>Values &lt; 1 are the (new) default, 1 == Atamna et al 2017, 2 == modified 1.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.AugmentedLagrangian.m">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.set_atamna2017">
     
   </a>
-  <a name="m">
+  <a name="set_atamna2017">
     
   </a>
   <div class="functionHeader">
-    @property<br />
-    def
-    m(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_atamna2017</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>number of constraints, raise <a href="http://docs.python.org/library/exceptions.html#exceptions.TypeError"><code>TypeError</code></a> if not set yet<table class="fieldTable"></table></div>
+    <div>Atamna et al 2017 parameter settings</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.AugmentedLagrangian.is_initialized">
-    
-  </a>
-  <a name="is_initialized">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    is_initialized(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian.count_initialized">
-    
-  </a>
-  <a name="count_initialized">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    count_initialized(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>number of constraints with initialized coefficients<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian.feasibility_ratios">
-    
-  </a>
-  <a name="feasibility_ratios">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    feasibility_ratios(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>or bias for equality constraints, versatile interface may change<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian.set_m">
-    
-  </a>
-  <a name="set_m">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    set_m(self, m):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>initialize attributes which depend on the number of constraints.</p>
-<p>This requires the <code>lam</code> attribute to be <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a> and deletes all
-previously set or adapted <code>mu</code> coefficients.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian._check_dtypes">
-    
-  </a>
-  <a name="_check_dtypes">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _check_dtypes(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>in case the user set the attributes<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.constraints_handler.AugmentedLagrangian.set_coefficients">
     
@@ -469,8 +597,7 @@ previously set or adapted <code>mu</code> coefficients.</p><table class="fieldTa
   </a>
   <div class="functionHeader">
     
-    def
-    set_coefficients(self, F, G):
+    <span class="py-keyword">def</span> <span class="py-defname">set_coefficients</span>(self, F, G):
     
   </div>
   <div class="docstring functionBody">
@@ -484,165 +611,54 @@ mu = 2 * iqr(f) / (5 * n * (iqr(g) + iqr(g**2)))
 </pre>
 <p>are taken out of thin air and not thoroughly tested. They are
 additionally protected against division by zero.</p>
-<p>Each row of <code>G</code> represents the constraints of one sample measure.</p>
+<p>Each row of <code><a href="#G" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.G">G</a></code> represents the constraints of one sample measure.</p>
 <p>Set lam and mu until a population contains more than 10% infeasible
-and more than 10% feasible at the same time. Afterwards, this at least...?...</p><table class="fieldTable"></table></div>
+and more than 10% feasible at the same time. Afterwards, this at least...?...</p>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.AugmentedLagrangian.isequality">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.set_dufosse2020">
     
   </a>
-  <a name="isequality">
+  <a name="set_dufosse2020">
     
   </a>
   <div class="functionHeader">
-    @property<br />
-    def
-    isequality(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_dufosse2020</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>bool array, <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if <code>i</code>-th constraint is an equality constraint<table class="fieldTable"></table></div>
+    <div>Dufosse &amp; Hansen 2020 parameter settings</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.AugmentedLagrangian.__call__">
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.set_m">
     
   </a>
-  <a name="__call__">
+  <a name="set_m">
     
   </a>
   <div class="functionHeader">
     
-    def
-    __call__(self, g):
+    <span class="py-keyword">def</span> <span class="py-defname">set_m</span>(self, m):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>return <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> of AL penalties for constraints values in <code>g</code>.</p>
-<p>Penalties are zero in the optimum and can be negative down to
-<tt class="rst-docutils literal"><span class="pre">-lam**2</span> / mu / 2</tt>.</p><table class="fieldTable"></table></div>
+    <div><p>initialize attributes which depend on the number of constraints.</p>
+<p>This requires the <code><a href="#lam" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.lam">lam</a></code> attribute to be <code>None</code> and deletes all
+previously set or adapted <code><a href="#mu" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.mu">mu</a></code> coefficients.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.constraints_handler.AugmentedLagrangian.muplus2">
-    
-  </a>
-  <a name="muplus2">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    muplus2(self, g, i, threshold=0.4):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>provisorial function to correct mu plus condition, original is <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian.muminus2">
-    
-  </a>
-  <a name="muminus2">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    muminus2(self, g, i, threshold=0.05):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>provisorial function to correct mu minus condition, original is <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian.muplus3">
-    
-  </a>
-  <a name="muplus3">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    muplus3(self, g, i, threshold=0.95):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be increased, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian.muminus3">
-    
-  </a>
-  <a name="muminus3">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    muminus3(self, g, i, threshold=0.9):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be reduced, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian.muplus4">
-    
-  </a>
-  <a name="muplus4">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    muplus4(self, g, i, threshold=0.95):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be increased, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian.muminus4">
-    
-  </a>
-  <a name="muminus4">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    muminus4(self, g, i, threshold=0.9):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> if mu should be reduced, else <a href="http://docs.python.org/library/constants.html#False"><code>False</code></a><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.constraints_handler.AugmentedLagrangian.update">
     
@@ -652,8 +668,7 @@ and more than 10% feasible at the same time. Afterwards, this at least...?...</p
   </a>
   <div class="functionHeader">
     
-    def
-    update(self, f, g):
+    <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, f, g):
     
   </div>
   <div class="docstring functionBody">
@@ -662,18 +677,721 @@ and more than 10% feasible at the same time. Afterwards, this at least...?...</p
     <div><p>f is a scalar, g is a vector.</p>
 <p>Update Lagrange multipliers based on Atamna et al 2017. f and g are
 supposed to have been computed from the distribution mean.</p>
-<p>Details: do nothing if Lagrange coefficients <code>lam</code> were not yet set.</p><table class="fieldTable"></table></div>
+<p>Details: do nothing if Lagrange coefficients <code><a href="#lam" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.lam">lam</a></code> were not yet set.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.algorithm">
+    
+  </a>
+  <a name="algorithm">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">algorithm</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.chi_domega">
+    
+  </a>
+  <a name="chi_domega">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">chi_domega</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.count">
+    
+  </a>
+  <a name="count">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">count</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.count_calls">
+    
+  </a>
+  <a name="count_calls">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">count_calls</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.count_g_in_penalized_domain">
+    
+  </a>
+  <a name="count_g_in_penalized_domain">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">count_g_in_penalized_domain</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>number of times g induced a penality in __call__ since last update</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.count_mu_last_same_changes">
+    
+  </a>
+  <a name="count_mu_last_same_changes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">count_mu_last_same_changes</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>number of same changes of mu, -3 means it decreased in all last three iterations</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.counts">
+    
+  </a>
+  <a name="counts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">counts</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.dgamma">
+    
+  </a>
+  <a name="dgamma">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">dgamma</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.dimension">
+    
+  </a>
+  <a name="dimension">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">dimension</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.f">
+    
+  </a>
+  <a name="f">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">f</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.F">
+    
+  </a>
+  <a name="F">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">F</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.g">
+    
+  </a>
+  <a name="g">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">g</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.G">
+    
+  </a>
+  <a name="G">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">G</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.g_all">
+    
+  </a>
+  <a name="g_all">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">g_all</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>all g-values from calling the class, recorded but not in use</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.g_history">
+    
+  </a>
+  <a name="g_history">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">g_history</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>g-values from calling update</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.k1">
+    
+  </a>
+  <a name="k1">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">k1</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.k2">
+    
+  </a>
+  <a name="k2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">k2</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.lam">
+    
+  </a>
+  <a name="lam">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lam</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.lam_opt">
+    
+  </a>
+  <a name="lam_opt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lam_opt</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.logger_mu_conditions">
+    
+  </a>
+  <a name="logger_mu_conditions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger_mu_conditions</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.loggers">
+    
+  </a>
+  <a name="loggers">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">loggers</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.logging">
+    
+  </a>
+  <a name="logging">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logging</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.mu">
+    
+  </a>
+  <a name="mu">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mu</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.mucdf3_horizon">
+    
+  </a>
+  <a name="mucdf3_horizon">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mucdf3_horizon</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>number of data to compute cdf for mu adaptation</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.count_initialized">
+    
+  </a>
+  <a name="count_initialized">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">count_initialized</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>number of constraints with initialized coefficients</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.feasibility_ratios">
+    
+  </a>
+  <a name="feasibility_ratios">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">feasibility_ratios</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>or bias for equality constraints, versatile interface may change</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.is_initialized">
+    
+  </a>
+  <a name="is_initialized">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">is_initialized</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.isequality">
+    
+  </a>
+  <a name="isequality">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">isequality</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>bool array, <code>True</code> if <code>i</code>-th constraint is an equality constraint</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian.m">
+    
+  </a>
+  <a name="m">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">m</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>number of constraints, raise <code>TypeError</code> if not set yet</div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian._check_dtypes">
+    
+  </a>
+  <a name="_check_dtypes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_check_dtypes</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>in case the user set the attributes</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian._init_">
+    
+  </a>
+  <a name="_init_">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_init_</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>allow to reset the logger with a single call</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian._set_parameters">
+    
+  </a>
+  <a name="_set_parameters">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_set_parameters</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>set parameters based on the value of <code>self.algorithm</code></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian._count_noupdate">
+    
+  </a>
+  <a name="_count_noupdate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_count_noupdate</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian._equality">
+    
+  </a>
+  <a name="_equality">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_equality</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.constraints_handler.AugmentedLagrangian._initialized">
+    
+  </a>
+  <a name="_initialized">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_initialized</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

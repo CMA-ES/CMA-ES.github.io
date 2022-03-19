@@ -2,59 +2,89 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.wrapper : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.wrapper</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="module"><code>cma.wrapper</code> <small>module documentation</small></h1>
+        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.wrapper.html" class="internal-link" title="cma.wrapper">wrapper</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
-          
-          
-        </span>
+      <div class="categoryHeader">
+        module documentation
       </div>
 
       <div class="extrasDocstring">
         
+        <p></p>
       </div>
 
       <div class="moduleDocstring">
-        <div><p>Interface wrappers for the <a href="cma.html"><code>cma</code></a> module.</p>
-<p>The <a href="cma.wrapper.html#SkoptCMAoptimizer"><code>SkoptCMAoptimizer</code></a> wrapper interfaces an optimizer aligned with
-<code>skopt.optimizer</code>.</p><table class="fieldTable"></table></div>
+        <div><p>Interface wrappers for the <code><a href="index.html" class="internal-link">cma</a></code> module.</p>
+<p>The <code><a href="#SkoptCMAoptimizer" class="internal-link" title="cma.wrapper.SkoptCMAoptimizer">SkoptCMAoptimizer</a></code> wrapper interfaces an optimizer aligned with
+<code>skopt.optimizer</code>.</p>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id514">
+        <table class="children sortable" id="id549">
+  
   
   <tr class="function">
     
     <td>Function</td>
-    <td><a href="cma.wrapper.html#SkoptCMAoptimizer" data-type="Function" class="code">SkoptCMAoptimizer</a></td>
-    <td><span>Optmizer based on CMA-ES algorithm. This is essentially a wrapper fuction for the cma library function to align the interface with skopt library.</span></td>
+    <td><code><a href="#SkoptCMAoptimizer" class="internal-link" title="cma.wrapper.SkoptCMAoptimizer">​Skopt​CMAoptimizer</a></code></td>
+    <td>Optmizer based on CMA-ES algorithm. This is essentially a wrapper fuction for the cma library function to align the interface with skopt library.</td>
   </tr>
 </table>
         
@@ -66,6 +96,7 @@
 
         <div class="basefunction">
   
+  
   <a name="cma.wrapper.SkoptCMAoptimizer">
     
   </a>
@@ -74,57 +105,64 @@
   </a>
   <div class="functionHeader">
     
-    def
-    SkoptCMAoptimizer(func, dimensions, n_calls, verbose=False, callback=(), x0=None, n_jobs=1, sigma0=0.5, normalize=True):
+    <span class="py-keyword">def</span> <span class="py-defname">SkoptCMAoptimizer</span>(func, dimensions, n_calls, verbose=False, callback=(), x0=None, n_jobs=1, sigma0=0.5, normalize=True):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <pre>Optmizer based on CMA-ES algorithm.
+    <div><p>Optmizer based on CMA-ES algorithm.
 This is essentially a wrapper fuction for the cma library function
-to align the interface with skopt library.
-
-Args:
-    func (callable): function to optimize
-    dimensions: list of tuples like ``4 * [(-1., 1.)]`` for defining the domain.
-    n_calls: the number of samples.
-    verbose: if this func should be verbose
-    callback: the list of callback functions.
-    n_jobs: number of cores to run different calls to `func` in parallel.
-    x0: inital values
-        if None, random point will be sampled
-    sigma0: initial standard deviation relative to domain width
-    normalize: whether optimization domain should be normalized
-
-Returns:
-    `res` skopt.OptimizeResult object
-    The optimization result returned as a dict object.
-    Important attributes are:
-    - `x` [list]: location of the minimum.
-    - `fun` [float]: function value at the minimum.
-    - `x_iters` [list of lists]: location of function evaluation for each
-    iteration.
-    - `func_vals` [array]: function value for each iteration.
-    - `space` [skopt.space.Space]: the optimization space.
-
-Example::
-
-    import cma.wrapper
-    res = cma.wrapper.SkoptCMAoptimizer(lambda x: sum([xi**2 for xi in x]),
-                                        2 * [(-1.,1.)], 55)
-    res['cma_es'].logger.plot()</pre>
+to align the interface with skopt library.</p>
+<dl class="rst-docutils">
+<dt>Args:</dt>
+<dd><p class="rst-first">func (callable): function to optimize
+dimensions: list of tuples like <tt class="rst-docutils literal">4 * <span class="pre">[(-1.,</span> <span class="pre">1.)]</span></tt> for defining the domain.
+n_calls: the number of samples.
+verbose: if this func should be verbose
+callback: the list of callback functions.
+n_jobs: number of cores to run different calls to <code>func</code> in parallel.
+x0: inital values</p>
+<blockquote>
+if None, random point will be sampled</blockquote>
+<p class="rst-last">sigma0: initial standard deviation relative to domain width
+normalize: whether optimization domain should be normalized</p>
+</dd>
+<dt>Returns:</dt>
+<dd><code>res</code> skopt.OptimizeResult object
+The optimization result returned as a dict object.
+Important attributes are:
+- <code>x</code> [list]: location of the minimum.
+- <code>fun</code> [float]: function value at the minimum.
+- <code>x_iters</code> [list of lists]: location of function evaluation for each
+iteration.
+- <code>func_vals</code> [array]: function value for each iteration.
+- <code>space</code> [skopt.space.Space]: the optimization space.</dd>
+</dl>
+<p>Example:</p>
+<pre class="rst-literal-block">
+import cma.wrapper
+res = cma.wrapper.SkoptCMAoptimizer(lambda x: sum([xi**2 for xi in x]),
+                                    2 * [(-1.,1.)], 55)
+res['cma_es'].logger.plot()
+</pre>
+</div>
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

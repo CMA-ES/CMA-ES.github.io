@@ -2,134 +2,169 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.purecma.CMAESDataLogger : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.purecma.CMAESDataLogger</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.purecma.CMAESDataLogger(<a href="cma.interfaces.BaseDataLogger.html" data-type="Class" class="code">_BaseDataLogger</a>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code><wbr></wbr>.<code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link" title="cma.purecma.CMAESDataLogger">CMAESDataLogger</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.purecma.html" data-type="Module" class="code">purecma</a></code>
-          
-          <a href="classIndex.html#cma.purecma.CMAESDataLogger">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">CMAESDataLogger</span>(<a href="cma.purecma.html#_BaseDataLogger" class="internal-link" title="cma.purecma._BaseDataLogger">_BaseDataLogger</a>):</code></p>
+        <p><a href="classIndex.html#cma.purecma.CMAESDataLogger">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
-        <div><p>data logger for class <a href="cma.purecma.CMAES.html"><code>CMAES</code></a>, that can record and plot data.</p>
+        <div><p>data logger for class <code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">CMAES</a></code>, that can record and plot data.</p>
 <div class="rst-section" id="rst-examples">
-<h1 class="heading">Examples</h1>
-<p>The data may come from <a href="cma.purecma.html#fmin"><code>fmin</code></a> or <a href="cma.purecma.CMAES.html"><code>CMAES</code></a> and the simulation may
+<h2 class="heading">Examples</h2>
+<p>The data may come from <code><a href="cma.purecma.html#fmin" class="internal-link" title="cma.purecma.fmin">fmin</a></code> or <code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">CMAES</a></code> and the simulation may
 still be running in a different Python shell.</p>
-<p>Use the default logger from <a href="cma.purecma.CMAES.html"><code>CMAES</code></a>:</p>
+<p>Use the default logger from <code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">CMAES</a></code>:</p>
 <pre class="py-doctest">
-<span class="py-prompt">&gt;&gt;&gt; </span>try: <span class="py-keyword">import</span> cma.purecma <span class="py-keyword">as</span> pcma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">try</span>: <span class="py-keyword">import</span> cma.purecma <span class="py-keyword">as</span> pcma
 <span class="py-more">... </span><span class="py-keyword">except</span> <span class="py-builtin">ImportError</span>: <span class="py-keyword">import</span> purecma <span class="py-keyword">as</span> pcma
 <span class="py-prompt">&gt;&gt;&gt; </span>es = pcma.CMAES(3 * [0.1], 1)
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">isinstance</span>(es.logger, pcma.CMAESDataLogger)  <span class="py-comment"># type(es.logger)</span>
 <span class="py-output">True</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>while <span class="py-keyword">not</span> es.stop():
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
 <span class="py-more">... </span>    X = es.ask()
 <span class="py-more">... </span>    es.tell(X, [pcma.ff.elli(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])
 <span class="py-more">... </span>    es.logger.add(es)  <span class="py-comment"># doctest: +SKIP</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>es.logger.save()
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># es.logger.plot()  #</span></pre>
-<p>Load and plot previously generated data:</p>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># es.logger.plot()  #</span></pre><p>Load and plot previously generated data:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span>logger = pcma.CMAESDataLogger().load()
 <span class="py-prompt">&gt;&gt;&gt; </span>logger.filename == <span class="py-string">"_CMAESDataLogger_datadict.py"</span>
-<span class="py-output">True</span></pre>
-<pre class="py-doctest">
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># logger.plot()</span></pre>
-<p>TODO: the recorded data are kept in memory and keep growing, which
+<span class="py-output">True</span>
+</pre><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># logger.plot()</span></pre><p>TODO: the recorded data are kept in memory and keep growing, which
 may well lead to performance issues for (very?) long runs. Ideally,
 it should be possible to dump data to a file and clear the memory and
 also to downsample data to prevent plotting of long runs to take
 forever. <tt class="rst-docutils literal">"], 'key': "</tt> or <tt class="rst-docutils literal"><span class="pre">"]}"</span></tt> is the place where to
 prepend/append new data in the file.</p>
-</div><table class="fieldTable"></table></div>
+</div>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id447">
+        <table class="children sortable" id="id481">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.purecma.CMAESDataLogger.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span><code>verb_modulo</code> controls whether and when logging takes place for each call to the method <a href="cma.purecma.CMAESDataLogger.html#add"><code>add</code></a></span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.purecma.CMAESDataLogger.__init__">__init__</a></code></td>
+    <td><code>verb_modulo</code> controls whether and when logging takes place for each call to the method <code><a href="#add" class="internal-link" title="cma.purecma.CMAESDataLogger.add">add</a></code></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.purecma.CMAESDataLogger.html#add" data-type="Method" class="code">add</a></td>
-    <td><span>append some logging data from CMAES class instance <code>es</code>, if <tt class="rst-docutils literal">number_of_times_called modulo verb_modulo</tt> equals zero</span></td>
+    <td><code><a href="#add" class="internal-link" title="cma.purecma.CMAESDataLogger.add">add</a></code></td>
+    <td>append some logging data from CMAES class instance <code>es</code>, if <tt class="rst-docutils literal">number_of_times_called modulo verb_modulo</tt> equals zero</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.purecma.CMAESDataLogger.html#plot" data-type="Method" class="code">plot</a></td>
-    <td><span>plot the stored data in figure <code>fig_number</code>.</span></td>
+    <td><code><a href="#load" class="internal-link" title="cma.purecma.CMAESDataLogger.load">load</a></code></td>
+    <td>load data from file <code>name</code> or <tt class="rst-docutils literal">self.filename</tt></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.purecma.CMAESDataLogger.html#save" data-type="Method" class="code">save</a></td>
-    <td><span>save data to file <code>name</code> or <tt class="rst-docutils literal">self.filename</tt></span></td>
+    <td><code><a href="#plot" class="internal-link" title="cma.purecma.CMAESDataLogger.plot">plot</a></code></td>
+    <td>plot the stored data in figure <code>fig_number</code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.purecma.CMAESDataLogger.html#load" data-type="Method" class="code">load</a></td>
-    <td><span>load data from file <code>name</code> or <tt class="rst-docutils literal">self.filename</tt></span></td>
+    <td><code><a href="#save" class="internal-link" title="cma.purecma.CMAESDataLogger.save">save</a></code></td>
+    <td>save data to file <code>name</code> or <tt class="rst-docutils literal">self.filename</tt></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#plotted" class="internal-link" title="cma.purecma.CMAESDataLogger.plotted">plotted</a></code></td>
+    <td>plot count for all instances</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#counter" class="internal-link" title="cma.purecma.CMAESDataLogger.counter">counter</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#filename" class="internal-link" title="cma.purecma.CMAESDataLogger.filename">filename</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#modulo" class="internal-link" title="cma.purecma.CMAESDataLogger.modulo">modulo</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#optim" class="internal-link" title="cma.purecma.CMAESDataLogger.optim">optim</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_data" class="internal-link" title="cma.purecma.CMAESDataLogger._data">​_data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
-          <p class="inheritedFrom">
-            Inherited from <a href="cma.interfaces.BaseDataLogger.html" data-type="Class" class="code">BaseDataLogger</a>:
-          </p>
-          <table class="children sortable" id="id448">
-  
-  <tr class="basemethod">
-    
-    <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#register" data-type="Method" class="code">register</a></td>
-    <td><span>register an optimizer <tt class="rst-docutils literal">optim</tt>, only needed if method <a href="cma.interfaces.BaseDataLogger.html#add"><code>add</code></a> is called without passing the <tt class="rst-docutils literal">optim</tt> argument</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#disp" data-type="Method" class="code">disp</a></td>
-    <td><span>abstract method, display some data trace</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><a href="cma.interfaces.BaseDataLogger.html#data" data-type="Method" class="code">data</a></td>
-    <td><span>logged data in a dictionary</span></td>
-  </tr>
-</table>
-          
 
           
       </div>
@@ -137,6 +172,7 @@ prepend/append new data in the file.</p>
       <div id="childList">
 
         <div class="basemethod">
+  
   
   <a name="cma.purecma.CMAESDataLogger.__init__">
     
@@ -146,17 +182,17 @@ prepend/append new data in the file.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self, verb_modulo=1):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, verb_modulo=1):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.BaseDataLogger.html#__init__" data-type="Method" class="code">cma.interfaces.BaseDataLogger.__init__</a></div>
+    
     
     <div><code>verb_modulo</code> controls whether and when logging takes place
-for each call to the method <a href="cma.purecma.CMAESDataLogger.html#add"><code>add</code></a><table class="fieldTable"></table></div>
+for each call to the method <code><a href="#add" class="internal-link" title="cma.purecma.CMAESDataLogger.add">add</a></code></div>
   </div>
 </div><div class="basemethod">
+  
   
   <a name="cma.purecma.CMAESDataLogger.add">
     
@@ -166,56 +202,17 @@ for each call to the method <a href="cma.purecma.CMAESDataLogger.html#add"><code
   </a>
   <div class="functionHeader">
     
-    def
-    add(self, es=None, force=False, more_data=None):
+    <span class="py-keyword">def</span> <span class="py-defname">add</span>(self, es=None, force=False, more_data=None):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.BaseDataLogger.html#add" data-type="Method" class="code">cma.interfaces.BaseDataLogger.add</a></div>
+    
     
     <div>append some logging data from CMAES class instance <code>es</code>,
-if <tt class="rst-docutils literal">number_of_times_called modulo verb_modulo</tt> equals zero<table class="fieldTable"></table></div>
+if <tt class="rst-docutils literal">number_of_times_called modulo verb_modulo</tt> equals zero</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.purecma.CMAESDataLogger.plot">
-    
-  </a>
-  <a name="plot">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    plot(self, fig_number=322):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.BaseDataLogger.html#plot" data-type="Method" class="code">cma.interfaces.BaseDataLogger.plot</a></div>
-    
-    <div><p>plot the stored data in figure <code>fig_number</code>.</p>
-<p>Dependencies: <code>matlabplotlib.pylab</code></p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.purecma.CMAESDataLogger.save">
-    
-  </a>
-  <a name="save">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    save(self, name=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.BaseDataLogger.html#save" data-type="Method" class="code">cma.interfaces.BaseDataLogger.save</a></div>
-    
-    <div>save data to file <code>name</code> or <tt class="rst-docutils literal">self.filename</tt><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.purecma.CMAESDataLogger.load">
     
@@ -225,25 +222,189 @@ if <tt class="rst-docutils literal">number_of_times_called modulo verb_modulo</t
   </a>
   <div class="functionHeader">
     
-    def
-    load(self, name=None):
+    <span class="py-keyword">def</span> <span class="py-defname">load</span>(self, name=None):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.BaseDataLogger.html#load" data-type="Method" class="code">cma.interfaces.BaseDataLogger.load</a></div>
     
-    <div>load data from file <code>name</code> or <tt class="rst-docutils literal">self.filename</tt><table class="fieldTable"></table></div>
+    
+    <div>load data from file <code>name</code> or <tt class="rst-docutils literal">self.filename</tt></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.purecma.CMAESDataLogger.plot">
+    
+  </a>
+  <a name="plot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, fig_number=322):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>plot the stored data in figure <code>fig_number</code>.</p>
+<p>Dependencies: <code>matlabplotlib.pylab</code></p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.purecma.CMAESDataLogger.save">
+    
+  </a>
+  <a name="save">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">save</span>(self, name=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>save data to file <code>name</code> or <tt class="rst-docutils literal">self.filename</tt></div>
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="cma.purecma.CMAESDataLogger.plotted">
+    
+  </a>
+  <a name="plotted">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">plotted</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>plot count for all instances</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.purecma.CMAESDataLogger.counter">
+    
+  </a>
+  <a name="counter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">counter</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.purecma.CMAESDataLogger.filename">
+    
+  </a>
+  <a name="filename">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">filename</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.purecma.CMAESDataLogger.modulo">
+    
+  </a>
+  <a name="modulo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">modulo</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.purecma.CMAESDataLogger.optim">
+    
+  </a>
+  <a name="optim">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">optim</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.purecma.CMAESDataLogger._data">
+    
+  </a>
+  <a name="_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_data</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

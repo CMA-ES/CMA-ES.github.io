@@ -2,64 +2,91 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.sampler.GaussFullSampler : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.sampler.GaussFullSampler</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.sampler.GaussFullSampler(<a href="cma.sampler.GaussSampler.html" data-type="Class" class="code">GaussSampler</a>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.sampler.html" class="internal-link" title="cma.sampler">sampler</a></code><wbr></wbr>.<code><a href="cma.sampler.GaussFullSampler.html" class="internal-link" title="cma.sampler.GaussFullSampler">GaussFullSampler</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.sampler.html" data-type="Module" class="code">sampler</a></code>
-          
-          <a href="classIndex.html#cma.sampler.GaussFullSampler">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">GaussFullSampler</span>(<a href="cma.sampler.GaussSampler.html" class="internal-link" title="cma.sampler.GaussSampler">GaussSampler</a>):</code></p>
+        <p><a href="classIndex.html#cma.sampler.GaussFullSampler">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>Multi-variate normal distribution with zero mean.</p>
-<p>Provides methods to <a href="cma.sampler.GaussFullSampler.html#sample"><code>sample</code></a> from and <a href="cma.sampler.GaussFullSampler.html#update"><code>update</code></a> a multi-variate
+<p>Provides methods to <code><a href="#sample" class="internal-link" title="cma.sampler.GaussFullSampler.sample">sample</a></code> from and <code><a href="#update" class="internal-link" title="cma.sampler.GaussFullSampler.update">update</a></code> a multi-variate
 normal distribution with zero mean and full covariance matrix.</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma, numpy <span class="py-keyword">as</span> np
 <span class="py-prompt">&gt;&gt;&gt; </span>g = cma.sampler.GaussFullSampler(np.ones(4))
 <span class="py-prompt">&gt;&gt;&gt; </span>z = g.sample(1)[0]
-<span class="py-prompt">&gt;&gt;&gt; </span>assert g.norm([1,0,0,0]) == 1
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> g.norm([1,0,0,0]) == 1
 <span class="py-prompt">&gt;&gt;&gt; </span>g.update([[1., 0., 0., 0]], [.9])
 <span class="py-prompt">&gt;&gt;&gt; </span>g.update_now()
-<span class="py-prompt">&gt;&gt;&gt; </span>assert g.norm([1,0,0,0]) == 1
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> g.norm([1,0,0,0]) == 1
 <span class="py-prompt">&gt;&gt;&gt; </span>g.update([[4., 0., 0.,0]], [.5])
 <span class="py-prompt">&gt;&gt;&gt; </span>g.update_now()
 <span class="py-prompt">&gt;&gt;&gt; </span>g *= 2
-<span class="py-prompt">&gt;&gt;&gt; </span>assert cma.utilities.math.Mh.equals_approximately(g.variances[0], 17)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert cma.utilities.math.Mh.equals_approximately(g.D[-1]**2, 17)</pre>
-<div class="rst-section" id="rst-todo">
-<h1 class="heading">TODO</h1>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> cma.utilities.math.Mh.equals_approximately(g.variances[0], 17)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> cma.utilities.math.Mh.equals_approximately(g.D[-1]**2, 17)</pre><div class="rst-section" id="rst-todo">
+<h2 class="heading">TODO</h2>
 <p>o Clean up CMAEvolutionStrategy attributes related to sampling
 (like usage of B, C, D, dC, sigma_vec, these are pretty
 substantial changes). In particular this should become
@@ -76,175 +103,274 @@ if y is expressed in the new sigma_vec while C in the old)</li>
 </ul>
 </dd>
 </dl>
-</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">dimension</td><td>(required) define the dimensionality (attribute
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dimension</span></td><td class="fieldArgDesc">(required) define the dimensionality (attribute
 <tt class="rst-docutils literal">dimension</tt>) of the normal distribution. If <tt class="rst-docutils literal">dimension</tt> is a
-vector, it sets the diagonal of the initial covariance matrix.</td></tr><tr><td></td><td class="fieldArg">lazy_update_gap=0</td><td>is the number of iterations to wait between
+vector, it sets the diagonal of the initial covariance matrix.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lazy​_update​_gap=0</span></td><td class="fieldArgDesc">is the number of iterations to wait between
 the O(n^3) updates of the sampler. All values &lt;=1 behave
-identically.</td></tr><tr><td></td><td class="fieldArg">constant_trace=''</td><td>'arithmetic'/'aeigen' or 'geometric'
+identically.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">constant​_trace=''</span></td><td class="fieldArgDesc">'arithmetic'/'aeigen' or 'geometric'
 or 'geigen' (geometric mean of eigenvalues) are available to be
-constant.</td></tr><tr><td></td><td class="fieldArg">randn=np.random.randn</td><td>is used to generate N(0,1) numbers.</td></tr><tr><td></td><td class="fieldArg">eigenmethod=np.linalg.eigh</td><td>function returning eigenvalues
+constant.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">randn=np.random.randn</span></td><td class="fieldArgDesc">is used to generate N(0,1) numbers.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">eigenmethod=np.linalg.eigh</span></td><td class="fieldArgDesc">function returning eigenvalues
 and -vectors of symmetric matrix</td></tr></table></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id467">
+        <table class="children sortable" id="id502">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>declarative init, doesn't need to be executed</span></td>
+    <td><code><a href="#__imul__" class="internal-link" title="cma.sampler.GaussFullSampler.__imul__">__imul__</a></code></td>
+    <td><tt class="rst-docutils literal">sm *= factor</tt> is a shortcut for <tt class="rst-docutils literal">sm = sm.__imul__(factor)</tt>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#reset" data-type="Method" class="code">reset</a></td>
-    <td><span>reset distribution while keeping all other parameters.</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.sampler.GaussFullSampler.__init__">__init__</a></code></td>
+    <td>declarative init, doesn't need to be executed</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#variances" data-type="Method" class="code">variances</a></td>
-    <td><span>vector of coordinate-wise (marginal) variances</span></td>
+    <td><code><a href="#correlation" class="internal-link" title="cma.sampler.GaussFullSampler.correlation">correlation</a></code></td>
+    <td>return correlation between variables i and j.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#sample" data-type="Method" class="code">sample</a></td>
-    <td><span>return list of i.i.d. samples.</span></td>
+    <td><code><a href="#inverse_hessian_scalar_correction" class="internal-link" title="cma.sampler.GaussFullSampler.inverse_hessian_scalar_correction">inverse​_hessian​_scalar​_correction</a></code></td>
+    <td>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt> fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#update" data-type="Method" class="code">update</a></td>
-    <td><span>update/learn by natural gradient ascent.</span></td>
+    <td><code><a href="#limit_condition" class="internal-link" title="cma.sampler.GaussFullSampler.limit_condition">limit​_condition</a></code></td>
+    <td>bound condition number to <code>limit</code> by adding eps to the trace.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#update_now" data-type="Method" class="code">update_now</a></td>
-    <td><span>update internal variables for sampling the distribution with the current covariance matrix C.</span></td>
+    <td><code><a href="#multiply_C" class="internal-link" title="cma.sampler.GaussFullSampler.multiply_C">multiply_​C</a></code></td>
+    <td>multiply <tt class="rst-docutils literal">self.C</tt> with <tt class="rst-docutils literal">factor</tt> updating internal states.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#limit_condition" data-type="Method" class="code">limit_condition</a></td>
-    <td><span>bound condition number to <code>limit</code> by adding eps to the trace.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#multiply_C" data-type="Method" class="code">multiply_C</a></td>
-    <td><span>multiply <tt class="rst-docutils literal">self.C</tt> with <tt class="rst-docutils literal">factor</tt> updating internal states.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#__imul__" data-type="Method" class="code">__imul__</a></td>
-    <td><span><tt class="rst-docutils literal">sm *= factor</tt> is a shortcut for <tt class="rst-docutils literal">sm = sm.__imul__(factor)</tt>.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#to_linear_transformation" data-type="Method" class="code">to_linear_transformation</a></td>
-    <td><span>return associated linear transformation.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#to_linear_transformation_inverse" data-type="Method" class="code">to_linear_transformation_inverse</a></td>
-    <td><span>return inverse of associated linear transformation.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#covariance_matrix" data-type="Method" class="code">covariance_matrix</a></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#correlation_matrix" data-type="Method" class="code">correlation_matrix</a></td>
-    <td><span>return correlation matrix of the distribution.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#to_correlation_matrix" data-type="Method" class="code">to_correlation_matrix</a></td>
-    <td><span>"re-scale" C to a correlation matrix and return the scaling factors as standard deviations.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#correlation" data-type="Method" class="code">correlation</a></td>
-    <td><span>return correlation between variables i and j.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#transform" data-type="Method" class="code">transform</a></td>
-    <td><span>apply linear transformation <tt class="rst-docutils literal"><span class="pre">C**0.5</span></tt> to <code>x</code>.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#transform_inverse" data-type="Method" class="code">transform_inverse</a></td>
-    <td><span>apply inverse linear transformation <tt class="rst-docutils literal"><span class="pre">C**-0.5</span></tt> to <code>x</code>.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#condition_number" data-type="Method" class="code">condition_number</a></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#norm" data-type="Method" class="code">norm</a></td>
+    <td><code><a href="#norm" class="internal-link" title="cma.sampler.GaussFullSampler.norm">norm</a></code></td>
     <td><span class="undocumented">No summary</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#inverse_hessian_scalar_correction" data-type="Method" class="code">inverse_hessian_scalar_correction</a></td>
-    <td><span>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt> fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt></span></td>
-  </tr><tr class="method private">
+    <td><code><a href="#reset" class="internal-link" title="cma.sampler.GaussFullSampler.reset">reset</a></code></td>
+    <td>reset distribution while keeping all other parameters.</td>
+  </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#_updateC" data-type="Method" class="code">_updateC</a></td>
+    <td><code><a href="#sample" class="internal-link" title="cma.sampler.GaussFullSampler.sample">sample</a></code></td>
+    <td>return list of i.i.d. samples.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#to_correlation_matrix" class="internal-link" title="cma.sampler.GaussFullSampler.to_correlation_matrix">to​_correlation​_matrix</a></code></td>
+    <td>"re-scale" C to a correlation matrix and return the scaling factors as standard deviations.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#to_linear_transformation" class="internal-link" title="cma.sampler.GaussFullSampler.to_linear_transformation">to​_linear​_transformation</a></code></td>
+    <td>return associated linear transformation.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#to_linear_transformation_inverse" class="internal-link" title="cma.sampler.GaussFullSampler.to_linear_transformation_inverse">to​_linear​_transformation​_inverse</a></code></td>
+    <td>return inverse of associated linear transformation.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#transform" class="internal-link" title="cma.sampler.GaussFullSampler.transform">transform</a></code></td>
+    <td>apply linear transformation <tt class="rst-docutils literal"><span class="pre">C**0.5</span></tt> to <code>x</code>.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#transform_inverse" class="internal-link" title="cma.sampler.GaussFullSampler.transform_inverse">transform​_inverse</a></code></td>
+    <td>apply inverse linear transformation <tt class="rst-docutils literal"><span class="pre">C**-0.5</span></tt> to <code>x</code>.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#update" class="internal-link" title="cma.sampler.GaussFullSampler.update">update</a></code></td>
+    <td>update/learn by natural gradient ascent.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#update_now" class="internal-link" title="cma.sampler.GaussFullSampler.update_now">update​_now</a></code></td>
+    <td>update internal variables for sampling the distribution with the current covariance matrix C.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#B" class="internal-link" title="cma.sampler.GaussFullSampler.B">B</a></code></td>
+    <td>axis lengths, roots of eigenvalues, sorted</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#C" class="internal-link" title="cma.sampler.GaussFullSampler.C">C</a></code></td>
+    <td>covariance matrix</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#condition_limit" class="internal-link" title="cma.sampler.GaussFullSampler.condition_limit">condition​_limit</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#constant_trace" class="internal-link" title="cma.sampler.GaussFullSampler.constant_trace">constant​_trace</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#count_eigen" class="internal-link" title="cma.sampler.GaussFullSampler.count_eigen">count​_eigen</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#count_tell" class="internal-link" title="cma.sampler.GaussFullSampler.count_tell">count​_tell</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#D" class="internal-link" title="cma.sampler.GaussFullSampler.D">D</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#dimension" class="internal-link" title="cma.sampler.GaussFullSampler.dimension">dimension</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#eigenmethod" class="internal-link" title="cma.sampler.GaussFullSampler.eigenmethod">eigenmethod</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#inverse_root_C" class="internal-link" title="cma.sampler.GaussFullSampler.inverse_root_C">inverse_root_​C</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#last_update" class="internal-link" title="cma.sampler.GaussFullSampler.last_update">last​_update</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lazy_update_gap" class="internal-link" title="cma.sampler.GaussFullSampler.lazy_update_gap">lazy​_update​_gap</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#randn" class="internal-link" title="cma.sampler.GaussFullSampler.randn">randn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#condition_number" class="internal-link" title="cma.sampler.GaussFullSampler.condition_number">condition​_number</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#correlation_matrix" class="internal-link" title="cma.sampler.GaussFullSampler.correlation_matrix">correlation​_matrix</a></code></td>
+    <td>return correlation matrix of the distribution.</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#covariance_matrix" class="internal-link" title="cma.sampler.GaussFullSampler.covariance_matrix">covariance​_matrix</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#variances" class="internal-link" title="cma.sampler.GaussFullSampler.variances">variances</a></code></td>
+    <td>vector of coordinate-wise (marginal) variances</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#_sortBD" data-type="Method" class="code">_sortBD</a></td>
-    <td><span>sort columns of B and D according to the values in D</span></td>
+    <td><code><a href="#_decompose_C" class="internal-link" title="cma.sampler.GaussFullSampler._decompose_C">_decompose_​C</a></code></td>
+    <td>eigen-decompose self.C thereby updating self.B and self.D.</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussFullSampler.html#_decompose_C" data-type="Method" class="code">_decompose_C</a></td>
-    <td><span>eigen-decompose self.C thereby updating self.B and self.D.</span></td>
+    <td><code><a href="#_sortBD" class="internal-link" title="cma.sampler.GaussFullSampler._sortBD">_sort​BD</a></code></td>
+    <td>sort columns of B and D according to the values in D</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_updateC" class="internal-link" title="cma.sampler.GaussFullSampler._updateC">_update​C</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_inverse_root_C" class="internal-link" title="cma.sampler.GaussFullSampler._inverse_root_C">_inverse_root_​C</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
           <p class="inheritedFrom">
-            Inherited from <a href="cma.sampler.GaussSampler.html" data-type="Class" class="code">GaussSampler</a>:
+            Inherited from <code><a href="cma.sampler.GaussSampler.html" class="internal-link" title="cma.sampler.GaussSampler">GaussSampler</a></code>:
           </p>
-          <table class="children sortable" id="id468">
+          <table class="children sortable" id="id503">
+  
   
   <tr class="basemethod">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussSampler.html#set_H_by_f" data-type="Method" class="code">set_H_by_f</a></td>
-    <td><span>set Hessian from f at x0.</span></td>
+    <td><code><a href="cma.sampler.GaussSampler.html#set_H" class="internal-link" title="cma.sampler.GaussSampler.set_H">set_​H</a></code></td>
+    <td>set Hessian w.r.t. which to compute the eigen spectrum.</td>
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><a href="cma.sampler.GaussSampler.html#set_H" data-type="Method" class="code">set_H</a></td>
-    <td><span>set Hessian w.r.t. which to compute the eigen spectrum.</span></td>
-  </tr><tr class="basemethod">
+    <td><code><a href="cma.sampler.GaussSampler.html#set_H_by_f" class="internal-link" title="cma.sampler.GaussSampler.set_H_by_f">set_​H_by_f</a></code></td>
+    <td>set Hessian from f at x0.</td>
+  </tr><tr class="baseproperty">
     
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussSampler.html#eigenspectrum" data-type="Method" class="code">eigenspectrum</a></td>
-    <td><span>return eigen spectrum w.r.t. H like sqrt(H) C sqrt(H)</span></td>
-  </tr><tr class="basemethod">
+    <td>Property</td>
+    <td><code><a href="cma.sampler.GaussSampler.html#chin" class="internal-link" title="cma.sampler.GaussSampler.chin">chin</a></code></td>
+    <td>approximation of the expected length when isotropic with variance 1.</td>
+  </tr><tr class="baseproperty">
     
-    <td>Method</td>
-    <td><a href="cma.sampler.GaussSampler.html#chin" data-type="Method" class="code">chin</a></td>
-    <td><span>approximation of the expected length when isotropic with variance 1.</span></td>
+    <td>Property</td>
+    <td><code><a href="cma.sampler.GaussSampler.html#eigenspectrum" class="internal-link" title="cma.sampler.GaussSampler.eigenspectrum">eigenspectrum</a></code></td>
+    <td>return eigen spectrum w.r.t. H like sqrt(H) C sqrt(H)</td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="cma.sampler.GaussSampler.html#_left" class="internal-link" title="cma.sampler.GaussSampler._left">​_left</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="cma.sampler.GaussSampler.html#_right" class="internal-link" title="cma.sampler.GaussSampler._right">​_right</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
           
           <p class="inheritedFrom">
-            Inherited from <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" data-type="Class" class="code">StatisticalModelSamplerWithZeroMeanBaseClass</a> (via <a href="cma.sampler.GaussSampler.html" data-type="Class" class="code">GaussSampler</a>):
+            Inherited from <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a></code> (via <code><a href="cma.sampler.GaussSampler.html" class="internal-link" title="cma.sampler.GaussSampler">GaussSampler</a></code>):
           </p>
-          <table class="children sortable" id="id469">
+          <table class="children sortable" id="id504">
+  
   
   <tr class="basemethod">
     
     <td>Method</td>
-    <td><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#parameters" data-type="Method" class="code">parameters</a></td>
-    <td><span>return <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.</span></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#parameters" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.parameters">parameters</a></code></td>
+    <td>return <code>dict</code> with (default) parameters, e.g., <code>c1</code> and <code>cmu</code>.</td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_lam" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._lam">​_lam</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_mueff" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._mueff">​_mueff</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_parameters" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._parameters">​_parameters</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
           
@@ -256,6 +382,28 @@ and -vectors of symmetric matrix</td></tr></table></div>
 
         <div class="basemethod">
   
+  
+  <a name="cma.sampler.GaussFullSampler.__imul__">
+    
+  </a>
+  <a name="__imul__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__imul__</span>(self, factor):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__imul__" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__imul__</a></code></div>
+    
+    <div><p><tt class="rst-docutils literal">sm *= factor</tt> is a shortcut for <tt class="rst-docutils literal">sm = sm.__imul__(factor)</tt>.</p>
+<p>Multiplies the covariance matrix with <code>factor</code>.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
   <a name="cma.sampler.GaussFullSampler.__init__">
     
   </a>
@@ -264,195 +412,55 @@ and -vectors of symmetric matrix</td></tr></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self, dimension, lazy_update_gap=0, constant_trace='', condition_limit=None, randn=np.random.randn, eigenmethod=np.linalg.eigh):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, dimension, lazy_update_gap=0, constant_trace=<span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>, condition_limit=None, randn=np.random.randn, eigenmethod=np.linalg.eigh):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.sampler.GaussSampler.html#__init__" data-type="Method" class="code">cma.sampler.GaussSampler.__init__</a></div>
+    <div class="interfaceinfo">overrides <code><a href="cma.sampler.GaussSampler.html#__init__" class="internal-link">cma.sampler.GaussSampler.__init__</a></code></div>
     
-    <div>declarative init, doesn't need to be executed<table class="fieldTable"></table></div>
+    <div>declarative init, doesn't need to be executed</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.sampler.GaussFullSampler.reset">
+  
+  <a name="cma.sampler.GaussFullSampler.correlation">
     
   </a>
-  <a name="reset">
+  <a name="correlation">
     
   </a>
   <div class="functionHeader">
     
-    def
-    reset(self, standard_deviations=None):
+    <span class="py-keyword">def</span> <span class="py-defname">correlation</span>(self, i, j):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>reset distribution while keeping all other parameters.</p>
-<p>If <code>standard_deviations</code> is not given, <code>np.ones</code> is used,
-which might not be the original initial setting.</p><table class="fieldTable"></table></div>
+    <div>return correlation between variables i and j.</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.sampler.GaussFullSampler.variances">
+  
+  <a name="cma.sampler.GaussFullSampler.inverse_hessian_scalar_correction">
     
   </a>
-  <a name="variances">
+  <a name="inverse_hessian_scalar_correction">
     
   </a>
   <div class="functionHeader">
-    @property<br />
-    def
-    variances(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">inverse_hessian_scalar_correction</span>(self, mean, sigma, f):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#variances" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.variances</a></div>
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#inverse_hessian_scalar_correction" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.inverse_hessian_scalar_correction</a></code></div>
     
-    <div>vector of coordinate-wise (marginal) variances<table class="fieldTable"></table></div>
+    <div>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt>
+fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt></div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.sampler.GaussFullSampler.sample">
-    
-  </a>
-  <a name="sample">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    sample(self, number, lazy_update_gap=None, same_length=False):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#sample" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.sample</a></div>
-    
-    <div>return list of i.i.d. samples.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">number</td><td>is the number of samples.</td></tr><tr><td></td><td class="fieldArg">update</td><td>controls a possibly lazy update of the sampler.</td></tr></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.update">
-    
-  </a>
-  <a name="update">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    update(self, vectors, weights, c1_times_delta_hsigma=0):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#update" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.update</a></div>
-    
-    <div><p>update/learn by natural gradient ascent.</p>
-<p>The natural gradient used for the update is:</p>
-<pre class="rst-literal-block">
-np.dot(weights * vectors.T, vectors)
-</pre>
-<p>and equivalently:</p>
-<pre class="rst-literal-block">
-sum([outer(weights[i] * vec, vec)
-     for i, vec in enumerate(vectors)], axis=0)
-</pre>
-<p>Details:</p>
-<ul class="rst-simple">
-<li>The weights include the learning rate and <tt class="rst-docutils literal"><span class="pre">-1</span> &lt;= sum(
-weights[idx]) &lt;= 1</tt> must be <a href="http://docs.python.org/library/constants.html#True"><code>True</code></a> for <tt class="rst-docutils literal">idx = weights &gt; 0</tt>
-and for <tt class="rst-docutils literal">idx = weights &lt; 0</tt>.</li>
-<li>The content (length) of <tt class="rst-docutils literal">vectors</tt> with negative weights
-is changed!</li>
-</ul><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.update_now">
-    
-  </a>
-  <a name="update_now">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    update_now(self, lazy_update_gap=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>update internal variables for sampling the distribution
-with the current covariance matrix C.</p>
-<p>This method is O(dim^3) by calling <tt class="rst-docutils literal">_decompose_C</tt>.</p>
-<p>If <tt class="rst-docutils literal">lazy_update_gap is None</tt> the lazy_update_gap from init
-is taken. If <tt class="rst-docutils literal">lazy_update_gap &lt; 0</tt> the (possibly expensive)
-update is done even when the model seems to be up to date.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.sampler.GaussFullSampler._updateC">
-    
-  </a>
-  <a name="_updateC">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _updateC(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.sampler.GaussFullSampler._sortBD">
-    
-  </a>
-  <a name="_sortBD">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _sortBD(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>sort columns of B and D according to the values in D<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.sampler.GaussFullSampler._decompose_C">
-    
-  </a>
-  <a name="_decompose_C">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _decompose_C(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>eigen-decompose self.C thereby updating self.B and self.D.</p>
-<p>self.C is made symmetric.</p>
-<p>Know bugs: if update is not called before decompose, the
-state variables can get into an inconsistent state.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.sampler.GaussFullSampler.limit_condition">
     
@@ -462,8 +470,7 @@ state variables can get into an inconsistent state.</p><table class="fieldTable"
   </a>
   <div class="functionHeader">
     
-    def
-    limit_condition(self, limit=None):
+    <span class="py-keyword">def</span> <span class="py-defname">limit_condition</span>(self, limit=None):
     
   </div>
   <div class="docstring functionBody">
@@ -479,11 +486,12 @@ variances, derived from <tt class="rst-docutils literal">limit = (a + eps) / (b 
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(3 * [1], 1, {<span class="py-string">'verbose'</span>:-9})
 <span class="py-prompt">&gt;&gt;&gt; </span>_ = es.optimize(cma.ff.elli)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert es.sm.condition_number &gt; 1e4
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.sm.condition_number &gt; 1e4
 <span class="py-prompt">&gt;&gt;&gt; </span>es.sm.limit_condition(1e4 - 1)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert es.sm.condition_number &lt; 1e4</pre><table class="fieldTable"></table></div>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.sm.condition_number &lt; 1e4</pre></div>
   </div>
 </div><div class="basemethod">
+  
   
   <a name="cma.sampler.GaussFullSampler.multiply_C">
     
@@ -493,8 +501,7 @@ variances, derived from <tt class="rst-docutils literal">limit = (a + eps) / (b 
   </a>
   <div class="functionHeader">
     
-    def
-    multiply_C(self, factor):
+    <span class="py-keyword">def</span> <span class="py-defname">multiply_C</span>(self, factor):
     
   </div>
   <div class="docstring functionBody">
@@ -504,212 +511,11 @@ variances, derived from <tt class="rst-docutils literal">limit = (a + eps) / (b 
 <p><tt class="rst-docutils literal">factor</tt> can be a scalar, a vector or a matrix. The vector
 is used as outer product and multiplied element-wise, i.e.,
 <tt class="rst-docutils literal"><span class="pre">multiply_C(diag(C)**-0.5)</span></tt> generates a correlation matrix.</p>
-<p>Details:</p><table class="fieldTable"></table></div>
+<p>Details:</p>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.sampler.GaussFullSampler.__imul__">
-    
-  </a>
-  <a name="__imul__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __imul__(self, factor):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__imul__" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__imul__</a></div>
-    
-    <div><p><tt class="rst-docutils literal">sm *= factor</tt> is a shortcut for <tt class="rst-docutils literal">sm = sm.__imul__(factor)</tt>.</p>
-<p>Multiplies the covariance matrix with <code>factor</code>.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.to_linear_transformation">
-    
-  </a>
-  <a name="to_linear_transformation">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    to_linear_transformation(self, reset=False):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation</a></div>
-    
-    <div><p>return associated linear transformation.</p>
-<p>If <tt class="rst-docutils literal">B = sm.to_linear_transformation()</tt> and z ~ N(0, I), then
-np.dot(B, z) ~ Normal(0, sm.C) and sm.C and B have the same
-eigenvectors. With <code>reset=True</code>, <tt class="rst-docutils literal">np.dot(B, <span class="pre">sm.sample(1)[0])</span></tt>
-obeys the same distribution after the call.</p>
-<p>See also: <code>to_unit_matrix</code></p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.to_linear_transformation_inverse">
-    
-  </a>
-  <a name="to_linear_transformation_inverse">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    to_linear_transformation_inverse(self, reset=False):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation_inverse" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation_inverse</a></div>
-    
-    <div><p>return inverse of associated linear transformation.</p>
-<p>If <tt class="rst-docutils literal">B = sm.to_linear_transformation_inverse()</tt> and z ~
-Normal(0, sm.C), then np.dot(B, z) ~ Normal(0, I) and sm.C and
-B have the same eigenvectors. With <code>reset=True</code>,
-also <tt class="rst-docutils literal"><span class="pre">sm.sample(1)[0]</span> ~ Normal(0, I)</tt> after the call.</p>
-<p>See also: <code>to_unit_matrix</code></p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.covariance_matrix">
-    
-  </a>
-  <a name="covariance_matrix">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    covariance_matrix(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#covariance_matrix" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.covariance_matrix</a></div>
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.correlation_matrix">
-    
-  </a>
-  <a name="correlation_matrix">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    correlation_matrix(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return correlation matrix of the distribution.<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.to_correlation_matrix">
-    
-  </a>
-  <a name="to_correlation_matrix">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    to_correlation_matrix(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>"re-scale" C to a correlation matrix and return the scaling
-factors as standard deviations.</p>
-<p>See also: <a href="cma.sampler.GaussFullSampler.html#to_linear_transformation"><code>to_linear_transformation</code></a>.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.correlation">
-    
-  </a>
-  <a name="correlation">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    correlation(self, i, j):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return correlation between variables i and j.<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.transform">
-    
-  </a>
-  <a name="transform">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    transform(self, x):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform</a></div>
-    
-    <div>apply linear transformation <tt class="rst-docutils literal"><span class="pre">C**0.5</span></tt> to <code>x</code>.<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.transform_inverse">
-    
-  </a>
-  <a name="transform_inverse">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    transform_inverse(self, x):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse</a></div>
-    
-    <div>apply inverse linear transformation <tt class="rst-docutils literal"><span class="pre">C**-0.5</span></tt> to <code>x</code>.<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.sampler.GaussFullSampler.condition_number">
-    
-  </a>
-  <a name="condition_number">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    condition_number(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#condition_number" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.condition_number</a></div>
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.sampler.GaussFullSampler.norm">
     
@@ -719,61 +525,679 @@ factors as standard deviations.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    norm(self, x):
+    <span class="py-keyword">def</span> <span class="py-defname">norm</span>(self, x):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#norm" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.norm</a></div>
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#norm" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.norm</a></code></div>
     
     <div><p>compute the Mahalanobis norm that is induced by the
 statistical model / sample distribution, specifically by
 covariance matrix <tt class="rst-docutils literal">C</tt>. The expected Mahalanobis norm is
 about <tt class="rst-docutils literal">sqrt(dimension)</tt>.</p>
 <div class="rst-section" id="rst-example">
-<h1 class="heading">Example</h1>
+<h2 class="heading">Example</h2>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma, numpy <span class="py-keyword">as</span> np
 <span class="py-prompt">&gt;&gt;&gt; </span>sm = cma.sampler.GaussFullSampler(np.ones(10))
 <span class="py-prompt">&gt;&gt;&gt; </span>x = np.random.randn(10)
-<span class="py-prompt">&gt;&gt;&gt; </span>d = sm.norm(x)</pre>
-<p><code>d</code> is the norm "in" the true sample distribution,
+<span class="py-prompt">&gt;&gt;&gt; </span>d = sm.norm(x)</pre><p><code>d</code> is the norm "in" the true sample distribution,
 sampled points have a typical distance of <tt class="rst-docutils literal">sqrt(2*sm.dim)</tt>,
 where <tt class="rst-docutils literal">sm.dim</tt> is the dimension, and an expected distance of
 close to <tt class="rst-docutils literal"><span class="pre">dim**0.5</span></tt> to the sample mean zero. In the example,
 <code>d</code> is the Euclidean distance, because C = I.</p>
-</div><table class="fieldTable"></table></div>
+</div>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.sampler.GaussFullSampler.inverse_hessian_scalar_correction">
+  
+  <a name="cma.sampler.GaussFullSampler.reset">
     
   </a>
-  <a name="inverse_hessian_scalar_correction">
+  <a name="reset">
     
   </a>
   <div class="functionHeader">
     
-    def
-    inverse_hessian_scalar_correction(self, mean, sigma, f):
+    <span class="py-keyword">def</span> <span class="py-defname">reset</span>(self, standard_deviations=None):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#inverse_hessian_scalar_correction" data-type="Method" class="code">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.inverse_hessian_scalar_correction</a></div>
     
-    <div>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt>
-fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt><table class="fieldTable"></table></div>
+    
+    <div><p>reset distribution while keeping all other parameters.</p>
+<p>If <code><a href="cma.sampler.GaussStandardConstant.html#standard_deviations" class="internal-link" title="cma.sampler.GaussStandardConstant.standard_deviations">standard_deviations</a></code> is not given, <code>np.ones</code> is used,
+which might not be the original initial setting.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.sample">
+    
+  </a>
+  <a name="sample">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sample</span>(self, number, lazy_update_gap=None, same_length=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#sample" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.sample</a></code></div>
+    
+    <div>return list of i.i.d. samples.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">number</span></td><td class="fieldArgDesc">is the number of samples.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lazy​_update​_gap</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">same​_length</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">update</span></td><td class="fieldArgDesc">controls a possibly lazy update of the sampler.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.to_correlation_matrix">
+    
+  </a>
+  <a name="to_correlation_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">to_correlation_matrix</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>"re-scale" C to a correlation matrix and return the scaling
+factors as standard deviations.</p>
+<p>See also: <code><a href="#to_linear_transformation" class="internal-link" title="cma.sampler.GaussFullSampler.to_linear_transformation">to_linear_transformation</a></code>.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.to_linear_transformation">
+    
+  </a>
+  <a name="to_linear_transformation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">to_linear_transformation</span>(self, reset=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation</a></code></div>
+    
+    <div><p>return associated linear transformation.</p>
+<p>If <tt class="rst-docutils literal">B = sm.to_linear_transformation()</tt> and z ~ N(0, I), then
+np.dot(B, z) ~ Normal(0, sm.C) and sm.C and B have the same
+eigenvectors. With <code>reset=True</code>, <tt class="rst-docutils literal">np.dot(B, <span class="pre">sm.sample(1)[0])</span></tt>
+obeys the same distribution after the call.</p>
+<p>See also: <code>to_unit_matrix</code></p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.to_linear_transformation_inverse">
+    
+  </a>
+  <a name="to_linear_transformation_inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">to_linear_transformation_inverse</span>(self, reset=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation_inverse" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation_inverse</a></code></div>
+    
+    <div><p>return inverse of associated linear transformation.</p>
+<p>If <tt class="rst-docutils literal">B = sm.to_linear_transformation_inverse()</tt> and z ~
+Normal(0, sm.C), then np.dot(B, z) ~ Normal(0, I) and sm.C and
+B have the same eigenvectors. With <code>reset=True</code>,
+also <tt class="rst-docutils literal"><span class="pre">sm.sample(1)[0]</span> ~ Normal(0, I)</tt> after the call.</p>
+<p>See also: <code>to_unit_matrix</code></p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.transform">
+    
+  </a>
+  <a name="transform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">transform</span>(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform</a></code></div>
+    
+    <div>apply linear transformation <tt class="rst-docutils literal"><span class="pre">C**0.5</span></tt> to <code>x</code>.</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.transform_inverse">
+    
+  </a>
+  <a name="transform_inverse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">transform_inverse</span>(self, x):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse</a></code></div>
+    
+    <div>apply inverse linear transformation <tt class="rst-docutils literal"><span class="pre">C**-0.5</span></tt> to <code>x</code>.</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, vectors, weights, c1_times_delta_hsigma=0):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#update" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.update</a></code></div>
+    
+    <div><p>update/learn by natural gradient ascent.</p>
+<p>The natural gradient used for the update is:</p>
+<pre class="rst-literal-block">
+np.dot(weights * vectors.T, vectors)
+</pre>
+<p>and equivalently:</p>
+<pre class="rst-literal-block">
+sum([outer(weights[i] * vec, vec)
+     for i, vec in enumerate(vectors)], axis=0)
+</pre>
+<p>Details:</p>
+<ul class="rst-simple">
+<li>The weights include the learning rate and <tt class="rst-docutils literal"><span class="pre">-1</span> &lt;= sum(
+weights[idx]) &lt;= 1</tt> must be <code>True</code> for <tt class="rst-docutils literal">idx = weights &gt; 0</tt>
+and for <tt class="rst-docutils literal">idx = weights &lt; 0</tt>.</li>
+<li>The content (length) of <tt class="rst-docutils literal">vectors</tt> with negative weights
+is changed!</li>
+</ul>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.update_now">
+    
+  </a>
+  <a name="update_now">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update_now</span>(self, lazy_update_gap=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>update internal variables for sampling the distribution
+with the current covariance matrix C.</p>
+<p>This method is O(dim^3) by calling <tt class="rst-docutils literal">_decompose_C</tt>.</p>
+<p>If <tt class="rst-docutils literal">lazy_update_gap is None</tt> the lazy_update_gap from init
+is taken. If <tt class="rst-docutils literal">lazy_update_gap &lt; 0</tt> the (possibly expensive)
+update is done even when the model seems to be up to date.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.B">
+    
+  </a>
+  <a name="B">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">B</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>axis lengths, roots of eigenvalues, sorted</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.C">
+    
+  </a>
+  <a name="C">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">C</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>covariance matrix</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.condition_limit">
+    
+  </a>
+  <a name="condition_limit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">condition_limit</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.constant_trace">
+    
+  </a>
+  <a name="constant_trace">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">constant_trace</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.count_eigen">
+    
+  </a>
+  <a name="count_eigen">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">count_eigen</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.count_tell">
+    
+  </a>
+  <a name="count_tell">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">count_tell</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.D">
+    
+  </a>
+  <a name="D">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">D</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.dimension">
+    
+  </a>
+  <a name="dimension">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">dimension</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.sampler.GaussSampler.html#dimension" class="internal-link">cma.sampler.GaussSampler.dimension</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.eigenmethod">
+    
+  </a>
+  <a name="eigenmethod">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">eigenmethod</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.inverse_root_C">
+    
+  </a>
+  <a name="inverse_root_C">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">inverse_root_C</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.last_update">
+    
+  </a>
+  <a name="last_update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">last_update</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.lazy_update_gap">
+    
+  </a>
+  <a name="lazy_update_gap">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lazy_update_gap</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.randn">
+    
+  </a>
+  <a name="randn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">randn</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.condition_number">
+    
+  </a>
+  <a name="condition_number">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">condition_number</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#condition_number" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.condition_number</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.correlation_matrix">
+    
+  </a>
+  <a name="correlation_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">correlation_matrix</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>return correlation matrix of the distribution.</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.covariance_matrix">
+    
+  </a>
+  <a name="covariance_matrix">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">covariance_matrix</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#covariance_matrix" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.covariance_matrix</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.sampler.GaussFullSampler.variances">
+    
+  </a>
+  <a name="variances">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">variances</span> =
+    
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#variances" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.variances</a></code></div>
+    
+    <div>vector of coordinate-wise (marginal) variances</div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.sampler.GaussFullSampler._decompose_C">
+    
+  </a>
+  <a name="_decompose_C">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_decompose_C</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>eigen-decompose self.C thereby updating self.B and self.D.</p>
+<p>self.C is made symmetric.</p>
+<p>Know bugs: if update is not called before decompose, the
+state variables can get into an inconsistent state.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.sampler.GaussFullSampler._sortBD">
+    
+  </a>
+  <a name="_sortBD">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_sortBD</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>sort columns of B and D according to the values in D</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.sampler.GaussFullSampler._updateC">
+    
+  </a>
+  <a name="_updateC">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_updateC</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.sampler.GaussFullSampler._inverse_root_C">
+    
+  </a>
+  <a name="_inverse_root_C">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_inverse_root_C</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

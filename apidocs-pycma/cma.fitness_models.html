@@ -2,111 +2,150 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.fitness_models : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.fitness_models</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="module"><code>cma.fitness_models</code> <small>module documentation</small></h1>
+        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness_models</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
-          
-          
-        </span>
+      <div class="categoryHeader">
+        module documentation
       </div>
 
       <div class="extrasDocstring">
         
+        <p></p>
       </div>
 
       <div class="moduleDocstring">
-        <div>Fitness surrogate model classes and handler for incremental evaluations.<table class="fieldTable"></table></div>
+        <div>Fitness surrogate model classes and handler for incremental evaluations.</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id380">
+        <table class="children sortable" id="id412">
   
-  <tr class="function">
+  
+  <tr class="class">
     
-    <td>Function</td>
-    <td><a href="cma.fitness_models.html#kendall_tau" data-type="Function" class="code">kendall_tau</a></td>
-    <td><span>return rank correlation coefficient between data <code>x</code> and <code>y</code></span></td>
+    <td>Class</td>
+    <td><code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel">​LQModel</a></code></td>
+    <td>Up to a full quadratic model using the pseudo inverse to compute the model coefficients.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_models.SurrogatePopulationSettings.html" data-type="Class" class="code">SurrogatePopulationSettings</a></td>
+    <td><code><a href="cma.fitness_models.LQModelSettings.html" class="internal-link" title="cma.fitness_models.LQModelSettings">​LQModel​Settings</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_models.SurrogatePopulation.html" data-type="Class" class="code">SurrogatePopulation</a></td>
-    <td><span>surrogate f-values for a population.</span></td>
+    <td><code><a href="cma.fitness_models.ModelInjectionCallback.html" class="internal-link" title="cma.fitness_models.ModelInjectionCallback">​Model​Injection​Callback</a></code></td>
+    <td>inject <code>model.xopt</code> and decrease <code>sigma</code> if <code>mean</code> is close to <code>model.xopt</code>.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_models.ModelInjectionCallbackSettings.html" data-type="Class" class="code">ModelInjectionCallbackSettings</a></td>
+    <td><code><a href="cma.fitness_models.ModelInjectionCallbackSettings.html" class="internal-link" title="cma.fitness_models.ModelInjectionCallbackSettings">​Model​Injection​Callback​Settings</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_models.ModelInjectionCallback.html" data-type="Class" class="code">ModelInjectionCallback</a></td>
-    <td><span>inject <code>model.xopt</code> and decrease <code>sigma</code> if <code>mean</code> is close to <code>model.xopt</code>.</span></td>
+    <td><code><a href="cma.fitness_models.SurrogatePopulation.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation">​Surrogate​Population</a></code></td>
+    <td>surrogate f-values for a population.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_models.Tau.html" data-type="Class" class="code">Tau</a></td>
-    <td><span>placeholder to store Kendall tau related things</span></td>
-  </tr><tr class="class">
-    
-    <td>Class</td>
-    <td><a href="cma.fitness_models.LQModelSettings.html" data-type="Class" class="code">LQModelSettings</a></td>
+    <td><code><a href="cma.fitness_models.SurrogatePopulationSettings.html" class="internal-link" title="cma.fitness_models.SurrogatePopulationSettings">​Surrogate​Population​Settings</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.fitness_models.LQModel.html" data-type="Class" class="code">LQModel</a></td>
-    <td><span>Up to a full quadratic model using the pseudo inverse to compute the model coefficients.</span></td>
-  </tr><tr class="function private">
+    <td><code><a href="cma.fitness_models.Tau.html" class="internal-link" title="cma.fitness_models.Tau">​Tau</a></code></td>
+    <td>placeholder to store Kendall tau related things</td>
+  </tr><tr class="function">
     
     <td>Function</td>
-    <td><a href="cma.fitness_models.html#_kendalltau" data-type="Function" class="code">_kendalltau</a></td>
+    <td><code><a href="#kendall_tau" class="internal-link" title="cma.fitness_models.kendall_tau">kendall​_tau</a></code></td>
+    <td>return rank correlation coefficient between data <code>x</code> and <code>y</code></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#___author__" class="internal-link" title="cma.fitness_models.___author__">__​_author__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#__license__" class="internal-link" title="cma.fitness_models.__license__">__license__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="function private">
     
     <td>Function</td>
-    <td><a href="cma.fitness_models.html#_kendall_tau" data-type="Function" class="code">_kendall_tau</a></td>
-    <td><span>return Kendall tau rank correlation coefficient.</span></td>
+    <td><code><a href="#_kendall_tau" class="internal-link" title="cma.fitness_models._kendall_tau">​_kendall​_tau</a></code></td>
+    <td>return Kendall tau rank correlation coefficient.</td>
   </tr><tr class="function private">
     
     <td>Function</td>
-    <td><a href="cma.fitness_models.html#_n_for_model_building_default" data-type="Function" class="code">_n_for_model_building_default</a></td>
-    <td><span>truncate worst solutions for model building</span></td>
+    <td><code><a href="#_kendalltau" class="internal-link" title="cma.fitness_models._kendalltau">​_kendalltau</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="function private">
     
     <td>Function</td>
-    <td><a href="cma.fitness_models.html#_sorted_index_default" data-type="Function" class="code">_sorted_index_default</a></td>
+    <td><code><a href="#_n_for_model_building_default" class="internal-link" title="cma.fitness_models._n_for_model_building_default">​_n​_for​_model​_building​_default</a></code></td>
+    <td>truncate worst solutions for model building</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_sorted_index_default" class="internal-link" title="cma.fitness_models._sorted_index_default">​_sorted​_index​_default</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -117,26 +156,67 @@
 
       <div id="childList">
 
-        <div class="basefunction private">
+        <div class="basefunction">
   
-  <a name="cma.fitness_models._kendalltau">
+  
+  <a name="cma.fitness_models.kendall_tau">
     
   </a>
-  <a name="_kendalltau">
+  <a name="kendall_tau">
     
   </a>
   <div class="functionHeader">
     
-    def
-    _kendalltau(x, y):
+    <span class="py-keyword">def</span> <span class="py-defname">kendall_tau</span>(x, y):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div class="undocumented">Undocumented</div>
+    <div>return rank correlation coefficient between data <code>x</code> and <code>y</code></div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.fitness_models.___author__">
+    
+  </a>
+  <a name="___author__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">___author__</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.fitness_models.__license__">
+    
+  </a>
+  <a name="__license__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__license__</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div><div class="basefunction private">
+  
   
   <a name="cma.fitness_models._kendall_tau">
     
@@ -146,8 +226,7 @@
   </a>
   <div class="functionHeader">
     
-    def
-    _kendall_tau(x, y):
+    <span class="py-keyword">def</span> <span class="py-defname">_kendall_tau</span>(x, y):
     
   </div>
   <div class="docstring functionBody">
@@ -165,28 +244,29 @@
 <span class="py-more">... </span>    x, y = np.random.randn(dim), np.random.randn(dim)
 <span class="py-more">... </span>    t1, t2 = _kendall_tau(x, y), kendalltau(x, y)[0]
 <span class="py-more">... </span>    <span class="py-comment"># print(t1, t2)</span>
-<span class="py-more">... </span>    assert np.isclose(t1, t2)</pre><table class="fieldTable"></table></div>
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> np.isclose(t1, t2)</pre></div>
   </div>
-</div><div class="basefunction">
+</div><div class="basefunction private">
   
-  <a name="cma.fitness_models.kendall_tau">
+  
+  <a name="cma.fitness_models._kendalltau">
     
   </a>
-  <a name="kendall_tau">
+  <a name="_kendalltau">
     
   </a>
   <div class="functionHeader">
     
-    def
-    kendall_tau(x, y):
+    <span class="py-keyword">def</span> <span class="py-defname">_kendalltau</span>(x, y):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>return rank correlation coefficient between data <code>x</code> and <code>y</code><table class="fieldTable"></table></div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div><div class="basefunction private">
+  
   
   <a name="cma.fitness_models._n_for_model_building_default">
     
@@ -196,16 +276,16 @@
   </a>
   <div class="functionHeader">
     
-    def
-    _n_for_model_building_default(m):
+    <span class="py-keyword">def</span> <span class="py-defname">_n_for_model_building_default</span>(m):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>truncate worst solutions for model building<table class="fieldTable"></table></div>
+    <div>truncate worst solutions for model building</div>
   </div>
 </div><div class="basefunction private">
+  
   
   <a name="cma.fitness_models._sorted_index_default">
     
@@ -215,25 +295,29 @@
   </a>
   <div class="functionHeader">
     
-    def
-    _sorted_index_default(m):
+    <span class="py-keyword">def</span> <span class="py-defname">_sorted_index_default</span>(m):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

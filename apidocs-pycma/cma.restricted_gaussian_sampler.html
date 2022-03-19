@@ -2,43 +2,71 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.restricted_gaussian_sampler : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.restricted_gaussian_sampler</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="module"><code>cma.restricted_gaussian_sampler</code> <small>module documentation</small></h1>
+        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted_gaussian_sampler</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a></code>
-          
-          
-        </span>
+      <div class="categoryHeader">
+        module documentation
       </div>
 
       <div class="extrasDocstring">
         
+        <p></p>
       </div>
 
       <div class="moduleDocstring">
@@ -55,19 +83,19 @@
 <span class="py-more">... </span>            <span class="py-string">'verbose'</span>: -9,  <span class="py-comment"># helpful for automatic testing</span>
 <span class="py-more">... </span>    }))
 <span class="py-prompt">&gt;&gt;&gt; </span>es = es.optimize(cma.fitness_transformations.Rotated(cma.ff.cigar, seed=6), iterations=<span class="py-builtin">None</span>)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result.fbest &lt;= 1e-8
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(es.result.evaluations)
-<span class="py-output">6372</span></pre>
-</blockquote>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result.fbest &lt;= 1e-8
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(es.result.evaluations)
+<span class="py-output">6372</span>
+</pre></blockquote>
 <p>It is recommended to always use <code>extend_cma_options()</code> to set the options
 appropriately, even when no other options are passed through.</p>
 <blockquote>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">len</span>(rgs.GaussVDSampler.extend_cma_options())
 <span class="py-output">2</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">len</span>(rgs.GaussVkDSampler.extend_cma_options())
-<span class="py-output">3</span></pre>
-</blockquote>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">len</span>(rgs.GaussVkDSampler.extend_cma_options())
+<span class="py-output">3</span>
+</pre></blockquote>
 <p>The use case for VkD-CMA looks identical:</p>
 <blockquote>
 <pre class="py-doctest">
@@ -78,10 +106,10 @@ appropriately, even when no other options are passed through.</p>
 <span class="py-more">... </span>            <span class="py-string">'verbose'</span>: -9,  <span class="py-comment"># helpful for automatic testing</span>
 <span class="py-more">... </span>    }))
 <span class="py-prompt">&gt;&gt;&gt; </span>es = es.optimize(cma.fitness_transformations.Rotated(cma.ff.cigar, seed=3), iterations=<span class="py-builtin">None</span>)
-<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result.fbest &lt;= 1e-8
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(es.result.evaluations)
-<span class="py-output">6204</span></pre>
-</blockquote>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result.fbest &lt;= 1e-8
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(es.result.evaluations)
+<span class="py-output">6204</span>
+</pre></blockquote>
 <p>TODO: correct the interface of __init__, remove unnecessaries</p>
 <p>TODO:
 2017/05/10: pass the option to sampler
@@ -91,31 +119,33 @@ appropriately, even when no other options are passed through.</p>
 2017/05/08: line 3021 of evolution_strategy.py: <code>weights</code> are multiplied by c1 and cmu
 2017/05/08: line 3021 of evolution_strategy.py: first element of <code>vectors</code> is pc
 2017/05/07: hsig interface
-2017/05/07: <a href="cma.sigma_adaptation.CMAAdaptSigmaNone.html"><code>CMAAdaptSigmaNone</code></a> not working
+2017/05/07: <code><a href="cma.sigma_adaptation.CMAAdaptSigmaNone.html" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaNone">CMAAdaptSigmaNone</a></code> not working
 2017/05/07: <code>dimension</code> passed to __init__ in not int.
 2017/05/06: 'AdaptSigma = CMAAdaptSigmaTPA' won't work. AssertionError happens in <code>_update_ps</code>.
-2017/05/06: <code>correlation_matrix</code> is not declared in <a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html"><code>StatisticalModelSamplerWithZeroMeanBaseClass</code></a>. However, it is used in <code>evolution_strategy.py</code>.
-2017/05/06: the following line of code in <code>ask_geno</code> assumes that the result of <code>sample</code> is an ndarray, rather than list. ary = self.sigma_vec * self.sm.sample(Niid)/</p><table class="fieldTable"></table></div>
+2017/05/06: <code>correlation_matrix</code> is not declared in <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a></code>. However, it is used in <code>evolution_strategy.py</code>.
+2017/05/06: the following line of code in <code>ask_geno</code> assumes that the result of <code>sample</code> is an ndarray, rather than list. ary = self.sigma_vec * self.sm.sample(Niid)/</p>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id456">
+        <table class="children sortable" id="id489">
+  
   
   <tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVDSampler.html" data-type="Class" class="code">GaussVDSampler</a></td>
+    <td><code><a href="cma.restricted_gaussian_sampler.ExponentialMovingAverage.html" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage">​Exponential​Moving​Average</a></code></td>
+    <td>Exponential Moving Average, Variance, and SNR (Signal-to-Noise Ratio)</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="cma.restricted_gaussian_sampler.GaussVDSampler.html" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVDSampler">​Gauss​VDSampler</a></code></td>
     <td><span class="undocumented">No summary</span></td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html" data-type="Class" class="code">GaussVkDSampler</a></td>
-    <td><span>Restricted Gaussian Sampler for VkD-CMA O(N*k^2 + k^3) Time/Space Variant of CMA-ES with C = D * (I + V * V^T) * D</span></td>
-  </tr><tr class="class">
-    
-    <td>Class</td>
-    <td><a href="cma.restricted_gaussian_sampler.ExponentialMovingAverage.html" data-type="Class" class="code">ExponentialMovingAverage</a></td>
-    <td><span>Exponential Moving Average, Variance, and SNR (Signal-to-Noise Ratio)</span></td>
+    <td><code><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler">​Gauss​Vk​DSampler</a></code></td>
+    <td>Restricted Gaussian Sampler for VkD-CMA O(N*k^2 + k^3) Time/Space Variant of CMA-ES with C = D * (I + V * V^T) * D</td>
   </tr>
 </table>
         
@@ -128,13 +158,18 @@ appropriately, even when no other options are passed through.</p>
         
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

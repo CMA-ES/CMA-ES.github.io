@@ -2,96 +2,156 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.evolution_strategy._CMAStopDict : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.evolution_strategy._CMAStopDict</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class private"><code>cma.evolution_strategy._CMAStopDict(<span title="dict">dict</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class private"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy._CMAStopDict.html" class="internal-link" title="cma.evolution_strategy._CMAStopDict">_CMAStopDict</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.evolution_strategy.html" data-type="Module" class="code">evolution_strategy</a></code>
-          
-          <a href="classIndex.html#cma.evolution_strategy._CMAStopDict">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">_CMAStopDict</span>(dict):</code></p>
+        <p><a href="classIndex.html#cma.evolution_strategy._CMAStopDict">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>keep and update a termination condition dictionary.</p>
 <p>The dictionary is "usually" empty and returned by
-<code>CMAEvolutionStrategy.stop()</code>. The class methods entirely depend on
-<a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a> class attributes.</p>
+<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#stop" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.stop">CMAEvolutionStrategy.stop()</a></code>. The class methods entirely depend on
+<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> class attributes.</p>
 <div class="rst-section" id="rst-details">
-<h1 class="heading">Details</h1>
+<h2 class="heading">Details</h2>
 <p>This class is not relevant for the end-user and could be a nested
 class, but nested classes cannot be serialized.</p>
 </div>
 <div class="rst-section" id="rst-example">
-<h1 class="heading">Example</h1>
+<h2 class="heading">Example</h2>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(4 * [1], 1, {<span class="py-string">'verbose'</span>:-9})  <span class="py-comment">#doctest: +ELLIPSIS</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span>(es.stop())
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(es.stop())
 <span class="py-output">{}</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(cma.ff.sphere, verb_disp=0)  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(cma.ff.sphere, verb_disp=0)  <span class="py-comment">#doctest: +ELLIPSIS</span>
 <span class="py-output">&lt;...</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>es.stop()[<span class="py-string">'tolfun'</span>] == 1e-11
-<span class="py-output">True</span></pre>
-</div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><code>OOOptimizer.stop()</code>, <code>CMAEvolutionStrategy.stop()</code></td></tr></table></div>
+<span class="py-prompt">&gt;&gt;&gt; </span>es.stop()[<span class="py-string">'tolfun'</span>] == 1e-11
+<span class="py-output">True</span>
+</pre></div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.interfaces.OOOptimizer.html#stop" class="internal-link" title="cma.interfaces.OOOptimizer.stop">OOOptimizer.stop()</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#stop" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.stop">CMAEvolutionStrategy.stop()</a></code></td></tr></table></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id376">
+        <table class="children sortable" id="id408">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.evolution_strategy._CMAStopDict.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><code><a href="#__call__" class="internal-link" title="cma.evolution_strategy._CMAStopDict.__call__">__call__</a></code></td>
+    <td>update and return the termination conditions dictionary</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.evolution_strategy._CMAStopDict.__init__">__init__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.evolution_strategy._CMAStopDict.html#__call__" data-type="Method" class="code">__call__</a></td>
-    <td><span>update and return the termination conditions dictionary</span></td>
-  </tr><tr class="method">
+    <td><code><a href="#clear" class="internal-link" title="cma.evolution_strategy._CMAStopDict.clear">clear</a></code></td>
+    <td>empty the stopdict</td>
+  </tr><tr class="instancevariable">
     
-    <td>Method</td>
-    <td><a href="cma.evolution_strategy._CMAStopDict.html#clear" data-type="Method" class="code">clear</a></td>
-    <td><span>empty the stopdict</span></td>
+    <td>Instance Variable</td>
+    <td><code><a href="#es" class="internal-link" title="cma.evolution_strategy._CMAStopDict.es">es</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lastiter" class="internal-link" title="cma.evolution_strategy._CMAStopDict.lastiter">lastiter</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#opts" class="internal-link" title="cma.evolution_strategy._CMAStopDict.opts">opts</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#stoplist" class="internal-link" title="cma.evolution_strategy._CMAStopDict.stoplist">stoplist</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.evolution_strategy._CMAStopDict.html#_update" data-type="Method" class="code">_update</a></td>
-    <td><span>Test termination criteria and update dictionary</span></td>
+    <td><code><a href="#_addstop" class="internal-link" title="cma.evolution_strategy._CMAStopDict._addstop">​_addstop</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.evolution_strategy._CMAStopDict.html#_addstop" data-type="Method" class="code">_addstop</a></td>
+    <td><code><a href="#_update" class="internal-link" title="cma.evolution_strategy._CMAStopDict._update">​_update</a></code></td>
+    <td>Test termination criteria and update dictionary</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_get_value" class="internal-link" title="cma.evolution_strategy._CMAStopDict._get_value">​_get​_value</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_value" class="internal-link" title="cma.evolution_strategy._CMAStopDict._value">​_value</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -104,24 +164,6 @@ class, but nested classes cannot be serialized.</p>
 
         <div class="basemethod">
   
-  <a name="cma.evolution_strategy._CMAStopDict.__init__">
-    
-  </a>
-  <a name="__init__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __init__(self, d={}):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.evolution_strategy._CMAStopDict.__call__">
     
@@ -131,54 +173,35 @@ class, but nested classes cannot be serialized.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    __call__(self, es=None, check=True):
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, es=None, check=True):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>update and return the termination conditions dictionary<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.evolution_strategy._CMAStopDict._update">
-    
-  </a>
-  <a name="_update">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _update(self, es):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>Test termination criteria and update dictionary<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.evolution_strategy._CMAStopDict._addstop">
-    
-  </a>
-  <a name="_addstop">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _addstop(self, key, cond=True, val=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
+    <div>update and return the termination conditions dictionary</div>
   </div>
 </div><div class="basemethod">
+  
+  
+  <a name="cma.evolution_strategy._CMAStopDict.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, d={}):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
   
   <a name="cma.evolution_strategy._CMAStopDict.clear">
     
@@ -188,25 +211,187 @@ class, but nested classes cannot be serialized.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    clear(self):
+    <span class="py-keyword">def</span> <span class="py-defname">clear</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>empty the stopdict<table class="fieldTable"></table></div>
+    <div>empty the stopdict</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._CMAStopDict.es">
+    
+  </a>
+  <a name="es">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">es</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._CMAStopDict.lastiter">
+    
+  </a>
+  <a name="lastiter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lastiter</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._CMAStopDict.opts">
+    
+  </a>
+  <a name="opts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">opts</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._CMAStopDict.stoplist">
+    
+  </a>
+  <a name="stoplist">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">stoplist</span>: <code>list</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.evolution_strategy._CMAStopDict._addstop">
+    
+  </a>
+  <a name="_addstop">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_addstop</span>(self, key, cond=True, val=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.evolution_strategy._CMAStopDict._update">
+    
+  </a>
+  <a name="_update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_update</span>(self, es):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Test termination criteria and update dictionary</div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.evolution_strategy._CMAStopDict._get_value">
+    
+  </a>
+  <a name="_get_value">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_get_value</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.evolution_strategy._CMAStopDict._value">
+    
+  </a>
+  <a name="_value">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_value</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

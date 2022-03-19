@@ -2,142 +2,186 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.optimization_tools.EvalParallel2 : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.optimization_tools.EvalParallel2</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.optimization_tools.EvalParallel2(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization_tools</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.EvalParallel2.html" class="internal-link" title="cma.optimization_tools.EvalParallel2">EvalParallel2</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.optimization_tools.html" data-type="Module" class="code">optimization_tools</a></code>
-          
-          <a href="classIndex.html#cma.optimization_tools.EvalParallel2">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">EvalParallel2</span>(object):</code></p>
+        <p><a href="classIndex.html#cma.optimization_tools.EvalParallel2">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>A class and context manager for parallel evaluations.</p>
-<p>This class is based on the <tt class="rst-docutils literal">Pool</tt> class of the <a href="http://docs.python.org/library/multiprocessing.html#multiprocessing"><code>multiprocessing</code></a> module.</p>
+<p>This class is based on the <tt class="rst-docutils literal">Pool</tt> class of the <code>multiprocessing</code> module.</p>
 <p>The interface in v2 changed, such that the fitness function can be
 given once in the constructor. Hence the number of processes has
-become the second (optional) argument of <a href="cma.optimization_tools.EvalParallel2.html#__init__"><code>__init__</code></a> and the function
-has become the second and optional argument of <a href="cma.optimization_tools.EvalParallel2.html#__call__"><code>__call__</code></a>.</p>
-<p>To be used with the <code>with</code> statement (otherwise <a href="cma.optimization_tools.EvalParallel2.html#terminate"><code>terminate</code></a> needs to
+become the second (optional) argument of <code><a href="#__init__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__init__">__init__</a></code> and the function
+has become the second and optional argument of <code><a href="#__call__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__call__">__call__</a></code>.</p>
+<p>To be used with the <code>with</code> statement (otherwise <code><a href="#terminate" class="internal-link" title="cma.optimization_tools.EvalParallel2.terminate">terminate</a></code> needs to
 be called to free resources):</p>
 <pre class="rst-literal-block">
 with EvalParallel2(fitness_function) as eval_all:
     fvals = eval_all(solutions)
 </pre>
-<p>assigns a callable <a href="cma.optimization_tools.EvalParallel2.html"><code>EvalParallel2</code></a> class instance to <tt class="rst-docutils literal">eval_all</tt>.
-The instance can be called with a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a> (or <a href="http://docs.python.org/library/stdtypes.html#tuple"><code>tuple</code></a> or any
+<p>assigns a callable <code><a href="cma.optimization_tools.EvalParallel2.html" class="internal-link" title="cma.optimization_tools.EvalParallel2">EvalParallel2</a></code> class instance to <tt class="rst-docutils literal">eval_all</tt>.
+The instance can be called with a <code>list</code> (or <code>tuple</code> or any
 sequence) of solutions and returns their fitness values. That is:</p>
 <pre class="rst-literal-block">
 eval_all(solutions) == [fitness_function(x) for x in solutions]
 </pre>
-<p><a href="cma.optimization_tools.EvalParallel2.html#__call__"><code>EvalParallel2.__call__</code></a> may take three additional optional arguments,
-namely <code>fitness_function</code> (like this the function may change from call
-to call), <code>args</code> passed to <tt class="rst-docutils literal">fitness</tt> and <code>timeout</code> passed to the
-<a href="http://docs.python.org/library/multiprocessing.pool.html#multiprocessing.pool.ApplyResult.get"><code>multiprocessing.pool.ApplyResult.get</code></a> method which raises
-<a href="http://docs.python.org/library/multiprocessing.html#multiprocessing.TimeoutError"><code>multiprocessing.TimeoutError</code></a> in case.</p>
+<p><code><a href="#__call__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__call__">EvalParallel2.__call__</a></code> may take three additional optional arguments,
+namely <code><a href="#fitness_function" class="internal-link" title="cma.optimization_tools.EvalParallel2.fitness_function">fitness_function</a></code> (like this the function may change from call
+to call), <code><a href="cma.optimization_tools.Sections.html#args" class="internal-link" title="cma.optimization_tools.Sections.args">args</a></code> passed to <tt class="rst-docutils literal">fitness</tt> and <code>timeout</code> passed to the
+<code>multiprocessing.pool.ApplyResult.get</code> method which raises
+<code>multiprocessing.TimeoutError</code> in case.</p>
 <p><tt class="rst-docutils literal">eval_all = EvalParallel2(fitness_function, 0)</tt> bypasses
-<a href="http://docs.python.org/library/multiprocessing.html#multiprocessing"><code>multiprocessing</code></a>, hence the construct can be used even when
-<a href="http://docs.python.org/library/multiprocessing.html#multiprocessing"><code>multiprocessing</code></a> fails on this <code>fitness_function</code> instantiation.</p>
+<code>multiprocessing</code>, hence the construct can be used even when
+<code>multiprocessing</code> fails on this <code><a href="#fitness_function" class="internal-link" title="cma.optimization_tools.EvalParallel2.fitness_function">fitness_function</a></code> instantiation.</p>
 <p>Examples:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.optimization_tools <span class="py-keyword">import</span> EvalParallel2
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> n_jobs <span class="py-keyword">in</span> [<span class="py-builtin">None</span>, -1, 0, 1, 2, 4]:
-<span class="py-more">... </span>    with EvalParallel2(cma.fitness_functions.elli, n_jobs) <span class="py-keyword">as</span> eval_all:
+<span class="py-more">... </span>    <span class="py-keyword">with</span> EvalParallel2(cma.fitness_functions.elli, n_jobs) <span class="py-keyword">as</span> eval_all:
 <span class="py-more">... </span>        res = eval_all([[1,2], [3,4]])
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># class usage, don't forget to call terminate</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>ep = EvalParallel2(cma.fitness_functions.elli, 4)
 <span class="py-prompt">&gt;&gt;&gt; </span>ep([[1,2], [3,4], [4, 5]])  <span class="py-comment"># doctest:+ELLIPSIS</span>
 <span class="py-output">[4000000.944...</span>
-<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>ep.terminate()
+<span class="py-prompt">&gt;&gt;&gt; </span>ep.terminate()
 <span class="py-more">...</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># use with `with` statement (context manager)</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(3 * [1], 1, <span class="py-builtin">dict</span>(verbose=-9))
-<span class="py-prompt">&gt;&gt;&gt; </span>with EvalParallel2(cma.fitness_functions.elli,
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">with</span> EvalParallel2(cma.fitness_functions.elli,
 <span class="py-more">... </span>                   number_of_processes=12) <span class="py-keyword">as</span> eval_all:
-<span class="py-more">... </span>    while <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>    <span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
 <span class="py-more">... </span>        X = es.ask()
 <span class="py-more">... </span>        es.tell(X, eval_all(X, args=(1e1,)))  <span class="py-comment"># `eval_all` also accepts</span>
 <span class="py-more">... </span>                                              <span class="py-comment"># `fitness_function` as</span>
 <span class="py-more">... </span>                                              <span class="py-comment"># (optional) keyword argument</span>
-<span class="py-prompt">&gt;&gt;&gt; </span>assert es.result[1] &lt; 1e-13 <span class="py-keyword">and</span> es.result[2] &lt; 1500</pre>
-<p>Parameters: the <a href="cma.optimization_tools.EvalParallel2.html"><code>EvalParallel2</code></a> constructor takes the number of
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[1] &lt; 1e-13 <span class="py-keyword">and</span> es.result[2] &lt; 1500</pre><p>Parameters: the <code><a href="cma.optimization_tools.EvalParallel2.html" class="internal-link" title="cma.optimization_tools.EvalParallel2">EvalParallel2</a></code> constructor takes the number of
 processes as optional input argument, which is by default
 <tt class="rst-docutils literal">multiprocessing.cpu_count()</tt>. If <tt class="rst-docutils literal">number_of_processes &lt;= 0</tt>, no
-<a href="http://docs.python.org/library/multiprocessing.html#multiprocessing"><code>multiprocessing</code></a> is invoked and the fitness is computed directly in a
+<code>multiprocessing</code> is invoked and the fitness is computed directly in a
 regular loop.</p>
-<p>Limitations: the <a href="http://docs.python.org/library/multiprocessing.html#multiprocessing"><code>multiprocessing</code></a> module, on which this class is based
+<p>Limitations: the <code>multiprocessing</code> module, on which this class is based
 upon, may not work with certain class instance methods or Cython
-instances, or class instances that contain modules as it uses <a href="http://docs.python.org/library/pickle.html#pickle"><code>pickle</code></a>.</p>
+instances, or class instances that contain modules as it uses <code>pickle</code>.</p>
 <p>Details: in some cases the execution may be considerably slowed down,
 as for example in previous tests done with test suites from coco/bbob.</p>
 <p>Comparing setting <tt class="rst-docutils literal">number_of_processes = 0</tt> with
 <tt class="rst-docutils literal">number_of_processes = 1</tt> evaluates the overhead introduced by
-<tt class="rst-docutils literal">multiprocessing.Pool.apply_async</tt>.</p><table class="fieldTable"></table></div>
+<tt class="rst-docutils literal">multiprocessing.Pool.apply_async</tt>.</p>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id431">
+        <table class="children sortable" id="id466">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.optimization_tools.EvalParallel2.html#__init__" data-type="Method" class="code">__init__</a></td>
+    <td><code><a href="#__call__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__call__">__call__</a></code></td>
+    <td>evaluate a list/sequence of solution-"vectors", return a list of corresponding f-values.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__del__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__del__">__del__</a></code></td>
+    <td>though generally not recommended <code><a href="#__del__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__del__">__del__</a></code> should be OK here</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__enter__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__enter__">__enter__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.optimization_tools.EvalParallel2.html#__call__" data-type="Method" class="code">__call__</a></td>
-    <td><span>evaluate a list/sequence of solution-"vectors", return a list of corresponding f-values.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.optimization_tools.EvalParallel2.html#terminate" data-type="Method" class="code">terminate</a></td>
-    <td><span>free allocated processing pool</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.optimization_tools.EvalParallel2.html#__enter__" data-type="Method" class="code">__enter__</a></td>
+    <td><code><a href="#__exit__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__exit__">__exit__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.optimization_tools.EvalParallel2.html#__exit__" data-type="Method" class="code">__exit__</a></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__init__">__init__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.optimization_tools.EvalParallel2.html#__del__" data-type="Method" class="code">__del__</a></td>
-    <td><span>though generally not recommended <a href="cma.optimization_tools.EvalParallel2.html#__del__"><code>__del__</code></a> should be OK here</span></td>
+    <td><code><a href="#terminate" class="internal-link" title="cma.optimization_tools.EvalParallel2.terminate">terminate</a></code></td>
+    <td>free allocated processing pool</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#fitness_function" class="internal-link" title="cma.optimization_tools.EvalParallel2.fitness_function">fitness​_function</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pool" class="internal-link" title="cma.optimization_tools.EvalParallel2.pool">pool</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#processes" class="internal-link" title="cma.optimization_tools.EvalParallel2.processes">processes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
@@ -149,24 +193,6 @@ as for example in previous tests done with test suites from coco/bbob.</p>
 
         <div class="basemethod">
   
-  <a name="cma.optimization_tools.EvalParallel2.__init__">
-    
-  </a>
-  <a name="__init__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __init__(self, fitness_function=None, number_of_processes=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.optimization_tools.EvalParallel2.__call__">
     
@@ -176,8 +202,7 @@ as for example in previous tests done with test suites from coco/bbob.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    __call__(self, solutions, fitness_function=None, args=(), timeout=None):
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, solutions, fitness_function=None, args=(), timeout=None):
     
   </div>
   <div class="docstring functionBody">
@@ -185,70 +210,15 @@ as for example in previous tests done with test suites from coco/bbob.</p>
     
     <div><p>evaluate a list/sequence of solution-"vectors", return a list
 of corresponding f-values.</p>
-<p><code>args</code> must be a tuple and is passed to <code>fitness_function</code> like
+<p><code><a href="cma.optimization_tools.Sections.html#args" class="internal-link" title="cma.optimization_tools.Sections.args">args</a></code> must be a tuple and is passed to <code><a href="#fitness_function" class="internal-link" title="cma.optimization_tools.EvalParallel2.fitness_function">fitness_function</a></code> like
 <tt class="rst-docutils literal">fitness_function(solutions[0], *args)</tt>. For example, a single
 argument, say <code>a1</code>, should be passed like <tt class="rst-docutils literal"><span class="pre">args=(a1,</span> )</tt>.</p>
-<p>Raises <a href="http://docs.python.org/library/multiprocessing.html#multiprocessing.TimeoutError"><code>multiprocessing.TimeoutError</code></a> if <code>timeout</code> is given and
-exceeded.</p><table class="fieldTable"></table></div>
+<p>Raises <code>multiprocessing.TimeoutError</code> if <code>timeout</code> is given and
+exceeded.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.optimization_tools.EvalParallel2.terminate">
-    
-  </a>
-  <a name="terminate">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    terminate(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>free allocated processing pool<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.optimization_tools.EvalParallel2.__enter__">
-    
-  </a>
-  <a name="__enter__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __enter__(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.optimization_tools.EvalParallel2.__exit__">
-    
-  </a>
-  <a name="__exit__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __exit__(self, exc_type, exc_value, traceback):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.optimization_tools.EvalParallel2.__del__">
     
@@ -258,25 +228,165 @@ exceeded.</p><table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    __del__(self):
+    <span class="py-keyword">def</span> <span class="py-defname">__del__</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>though generally not recommended <a href="cma.optimization_tools.EvalParallel2.html#__del__"><code>__del__</code></a> should be OK here<table class="fieldTable"></table></div>
+    <div>though generally not recommended <code><a href="#__del__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__del__">__del__</a></code> should be OK here</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.optimization_tools.EvalParallel2.__enter__">
+    
+  </a>
+  <a name="__enter__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__enter__</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.optimization_tools.EvalParallel2.__exit__">
+    
+  </a>
+  <a name="__exit__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__exit__</span>(self, exc_type, exc_value, traceback):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.optimization_tools.EvalParallel2.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, fitness_function=None, number_of_processes=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.optimization_tools.EvalParallel2.terminate">
+    
+  </a>
+  <a name="terminate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">terminate</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>free allocated processing pool</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.optimization_tools.EvalParallel2.fitness_function">
+    
+  </a>
+  <a name="fitness_function">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">fitness_function</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.optimization_tools.EvalParallel2.pool">
+    
+  </a>
+  <a name="pool">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pool</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.optimization_tools.EvalParallel2.processes">
+    
+  </a>
+  <a name="processes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">processes</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

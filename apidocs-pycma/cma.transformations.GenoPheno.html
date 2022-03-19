@@ -2,50 +2,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.transformations.GenoPheno : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.transformations.GenoPheno</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.transformations.GenoPheno(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code><wbr></wbr>.<code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">GenoPheno</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.transformations.html" data-type="Module" class="code">transformations</a></code>
-          
-          <a href="classIndex.html#cma.transformations.GenoPheno">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">GenoPheno</span>(object):</code></p>
+        <p><a href="classIndex.html#cma.transformations.GenoPheno">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>Genotype-phenotype transformation.</p>
-<p>Method <a href="cma.transformations.GenoPheno.html#pheno"><code>pheno</code></a> provides the transformation from geno- to phenotype,
+<p>Method <code><a href="#pheno" class="internal-link" title="cma.transformations.GenoPheno.pheno">pheno</a></code> provides the transformation from geno- to phenotype,
 that is from the internal representation to the representation used
-in the objective function. Method <a href="cma.transformations.GenoPheno.html#geno"><code>geno</code></a> provides the "inverse" pheno-
+in the objective function. Method <code><a href="#geno" class="internal-link" title="cma.transformations.GenoPheno.geno">geno</a></code> provides the "inverse" pheno-
 to genotype transformation. The geno-phenotype transformation comprises,
 in this order:</p>
 <blockquote>
@@ -59,28 +87,75 @@ in this order:</p>
 </blockquote>
 <p>By default all transformations are the identity. The repair is only
 applied, if the transformation is given as argument to the method
-<a href="cma.transformations.GenoPheno.html#pheno"><code>pheno</code></a>.</p>
-<p><a href="cma.transformations.GenoPheno.html#geno"><code>geno</code></a> is only necessary, if solutions have been injected.</p><table class="fieldTable"></table></div>
+<code><a href="#pheno" class="internal-link" title="cma.transformations.GenoPheno.pheno">pheno</a></code>.</p>
+<p><code><a href="#geno" class="internal-link" title="cma.transformations.GenoPheno.geno">geno</a></code> is only necessary, if solutions have been injected.</p>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id497">
+        <table class="children sortable" id="id532">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.GenoPheno.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>return <a href="cma.transformations.GenoPheno.html"><code>GenoPheno</code></a> instance with phenotypic dimension <code>dim</code>.</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.transformations.GenoPheno.__init__">__init__</a></code></td>
+    <td>return <code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">GenoPheno</a></code> instance with phenotypic dimension <code><a href="cma.transformations.DiagonalDecoding.html#dim" class="internal-link" title="cma.transformations.DiagonalDecoding.dim">dim</a></code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.GenoPheno.html#pheno" data-type="Method" class="code">pheno</a></td>
-    <td><span>maps the genotypic input argument into the phenotypic space, see help for class <a href="cma.transformations.GenoPheno.html"><code>GenoPheno</code></a></span></td>
+    <td><code><a href="#geno" class="internal-link" title="cma.transformations.GenoPheno.geno">geno</a></code></td>
+    <td>maps the phenotypic input argument into the genotypic space, that is, computes essentially the inverse of <tt class="rst-docutils literal">pheno</tt>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.transformations.GenoPheno.html#geno" data-type="Method" class="code">geno</a></td>
-    <td><span>maps the phenotypic input argument into the genotypic space, that is, computes essentially the inverse of <tt class="rst-docutils literal">pheno</tt>.</span></td>
+    <td><code><a href="#pheno" class="internal-link" title="cma.transformations.GenoPheno.pheno">pheno</a></code></td>
+    <td>maps the genotypic input argument into the phenotypic space, see help for class <code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">GenoPheno</a></code></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#fixed_values" class="internal-link" title="cma.transformations.GenoPheno.fixed_values">fixed​_values</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#isidentity" class="internal-link" title="cma.transformations.GenoPheno.isidentity">isidentity</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#islinear" class="internal-link" title="cma.transformations.GenoPheno.islinear">islinear</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#N" class="internal-link" title="cma.transformations.GenoPheno.N">N</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#repaired_solutions" class="internal-link" title="cma.transformations.GenoPheno.repaired_solutions">repaired​_solutions</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#scales" class="internal-link" title="cma.transformations.GenoPheno.scales">scales</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tf_geno" class="internal-link" title="cma.transformations.GenoPheno.tf_geno">tf​_geno</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tf_pheno" class="internal-link" title="cma.transformations.GenoPheno.tf_pheno">tf​_pheno</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#typical_x" class="internal-link" title="cma.transformations.GenoPheno.typical_x">typical​_x</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
@@ -92,6 +167,7 @@ applied, if the transformation is given as argument to the method
 
         <div class="basemethod">
   
+  
   <a name="cma.transformations.GenoPheno.__init__">
     
   </a>
@@ -100,30 +176,29 @@ applied, if the transformation is given as argument to the method
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self, dim, scaling=None, typical_x=None, fixed_values=None, tf=None):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, dim, scaling=None, typical_x=None, fixed_values=None, tf=None):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>return <a href="cma.transformations.GenoPheno.html"><code>GenoPheno</code></a> instance with phenotypic dimension <code>dim</code>.</p>
+    <div><p>return <code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">GenoPheno</a></code> instance with phenotypic dimension <code><a href="cma.transformations.DiagonalDecoding.html#dim" class="internal-link" title="cma.transformations.DiagonalDecoding.dim">dim</a></code>.</p>
 <div class="rst-section" id="rst-keyword-arguments">
-<h1 class="heading">Keyword Arguments</h1>
+<h2 class="heading">Keyword Arguments</h2>
 <blockquote>
 <dl class="rst-docutils">
-<dt><code>scaling</code></dt>
+<dt><code><a href="cma.transformations.DiagonalDecoding.html#scaling" class="internal-link" title="cma.transformations.DiagonalDecoding.scaling">scaling</a></code></dt>
 <dd>the diagonal of a scaling transformation matrix, multipliers
-in the genotyp-phenotyp transformation, see <code>typical_x</code></dd>
-<dt><code>typical_x</code></dt>
+in the genotyp-phenotyp transformation, see <code><a href="#typical_x" class="internal-link" title="cma.transformations.GenoPheno.typical_x">typical_x</a></code></dd>
+<dt><code><a href="#typical_x" class="internal-link" title="cma.transformations.GenoPheno.typical_x">typical_x</a></code></dt>
 <dd><tt class="rst-docutils literal">pheno = scaling*geno + typical_x</tt></dd>
-<dt><code>fixed_values</code></dt>
+<dt><code><a href="#fixed_values" class="internal-link" title="cma.transformations.GenoPheno.fixed_values">fixed_values</a></code></dt>
 <dd>a dictionary of variable indices and values, like <tt class="rst-docutils literal">{0:2.0, 2:1.1}</tt>,
 that are not subject to change, negative indices are ignored
 (they act like incommenting the index), values are phenotypic
 values.</dd>
 <dt><code>tf</code></dt>
-<dd><p class="rst-first">list of two user-defined transformation functions, or <a href="http://docs.python.org/library/constants.html#None"><code>None</code></a>.</p>
+<dd><p class="rst-first">list of two user-defined transformation functions, or <code>None</code>.</p>
 <p><tt class="rst-docutils literal">tf[0]</tt> is a function that transforms the internal representation
 as used by the optimizer into a solution as used by the
 objective function. <tt class="rst-docutils literal">tf[1]</tt> does the back-transformation.
@@ -146,39 +221,16 @@ values are used in the objective function.</p>
 </blockquote>
 </div>
 <div class="rst-section" id="rst-details">
-<h1 class="heading">Details</h1>
+<h2 class="heading">Details</h2>
 <p>If <tt class="rst-docutils literal">tf_0</tt> is not the identity and <tt class="rst-docutils literal">tf_1</tt> is ommitted,
 the genotype of <tt class="rst-docutils literal">x0</tt> cannot be computed consistently and
 "injection" of phenotypic solutions is likely to lead to
 unexpected results.</p>
-</div><table class="fieldTable"></table></div>
+</div>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.transformations.GenoPheno.pheno">
-    
-  </a>
-  <a name="pheno">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    pheno(self, x, into_bounds=None, copy=True, archive=None, iteration=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>maps the genotypic input argument into the phenotypic space,
-see help for class <a href="cma.transformations.GenoPheno.html"><code>GenoPheno</code></a></p>
-<div class="rst-section" id="rst-details">
-<h1 class="heading">Details</h1>
-<p>If <tt class="rst-docutils literal">copy</tt>, values from <tt class="rst-docutils literal">x</tt> are copied if changed under the
-transformation.</p>
-</div><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.transformations.GenoPheno.geno">
     
@@ -188,8 +240,7 @@ transformation.</p>
   </a>
   <div class="functionHeader">
     
-    def
-    geno(self, y, from_bounds=None, copy=True, repair=None, archive=None):
+    <span class="py-keyword">def</span> <span class="py-defname">geno</span>(self, y, from_bounds=None, copy=True, repair=None, archive=None):
     
   </div>
   <div class="docstring functionBody">
@@ -202,7 +253,7 @@ that is, computes essentially the inverse of <tt class="rst-docutils literal">ph
 is only needed if external solutions are injected, it is not
 applied to the initial solution x0.</p>
 <div class="rst-section" id="rst-details">
-<h1 class="heading">Details</h1>
+<h2 class="heading">Details</h2>
 <p><tt class="rst-docutils literal">geno</tt> searches first in <tt class="rst-docutils literal">archive</tt> for the genotype of
 <tt class="rst-docutils literal">y</tt> and returns the found value, typically unrepaired.
 Otherwise, first <tt class="rst-docutils literal">from_bounds</tt> is applied, to revert a
@@ -210,18 +261,230 @@ projection into the bound domain (if necessary) and <tt class="rst-docutils lite
 is reverted. <tt class="rst-docutils literal">repair</tt> is applied last, and is usually the
 method <tt class="rst-docutils literal">CMAEvolutionStrategy.repair_genotype</tt> that limits the
 Mahalanobis norm of <tt class="rst-docutils literal">geno(y) - mean</tt>.</p>
-</div><table class="fieldTable"></table></div>
+</div>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.transformations.GenoPheno.pheno">
+    
+  </a>
+  <a name="pheno">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">pheno</span>(self, x, into_bounds=None, copy=True, archive=None, iteration=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>maps the genotypic input argument into the phenotypic space,
+see help for class <code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">GenoPheno</a></code></p>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p>If <tt class="rst-docutils literal">copy</tt>, values from <tt class="rst-docutils literal">x</tt> are copied if changed under the
+transformation.</p>
+</div>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.transformations.GenoPheno.fixed_values">
+    
+  </a>
+  <a name="fixed_values">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">fixed_values</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.transformations.GenoPheno.isidentity">
+    
+  </a>
+  <a name="isidentity">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">isidentity</span>: <code>bool</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.transformations.GenoPheno.islinear">
+    
+  </a>
+  <a name="islinear">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">islinear</span>: <code>bool</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.transformations.GenoPheno.N">
+    
+  </a>
+  <a name="N">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">N</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.transformations.GenoPheno.repaired_solutions">
+    
+  </a>
+  <a name="repaired_solutions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">repaired_solutions</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.transformations.GenoPheno.scales">
+    
+  </a>
+  <a name="scales">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">scales</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.transformations.GenoPheno.tf_geno">
+    
+  </a>
+  <a name="tf_geno">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tf_geno</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.transformations.GenoPheno.tf_pheno">
+    
+  </a>
+  <a name="tf_pheno">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tf_pheno</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.transformations.GenoPheno.typical_x">
+    
+  </a>
+  <a name="typical_x">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">typical_x</span>: <code>int</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

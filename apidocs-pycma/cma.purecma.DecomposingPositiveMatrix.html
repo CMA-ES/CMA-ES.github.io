@@ -2,50 +2,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.purecma.DecomposingPositiveMatrix : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.purecma.DecomposingPositiveMatrix</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.purecma.DecomposingPositiveMatrix(<a href="cma.purecma.SquareMatrix.html" data-type="Class" class="code">SquareMatrix</a>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code><wbr></wbr>.<code><a href="cma.purecma.DecomposingPositiveMatrix.html" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix">DecomposingPositiveMatrix</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.purecma.html" data-type="Module" class="code">purecma</a></code>
-          
-          <a href="classIndex.html#cma.purecma.DecomposingPositiveMatrix">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">DecomposingPositiveMatrix</span>(<a href="cma.purecma.SquareMatrix.html" class="internal-link" title="cma.purecma.SquareMatrix">SquareMatrix</a>):</code></p>
+        <p><a href="classIndex.html#cma.purecma.DecomposingPositiveMatrix">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>Symmetric matrix maintaining its own eigendecomposition.</p>
 <p>If <tt class="rst-docutils literal">isinstance(C, DecomposingPositiveMatrix)</tt>,
-the eigendecomposion (the return value of <a href="cma.purecma.html#eig"><code>eig</code></a>) is stored in
-the attributes <code>eigenbasis</code> and <code>eigenvalues</code> such that the i-th
+the eigendecomposion (the return value of <code><a href="cma.purecma.html#eig" class="internal-link" title="cma.purecma.eig">eig</a></code>) is stored in
+the attributes <code><a href="#eigenbasis" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.eigenbasis">eigenbasis</a></code> and <code><a href="#eigenvalues" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.eigenvalues">eigenvalues</a></code> such that the i-th
 eigenvector is:</p>
 <pre class="rst-literal-block">
 [row[i] for row in C.eigenbasis]  # or equivalently
@@ -54,55 +82,83 @@ eigenvector is:</p>
 <p>with eigenvalue <tt class="rst-docutils literal">C.eigenvalues[i]</tt> and hence:</p>
 <pre class="rst-literal-block">
 C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
-</pre><table class="fieldTable"></table></div>
+</pre>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id452">
+        <table class="children sortable" id="id485">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.purecma.DecomposingPositiveMatrix.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>initialize with identity matrix</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.__init__">__init__</a></code></td>
+    <td>initialize with identity matrix</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.purecma.DecomposingPositiveMatrix.html#update_eigensystem" data-type="Method" class="code">update_eigensystem</a></td>
-    <td><span>Execute eigendecomposition of <code>self</code> if <tt class="rst-docutils literal">current_eval &gt; lazy_gap_evals + last_updated_eval</tt>.</span></td>
+    <td><code><a href="#mahalanobis_norm" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.mahalanobis_norm">mahalanobis​_norm</a></code></td>
+    <td>return <tt class="rst-docutils literal">(dx^T * <span class="pre">C^-1</span> * <span class="pre">dx)**0.5</span></tt></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.purecma.DecomposingPositiveMatrix.html#mahalanobis_norm" data-type="Method" class="code">mahalanobis_norm</a></td>
-    <td><span>return <tt class="rst-docutils literal">(dx^T * <span class="pre">C^-1</span> * <span class="pre">dx)**0.5</span></tt></span></td>
+    <td><code><a href="#update_eigensystem" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.update_eigensystem">update​_eigensystem</a></code></td>
+    <td>Execute eigendecomposition of <code>self</code> if <tt class="rst-docutils literal">current_eval &gt; lazy_gap_evals + last_updated_eval</tt>.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#condition_number" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.condition_number">condition​_number</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#eigenbasis" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.eigenbasis">eigenbasis</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#eigenvalues" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.eigenvalues">eigenvalues</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#invsqrt" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.invsqrt">invsqrt</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#updated_eval" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.updated_eval">updated​_eval</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.purecma.DecomposingPositiveMatrix.html#_enforce_symmetry" data-type="Method" class="code">_enforce_symmetry</a></td>
+    <td><code><a href="#_enforce_symmetry" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix._enforce_symmetry">​_enforce​_symmetry</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
           <p class="inheritedFrom">
-            Inherited from <a href="cma.purecma.SquareMatrix.html" data-type="Class" class="code">SquareMatrix</a>:
+            Inherited from <code><a href="cma.purecma.SquareMatrix.html" class="internal-link" title="cma.purecma.SquareMatrix">SquareMatrix</a></code>:
           </p>
-          <table class="children sortable" id="id453">
+          <table class="children sortable" id="id486">
+  
   
   <tr class="basemethod">
     
     <td>Method</td>
-    <td><a href="cma.purecma.SquareMatrix.html#multiply_with" data-type="Method" class="code">multiply_with</a></td>
-    <td><span>multiply matrix in place with <code>factor</code></span></td>
+    <td><code><a href="cma.purecma.SquareMatrix.html#addouter" class="internal-link" title="cma.purecma.SquareMatrix.addouter">addouter</a></code></td>
+    <td>Add in place <code>factor</code> times outer product of vector <code>b</code>,</td>
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><a href="cma.purecma.SquareMatrix.html#addouter" data-type="Method" class="code">addouter</a></td>
-    <td><span>Add in place <code>factor</code> times outer product of vector <code>b</code>,</span></td>
-  </tr><tr class="basemethod">
+    <td><code><a href="cma.purecma.SquareMatrix.html#multiply_with" class="internal-link" title="cma.purecma.SquareMatrix.multiply_with">multiply​_with</a></code></td>
+    <td>multiply matrix in place with <code>factor</code></td>
+  </tr><tr class="baseproperty">
     
-    <td>Method</td>
-    <td><a href="cma.purecma.SquareMatrix.html#diag" data-type="Method" class="code">diag</a></td>
-    <td><span>diagonal of the matrix as a copy (save to change)</span></td>
+    <td>Property</td>
+    <td><code><a href="cma.purecma.SquareMatrix.html#diag" class="internal-link" title="cma.purecma.SquareMatrix.diag">diag</a></code></td>
+    <td>diagonal of the matrix as a copy (save to change)</td>
   </tr>
 </table>
           
@@ -114,6 +170,7 @@ C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
 
         <div class="basemethod">
   
+  
   <a name="cma.purecma.DecomposingPositiveMatrix.__init__">
     
   </a>
@@ -122,38 +179,16 @@ C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self, dimension):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, dimension):
     
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <a href="cma.purecma.SquareMatrix.html#__init__" data-type="Method" class="code">cma.purecma.SquareMatrix.__init__</a></div>
+    <div class="interfaceinfo">overrides <code><a href="cma.purecma.SquareMatrix.html#__init__" class="internal-link">cma.purecma.SquareMatrix.__init__</a></code></div>
     
-    <div>initialize with identity matrix<table class="fieldTable"></table></div>
+    <div>initialize with identity matrix</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.purecma.DecomposingPositiveMatrix.update_eigensystem">
-    
-  </a>
-  <a name="update_eigensystem">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    update_eigensystem(self, current_eval, lazy_gap_evals):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>Execute eigendecomposition of <code>self</code> if
-<tt class="rst-docutils literal">current_eval &gt; lazy_gap_evals + last_updated_eval</tt>.</p>
-<p>Assumes (for sake of simplicity) that <code>self</code> is positive
-definite and hence raises a <a href="http://docs.python.org/library/exceptions.html#exceptions.RuntimeError"><code>RuntimeError</code></a> otherwise.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.purecma.DecomposingPositiveMatrix.mahalanobis_norm">
     
@@ -163,16 +198,139 @@ definite and hence raises a <a href="http://docs.python.org/library/exceptions.h
   </a>
   <div class="functionHeader">
     
-    def
-    mahalanobis_norm(self, dx):
+    <span class="py-keyword">def</span> <span class="py-defname">mahalanobis_norm</span>(self, dx):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>return <tt class="rst-docutils literal">(dx^T * <span class="pre">C^-1</span> * <span class="pre">dx)**0.5</span></tt><table class="fieldTable"></table></div>
+    <div>return <tt class="rst-docutils literal">(dx^T * <span class="pre">C^-1</span> * <span class="pre">dx)**0.5</span></tt></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.purecma.DecomposingPositiveMatrix.update_eigensystem">
+    
+  </a>
+  <a name="update_eigensystem">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update_eigensystem</span>(self, current_eval, lazy_gap_evals):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Execute eigendecomposition of <code>self</code> if
+<tt class="rst-docutils literal">current_eval &gt; lazy_gap_evals + last_updated_eval</tt>.</p>
+<p>Assumes (for sake of simplicity) that <code>self</code> is positive
+definite and hence raises a <code>RuntimeError</code> otherwise.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.purecma.DecomposingPositiveMatrix.condition_number">
+    
+  </a>
+  <a name="condition_number">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">condition_number</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.purecma.DecomposingPositiveMatrix.eigenbasis">
+    
+  </a>
+  <a name="eigenbasis">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">eigenbasis</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.purecma.DecomposingPositiveMatrix.eigenvalues">
+    
+  </a>
+  <a name="eigenvalues">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">eigenvalues</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.purecma.DecomposingPositiveMatrix.invsqrt">
+    
+  </a>
+  <a name="invsqrt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">invsqrt</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.purecma.DecomposingPositiveMatrix.updated_eval">
+    
+  </a>
+  <a name="updated_eval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">updated_eval</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div><div class="basemethod private">
+  
   
   <a name="cma.purecma.DecomposingPositiveMatrix._enforce_symmetry">
     
@@ -182,25 +340,29 @@ definite and hence raises a <a href="http://docs.python.org/library/exceptions.h
   </a>
   <div class="functionHeader">
     
-    def
-    _enforce_symmetry(self):
+    <span class="py-keyword">def</span> <span class="py-defname">_enforce_symmetry</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

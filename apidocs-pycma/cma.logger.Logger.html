@@ -2,65 +2,93 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.logger.Logger : API documentation</title>
+  
 
+  <head>
+    
+    <title>cma.logger.Logger</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
-        </div>
-      </div>
-    </nav>
+    
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
+          </a>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
+      </div>
+
     </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code>cma.logger.Logger(<span title="object">object</span>)</code> <small>class documentation</small></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.logger.html" class="internal-link" title="cma.logger">logger</a></code><wbr></wbr>.<code><a href="cma.logger.Logger.html" class="internal-link" title="cma.logger.Logger">Logger</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.logger.html" data-type="Module" class="code">logger</a></code>
-          
-          <a href="classIndex.html#cma.logger.Logger">(View In Hierarchy)</a>
-        </span>
+      <div class="categoryHeader">
+        class documentation
       </div>
 
       <div class="extrasDocstring">
-        
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">Logger</span>(object):</code></p>
+        <p><a href="classIndex.html#cma.logger.Logger">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
         <div><p>log an arbitrary number of data (a data row) per "timestep".</p>
-<p>The <a href="cma.logger.Logger.html#add"><code>add</code></a> method can be called several times per timestep, the <a href="cma.logger.Logger.html#push"><code>push</code></a>
+<p>The <code><a href="#add" class="internal-link" title="cma.logger.Logger.add">add</a></code> method can be called several times per timestep, the <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code>
 method must be called once per timestep. Callables are called in the
-<a href="cma.logger.Logger.html#push"><code>push</code></a> method and their output is logged. <a href="cma.logger.Logger.html#push"><code>push</code></a> finally also dumps the
-current data row to disk. <a href="cma.logger.Logger.html#load"><code>load</code></a> reads all logged data in and, like
-<a href="cma.logger.Logger.html#plot"><code>plot</code></a>, will only work if the same number of data was pushed each and
+<code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code> method and their output is logged. <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code> finally also dumps the
+current data row to disk. <code><a href="#load" class="internal-link" title="cma.logger.Logger.load">load</a></code> reads all logged data in and, like
+<code><a href="#plot" class="internal-link" title="cma.logger.Logger.plot">plot</a></code>, will only work if the same number of data was pushed each and
 every time.</p>
 <p>To-be-logged "values" can be scalars or iterables (like lists
 or nparrays).</p>
 <p>The current data is saved to a file and cleared after each timestep.
-The <code>name</code> and <a href="cma.logger.Logger.html#filename"><code>filename</code></a> attributes are based on either the name or
+The <code><a href="#name" class="internal-link" title="cma.logger.Logger.name">name</a></code> and <code><a href="#filename" class="internal-link" title="cma.logger.Logger.filename">filename</a></code> attributes are based on either the name or
 the logged instance class as given as first argument. Only if a name
-was given, <a href="cma.logger.Logger.html#push"><code>push</code></a> overwrites the derived file if it exists.</p>
-<p>To append data, set <code>self.counter</code> &gt; 0 or call <a href="cma.logger.Logger.html#load"><code>load</code></a> before to call
-<a href="cma.logger.Logger.html#push"><code>push</code></a> the first time (make sure that the <code>_name</code> attribute has the
+was given, <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code> overwrites the derived file if it exists.</p>
+<p>To append data, set <code>self.counter</code> &gt; 0 or call <code><a href="#load" class="internal-link" title="cma.logger.Logger.load">load</a></code> before to call
+<code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code> the first time (make sure that the <code><a href="#_name" class="internal-link" title="cma.logger.Logger._name">_name</a></code> attribute has the
 desired value either way). <tt class="rst-docutils literal"><span class="pre">len(self.load().data)</span></tt> is the number of
 current data.</p>
 <p>A minimal practical example logging some nicely transformed attribute
-values of an object (looping over <a href="cma.logger.Logger.html"><code>Logger</code></a> and <a href="cma.logger.LoggerDummy.html"><code>LoggerDummy</code></a> for
+values of an object (looping over <code><a href="cma.logger.Logger.html" class="internal-link" title="cma.logger.Logger">Logger</a></code> and <code><a href="cma.logger.LoggerDummy.html" class="internal-link" title="cma.logger.LoggerDummy">LoggerDummy</a></code> for
 testing purpose only):</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
@@ -77,95 +105,171 @@ testing purpose only):</p>
 <span class="py-more">... </span>    <span class="py-comment"># lg.plot()  # caveat: requires matplotlib and clears current figure like gcf().clear()</span>
 <span class="py-more">... </span>    lg2 = Logger(lg.name).load()  <span class="py-comment"># same logger without callables assigned</span>
 <span class="py-more">... </span>    lg3 = Logger(lg.filename).load()  <span class="py-comment"># ditto</span>
-<span class="py-more">... </span>    assert <span class="py-builtin">len</span>(lg.load().data) == lg.count == 9 <span class="py-keyword">or</span> <span class="py-builtin">isinstance</span>(lg, cma.logger.LoggerDummy)
-<span class="py-more">... </span>    assert np.all(lg.data == lg2.data) <span class="py-keyword">and</span> np.all(lg.data == lg3.data)
-<span class="py-more">... </span>    assert lg.labels == lg2.labels
-<span class="py-more">... </span>    lg.delete()  <span class="py-comment"># delete data file, logger can still be (re-)used for new data</span></pre><table class="fieldTable"></table></div>
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> <span class="py-builtin">len</span>(lg.load().data) == lg.count == 9 <span class="py-keyword">or</span> <span class="py-builtin">isinstance</span>(lg, cma.logger.LoggerDummy)
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> np.all(lg.data == lg2.data) <span class="py-keyword">and</span> np.all(lg.data == lg3.data)
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> lg.labels == lg2.labels
+<span class="py-more">... </span>    lg.delete()  <span class="py-comment"># delete data file, logger can still be (re-)used for new data</span></pre></div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id429">
+        <table class="children sortable" id="id464">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span><code>obj_or_name</code> is the instance that we want to observe,</span></td>
+    <td><code><a href="#__call__" class="internal-link" title="cma.logger.Logger.__call__">__call__</a></code></td>
+    <td>see also method <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#filename" data-type="Method" class="code">filename</a></td>
-    <td><span>full filename as absolute path (stored in attribute <code>_name</code>)</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.logger.Logger.html#delete" data-type="Method" class="code">delete</a></td>
-    <td><span>delete current data file and reset count to zero</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.logger.Logger.html#__del__" data-type="Method" class="code">__del__</a></td>
+    <td><code><a href="#__del__" class="internal-link" title="cma.logger.Logger.__del__">__del__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#__call__" data-type="Method" class="code">__call__</a></td>
-    <td><span>see also method <a href="cma.logger.Logger.html#push"><code>push</code></a>.</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.logger.Logger.__init__">__init__</a></code></td>
+    <td><code>obj_or_name</code> is the instance that we want to observe,</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#add" data-type="Method" class="code">add</a></td>
-    <td><span>data may be a value, or a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a>, or a <code>numpy</code> array.</span></td>
+    <td><code><a href="#add" class="internal-link" title="cma.logger.Logger.add">add</a></code></td>
+    <td>data may be a value, or a <code>list</code>, or a <code>numpy</code> array.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#push" data-type="Method" class="code">push</a></td>
-    <td><span>call <tt class="rst-docutils literal">stack()</tt> and finalize the current timestep, ignore input arguments.</span></td>
+    <td><code><a href="#delete" class="internal-link" title="cma.logger.Logger.delete">delete</a></code></td>
+    <td>delete current data file and reset count to zero</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#push_header" data-type="Method" class="code">push_header</a></td>
+    <td><code><a href="#load" class="internal-link" title="cma.logger.Logger.load">load</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#load" data-type="Method" class="code">load</a></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td><code><a href="#plot" class="internal-link" title="cma.logger.Logger.plot">plot</a></code></td>
+    <td>plot logged data using the <code><a href="#plot" class="internal-link" title="cma.logger.Logger.plot">plot</a></code> function.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#plot" data-type="Method" class="code">plot</a></td>
-    <td><span>plot logged data using the <a href="cma.logger.Logger.html#plot"><code>plot</code></a> function.</span></td>
+    <td><code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code></td>
+    <td>call <tt class="rst-docutils literal">stack()</tt> and finalize the current timestep, ignore input arguments.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#push_header" class="internal-link" title="cma.logger.Logger.push_header">push​_header</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#extension" class="internal-link" title="cma.logger.Logger.extension">extension</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#fields_read" class="internal-link" title="cma.logger.Logger.fields_read">fields​_read</a></code></td>
+    <td>names of attributes written to and read from file</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#attributes" class="internal-link" title="cma.logger.Logger.attributes">attributes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#callables" class="internal-link" title="cma.logger.Logger.callables">callables</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#count" class="internal-link" title="cma.logger.Logger.count">count</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#current_data" class="internal-link" title="cma.logger.Logger.current_data">current​_data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#data" class="internal-link" title="cma.logger.Logger.data">data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#format" class="internal-link" title="cma.logger.Logger.format">format</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#labels" class="internal-link" title="cma.logger.Logger.labels">labels</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#name" class="internal-link" title="cma.logger.Logger.name">name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#obj" class="internal-link" title="cma.logger.Logger.obj">obj</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#path" class="internal-link" title="cma.logger.Logger.path">path</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#plot_transformations" class="internal-link" title="cma.logger.Logger.plot_transformations">plot​_transformations</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#filename" class="internal-link" title="cma.logger.Logger.filename">filename</a></code></td>
+    <td>full filename as absolute path (stored in attribute <code><a href="#_name" class="internal-link" title="cma.logger.Logger._name">_name</a></code>)</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#_create_path" data-type="Method" class="code">_create_path</a></td>
-    <td><span>return absolute path or '' if not <code>name_prefix</code></span></td>
+    <td><code><a href="#_add_defaults" class="internal-link" title="cma.logger.Logger._add_defaults">​_add​_defaults</a></code></td>
+    <td>add data from registered attributes and callables, called by <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#_autoname" data-type="Method" class="code">_autoname</a></td>
-    <td><span>set <code>name</code> and <code>_name</code> attributes.</span></td>
+    <td><code><a href="#_autoname" class="internal-link" title="cma.logger.Logger._autoname">​_autoname</a></code></td>
+    <td>set <code><a href="#name" class="internal-link" title="cma.logger.Logger.name">name</a></code> and <code><a href="#_name" class="internal-link" title="cma.logger.Logger._name">_name</a></code> attributes.</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#_compose_name" data-type="Method" class="code">_compose_name</a></td>
-    <td><span>add unique_id to name before ".logdata"</span></td>
+    <td><code><a href="#_compose_name" class="internal-link" title="cma.logger.Logger._compose_name">​_compose​_name</a></code></td>
+    <td>add unique_id to name before ".logdata"</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#_unique_name_addition" data-type="Method" class="code">_unique_name_addition</a></td>
-    <td><span>return id:<a href="http://docs.python.org/library/stdtypes.html#str"><code>str</code></a> that makes <tt class="rst-docutils literal">name or self._name</tt> unique</span></td>
+    <td><code><a href="#_create_path" class="internal-link" title="cma.logger.Logger._create_path">​_create​_path</a></code></td>
+    <td>return absolute path or '' if not <code><a href="cma.logger.CMADataLogger.html#name_prefix" class="internal-link" title="cma.logger.CMADataLogger.name_prefix">name_prefix</a></code></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#_stack" data-type="Method" class="code">_stack</a></td>
-    <td><span>stack data into current row managing the different access...</span></td>
+    <td><code><a href="#_stack" class="internal-link" title="cma.logger.Logger._stack">​_stack</a></code></td>
+    <td>stack data into current row managing the different access...</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.logger.Logger.html#_add_defaults" data-type="Method" class="code">_add_defaults</a></td>
-    <td><span>add data from registered attributes and callables, called by <a href="cma.logger.Logger.html#push"><code>push</code></a></span></td>
+    <td><code><a href="#_unique_name_addition" class="internal-link" title="cma.logger.Logger._unique_name_addition">​_unique​_name​_addition</a></code></td>
+    <td>return id:<code>str</code> that makes <tt class="rst-docutils literal">name or self._name</tt> unique</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_delete" class="internal-link" title="cma.logger.Logger._delete">​_delete</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_name" class="internal-link" title="cma.logger.Logger._name">​_name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
         
@@ -177,193 +281,6 @@ testing purpose only):</p>
 
         <div class="basemethod">
   
-  <a name="cma.logger.Logger.__init__">
-    
-  </a>
-  <a name="__init__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __init__(self, obj_or_name, attributes=None, callables=None, path='outcmaes/', name=None, labels=None, delete=False, plot_transformations=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p><code>obj_or_name</code> is the instance that we want to observe,</p>
-<p>or a name, or an absolute path to a file.</p>
-<p><code>attributes</code> are attribute names[:<a href="http://docs.python.org/library/stdtypes.html#str"><code>str</code></a>] of <code>obj_or_name</code>, however</p>
-<p><code>callables</code> are more general in their usage and hence recommended.
-They allow attribute access and transformations, for example like
-<tt class="rst-docutils literal">lambda es: <span class="pre">np.log10(sum(es.mean**2)**0.5</span> / es.sigma)</tt>.</p>
-<p>When a <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a> accepts an argument, it is called with
-<code>obj_or_name</code> as argument. The returned value of <code>callables</code> and
-the current values of <code>attributes</code> are logged each time when
-<a href="cma.logger.Logger.html#push"><code>push</code></a> is called.</p>
-<p>Details: <code>path</code> is not used if <code>obj_or_name</code> is an absolute path
-name, e.g. the <a href="cma.logger.Logger.html#filename"><code>filename</code></a> attribute from another logger. If
-<tt class="rst-docutils literal">delete is True</tt>, the data file is deleted when the instance is
-destructed. This can also be controlled or prevented by setting the
-boolean <code>_delete</code> attribute.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.logger.Logger.filename">
-    
-  </a>
-  <a name="filename">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    filename(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>full filename as absolute path (stored in attribute <code>_name</code>)<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.logger.Logger.delete">
-    
-  </a>
-  <a name="delete">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    delete(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>delete current data file and reset count to zero<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.logger.Logger.__del__">
-    
-  </a>
-  <a name="__del__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    __del__(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.logger.Logger._create_path">
-    
-  </a>
-  <a name="_create_path">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _create_path(self, name_prefix=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return absolute path or '' if not <code>name_prefix</code><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.logger.Logger._autoname">
-    
-  </a>
-  <a name="_autoname">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _autoname(self, obj):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>set <code>name</code> and <code>_name</code> attributes.</p>
-<p>Loggers based on the same class are separted by calling
-<a href="cma.logger.Logger.html#_unique_name_addition"><code>_unique_name_addition</code></a> afterwards.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.logger.Logger._compose_name">
-    
-  </a>
-  <a name="_compose_name">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _compose_name(self, name, unique_id):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>add unique_id to name before ".logdata"<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.logger.Logger._unique_name_addition">
-    
-  </a>
-  <a name="_unique_name_addition">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _unique_name_addition(self, name=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return id:<a href="http://docs.python.org/library/stdtypes.html#str"><code>str</code></a> that makes <tt class="rst-docutils literal">name or self._name</tt> unique<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.logger.Logger._stack">
-    
-  </a>
-  <a name="_stack">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _stack(self, data):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>stack data into current row managing the different access...</p>
-<p>...and type formats.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.logger.Logger.__call__">
     
@@ -373,18 +290,72 @@ boolean <code>_delete</code> attribute.</p><table class="fieldTable"></table></d
   </a>
   <div class="functionHeader">
     
-    def
-    __call__(self, obj=None):
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, obj=None):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>see also method <a href="cma.logger.Logger.html#push"><code>push</code></a>.</p>
-<p>TODO: replacing <code>obj</code> here is somewhat inconsistent, but maybe
-an effective hack.</p><table class="fieldTable"></table></div>
+    <div><p>see also method <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code>.</p>
+<p>TODO: replacing <code><a href="#obj" class="internal-link" title="cma.logger.Logger.obj">obj</a></code> here is somewhat inconsistent, but maybe
+an effective hack.</p>
+</div>
   </div>
 </div><div class="basemethod">
+  
+  
+  <a name="cma.logger.Logger.__del__">
+    
+  </a>
+  <a name="__del__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__del__</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.logger.Logger.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, obj_or_name, attributes=None, callables=None, path=<span class="rst-variable-quote">'</span><span class="rst-variable-string">outcmaes/</span><span class="rst-variable-quote">'</span>, name=None, labels=None, delete=False, plot_transformations=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p><code>obj_or_name</code> is the instance that we want to observe,</p>
+<p>or a name, or an absolute path to a file.</p>
+<p><code><a href="#attributes" class="internal-link" title="cma.logger.Logger.attributes">attributes</a></code> are attribute names[:<code>str</code>] of <code>obj_or_name</code>, however</p>
+<p><code><a href="#callables" class="internal-link" title="cma.logger.Logger.callables">callables</a></code> are more general in their usage and hence recommended.
+They allow attribute access and transformations, for example like
+<tt class="rst-docutils literal">lambda es: <span class="pre">np.log10(sum(es.mean**2)**0.5</span> / es.sigma)</tt>.</p>
+<p>When a <code>callable</code> accepts an argument, it is called with
+<code>obj_or_name</code> as argument. The returned value of <code><a href="#callables" class="internal-link" title="cma.logger.Logger.callables">callables</a></code> and
+the current values of <code><a href="#attributes" class="internal-link" title="cma.logger.Logger.attributes">attributes</a></code> are logged each time when
+<code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code> is called.</p>
+<p>Details: <code><a href="#path" class="internal-link" title="cma.logger.Logger.path">path</a></code> is not used if <code>obj_or_name</code> is an absolute path
+name, e.g. the <code><a href="#filename" class="internal-link" title="cma.logger.Logger.filename">filename</a></code> attribute from another logger. If
+<tt class="rst-docutils literal">delete is True</tt>, the data file is deleted when the instance is
+destructed. This can also be controlled or prevented by setting the
+boolean <code><a href="#_delete" class="internal-link" title="cma.logger.Logger._delete">_delete</a></code> attribute.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
   
   <a name="cma.logger.Logger.add">
     
@@ -394,75 +365,37 @@ an effective hack.</p><table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    add(self, data):
+    <span class="py-keyword">def</span> <span class="py-defname">add</span>(self, data):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>data may be a value, or a <a href="http://docs.python.org/library/stdtypes.html#list"><code>list</code></a>, or a <code>numpy</code> array.</p>
-<p>See also <a href="cma.logger.Logger.html#push"><code>push</code></a> to complete the iteration.</p><table class="fieldTable"></table></div>
+    <div><p>data may be a value, or a <code>list</code>, or a <code>numpy</code> array.</p>
+<p>See also <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code> to complete the iteration.</p>
+</div>
   </div>
-</div><div class="basemethod private">
+</div><div class="basemethod">
   
-  <a name="cma.logger.Logger._add_defaults">
+  
+  <a name="cma.logger.Logger.delete">
     
   </a>
-  <a name="_add_defaults">
+  <a name="delete">
     
   </a>
   <div class="functionHeader">
     
-    def
-    _add_defaults(self):
+    <span class="py-keyword">def</span> <span class="py-defname">delete</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div>add data from registered attributes and callables, called by <a href="cma.logger.Logger.html#push"><code>push</code></a><table class="fieldTable"></table></div>
+    <div>delete current data file and reset count to zero</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.logger.Logger.push">
-    
-  </a>
-  <a name="push">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    push(self, *args):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>call <tt class="rst-docutils literal">stack()</tt> and finalize the current timestep, ignore
-input arguments.<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.logger.Logger.push_header">
-    
-  </a>
-  <a name="push_header">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    push_header(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.logger.Logger.load">
     
@@ -472,16 +405,16 @@ input arguments.<table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    load(self):
+    <span class="py-keyword">def</span> <span class="py-defname">load</span>(self):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div class="undocumented">Undocumented</div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div><div class="basemethod">
+  
   
   <a name="cma.logger.Logger.plot">
     
@@ -491,30 +424,513 @@ input arguments.<table class="fieldTable"></table></div>
   </a>
   <div class="functionHeader">
     
-    def
-    plot(self, plot=None, clear=True, transformations=None):
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, plot=None, clear=True, transformations=None):
     
   </div>
   <div class="docstring functionBody">
     
     
-    <div><p>plot logged data using the <a href="cma.logger.Logger.html#plot"><code>plot</code></a> function.</p>
+    <div><p>plot logged data using the <code><a href="#plot" class="internal-link" title="cma.logger.Logger.plot">plot</a></code> function.</p>
 <p>If <code>clear</code>, this calls <code>matplotlib.pyplot.gca().clear()</code> before
 to plot in the current figure. The default value of <code>clear</code> may
 change in future.</p>
-<p>If <tt class="rst-docutils literal">transformations[i]</tt> is a <a href="http://docs.python.org/library/functions.html#callable"><code>callable</code></a> it is used to transform the i-th
-data column like <tt class="rst-docutils literal">i_th_column = <span class="pre">transformations[i](data[:,i])</span></tt>.</p><table class="fieldTable"></table></div>
+<p>If <tt class="rst-docutils literal">transformations[i]</tt> is a <code>callable</code> it is used to transform the i-th
+data column like <tt class="rst-docutils literal">i_th_column = <span class="pre">transformations[i](data[:,i])</span></tt>.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.logger.Logger.push">
+    
+  </a>
+  <a name="push">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">push</span>(self, *args):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>call <tt class="rst-docutils literal">stack()</tt> and finalize the current timestep, ignore
+input arguments.</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.logger.Logger.push_header">
+    
+  </a>
+  <a name="push_header">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">push_header</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="cma.logger.Logger.extension">
+    
+  </a>
+  <a name="extension">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">extension</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="cma.logger.Logger.fields_read">
+    
+  </a>
+  <a name="fields_read">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">fields_read</span>: <code>list[<wbr></wbr>str]</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>names of attributes written to and read from file</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.attributes">
+    
+  </a>
+  <a name="attributes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">attributes</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.callables">
+    
+  </a>
+  <a name="callables">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">callables</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.count">
+    
+  </a>
+  <a name="count">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">count</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.current_data">
+    
+  </a>
+  <a name="current_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">current_data</span>: <code>list</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.data">
+    
+  </a>
+  <a name="data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">data</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.format">
+    
+  </a>
+  <a name="format">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">format</span>: <code>str</code> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.labels">
+    
+  </a>
+  <a name="labels">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">labels</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.name">
+    
+  </a>
+  <a name="name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">name</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.obj">
+    
+  </a>
+  <a name="obj">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">obj</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.path">
+    
+  </a>
+  <a name="path">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">path</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.logger.Logger.plot_transformations">
+    
+  </a>
+  <a name="plot_transformations">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">plot_transformations</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.logger.Logger.filename">
+    
+  </a>
+  <a name="filename">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">filename</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div>full filename as absolute path (stored in attribute <code><a href="#_name" class="internal-link" title="cma.logger.Logger._name">_name</a></code>)</div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.logger.Logger._add_defaults">
+    
+  </a>
+  <a name="_add_defaults">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_add_defaults</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>add data from registered attributes and callables, called by <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.logger.Logger._autoname">
+    
+  </a>
+  <a name="_autoname">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_autoname</span>(self, obj):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>set <code><a href="#name" class="internal-link" title="cma.logger.Logger.name">name</a></code> and <code><a href="#_name" class="internal-link" title="cma.logger.Logger._name">_name</a></code> attributes.</p>
+<p>Loggers based on the same class are separted by calling
+<code><a href="#_unique_name_addition" class="internal-link" title="cma.logger.Logger._unique_name_addition">_unique_name_addition</a></code> afterwards.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.logger.Logger._compose_name">
+    
+  </a>
+  <a name="_compose_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_compose_name</span>(self, name, unique_id):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>add unique_id to name before ".logdata"</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.logger.Logger._create_path">
+    
+  </a>
+  <a name="_create_path">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_create_path</span>(self, name_prefix=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return absolute path or '' if not <code><a href="cma.logger.CMADataLogger.html#name_prefix" class="internal-link" title="cma.logger.CMADataLogger.name_prefix">name_prefix</a></code></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.logger.Logger._stack">
+    
+  </a>
+  <a name="_stack">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_stack</span>(self, data):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>stack data into current row managing the different access...</p>
+<p>...and type formats.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.logger.Logger._unique_name_addition">
+    
+  </a>
+  <a name="_unique_name_addition">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_unique_name_addition</span>(self, name=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>return id:<code>str</code> that makes <tt class="rst-docutils literal">name or self._name</tt> unique</div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.logger.Logger._delete">
+    
+  </a>
+  <a name="_delete">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_delete</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.logger.Logger._name">
+    
+  </a>
+  <a name="_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_name</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
 
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2022-02-27 12:54:30.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

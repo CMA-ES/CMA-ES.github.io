@@ -2,32 +2,76 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
+  
+  
   <head>
+    
     <title>Module Index</title>
+    <meta name="generator" content="pydoctor 22.2.2"> 
+        
+    </meta>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container">
+    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="apidocs.css" rel="stylesheet" type="text/css" />
+    <link href="extra.css" rel="stylesheet" type="text/css" />
+</head>
 
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
+  <body>
+
+    
+
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+          <span class="navbar-brand">
+            cma <a href="index.html">API Documentation</a>
+          </span>
+
+          <a href="moduleIndex.html">
+            Modules
           </a>
-        </div>
+
+          <a href="classIndex.html">
+            Classes
+          </a>
+
+          <a href="nameIndex.html">
+            Names
+          </a>
       </div>
-    </nav>
+
+    </div>
+  </div>
+</nav>
 
     <div class="container">
 
       <div class="page-header">
         <h1>Module Index</h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
       </div>
 
-      <ul><li><a href="cma.html" data-type="Package" class="code">cma</a> - <span>Package <a href="cma.html"><code>cma</code></a> implements the CMA-ES (Covariance Matrix Adaptation Evolution Strategy).</span><ul><li><a href="cma.bbobbenchmarks.html" data-type="Module" class="code">cma.bbobbenchmarks</a> - <span>BBOB noiseless testbed.</span></li><li><a href="cma.constraints_handler.html" data-type="Module" class="code">cma.constraints_handler</a> - <span>A collection of boundary and (in future) constraints handling classes.</span></li><li><a href="cma.evolution_strategy.html" data-type="Module" class="code">cma.evolution_strategy</a> - <span>CMA-ES (evolution strategy), the main sub-module of <a href="cma.html"><code>cma</code></a> providing in particular <a href="cma.evolution_strategy.CMAOptions.html"><code>CMAOptions</code></a>, <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a>, and <a href="cma.evolution_strategy.html#fmin"><code>fmin</code></a></span></li><li><a href="cma.fitness_functions.html" data-type="Module" class="code">cma.fitness_functions</a> - <span>versatile container for test objective functions.</span></li><li><a href="cma.fitness_models.html" data-type="Module" class="code">cma.fitness_models</a> - <span>Fitness surrogate model classes and handler for incremental evaluations.</span></li><li><a href="cma.fitness_transformations.html" data-type="Module" class="code">cma.fitness_transformations</a> - <span>Wrapper for objective functions like noise, rotation, gluing args</span></li><li><a href="cma.interfaces.html" data-type="Module" class="code">cma.interfaces</a> - <span>Very few interface defining base class definitions</span></li><li><a href="cma.logger.html" data-type="Module" class="code">cma.logger</a> - <span>logger class mainly to be used with <a href="cma.evolution_strategy.CMAEvolutionStrategy.html"><code>CMAEvolutionStrategy</code></a></span></li><li><a href="cma.optimization_tools.html" data-type="Module" class="code">cma.optimization_tools</a> - <span>Utility classes and functionalities loosely related to optimization</span></li><li><a href="cma.purecma.html" data-type="Module" class="code">cma.purecma</a> - <span>A minimalistic implemention of CMA-ES without using <code>numpy</code>.</span></li><li><a href="cma.recombination_weights.html" data-type="Module" class="code">cma.recombination_weights</a> - <span class="undocumented">No summary</span></li><li><a href="cma.restricted_gaussian_sampler.html" data-type="Module" class="code">cma.restricted_gaussian_sampler</a> - <span>VD-CMA and VkD-CMA</span></li><li><a href="cma.s.html" data-type="Module" class="code">cma.s</a> - <span>versatile shortcuts for quick typing in an (i)python shell or even <tt class="rst-docutils literal">from cma.s import *</tt> in interactive sessions.</span></li><li><a href="cma.sampler.html" data-type="Module" class="code">cma.sampler</a> - <span>Collection of classes that sample from parametrized distributions and provide an update mechanism of the distribution parameters.</span></li><li><a href="cma.sigma_adaptation.html" data-type="Module" class="code">cma.sigma_adaptation</a> - <span>step-size adaptation classes, currently tightly linked to CMA, because <a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#hsig"><code>hsig</code></a> is computed in the base class</span></li><li><a href="cma.test.html" data-type="Module" class="code">cma.test</a> - <span>test module of <a href="cma.html"><code>cma</code></a> package.</span></li><li><a href="cma.transformations.html" data-type="Module" class="code">cma.transformations</a> - <span>Search space transformation and encoding/decoding classes</span></li><li><a href="cma.utilities.html" data-type="Package" class="code">cma.utilities</a> - <span>various unspecific utilities</span><ul><li><a href="cma.utilities.math.html" data-type="Module" class="code">cma.utilities.math</a> - <span>various math utilities, notably <a href="cma.utilities.math.html#eig"><code>eig</code></a> and a collection of simple functions in <a href="cma.utilities.math.MathHelperFunctions.html"><code>Mh</code></a></span></li><li><a href="cma.utilities.python3for2.html" data-type="Module" class="code">cma.utilities.python3for2</a> - <span>to execute Python 3 code in Python 2.</span></li><li><a href="cma.utilities.utils.html" data-type="Module" class="code">cma.utilities.utils</a> - <span>various utilities not related to optimization</span></li></ul></li><li><a href="cma.wrapper.html" data-type="Module" class="code">cma.wrapper</a> - <span>Interface wrappers for the <a href="cma.html"><code>cma</code></a> module.</span></li></ul></li></ul>
+      <ul id="summaryTree"><li><code><a href="index.html" class="internal-link">cma</a></code> - Package <code><a href="index.html" class="internal-link">cma</a></code> implements the CMA-ES (Covariance Matrix Adaptation Evolution Strategy).<ul><li><code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code> - BBOB noiseless testbed.</li><li><code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints_handler</a></code> - A collection of boundary and (in future) constraints handling classes.</li><li><code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code> - CMA-ES (evolution strategy), the main sub-module of <code><a href="index.html" class="internal-link">cma</a></code> providing in particular <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, and <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code></li><li><code><a href="cma.fitness_functions.html" class="internal-link" title="cma.fitness_functions">fitness_functions</a></code> - versatile container for test objective functions.</li><li><code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness_models</a></code> - Fitness surrogate model classes and handler for incremental evaluations.</li><li><code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness_transformations</a></code> - Wrapper for objective functions like noise, rotation, gluing args</li><li><code><a href="cma.interfaces.html" class="internal-link" title="cma.interfaces">interfaces</a></code> - Very few interface defining base class definitions</li><li><code><a href="cma.logger.html" class="internal-link" title="cma.logger">logger</a></code> - logger class mainly to be used with <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></li><li><code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization_tools</a></code> - Utility classes and functionalities loosely related to optimization</li><li><code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code> - A minimalistic implemention of CMA-ES without using <code>numpy</code>.</li><li><code><a href="cma.recombination_weights.html" class="internal-link" title="cma.recombination_weights">recombination_weights</a></code> - <code><a href="cma.recombination_weights.RecombinationWeights.html" class="internal-link" title="cma.recombination_weights.RecombinationWeights">RecombinationWeights</a></code> is a list of recombination weights for the CMA-ES.</li><li><code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted_gaussian_sampler</a></code> - VD-CMA and VkD-CMA</li><li><code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code> - versatile shortcuts for quick typing in an (i)python shell or even <tt class="rst-docutils literal">from cma.s import *</tt> in interactive sessions.</li><li><code><a href="cma.sampler.html" class="internal-link" title="cma.sampler">sampler</a></code> - Collection of classes that sample from parametrized distributions and provide an update mechanism of the distribution parameters.</li><li><code><a href="cma.sigma_adaptation.html" class="internal-link" title="cma.sigma_adaptation">sigma_adaptation</a></code> - step-size adaptation classes, currently tightly linked to CMA, because <code><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html#hsig" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.hsig">hsig</a></code> is computed in the base class</li><li><code><a href="cma.test.html" class="internal-link" title="cma.test">test</a></code> - test module of <code><a href="index.html" class="internal-link">cma</a></code> package.</li><li><code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code> - Search space transformation and encoding/decoding classes</li><li><code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code> - various unspecific utilities<ul><li><code><a href="cma.utilities.math.html" class="internal-link" title="cma.utilities.math">math</a></code> - various math utilities, notably <code><a href="#eig" class="internal-link" title="cma.utilities.math.eig">eig</a></code> and a collection of simple functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">Mh</a></code></li><li><code><a href="cma.utilities.python3for2.html" class="internal-link" title="cma.utilities.python3for2">python3for2</a></code> - to execute Python 3 code in Python 2.</li><li><code><a href="cma.utilities.utils.html" class="internal-link" title="cma.utilities.utils">utils</a></code> - various utilities not related to optimization</li></ul></li><li><code><a href="cma.wrapper.html" class="internal-link" title="cma.wrapper">wrapper</a></code> - Interface wrappers for the <code><a href="index.html" class="internal-link">cma</a></code> module.</li></ul></li></ul>
 
     </div>
+
+    <footer class="navbar navbar-default">
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.2.2 at 2022-03-19 17:09:59.
+  </div>
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
   </body>
 </html>
