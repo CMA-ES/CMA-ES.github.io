@@ -143,8 +143,10 @@ functions (<A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/kernnatcom
 </ul>
 
 <A name="chronobiography">
-<h3>Commented Bibliography (chronologically, single-objective)</h3> 
+<h3>Commented Bibliography (chronologically)</h3> 
 </A>
+Following is a commented bibliography mainly of the crucial advances on the single-objective and non-elitist "standard" CMA-ES.
+Some papers on elitistic or multi-objective algorithm variants are included as well.
 
 <ol>
 <LI><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenea1995">Hansen et
@@ -242,7 +244,7 @@ presented. </p> </li>
 
 <li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenukernppsn2004">
 Hansen and Kern (2004). Evaluating the CMA Evolution Strategy on
-Multimodal Test Functions.<A> In <i> Eighth International Conference
+Multimodal Test Functions.</A> In <i> Eighth International Conference
 on Parallel Problem Solving from Nature PPSN VIII, Proceedings</i>,
 pp. 282-291.</font>
 
@@ -250,7 +252,7 @@ pp. 282-291.</font>
 In this paper 1) the <i>weighted</i> rank-&mu; update of the
 covariance matrix is introduced. 2) the step-size adaptation problem
 discovered in <a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#hansenea1995">Hansen et al
-(2003)</a> is addressed by a remarkably improved setting of the
+(2003)</a> is addressed by a considerably improved setting of the
 step-size control parameters:  for large population sizes the backward time
 horizon of the evolution path is diminished by increasing the
 parameter <i>c</i><sub><font size="-1">&sigma;</font></sub> and the step-size damping <i>d</i><sub><font size="-1">&sigma;</font></sub> is increased. 3) the
@@ -314,7 +316,7 @@ pp. 9719-9726</font>
 A <i>negative</i> rank-&mu; update of the covariance matrix is introduced using the &mu; worst of the &lambda; individuals.
 All vectors for both, the original and the negative, rank-&mu; updates
 have the same weight. For population sizes up to &lambda;=4<i>n</i> a
-significant speed-up compared to the original equally weighted
+notable speed-up compared to the original equally weighted
 rank-&mu; update can be observed. On the discus (or tablet) function
 the speed-up exceeds a factor of two for large dimensions and small
 population sizes. While positive definiteness of the covariance matrix
@@ -347,30 +349,41 @@ addressed in <A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publicat
 
 </p></li>
 
-<li><font size=-1><A HREF="https://doi.org/10.1162/evco.2007.15.1.1">Igel et al (2007). Covariance Matrix Adaptation for Multi-objective Optimization.</A> <I>Evolutionary Computation</I> 15 (1): 1–28.</font>
+<li><font size=-1><A HREF="https://doi.org/10.1162/evco.2007.15.1.1">Igel et al (2007). Covariance Matrix Adaptation for Multi-objective Optimization.</A> <I>Evolutionary Computation</I> 15 (1): 1-28.</font>
   <p>
-    MO-CMA-ES is a multi-objective algorithm maintaining several (1+1)-CMA-ES algorithms in parallel to approximate the pareto set. The algorithm is based on non-dominated sorting. <A HREF="https://doi.org/10.1007/978-3-540-70928-2_16">Igel et al (2007)</A> introduce steady-state selection into this algorithm. <A HREF="https://dl.acm.org/doi/10.1145/1830483.1830573">Voß et al (2010)</A> improve the step-size adaptation.
+    MO-CMA-ES is a multi-objective algorithm maintaining several (1+1)-CMA-ES algorithms in parallel to approximate the pareto set. The algorithm is based on non-dominated sorting. <A HREF="https://doi.org/10.1007/978-3-540-70928-2_16">Igel et al (2007)</A> introduce steady-state selection into this algorithm. <A HREF="https://dl.acm.org/doi/10.1145/1830483.1830573">Vo&szlig; et al (2010)</A> improve the step-size adaptation.
   </p></li>
 
   <li><font size=-1><A HREF="https://link.springer.com/content/pdf/10.1007%2F978-3-540-87700-4_30.pdf">Ros and Hansen (2008). A Simple Modification in CMA-ES Achieving Linear Time and Space Complexity.</A> In <i><A HREF="https://link.springer.com/book/10.1007/978-3-540-87700-4"> Tenth International Conference
     on Parallel Problem Solving from Nature PPSN X, Proceedings</A></i>,
     pp. 296-305.</font>
     <p>
-      A simple change in the covariance matrix update restricts the update to the diagonal elements of the matrix, AKA separable or diagonal CMA-ES. As the most important consequence, the learning rate for the covariance matrix update can be increase from roughly <I>O(1/n<SUP>2</SUP>)</I> to <I>O(1/n)</I>. Also, internal time and memory complexity become linear in the dimension. However, the main feature of CMA-ES to learn dependencies between variables is lost. Yet, surprisingly, the sep-CMA-ES remains competitive on the Rosenbrock function in dimension larger than a hundred.
+      A very simple change in the covariance matrix update restricts the changes to the diagonal elements of the matrix, AKA separable or diagonal CMA-ES. As the most important consequence, the learning rate for the covariance matrix update can be increased from roughly <I>O(1/n<SUP>2</SUP>)</I> to <I>O(1/n)</I>. Also, internal time and memory complexity become linear in the dimension. However, the main feature of CMA-ES to learn dependencies between variables is abandoned. Yet, surprisingly, the sep-CMA-ES is competitive on the Rosenbrock function in dimension larger than a hundred.
     </p>
 </li>
 
-<li><font size=-1><A HREF="https://doi.org/10.1145/1570256.1570333">Hansen (2009). Benchmarking a BI-Population CMA-ES on the BBOB-2009
-    Function Testbed</A>. <I>Proceedings of the 11th Annual Conference Companion on Genetic and Evolutionary Computation Conference: Late Breaking Papers</I>, pp. 2389–2396.</font>
+<li><font size=-1><A HREF="https://hal.inria.fr/inria-00382093/document">Hansen (2009). Benchmarking a BI-Population CMA-ES on the BBOB-2009
+    Function Testbed</A>. <I>Proceedings of the 11th Annual Conference Companion on Genetic and Evolutionary Computation Conference: Late Breaking Papers</I>, pp. 2389-2396.</font>
     <p>
-      The BIPOP-CMA-ES has a restart scheme with two modes: the original IPOP mode (Auger and Hansen 2005) and a mode with small population size. The resulting algorithm should be considered as a simple portfolio between the IPOP-CMA-ES and a CMA-ES with independent restarts where the initial conditions for mean and step-size vary. The latter mode allows to solve some weakly structured multi-modal functions that IPOP-CMA-ES fails to solve.
+      This paper makes two somewhat significant algorithmic contributions. (i) The cumulation parameter setting <I>c<SUB>c</SUB></I> is improved for large population size such that it approaches 1/2 instead of 4 / <I>n</I> when &mu; / <I>n</I> &rarr; &infin; and <I>n</I> &gg; 1. This improves the performance with very large population sizes roughly by a factor of two (not shown). (ii) The BIPOP restart scheme with two modes is invented: the original IPOP mode (Auger and Hansen 2005) and a mode with small population size. The resulting algorithm is a simple portfolio between the IPOP-CMA-ES and a CMA-ES with independent restarts where the initial conditions for mean and step-size vary. The latter mode allows to solve some weakly structured multi-modal functions that IPOP-CMA-ES fails to solve. The benchmarking data provide a performance baseline, however generally, algorithm portfolios may often not be the best baseline to choose from.
     </p></li>
 
-<li><font size=-1><A HREF="https://doi.org/10.1145/1830761.1830788">Hansen and Ros (2010). 
+  <li><font size=-1><A HREF="https://www.ini.rub.de/upload/file/1511450464_867252f68023ec06d925/glasmachers2010b.pdf">Glasmachers et al (2010). Exponential natural evolution strategies</A>. In <I>Proceedings Companion of the 12th Annual Conference Companion on Genetic and Evolutionary Computation Conference</I>, pp. 393-400.</font>
+      <p>This seminal paper introduces the exponential Natural Evolution Strategy (xNES) and shows its close connection to CMA-ES. The additive update of the covariance matrix <I>C</I> with a weighted empirical covariance matrix &radic;<I>CM</I>&radic;<I>C</I> and learning rate 2<I>&eta;</I> can be expressed as a multiplicative update of <I>C</I> or, in first order, of &radic;<I>C</I> with I + <I>&eta;M</I> if the weights sum to zero or with <I>I</I> + <I>&eta;</I>(<I>M</I> - I) if the weights sum to one. These multiplicative updates are in first order equivalent with the exponential multiplicative update by exp(<I>&eta;M</I>) or exp(<I>&eta;</I>(<I>M</I> - I)). The exponential update guaranties <I>C</I> to remain positive definite.
+  </p></li>
+  
+  <li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/ws1p32-hansen.pdf">Hansen and Ros (2010). 
   Benchmarking a weighted negative covariance matrix update
-  on the BBOB-2010 noiseless testbed</A>. In <I>Proceedings Companion of the 12th Annual Conference Companion on Genetic and Evolutionary Computation Conference</I>, pp. 1673–1680.</font>
-    <p>The idea of using different recombination weights (Hansen and Ostermeier 2001) is combined with the idea of active CMA-ES (Jastrebski and Arnold 2006) using negative weights for the covariance matrix update. This combination is straightforward and has become the default implementation of CMA-ES.
+  on the BBOB-2010 noiseless testbed</A>. In <I>Proceedings Companion of the 12th Annual Conference Companion on Genetic and Evolutionary Computation Conference</I>, pp. 1673-1680.</font>
+    <p>The idea of using different recombination weights (Hansen and Ostermeier 2001) is combined with the idea of active CMA-ES using negative weights for the covariance matrix update (Jastrebski and Arnold 2006). This combination is straightforward and has become the default implementation of CMA-ES.
 </p></li>
+
+
+<li><font size=-1><A HREF="https://link.springer.com/content/pdf/10.1007%2F978-3-642-15844-5_16.pdf">Akimoto et al (2010). Bidirectional relation between CMA evolution strategies and natural evolution strategies. In International Conference on Parallel Problem Solving from Nature.</A>
+  In <i><A HREF="https://link.springer.com/book/10.1007/978-3-642-15844-5"> 11th International Conference on Parallel Problem Solving from Nature PPSN XI, Proceedings</A></i>, pp. 154-163.</font>
+ 
+  <p>This paper fully establishes the link between a natural gradient descent in the parametrized space of Gaussian distributions and the update equations in the CMA-ES algorithm. Remarkably, the update of the covariance matrix can be (and has been) expressed without explicit computation of the Fisher matrix, which would often be prohibitively expensive. This link provides a deep theoretical foundation to CMA-ES.
+  </p></li>
 
 <!-- Anne Auger, Dimo Brockhoff, Nikolaus Hansen
 Mirrored Sampling in Evolution Strategies With Weighted Recombination
@@ -378,10 +391,17 @@ Genetic and Evolutionary Computation Conference (GECCO 2011), SIGEVO, Jul 2011, 
 inria-00612522
 DOI : 10.1145/2001576.2001694 -->
 
-<li><font size=-1><A HREF="https://link.springer.com/content/pdf/10.1007%2F978-3-642-32937-1_30.pdf">Loshchilov et al (2012). Alternative Restart Strategies for CMA-ES.</A> In <i><A HREF="https://link.springer.com/book/10.1007/978-3-642-32937-1"> 12th International Conference on Parallel Problem Solving from Nature PPSN XI, Proceedings</A></i>, pp. 296-305.</font>
+<li><font size=-1><A HREF="https://link.springer.com/content/pdf/10.1007%2F978-3-642-32937-1_30.pdf">Loshchilov et al (2012). Alternative Restart Strategies for CMA-ES.</A> In <i><A HREF="https://link.springer.com/book/10.1007/978-3-642-32937-1"> 12th International Conference on Parallel Problem Solving from Nature PPSN XII, Proceedings</A></i>, pp. 296-305.</font>
     <p>
       The initial step-size is an important parameter for the performance on multi-modal functions. Surprisingly, a relatively small initial step-size can significantly outperform the usual default choice on some multi-modal functions even when a large population is needed. This gives rise to consider more intricate variation schemes for the initial step-size using also smaller step-sizes not only when the population size is small.
     </p></li>
+
+  <li><font size=-1><A HREF="http://hal.inria.fr/hal-00997294/en">Hansen et al (2014). How to assess step-size adaptation mechanisms in randomised search.</A> In <i><A HREF="http://www.springer.com/computer/ai/book/978-3-319-10761-5"> 13th International Conference on Parallel Problem Solving from Nature PPSN XIII, Proceedings</A></i>, pp. 60-69.</font>
+      <p>
+        While this paper is not stricly about CMA-ES, it introduces a polished and fully parallelizable version of two point adaptation (TPA) which has since become a secondary standard and default for step-size adaptation in CMA-ES. Two candidate solutions are sampled on the line of the last mean shift symmetrically about the current mean. Their ranking difference is used to update the step-size. When combined with CMA-ES, the norm in the denominator of line 10 in Algorithm 3 is the Mahalanobis norm from the current covariance matrix, see also <A href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#akimoto2016projection">Akimoto & Hansen (2016)</A>, Eq.(6).
+      </p></li>
+  
+  
 
 <!-- Dirk Arnold, Nikolaus Hansen
 A (1+1)-CMA-ES for Constrained Optimisation
@@ -399,16 +419,7 @@ DOI : 10.1145/2330163.2330207
 
 
 
-
-
-
-
-
-
-
-
-
-</li><LI>2012- to be continued. </LI>
+</li><LI>2014- to be continued. </LI>
 </ol>
 
 <script type="text/javascript">
