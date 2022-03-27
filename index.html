@@ -101,7 +101,7 @@
 <li> 
 Four slides on randomized search and the CMA-ES
 <a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/searchandcmaslides.pdf"> 
- (pdf)</a>. 
+ (2004, pdf)</a>. 
 </li>
 
 <li>
@@ -134,7 +134,7 @@ functions (<A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/kernnatcom
 <A HREF="cmaes_sourcecode_page.html"><FONT color="#ff0000">Source code page</FONT></A> (C, C++, Java, Matlab, Octave, Python, Scilab)</li>
 
 <LI>  A list of <a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/cmaapplications.pdf">references to
-<FONT color="#ff0000">applications</FONT> (pdf)</a> of the CMA-ES (not quite exhaustive and <i>entirely</i> outdated though).
+<FONT color="#ff0000">applications</FONT> (pdf)</a> of the CMA-ES (not quite exhaustive and <i>entirely</i> outdated).
 </LI>
 
 
@@ -157,7 +157,7 @@ Algorithms</I>, Pittsburgh, pp.  57-64. Morgan Kaufmann.</font>
 
 <p>The generating set adaptation (GSA) is the first evolution strategy
 to our knowledge that learns a problem scaling <i>and</i> is invariant
-to coordinate system rotations.  The GSA implements the principle idea
+to coordinate system rotations.  The GSA implements the principal idea
 of CMA, to increase the likelihood of selected steps, without using
 the formalism of a covariance matrix.  Global step-size control is
 done by mutative self-adaptation. The paper also provides an algorithm
@@ -369,7 +369,7 @@ addressed in <A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publicat
     </p></li>
 
   <li><font size=-1><A HREF="https://www.ini.rub.de/upload/file/1511450464_867252f68023ec06d925/glasmachers2010b.pdf">Glasmachers et al (2010). Exponential natural evolution strategies</A>. In <I>Proceedings Companion of the 12th Annual Conference Companion on Genetic and Evolutionary Computation Conference</I>, pp. 393-400.</font>
-      <p>This seminal paper introduces the exponential Natural Evolution Strategy (xNES) and shows its close connection to CMA-ES. The additive update of the covariance matrix <I>C</I> with a weighted empirical covariance matrix &radic;<I>CM</I>&radic;<I>C</I> and learning rate 2<I>&eta;</I> can be expressed as a multiplicative update of <I>C</I> or, in first order, of &radic;<I>C</I> with I + <I>&eta;M</I> if the weights sum to zero or with <I>I</I> + <I>&eta;</I>(<I>M</I> - I) if the weights sum to one. These multiplicative updates are in first order equivalent with the exponential multiplicative update by exp(<I>&eta;M</I>) or exp(<I>&eta;</I>(<I>M</I> - I)). The exponential update guaranties <I>C</I> to remain positive definite.
+      <p>This seminal paper introduces the exponential Natural Evolution Strategy (xNES) and shows its close connection to CMA-ES. The additive update of the covariance matrix <I>C</I> with a weighted empirical covariance matrix &radic;<I>CM</I>&radic;<I>C</I> and learning rate 2<I>&eta;</I> can be expressed as a multiplicative update of <I>C</I> or, in first order, of &radic;<I>C</I> with I + <I>&eta;M</I> if the weights sum to zero or with <I>I</I> + <I>&eta;</I>(<I>M</I> - I) if the weights sum to one. These multiplicative updates are in first order equivalent with the exponential multiplicative update by exp(<I>&eta;M</I>) or exp(<I>&eta;</I>(<I>M</I> - I)). The exponential update guaranties <I>C</I> to remain positive definite. In xNES, all recombination weights are offset such that they sum to zero.
   </p></li>
   
   <li><font size=-1><A HREF="http://www.cmap.polytechnique.fr/~nikolaus.hansen/ws1p32-hansen.pdf">Hansen and Ros (2010). 
@@ -436,9 +436,10 @@ pageTracker._trackPageview();
 
 <FONT size=-1><A HREF="index.html">UP</A></FONT>
 <hr WIDTH="100%">
-<center><font size="-1"><i>
+
+<!-- <center><font size="-1"><i>
 last change $Date: 2016-12-15 23:47:51 +0100 (Thu, 15 Dec 2016) $
-</i></font></center>
+</i></font></center> -->
 
 <P ALIGN="right">
 <a href="http://extremetracking.com/open?login=hanseni">
