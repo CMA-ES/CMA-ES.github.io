@@ -138,12 +138,11 @@ In any case, a reasonable (linear) scaling of variables in <I>x</I> should still
 Another reasonably good method for handling boundaries (box-constraints) in connection with CMA-ES is described in <I>A Method for Handling Uncertainty in Evolutionary Optimization...(2009)</I> (<A HREF="TEC2009online.pdf">pdf</A>), see the prepended Addendum and Section IV B. In this method, a penalty, which is a quadratic function of the distance to the feasible domain with adaptive penalty weights, is implemented in <A HREF="#matlab">Matlab</A> and <A HREF="#python">Python<A/> codes below.
 
 <P>Addressing <B>non-linear constraints</B> is more intricate. In benign cases the optimum is not <I>very</I> close to the constraint and simple <I>resampling</I> works fine. The provided implementations do automated resampling when the objective function returns <tt>NaN</tt>. A simple (to implement) alterative is to compute &Sigma;<sub><I>i</I></sub> (<I>x</I><sub><I>i</I></sub> - <tt>domain_middle</tt><sub><I>i</I></sub>)<sup>2</sup> + <tt>a_large_constant</tt> as objective function value for infeasible solutions. This might often work better than resampling. Yet, it still might work poorly if the optimum is at the domain boundary. 
+  The class <A HREF="https://cma-es.github.io/apidocs-pycma/cma.constraints_handler.ConstrainedFitnessAL.html"><tt>cma.ConstrainedFitnessAL</tt></A>
+  provides a non-linear constraints handling which works well when the optimum is at the boundary given the function is sufficiently smooth.
 
 <P>
-Another method to address non-linear constraints is described in <I>Multidisciplinary Optimisation in the Design of Future Space Launchers (2010)</I> (<A HREF="collange2010Chap12.pdf">pdf</A>), Section 12.4.1, but not (yet) available in any of the provided source codes.
-
-<P>
-For a very short and general overview on boundary and constraints handling (as of 2014 not entirely up-to-date though) in connection with CMA-ES, see the appendix of <A HREF="http://arxiv.org/abs/1604.00772"><I>The CMA Evolution Strategy: A Tutorial</I></A>, p.34f. 
+For a very short and general overview on boundary and constraints handling (as of 2014 not anymore up-to-date though) in connection with CMA-ES, see the appendix of <A HREF="http://arxiv.org/abs/1604.00772"><I>The CMA Evolution Strategy: A Tutorial</I></A>, p.34f. 
 
 <H3><A name="initial">Initial Values</A></H3>
 After the encoding of variables, see above, the initial solution point <I>x</I><sub>0</sub> and the initial standard deviation (step-size) &sigma;<sub>0</sub> must be chosen. In a practical application, one often wants to start by trying to improve a given solution locally. In this case we choose a rather small &sigma;<sub>0</sub> (say in [0.001, 0.1], given the <I>x</I>-values "live" in [0,10]). Thereby we can also check, whether the initial solution is possibly a local optimum. When a global optimum is sought-after on rugged or multimodal landscapes, &sigma;<sub>0</sub> should be chosen such that the global optimum or final desirable location (or at least some of its domain of attraction)
