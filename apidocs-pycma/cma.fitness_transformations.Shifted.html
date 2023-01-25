@@ -7,70 +7,505 @@
   <head>
     
     <title>cma.fitness_transformations.Shifted</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness_transformations</a></code><wbr></wbr>.<code><a href="cma.fitness_transformations.Shifted.html" class="internal-link" title="cma.fitness_transformations.Shifted">Shifted</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.fitness_transformations.Shifted.html" class="internal-link" title="This class"><wbr></wbr>Shifted</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.fitness_transformations.Shifted.__init__">__init__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.ComposedFunction.html#__call__" class="internal-link" title="cma.fitness_transformations.ComposedFunction.__call__">__call__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.ComposedFunction.html#inverse" class="internal-link" title="cma.fitness_transformations.ComposedFunction.inverse">inverse</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Function.html#initialize" class="internal-link" title="cma.fitness_transformations.Function.initialize">initialize</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.ComposedFunction.html#list_of_inverses" class="internal-link" title="cma.fitness_transformations.ComposedFunction.list_of_inverses">list<wbr></wbr>_of<wbr></wbr>_inverses</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Function.html#evaluations" class="internal-link" title="cma.fitness_transformations.Function.evaluations">evaluations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Function.html#ftarget" class="internal-link" title="cma.fitness_transformations.Function.ftarget">ftarget</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Function.html#target_hit_at" class="internal-link" title="cma.fitness_transformations.Function.target_hit_at">target<wbr></wbr>_hit<wbr></wbr>_at</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found" class="internal-link" title="cma.fitness_transformations.Function.function_names_to_evaluate_first_found">function<wbr></wbr>_names<wbr></wbr>_to<wbr></wbr>_evaluate<wbr></wbr>_first<wbr></wbr>_found</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Function.html#_function_names_to_evaluate_first_found" class="internal-link" title="cma.fitness_transformations.Function._function_names_to_evaluate_first_found">_function<wbr></wbr>_names<wbr></wbr>_to<wbr></wbr>_evaluate<wbr></wbr>_first<wbr></wbr>_found</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Function.html#__callable" class="internal-link" title="cma.fitness_transformations.Function.__callable">__callable</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Function.html#__initialized" class="internal-link" title="cma.fitness_transformations.Function.__initialized">__initialized</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.fitness_transformations.html" class="internal-link" title="The parent of this class">fitness<wbr></wbr>_transformations</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link" title="cma.fitness_transformations.ComposedFunction"><wbr></wbr>Composed<wbr></wbr>Function</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Expensify.html" class="internal-link" title="cma.fitness_transformations.Expensify"><wbr></wbr>Expensify</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.FBoundTransform.html" class="internal-link" title="cma.fitness_transformations.FBoundTransform"><wbr></wbr>FBound<wbr></wbr>Transform</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.FixVariables.html" class="internal-link" title="cma.fitness_transformations.FixVariables"><wbr></wbr>Fix<wbr></wbr>Variables</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function"><wbr></wbr>Function</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.GlueArguments.html" class="internal-link" title="cma.fitness_transformations.GlueArguments"><wbr></wbr>Glue<wbr></wbr>Arguments</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.IntegerMixedFunction.html" class="internal-link" title="cma.fitness_transformations.IntegerMixedFunction"><wbr></wbr>Integer<wbr></wbr>Mixed<wbr></wbr>Function</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.NoisyFitness.html" class="internal-link" title="cma.fitness_transformations.NoisyFitness"><wbr></wbr>Noisy<wbr></wbr>Fitness</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Rotated.html" class="internal-link" title="cma.fitness_transformations.Rotated"><wbr></wbr>Rotated</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.ScaleCoordinates.html" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates"><wbr></wbr>Scale<wbr></wbr>Coordinates</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.Shifted.html" class="internal-link" title="cma.fitness_transformations.Shifted"><wbr></wbr>Shifted</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.SomeNaNFitness.html" class="internal-link" title="cma.fitness_transformations.SomeNaNFitness"><wbr></wbr>Some<wbr></wbr>Na<wbr></wbr>NFitness</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.StackFunction.html" class="internal-link" title="cma.fitness_transformations.StackFunction"><wbr></wbr>Stack<wbr></wbr>Function</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.html#rotate" class="internal-link" title="cma.fitness_transformations.rotate">rotate</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">Shifted</span>(<a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link" title="cma.fitness_transformations.ComposedFunction">ComposedFunction</a>):</code></p>
-        <p><a href="classIndex.html#cma.fitness_transformations.Shifted">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>compose a function with a shift in x-space.</p>
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness_transformations</a></code><wbr></wbr>.<code><a href="cma.fitness_transformations.Shifted.html" class="internal-link" title="cma.fitness_transformations.Shifted">Shifted</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">Shifted</span>(<a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link" title="cma.fitness_transformations.ComposedFunction">ComposedFunction</a>):</code></p>
+          <p><a href="classIndex.html#cma.fitness_transformations.Shifted">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>compose a function with a shift in x-space.</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>f = cma.s.ft.Shifted(cma.ff.elli)</pre><p>Details: this class solely provides as default second argument to
@@ -78,10 +513,10 @@
 <tt class="rst-docutils literal">shift=lambda x: x</tt> would provide "no shift", <tt class="rst-docutils literal">None</tt>
 expands to <tt class="rst-docutils literal">cma.transformations.ConstRandnShift()</tt>.</p>
 </div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id437">
+        <div id="splitTables">
+          <table class="children sortable" id="id357">
   
   
   <tr class="method">
@@ -91,11 +526,11 @@ expands to <tt class="rst-docutils literal">cma.transformations.ConstRandnShift(
     <td><tt class="rst-docutils literal">shift(x)</tt> must return a (stable) shift of x</td>
   </tr>
 </table>
-        
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link" title="cma.fitness_transformations.ComposedFunction">ComposedFunction</a></code>:
-          </p>
-          <table class="children sortable" id="id438">
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link" title="cma.fitness_transformations.ComposedFunction">ComposedFunction</a></code>:
+            </p>
+            <table class="children sortable" id="id358">
   
   
   <tr class="basemethod">
@@ -111,15 +546,15 @@ expands to <tt class="rst-docutils literal">cma.transformations.ConstRandnShift(
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.fitness_transformations.ComposedFunction.html#list_of_inverses" class="internal-link" title="cma.fitness_transformations.ComposedFunction.list_of_inverses">list​_of​_inverses</a></code></td>
+    <td><code><a href="cma.fitness_transformations.ComposedFunction.html#list_of_inverses" class="internal-link" title="cma.fitness_transformations.ComposedFunction.list_of_inverses">list<wbr></wbr>_of<wbr></wbr>_inverses</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-          
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a></code> (via <code><a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link" title="cma.fitness_transformations.ComposedFunction">ComposedFunction</a></code>):
-          </p>
-          <table class="children sortable" id="id439">
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a></code> (via <code><a href="cma.fitness_transformations.ComposedFunction.html" class="internal-link" title="cma.fitness_transformations.ComposedFunction">ComposedFunction</a></code>):
+            </p>
+            <table class="children sortable" id="id359">
   
   
   <tr class="basemethod">
@@ -140,17 +575,17 @@ expands to <tt class="rst-docutils literal">cma.transformations.ConstRandnShift(
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.fitness_transformations.Function.html#target_hit_at" class="internal-link" title="cma.fitness_transformations.Function.target_hit_at">target​_hit​_at</a></code></td>
+    <td><code><a href="cma.fitness_transformations.Function.html#target_hit_at" class="internal-link" title="cma.fitness_transformations.Function.target_hit_at">target<wbr></wbr>_hit<wbr></wbr>_at</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseproperty">
     
     <td>Property</td>
-    <td><code><a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found" class="internal-link" title="cma.fitness_transformations.Function.function_names_to_evaluate_first_found">function​_names​_to​_evaluate​_first​_found</a></code></td>
-    <td>attributes which are searched for to be called if no function was given to <code><a href="#__init__" class="internal-link" title="cma.fitness_transformations.Function.__init__">__init__</a></code>.</td>
+    <td><code><a href="cma.fitness_transformations.Function.html#function_names_to_evaluate_first_found" class="internal-link" title="cma.fitness_transformations.Function.function_names_to_evaluate_first_found">function<wbr></wbr>_names<wbr></wbr>_to<wbr></wbr>_evaluate<wbr></wbr>_first<wbr></wbr>_found</a></code></td>
+    <td>attributes which are searched for to be called if no function was given to <code><a href="cma.fitness_transformations.Function.html#__init__" class="internal-link" title="cma.fitness_transformations.Function.__init__">__init__</a></code>.</td>
   </tr><tr class="baseclassvariable private">
     
     <td>Class Variable</td>
-    <td><code><a href="cma.fitness_transformations.Function.html#_function_names_to_evaluate_first_found" class="internal-link" title="cma.fitness_transformations.Function._function_names_to_evaluate_first_found">​_function​_names​_to​_evaluate​_first​_found</a></code></td>
+    <td><code><a href="cma.fitness_transformations.Function.html#_function_names_to_evaluate_first_found" class="internal-link" title="cma.fitness_transformations.Function._function_names_to_evaluate_first_found">_function<wbr></wbr>_names<wbr></wbr>_to<wbr></wbr>_evaluate<wbr></wbr>_first<wbr></wbr>_found</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable private">
     
@@ -164,14 +599,13 @@ expands to <tt class="rst-docutils literal">cma.transformations.ConstRandnShift(
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-          
+            
 
-          
-      </div>
+            
+        </div>
 
-      <div id="childList">
-
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.fitness_transformations.Shifted.__init__">
@@ -184,26 +618,40 @@ expands to <tt class="rst-docutils literal">cma.transformations.ConstRandnShift(
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, f, shift=None):
     
+    <a class="headerLink" href="#__init__" title="cma.fitness_transformations.Shifted.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.fitness_transformations.ComposedFunction.html#__init__" class="internal-link">cma.fitness_transformations.ComposedFunction.__init__</a></code></div>
-    
-    <div><tt class="rst-docutils literal">shift(x)</tt> must return a (stable) shift of x</div>
+    <div><p><tt class="rst-docutils literal">shift(x)</tt> must return a (stable) shift of x</p>
+</div>
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

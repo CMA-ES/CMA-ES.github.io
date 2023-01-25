@@ -7,74 +7,552 @@
   <head>
     
     <title>cma.sampler.GaussSampler</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.sampler.html" class="internal-link" title="cma.sampler">sampler</a></code><wbr></wbr>.<code><a href="cma.sampler.GaussSampler.html" class="internal-link" title="cma.sampler.GaussSampler">GaussSampler</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.sampler.GaussSampler.html" class="internal-link" title="This class"><wbr></wbr>Gauss<wbr></wbr>Sampler</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.sampler.GaussSampler.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_H" class="internal-link" title="cma.sampler.GaussSampler.set_H">set_<wbr></wbr>H</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_H_by_f" class="internal-link" title="cma.sampler.GaussSampler.set_H_by_f">set_<wbr></wbr>H_by_f</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__imul__" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__imul__">__imul__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#inverse_hessian_scalar_correction" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.inverse_hessian_scalar_correction">inverse<wbr></wbr>_hessian<wbr></wbr>_scalar<wbr></wbr>_correction</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#norm" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.norm">norm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#parameters" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.parameters">parameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#sample" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.sample">sample</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation">to<wbr></wbr>_linear<wbr></wbr>_transformation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation_inverse" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation_inverse">to<wbr></wbr>_linear<wbr></wbr>_transformation<wbr></wbr>_inverse</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform">transform</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse">transform<wbr></wbr>_inverse</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#update" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.update">update</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dimension" class="internal-link" title="cma.sampler.GaussSampler.dimension">dimension</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#chin" class="internal-link" title="cma.sampler.GaussSampler.chin">chin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#corr_condition" class="internal-link" title="cma.sampler.GaussSampler.corr_condition">corr<wbr></wbr>_condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#eigenspectrum" class="internal-link" title="cma.sampler.GaussSampler.eigenspectrum">eigenspectrum</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_left" class="internal-link" title="cma.sampler.GaussSampler._left">_left</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_right" class="internal-link" title="cma.sampler.GaussSampler._right">_right</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#condition_number" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.condition_number">condition<wbr></wbr>_number</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#covariance_matrix" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.covariance_matrix">covariance<wbr></wbr>_matrix</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#variances" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.variances">variances</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_lam" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._lam">_lam</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_mueff" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._mueff">_mueff</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_parameters" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._parameters">_parameters</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.sampler.html" class="internal-link" title="The parent of this class">sampler</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sampler.GaussDiagonalSampler.html" class="internal-link" title="cma.sampler.GaussDiagonalSampler"><wbr></wbr>Gauss<wbr></wbr>Diagonal<wbr></wbr>Sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sampler.GaussFullSampler.html" class="internal-link" title="cma.sampler.GaussFullSampler"><wbr></wbr>Gauss<wbr></wbr>Full<wbr></wbr>Sampler</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sampler.GaussSampler.html" class="internal-link" title="cma.sampler.GaussSampler"><wbr></wbr>Gauss<wbr></wbr>Sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sampler.GaussStandardConstant.html" class="internal-link" title="cma.sampler.GaussStandardConstant"><wbr></wbr>Gauss<wbr></wbr>Standard<wbr></wbr>Constant</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sampler.html#_assertions_quadratic" class="internal-link" title="cma.sampler._assertions_quadratic">_assertions<wbr></wbr>_quadratic</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">GaussSampler</span>(<a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a>):</code></p><p>Known subclasses: <code><a href="cma.sampler.GaussDiagonalSampler.html" class="internal-link">cma.sampler.GaussDiagonalSampler</a></code>, <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code>, <code><a href="cma.sampler.GaussStandardConstant.html" class="internal-link">cma.sampler.GaussStandardConstant</a></code></p>
-        <p><a href="classIndex.html#cma.sampler.GaussSampler">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p class="undocumented">Undocumented</p></div>
-      </div>
+        
 
-      <div id="splitTables">
-        <table class="children sortable" id="id497">
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.sampler.html" class="internal-link" title="cma.sampler">sampler</a></code><wbr></wbr>.<code><a href="cma.sampler.GaussSampler.html" class="internal-link" title="cma.sampler.GaussSampler">GaussSampler</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">GaussSampler</span>(<a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a>):</code></p><p>Known subclasses: <code><a href="cma.sampler.GaussDiagonalSampler.html" class="internal-link">cma.sampler.GaussDiagonalSampler</a></code>, <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code>, <code><a href="cma.sampler.GaussStandardConstant.html" class="internal-link">cma.sampler.GaussStandardConstant</a></code></p>
+          <p><a href="classIndex.html#cma.sampler.GaussSampler">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p class="undocumented">Undocumented</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id419">
   
   
   <tr class="method">
@@ -85,12 +563,12 @@
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#set_H" class="internal-link" title="cma.sampler.GaussSampler.set_H">set_​H</a></code></td>
+    <td><code><a href="#set_H" class="internal-link" title="cma.sampler.GaussSampler.set_H">set_<wbr></wbr>H</a></code></td>
     <td>set Hessian w.r.t. which to compute the eigen spectrum.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#set_H_by_f" class="internal-link" title="cma.sampler.GaussSampler.set_H_by_f">set_​H_by_f</a></code></td>
+    <td><code><a href="#set_H_by_f" class="internal-link" title="cma.sampler.GaussSampler.set_H_by_f">set_<wbr></wbr>H_by_f</a></code></td>
     <td>set Hessian from f at x0.</td>
   </tr><tr class="instancevariable">
     
@@ -105,25 +583,30 @@
   </tr><tr class="property">
     
     <td>Property</td>
+    <td><code><a href="#corr_condition" class="internal-link" title="cma.sampler.GaussSampler.corr_condition">corr<wbr></wbr>_condition</a></code></td>
+    <td>condition number of the correlation matrix</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
     <td><code><a href="#eigenspectrum" class="internal-link" title="cma.sampler.GaussSampler.eigenspectrum">eigenspectrum</a></code></td>
     <td>return eigen spectrum w.r.t. H like sqrt(H) C sqrt(H)</td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_left" class="internal-link" title="cma.sampler.GaussSampler._left">​_left</a></code></td>
+    <td><code><a href="#_left" class="internal-link" title="cma.sampler.GaussSampler._left">_left</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_right" class="internal-link" title="cma.sampler.GaussSampler._right">​_right</a></code></td>
+    <td><code><a href="#_right" class="internal-link" title="cma.sampler.GaussSampler._right">_right</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a></code>:
-          </p>
-          <table class="children sortable" id="id498">
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a></code>:
+            </p>
+            <table class="children sortable" id="id420">
   
   
   <tr class="basemethod">
@@ -134,7 +617,7 @@
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#inverse_hessian_scalar_correction" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.inverse_hessian_scalar_correction">inverse​_hessian​_scalar​_correction</a></code></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#inverse_hessian_scalar_correction" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.inverse_hessian_scalar_correction">inverse<wbr></wbr>_hessian<wbr></wbr>_scalar<wbr></wbr>_correction</a></code></td>
     <td>return scalar correction <tt class="rst-docutils literal">alpha</tt> such that <tt class="rst-docutils literal">X</tt> and <tt class="rst-docutils literal">f</tt> fit to <tt class="rst-docutils literal">f(x) = <span class="pre">(x-mean)</span> (alpha * <span class="pre">C)**-1</span> <span class="pre">(x-mean)</span></tt></td>
   </tr><tr class="basemethod">
     
@@ -154,12 +637,12 @@
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation">to​_linear​_transformation</a></code></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation">to<wbr></wbr>_linear<wbr></wbr>_transformation</a></code></td>
     <td>return associated linear transformation</td>
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation_inverse" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation_inverse">to​_linear​_transformation​_inverse</a></code></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#to_linear_transformation_inverse" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.to_linear_transformation_inverse">to<wbr></wbr>_linear<wbr></wbr>_transformation<wbr></wbr>_inverse</a></code></td>
     <td>return inverse of associated linear transformation</td>
   </tr><tr class="basemethod">
     
@@ -169,7 +652,7 @@
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse">transform​_inverse</a></code></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse">transform<wbr></wbr>_inverse</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="basemethod">
     
@@ -179,12 +662,12 @@
   </tr><tr class="baseproperty">
     
     <td>Property</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#condition_number" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.condition_number">condition​_number</a></code></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#condition_number" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.condition_number">condition<wbr></wbr>_number</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseproperty">
     
     <td>Property</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#covariance_matrix" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.covariance_matrix">covariance​_matrix</a></code></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#covariance_matrix" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.covariance_matrix">covariance<wbr></wbr>_matrix</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseproperty">
     
@@ -194,28 +677,27 @@
   </tr><tr class="baseinstancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_lam" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._lam">​_lam</a></code></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_lam" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._lam">_lam</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_mueff" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._mueff">​_mueff</a></code></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_mueff" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._mueff">_mueff</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_parameters" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._parameters">​_parameters</a></code></td>
+    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#_parameters" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass._parameters">_parameters</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-          
+            
 
-          
-      </div>
+            
+        </div>
 
-      <div id="childList">
-
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.sampler.GaussSampler.__init__">
@@ -228,11 +710,16 @@
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
     
+    <a class="headerLink" href="#__init__" title="cma.sampler.GaussSampler.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__init__" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__init__</a></code></div><div class="interfaceinfo">overridden in <code><a href="cma.sampler.GaussDiagonalSampler.html" class="internal-link">cma.sampler.GaussDiagonalSampler</a></code>, <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code>, <code><a href="cma.sampler.GaussStandardConstant.html" class="internal-link">cma.sampler.GaussStandardConstant</a></code></div>
-    
-    <div>declarative init, doesn't need to be executed</div>
+    <div><p>declarative init, doesn't need to be executed</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -247,11 +734,16 @@
     
     <span class="py-keyword">def</span> <span class="py-defname">set_H</span>(self, H):
     
+    <a class="headerLink" href="#set_H" title="cma.sampler.GaussSampler.set_H">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>set Hessian w.r.t. which to compute the eigen spectrum.</div>
+    <div><p>set Hessian w.r.t. which to compute the eigen spectrum.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -266,9 +758,13 @@
     
     <span class="py-keyword">def</span> <span class="py-defname">set_H_by_f</span>(self, f, x0, eps=None):
     
+    <a class="headerLink" href="#set_H_by_f" title="cma.sampler.GaussSampler.set_H_by_f">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>set Hessian from f at x0.</p>
 <pre class="py-doctest">
@@ -291,10 +787,14 @@ is given by the <code>spectrum</code> property.</p>
     
     <span class="py-defname">dimension</span>: <code>int</code> =
     
+    <a class="headerLink" href="#dimension" title="cma.sampler.GaussSampler.dimension">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sampler.GaussDiagonalSampler.html" class="internal-link">cma.sampler.GaussDiagonalSampler</a></code>, <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code>, <code><a href="cma.sampler.GaussStandardConstant.html" class="internal-link">cma.sampler.GaussStandardConstant</a></code></div>
-    
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
@@ -311,9 +811,13 @@ is given by the <code>spectrum</code> property.</p>
     @property<br />
     <span class="py-defname">chin</span> =
     
+    <a class="headerLink" href="#chin" title="cma.sampler.GaussSampler.chin">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p>approximation of the expected length when isotropic with variance 1.</p>
 <p>The exact value could be computed by:</p>
@@ -322,6 +826,31 @@ from scipy.special import gamma
 return 2**0.5 * gamma((self.dimension+1) / 2) / gamma(self.dimension / 2)
 </pre>
 <p>The approximation obeys <tt class="rst-docutils literal">chin &lt; chin_hat &lt; (1 + <span class="pre">5e-5)</span> * chin</tt>.</p>
+</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.sampler.GaussSampler.corr_condition">
+    
+  </a>
+  <a name="corr_condition">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">corr_condition</span> =
+    
+    <a class="headerLink" href="#corr_condition" title="cma.sampler.GaussSampler.corr_condition">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code></div>
+    <div><p>condition number of the correlation matrix</p>
 </div>
     
   </div>
@@ -338,11 +867,16 @@ return 2**0.5 * gamma((self.dimension+1) / 2) / gamma(self.dimension / 2)
     @property<br />
     <span class="py-defname">eigenspectrum</span> =
     
+    <a class="headerLink" href="#eigenspectrum" title="cma.sampler.GaussSampler.eigenspectrum">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>return eigen spectrum w.r.t. H like sqrt(H) C sqrt(H)</div>
+    <div><p>return eigen spectrum w.r.t. H like sqrt(H) C sqrt(H)</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable private">
@@ -358,9 +892,13 @@ return 2**0.5 * gamma((self.dimension+1) / 2) / gamma(self.dimension / 2)
     
     <span class="py-defname">_left</span> =
     
+    <a class="headerLink" href="#_left" title="cma.sampler.GaussSampler._left">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -378,27 +916,40 @@ return 2**0.5 * gamma((self.dimension+1) / 2) / gamma(self.dimension / 2)
     
     <span class="py-defname">_right</span> =
     
+    <a class="headerLink" href="#_right" title="cma.sampler.GaussSampler._right">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

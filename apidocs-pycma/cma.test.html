@@ -7,70 +7,552 @@
   <head>
     
     <title>cma.test</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.test.html" class="internal-link" title="cma.test">test</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        module documentation
-      </div>
+    </div>
 
-      <div class="extrasDocstring">
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
         
-        <p></p>
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="cma.test.html" class="internal-link" title="This module">test</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#doctest_files" class="internal-link" title="cma.test.doctest_files">doctest<wbr></wbr>_files</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_version" class="internal-link" title="cma.test.get_version">get<wbr></wbr>_version</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_str" class="internal-link" title="cma.test.is_str">is<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#main" class="internal-link" title="cma.test.main">main</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#various_doctests" class="internal-link" title="cma.test.various_doctests">various<wbr></wbr>_doctests</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_clean_up" class="internal-link" title="cma.test._clean_up">_clean<wbr></wbr>_up</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PY2" class="internal-link" title="cma.test.PY2">PY2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#files_for_doctest" class="internal-link" title="cma.test.files_for_doctest">files<wbr></wbr>_for<wbr></wbr>_doctest</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_files_written" class="internal-link" title="cma.test._files_written">_files<wbr></wbr>_written</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this module">cma</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints<wbr></wbr>_handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution<wbr></wbr>_strategy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_functions.html" class="internal-link" title="cma.fitness_functions">fitness<wbr></wbr>_functions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness<wbr></wbr>_models</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness<wbr></wbr>_transformations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.html" class="internal-link" title="cma.interfaces">interfaces</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html" class="internal-link" title="cma.logger">logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization<wbr></wbr>_tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.recombination_weights.html" class="internal-link" title="cma.recombination_weights">recombination<wbr></wbr>_weights</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted<wbr></wbr>_gaussian<wbr></wbr>_sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sampler.html" class="internal-link" title="cma.sampler">sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html" class="internal-link" title="cma.sigma_adaptation">sigma<wbr></wbr>_adaptation</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.test.html" class="internal-link" title="cma.test">test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.wrapper.html" class="internal-link" title="cma.wrapper">wrapper</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#___author__" class="internal-link" title="cma.___author__">__<wbr></wbr>_author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__license__" class="internal-link" title="cma.__license__">__license__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__version__" class="internal-link" title="cma.__version__">__version__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="moduleDocstring">
-        <div><p>test module of <code><a href="index.html" class="internal-link">cma</a></code> package.</p>
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.test.html" class="internal-link" title="cma.test">test</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>test module of <code><a href="index.html" class="internal-link">cma</a></code> package.</p>
 <p>Usage:</p>
 <pre class="rst-literal-block">
 python -m cma.test -h    # print this docstring
@@ -93,26 +575,26 @@ python -c "import cma.test; help(cma.test)"  # print this docstring
 <p>File(name)s are interpreted within the package. Without a filename
 argument, all files from attribute <code>files_for_doc_test</code> are tested.</p>
 </div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id520">
+        <div id="splitTables">
+          <table class="children sortable" id="id442">
   
   
   <tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#doctest_files" class="internal-link" title="cma.test.doctest_files">doctest​_files</a></code></td>
+    <td><code><a href="#doctest_files" class="internal-link" title="cma.test.doctest_files">doctest<wbr></wbr>_files</a></code></td>
     <td>doctest all (listed) files of the <code><a href="index.html" class="internal-link">cma</a></code> package.</td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#get_version" class="internal-link" title="cma.test.get_version">get​_version</a></code></td>
+    <td><code><a href="#get_version" class="internal-link" title="cma.test.get_version">get<wbr></wbr>_version</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#is_str" class="internal-link" title="cma.test.is_str">is​_str</a></code></td>
+    <td><code><a href="#is_str" class="internal-link" title="cma.test.is_str">is<wbr></wbr>_str</a></code></td>
     <td><code>bytes</code> (in Python 3) also fit the bill</td>
   </tr><tr class="function">
     
@@ -122,7 +604,7 @@ argument, all files from attribute <code>files_for_doc_test</code> are tested.</
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#various_doctests" class="internal-link" title="cma.test.various_doctests">various​_doctests</a></code></td>
+    <td><code><a href="#various_doctests" class="internal-link" title="cma.test.various_doctests">various<wbr></wbr>_doctests</a></code></td>
     <td>various doc tests.</td>
   </tr><tr class="constant">
     
@@ -132,28 +614,27 @@ argument, all files from attribute <code>files_for_doc_test</code> are tested.</
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#files_for_doctest" class="internal-link" title="cma.test.files_for_doctest">files​_for​_doctest</a></code></td>
+    <td><code><a href="#files_for_doctest" class="internal-link" title="cma.test.files_for_doctest">files<wbr></wbr>_for<wbr></wbr>_doctest</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="function private">
     
     <td>Function</td>
-    <td><code><a href="#_clean_up" class="internal-link" title="cma.test._clean_up">​_clean​_up</a></code></td>
+    <td><code><a href="#_clean_up" class="internal-link" title="cma.test._clean_up">_clean<wbr></wbr>_up</a></code></td>
     <td>(permanently) remove entries in <tt class="rst-docutils literal">folder</tt> which begin with any of <tt class="rst-docutils literal">start_matches</tt>, where <tt class="rst-docutils literal">""</tt> matches any string, and which are not in <tt class="rst-docutils literal">protected</tt>.</td>
   </tr><tr class="variable private">
     
     <td>Variable</td>
-    <td><code><a href="#_files_written" class="internal-link" title="cma.test._files_written">​_files​_written</a></code></td>
+    <td><code><a href="#_files_written" class="internal-link" title="cma.test._files_written">_files<wbr></wbr>_written</a></code></td>
     <td>files written by the doc tests and hence, in case, to be deleted</td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basefunction">
+        <div id="childList">
+          <div class="basefunction">
   
   
   <a name="cma.test.doctest_files">
@@ -166,9 +647,13 @@ argument, all files from attribute <code>files_for_doc_test</code> are tested.</
     
     <span class="py-keyword">def</span> <span class="py-defname">doctest_files</span>(file_list=<a href="#files_for_doctest" class="internal-link" title="cma.test.files_for_doctest">files_for_doctest</a>, **kwargs):
     
+    <a class="headerLink" href="#doctest_files" title="cma.test.doctest_files">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>doctest all (listed) files of the <code><a href="index.html" class="internal-link">cma</a></code> package.</p>
 <p>Details: accepts <tt class="rst-docutils literal">verbose</tt> and all other keyword arguments that
@@ -189,9 +674,13 @@ are passed as 0.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">get_version</span>():
     
+    <a class="headerLink" href="#get_version" title="cma.test.get_version">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -208,11 +697,16 @@ are passed as 0.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">is_str</span>(var):
     
+    <a class="headerLink" href="#is_str" title="cma.test.is_str">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div><code>bytes</code> (in Python 3) also fit the bill</div>
+    <div><p><code>bytes</code> (in Python 3) also fit the bill</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -227,9 +721,13 @@ are passed as 0.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">main</span>(*args, **kwargs):
     
+    <a class="headerLink" href="#main" title="cma.test.main">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>test the <code><a href="index.html" class="internal-link">cma</a></code> package.</p>
 <p>The first argument can be '-h' or '--help' or 'list' to list all
@@ -252,9 +750,13 @@ and a leading 'cma' + path separator is ignored.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">various_doctests</span>():
     
+    <a class="headerLink" href="#various_doctests" title="cma.test.various_doctests">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>various doc tests.</p>
 <p>This function describes test cases and might in future become
@@ -386,29 +888,31 @@ representation which can be different).</p>
 <span class="py-output">(3_w,7)-...</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> res_rot[3] &lt; 2 * res_elli[3]</pre></blockquote>
 <p>Both condition alleviation transformations are applied during this
-test, first in iteration 62, second in iteration 257:</p>
-<blockquote>
+test, first in iteration 62ish, second in iteration 257ish:</p>
 <pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> warnings
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>ftabletrot = cma.fitness_transformations.Rotated(cma.ff.tablet, seed=10)
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(4 * [1], 1, {
 <span class="py-more">... </span>                                  <span class="py-string">'tolconditioncov'</span>:<span class="py-builtin">False</span>,
 <span class="py-more">... </span>                                  <span class="py-string">'seed'</span>: 8,
 <span class="py-more">... </span>                                  <span class="py-string">'CMA_mirrors'</span>: 0,
-<span class="py-more">... </span>                                  <span class="py-string">'ftarget'</span>: 1e-9,
+<span class="py-more">... </span>                                  <span class="py-string">'CMA_diagonal_decoding'</span>: 0,
+<span class="py-more">... </span>                                  <span class="py-string">'ftarget'</span>: 1e-8,
 <span class="py-more">... </span>                               })  <span class="py-comment"># doctest:+ELLIPSIS</span>
 <span class="py-output">(4_w...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop() <span class="py-keyword">and</span> es.countiter &lt; 82:
-<span class="py-more">... </span>   X = es.ask()
-<span class="py-more">... </span>   es.tell(X, [cma.ff.elli(x, cond=1e22) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])  <span class="py-comment"># doctest:+ELLIPSIS</span>
-<span class="py-output">NOTE ...iteration=81...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
-<span class="py-more">... </span>   X = es.ask()
-<span class="py-more">... </span>   es.tell(X, [ftabletrot(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])  <span class="py-comment"># doctest:+ELLIPSIS</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.countiter &lt;= 344 <span class="py-keyword">and</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop(), (
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop() <span class="py-keyword">and</span> es.countiter &lt; 90:
+<span class="py-more">... </span>    X = es.ask()
+<span class="py-more">... </span>    es.tell(X, [cma.ff.elli(x, cond=1e22) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])  <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-output">NOTE ...iteration=...</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">with</span> warnings.catch_warnings(record=<span class="py-builtin">True</span>) <span class="py-keyword">as</span> warns:
+<span class="py-more">... </span>    <span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>        X = es.ask()
+<span class="py-more">... </span>        es.tell(X, [ftabletrot(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])  <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-keyword">not</span> warns <span class="py-keyword">or</span> <span class="py-builtin">isinstance</span>(warns[0].message, <span class="py-builtin">UserWarning</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.countiter &lt;= 355 <span class="py-keyword">and</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop(), (
 <span class="py-more">... </span>            <span class="py-string">"transformation bug in alleviate_condition?"</span>,
-<span class="py-more">... </span>            es.countiter, es.stop())</pre></blockquote>
-<p>Integer handling:</p>
+<span class="py-more">... </span>            es.countiter, es.stop())</pre><p>Integer handling:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> warnings
 <span class="py-prompt">&gt;&gt;&gt; </span>idx = [0, 1, 5, -1]
@@ -419,11 +923,15 @@ test, first in iteration 62, second in iteration 257:</p>
 <span class="py-more">... </span>                  integer_variables=idx
 <span class="py-more">... </span>               ))  <span class="py-comment"># doctest:+ELLIPSIS</span>
 <span class="py-output">(4_w,8)-...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span>warns[0].message  <span class="py-comment"># doctest:+ELLIPSIS</span>
-<span class="py-output">UserWarning('integer index 5 not in range of dimension 4 ()'...</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">isinstance</span>(warns[-1].message, <span class="py-builtin">UserWarning</span>)  <span class="py-comment"># depending</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(f)  <span class="py-comment"># doctest:+ELLIPSIS</span>
 <span class="py-output">Iterat #Fevals   function value ...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop() <span class="py-keyword">and</span> es.result[3] &lt; 1800</pre><p>Parallel objective:</p>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop() <span class="py-keyword">and</span> es.result[3] &lt; 1800
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># mixing integer and fixed variables</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMA(5 * [1], 1, {<span class="py-string">'verbose'</span>:-9, <span class="py-string">'integer_variables'</span>:[1,2,4],
+<span class="py-more">... </span>                          <span class="py-string">'fixed_variables'</span>:{1:0}})
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.opts[<span class="py-string">'integer_variables'</span>] == [1, 3]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># TODO: do more testing here or in the class</span></pre><p>Parallel objective:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">parallel_sphere</span>(X): <span class="py-keyword">return</span> [cma.ff.sphere(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X]
 <span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.fmin2(cma.ff.sphere, 3 * [0], 0.1, {
@@ -471,9 +979,13 @@ test, first in iteration 62, second in iteration 257:</p>
     
     <span class="py-defname">PY2</span> =
     
+    <a class="headerLink" href="#PY2" title="cma.test.PY2">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>(sys.version_info[0] == 2)</code></pre></td></tr></table>
@@ -491,9 +1003,13 @@ test, first in iteration 62, second in iteration 257:</p>
     
     <span class="py-defname">files_for_doctest</span> =
     
+    <a class="headerLink" href="#files_for_doctest" title="cma.test.files_for_doctest">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -511,9 +1027,13 @@ test, first in iteration 62, second in iteration 257:</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">_clean_up</span>(folder, start_matches, protected):
     
+    <a class="headerLink" href="#_clean_up" title="cma.test._clean_up">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>(permanently) remove entries in <tt class="rst-docutils literal">folder</tt> which begin with any of
 <tt class="rst-docutils literal">start_matches</tt>, where <tt class="rst-docutils literal">""</tt> matches any string, and which are not
@@ -535,27 +1055,41 @@ arguments this could delete all files in <tt class="rst-docutils literal">folder
     
     <span class="py-defname">_files_written</span>: <code>list[<wbr></wbr>str]</code> =
     
+    <a class="headerLink" href="#_files_written" title="cma.test._files_written">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>files written by the doc tests and hence, in case, to be deleted</div>
+    <div><p>files written by the doc tests and hence, in case, to be deleted</p>
+</div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

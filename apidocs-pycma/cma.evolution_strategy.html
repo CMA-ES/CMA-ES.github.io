@@ -7,106 +7,832 @@
   <head>
     
     <title>cma.evolution_strategy</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        module documentation
-      </div>
+    </div>
 
-      <div class="extrasDocstring">
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
         
-        <p></p>
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="cma.evolution_strategy.html" class="internal-link" title="This module">evolution<wbr></wbr>_strategy</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions"><wbr></wbr>CMAOptions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.MetaParameters.html" class="internal-link" title="cma.evolution_strategy.MetaParameters"><wbr></wbr>Meta<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.InjectionWarning.html" class="internal-link" title="cma.evolution_strategy.InjectionWarning"><wbr></wbr>Injection<wbr></wbr>Warning</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy._CMAEvolutionStrategyResult">_<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMAParameters.html" class="internal-link" title="cma.evolution_strategy._CMAParameters">_<wbr></wbr>CMAParameters</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMASolutionDict_empty.html" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_empty">_<wbr></wbr>CMASolution<wbr></wbr>Dict_empty</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMASolutionDict_functional.html" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional">_<wbr></wbr>CMASolution<wbr></wbr>Dict_functional</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMAStopDict.html" class="internal-link" title="cma.evolution_strategy._CMAStopDict">_<wbr></wbr>CMAStop<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_default_options_" class="internal-link" title="cma.evolution_strategy.cma_default_options_">cma<wbr></wbr>_default<wbr></wbr>_options_</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fmin_con" class="internal-link" title="cma.evolution_strategy.fmin_con">fmin<wbr></wbr>_con</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin<wbr></wbr>_con2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fmin_lq_surr" class="internal-link" title="cma.evolution_strategy.fmin_lq_surr">fmin<wbr></wbr>_lq<wbr></wbr>_surr</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fmin_lq_surr2" class="internal-link" title="cma.evolution_strategy.fmin_lq_surr2">fmin<wbr></wbr>_lq<wbr></wbr>_surr2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_feasible" class="internal-link" title="cma.evolution_strategy.is_feasible">is<wbr></wbr>_feasible</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#no_constraints" class="internal-link" title="cma.evolution_strategy.no_constraints">no<wbr></wbr>_constraints</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#safe_str" class="internal-link" title="cma.evolution_strategy.safe_str">safe<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_al_set_logging" class="internal-link" title="cma.evolution_strategy._al_set_logging">_al<wbr></wbr>_set<wbr></wbr>_logging</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#all_stoppings" class="internal-link" title="cma.evolution_strategy.all_stoppings">all<wbr></wbr>_stoppings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_allowed_options_keys" class="internal-link" title="cma.evolution_strategy.cma_allowed_options_keys">cma<wbr></wbr>_allowed<wbr></wbr>_options<wbr></wbr>_keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_default_options" class="internal-link" title="cma.evolution_strategy.cma_default_options">cma<wbr></wbr>_default<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_versatile_options" class="internal-link" title="cma.evolution_strategy.cma_versatile_options">cma<wbr></wbr>_versatile<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#meta_parameters" class="internal-link" title="cma.evolution_strategy.meta_parameters">meta<wbr></wbr>_parameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#use_archives" class="internal-link" title="cma.evolution_strategy.use_archives">use<wbr></wbr>_archives</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_assertions_cubic" class="internal-link" title="cma.evolution_strategy._assertions_cubic">_assertions<wbr></wbr>_cubic</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_assertions_quadratic" class="internal-link" title="cma.evolution_strategy._assertions_quadratic">_assertions<wbr></wbr>_quadratic</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CMASolutionDict" class="internal-link" title="cma.evolution_strategy._CMASolutionDict">_<wbr></wbr>CMASolution<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_debugging" class="internal-link" title="cma.evolution_strategy._debugging">_debugging</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_depreciated" class="internal-link" title="cma.evolution_strategy._depreciated">_depreciated</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_new_injections" class="internal-link" title="cma.evolution_strategy._new_injections">_new<wbr></wbr>_injections</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this module">cma</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints<wbr></wbr>_handler</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution<wbr></wbr>_strategy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_functions.html" class="internal-link" title="cma.fitness_functions">fitness<wbr></wbr>_functions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness<wbr></wbr>_models</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness<wbr></wbr>_transformations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.html" class="internal-link" title="cma.interfaces">interfaces</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html" class="internal-link" title="cma.logger">logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization<wbr></wbr>_tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.recombination_weights.html" class="internal-link" title="cma.recombination_weights">recombination<wbr></wbr>_weights</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted<wbr></wbr>_gaussian<wbr></wbr>_sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sampler.html" class="internal-link" title="cma.sampler">sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html" class="internal-link" title="cma.sigma_adaptation">sigma<wbr></wbr>_adaptation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.test.html" class="internal-link" title="cma.test">test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.wrapper.html" class="internal-link" title="cma.wrapper">wrapper</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#___author__" class="internal-link" title="cma.___author__">__<wbr></wbr>_author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__license__" class="internal-link" title="cma.__license__">__license__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__version__" class="internal-link" title="cma.__version__">__version__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="moduleDocstring">
-        <div>CMA-ES (evolution strategy), the main sub-module of <code><a href="index.html" class="internal-link">cma</a></code> providing
-in particular <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, and <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code></div>
-      </div>
+      <div id="main" class="">
+        
 
-      <div id="splitTables">
-        <table class="children sortable" id="id398">
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>CMA-ES (evolution strategy), the main sub-module of <code><a href="index.html" class="internal-link">cma</a></code> providing
+in particular <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, and <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code></p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id318">
   
   
   <tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">​CMAEvolution​Strategy</a></code></td>
+    <td><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy</a></code></td>
     <td>CMA-ES stochastic optimizer class with ask-and-tell interface.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">​CMAEvolution​Strategy​Result</a></code></td>
+    <td><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result</a></code></td>
     <td>A results tuple from <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> property <tt class="rst-docutils literal">result</tt>.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">​CMAOptions</a></code></td>
+    <td><code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions"><wbr></wbr>CMAOptions</a></code></td>
     <td>a dictionary with the available options and their default values for class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.evolution_strategy.InjectionWarning.html" class="internal-link" title="cma.evolution_strategy.InjectionWarning">​Injection​Warning</a></code></td>
-    <td>Injected solutions are not passed to tell as expected</td>
-  </tr><tr class="class">
-    
-    <td>Class</td>
-    <td><code><a href="cma.evolution_strategy.MetaParameters.html" class="internal-link" title="cma.evolution_strategy.MetaParameters">​Meta​Parameters</a></code></td>
+    <td><code><a href="cma.evolution_strategy.MetaParameters.html" class="internal-link" title="cma.evolution_strategy.MetaParameters"><wbr></wbr>Meta<wbr></wbr>Parameters</a></code></td>
     <td>collection of many meta parameters.</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="cma.evolution_strategy.InjectionWarning.html" class="internal-link" title="cma.evolution_strategy.InjectionWarning"><wbr></wbr>Injection<wbr></wbr>Warning</a></code></td>
+    <td>Injected solutions are not passed to tell as expected</td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#cma_default_options_" class="internal-link" title="cma.evolution_strategy.cma_default_options_">cma​_default​_options​_</a></code></td>
+    <td><code><a href="#cma_default_options_" class="internal-link" title="cma.evolution_strategy.cma_default_options_">cma<wbr></wbr>_default<wbr></wbr>_options_</a></code></td>
     <td>use this function to get keyword completion for <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>.</td>
   </tr><tr class="function">
     
@@ -117,132 +843,141 @@ in particular <code><a href="cma.evolution_strategy.CMAOptions.html" class="inte
     
     <td>Function</td>
     <td><code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code></td>
-    <td>wrapper around <code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">cma.fmin</a></code> returning the tuple <tt class="rst-docutils literal">(xbest, es)</tt>,</td>
+    <td>wrapper around <code>cma.fmin</code> returning the tuple <tt class="rst-docutils literal">(xbest, es)</tt>,</td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#fmin_con" class="internal-link" title="cma.evolution_strategy.fmin_con">fmin​_con</a></code></td>
-    <td>Deprecated: use <code><a href="cma.constraints_handler.ConstrainedFitnessAL.html" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL">cma.ConstrainedFitnessAL</a></code> or <code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">cma.fmin_con2</a></code> instead.</td>
+    <td><code><a href="#fmin_con" class="internal-link" title="cma.evolution_strategy.fmin_con">fmin<wbr></wbr>_con</a></code></td>
+    <td>Deprecated: use <code>cma.ConstrainedFitnessAL</code> or <code>cma.fmin_con2</code> instead.</td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin​_con2</a></code></td>
+    <td><code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin<wbr></wbr>_con2</a></code></td>
     <td>optimize f with inequality constraints g.</td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#is_feasible" class="internal-link" title="cma.evolution_strategy.is_feasible">is​_feasible</a></code></td>
+    <td><code><a href="#fmin_lq_surr" class="internal-link" title="cma.evolution_strategy.fmin_lq_surr">fmin<wbr></wbr>_lq<wbr></wbr>_surr</a></code></td>
+    <td>minimize <code>objective_function</code> with lq-CMA-ES.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#fmin_lq_surr2" class="internal-link" title="cma.evolution_strategy.fmin_lq_surr2">fmin<wbr></wbr>_lq<wbr></wbr>_surr2</a></code></td>
+    <td>minimize <code>objective_function</code> with lq-CMA-ES.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#is_feasible" class="internal-link" title="cma.evolution_strategy.is_feasible">is<wbr></wbr>_feasible</a></code></td>
     <td>default to check feasibility of f-values.</td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#no_constraints" class="internal-link" title="cma.evolution_strategy.no_constraints">no​_constraints</a></code></td>
+    <td><code><a href="#no_constraints" class="internal-link" title="cma.evolution_strategy.no_constraints">no<wbr></wbr>_constraints</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#safe_str" class="internal-link" title="cma.evolution_strategy.safe_str">safe​_str</a></code></td>
+    <td><code><a href="#safe_str" class="internal-link" title="cma.evolution_strategy.safe_str">safe<wbr></wbr>_str</a></code></td>
     <td>return a string safe to <code><a href="cma.utilities.utils.html#seval" class="internal-link" title="cma.utilities.utils.seval">eval</a></code> or raise an exception.</td>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#all_stoppings" class="internal-link" title="cma.evolution_strategy.all_stoppings">all​_stoppings</a></code></td>
+    <td><code><a href="#all_stoppings" class="internal-link" title="cma.evolution_strategy.all_stoppings">all<wbr></wbr>_stoppings</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#cma_allowed_options_keys" class="internal-link" title="cma.evolution_strategy.cma_allowed_options_keys">cma​_allowed​_options​_keys</a></code></td>
+    <td><code><a href="#cma_allowed_options_keys" class="internal-link" title="cma.evolution_strategy.cma_allowed_options_keys">cma<wbr></wbr>_allowed<wbr></wbr>_options<wbr></wbr>_keys</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#cma_default_options" class="internal-link" title="cma.evolution_strategy.cma_default_options">cma​_default​_options</a></code></td>
+    <td><code><a href="#cma_default_options" class="internal-link" title="cma.evolution_strategy.cma_default_options">cma<wbr></wbr>_default<wbr></wbr>_options</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#cma_versatile_options" class="internal-link" title="cma.evolution_strategy.cma_versatile_options">cma​_versatile​_options</a></code></td>
+    <td><code><a href="#cma_versatile_options" class="internal-link" title="cma.evolution_strategy.cma_versatile_options">cma<wbr></wbr>_versatile<wbr></wbr>_options</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#meta_parameters" class="internal-link" title="cma.evolution_strategy.meta_parameters">meta​_parameters</a></code></td>
+    <td><code><a href="#meta_parameters" class="internal-link" title="cma.evolution_strategy.meta_parameters">meta<wbr></wbr>_parameters</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#use_archives" class="internal-link" title="cma.evolution_strategy.use_archives">use​_archives</a></code></td>
-    <td>speed up for very large population size. <code><a href="#use_archives" class="internal-link" title="cma.evolution_strategy.use_archives">use_archives</a></code> prevents the need for an inverse gp-transformation, relies on collections module, not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</td>
+    <td><code><a href="#use_archives" class="internal-link" title="cma.evolution_strategy.use_archives">use<wbr></wbr>_archives</a></code></td>
+    <td>speed up for very large population size. <code><a href="cma.evolution_strategy.html#use_archives" class="internal-link" title="cma.evolution_strategy.use_archives">use_archives</a></code> prevents the need for an inverse gp-transformation, relies on collections module, not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</td>
   </tr><tr class="class private">
     
     <td>Class</td>
-    <td><code><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy._CMAEvolutionStrategyResult">_​CMAEvolution​Strategy​Result</a></code></td>
+    <td><code><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy._CMAEvolutionStrategyResult">_<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result</a></code></td>
     <td>A results tuple from <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> property <tt class="rst-docutils literal">result</tt>.</td>
   </tr><tr class="class private">
     
     <td>Class</td>
-    <td><code><a href="cma.evolution_strategy._CMAParameters.html" class="internal-link" title="cma.evolution_strategy._CMAParameters">_​CMAParameters</a></code></td>
+    <td><code><a href="cma.evolution_strategy._CMAParameters.html" class="internal-link" title="cma.evolution_strategy._CMAParameters">_<wbr></wbr>CMAParameters</a></code></td>
     <td>strategy parameters like population size and learning rates.</td>
   </tr><tr class="class private">
     
     <td>Class</td>
-    <td><code><a href="cma.evolution_strategy._CMASolutionDict_empty.html" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_empty">_​CMASolution​Dict_empty</a></code></td>
+    <td><code><a href="cma.evolution_strategy._CMASolutionDict_empty.html" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_empty">_<wbr></wbr>CMASolution<wbr></wbr>Dict_empty</a></code></td>
     <td>a hack to get most code examples running</td>
   </tr><tr class="class private">
     
     <td>Class</td>
-    <td><code><a href="cma.evolution_strategy._CMASolutionDict_functional.html" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional">_​CMASolution​Dict_functional</a></code></td>
+    <td><code><a href="cma.evolution_strategy._CMASolutionDict_functional.html" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional">_<wbr></wbr>CMASolution<wbr></wbr>Dict_functional</a></code></td>
     <td><span class="undocumented">No class docstring; 0/2 instance variable, 1/2 method documented</span></td>
   </tr><tr class="class private">
     
     <td>Class</td>
-    <td><code><a href="cma.evolution_strategy._CMAStopDict.html" class="internal-link" title="cma.evolution_strategy._CMAStopDict">_​CMAStop​Dict</a></code></td>
+    <td><code><a href="cma.evolution_strategy._CMAStopDict.html" class="internal-link" title="cma.evolution_strategy._CMAStopDict">_<wbr></wbr>CMAStop<wbr></wbr>Dict</a></code></td>
     <td>keep and update a termination condition dictionary.</td>
   </tr><tr class="function private">
     
     <td>Function</td>
-    <td><code><a href="#_al_set_logging" class="internal-link" title="cma.evolution_strategy._al_set_logging">​_al​_set​_logging</a></code></td>
+    <td><code><a href="#_al_set_logging" class="internal-link" title="cma.evolution_strategy._al_set_logging">_al<wbr></wbr>_set<wbr></wbr>_logging</a></code></td>
     <td>try to figure a good logging value from various verbosity options</td>
   </tr><tr class="variable private">
     
     <td>Variable</td>
-    <td><code><a href="#_assertions_cubic" class="internal-link" title="cma.evolution_strategy._assertions_cubic">​_assertions​_cubic</a></code></td>
+    <td><code><a href="#_assertions_cubic" class="internal-link" title="cma.evolution_strategy._assertions_cubic">_assertions<wbr></wbr>_cubic</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable private">
     
     <td>Variable</td>
-    <td><code><a href="#_assertions_quadratic" class="internal-link" title="cma.evolution_strategy._assertions_quadratic">​_assertions​_quadratic</a></code></td>
+    <td><code><a href="#_assertions_quadratic" class="internal-link" title="cma.evolution_strategy._assertions_quadratic">_assertions<wbr></wbr>_quadratic</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable private">
     
     <td>Variable</td>
-    <td><code><a href="#_CMASolutionDict" class="internal-link" title="cma.evolution_strategy._CMASolutionDict">_​CMASolution​Dict</a></code></td>
+    <td><code><a href="#_CMASolutionDict" class="internal-link" title="cma.evolution_strategy._CMASolutionDict">_<wbr></wbr>CMASolution<wbr></wbr>Dict</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable private">
     
     <td>Variable</td>
-    <td><code><a href="#_debugging" class="internal-link" title="cma.evolution_strategy._debugging">​_debugging</a></code></td>
+    <td><code><a href="#_debugging" class="internal-link" title="cma.evolution_strategy._debugging">_debugging</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable private">
     
     <td>Variable</td>
-    <td><code><a href="#_depreciated" class="internal-link" title="cma.evolution_strategy._depreciated">​_depreciated</a></code></td>
+    <td><code><a href="#_depreciated" class="internal-link" title="cma.evolution_strategy._depreciated">_depreciated</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable private">
     
     <td>Variable</td>
-    <td><code><a href="#_new_injections" class="internal-link" title="cma.evolution_strategy._new_injections">​_new​_injections</a></code></td>
+    <td><code><a href="#_new_injections" class="internal-link" title="cma.evolution_strategy._new_injections">_new<wbr></wbr>_injections</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basefunction">
+        <div id="childList">
+          <div class="basefunction">
   
   
   <a name="cma.evolution_strategy.cma_default_options_">
@@ -253,15 +988,19 @@ in particular <code><a href="cma.evolution_strategy.CMAOptions.html" class="inte
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">cma_default_options_</span>(AdaptSigma=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  # or False or any CMAAdaptSigmaBase class e.g. CMAAdaptSigmaTPA, CMAAdaptSigmaCSA</span><span class="rst-variable-quote">'</span>, CMA_active=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  # negative update, conducted after the original update</span><span class="rst-variable-quote">'</span>, CMA_active_injected=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v weight multiplier for negative weights of injected solutions</span><span class="rst-variable-quote">'</span>, CMA_cmean=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  # learning rate for the mean value</span><span class="rst-variable-quote">'</span>, CMA_const_trace=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  # normalize trace, 1, True, "arithm", "geom", "aeig", "geig" are valid</span><span class="rst-variable-quote">'</span>, CMA_diagonal=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0*100*N/popsize**0.5  # nb of iterations with diagonal covariance matrix, True for always</span><span class="rst-variable-quote">'</span>, CMA_eigenmethod=<span class="rst-variable-quote">'</span><span class="rst-variable-string">np.linalg.eigh  # or cma.utilities.math.eig or pygsl.eigen.eigenvectors</span><span class="rst-variable-quote">'</span>, CMA_elitist=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v or "initial" or True, elitism likely impairs global search performance</span><span class="rst-variable-quote">'</span>, CMA_injections_threshold_keep_len=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v keep length if Mahalanobis length is below the given relative threshold</span><span class="rst-variable-quote">'</span>, CMA_mirrors=<span class="rst-variable-quote">'</span><span class="rst-variable-string">popsize &lt; 6  # values &lt;0.5 are interpreted as fraction, values &gt;1 as numbers (rounded), for `True` about 0.16 is used</span><span class="rst-variable-quote">'</span>, CMA_mirrormethod=<span class="rst-variable-quote">'</span><span class="rst-variable-string">2  # 0=unconditional, 1=selective, 2=selective with delay</span><span class="rst-variable-quote">'</span>, CMA_mu=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # parents selection parameter, default is popsize // 2</span><span class="rst-variable-quote">'</span>, CMA_on=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  # multiplier for all covariance matrix updates</span><span class="rst-variable-quote">'</span>, CMA_sampler=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # a class or instance that implements the interface of `cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass`</span><span class="rst-variable-quote">'</span>, CMA_sampler_options=<span class="rst-variable-quote">'</span><span class="rst-variable-string">{}  # options passed to `CMA_sampler` class init as keyword arguments</span><span class="rst-variable-quote">'</span>, CMA_rankmu=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1.0  # multiplier for rank-mu update learning rate of covariance matrix</span><span class="rst-variable-quote">'</span>, CMA_rankone=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1.0  # multiplier for rank-one update learning rate of covariance matrix</span><span class="rst-variable-quote">'</span>, CMA_recombination_weights=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # a list, see class RecombinationWeights, overwrites CMA_mu and popsize options</span><span class="rst-variable-quote">'</span>, CMA_dampsvec_fac=<span class="rst-variable-quote">'</span><span class="rst-variable-string">np.Inf  # tentative and subject to changes, 0.5 would be a "default" damping for sigma vector update</span><span class="rst-variable-quote">'</span>, CMA_dampsvec_fade=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0.1  # tentative fading out parameter for sigma vector update</span><span class="rst-variable-quote">'</span>, CMA_teststds=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # factors for non-isotropic initial distr. of C, mainly for test purpose, see CMA_stds for production</span><span class="rst-variable-quote">'</span>, CMA_stds=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # multipliers for sigma0 in each coordinate, not represented in C, better use `cma.ScaleCoordinates` instead</span><span class="rst-variable-quote">'</span>, CSA_dampfac=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v positive multiplier for step-size damping, 0.3 is close to optimal on the sphere</span><span class="rst-variable-quote">'</span>, CSA_damp_mueff_exponent=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0.5  # zero would mean no dependency of damping on mueff, useful with CSA_disregard_length option</span><span class="rst-variable-quote">'</span>, CSA_disregard_length=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v True is untested, also changes respective parameters</span><span class="rst-variable-quote">'</span>, CSA_clip_length_value=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  #v poorly tested, [0, 0] means const length N**0.5, [-1, 1] allows a variation of +- N/(N+2), etc.</span><span class="rst-variable-quote">'</span>, CSA_squared=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v use squared length for sigma-adaptation </span><span class="rst-variable-quote">'</span>, BoundaryHandler=<span class="rst-variable-quote">'</span><span class="rst-variable-string">BoundTransform  # or BoundPenalty, unused when ``bounds in (None, [None, None])``</span><span class="rst-variable-quote">'</span>, bounds=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[None, None]  # lower (=bounds[0]) and upper domain boundaries, each a scalar or a list/vector</span><span class="rst-variable-quote">'</span>, conditioncov_alleviate=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[1e8, 1e12]  # when to alleviate the condition in the coordinates and in main axes</span><span class="rst-variable-quote">'</span>, eval_final_mean=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  # evaluate the final mean, which is a favorite return candidate</span><span class="rst-variable-quote">'</span>, fixed_variables=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # dictionary with index-value pairs like {0:1.1, 2:0.1} that are not optimized</span><span class="rst-variable-quote">'</span>, ftarget=<span class="rst-variable-quote">'</span><span class="rst-variable-string">-inf  #v target function value, minimization</span><span class="rst-variable-quote">'</span>, integer_variables=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[]  # index list, invokes basic integer handling: prevent std dev to become too small in the given variables</span><span class="rst-variable-quote">'</span>, is_feasible=<span class="rst-variable-quote">'</span><span class="rst-variable-string">is_feasible  #v a function that computes feasibility, by default lambda x, f: f not in (None, np.NaN)</span><span class="rst-variable-quote">'</span>, maxfevals=<span class="rst-variable-quote">'</span><span class="rst-variable-string">inf  #v maximum number of function evaluations</span><span class="rst-variable-quote">'</span>, maxiter=<span class="rst-variable-quote">'</span><span class="rst-variable-string">100 + 150 * (N+3)**2 // popsize**0.5  #v maximum number of iterations</span><span class="rst-variable-quote">'</span>, mean_shift_line_samples=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False #v sample two new solutions colinear to previous mean shift</span><span class="rst-variable-quote">'</span>, mindx=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v minimal std in any arbitrary direction, cave interference with tol*</span><span class="rst-variable-quote">'</span>, minstd=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v minimal std (scalar or vector) in any coordinate direction, cave interference with tol*</span><span class="rst-variable-quote">'</span>, maxstd=<span class="rst-variable-quote">'</span><span class="rst-variable-string">inf  #v maximal std in any coordinate direction</span><span class="rst-variable-quote">'</span>, pc_line_samples=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False #v one line sample along the evolution path pc</span><span class="rst-variable-quote">'</span>, popsize=<span class="rst-variable-quote">'</span><span class="rst-variable-string">4 + 3 * np.log(N)  # population size, AKA lambda, int(popsize) is the number of new solution per iteration</span><span class="rst-variable-quote">'</span>, popsize_factor=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  # multiplier for popsize, convenience option to increase default popsize</span><span class="rst-variable-quote">'</span>, randn=<span class="rst-variable-quote">'</span><span class="rst-variable-string">np.random.randn  #v randn(lam, N) must return an np.array of shape (lam, N), see also cma.utilities.math.randhss</span><span class="rst-variable-quote">'</span>, scaling_of_variables=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # deprecated, rather use fitness_transformations.ScaleCoordinates instead (or possibly CMA_stds). Scale for each variable in that effective_sigma0 = sigma0*scaling. Internally the variables are divided by scaling_of_variables and sigma is unchanged, default is `np.ones(N)`</span><span class="rst-variable-quote">'</span>, seed=<span class="rst-variable-quote">'</span><span class="rst-variable-string">time  # random number seed for `numpy.random`; `None` and `0` equate to `time`, `np.nan` means "do nothing", see also option "randn"</span><span class="rst-variable-quote">'</span>, signals_filename=<span class="rst-variable-quote">'</span><span class="rst-variable-string">cma_signals.in  # read versatile options from this file (use `None` or `""` for no file) which contains a single options dict, e.g. ``{"timeout": 0}`` to stop, string-values are evaluated, e.g. "np.inf" is valid</span><span class="rst-variable-quote">'</span>, termination_callback=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[]  #v a function or list of functions returning True for termination, called in `stop` with `self` as argument, could be abused for side effects</span><span class="rst-variable-quote">'</span>, timeout=<span class="rst-variable-quote">'</span><span class="rst-variable-string">inf  #v stop if timeout seconds are exceeded, the string "2.5 * 60**2" evaluates to 2 hours and 30 minutes</span><span class="rst-variable-quote">'</span>, tolconditioncov=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e14  #v stop if the condition of the covariance matrix is above `tolconditioncov`</span><span class="rst-variable-quote">'</span>, tolfacupx=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e3  #v termination when step-size increases by tolfacupx (diverges). That is, the initial step-size was chosen far too small and better solutions were found far away from the initial solution x0</span><span class="rst-variable-quote">'</span>, tolupsigma=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e20  #v sigma/sigma0 &gt; tolupsigma * max(eivenvals(C)**0.5) indicates "creeping behavior" with usually minor improvements</span><span class="rst-variable-quote">'</span>, tolflatfitness=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v iterations tolerated with flat fitness before termination</span><span class="rst-variable-quote">'</span>, tolfun=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e-11  #v termination criterion: tolerance in function value, quite useful</span><span class="rst-variable-quote">'</span>, tolfunhist=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e-12  #v termination criterion: tolerance in function value history</span><span class="rst-variable-quote">'</span>, tolfunrel=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v termination criterion: relative tolerance in function value: Delta f current &lt; tolfunrel * (median0 - median_min)</span><span class="rst-variable-quote">'</span>, tolstagnation=<span class="rst-variable-quote">'</span><span class="rst-variable-string">int(100 + 100 * N**1.5 / popsize)  #v termination if no improvement over tolstagnation iterations</span><span class="rst-variable-quote">'</span>, tolx=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e-11  #v termination criterion: tolerance in x-changes</span><span class="rst-variable-quote">'</span>, transformation=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # depreciated, use cma.fitness_transformations.FitnessTransformation instead.\n            [t0, t1] are two mappings, t0 transforms solutions from CMA-representation to f-representation (tf_pheno),\n            t1 is the (optional) back transformation, see class GenoPheno</span><span class="rst-variable-quote">'</span>, typical_x=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # used with scaling_of_variables</span><span class="rst-variable-quote">'</span>, updatecovwait=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  #v number of iterations without distribution update, name is subject to future changes</span><span class="rst-variable-quote">'</span>, verbose=<span class="rst-variable-quote">'</span><span class="rst-variable-string">3  #v verbosity e.g. of initial/final message, -1 is very quiet, -9 maximally quiet, may not be fully implemented</span><span class="rst-variable-quote">'</span>, verb_append=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  # initial evaluation counter, if append, do not overwrite output files</span><span class="rst-variable-quote">'</span>, verb_disp=<span class="rst-variable-quote">'</span><span class="rst-variable-string">100  #v verbosity: display console output every verb_disp iteration</span><span class="rst-variable-quote">'</span>, verb_filenameprefix=<a href="cma.logger.CMADataLogger.html#default_prefix" class="internal-link" title="cma.logger.CMADataLogger.default_prefix">CMADataLogger.default_prefix</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">  # output path (folder) and filenames prefix</span><span class="rst-variable-quote">'</span>, verb_log=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v verbosity: write data to files every verb_log iteration, writing can be time critical on fast to evaluate functions</span><span class="rst-variable-quote">'</span>, verb_log_expensive=<span class="rst-variable-quote">'</span><span class="rst-variable-string">N * (N &lt;= 50)  # allow to execute eigendecomposition for logging every verb_log_expensive iteration, 0 or False for never</span><span class="rst-variable-quote">'</span>, verb_plot=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v in fmin2(): plot() is called every verb_plot iteration</span><span class="rst-variable-quote">'</span>, verb_time=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  #v output timings on console</span><span class="rst-variable-quote">'</span>, vv=<span class="rst-variable-quote">'</span><span class="rst-variable-string">{}  #? versatile set or dictionary for hacking purposes, value found in self.opts["vv"]</span><span class="rst-variable-quote">'</span>):
+    <span class="py-keyword">def</span> <span class="py-defname">cma_default_options_</span>(AdaptSigma=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  # or False or any CMAAdaptSigmaBase class e.g. CMAAdaptSigmaTPA, CMAAdaptSigmaCSA</span><span class="rst-variable-quote">'</span>, CMA_active=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  # negative update, conducted after the original update</span><span class="rst-variable-quote">'</span>, CMA_active_injected=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v weight multiplier for negative weights of injected solutions</span><span class="rst-variable-quote">'</span>, CMA_cmean=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  # learning rate for the mean value</span><span class="rst-variable-quote">'</span>, CMA_const_trace=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  # normalize trace, 1, True, "arithm", "geom", "aeig", "geig" are valid</span><span class="rst-variable-quote">'</span>, CMA_diagonal=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0*100*N/popsize**0.5  # nb of iterations with diagonal covariance matrix, True for always</span><span class="rst-variable-quote">'</span>, CMA_diagonal_decoding=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  # multiplier for additional diagonal update</span><span class="rst-variable-quote">'</span>, CMA_eigenmethod=<span class="rst-variable-quote">'</span><span class="rst-variable-string">np.linalg.eigh  # or cma.utilities.math.eig or pygsl.eigen.eigenvectors</span><span class="rst-variable-quote">'</span>, CMA_elitist=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v or "initial" or True, elitism likely impairs global search performance</span><span class="rst-variable-quote">'</span>, CMA_injections_threshold_keep_len=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v keep length if Mahalanobis length is below the given relative threshold</span><span class="rst-variable-quote">'</span>, CMA_mirrors=<span class="rst-variable-quote">'</span><span class="rst-variable-string">popsize &lt; 6  # values &lt;0.5 are interpreted as fraction, values &gt;1 as numbers (rounded), for `True` about 0.16 is used</span><span class="rst-variable-quote">'</span>, CMA_mirrormethod=<span class="rst-variable-quote">'</span><span class="rst-variable-string">2  # 0=unconditional, 1=selective, 2=selective with delay</span><span class="rst-variable-quote">'</span>, CMA_mu=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # parents selection parameter, default is popsize // 2</span><span class="rst-variable-quote">'</span>, CMA_on=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  # multiplier for all covariance matrix updates</span><span class="rst-variable-quote">'</span>, CMA_sampler=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # a class or instance that implements the interface of `cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass`</span><span class="rst-variable-quote">'</span>, CMA_sampler_options=<span class="rst-variable-quote">'</span><span class="rst-variable-string">{}  # options passed to `CMA_sampler` class init as keyword arguments</span><span class="rst-variable-quote">'</span>, CMA_rankmu=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1.0  # multiplier for rank-mu update learning rate of covariance matrix</span><span class="rst-variable-quote">'</span>, CMA_rankone=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1.0  # multiplier for rank-one update learning rate of covariance matrix</span><span class="rst-variable-quote">'</span>, CMA_recombination_weights=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # a list, see class RecombinationWeights, overwrites CMA_mu and popsize options</span><span class="rst-variable-quote">'</span>, CMA_dampsvec_fac=<span class="rst-variable-quote">'</span><span class="rst-variable-string">np.Inf  # tentative and subject to changes, 0.5 would be a "default" damping for sigma vector update</span><span class="rst-variable-quote">'</span>, CMA_dampsvec_fade=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0.1  # tentative fading out parameter for sigma vector update</span><span class="rst-variable-quote">'</span>, CMA_teststds=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # factors for non-isotropic initial distr. of C, mainly for test purpose, see CMA_stds for production</span><span class="rst-variable-quote">'</span>, CMA_stds=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # multipliers for sigma0 in each coordinate (not represented in C), or use `cma.ScaleCoordinates` instead</span><span class="rst-variable-quote">'</span>, CSA_dampfac=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v positive multiplier for step-size damping, 0.3 is close to optimal on the sphere</span><span class="rst-variable-quote">'</span>, CSA_damp_mueff_exponent=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0.5  # zero would mean no dependency of damping on mueff, useful with CSA_disregard_length option</span><span class="rst-variable-quote">'</span>, CSA_disregard_length=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v True is untested, also changes respective parameters</span><span class="rst-variable-quote">'</span>, CSA_clip_length_value=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  #v poorly tested, [0, 0] means const length N**0.5, [-1, 1] allows a variation of +- N/(N+2), etc.</span><span class="rst-variable-quote">'</span>, CSA_squared=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v use squared length for sigma-adaptation </span><span class="rst-variable-quote">'</span>, BoundaryHandler=<span class="rst-variable-quote">'</span><span class="rst-variable-string">BoundTransform  # or BoundPenalty, unused when ``bounds in (None, [None, None])``</span><span class="rst-variable-quote">'</span>, bounds=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[None, None]  # lower (=bounds[0]) and upper domain boundaries, each a scalar or a list/vector</span><span class="rst-variable-quote">'</span>, conditioncov_alleviate=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[1e8, 1e12]  # when to alleviate the condition in the coordinates and in main axes</span><span class="rst-variable-quote">'</span>, eval_final_mean=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  # evaluate the final mean, which is a favorite return candidate</span><span class="rst-variable-quote">'</span>, fixed_variables=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # dictionary with index-value pairs like {0:1.1, 2:0.1} that are not optimized</span><span class="rst-variable-quote">'</span>, ftarget=<span class="rst-variable-quote">'</span><span class="rst-variable-string">-inf  #v target function value, minimization</span><span class="rst-variable-quote">'</span>, integer_variables=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[]  # index list, invokes basic integer handling: prevent std dev to become too small in the given variables</span><span class="rst-variable-quote">'</span>, is_feasible=<span class="rst-variable-quote">'</span><span class="rst-variable-string">is_feasible  #v a function that computes feasibility, by default lambda x, f: f not in (None, np.NaN)</span><span class="rst-variable-quote">'</span>, maxfevals=<span class="rst-variable-quote">'</span><span class="rst-variable-string">inf  #v maximum number of function evaluations</span><span class="rst-variable-quote">'</span>, maxiter=<span class="rst-variable-quote">'</span><span class="rst-variable-string">100 + 150 * (N+3)**2 // popsize**0.5  #v maximum number of iterations</span><span class="rst-variable-quote">'</span>, mean_shift_line_samples=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False #v sample two new solutions colinear to previous mean shift</span><span class="rst-variable-quote">'</span>, mindx=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v minimal std in any arbitrary direction, cave interference with tol*</span><span class="rst-variable-quote">'</span>, minstd=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v minimal std (scalar or vector) in any coordinate direction, cave interference with tol*</span><span class="rst-variable-quote">'</span>, maxstd=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  #v maximal std (scalar or vector) in any coordinate direction</span><span class="rst-variable-quote">'</span>, maxstd_boundrange=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1/3  # maximal std relative to bound_range per coordinate, overruled by maxstd</span><span class="rst-variable-quote">'</span>, pc_line_samples=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False #v one line sample along the evolution path pc</span><span class="rst-variable-quote">'</span>, popsize=<span class="rst-variable-quote">'</span><span class="rst-variable-string">4 + 3 * np.log(N)  # population size, AKA lambda, int(popsize) is the number of new solution per iteration</span><span class="rst-variable-quote">'</span>, popsize_factor=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  # multiplier for popsize, convenience option to increase default popsize</span><span class="rst-variable-quote">'</span>, randn=<span class="rst-variable-quote">'</span><span class="rst-variable-string">np.random.randn  #v randn(lam, N) must return an np.array of shape (lam, N), see also cma.utilities.math.randhss</span><span class="rst-variable-quote">'</span>, scaling_of_variables=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # deprecated, rather use fitness_transformations.ScaleCoordinates instead (or CMA_stds). Scale for each variable in that effective_sigma0 = sigma0*scaling. Internally the variables are divided by scaling_of_variables and sigma is unchanged, default is `np.ones(N)`</span><span class="rst-variable-quote">'</span>, seed=<span class="rst-variable-quote">'</span><span class="rst-variable-string">time  # random number seed for `numpy.random`; `None` and `0` equate to `time`, `np.nan` means "do nothing", see also option "randn"</span><span class="rst-variable-quote">'</span>, signals_filename=<span class="rst-variable-quote">'</span><span class="rst-variable-string">cma_signals.in  # read versatile options from this file (use `None` or `""` for no file) which contains a single options dict, e.g. ``{"timeout": 0}`` to stop, string-values are evaluated, e.g. "np.inf" is valid</span><span class="rst-variable-quote">'</span>, termination_callback=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[]  #v a function or list of functions returning True for termination, called in `stop` with `self` as argument, could be abused for side effects</span><span class="rst-variable-quote">'</span>, timeout=<span class="rst-variable-quote">'</span><span class="rst-variable-string">inf  #v stop if timeout seconds are exceeded, the string "2.5 * 60**2" evaluates to 2 hours and 30 minutes</span><span class="rst-variable-quote">'</span>, tolconditioncov=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e14  #v stop if the condition of the covariance matrix is above `tolconditioncov`</span><span class="rst-variable-quote">'</span>, tolfacupx=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e3  #v termination when step-size increases by tolfacupx (diverges). That is, the initial step-size was chosen far too small and better solutions were found far away from the initial solution x0</span><span class="rst-variable-quote">'</span>, tolupsigma=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e20  #v sigma/sigma0 &gt; tolupsigma * max(eivenvals(C)**0.5) indicates "creeping behavior" with usually minor improvements</span><span class="rst-variable-quote">'</span>, tolflatfitness=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v iterations tolerated with flat fitness before termination</span><span class="rst-variable-quote">'</span>, tolfun=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e-11  #v termination criterion: tolerance in function value, quite useful</span><span class="rst-variable-quote">'</span>, tolfunhist=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e-12  #v termination criterion: tolerance in function value history</span><span class="rst-variable-quote">'</span>, tolfunrel=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v termination criterion: relative tolerance in function value: Delta f current &lt; tolfunrel * (median0 - median_min)</span><span class="rst-variable-quote">'</span>, tolstagnation=<span class="rst-variable-quote">'</span><span class="rst-variable-string">int(100 + 100 * N**1.5 / popsize)  #v termination if no improvement over tolstagnation iterations</span><span class="rst-variable-quote">'</span>, tolx=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e-11  #v termination criterion: tolerance in x-changes</span><span class="rst-variable-quote">'</span>, transformation=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # depreciated, use cma.fitness_transformations.FitnessTransformation instead.\n            [t0, t1] are two mappings, t0 transforms solutions from CMA-representation to f-representation (tf_pheno),\n            t1 is the (optional) back transformation, see class GenoPheno</span><span class="rst-variable-quote">'</span>, typical_x=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # used with scaling_of_variables</span><span class="rst-variable-quote">'</span>, updatecovwait=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  #v number of iterations without distribution update, name is subject to future changes</span><span class="rst-variable-quote">'</span>, verbose=<span class="rst-variable-quote">'</span><span class="rst-variable-string">3  #v verbosity e.g. of initial/final message, -1 is very quiet, -9 maximally quiet, may not be fully implemented</span><span class="rst-variable-quote">'</span>, verb_append=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  # initial evaluation counter, if append, do not overwrite output files</span><span class="rst-variable-quote">'</span>, verb_disp=<span class="rst-variable-quote">'</span><span class="rst-variable-string">100  #v verbosity: display console output every verb_disp iteration</span><span class="rst-variable-quote">'</span>, verb_disp_overwrite=<span class="rst-variable-quote">'</span><span class="rst-variable-string">inf  #v start overwriting after given iteration</span><span class="rst-variable-quote">'</span>, verb_filenameprefix=<a href="cma.logger.CMADataLogger.html#default_prefix" class="internal-link" title="cma.logger.CMADataLogger.default_prefix">CMADataLogger.default_prefix</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">  # output path (folder) and filenames prefix</span><span class="rst-variable-quote">'</span>, verb_log=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v verbosity: write data to files every verb_log iteration, writing can be time critical on fast to evaluate functions</span><span class="rst-variable-quote">'</span>, verb_log_expensive=<span class="rst-variable-quote">'</span><span class="rst-variable-string">N * (N &lt;= 50)  # allow to execute eigendecomposition for logging every verb_log_expensive iteration, 0 or False for never</span><span class="rst-variable-quote">'</span>, verb_plot=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v in fmin2(): plot() is called every verb_plot iteration</span><span class="rst-variable-quote">'</span>, verb_time=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  #v output timings on console</span><span class="rst-variable-quote">'</span>, vv=<span class="rst-variable-quote">'</span><span class="rst-variable-string">{}  #? versatile set or dictionary for hacking purposes, value found in self.opts["vv"]</span><span class="rst-variable-quote">'</span>):
     
+    <a class="headerLink" href="#cma_default_options_" title="cma.evolution_strategy.cma_default_options_">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
     <div><p>use this function to get keyword completion for <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>.</p>
 <p><tt class="rst-docutils literal"><span class="pre">cma.CMAOptions('substr')</span></tt> provides even substring search.</p>
-<p>returns default options as a <code>dict</code> (not a <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">cma.CMAOptions</a></code> <code>dict</code>).</p>
+<p>returns default options as a <code>dict</code> (not a <code>cma.CMAOptions</code> <code>dict</code>).</p>
 </div>
   </div>
 </div><div class="basefunction">
@@ -277,9 +1016,13 @@ in particular <code><a href="cma.evolution_strategy.CMAOptions.html" class="inte
     
     <span class="py-keyword">def</span> <span class="py-defname">fmin</span>(objective_function, x0, sigma0, options=None, args=(), gradf=None, restarts=0, restart_from_best=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False</span><span class="rst-variable-quote">'</span>, incpopsize=2, eval_initial_x=False, parallel_objective=None, noise_handler=None, noise_change_sigma_exponent=1, noise_kappa_exponent=0, bipop=False, callback=None):
     
+    <a class="headerLink" href="#fmin" title="cma.evolution_strategy.fmin">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>functional interface to the stochastic optimizer CMA-ES
 for non-convex function minimization.</p>
@@ -323,7 +1066,7 @@ according to the <tt class="rst-docutils literal">transformation</tt> option.  I
 callable that is called (without input argument) before each
 restart to yield the initial guess such that each restart may start
 from a different place. Otherwise, <tt class="rst-docutils literal">x0</tt> can also be a
-<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">cma.CMAEvolutionStrategy</a></code> object instance, in that case <tt class="rst-docutils literal">sigma0</tt>
+<code>cma.CMAEvolutionStrategy</code> object instance, in that case <tt class="rst-docutils literal">sigma0</tt>
 can be <tt class="rst-docutils literal">None</tt>.</dd>
 <dt><tt class="rst-docutils literal">sigma0</tt></dt>
 <dd>scalar, initial standard deviation in each coordinate.
@@ -355,7 +1098,7 @@ each restart</dd>
 <dt><tt class="rst-docutils literal">parallel_objective</tt></dt>
 <dd>an objective function that accepts a list of <code>numpy.ndarray</code> as
 input and returns a <code>list</code>, which is mostly used instead of
-<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#objective_function" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.objective_function">objective_function</a></code>, but for the initial (also initial
+<code>objective_function</code>, but for the initial (also initial
 elitist) and the final evaluations unless
 <tt class="rst-docutils literal">not callable(objective_function)</tt>. If <tt class="rst-docutils literal">parallel_objective</tt>
 is given, the <tt class="rst-docutils literal">objective_function</tt> (first argument) may be
@@ -373,18 +1116,21 @@ additional noise treatment. 0 means no sigma change.</dd>
 <dd>instead of applying reevaluations, the "number of evaluations"
 is (ab)used as scaling factor kappa (experimental).</dd>
 <dt><tt class="rst-docutils literal">bipop=False</tt></dt>
-<dd>if <code>True</code>, run as BIPOP-CMA-ES; BIPOP is a special restart
-strategy switching between two population sizings - small
-(like the default CMA, but with more focused search) and
-large (progressively increased as in IPOP). This makes the
-algorithm perform well both on functions with many regularly
-or irregularly arranged local optima (the latter by frequently
-restarting with small populations).  For the <code>bipop</code> parameter
-to actually take effect, also select non-zero number of
-(IPOP) restarts; the recommended setting is <tt class="rst-docutils literal"><span class="pre">restarts&lt;=9</span></tt>
-and <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.x0">x0</a></code> passed as a string using <code>numpy.rand</code> to generate
-initial solutions. Note that small-population restarts
-do not count into the total restart count.</dd>
+<dd>if <tt class="rst-docutils literal">bool(bipop) is True</tt>, run as BIPOP-CMA-ES; BIPOP is a special
+restart strategy switching between two population sizings - small
+(relative to the large population size and with varying initial
+sigma, the first run is accounted on the "small" budget) and large
+(progressively increased as in IPOP). This makes the algorithm
+potentially solve both, functions with many regularly or
+irregularly arranged local optima (the latter by frequently
+restarting with small populations). Small populations are
+(re-)started as long as the cumulated budget_small is smaller than
+<code>bipop</code> x max(1, budget_large). For the <code>bipop</code> parameter to
+actually conduct restarts also with the larger population size,
+select a non-zero number of (IPOP) restarts; the recommended
+setting is <tt class="rst-docutils literal"><span class="pre">restarts&lt;=9</span></tt> and <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.x0">x0</a></code> passed as a string using
+<code>numpy.rand</code> to generate initial solutions. Small-population
+restarts do not count into this total restart count.</dd>
 <dt><tt class="rst-docutils literal">callback=None</tt></dt>
 <dd><code>callable</code> or list of callables called at the end of each
 iteration with the current <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> instance
@@ -407,7 +1153,7 @@ see also class <code><a href="cma.evolution_strategy.CMAOptions.html" class="int
 <div class="rst-section" id="rst-return">
 <h2 class="heading">Return</h2>
 <p>Return the list provided in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#result" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.result">CMAEvolutionStrategy.result</a></code> appended
-with termination conditions, an <code>OOOptimizer</code> and a <code><a href="cma.interfaces.BaseDataLogger.html" class="internal-link" title="cma.interfaces.BaseDataLogger">BaseDataLogger</a></code>:</p>
+with termination conditions, an <code><a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a></code> and a <code><a href="cma.interfaces.BaseDataLogger.html" class="internal-link" title="cma.interfaces.BaseDataLogger">BaseDataLogger</a></code>:</p>
 <pre class="rst-literal-block">
 res = es.result + (es.stop(), es, logger)
 </pre>
@@ -503,7 +1249,7 @@ of solutions as input:</p>
 <span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.fmin2(<span class="py-builtin">None</span>, 3 * [0], 0.1, {<span class="py-string">'verbose'</span>: -9},
 <span class="py-more">... </span>                  parallel_objective=parallel_sphere)
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[1] &lt; 1e-9</pre></div>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, <code><a href="cma.interfaces.OOOptimizer.html#optimize" class="internal-link" title="cma.interfaces.OOOptimizer.optimize">OOOptimizer.optimize</a></code>, <code><a href="cma.logger.html#plot" class="internal-link" title="cma.logger.plot">plot</a></code>,
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, <code><a href="cma.interfaces.OOOptimizer.html#optimize" class="internal-link" title="cma.interfaces.OOOptimizer.optimize">OOOptimizer.optimize</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#plot" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.plot">plot</a></code>,
 <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code>scipy.optimize.fmin</code></td></tr></table></div>
   </div>
 </div><div class="basefunction">
@@ -519,11 +1265,15 @@ of solutions as input:</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">fmin2</span>(objective_function, x0, sigma0, options=None, args=(), gradf=None, restarts=0, restart_from_best=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False</span><span class="rst-variable-quote">'</span>, incpopsize=2, eval_initial_x=False, parallel_objective=None, noise_handler=None, noise_change_sigma_exponent=1, noise_kappa_exponent=0, bipop=False, callback=None):
     
+    <a class="headerLink" href="#fmin2" title="cma.evolution_strategy.fmin2">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div><p>wrapper around <code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">cma.fmin</a></code> returning the tuple <tt class="rst-docutils literal">(xbest, es)</tt>,</p>
+    <div><p>wrapper around <code>cma.fmin</code> returning the tuple <tt class="rst-docutils literal">(xbest, es)</tt>,</p>
 <p>and with the same in input arguments as <code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code>. Hence a typical
 calling pattern may be:</p>
 <pre class="rst-literal-block">
@@ -570,14 +1320,18 @@ fmin2(...)[1].result.xfavorite
     
     <span class="py-keyword">def</span> <span class="py-defname">fmin_con</span>(objective_function, x0, sigma0, g=<a href="#no_constraints" class="internal-link" title="cma.evolution_strategy.no_constraints">no_constraints</a>, h=<a href="#no_constraints" class="internal-link" title="cma.evolution_strategy.no_constraints">no_constraints</a>, post_optimization=False, archiving=True, **kwargs):
     
+    <a class="headerLink" href="#fmin_con" title="cma.evolution_strategy.fmin_con">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div><p>Deprecated: use <code><a href="cma.constraints_handler.ConstrainedFitnessAL.html" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL">cma.ConstrainedFitnessAL</a></code> or <code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">cma.fmin_con2</a></code> instead.</p>
+    <div><p>Deprecated: use <code>cma.ConstrainedFitnessAL</code> or <code>cma.fmin_con2</code> instead.</p>
 <p>Optimize f with constraints g (inequalities) and h (equalities).</p>
 <p>Construct an Augmented Lagrangian instance <tt class="rst-docutils literal">f_aug_lag</tt> of the type
-<code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link">cma.constraints_handler.AugmentedLagrangian</a></code> from <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#objective_function" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.objective_function">objective_function</a></code>
+<code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link">cma.constraints_handler.AugmentedLagrangian</a></code> from <code>objective_function</code>
 and <code>g</code> and <code>h</code>.</p>
 <p>Equality constraints should preferably be passed as two inequality
 constraints like <tt class="rst-docutils literal">[h - eps, <span class="pre">-h</span> - eps]</tt>, with eps &gt;= 0. When eps &gt; 0,
@@ -604,7 +1358,7 @@ on the inequality constraints.</p>
 <p>The second return value:<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> has also a
 <code>con_archives</code> attribute which is nonempty if <code>archiving</code>. The last
 element of each archive is the best feasible solution if there was any.</p>
-<p>See <code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">cma.fmin</a></code> for further parameters <tt class="rst-docutils literal">**kwargs</tt>.</p>
+<p>See <code>cma.fmin</code> for further parameters <tt class="rst-docutils literal">**kwargs</tt>.</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.evolution_strategy.fmin_con(
@@ -616,10 +1370,9 @@ element of each archive is the best feasible solution if there was any.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> (<span class="py-builtin">sum</span>(es.mean**2) - 1)**2 &lt; 1e-9, es.mean</pre><pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.evolution_strategy.fmin_con(
 <span class="py-more">... </span>            cma.ff.sphere, 2 * [0], 1, g=<span class="py-keyword">lambda</span> x: [1 - x[0]**2],
-<span class="py-more">... </span>            options={<span class="py-string">'termination_callback'</span>: <span class="py-keyword">lambda</span> es: -1e-5 &lt; <span class="py-builtin">sum</span>(es.mean**2) - 1 &lt; 1e-5,
+<span class="py-more">... </span>            options={<span class="py-string">'termination_callback'</span>: <span class="py-keyword">lambda</span> es: -1e-8 &lt; <span class="py-builtin">sum</span>(es.mean**2) - 1 &lt; 1e-8,
 <span class="py-more">... </span>                     <span class="py-string">'seed'</span>:1, <span class="py-string">'verbose'</span>:-9})
-<span class="py-prompt">&gt;&gt;&gt; </span>es.best_feasible.f &lt; 1 + 1e-5
-<span class="py-output">True</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.best_feasible.f &lt; 1 + 1e-5, es.best_feasible.f
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-string">".info attribute dictionary keys: {}"</span>.format(<span class="py-builtin">sorted</span>(es.best_feasible.info))
 <span class="py-output">".info attribute dictionary keys: ['f', 'g', 'g_al', 'x']"</span>
 </pre><p>Details: this is a versatile function subject to changes. It is possible to access
@@ -647,9 +1400,13 @@ the <code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="inte
     
     <span class="py-keyword">def</span> <span class="py-defname">fmin_con2</span>(objective_function, x0, sigma0, constraints=<a href="#no_constraints" class="internal-link" title="cma.evolution_strategy.no_constraints">no_constraints</a>, find_feasible_first=False, find_feasible_final=False, kwargs_confit=None, **kwargs_fmin):
     
+    <a class="headerLink" href="#fmin_con2" title="cma.evolution_strategy.fmin_con2">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>optimize f with inequality constraints g.</p>
 <p><code>constraints</code> is a function that returns a list of constraints values,
@@ -662,11 +1419,131 @@ not work with equality constraints, where the feasible domain has zero
 volume, find-feasible are off by default.</p>
 <p><code>kwargs_confit</code> are keyword arguments to instantiate
 <code><a href="cma.constraints_handler.ConstrainedFitnessAL.html" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL">constraints_handler.ConstrainedFitnessAL</a></code> which is optimized and
-returned as <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#objective_function" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.objective_function">objective_function</a></code> attribute in the second return
+returned as <code>objective_function</code> attribute in the second return
 argument (type <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>).</p>
 <p>Other and further keyword arguments are passed (in <tt class="rst-docutils literal">**kwargs_fmin</tt>)
-to <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">cma.fmin2</a></code>.</p>
+to <code>cma.fmin2</code>.</p>
 <p>Consider using <code><a href="cma.constraints_handler.ConstrainedFitnessAL.html" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL">ConstrainedFitnessAL</a></code> directly instead of <code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code>.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.evolution_strategy.fmin_lq_surr">
+    
+  </a>
+  <a name="fmin_lq_surr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">fmin_lq_surr</span>(objective_function, x0, sigma0, options=None, **kwargs):
+    
+    <a class="headerLink" href="#fmin_lq_surr" title="cma.evolution_strategy.fmin_lq_surr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>minimize <code>objective_function</code> with lq-CMA-ES.</p>
+<p>See <tt class="rst-docutils literal">help(cma.fmin)</tt> for the input parameter descriptions where
+<code>parallel_objective</code> is not available and noise-related options may
+fail.</p>
+<p>Returns the tuple <tt class="rst-docutils literal">xbest, es</tt> similar to <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code>, however <code>xbest</code>
+takes into account only some of the recent history and not all
+evaluations. <code>es.result</code> is partly based on surrogate f-values and may
+hence be confusing. In particular, <code>es.best</code> contains the solution with
+the best _surrogate_ value (which is usually of little interest). See
+<code><a href="#fmin_lq_surr2" class="internal-link" title="cma.evolution_strategy.fmin_lq_surr2">fmin_lq_surr2</a></code> for a fix.</p>
+<p>As in general, <code>es.result.xfavorite</code> is considered the best available
+estimate of the optimal solution.</p>
+<div class="rst-section" id="rst-example-code">
+<h2 class="heading">Example code</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.fmin_lq_surr(cma.ff.rosen, 2 * [0], 0.1,
+<span class="py-more">... </span>                         {<span class="py-string">'verbose'</span>:-9,  <span class="py-comment"># verbosity for doctesting</span>
+<span class="py-more">... </span>                          <span class="py-string">'ftarget'</span>:1e-2})
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop(), (es.stop(), es.result_pretty())
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result.evaluations &lt; 130, es.result.evaluations</pre></div>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p>lq-CMA-ES builds a linear or quadratic (global) model as a surrogate to
+try to circumvent evaluations of the objective function, see link below.</p>
+<p>This function calls <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> with a surrogate as <tt class="rst-docutils literal">parallel_objective</tt>
+argument. The model is kept the same for each restart. Use
+<code><a href="#fmin_lq_surr2" class="internal-link" title="cma.evolution_strategy.fmin_lq_surr2">fmin_lq_surr2</a></code> if this is not desirable.</p>
+<p><tt class="rst-docutils literal"><span class="pre">kwargs['callback']</span></tt> is modified by appending a callable that injects
+<tt class="rst-docutils literal">model.xopt</tt>. This can be prevented by passing <code>callback=False</code> or
+adding <code>False</code> as an element of the callback list (see also <code>cma.fmin</code>).</p>
+<p><tt class="rst-docutils literal">parallel_objective</tt> is assigned to a surrogate model instance of
+<tt class="rst-docutils literal">cma.fitness_models.SurrogatePopulation</tt>.</p>
+<p><code>es.countevals</code> is updated from the <code>evaluations</code> attribute of the
+constructed surrogate to count only "true" evaluations.</p>
+<p>See <a class="rst-reference external" href="https://cma-es.github.io/lq-cma" target="_top">https://cma-es.github.io/lq-cma</a> for references and details about
+the algorithm.</p>
+</div>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.evolution_strategy.fmin_lq_surr2">
+    
+  </a>
+  <a name="fmin_lq_surr2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">fmin_lq_surr2</span>(objective_function, x0, sigma0, options=None, inject=True, restarts=0, incpopsize=2, keep_model=False, not_evaluated=np.isnan):
+    
+    <a class="headerLink" href="#fmin_lq_surr2" title="cma.evolution_strategy.fmin_lq_surr2">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>minimize <code>objective_function</code> with lq-CMA-ES.</p>
+<p><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.x0">x0</a></code> is the initial solution or can be a callable that returns an
+initial solution (different for each restarted run). See <tt class="rst-docutils literal">cma.fmin</tt>
+for further input documentations and <tt class="rst-docutils literal">cma.CMAOptions()</tt> for the
+available options.</p>
+<p><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#inject" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.inject">inject</a></code> determines whether the best solution of the model is
+reinjected in each iteration. By default, a new surrogate model is used
+after each restart (<tt class="rst-docutils literal">keep_model=False</tt>) and the population size is
+multiplied by a factor of two (<tt class="rst-docutils literal">incpopsize=2</tt>) like in IPOP-CMA-ES
+(see also <tt class="rst-docutils literal">help(cma.fmin)</tt>).</p>
+<p>Returns the tuple <tt class="rst-docutils literal">xbest, es</tt> like <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code>. As in general,
+<code>es.result.xfavorite</code> (and <code>es.mean</code> as genotype) is considered the
+best available estimate of the optimal solution.</p>
+<div class="rst-section" id="rst-example-code">
+<h2 class="heading">Example code</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>x, es = cma.fmin_lq_surr2(cma.ff.rosen, 2 * [0], 0.1,
+<span class="py-more">... </span>                          {<span class="py-string">'verbose'</span>:-9,  <span class="py-comment"># verbosity for doctesting</span>
+<span class="py-more">... </span>                           <span class="py-string">'ftarget'</span>:1e-2})
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop(), (es.stop(), es.result_pretty())
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result.evaluations &lt; 130, es.result.evaluations</pre></div>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p>lq-CMA-ES builds a linear or quadratic (global) model as a surrogate to
+circumvent evaluations of the objective function, see link below.</p>
+<p>This code uses the ask-and-tell interface to CMA-ES via the class
+<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> to the <code>options</code> <code>dict</code> is passed.</p>
+<p>To pass additional arguments to the objective function use
+<code>functools.partial</code>.</p>
+<p><code>not_evaluated</code> must return <code>True</code> if a value indicates (by convention
+of <code><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html#fvalues" class="internal-link">cma.fitness_models.SurrogatePopulation.EvaluationManager.fvalues</a></code>)
+a missing "true" evaluation of the <code>objective_function</code>.</p>
+<p>See <a class="rst-reference external" href="https://cma-es.github.io/lq-cma" target="_top">https://cma-es.github.io/lq-cma</a> for references and details about
+the algorithm.</p>
+</div>
 </div>
   </div>
 </div><div class="basefunction">
@@ -682,9 +1559,13 @@ to <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fm
     
     <span class="py-keyword">def</span> <span class="py-defname">is_feasible</span>(x, f):
     
+    <a class="headerLink" href="#is_feasible" title="cma.evolution_strategy.is_feasible">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>default to check feasibility of f-values.</p>
 <p>Used for rejection sampling in method <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">ask_and_eval</a></code>.</p>
@@ -703,9 +1584,13 @@ to <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fm
     
     <span class="py-keyword">def</span> <span class="py-defname">no_constraints</span>(x):
     
+    <a class="headerLink" href="#no_constraints" title="cma.evolution_strategy.no_constraints">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -722,9 +1607,13 @@ to <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fm
     
     <span class="py-keyword">def</span> <span class="py-defname">safe_str</span>(s):
     
+    <a class="headerLink" href="#safe_str" title="cma.evolution_strategy.safe_str">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return a string safe to <code><a href="cma.utilities.utils.html#seval" class="internal-link" title="cma.utilities.utils.seval">eval</a></code> or raise an exception.</p>
 <p>Selected words and chars are considered safe such that all default
@@ -749,9 +1638,13 @@ themselves.</p>
     
     <span class="py-defname">all_stoppings</span>: <code>list</code> =
     
+    <a class="headerLink" href="#all_stoppings" title="cma.evolution_strategy.all_stoppings">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -769,9 +1662,13 @@ themselves.</p>
     
     <span class="py-defname">cma_allowed_options_keys</span> =
     
+    <a class="headerLink" href="#cma_allowed_options_keys" title="cma.evolution_strategy.cma_allowed_options_keys">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -789,9 +1686,13 @@ themselves.</p>
     
     <span class="py-defname">cma_default_options</span> =
     
+    <a class="headerLink" href="#cma_default_options" title="cma.evolution_strategy.cma_default_options">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -809,9 +1710,13 @@ themselves.</p>
     
     <span class="py-defname">cma_versatile_options</span> =
     
+    <a class="headerLink" href="#cma_versatile_options" title="cma.evolution_strategy.cma_versatile_options">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -829,9 +1734,13 @@ themselves.</p>
     
     <span class="py-defname">meta_parameters</span> =
     
+    <a class="headerLink" href="#meta_parameters" title="cma.evolution_strategy.meta_parameters">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -849,13 +1758,18 @@ themselves.</p>
     
     <span class="py-defname">use_archives</span> =
     
+    <a class="headerLink" href="#use_archives" title="cma.evolution_strategy.use_archives">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>speed up for very large population size. <code><a href="#use_archives" class="internal-link" title="cma.evolution_strategy.use_archives">use_archives</a></code> prevents the
+    <div><p>speed up for very large population size. <code><a href="#use_archives" class="internal-link" title="cma.evolution_strategy.use_archives">use_archives</a></code> prevents the
 need for an inverse gp-transformation, relies on collections module,
-not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</div>
+not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</p>
+</div>
     
   </div>
 </div><div class="basefunction private">
@@ -871,11 +1785,16 @@ not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</di
     
     <span class="py-keyword">def</span> <span class="py-defname">_al_set_logging</span>(al, kwargs, *more_kwargs):
     
+    <a class="headerLink" href="#_al_set_logging" title="cma.evolution_strategy._al_set_logging">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>try to figure a good logging value from various verbosity options</div>
+    <div><p>try to figure a good logging value from various verbosity options</p>
+</div>
   </div>
 </div><div class="basevariable private">
   
@@ -890,9 +1809,13 @@ not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</di
     
     <span class="py-defname">_assertions_cubic</span>: <code>bool</code> =
     
+    <a class="headerLink" href="#_assertions_cubic" title="cma.evolution_strategy._assertions_cubic">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -910,9 +1833,13 @@ not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</di
     
     <span class="py-defname">_assertions_quadratic</span>: <code>bool</code> =
     
+    <a class="headerLink" href="#_assertions_quadratic" title="cma.evolution_strategy._assertions_quadratic">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -930,9 +1857,13 @@ not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</di
     
     <span class="py-defname">_CMASolutionDict</span> =
     
+    <a class="headerLink" href="#_CMASolutionDict" title="cma.evolution_strategy._CMASolutionDict">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -950,9 +1881,13 @@ not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</di
     
     <span class="py-defname">_debugging</span>: <code>bool</code> =
     
+    <a class="headerLink" href="#_debugging" title="cma.evolution_strategy._debugging">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -970,9 +1905,13 @@ not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</di
     
     <span class="py-defname">_depreciated</span>: <code>bool</code> =
     
+    <a class="headerLink" href="#_depreciated" title="cma.evolution_strategy._depreciated">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -990,27 +1929,40 @@ not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</di
     
     <span class="py-defname">_new_injections</span>: <code>bool</code> =
     
+    <a class="headerLink" href="#_new_injections" title="cma.evolution_strategy._new_injections">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

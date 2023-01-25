@@ -7,74 +7,1506 @@
   <head>
     
     <title>cma.bbobbenchmarks.F19</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code><wbr></wbr>.<code><a href="cma.bbobbenchmarks.F19.html" class="internal-link" title="cma.bbobbenchmarks.F19">F19</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.bbobbenchmarks.F19.html" class="internal-link" title="This class">F19</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#boundaryhandling" class="internal-link" title="cma.bbobbenchmarks.F19.boundaryhandling">boundaryhandling</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._F8F2.html#initwithsize" class="internal-link" title="cma.bbobbenchmarks._F8F2.initwithsize">initwithsize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#__call__" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction.__call__">__call__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#evaluate" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction.evaluate">evaluate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#getfopt" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction.getfopt">getfopt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#setfopt" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction.setfopt">setfopt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#__eq__" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.__eq__">__eq__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#__init__" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#getiinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.getiinstance">getiinstance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#setiinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.setiinstance">setiinstance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#shape_" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.shape_">shape_</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#shortstr" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.shortstr">shortstr</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBNfreeFunction.html#noise" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction.noise">noise</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._F8F2.html#_evalfull" class="internal-link" title="cma.bbobbenchmarks._F8F2._evalfull">_evalfull</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_getxopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._getxopt">_getxopt</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_setxopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._setxopt">_setxopt</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#facftrue" class="internal-link" title="cma.bbobbenchmarks.F19.facftrue">facftrue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#funId" class="internal-link" title="cma.bbobbenchmarks.F19.funId">fun<wbr></wbr>Id</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._F8F2.html#rrseed" class="internal-link" title="cma.bbobbenchmarks._F8F2.rrseed">rrseed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._F8F2.html#arrxopt" class="internal-link" title="cma.bbobbenchmarks._F8F2.arrxopt">arrxopt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._F8F2.html#dim" class="internal-link" title="cma.bbobbenchmarks._F8F2.dim">dim</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._F8F2.html#lastshape" class="internal-link" title="cma.bbobbenchmarks._F8F2.lastshape">lastshape</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._F8F2.html#linearTF" class="internal-link" title="cma.bbobbenchmarks._F8F2.linearTF">linear<wbr></wbr>TF</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._F8F2.html#xopt" class="internal-link" title="cma.bbobbenchmarks._F8F2.xopt">xopt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#fopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.fopt">fopt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#iinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.iinstance">iinstance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#param" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.param">param</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#rseed" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.rseed">rseed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#zerox" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.zerox">zerox</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#_fopt" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction._fopt">_fopt</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_iinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._iinstance">_iinstance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_xopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._xopt">_xopt</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.bbobbenchmarks.html" class="internal-link" title="The parent of this class">bbobbenchmarks</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction"><wbr></wbr>Abstract<wbr></wbr>Test<wbr></wbr>Function</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBCauchyFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBCauchyFunction"><wbr></wbr>BBOBCauchy<wbr></wbr>Function</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction"><wbr></wbr>BBOBFunction</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBGaussFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBGaussFunction"><wbr></wbr>BBOBGauss<wbr></wbr>Function</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction"><wbr></wbr>BBOBNfree<wbr></wbr>Function</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.BBOBUniformFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBUniformFunction"><wbr></wbr>BBOBUniform<wbr></wbr>Function</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F1.html" class="internal-link" title="cma.bbobbenchmarks.F1">F1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F10.html" class="internal-link" title="cma.bbobbenchmarks.F10">F10</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F101.html" class="internal-link" title="cma.bbobbenchmarks.F101">F101</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F102.html" class="internal-link" title="cma.bbobbenchmarks.F102">F102</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F103.html" class="internal-link" title="cma.bbobbenchmarks.F103">F103</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F104.html" class="internal-link" title="cma.bbobbenchmarks.F104">F104</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F105.html" class="internal-link" title="cma.bbobbenchmarks.F105">F105</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F106.html" class="internal-link" title="cma.bbobbenchmarks.F106">F106</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F107.html" class="internal-link" title="cma.bbobbenchmarks.F107">F107</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F108.html" class="internal-link" title="cma.bbobbenchmarks.F108">F108</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F109.html" class="internal-link" title="cma.bbobbenchmarks.F109">F109</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F11.html" class="internal-link" title="cma.bbobbenchmarks.F11">F11</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F110.html" class="internal-link" title="cma.bbobbenchmarks.F110">F110</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F111.html" class="internal-link" title="cma.bbobbenchmarks.F111">F111</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F112.html" class="internal-link" title="cma.bbobbenchmarks.F112">F112</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F113.html" class="internal-link" title="cma.bbobbenchmarks.F113">F113</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F114.html" class="internal-link" title="cma.bbobbenchmarks.F114">F114</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F115.html" class="internal-link" title="cma.bbobbenchmarks.F115">F115</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F116.html" class="internal-link" title="cma.bbobbenchmarks.F116">F116</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F117.html" class="internal-link" title="cma.bbobbenchmarks.F117">F117</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F118.html" class="internal-link" title="cma.bbobbenchmarks.F118">F118</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F119.html" class="internal-link" title="cma.bbobbenchmarks.F119">F119</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F12.html" class="internal-link" title="cma.bbobbenchmarks.F12">F12</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F120.html" class="internal-link" title="cma.bbobbenchmarks.F120">F120</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F121.html" class="internal-link" title="cma.bbobbenchmarks.F121">F121</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F122.html" class="internal-link" title="cma.bbobbenchmarks.F122">F122</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F123.html" class="internal-link" title="cma.bbobbenchmarks.F123">F123</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F124.html" class="internal-link" title="cma.bbobbenchmarks.F124">F124</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F125.html" class="internal-link" title="cma.bbobbenchmarks.F125">F125</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F126.html" class="internal-link" title="cma.bbobbenchmarks.F126">F126</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F127.html" class="internal-link" title="cma.bbobbenchmarks.F127">F127</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F128.html" class="internal-link" title="cma.bbobbenchmarks.F128">F128</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F129.html" class="internal-link" title="cma.bbobbenchmarks.F129">F129</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F13.html" class="internal-link" title="cma.bbobbenchmarks.F13">F13</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F130.html" class="internal-link" title="cma.bbobbenchmarks.F130">F130</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F14.html" class="internal-link" title="cma.bbobbenchmarks.F14">F14</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F15.html" class="internal-link" title="cma.bbobbenchmarks.F15">F15</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F16.html" class="internal-link" title="cma.bbobbenchmarks.F16">F16</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F17.html" class="internal-link" title="cma.bbobbenchmarks.F17">F17</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F18.html" class="internal-link" title="cma.bbobbenchmarks.F18">F18</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F19.html" class="internal-link" title="cma.bbobbenchmarks.F19">F19</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F2.html" class="internal-link" title="cma.bbobbenchmarks.F2">F2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F20.html" class="internal-link" title="cma.bbobbenchmarks.F20">F20</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F21.html" class="internal-link" title="cma.bbobbenchmarks.F21">F21</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F22.html" class="internal-link" title="cma.bbobbenchmarks.F22">F22</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F23.html" class="internal-link" title="cma.bbobbenchmarks.F23">F23</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F24.html" class="internal-link" title="cma.bbobbenchmarks.F24">F24</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F3.html" class="internal-link" title="cma.bbobbenchmarks.F3">F3</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F4.html" class="internal-link" title="cma.bbobbenchmarks.F4">F4</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F5.html" class="internal-link" title="cma.bbobbenchmarks.F5">F5</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F6.html" class="internal-link" title="cma.bbobbenchmarks.F6">F6</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F7.html" class="internal-link" title="cma.bbobbenchmarks.F7">F7</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F8.html" class="internal-link" title="cma.bbobbenchmarks.F8">F8</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.F9.html" class="internal-link" title="cma.bbobbenchmarks.F9">F9</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._FDiffPow.html" class="internal-link" title="cma.bbobbenchmarks._FDiffPow">_<wbr></wbr>FDiff<wbr></wbr>Pow</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._FEllipsoid.html" class="internal-link" title="cma.bbobbenchmarks._FEllipsoid">_<wbr></wbr>FEllipsoid</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._FGallagher.html" class="internal-link" title="cma.bbobbenchmarks._FGallagher">_<wbr></wbr>FGallagher</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._FRosenbrock.html" class="internal-link" title="cma.bbobbenchmarks._FRosenbrock">_<wbr></wbr>FRosenbrock</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._FSchaffersF7.html" class="internal-link" title="cma.bbobbenchmarks._FSchaffersF7">_<wbr></wbr>FSchaffers<wbr></wbr>F7</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._FSphere.html" class="internal-link" title="cma.bbobbenchmarks._FSphere">_<wbr></wbr>FSphere</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._FStepEllipsoid.html" class="internal-link" title="cma.bbobbenchmarks._FStepEllipsoid">_<wbr></wbr>FStep<wbr></wbr>Ellipsoid</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks._FTemplate.html" class="internal-link" title="cma.bbobbenchmarks._FTemplate">_<wbr></wbr>FTemplate</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#compute_rotation" class="internal-link" title="cma.bbobbenchmarks.compute_rotation">compute<wbr></wbr>_rotation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#compute_xopt" class="internal-link" title="cma.bbobbenchmarks.compute_xopt">compute<wbr></wbr>_xopt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#defaultboundaryhandling" class="internal-link" title="cma.bbobbenchmarks.defaultboundaryhandling">defaultboundaryhandling</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#fCauchy" class="internal-link" title="cma.bbobbenchmarks.fCauchy">f<wbr></wbr>Cauchy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#fGauss" class="internal-link" title="cma.bbobbenchmarks.fGauss">f<wbr></wbr>Gauss</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#fUniform" class="internal-link" title="cma.bbobbenchmarks.fUniform">f<wbr></wbr>Uniform</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#gauss" class="internal-link" title="cma.bbobbenchmarks.gauss">gauss</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#get_param" class="internal-link" title="cma.bbobbenchmarks.get_param">get<wbr></wbr>_param</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#instantiate" class="internal-link" title="cma.bbobbenchmarks.instantiate">instantiate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#monotoneTFosc" class="internal-link" title="cma.bbobbenchmarks.monotoneTFosc">monotone<wbr></wbr>TFosc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#unif" class="internal-link" title="cma.bbobbenchmarks.unif">unif</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#_myrand" class="internal-link" title="cma.bbobbenchmarks._myrand">_myrand</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#_myrandn" class="internal-link" title="cma.bbobbenchmarks._myrandn">_myrandn</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#dictbbob" class="internal-link" title="cma.bbobbenchmarks.dictbbob">dictbbob</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#dictbbobnfree" class="internal-link" title="cma.bbobbenchmarks.dictbbobnfree">dictbbobnfree</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#dictbbobnoisy" class="internal-link" title="cma.bbobbenchmarks.dictbbobnoisy">dictbbobnoisy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#funclasses" class="internal-link" title="cma.bbobbenchmarks.funclasses">funclasses</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#nfreefunclasses" class="internal-link" title="cma.bbobbenchmarks.nfreefunclasses">nfreefunclasses</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#nfreeIDs" class="internal-link" title="cma.bbobbenchmarks.nfreeIDs">nfree<wbr></wbr>IDs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#nfreeinfos" class="internal-link" title="cma.bbobbenchmarks.nfreeinfos">nfreeinfos</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#noisyfunclasses" class="internal-link" title="cma.bbobbenchmarks.noisyfunclasses">noisyfunclasses</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#noisyIDs" class="internal-link" title="cma.bbobbenchmarks.noisyIDs">noisy<wbr></wbr>IDs</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#_randomnseed" class="internal-link" title="cma.bbobbenchmarks._randomnseed">_randomnseed</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html#_randomseed" class="internal-link" title="cma.bbobbenchmarks._randomseed">_randomseed</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">F19</span>(<a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a>, <a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction">BBOBNfreeFunction</a>):</code></p>
-        <p><a href="classIndex.html#cma.bbobbenchmarks.F19">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div>F8F2 sum of Griewank-Rosenbrock 2-D blocks, noise-free</div>
-      </div>
+        
 
-      <div id="splitTables">
-        <table class="children sortable" id="id301">
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code><wbr></wbr>.<code><a href="cma.bbobbenchmarks.F19.html" class="internal-link" title="cma.bbobbenchmarks.F19">F19</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">F19</span>(<a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a>, <a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction">BBOBNfreeFunction</a>):</code></p>
+          <p><a href="classIndex.html#cma.bbobbenchmarks.F19">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>F8F2 sum of Griewank-Rosenbrock 2-D blocks, noise-free</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id239">
   
   
   <tr class="method">
@@ -90,15 +1522,15 @@
   </tr><tr class="classvariable">
     
     <td>Class Variable</td>
-    <td><code><a href="#funId" class="internal-link" title="cma.bbobbenchmarks.F19.funId">fun​Id</a></code></td>
+    <td><code><a href="#funId" class="internal-link" title="cma.bbobbenchmarks.F19.funId">fun<wbr></wbr>Id</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a></code>:
-          </p>
-          <table class="children sortable" id="id302">
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a></code>:
+            </p>
+            <table class="children sortable" id="id240">
   
   
   <tr class="basemethod">
@@ -129,7 +1561,7 @@
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks._F8F2.html#linearTF" class="internal-link" title="cma.bbobbenchmarks._F8F2.linearTF">linear​TF</a></code></td>
+    <td><code><a href="cma.bbobbenchmarks._F8F2.html#linearTF" class="internal-link" title="cma.bbobbenchmarks._F8F2.linearTF">linear<wbr></wbr>TF</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
@@ -139,133 +1571,15 @@
   </tr><tr class="basemethod private">
     
     <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks._F8F2.html#_evalfull" class="internal-link" title="cma.bbobbenchmarks._F8F2._evalfull">​_evalfull</a></code></td>
+    <td><code><a href="cma.bbobbenchmarks._F8F2.html#_evalfull" class="internal-link" title="cma.bbobbenchmarks._F8F2._evalfull">_evalfull</a></code></td>
     <td>return noisy and noise-free value, the latter for recording purpose.</td>
   </tr>
 </table>
-          
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.bbobbenchmarks.BBOBFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction">BBOBFunction</a></code> (via <code><a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a></code>):
-          </p>
-          <table class="children sortable" id="id303">
-  
-  
-  <tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#__eq__" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.__eq__">__eq__</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#__init__" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.__init__">__init__</a></code></td>
-    <td>Common initialisation.</td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#getiinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.getiinstance">getiinstance</a></code></td>
-    <td>Designates the instance of the function class.</td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#setiinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.setiinstance">setiinstance</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#shape_" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.shape_">shape​_</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#shortstr" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.shortstr">shortstr</a></code></td>
-    <td>Gives a short string self representation (shorter than str(self)).</td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#fopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.fopt">fopt</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#iinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.iinstance">iinstance</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#param" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.param">param</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#rseed" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.rseed">rseed</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#zerox" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.zerox">zerox</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod private">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_getxopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._getxopt">​_getxopt</a></code></td>
-    <td>Return the argument of the optimum of the function.</td>
-  </tr><tr class="basemethod private">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_setxopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._setxopt">​_setxopt</a></code></td>
-    <td>Return the argument of the optimum of the function.</td>
-  </tr><tr class="baseinstancevariable private">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_iinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._iinstance">​_iinstance</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseinstancevariable private">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_xopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._xopt">​_xopt</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr>
-</table>
-          
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.bbobbenchmarks.AbstractTestFunction.html" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction">AbstractTestFunction</a></code> (via <code><a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a></code>, <code><a href="cma.bbobbenchmarks.BBOBFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction">BBOBFunction</a></code>):
-          </p>
-          <table class="children sortable" id="id304">
-  
-  
-  <tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#__call__" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction.__call__">__call__</a></code></td>
-    <td>Returns the objective function value of argument x.</td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#evaluate" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction.evaluate">evaluate</a></code></td>
-    <td>Returns the objective function value (in case noisy).</td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#getfopt" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction.getfopt">getfopt</a></code></td>
-    <td>Returns the best function value of this instance of the function.</td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#setfopt" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction.setfopt">setfopt</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseinstancevariable private">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#_fopt" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction._fopt">​_fopt</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr>
-</table>
-          
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction">BBOBNfreeFunction</a></code>:
-          </p>
-          <table class="children sortable" id="id305">
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction">BBOBNfreeFunction</a></code> (via <code><a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a></code>):
+            </p>
+            <table class="children sortable" id="id241">
   
   
   <tr class="basemethod">
@@ -275,11 +1589,11 @@
     <td>Returns the noise-free function values.</td>
   </tr>
 </table>
-          
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.bbobbenchmarks.BBOBFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction">BBOBFunction</a></code> (via <code><a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction">BBOBNfreeFunction</a></code>):
-          </p>
-          <table class="children sortable" id="id306">
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="cma.bbobbenchmarks.BBOBFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction">BBOBFunction</a></code> (via <code><a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a></code>, <code><a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction">BBOBNfreeFunction</a></code>):
+            </p>
+            <table class="children sortable" id="id242">
   
   
   <tr class="basemethod">
@@ -305,23 +1619,13 @@
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#shape_" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.shape_">shape​_</a></code></td>
+    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#shape_" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.shape_">shape_</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="basemethod">
     
     <td>Method</td>
     <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#shortstr" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.shortstr">shortstr</a></code></td>
     <td>Gives a short string self representation (shorter than str(self)).</td>
-  </tr><tr class="baseclassvariable">
-    
-    <td>Class Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#xopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.xopt">xopt</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#dim" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.dim">dim</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
@@ -331,11 +1635,6 @@
     
     <td>Instance Variable</td>
     <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#iinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.iinstance">iinstance</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#lastshape" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction.lastshape">lastshape</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
@@ -355,30 +1654,30 @@
   </tr><tr class="basemethod private">
     
     <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_getxopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._getxopt">​_getxopt</a></code></td>
+    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_getxopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._getxopt">_getxopt</a></code></td>
     <td>Return the argument of the optimum of the function.</td>
   </tr><tr class="basemethod private">
     
     <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_setxopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._setxopt">​_setxopt</a></code></td>
+    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_setxopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._setxopt">_setxopt</a></code></td>
     <td>Return the argument of the optimum of the function.</td>
   </tr><tr class="baseinstancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_iinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._iinstance">​_iinstance</a></code></td>
+    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_iinstance" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._iinstance">_iinstance</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_xopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._xopt">​_xopt</a></code></td>
+    <td><code><a href="cma.bbobbenchmarks.BBOBFunction.html#_xopt" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction._xopt">_xopt</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-          
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.bbobbenchmarks.AbstractTestFunction.html" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction">AbstractTestFunction</a></code> (via <code><a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction">BBOBNfreeFunction</a></code>, <code><a href="cma.bbobbenchmarks.BBOBFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction">BBOBFunction</a></code>):
-          </p>
-          <table class="children sortable" id="id307">
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="cma.bbobbenchmarks.AbstractTestFunction.html" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction">AbstractTestFunction</a></code> (via <code><a href="cma.bbobbenchmarks._F8F2.html" class="internal-link" title="cma.bbobbenchmarks._F8F2">_F8F2</a></code>, <code><a href="cma.bbobbenchmarks.BBOBNfreeFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBNfreeFunction">BBOBNfreeFunction</a></code>, <code><a href="cma.bbobbenchmarks.BBOBFunction.html" class="internal-link" title="cma.bbobbenchmarks.BBOBFunction">BBOBFunction</a></code>):
+            </p>
+            <table class="children sortable" id="id243">
   
   
   <tr class="basemethod">
@@ -401,26 +1700,20 @@
     <td>Method</td>
     <td><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#setfopt" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction.setfopt">setfopt</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod private">
-    
-    <td>Method</td>
-    <td><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#_evalfull" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction._evalfull">​_evalfull</a></code></td>
-    <td>return noisy and noise-free value, the latter for recording purpose.</td>
   </tr><tr class="baseinstancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#_fopt" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction._fopt">​_fopt</a></code></td>
+    <td><code><a href="cma.bbobbenchmarks.AbstractTestFunction.html#_fopt" class="internal-link" title="cma.bbobbenchmarks.AbstractTestFunction._fopt">_fopt</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-          
+            
 
-          
-      </div>
+            
+        </div>
 
-      <div id="childList">
-
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.bbobbenchmarks.F19.boundaryhandling">
@@ -433,9 +1726,13 @@
     
     <span class="py-keyword">def</span> <span class="py-defname">boundaryhandling</span>(self, x):
     
+    <a class="headerLink" href="#boundaryhandling" title="cma.bbobbenchmarks.F19.boundaryhandling">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -452,10 +1749,14 @@
     
     <span class="py-defname">facftrue</span>: <code>float</code> =
     
+    <a class="headerLink" href="#facftrue" title="cma.bbobbenchmarks.F19.facftrue">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.bbobbenchmarks._F8F2.html#facftrue" class="internal-link">cma.bbobbenchmarks._F8F2.facftrue</a></code></div>
-    
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
@@ -472,27 +1773,40 @@
     
     <span class="py-defname">funId</span>: <code>int</code> =
     
+    <a class="headerLink" href="#funId" title="cma.bbobbenchmarks.F19.funId">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

@@ -7,79 +7,441 @@
   <head>
     
     <title>cma.sigma_adaptation.CMAAdaptSigmaBase</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.sigma_adaptation.html" class="internal-link" title="cma.sigma_adaptation">sigma_adaptation</a></code><wbr></wbr>.<code><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase">CMAAdaptSigmaBase</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" class="internal-link" title="This class"><wbr></wbr>CMAAdapt<wbr></wbr>Sigma<wbr></wbr>Base</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_consistency" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.check_consistency">check<wbr></wbr>_consistency</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hsig" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.hsig">hsig</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#initialize_base" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.initialize_base">initialize<wbr></wbr>_base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.update">update</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update2" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.update2">update2</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_update_ps" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase._update_ps">_update<wbr></wbr>_ps</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cs" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.cs">cs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#delta" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.delta">delta</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_initialized_base" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.is_initialized_base">is<wbr></wbr>_initialized<wbr></wbr>_base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ps" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.ps">ps</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ps_updated_iteration" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase._ps_updated_iteration">_ps<wbr></wbr>_updated<wbr></wbr>_iteration</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.sigma_adaptation.html" class="internal-link" title="The parent of this class">sigma<wbr></wbr>_adaptation</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase"><wbr></wbr>CMAAdapt<wbr></wbr>Sigma<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaCSA"><wbr></wbr>CMAAdapt<wbr></wbr>Sigma<wbr></wbr>CSA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional.html" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional"><wbr></wbr>CMAAdapt<wbr></wbr>Sigma<wbr></wbr>Distance<wbr></wbr>Proportional</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement.html" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement"><wbr></wbr>CMAAdapt<wbr></wbr>Sigma<wbr></wbr>Median<wbr></wbr>Improvement</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.CMAAdaptSigmaNone.html" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaNone"><wbr></wbr>CMAAdapt<wbr></wbr>Sigma<wbr></wbr>None</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaTPA"><wbr></wbr>CMAAdapt<wbr></wbr>Sigma<wbr></wbr>TPA</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html#_norm" class="internal-link" title="cma.sigma_adaptation._norm">_norm</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">CMAAdaptSigmaBase</span>(object):</code></p><p>Known subclasses: <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaNone.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaNone</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaTPA</a></code></p>
-        <p><a href="classIndex.html#cma.sigma_adaptation.CMAAdaptSigmaBase">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>step-size adaptation base class, implement <code><a href="#hsig" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.hsig">hsig</a></code> (for stalling
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.sigma_adaptation.html" class="internal-link" title="cma.sigma_adaptation">sigma_adaptation</a></code><wbr></wbr>.<code><a href="cma.sigma_adaptation.CMAAdaptSigmaBase.html" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase">CMAAdaptSigmaBase</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">CMAAdaptSigmaBase</span>(object):</code></p><p>Known subclasses: <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaNone.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaNone</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaTPA</a></code></p>
+          <p><a href="classIndex.html#cma.sigma_adaptation.CMAAdaptSigmaBase">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>step-size adaptation base class, implement <code><a href="#hsig" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.hsig">hsig</a></code> (for stalling
 distribution update) functionality via an isotropic evolution path.</p>
 <p>Details: <code><a href="#hsig" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.hsig">hsig</a></code> or <code><a href="#_update_ps" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase._update_ps">_update_ps</a></code> must be called before the sampling
 distribution is changed. <code><a href="#_update_ps" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase._update_ps">_update_ps</a></code> depends heavily on
-<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">cma.CMAEvolutionStrategy</a></code>.</p>
+<code>cma.CMAEvolutionStrategy</code>.</p>
 </div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id509">
+        <div id="splitTables">
+          <table class="children sortable" id="id431">
   
   
   <tr class="method">
@@ -90,7 +452,7 @@ distribution is changed. <code><a href="#_update_ps" class="internal-link" title
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#check_consistency" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.check_consistency">check​_consistency</a></code></td>
+    <td><code><a href="#check_consistency" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.check_consistency">check<wbr></wbr>_consistency</a></code></td>
     <td>make consistency checks with a <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> instance as input</td>
   </tr><tr class="method">
     
@@ -100,7 +462,7 @@ distribution is changed. <code><a href="#_update_ps" class="internal-link" title
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#initialize_base" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.initialize_base">initialize​_base</a></code></td>
+    <td><code><a href="#initialize_base" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.initialize_base">initialize<wbr></wbr>_base</a></code></td>
     <td>set parameters and state variable based on dimension, mueff and possibly further options.</td>
   </tr><tr class="method">
     
@@ -125,7 +487,7 @@ distribution is changed. <code><a href="#_update_ps" class="internal-link" title
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#is_initialized_base" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.is_initialized_base">is​_initialized​_base</a></code></td>
+    <td><code><a href="#is_initialized_base" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.is_initialized_base">is<wbr></wbr>_initialized<wbr></wbr>_base</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -135,23 +497,22 @@ distribution is changed. <code><a href="#_update_ps" class="internal-link" title
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_update_ps" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase._update_ps">​_update​_ps</a></code></td>
+    <td><code><a href="#_update_ps" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase._update_ps">_update<wbr></wbr>_ps</a></code></td>
     <td>update the isotropic evolution path.</td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_ps_updated_iteration" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase._ps_updated_iteration">​_ps​_updated​_iteration</a></code></td>
+    <td><code><a href="#_ps_updated_iteration" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase._ps_updated_iteration">_ps<wbr></wbr>_updated<wbr></wbr>_iteration</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.sigma_adaptation.CMAAdaptSigmaBase.__init__">
@@ -164,10 +525,14 @@ distribution is changed. <code><a href="#_update_ps" class="internal-link" title
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, *args, **kwargs):
     
+    <a class="headerLink" href="#__init__" title="cma.sigma_adaptation.CMAAdaptSigmaBase.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaTPA</a></code></div>
-    
     <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div><div class="basemethod">
@@ -183,12 +548,17 @@ distribution is changed. <code><a href="#_update_ps" class="internal-link" title
     
     <span class="py-keyword">def</span> <span class="py-defname">check_consistency</span>(self, es):
     
+    <a class="headerLink" href="#check_consistency" title="cma.sigma_adaptation.CMAAdaptSigmaBase.check_consistency">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaTPA</a></code></div>
-    
-    <div>make consistency checks with a <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> instance
-as input</div>
+    <div><p>make consistency checks with a <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> instance
+as input</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -203,12 +573,17 @@ as input</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">hsig</span>(self, es):
     
+    <a class="headerLink" href="#hsig" title="cma.sigma_adaptation.CMAAdaptSigmaBase.hsig">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return "OK-signal" for rank-one update, <code>True</code> (OK) or <code>False</code>
-(stall rank-one update), based on the length of an evolution path</div>
+    <div><p>return "OK-signal" for rank-one update, <code>True</code> (OK) or <code>False</code>
+(stall rank-one update), based on the length of an evolution path</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -223,12 +598,17 @@ as input</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">initialize_base</span>(self, es):
     
+    <a class="headerLink" href="#initialize_base" title="cma.sigma_adaptation.CMAAdaptSigmaBase.initialize_base">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>set parameters and state variable based on dimension,
-mueff and possibly further options.</div>
+    <div><p>set parameters and state variable based on dimension,
+mueff and possibly further options.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -243,11 +623,16 @@ mueff and possibly further options.</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, es, **kwargs):
     
+    <a class="headerLink" href="#update" title="cma.sigma_adaptation.CMAAdaptSigmaBase.update">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaNone.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaNone</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaTPA</a></code></div>
-    
-    <div>update <tt class="rst-docutils literal">es.sigma</tt><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">es</span></td><td class="fieldArgDesc"><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> class instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">whatever else is needed to update <tt class="rst-docutils literal">es.sigma</tt>,
+    <div><p>update <tt class="rst-docutils literal">es.sigma</tt></p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">es</span></td><td class="fieldArgDesc"><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> class instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">whatever else is needed to update <tt class="rst-docutils literal">es.sigma</tt>,
 which should be none.</td></tr></table></div>
   </div>
 </div><div class="basemethod">
@@ -263,10 +648,14 @@ which should be none.</td></tr></table></div>
     
     <span class="py-keyword">def</span> <span class="py-defname">update2</span>(self, es, **kwargs):
     
+    <a class="headerLink" href="#update2" title="cma.sigma_adaptation.CMAAdaptSigmaBase.update2">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code></div>
-    
     <div><p>return sigma change factor and update self.delta.</p>
 <p><tt class="rst-docutils literal">self.delta == sigma/sigma0</tt> accumulates all past changes
 starting from <code>1.0</code>.</p>
@@ -287,10 +676,14 @@ in <code>es</code>, specifically it should not change <code>es.sigma</code>.</p>
     
     <span class="py-defname">cs</span> =
     
+    <a class="headerLink" href="#cs" title="cma.sigma_adaptation.CMAAdaptSigmaBase.cs">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code></div>
-    
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
@@ -307,11 +700,16 @@ in <code>es</code>, specifically it should not change <code>es.sigma</code>.</p>
     
     <span class="py-defname">delta</span>: <code>int</code> =
     
+    <a class="headerLink" href="#delta" title="cma.sigma_adaptation.CMAAdaptSigmaBase.delta">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code></div>
-    
-    <div>cumulated effect of adaptation</div>
+    <div><p>cumulated effect of adaptation</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -327,9 +725,13 @@ in <code>es</code>, specifically it should not change <code>es.sigma</code>.</p>
     
     <span class="py-defname">is_initialized_base</span>: <code>bool</code> =
     
+    <a class="headerLink" href="#is_initialized_base" title="cma.sigma_adaptation.CMAAdaptSigmaBase.is_initialized_base">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -347,10 +749,14 @@ in <code>es</code>, specifically it should not change <code>es.sigma</code>.</p>
     
     <span class="py-defname">ps</span> =
     
+    <a class="headerLink" href="#ps" title="cma.sigma_adaptation.CMAAdaptSigmaBase.ps">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code></div>
-    
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
@@ -367,10 +773,14 @@ in <code>es</code>, specifically it should not change <code>es.sigma</code>.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">_update_ps</span>(self, es):
     
+    <a class="headerLink" href="#_update_ps" title="cma.sigma_adaptation.CMAAdaptSigmaBase._update_ps">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code></div>
-    
     <div><p>update the isotropic evolution path.</p>
 <p>Using <tt class="rst-docutils literal">es</tt> attributes <tt class="rst-docutils literal">mean</tt>, <tt class="rst-docutils literal">mean_old</tt>, <tt class="rst-docutils literal">sigma</tt>,
 <tt class="rst-docutils literal">sigma_vec</tt>, <tt class="rst-docutils literal">sp.weights.mueff</tt>, <tt class="rst-docutils literal">cp.cmean</tt> and
@@ -390,27 +800,40 @@ in <code>es</code>, specifically it should not change <code>es.sigma</code>.</p>
     
     <span class="py-defname">_ps_updated_iteration</span> =
     
+    <a class="headerLink" href="#_ps_updated_iteration" title="cma.sigma_adaptation.CMAAdaptSigmaBase._ps_updated_iteration">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code></div>
-    
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

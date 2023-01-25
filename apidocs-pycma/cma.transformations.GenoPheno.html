@@ -7,70 +7,439 @@
   <head>
     
     <title>cma.transformations.GenoPheno</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code><wbr></wbr>.<code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">GenoPheno</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.transformations.GenoPheno.html" class="internal-link" title="This class"><wbr></wbr>Geno<wbr></wbr>Pheno</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.transformations.GenoPheno.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#geno" class="internal-link" title="cma.transformations.GenoPheno.geno">geno</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pheno" class="internal-link" title="cma.transformations.GenoPheno.pheno">pheno</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fixed_values" class="internal-link" title="cma.transformations.GenoPheno.fixed_values">fixed<wbr></wbr>_values</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#isidentity" class="internal-link" title="cma.transformations.GenoPheno.isidentity">isidentity</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#islinear" class="internal-link" title="cma.transformations.GenoPheno.islinear">islinear</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#N" class="internal-link" title="cma.transformations.GenoPheno.N">N</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#repaired_solutions" class="internal-link" title="cma.transformations.GenoPheno.repaired_solutions">repaired<wbr></wbr>_solutions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#scales" class="internal-link" title="cma.transformations.GenoPheno.scales">scales</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tf_geno" class="internal-link" title="cma.transformations.GenoPheno.tf_geno">tf<wbr></wbr>_geno</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tf_pheno" class="internal-link" title="cma.transformations.GenoPheno.tf_pheno">tf<wbr></wbr>_pheno</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#typical_x" class="internal-link" title="cma.transformations.GenoPheno.typical_x">typical<wbr></wbr>_x</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.transformations.html" class="internal-link" title="The parent of this class">transformations</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.AdaptiveDecoding.html" class="internal-link" title="cma.transformations.AdaptiveDecoding"><wbr></wbr>Adaptive<wbr></wbr>Decoding</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.BoxConstraintsLinQuadTransformation.html" class="internal-link" title="cma.transformations.BoxConstraintsLinQuadTransformation"><wbr></wbr>Box<wbr></wbr>Constraints<wbr></wbr>Lin<wbr></wbr>Quad<wbr></wbr>Transformation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.BoxConstraintsTransformationBase.html" class="internal-link" title="cma.transformations.BoxConstraintsTransformationBase"><wbr></wbr>Box<wbr></wbr>Constraints<wbr></wbr>Transformation<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.ConstRandnShift.html" class="internal-link" title="cma.transformations.ConstRandnShift"><wbr></wbr>Const<wbr></wbr>Randn<wbr></wbr>Shift</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.DiagonalDecoding.html" class="internal-link" title="cma.transformations.DiagonalDecoding"><wbr></wbr>Diagonal<wbr></wbr>Decoding</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno"><wbr></wbr>Geno<wbr></wbr>Pheno</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.Rotation.html" class="internal-link" title="cma.transformations.Rotation"><wbr></wbr>Rotation</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations._BoxConstraintsTransformationTemplate.html" class="internal-link" title="cma.transformations._BoxConstraintsTransformationTemplate">_<wbr></wbr>Box<wbr></wbr>Constraints<wbr></wbr>Transformation<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">GenoPheno</span>(object):</code></p>
-        <p><a href="classIndex.html#cma.transformations.GenoPheno">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>Genotype-phenotype transformation.</p>
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code><wbr></wbr>.<code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">GenoPheno</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">GenoPheno</span>(object):</code></p>
+          <p><a href="classIndex.html#cma.transformations.GenoPheno">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Genotype-phenotype transformation.</p>
 <p>Method <code><a href="#pheno" class="internal-link" title="cma.transformations.GenoPheno.pheno">pheno</a></code> provides the transformation from geno- to phenotype,
 that is from the internal representation to the representation used
 in the objective function. Method <code><a href="#geno" class="internal-link" title="cma.transformations.GenoPheno.geno">geno</a></code> provides the "inverse" pheno-
@@ -90,10 +459,10 @@ applied, if the transformation is given as argument to the method
 <code><a href="#pheno" class="internal-link" title="cma.transformations.GenoPheno.pheno">pheno</a></code>.</p>
 <p><code><a href="#geno" class="internal-link" title="cma.transformations.GenoPheno.geno">geno</a></code> is only necessary, if solutions have been injected.</p>
 </div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id532">
+        <div id="splitTables">
+          <table class="children sortable" id="id454">
   
   
   <tr class="method">
@@ -114,7 +483,7 @@ applied, if the transformation is given as argument to the method
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#fixed_values" class="internal-link" title="cma.transformations.GenoPheno.fixed_values">fixed​_values</a></code></td>
+    <td><code><a href="#fixed_values" class="internal-link" title="cma.transformations.GenoPheno.fixed_values">fixed<wbr></wbr>_values</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -134,7 +503,7 @@ applied, if the transformation is given as argument to the method
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#repaired_solutions" class="internal-link" title="cma.transformations.GenoPheno.repaired_solutions">repaired​_solutions</a></code></td>
+    <td><code><a href="#repaired_solutions" class="internal-link" title="cma.transformations.GenoPheno.repaired_solutions">repaired<wbr></wbr>_solutions</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -144,28 +513,27 @@ applied, if the transformation is given as argument to the method
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#tf_geno" class="internal-link" title="cma.transformations.GenoPheno.tf_geno">tf​_geno</a></code></td>
+    <td><code><a href="#tf_geno" class="internal-link" title="cma.transformations.GenoPheno.tf_geno">tf<wbr></wbr>_geno</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#tf_pheno" class="internal-link" title="cma.transformations.GenoPheno.tf_pheno">tf​_pheno</a></code></td>
+    <td><code><a href="#tf_pheno" class="internal-link" title="cma.transformations.GenoPheno.tf_pheno">tf<wbr></wbr>_pheno</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#typical_x" class="internal-link" title="cma.transformations.GenoPheno.typical_x">typical​_x</a></code></td>
+    <td><code><a href="#typical_x" class="internal-link" title="cma.transformations.GenoPheno.typical_x">typical<wbr></wbr>_x</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.transformations.GenoPheno.__init__">
@@ -178,9 +546,13 @@ applied, if the transformation is given as argument to the method
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, dim, scaling=None, typical_x=None, fixed_values=None, tf=None):
     
+    <a class="headerLink" href="#__init__" title="cma.transformations.GenoPheno.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return <code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">GenoPheno</a></code> instance with phenotypic dimension <code><a href="cma.transformations.DiagonalDecoding.html#dim" class="internal-link" title="cma.transformations.DiagonalDecoding.dim">dim</a></code>.</p>
 <div class="rst-section" id="rst-keyword-arguments">
@@ -242,9 +614,13 @@ unexpected results.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">geno</span>(self, y, from_bounds=None, copy=True, repair=None, archive=None):
     
+    <a class="headerLink" href="#geno" title="cma.transformations.GenoPheno.geno">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>maps the phenotypic input argument into the genotypic space,
 that is, computes essentially the inverse of <tt class="rst-docutils literal">pheno</tt>.</p>
@@ -277,9 +653,13 @@ Mahalanobis norm of <tt class="rst-docutils literal">geno(y) - mean</tt>.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">pheno</span>(self, x, into_bounds=None, copy=True, archive=None, iteration=None):
     
+    <a class="headerLink" href="#pheno" title="cma.transformations.GenoPheno.pheno">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>maps the genotypic input argument into the phenotypic space,
 see help for class <code><a href="cma.transformations.GenoPheno.html" class="internal-link" title="cma.transformations.GenoPheno">GenoPheno</a></code></p>
@@ -303,9 +683,13 @@ transformation.</p>
     
     <span class="py-defname">fixed_values</span> =
     
+    <a class="headerLink" href="#fixed_values" title="cma.transformations.GenoPheno.fixed_values">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -323,9 +707,13 @@ transformation.</p>
     
     <span class="py-defname">isidentity</span>: <code>bool</code> =
     
+    <a class="headerLink" href="#isidentity" title="cma.transformations.GenoPheno.isidentity">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -343,9 +731,13 @@ transformation.</p>
     
     <span class="py-defname">islinear</span>: <code>bool</code> =
     
+    <a class="headerLink" href="#islinear" title="cma.transformations.GenoPheno.islinear">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -363,9 +755,13 @@ transformation.</p>
     
     <span class="py-defname">N</span> =
     
+    <a class="headerLink" href="#N" title="cma.transformations.GenoPheno.N">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -383,9 +779,13 @@ transformation.</p>
     
     <span class="py-defname">repaired_solutions</span> =
     
+    <a class="headerLink" href="#repaired_solutions" title="cma.transformations.GenoPheno.repaired_solutions">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -403,9 +803,13 @@ transformation.</p>
     
     <span class="py-defname">scales</span>: <code>int</code> =
     
+    <a class="headerLink" href="#scales" title="cma.transformations.GenoPheno.scales">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -423,9 +827,13 @@ transformation.</p>
     
     <span class="py-defname">tf_geno</span> =
     
+    <a class="headerLink" href="#tf_geno" title="cma.transformations.GenoPheno.tf_geno">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -443,9 +851,13 @@ transformation.</p>
     
     <span class="py-defname">tf_pheno</span> =
     
+    <a class="headerLink" href="#tf_pheno" title="cma.transformations.GenoPheno.tf_pheno">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -463,27 +875,40 @@ transformation.</p>
     
     <span class="py-defname">typical_x</span>: <code>int</code> =
     
+    <a class="headerLink" href="#typical_x" title="cma.transformations.GenoPheno.typical_x">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

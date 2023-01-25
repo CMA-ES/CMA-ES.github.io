@@ -7,70 +7,532 @@
   <head>
     
     <title>cma.constraints_handler.CountLastSameChanges</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints_handler</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.CountLastSameChanges.html" class="internal-link" title="cma.constraints_handler.CountLastSameChanges">CountLastSameChanges</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.constraints_handler.CountLastSameChanges.html" class="internal-link" title="This class"><wbr></wbr>Count<wbr></wbr>Last<wbr></wbr>Same<wbr></wbr>Changes</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#init" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.init">init</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#shape_exponent" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.shape_exponent">shape<wbr></wbr>_exponent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.update">update</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#chi_exponent_factor" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.chi_exponent_factor">chi<wbr></wbr>_exponent<wbr></wbr>_factor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#chi_exponent_threshold" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.chi_exponent_threshold">chi<wbr></wbr>_exponent<wbr></wbr>_threshold</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#parent" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.parent">parent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#same_changes" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.same_changes">same<wbr></wbr>_changes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dimension" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.dimension">dimension</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.constraints_handler.html" class="internal-link" title="The parent of this class">constraints<wbr></wbr>_handler</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian"><wbr></wbr>Augmented<wbr></wbr>Lagrangian</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.BoundaryHandlerBase.html" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase"><wbr></wbr>Boundary<wbr></wbr>Handler<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.BoundNone.html" class="internal-link" title="cma.constraints_handler.BoundNone"><wbr></wbr>Bound<wbr></wbr>None</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link" title="cma.constraints_handler.BoundPenalty"><wbr></wbr>Bound<wbr></wbr>Penalty</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.BoundTransform.html" class="internal-link" title="cma.constraints_handler.BoundTransform"><wbr></wbr>Bound<wbr></wbr>Transform</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.ConstrainedFitnessAL.html" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL"><wbr></wbr>Constrained<wbr></wbr>Fitness<wbr></wbr>AL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.ConstrainedSolutionsArchive.html" class="internal-link" title="cma.constraints_handler.ConstrainedSolutionsArchive"><wbr></wbr>Constrained<wbr></wbr>Solutions<wbr></wbr>Archive</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.CountLastSameChanges.html" class="internal-link" title="cma.constraints_handler.CountLastSameChanges"><wbr></wbr>Count<wbr></wbr>Last<wbr></wbr>Same<wbr></wbr>Changes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.DequeCDF.html" class="internal-link" title="cma.constraints_handler.DequeCDF"><wbr></wbr>Deque<wbr></wbr>CDF</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.LoggerList.html" class="internal-link" title="cma.constraints_handler.LoggerList"><wbr></wbr>Logger<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.PopulationEvaluator.html" class="internal-link" title="cma.constraints_handler.PopulationEvaluator"><wbr></wbr>Population<wbr></wbr>Evaluator</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#constraints_info_dict" class="internal-link" title="cma.constraints_handler.constraints_info_dict">constraints<wbr></wbr>_info<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_g_pos_max" class="internal-link" title="cma.constraints_handler._g_pos_max">_g<wbr></wbr>_pos<wbr></wbr>_max</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_g_pos_squared_sum" class="internal-link" title="cma.constraints_handler._g_pos_squared_sum">_g<wbr></wbr>_pos<wbr></wbr>_squared<wbr></wbr>_sum</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_g_pos_sum" class="internal-link" title="cma.constraints_handler._g_pos_sum">_g<wbr></wbr>_pos<wbr></wbr>_sum</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_get_favorite_solution" class="internal-link" title="cma.constraints_handler._get_favorite_solution">_get<wbr></wbr>_favorite<wbr></wbr>_solution</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_log_feas_events" class="internal-link" title="cma.constraints_handler._log_feas_events">_log<wbr></wbr>_feas<wbr></wbr>_events</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_log_g" class="internal-link" title="cma.constraints_handler._log_g">_log<wbr></wbr>_g</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_log_lam" class="internal-link" title="cma.constraints_handler._log_lam">_log<wbr></wbr>_lam</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_log_mu" class="internal-link" title="cma.constraints_handler._log_mu">_log<wbr></wbr>_mu</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">CountLastSameChanges</span>:</code></p>
-        <p><a href="classIndex.html#cma.constraints_handler.CountLastSameChanges">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>An array/list of successive same-sign counts.</p>
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints_handler</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.CountLastSameChanges.html" class="internal-link" title="cma.constraints_handler.CountLastSameChanges">CountLastSameChanges</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">CountLastSameChanges</span>:</code></p>
+          <p><a href="classIndex.html#cma.constraints_handler.CountLastSameChanges">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>An array/list of successive same-sign counts.</p>
 <p><tt class="rst-docutils literal">.same_changes[i]</tt> counts how often the same sign was successively
 observed during <tt class="rst-docutils literal"><span class="pre">update(...,</span> i, change)</tt>. When the sign flips,
 <tt class="rst-docutils literal">.same_changes[i]</tt> is reset to 1 or -1.</p>
@@ -78,10 +540,10 @@ observed during <tt class="rst-docutils literal"><span class="pre">update(...,</
 A valid use case is <tt class="rst-docutils literal">lsc = <span class="pre">CountLastSameChanges().init(dimension)</span></tt>.</p>
 <p>TODO: parameters may need to depend on population size?</p>
 </div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id395">
+        <div id="splitTables">
+          <table class="children sortable" id="id315">
   
   
   <tr class="method">
@@ -97,7 +559,7 @@ A valid use case is <tt class="rst-docutils literal">lsc = <span class="pre">Cou
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#shape_exponent" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.shape_exponent">shape​_exponent</a></code></td>
+    <td><code><a href="#shape_exponent" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.shape_exponent">shape<wbr></wbr>_exponent</a></code></td>
     <td>return value to be added to exponent from change count.</td>
   </tr><tr class="method">
     
@@ -107,12 +569,12 @@ A valid use case is <tt class="rst-docutils literal">lsc = <span class="pre">Cou
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#chi_exponent_factor" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.chi_exponent_factor">chi​_exponent​_factor</a></code></td>
+    <td><code><a href="#chi_exponent_factor" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.chi_exponent_factor">chi<wbr></wbr>_exponent<wbr></wbr>_factor</a></code></td>
     <td>increase chi exponent up to given threshold, can make up for dimension dependent chi</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#chi_exponent_threshold" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.chi_exponent_threshold">chi​_exponent​_threshold</a></code></td>
+    <td><code><a href="#chi_exponent_threshold" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.chi_exponent_threshold">chi<wbr></wbr>_exponent<wbr></wbr>_threshold</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -122,7 +584,7 @@ A valid use case is <tt class="rst-docutils literal">lsc = <span class="pre">Cou
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#same_changes" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.same_changes">same​_changes</a></code></td>
+    <td><code><a href="#same_changes" class="internal-link" title="cma.constraints_handler.CountLastSameChanges.same_changes">same<wbr></wbr>_changes</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="property">
     
@@ -131,14 +593,13 @@ A valid use case is <tt class="rst-docutils literal">lsc = <span class="pre">Cou
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.constraints_handler.CountLastSameChanges.__init__">
@@ -151,9 +612,13 @@ A valid use case is <tt class="rst-docutils literal">lsc = <span class="pre">Cou
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, parent=None):
     
+    <a class="headerLink" href="#__init__" title="cma.constraints_handler.CountLastSameChanges.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -170,11 +635,16 @@ A valid use case is <tt class="rst-docutils literal">lsc = <span class="pre">Cou
     
     <span class="py-keyword">def</span> <span class="py-defname">init</span>(self, dimension, force=False):
     
+    <a class="headerLink" href="#init" title="cma.constraints_handler.CountLastSameChanges.init">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>do not overwrite user-set values unless <code>force</code></div>
+    <div><p>do not overwrite user-set values unless <code>force</code></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -189,9 +659,13 @@ A valid use case is <tt class="rst-docutils literal">lsc = <span class="pre">Cou
     
     <span class="py-keyword">def</span> <span class="py-defname">shape_exponent</span>(self, i):
     
+    <a class="headerLink" href="#shape_exponent" title="cma.constraints_handler.CountLastSameChanges.shape_exponent">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return value to be added to exponent from change count.</p>
 <p>return a positive/negative value (or zero) when the last change was
@@ -215,11 +689,16 @@ flip sign.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, i, change):
     
+    <a class="headerLink" href="#update" title="cma.constraints_handler.CountLastSameChanges.update">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>update <tt class="rst-docutils literal">same_changes[i]</tt> count based on the sign of <code>change</code></div>
+    <div><p>update <tt class="rst-docutils literal">same_changes[i]</tt> count based on the sign of <code>change</code></p>
+</div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -234,11 +713,16 @@ flip sign.</p>
     
     <span class="py-defname">chi_exponent_factor</span> =
     
+    <a class="headerLink" href="#chi_exponent_factor" title="cma.constraints_handler.CountLastSameChanges.chi_exponent_factor">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>increase chi exponent up to given threshold, can make up for dimension dependent chi</div>
+    <div><p>increase chi exponent up to given threshold, can make up for dimension dependent chi</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -254,9 +738,13 @@ flip sign.</p>
     
     <span class="py-defname">chi_exponent_threshold</span> =
     
+    <a class="headerLink" href="#chi_exponent_threshold" title="cma.constraints_handler.CountLastSameChanges.chi_exponent_threshold">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -274,11 +762,16 @@ flip sign.</p>
     
     <span class="py-defname">parent</span> =
     
+    <a class="headerLink" href="#parent" title="cma.constraints_handler.CountLastSameChanges.parent">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>count of the number of changes with the same sign, where</div>
+    <div><p>count of the number of changes with the same sign, where</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -294,9 +787,13 @@ flip sign.</p>
     
     <span class="py-defname">same_changes</span> =
     
+    <a class="headerLink" href="#same_changes" title="cma.constraints_handler.CountLastSameChanges.same_changes">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -314,27 +811,40 @@ flip sign.</p>
     @property<br />
     <span class="py-defname">dimension</span> =
     
+    <a class="headerLink" href="#dimension" title="cma.constraints_handler.CountLastSameChanges.dimension">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

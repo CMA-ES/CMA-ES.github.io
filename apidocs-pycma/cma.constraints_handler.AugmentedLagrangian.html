@@ -7,73 +7,925 @@
   <head>
     
     <title>cma.constraints_handler.AugmentedLagrangian</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints_handler</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian">AugmentedLagrangian</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="This class"><wbr></wbr>Augmented<wbr></wbr>Lagrangian</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__call__" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.__call__">__call__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#muminus2" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muminus2">muminus2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#muminus3" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muminus3">muminus3</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#muminus4" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muminus4">muminus4</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#muplus2" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muplus2">muplus2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#muplus3" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muplus3">muplus3</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#muplus4" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.muplus4">muplus4</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set<wbr></wbr>_algorithm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_atamna2017" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_atamna2017">set<wbr></wbr>_atamna2017</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_coefficients" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_coefficients">set<wbr></wbr>_coefficients</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_dufosse2020" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_dufosse2020">set<wbr></wbr>_dufosse2020</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_m" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_m">set<wbr></wbr>_m</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.update">update</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_check_dtypes" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._check_dtypes">_check<wbr></wbr>_dtypes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_init_" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._init_">_init_</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_set_parameters" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._set_parameters">_set<wbr></wbr>_parameters</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.algorithm">algorithm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#chi_domega" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.chi_domega">chi<wbr></wbr>_domega</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#count" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count">count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#count_calls" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_calls">count<wbr></wbr>_calls</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#count_g_in_penalized_domain" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_g_in_penalized_domain">count<wbr></wbr>_g<wbr></wbr>_in<wbr></wbr>_penalized<wbr></wbr>_domain</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#count_mu_last_same_changes" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_mu_last_same_changes">count<wbr></wbr>_mu<wbr></wbr>_last<wbr></wbr>_same<wbr></wbr>_changes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#counts" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.counts">counts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dgamma" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.dgamma">dgamma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dimension" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.dimension">dimension</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#f" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.f">f</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#F" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.F">F</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#g" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g">g</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#G" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.G">G</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#g_all" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g_all">g<wbr></wbr>_all</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#g_history" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g_history">g<wbr></wbr>_history</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#k1" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.k1">k1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#k2" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.k2">k2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#lam" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.lam">lam</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#lam_opt" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.lam_opt">lam<wbr></wbr>_opt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger_mu_conditions" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.logger_mu_conditions">logger<wbr></wbr>_mu<wbr></wbr>_conditions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#loggers" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.loggers">loggers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logging" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.logging">logging</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mu" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.mu">mu</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mucdf3_horizon" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.mucdf3_horizon">mucdf3<wbr></wbr>_horizon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#count_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_initialized">count<wbr></wbr>_initialized</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#feasibility_ratios" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.feasibility_ratios">feasibility<wbr></wbr>_ratios</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.is_initialized">is<wbr></wbr>_initialized</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#isequality" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.isequality">isequality</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#m" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.m">m</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_equality" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._equality">_equality</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._initialized">_initialized</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.constraints_handler.html" class="internal-link" title="The parent of this class">constraints<wbr></wbr>_handler</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian"><wbr></wbr>Augmented<wbr></wbr>Lagrangian</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.BoundaryHandlerBase.html" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase"><wbr></wbr>Boundary<wbr></wbr>Handler<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.BoundNone.html" class="internal-link" title="cma.constraints_handler.BoundNone"><wbr></wbr>Bound<wbr></wbr>None</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link" title="cma.constraints_handler.BoundPenalty"><wbr></wbr>Bound<wbr></wbr>Penalty</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.BoundTransform.html" class="internal-link" title="cma.constraints_handler.BoundTransform"><wbr></wbr>Bound<wbr></wbr>Transform</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.ConstrainedFitnessAL.html" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL"><wbr></wbr>Constrained<wbr></wbr>Fitness<wbr></wbr>AL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.ConstrainedSolutionsArchive.html" class="internal-link" title="cma.constraints_handler.ConstrainedSolutionsArchive"><wbr></wbr>Constrained<wbr></wbr>Solutions<wbr></wbr>Archive</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.CountLastSameChanges.html" class="internal-link" title="cma.constraints_handler.CountLastSameChanges"><wbr></wbr>Count<wbr></wbr>Last<wbr></wbr>Same<wbr></wbr>Changes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.DequeCDF.html" class="internal-link" title="cma.constraints_handler.DequeCDF"><wbr></wbr>Deque<wbr></wbr>CDF</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.LoggerList.html" class="internal-link" title="cma.constraints_handler.LoggerList"><wbr></wbr>Logger<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.PopulationEvaluator.html" class="internal-link" title="cma.constraints_handler.PopulationEvaluator"><wbr></wbr>Population<wbr></wbr>Evaluator</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#constraints_info_dict" class="internal-link" title="cma.constraints_handler.constraints_info_dict">constraints<wbr></wbr>_info<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_g_pos_max" class="internal-link" title="cma.constraints_handler._g_pos_max">_g<wbr></wbr>_pos<wbr></wbr>_max</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_g_pos_squared_sum" class="internal-link" title="cma.constraints_handler._g_pos_squared_sum">_g<wbr></wbr>_pos<wbr></wbr>_squared<wbr></wbr>_sum</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_g_pos_sum" class="internal-link" title="cma.constraints_handler._g_pos_sum">_g<wbr></wbr>_pos<wbr></wbr>_sum</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_get_favorite_solution" class="internal-link" title="cma.constraints_handler._get_favorite_solution">_get<wbr></wbr>_favorite<wbr></wbr>_solution</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_log_feas_events" class="internal-link" title="cma.constraints_handler._log_feas_events">_log<wbr></wbr>_feas<wbr></wbr>_events</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_log_g" class="internal-link" title="cma.constraints_handler._log_g">_log<wbr></wbr>_g</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_log_lam" class="internal-link" title="cma.constraints_handler._log_lam">_log<wbr></wbr>_lam</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html#_log_mu" class="internal-link" title="cma.constraints_handler._log_mu">_log<wbr></wbr>_mu</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">AugmentedLagrangian</span>(object):</code></p>
-        <p><a href="classIndex.html#cma.constraints_handler.AugmentedLagrangian">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>Augmented Lagrangian with adaptation of the coefficients</p>
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints_handler</a></code><wbr></wbr>.<code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian">AugmentedLagrangian</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">AugmentedLagrangian</span>(object):</code></p>
+          <p><a href="classIndex.html#cma.constraints_handler.AugmentedLagrangian">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Augmented Lagrangian with adaptation of the coefficients</p>
 <p>for minimization, implemented after Atamna et al FOGA 2017,
 Algorithm 1 and Sect 8.2, <a class="rst-reference external" href="https://hal.inria.fr/hal-01455379/document" target="_top">https://hal.inria.fr/hal-01455379/document</a>.</p>
-<p><code><a href="cma.constraints_handler.ConstrainedFitnessAL.html" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL">cma.ConstrainedFitnessAL</a></code> provides a (more) user-friendly interface to
+<p><code>cma.ConstrainedFitnessAL</code> provides a (more) user-friendly interface to
 the <code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian">AugmentedLagrangian</a></code> class.</p>
 <p>Input <code><a href="#dimension" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.dimension">dimension</a></code> is the search space dimension, boolean <code>equality</code>
 may be an iterable of length of number of constraints indicating the
@@ -130,22 +982,22 @@ default seems to give better results than the original setting.</p>
 <span class="py-more">... </span>    <span class="py-keyword">assert</span> es.countevals &lt; evals, (algorithm, es.countevals)
 <span class="py-more">... </span>    <span class="py-keyword">assert</span> alf.best_feas.f &lt; 10, (algorithm, <span class="py-builtin">str</span>(alf.best_feas))
 <span class="py-more">... </span>    <span class="py-comment"># print(algorithm, es.countevals, ) #alf.best_feas.__dict__)</span></pre></div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id396">
+        <div id="splitTables">
+          <table class="children sortable" id="id316">
   
   
   <tr class="method">
     
     <td>Method</td>
     <td><code><a href="#__call__" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.__call__">__call__</a></code></td>
-    <td>return <code>list</code> of AL penalties for constraints values in <code><a href="#g" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g">g</a></code>.</td>
+    <td>return <code>list</code> of AL penalties for constraints values in <code><a href="cma.constraints_handler.AugmentedLagrangian.html#g" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g">g</a></code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
     <td><code><a href="#__init__" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.__init__">__init__</a></code></td>
-    <td>use <code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set_algorithm()</a></code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</td>
+    <td>use <code><a href="cma.constraints_handler.AugmentedLagrangian.html#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set_algorithm()</a></code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -179,27 +1031,27 @@ default seems to give better results than the original setting.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set​_algorithm</a></code></td>
+    <td><code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set<wbr></wbr>_algorithm</a></code></td>
     <td>if algorithm not <code>None</code>, set it and return self,</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#set_atamna2017" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_atamna2017">set​_atamna2017</a></code></td>
+    <td><code><a href="#set_atamna2017" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_atamna2017">set<wbr></wbr>_atamna2017</a></code></td>
     <td>Atamna et al 2017 parameter settings</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#set_coefficients" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_coefficients">set​_coefficients</a></code></td>
+    <td><code><a href="#set_coefficients" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_coefficients">set<wbr></wbr>_coefficients</a></code></td>
     <td>compute initial coefficients based on some f- and g-values.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#set_dufosse2020" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_dufosse2020">set​_dufosse2020</a></code></td>
+    <td><code><a href="#set_dufosse2020" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_dufosse2020">set<wbr></wbr>_dufosse2020</a></code></td>
     <td>Dufosse &amp; Hansen 2020 parameter settings</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#set_m" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_m">set​_m</a></code></td>
+    <td><code><a href="#set_m" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_m">set<wbr></wbr>_m</a></code></td>
     <td>initialize attributes which depend on the number of constraints.</td>
   </tr><tr class="method">
     
@@ -214,7 +1066,7 @@ default seems to give better results than the original setting.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#chi_domega" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.chi_domega">chi​_domega</a></code></td>
+    <td><code><a href="#chi_domega" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.chi_domega">chi<wbr></wbr>_domega</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -224,17 +1076,17 @@ default seems to give better results than the original setting.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#count_calls" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_calls">count​_calls</a></code></td>
+    <td><code><a href="#count_calls" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_calls">count<wbr></wbr>_calls</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#count_g_in_penalized_domain" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_g_in_penalized_domain">count​_g​_in​_penalized​_domain</a></code></td>
+    <td><code><a href="#count_g_in_penalized_domain" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_g_in_penalized_domain">count<wbr></wbr>_g<wbr></wbr>_in<wbr></wbr>_penalized<wbr></wbr>_domain</a></code></td>
     <td>number of times g induced a penality in __call__ since last update</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#count_mu_last_same_changes" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_mu_last_same_changes">count​_mu​_last​_same​_changes</a></code></td>
+    <td><code><a href="#count_mu_last_same_changes" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_mu_last_same_changes">count<wbr></wbr>_mu<wbr></wbr>_last<wbr></wbr>_same<wbr></wbr>_changes</a></code></td>
     <td>number of same changes of mu, -3 means it decreased in all last three iterations</td>
   </tr><tr class="instancevariable">
     
@@ -274,12 +1126,12 @@ default seems to give better results than the original setting.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#g_all" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g_all">g​_all</a></code></td>
+    <td><code><a href="#g_all" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g_all">g<wbr></wbr>_all</a></code></td>
     <td>all g-values from calling the class, recorded but not in use</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#g_history" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g_history">g​_history</a></code></td>
+    <td><code><a href="#g_history" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g_history">g<wbr></wbr>_history</a></code></td>
     <td>g-values from calling update</td>
   </tr><tr class="instancevariable">
     
@@ -299,12 +1151,12 @@ default seems to give better results than the original setting.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#lam_opt" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.lam_opt">lam​_opt</a></code></td>
+    <td><code><a href="#lam_opt" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.lam_opt">lam<wbr></wbr>_opt</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#logger_mu_conditions" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.logger_mu_conditions">logger​_mu​_conditions</a></code></td>
+    <td><code><a href="#logger_mu_conditions" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.logger_mu_conditions">logger<wbr></wbr>_mu<wbr></wbr>_conditions</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -324,22 +1176,22 @@ default seems to give better results than the original setting.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#mucdf3_horizon" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.mucdf3_horizon">mucdf3​_horizon</a></code></td>
+    <td><code><a href="#mucdf3_horizon" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.mucdf3_horizon">mucdf3<wbr></wbr>_horizon</a></code></td>
     <td>number of data to compute cdf for mu adaptation</td>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#count_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_initialized">count​_initialized</a></code></td>
+    <td><code><a href="#count_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.count_initialized">count<wbr></wbr>_initialized</a></code></td>
     <td>number of constraints with initialized coefficients</td>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#feasibility_ratios" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.feasibility_ratios">feasibility​_ratios</a></code></td>
+    <td><code><a href="#feasibility_ratios" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.feasibility_ratios">feasibility<wbr></wbr>_ratios</a></code></td>
     <td>or bias for equality constraints, versatile interface may change</td>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#is_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.is_initialized">is​_initialized</a></code></td>
+    <td><code><a href="#is_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.is_initialized">is<wbr></wbr>_initialized</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="property">
     
@@ -354,43 +1206,37 @@ default seems to give better results than the original setting.</p>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_check_dtypes" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._check_dtypes">​_check​_dtypes</a></code></td>
+    <td><code><a href="#_check_dtypes" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._check_dtypes">_check<wbr></wbr>_dtypes</a></code></td>
     <td>in case the user set the attributes</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_init_" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._init_">​_init​_</a></code></td>
+    <td><code><a href="#_init_" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._init_">_init_</a></code></td>
     <td>allow to reset the logger with a single call</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_set_parameters" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._set_parameters">​_set​_parameters</a></code></td>
+    <td><code><a href="#_set_parameters" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._set_parameters">_set<wbr></wbr>_parameters</a></code></td>
     <td>set parameters based on the value of <code>self.algorithm</code></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_count_noupdate" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._count_noupdate">​_count​_noupdate</a></code></td>
+    <td><code><a href="#_equality" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._equality">_equality</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_equality" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._equality">​_equality</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable private">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="#_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._initialized">​_initialized</a></code></td>
+    <td><code><a href="#_initialized" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian._initialized">_initialized</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.constraints_handler.AugmentedLagrangian.__call__">
@@ -403,9 +1249,13 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, g):
     
+    <a class="headerLink" href="#__call__" title="cma.constraints_handler.AugmentedLagrangian.__call__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return <code>list</code> of AL penalties for constraints values in <code><a href="#g" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.g">g</a></code>.</p>
 <p>Penalties are zero in the optimum and can be negative down to
@@ -425,11 +1275,16 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, dimension, equality=False):
     
+    <a class="headerLink" href="#__init__" title="cma.constraints_handler.AugmentedLagrangian.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>use <code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set_algorithm()</a></code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</div>
+    <div><p>use <code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set_algorithm()</a></code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -444,11 +1299,16 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">muminus2</span>(self, g, i, threshold=0.05):
     
+    <a class="headerLink" href="#muminus2" title="cma.constraints_handler.AugmentedLagrangian.muminus2">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>provisorial function to correct mu minus condition, original is <code>True</code></div>
+    <div><p>provisorial function to correct mu minus condition, original is <code>True</code></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -463,11 +1323,16 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">muminus3</span>(self, g, i, threshold=0.9):
     
+    <a class="headerLink" href="#muminus3" title="cma.constraints_handler.AugmentedLagrangian.muminus3">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return <code>True</code> if mu should be reduced, else <code>False</code></div>
+    <div><p>return <code>True</code> if mu should be reduced, else <code>False</code></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -482,11 +1347,16 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">muminus4</span>(self, g, i, threshold=0.9):
     
+    <a class="headerLink" href="#muminus4" title="cma.constraints_handler.AugmentedLagrangian.muminus4">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return <code>True</code> if mu should be reduced, else <code>False</code></div>
+    <div><p>return <code>True</code> if mu should be reduced, else <code>False</code></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -501,11 +1371,16 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">muplus2</span>(self, g, i, threshold=0.4):
     
+    <a class="headerLink" href="#muplus2" title="cma.constraints_handler.AugmentedLagrangian.muplus2">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>provisorial function to correct mu plus condition, original is <code>True</code></div>
+    <div><p>provisorial function to correct mu plus condition, original is <code>True</code></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -520,11 +1395,16 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">muplus3</span>(self, g, i, threshold=0.95):
     
+    <a class="headerLink" href="#muplus3" title="cma.constraints_handler.AugmentedLagrangian.muplus3">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return <code>True</code> if mu should be increased, else <code>False</code></div>
+    <div><p>return <code>True</code> if mu should be increased, else <code>False</code></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -539,11 +1419,16 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">muplus4</span>(self, g, i, threshold=0.95):
     
+    <a class="headerLink" href="#muplus4" title="cma.constraints_handler.AugmentedLagrangian.muplus4">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return <code>True</code> if mu should be increased, else <code>False</code></div>
+    <div><p>return <code>True</code> if mu should be increased, else <code>False</code></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -558,9 +1443,13 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">set_algorithm</span>(self, algorithm=None):
     
+    <a class="headerLink" href="#set_algorithm" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>if algorithm not <code>None</code>, set it and return self,</p>
 <p>otherwise return current algorithm value which should be an integer.</p>
@@ -580,11 +1469,16 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">set_atamna2017</span>(self):
     
+    <a class="headerLink" href="#set_atamna2017" title="cma.constraints_handler.AugmentedLagrangian.set_atamna2017">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>Atamna et al 2017 parameter settings</div>
+    <div><p>Atamna et al 2017 parameter settings</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -599,9 +1493,13 @@ default seems to give better results than the original setting.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">set_coefficients</span>(self, F, G):
     
+    <a class="headerLink" href="#set_coefficients" title="cma.constraints_handler.AugmentedLagrangian.set_coefficients">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>compute initial coefficients based on some f- and g-values.</p>
 <p>The formulas to set the coefficients:</p>
@@ -629,11 +1527,16 @@ and more than 10% feasible at the same time. Afterwards, this at least...?...</p
     
     <span class="py-keyword">def</span> <span class="py-defname">set_dufosse2020</span>(self):
     
+    <a class="headerLink" href="#set_dufosse2020" title="cma.constraints_handler.AugmentedLagrangian.set_dufosse2020">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>Dufosse &amp; Hansen 2020 parameter settings</div>
+    <div><p>Dufosse &amp; Hansen 2020 parameter settings</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -648,9 +1551,13 @@ and more than 10% feasible at the same time. Afterwards, this at least...?...</p
     
     <span class="py-keyword">def</span> <span class="py-defname">set_m</span>(self, m):
     
+    <a class="headerLink" href="#set_m" title="cma.constraints_handler.AugmentedLagrangian.set_m">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>initialize attributes which depend on the number of constraints.</p>
 <p>This requires the <code><a href="#lam" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.lam">lam</a></code> attribute to be <code>None</code> and deletes all
@@ -670,9 +1577,13 @@ previously set or adapted <code><a href="#mu" class="internal-link" title="cma.c
     
     <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, f, g):
     
+    <a class="headerLink" href="#update" title="cma.constraints_handler.AugmentedLagrangian.update">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>f is a scalar, g is a vector.</p>
 <p>Update Lagrange multipliers based on Atamna et al 2017. f and g are
@@ -693,9 +1604,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">algorithm</span>: <code>int</code> =
     
+    <a class="headerLink" href="#algorithm" title="cma.constraints_handler.AugmentedLagrangian.algorithm">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -713,9 +1628,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">chi_domega</span> =
     
+    <a class="headerLink" href="#chi_domega" title="cma.constraints_handler.AugmentedLagrangian.chi_domega">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -733,9 +1652,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">count</span>: <code>int</code> =
     
+    <a class="headerLink" href="#count" title="cma.constraints_handler.AugmentedLagrangian.count">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -753,9 +1676,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">count_calls</span>: <code>int</code> =
     
+    <a class="headerLink" href="#count_calls" title="cma.constraints_handler.AugmentedLagrangian.count_calls">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -773,11 +1700,16 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">count_g_in_penalized_domain</span>: <code>int</code> =
     
+    <a class="headerLink" href="#count_g_in_penalized_domain" title="cma.constraints_handler.AugmentedLagrangian.count_g_in_penalized_domain">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>number of times g induced a penality in __call__ since last update</div>
+    <div><p>number of times g induced a penality in __call__ since last update</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -793,11 +1725,16 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">count_mu_last_same_changes</span> =
     
+    <a class="headerLink" href="#count_mu_last_same_changes" title="cma.constraints_handler.AugmentedLagrangian.count_mu_last_same_changes">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>number of same changes of mu, -3 means it decreased in all last three iterations</div>
+    <div><p>number of same changes of mu, -3 means it decreased in all last three iterations</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -813,9 +1750,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">counts</span> =
     
+    <a class="headerLink" href="#counts" title="cma.constraints_handler.AugmentedLagrangian.counts">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -833,9 +1774,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">dgamma</span>: <code>int</code> =
     
+    <a class="headerLink" href="#dgamma" title="cma.constraints_handler.AugmentedLagrangian.dgamma">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -853,9 +1798,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">dimension</span> =
     
+    <a class="headerLink" href="#dimension" title="cma.constraints_handler.AugmentedLagrangian.dimension">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -873,9 +1822,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">f</span> =
     
+    <a class="headerLink" href="#f" title="cma.constraints_handler.AugmentedLagrangian.f">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -893,9 +1846,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">F</span> =
     
+    <a class="headerLink" href="#F" title="cma.constraints_handler.AugmentedLagrangian.F">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -913,9 +1870,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">g</span> =
     
+    <a class="headerLink" href="#g" title="cma.constraints_handler.AugmentedLagrangian.g">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -933,9 +1894,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">G</span> =
     
+    <a class="headerLink" href="#G" title="cma.constraints_handler.AugmentedLagrangian.G">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -953,11 +1918,16 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">g_all</span> =
     
+    <a class="headerLink" href="#g_all" title="cma.constraints_handler.AugmentedLagrangian.g_all">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>all g-values from calling the class, recorded but not in use</div>
+    <div><p>all g-values from calling the class, recorded but not in use</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -973,11 +1943,16 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">g_history</span> =
     
+    <a class="headerLink" href="#g_history" title="cma.constraints_handler.AugmentedLagrangian.g_history">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>g-values from calling update</div>
+    <div><p>g-values from calling update</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -993,9 +1968,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">k1</span>: <code>int</code> =
     
+    <a class="headerLink" href="#k1" title="cma.constraints_handler.AugmentedLagrangian.k1">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1013,9 +1992,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">k2</span>: <code>int</code> =
     
+    <a class="headerLink" href="#k2" title="cma.constraints_handler.AugmentedLagrangian.k2">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1033,9 +2016,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">lam</span> =
     
+    <a class="headerLink" href="#lam" title="cma.constraints_handler.AugmentedLagrangian.lam">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1053,9 +2040,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">lam_opt</span> =
     
+    <a class="headerLink" href="#lam_opt" title="cma.constraints_handler.AugmentedLagrangian.lam_opt">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1073,9 +2064,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">logger_mu_conditions</span> =
     
+    <a class="headerLink" href="#logger_mu_conditions" title="cma.constraints_handler.AugmentedLagrangian.logger_mu_conditions">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1093,9 +2088,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">loggers</span> =
     
+    <a class="headerLink" href="#loggers" title="cma.constraints_handler.AugmentedLagrangian.loggers">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1113,9 +2112,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">logging</span>: <code>int</code> =
     
+    <a class="headerLink" href="#logging" title="cma.constraints_handler.AugmentedLagrangian.logging">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1133,9 +2136,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">mu</span> =
     
+    <a class="headerLink" href="#mu" title="cma.constraints_handler.AugmentedLagrangian.mu">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1153,11 +2160,16 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">mucdf3_horizon</span> =
     
+    <a class="headerLink" href="#mucdf3_horizon" title="cma.constraints_handler.AugmentedLagrangian.mucdf3_horizon">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>number of data to compute cdf for mu adaptation</div>
+    <div><p>number of data to compute cdf for mu adaptation</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1173,11 +2185,16 @@ supposed to have been computed from the distribution mean.</p>
     @property<br />
     <span class="py-defname">count_initialized</span> =
     
+    <a class="headerLink" href="#count_initialized" title="cma.constraints_handler.AugmentedLagrangian.count_initialized">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>number of constraints with initialized coefficients</div>
+    <div><p>number of constraints with initialized coefficients</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1193,11 +2210,16 @@ supposed to have been computed from the distribution mean.</p>
     @property<br />
     <span class="py-defname">feasibility_ratios</span> =
     
+    <a class="headerLink" href="#feasibility_ratios" title="cma.constraints_handler.AugmentedLagrangian.feasibility_ratios">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>or bias for equality constraints, versatile interface may change</div>
+    <div><p>or bias for equality constraints, versatile interface may change</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1213,9 +2235,13 @@ supposed to have been computed from the distribution mean.</p>
     @property<br />
     <span class="py-defname">is_initialized</span> =
     
+    <a class="headerLink" href="#is_initialized" title="cma.constraints_handler.AugmentedLagrangian.is_initialized">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1233,11 +2259,16 @@ supposed to have been computed from the distribution mean.</p>
     @property<br />
     <span class="py-defname">isequality</span> =
     
+    <a class="headerLink" href="#isequality" title="cma.constraints_handler.AugmentedLagrangian.isequality">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>bool array, <code>True</code> if <code>i</code>-th constraint is an equality constraint</div>
+    <div><p>bool array, <code>True</code> if <code>i</code>-th constraint is an equality constraint</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1253,11 +2284,16 @@ supposed to have been computed from the distribution mean.</p>
     @property<br />
     <span class="py-defname">m</span> =
     
+    <a class="headerLink" href="#m" title="cma.constraints_handler.AugmentedLagrangian.m">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>number of constraints, raise <code>TypeError</code> if not set yet</div>
+    <div><p>number of constraints, raise <code>TypeError</code> if not set yet</p>
+</div>
     
   </div>
 </div><div class="basemethod private">
@@ -1273,11 +2309,16 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">_check_dtypes</span>(self):
     
+    <a class="headerLink" href="#_check_dtypes" title="cma.constraints_handler.AugmentedLagrangian._check_dtypes">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>in case the user set the attributes</div>
+    <div><p>in case the user set the attributes</p>
+</div>
   </div>
 </div><div class="basemethod private">
   
@@ -1292,11 +2333,16 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">_init_</span>(self):
     
+    <a class="headerLink" href="#_init_" title="cma.constraints_handler.AugmentedLagrangian._init_">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>allow to reset the logger with a single call</div>
+    <div><p>allow to reset the logger with a single call</p>
+</div>
   </div>
 </div><div class="basemethod private">
   
@@ -1311,31 +2357,16 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">_set_parameters</span>(self):
     
+    <a class="headerLink" href="#_set_parameters" title="cma.constraints_handler.AugmentedLagrangian._set_parameters">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>set parameters based on the value of <code>self.algorithm</code></div>
-  </div>
-</div><div class="baseinstancevariable private">
-  
-  
-  <a name="cma.constraints_handler.AugmentedLagrangian._count_noupdate">
-    
-  </a>
-  <a name="_count_noupdate">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">_count_noupdate</span>: <code>int</code> =
-    
-  </div>
-  <div class="functionBody">
-    
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
+    <div><p>set parameters based on the value of <code>self.algorithm</code></p>
+</div>
   </div>
 </div><div class="baseinstancevariable private">
   
@@ -1350,9 +2381,13 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">_equality</span> =
     
+    <a class="headerLink" href="#_equality" title="cma.constraints_handler.AugmentedLagrangian._equality">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1370,27 +2405,40 @@ supposed to have been computed from the distribution mean.</p>
     
     <span class="py-defname">_initialized</span> =
     
+    <a class="headerLink" href="#_initialized" title="cma.constraints_handler.AugmentedLagrangian._initialized">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

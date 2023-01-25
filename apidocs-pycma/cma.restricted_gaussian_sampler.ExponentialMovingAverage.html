@@ -7,76 +7,335 @@
   <head>
     
     <title>cma.restricted_gaussian_sampler.ExponentialMovingAverage</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted_gaussian_sampler</a></code><wbr></wbr>.<code><a href="cma.restricted_gaussian_sampler.ExponentialMovingAverage.html" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage">ExponentialMovingAverage</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.restricted_gaussian_sampler.ExponentialMovingAverage.html" class="internal-link" title="This class"><wbr></wbr>Exponential<wbr></wbr>Moving<wbr></wbr>Average</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.update">update</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#decay" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.decay">decay</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#flg_init" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.flg_init">flg<wbr></wbr>_init</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#M" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.M">M</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#S" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.S">S</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="The parent of this class">restricted<wbr></wbr>_gaussian<wbr></wbr>_sampler</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.restricted_gaussian_sampler.ExponentialMovingAverage.html" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage"><wbr></wbr>Exponential<wbr></wbr>Moving<wbr></wbr>Average</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.restricted_gaussian_sampler.GaussVDSampler.html" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVDSampler"><wbr></wbr>Gauss<wbr></wbr>VDSampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.restricted_gaussian_sampler.GaussVkDSampler.html" class="internal-link" title="cma.restricted_gaussian_sampler.GaussVkDSampler"><wbr></wbr>Gauss<wbr></wbr>Vk<wbr></wbr>DSampler</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">ExponentialMovingAverage</span>(object):</code></p>
-        <p><a href="classIndex.html#cma.restricted_gaussian_sampler.ExponentialMovingAverage">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>Exponential Moving Average, Variance, and SNR (Signal-to-Noise Ratio)</p>
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted_gaussian_sampler</a></code><wbr></wbr>.<code><a href="cma.restricted_gaussian_sampler.ExponentialMovingAverage.html" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage">ExponentialMovingAverage</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">ExponentialMovingAverage</span>(object):</code></p>
+          <p><a href="classIndex.html#cma.restricted_gaussian_sampler.ExponentialMovingAverage">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Exponential Moving Average, Variance, and SNR (Signal-to-Noise Ratio)</p>
 <p>See <a class="rst-reference external" href="http://www-uxsup.csx.cam.ac.uk/~fanf2/hermes/doc/antiforgery/stats.pdf" target="_top">http://www-uxsup.csx.cam.ac.uk/~fanf2/hermes/doc/antiforgery/stats.pdf</a></p>
 </div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id494">
+        <div id="splitTables">
+          <table class="children sortable" id="id416">
   
   
   <tr class="method">
@@ -97,7 +356,7 @@
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#flg_init" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.flg_init">flg​_init</a></code></td>
+    <td><code><a href="#flg_init" class="internal-link" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.flg_init">flg<wbr></wbr>_init</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -111,14 +370,13 @@
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.restricted_gaussian_sampler.ExponentialMovingAverage.__init__">
@@ -131,12 +389,17 @@
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, decay, dim, flg_init_with_data=False):
     
+    <a class="headerLink" href="#__init__" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>The latest N steps occupy approximately 86% of the information when
-decay = 2 / (N - 1).</div>
+    <div><p>The latest N steps occupy approximately 86% of the information when
+decay = 2 / (N - 1).</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -151,9 +414,13 @@ decay = 2 / (N - 1).</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, datum):
     
+    <a class="headerLink" href="#update" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.update">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -170,9 +437,13 @@ decay = 2 / (N - 1).</div>
     
     <span class="py-defname">decay</span> =
     
+    <a class="headerLink" href="#decay" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.decay">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -190,9 +461,13 @@ decay = 2 / (N - 1).</div>
     
     <span class="py-defname">flg_init</span> =
     
+    <a class="headerLink" href="#flg_init" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.flg_init">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -210,9 +485,13 @@ decay = 2 / (N - 1).</div>
     
     <span class="py-defname">M</span> =
     
+    <a class="headerLink" href="#M" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.M">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -230,27 +509,40 @@ decay = 2 / (N - 1).</div>
     
     <span class="py-defname">S</span> =
     
+    <a class="headerLink" href="#S" title="cma.restricted_gaussian_sampler.ExponentialMovingAverage.S">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

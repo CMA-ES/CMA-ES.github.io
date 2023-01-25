@@ -7,70 +7,665 @@
   <head>
     
     <title>cma.purecma</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        module documentation
-      </div>
+    </div>
 
-      <div class="extrasDocstring">
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
         
-        <p></p>
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="cma.purecma.html" class="internal-link" title="This module">purecma</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.BestSolution.html" class="internal-link" title="cma.purecma.BestSolution"><wbr></wbr>Best<wbr></wbr>Solution</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">CMAES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link" title="cma.purecma.CMAESDataLogger"><wbr></wbr>CMAESData<wbr></wbr>Logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.CMAESParameters.html" class="internal-link" title="cma.purecma.CMAESParameters"><wbr></wbr>CMAESParameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.DecomposingPositiveMatrix.html" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix"><wbr></wbr>Decomposing<wbr></wbr>Positive<wbr></wbr>Matrix</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.ff.html" class="internal-link" title="cma.purecma.ff">ff</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.SquareMatrix.html" class="internal-link" title="cma.purecma.SquareMatrix"><wbr></wbr>Square<wbr></wbr>Matrix</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#argsort" class="internal-link" title="cma.purecma.argsort">argsort</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dot" class="internal-link" title="cma.purecma.dot">dot</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#eig" class="internal-link" title="cma.purecma.eig">eig</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#eye" class="internal-link" title="cma.purecma.eye">eye</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fmin" class="internal-link" title="cma.purecma.fmin">fmin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#minus" class="internal-link" title="cma.purecma.minus">minus</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plus" class="internal-link" title="cma.purecma.plus">plus</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#safe_str" class="internal-link" title="cma.purecma.safe_str">safe<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#test" class="internal-link" title="cma.purecma.test">test</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#___author__" class="internal-link" title="cma.purecma.___author__">__<wbr></wbr>_author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__author__" class="internal-link" title="cma.purecma.__author__">__author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__license__" class="internal-link" title="cma.purecma.__license__">__license__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__version__" class="internal-link" title="cma.purecma.__version__">__version__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this module">cma</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints<wbr></wbr>_handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution<wbr></wbr>_strategy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_functions.html" class="internal-link" title="cma.fitness_functions">fitness<wbr></wbr>_functions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness<wbr></wbr>_models</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness<wbr></wbr>_transformations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.html" class="internal-link" title="cma.interfaces">interfaces</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html" class="internal-link" title="cma.logger">logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization<wbr></wbr>_tools</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.recombination_weights.html" class="internal-link" title="cma.recombination_weights">recombination<wbr></wbr>_weights</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted<wbr></wbr>_gaussian<wbr></wbr>_sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sampler.html" class="internal-link" title="cma.sampler">sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html" class="internal-link" title="cma.sigma_adaptation">sigma<wbr></wbr>_adaptation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.test.html" class="internal-link" title="cma.test">test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.wrapper.html" class="internal-link" title="cma.wrapper">wrapper</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#___author__" class="internal-link" title="cma.___author__">__<wbr></wbr>_author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__license__" class="internal-link" title="cma.__license__">__license__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__version__" class="internal-link" title="cma.__version__">__version__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="moduleDocstring">
-        <div><p>A minimalistic implemention of CMA-ES without using <code>numpy</code>.</p>
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>A minimalistic implemention of CMA-ES without using <code>numpy</code>.</p>
 <p>The Covariance Matrix Adaptation Evolution Strategy, CMA-ES, serves for
 numerical nonlinear function minimization.</p>
 <p>The <strong>main functionality</strong> is implemented in</p>
@@ -90,7 +685,7 @@ the top is a feasible option, where the codes of <code><a href="#fmin" class="in
 <code><a href="cma.purecma.CMAES.html#__init__" class="internal-link" title="cma.purecma.CMAES.__init__">CMAES.__init__</a></code>, <code><a href="cma.purecma.CMAES.html#ask" class="internal-link" title="cma.purecma.CMAES.ask">CMAES.ask</a></code>, <code><a href="cma.purecma.CMAES.html#tell" class="internal-link" title="cma.purecma.CMAES.tell">CMAES.tell</a></code> are of particular
 interest.</li>
 <li>apply CMA-ES when the python module <code>numpy</code> is not available.
-When <code>numpy</code> is available, <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">cma.fmin</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">cma.CMAEvolutionStrategy</a></code> are
+When <code>numpy</code> is available, <code>cma.fmin</code> or <code>cma.CMAEvolutionStrategy</code> are
 preferred to run "serious" simulations. The latter code has many more
 lines, but usually executes faster, offers a richer user interface,
 better termination options, boundary and noise handling, injection,
@@ -105,16 +700,16 @@ Python 2.6, 2.7, 3.3, 3.5, 3.6.</p>
 <p>This code is released into the public domain (that is, you may
 use and modify it however you like).</p>
 <table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Author</td></tr><tr><td colspan="2">Nikolaus Hansen, 2010-2011, 2017</td></tr></table></div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id478">
+        <div id="splitTables">
+          <table class="children sortable" id="id398">
   
   
   <tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.purecma.BestSolution.html" class="internal-link" title="cma.purecma.BestSolution">​Best​Solution</a></code></td>
+    <td><code><a href="cma.purecma.BestSolution.html" class="internal-link" title="cma.purecma.BestSolution"><wbr></wbr>Best<wbr></wbr>Solution</a></code></td>
     <td>container to keep track of the best solution seen</td>
   </tr><tr class="class">
     
@@ -124,17 +719,17 @@ use and modify it however you like).</p>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link" title="cma.purecma.CMAESDataLogger">​CMAESData​Logger</a></code></td>
+    <td><code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link" title="cma.purecma.CMAESDataLogger"><wbr></wbr>CMAESData<wbr></wbr>Logger</a></code></td>
     <td>data logger for class <code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">CMAES</a></code>, that can record and plot data.</td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.purecma.CMAESParameters.html" class="internal-link" title="cma.purecma.CMAESParameters">​CMAESParameters</a></code></td>
+    <td><code><a href="cma.purecma.CMAESParameters.html" class="internal-link" title="cma.purecma.CMAESParameters"><wbr></wbr>CMAESParameters</a></code></td>
     <td>static "internal" parameter setting for <code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">CMAES</a></code></td>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.purecma.DecomposingPositiveMatrix.html" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix">​Decomposing​Positive​Matrix</a></code></td>
+    <td><code><a href="cma.purecma.DecomposingPositiveMatrix.html" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix"><wbr></wbr>Decomposing<wbr></wbr>Positive<wbr></wbr>Matrix</a></code></td>
     <td>Symmetric matrix maintaining its own eigendecomposition.</td>
   </tr><tr class="class">
     
@@ -144,7 +739,7 @@ use and modify it however you like).</p>
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.purecma.SquareMatrix.html" class="internal-link" title="cma.purecma.SquareMatrix">​Square​Matrix</a></code></td>
+    <td><code><a href="cma.purecma.SquareMatrix.html" class="internal-link" title="cma.purecma.SquareMatrix"><wbr></wbr>Square<wbr></wbr>Matrix</a></code></td>
     <td>rudimental square matrix class</td>
   </tr><tr class="function">
     
@@ -184,7 +779,7 @@ use and modify it however you like).</p>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#safe_str" class="internal-link" title="cma.purecma.safe_str">safe​_str</a></code></td>
+    <td><code><a href="#safe_str" class="internal-link" title="cma.purecma.safe_str">safe<wbr></wbr>_str</a></code></td>
     <td>return <tt class="rst-docutils literal">s</tt> as <code>str</code> safe to <code>eval</code> or raise an exception.</td>
   </tr><tr class="function">
     
@@ -194,7 +789,7 @@ use and modify it however you like).</p>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#___author__" class="internal-link" title="cma.purecma.___author__">__​_author__</a></code></td>
+    <td><code><a href="#___author__" class="internal-link" title="cma.purecma.___author__">__<wbr></wbr>_author__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable">
     
@@ -211,31 +806,15 @@ use and modify it however you like).</p>
     <td>Variable</td>
     <td><code><a href="#__version__" class="internal-link" title="cma.purecma.__version__">__version__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="variable">
-    
-    <td>Variable</td>
-    <td><code><a href="#OOOptimizer" class="internal-link" title="cma.purecma.OOOptimizer">​OOOptimizer</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="variable">
-    
-    <td>Variable</td>
-    <td><code><a href="#RecombinationWeights" class="internal-link" title="cma.purecma.RecombinationWeights">​Recombination​Weights</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="variable private">
-    
-    <td>Variable</td>
-    <td><code><a href="#_BaseDataLogger" class="internal-link" title="cma.purecma._BaseDataLogger">_​Base​Data​Logger</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basefunction">
+        <div id="childList">
+          <div class="basefunction">
   
   
   <a name="cma.purecma.argsort">
@@ -248,12 +827,17 @@ use and modify it however you like).</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">argsort</span>(a):
     
+    <a class="headerLink" href="#argsort" title="cma.purecma.argsort">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return index list to get <code>a</code> in order, ie
-<tt class="rst-docutils literal"><span class="pre">a[argsort(a)[i]]</span> == <span class="pre">sorted(a)[i]</span></tt></div>
+    <div><p>return index list to get <code>a</code> in order, ie
+<tt class="rst-docutils literal"><span class="pre">a[argsort(a)[i]]</span> == <span class="pre">sorted(a)[i]</span></tt></p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -268,9 +852,13 @@ use and modify it however you like).</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">dot</span>(A, b, transpose=False):
     
+    <a class="headerLink" href="#dot" title="cma.purecma.dot">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>usual dot product of "matrix" A with "vector" b.</p>
 <p><tt class="rst-docutils literal">A[i]</tt> is the i-th row of A. With <tt class="rst-docutils literal">transpose=True</tt>, A transposed
@@ -290,9 +878,13 @@ is used.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">eig</span>(C):
     
+    <a class="headerLink" href="#eig" title="cma.purecma.eig">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>eigendecomposition of a symmetric matrix.</p>
 <p>Return the eigenvalues and an orthonormal basis
@@ -318,11 +910,16 @@ is the i-th eigenvector with eigenvalue <tt class="rst-docutils literal">EVals[i
     
     <span class="py-keyword">def</span> <span class="py-defname">eye</span>(dimension):
     
+    <a class="headerLink" href="#eye" title="cma.purecma.eye">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return identity matrix as <code>list</code> of "vectors" (lists themselves)</div>
+    <div><p>return identity matrix as <code>list</code> of "vectors" (lists themselves)</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -337,9 +934,13 @@ is the i-th eigenvector with eigenvalue <tt class="rst-docutils literal">EVals[i
     
     <span class="py-keyword">def</span> <span class="py-defname">fmin</span>(objective_fct, xstart, sigma, args=(), maxfevals=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e3 * N**2</span><span class="rst-variable-quote">'</span>, ftarget=None, verb_disp=100, verb_log=1, verb_save=1000):
     
+    <a class="headerLink" href="#fmin" title="cma.purecma.fmin">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>non-linear non-convex minimization procedure, a functional
 interface to CMA-ES.</p>
@@ -417,7 +1018,7 @@ different Python shell like <tt class="rst-docutils literal"><span class="pre">p
 For example, with <tt class="rst-docutils literal">verb_save == 3</tt> every third time the logger
 records data they are saved to disk as well.</p>
 </div>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">CMAES</a></code>, <code><a href="#OOOptimizer" class="internal-link" title="cma.purecma.OOOptimizer">OOOptimizer</a></code>.</td></tr></table></div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">CMAES</a></code>, <code><a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a></code>.</td></tr></table></div>
   </div>
 </div><div class="basefunction">
   
@@ -432,11 +1033,16 @@ records data they are saved to disk as well.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">minus</span>(a, b):
     
+    <a class="headerLink" href="#minus" title="cma.purecma.minus">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>subtract vectors, return a - b</div>
+    <div><p>subtract vectors, return a - b</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -451,11 +1057,16 @@ records data they are saved to disk as well.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">plus</span>(a, b):
     
+    <a class="headerLink" href="#plus" title="cma.purecma.plus">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>add vectors, return a + b</div>
+    <div><p>add vectors, return a + b</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -470,9 +1081,13 @@ records data they are saved to disk as well.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">safe_str</span>(s, known_words=None):
     
+    <a class="headerLink" href="#safe_str" title="cma.purecma.safe_str">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return <tt class="rst-docutils literal">s</tt> as <code>str</code> safe to <code>eval</code> or raise an exception.</p>
 <p>Strings in the <code>dict</code> <code>known_words</code> are replaced by their values
@@ -501,9 +1116,13 @@ with <code>eval</code> afterwards.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">test</span>():
     
+    <a class="headerLink" href="#test" title="cma.purecma.test">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>test of the <code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code> module, called <tt class="rst-docutils literal">if __name__ == "__main__"</tt>.</p>
 <p>Currently only based on <code>doctest</code>:</p>
@@ -561,9 +1180,13 @@ with <code>eval</code> afterwards.</p>
     
     <span class="py-defname">___author__</span>: <code>str</code> =
     
+    <a class="headerLink" href="#___author__" title="cma.purecma.___author__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -581,9 +1204,13 @@ with <code>eval</code> afterwards.</p>
     
     <span class="py-defname">__author__</span>: <code>str</code> =
     
+    <a class="headerLink" href="#__author__" title="cma.purecma.__author__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -601,9 +1228,13 @@ with <code>eval</code> afterwards.</p>
     
     <span class="py-defname">__license__</span>: <code>str</code> =
     
+    <a class="headerLink" href="#__license__" title="cma.purecma.__license__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -621,87 +1252,40 @@ with <code>eval</code> afterwards.</p>
     
     <span class="py-defname">__version__</span>: <code>str</code> =
     
+    <a class="headerLink" href="#__version__" title="cma.purecma.__version__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
-  </div>
-</div><div class="basevariable">
-  
-  
-  <a name="cma.purecma.OOOptimizer">
-    
-  </a>
-  <a name="OOOptimizer">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">OOOptimizer</span> =
-    
-  </div>
-  <div class="functionBody">
-    
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
-  </div>
-</div><div class="basevariable">
-  
-  
-  <a name="cma.purecma.RecombinationWeights">
-    
-  </a>
-  <a name="RecombinationWeights">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">RecombinationWeights</span> =
-    
-  </div>
-  <div class="functionBody">
-    
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
-  </div>
-</div><div class="basevariable private">
-  
-  
-  <a name="cma.purecma._BaseDataLogger">
-    
-  </a>
-  <a name="_BaseDataLogger">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">_BaseDataLogger</span> =
-    
-  </div>
-  <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

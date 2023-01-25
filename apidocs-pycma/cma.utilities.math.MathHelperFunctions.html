@@ -7,78 +7,580 @@
   <head>
     
     <title>cma.utilities.math.MathHelperFunctions</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code><wbr></wbr>.<code><a href="cma.utilities.math.html" class="internal-link" title="cma.utilities.math">math</a></code><wbr></wbr>.<code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">MathHelperFunctions</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="This class"><wbr></wbr>Math<wbr></wbr>Helper<wbr></wbr>Functions</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#aclamp" class="internal-link" title="cma.utilities.math.MathHelperFunctions.aclamp">aclamp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#amax" class="internal-link" title="cma.utilities.math.MathHelperFunctions.amax">amax</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#amin" class="internal-link" title="cma.utilities.math.MathHelperFunctions.amin">amin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#aminmax" class="internal-link" title="cma.utilities.math.MathHelperFunctions.aminmax">aminmax</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#apenalty_quadlin" class="internal-link" title="cma.utilities.math.MathHelperFunctions.apenalty_quadlin">apenalty<wbr></wbr>_quadlin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#apos" class="internal-link" title="cma.utilities.math.MathHelperFunctions.apos">apos</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cauchy_with_variance_one" class="internal-link" title="cma.utilities.math.MathHelperFunctions.cauchy_with_variance_one">cauchy<wbr></wbr>_with<wbr></wbr>_variance<wbr></wbr>_one</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#chiN" class="internal-link" title="cma.utilities.math.MathHelperFunctions.chiN">chi<wbr></wbr>N</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#equals_approximately" class="internal-link" title="cma.utilities.math.MathHelperFunctions.equals_approximately">equals<wbr></wbr>_approximately</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#expms" class="internal-link" title="cma.utilities.math.MathHelperFunctions.expms">expms</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#huber2" class="internal-link" title="cma.utilities.math.MathHelperFunctions.huber2">huber2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#interdecilerange" class="internal-link" title="cma.utilities.math.MathHelperFunctions.interdecilerange">interdecilerange</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#iqr" class="internal-link" title="cma.utilities.math.MathHelperFunctions.iqr">iqr</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logit10" class="internal-link" title="cma.utilities.math.MathHelperFunctions.logit10">logit10</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#max" class="internal-link" title="cma.utilities.math.MathHelperFunctions.max">max</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#min" class="internal-link" title="cma.utilities.math.MathHelperFunctions.min">min</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#minmax" class="internal-link" title="cma.utilities.math.MathHelperFunctions.minmax">minmax</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#norm" class="internal-link" title="cma.utilities.math.MathHelperFunctions.norm">norm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#prctile" class="internal-link" title="cma.utilities.math.MathHelperFunctions.prctile">prctile</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sround" class="internal-link" title="cma.utilities.math.MathHelperFunctions.sround">sround</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#standard_finite_cauchy" class="internal-link" title="cma.utilities.math.MathHelperFunctions.standard_finite_cauchy">standard<wbr></wbr>_finite<wbr></wbr>_cauchy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#vequals_approximately" class="internal-link" title="cma.utilities.math.MathHelperFunctions.vequals_approximately">vequals<wbr></wbr>_approximately</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_chiN_dict" class="internal-link" title="cma.utilities.math.MathHelperFunctions._chiN_dict">_chi<wbr></wbr>N_dict</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.utilities.math.html" class="internal-link" title="The parent of this class">math</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions"><wbr></wbr>Math<wbr></wbr>Helper<wbr></wbr>Functions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.UpdatingAverage.html" class="internal-link" title="cma.utilities.math.UpdatingAverage"><wbr></wbr>Updating<wbr></wbr>Average</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.html#eig" class="internal-link" title="cma.utilities.math.eig">eig</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.html#geometric_sd" class="internal-link" title="cma.utilities.math.geometric_sd">geometric<wbr></wbr>_sd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.html#Hessian" class="internal-link" title="cma.utilities.math.Hessian"><wbr></wbr>Hessian</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.html#moving_average" class="internal-link" title="cma.utilities.math.moving_average">moving<wbr></wbr>_average</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.html#randhss" class="internal-link" title="cma.utilities.math.randhss">randhss</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.html#randhss_mixin" class="internal-link" title="cma.utilities.math.randhss_mixin">randhss<wbr></wbr>_mixin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.html#to_correlation_matrix" class="internal-link" title="cma.utilities.math.to_correlation_matrix">to<wbr></wbr>_correlation<wbr></wbr>_matrix</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.html#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt<wbr></wbr>_len</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">MathHelperFunctions</span>(object):</code></p>
-        <p><a href="classIndex.html#cma.utilities.math.MathHelperFunctions">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>static convenience math helper functions, if the function name
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code><wbr></wbr>.<code><a href="cma.utilities.math.html" class="internal-link" title="cma.utilities.math">math</a></code><wbr></wbr>.<code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">MathHelperFunctions</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">MathHelperFunctions</span>(object):</code></p>
+          <p><a href="classIndex.html#cma.utilities.math.MathHelperFunctions">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>static convenience math helper functions, if the function name
 is preceded with an "a", a numpy array is returned</p>
 <p>TODO: there is probably no good reason why this should be a class and not a
 module.</p>
 </div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id535">
+        <div id="splitTables">
+          <table class="children sortable" id="id458">
   
   
   <tr class="staticmethod">
@@ -104,7 +606,7 @@ module.</p>
   </tr><tr class="staticmethod">
     
     <td>Static Method</td>
-    <td><code><a href="#apenalty_quadlin" class="internal-link" title="cma.utilities.math.MathHelperFunctions.apenalty_quadlin">apenalty​_quadlin</a></code></td>
+    <td><code><a href="#apenalty_quadlin" class="internal-link" title="cma.utilities.math.MathHelperFunctions.apenalty_quadlin">apenalty<wbr></wbr>_quadlin</a></code></td>
     <td>Huber-like smooth penality which starts at lower.</td>
   </tr><tr class="staticmethod">
     
@@ -114,18 +616,28 @@ module.</p>
   </tr><tr class="staticmethod">
     
     <td>Static Method</td>
-    <td><code><a href="#cauchy_with_variance_one" class="internal-link" title="cma.utilities.math.MathHelperFunctions.cauchy_with_variance_one">cauchy​_with​_variance​_one</a></code></td>
+    <td><code><a href="#cauchy_with_variance_one" class="internal-link" title="cma.utilities.math.MathHelperFunctions.cauchy_with_variance_one">cauchy<wbr></wbr>_with<wbr></wbr>_variance<wbr></wbr>_one</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="staticmethod">
     
     <td>Static Method</td>
-    <td><code><a href="#equals_approximately" class="internal-link" title="cma.utilities.math.MathHelperFunctions.equals_approximately">equals​_approximately</a></code></td>
+    <td><code><a href="#chiN" class="internal-link" title="cma.utilities.math.MathHelperFunctions.chiN">chi<wbr></wbr>N</a></code></td>
+    <td>approximation of the expectation of norm(randn(dimension)).</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#equals_approximately" class="internal-link" title="cma.utilities.math.MathHelperFunctions.equals_approximately">equals<wbr></wbr>_approximately</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="staticmethod">
     
     <td>Static Method</td>
     <td><code><a href="#expms" class="internal-link" title="cma.utilities.math.MathHelperFunctions.expms">expms</a></code></td>
     <td>matrix exponential for a symmetric matrix</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#huber2" class="internal-link" title="cma.utilities.math.MathHelperFunctions.huber2">huber2</a></code></td>
+    <td>y-shifted Huber function, return huber(x, delta) + delta/2 + eps.</td>
   </tr><tr class="staticmethod">
     
     <td>Static Method</td>
@@ -174,23 +686,27 @@ module.</p>
   </tr><tr class="staticmethod">
     
     <td>Static Method</td>
-    <td><code><a href="#standard_finite_cauchy" class="internal-link" title="cma.utilities.math.MathHelperFunctions.standard_finite_cauchy">standard​_finite​_cauchy</a></code></td>
+    <td><code><a href="#standard_finite_cauchy" class="internal-link" title="cma.utilities.math.MathHelperFunctions.standard_finite_cauchy">standard<wbr></wbr>_finite<wbr></wbr>_cauchy</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="staticmethod">
     
     <td>Static Method</td>
-    <td><code><a href="#vequals_approximately" class="internal-link" title="cma.utilities.math.MathHelperFunctions.vequals_approximately">vequals​_approximately</a></code></td>
+    <td><code><a href="#vequals_approximately" class="internal-link" title="cma.utilities.math.MathHelperFunctions.vequals_approximately">vequals<wbr></wbr>_approximately</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_chiN_dict" class="internal-link" title="cma.utilities.math.MathHelperFunctions._chiN_dict">_chi<wbr></wbr>N_dict</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basestaticmethod">
+        <div id="childList">
+          <div class="basestaticmethod">
   
   
   <a name="cma.utilities.math.MathHelperFunctions.aclamp">
@@ -203,9 +719,13 @@ module.</p>
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">aclamp</span>(x, upper):
     
+    <a class="headerLink" href="#aclamp" title="cma.utilities.math.MathHelperFunctions.aclamp">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -222,9 +742,13 @@ module.</p>
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">amax</span>(vec, vec_or_scalar):
     
+    <a class="headerLink" href="#amax" title="cma.utilities.math.MathHelperFunctions.amax">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -241,9 +765,13 @@ module.</p>
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">amin</span>(vec_or_scalar, vec_or_scalar2):
     
+    <a class="headerLink" href="#amin" title="cma.utilities.math.MathHelperFunctions.amin">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -260,9 +788,13 @@ module.</p>
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">aminmax</span>(val, min_val, max_val):
     
+    <a class="headerLink" href="#aminmax" title="cma.utilities.math.MathHelperFunctions.aminmax">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -279,9 +811,13 @@ module.</p>
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">apenalty_quadlin</span>(x, lower=0, upper=None):
     
+    <a class="headerLink" href="#apenalty_quadlin" title="cma.utilities.math.MathHelperFunctions.apenalty_quadlin">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>Huber-like smooth penality which starts at lower.</p>
 <p>The penalty is zero below lower and affine linear above upper.</p>
@@ -307,11 +843,16 @@ affine linear in x with slope upper - lower, if x &gt;= upper
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">apos</span>(x, lower=0):
     
+    <a class="headerLink" href="#apos" title="cma.utilities.math.MathHelperFunctions.apos">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>clips argument (scalar or array) from below at lower</div>
+    <div><p>clips argument (scalar or array) from below at lower</p>
+</div>
   </div>
 </div><div class="basestaticmethod">
   
@@ -326,11 +867,45 @@ affine linear in x with slope upper - lower, if x &gt;= upper
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">cauchy_with_variance_one</span>():
     
+    <a class="headerLink" href="#cauchy_with_variance_one" title="cma.utilities.math.MathHelperFunctions.cauchy_with_variance_one">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
     <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="cma.utilities.math.MathHelperFunctions.chiN">
+    
+  </a>
+  <a name="chiN">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">chiN</span>(dimension):
+    
+    <a class="headerLink" href="#chiN" title="cma.utilities.math.MathHelperFunctions.chiN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>approximation of the expectation of norm(randn(dimension)).</p>
+<p>The exact value can be computed by:</p>
+<pre class="rst-literal-block">
+from scipy.special import gamma
+return 2**0.5 * gamma((self.dimension+1) / 2) / gamma(self.dimension / 2)
+</pre>
+<p>The approximation obeys <tt class="rst-docutils literal">chin &lt; chin_hat &lt; (1 + <span class="pre">5e-5)</span> * chin</tt>.</p>
+</div>
   </div>
 </div><div class="basestaticmethod">
   
@@ -345,9 +920,13 @@ affine linear in x with slope upper - lower, if x &gt;= upper
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">equals_approximately</span>(a, b, eps=1e-12):
     
+    <a class="headerLink" href="#equals_approximately" title="cma.utilities.math.MathHelperFunctions.equals_approximately">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -364,11 +943,52 @@ affine linear in x with slope upper - lower, if x &gt;= upper
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">expms</span>(A, eig=np.linalg.eigh):
     
+    <a class="headerLink" href="#expms" title="cma.utilities.math.MathHelperFunctions.expms">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
+    <div><p>matrix exponential for a symmetric matrix</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="cma.utilities.math.MathHelperFunctions.huber2">
     
-    <div>matrix exponential for a symmetric matrix</div>
+  </a>
+  <a name="huber2">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">huber2</span>(x, delta, eps=0):
+    
+    <a class="headerLink" href="#huber2" title="cma.utilities.math.MathHelperFunctions.huber2">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>y-shifted Huber function, return huber(x, delta) + delta/2 + eps.</p>
+<p><code><a href="#huber2" class="internal-link" title="cma.utilities.math.MathHelperFunctions.huber2">huber2</a></code> maps <code>x</code> to <tt class="rst-docutils literal">abs(x) + eps</tt> if <tt class="rst-docutils literal">abs(x) &gt;= delta</tt> and
+otherwise to a quadratic law of <code>x</code> mapping 0 to <tt class="rst-docutils literal">delta/2 + eps</tt>
+which makes the first derivative of <code><a href="#huber2" class="internal-link" title="cma.utilities.math.MathHelperFunctions.huber2">huber2</a></code> continuous.</p>
+<p>Details: <code>x</code> may be scalar or a <code>numpy</code> array. Setting eps =
+-delta/2 recovers the Huber loss.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>hus = cma.utilities.math.Mh.huber2(np.asarray([
+<span class="py-more">... </span>    -1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2]), 0.5)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-string">' '</span>.join([<span class="py-string">'{:.2}'</span>.format(n) <span class="py-keyword">for</span> n <span class="py-keyword">in</span> hus])
+<span class="py-output">'1.0 0.8 0.6 0.41 0.29 0.25 0.29 0.41 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0'</span>
+</pre></div>
   </div>
 </div><div class="basestaticmethod">
   
@@ -383,11 +1003,16 @@ affine linear in x with slope upper - lower, if x &gt;= upper
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">interdecilerange</span>(data, percentile_function=np.percentile):
     
+    <a class="headerLink" href="#interdecilerange" title="cma.utilities.math.MathHelperFunctions.interdecilerange">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return 10% to 90% range width</div>
+    <div><p>return 10% to 90% range width</p>
+</div>
   </div>
 </div><div class="basestaticmethod">
   
@@ -402,11 +1027,16 @@ affine linear in x with slope upper - lower, if x &gt;= upper
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">iqr</span>(data, percentile_function=np.percentile):
     
+    <a class="headerLink" href="#iqr" title="cma.utilities.math.MathHelperFunctions.iqr">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>interquartile range</div>
+    <div><p>interquartile range</p>
+</div>
   </div>
 </div><div class="basestaticmethod">
   
@@ -421,9 +1051,13 @@ affine linear in x with slope upper - lower, if x &gt;= upper
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">logit10</span>(x, lower=0, upper=1):
     
+    <a class="headerLink" href="#logit10" title="cma.utilities.math.MathHelperFunctions.logit10">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>map [lower, upper] -&gt; R such that</p>
 <pre class="rst-literal-block">
@@ -451,9 +1085,13 @@ lower + 10^-x  -&gt;  -x
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">max</span>(vec, vec_or_scalar):
     
+    <a class="headerLink" href="#max" title="cma.utilities.math.MathHelperFunctions.max">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -470,9 +1108,13 @@ lower + 10^-x  -&gt;  -x
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">min</span>(a, b):
     
+    <a class="headerLink" href="#min" title="cma.utilities.math.MathHelperFunctions.min">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -489,9 +1131,13 @@ lower + 10^-x  -&gt;  -x
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">minmax</span>(val, min_val, max_val):
     
+    <a class="headerLink" href="#minmax" title="cma.utilities.math.MathHelperFunctions.minmax">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -508,9 +1154,13 @@ lower + 10^-x  -&gt;  -x
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">norm</span>(vec, expo=2):
     
+    <a class="headerLink" href="#norm" title="cma.utilities.math.MathHelperFunctions.norm">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -527,9 +1177,13 @@ lower + 10^-x  -&gt;  -x
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">prctile</span>(data, p_vals=[<wbr></wbr>0, <wbr></wbr>25, <wbr></wbr>50, <wbr></wbr>75, <wbr></wbr>100], sorted_=False):
     
+    <a class="headerLink" href="#prctile" title="cma.utilities.math.MathHelperFunctions.prctile">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p><tt class="rst-docutils literal">prctile(data, 50)</tt> returns the median, but p_vals can
 also be a sequence.</p>
@@ -550,11 +1204,16 @@ matplotlib.mlab.prctile or np.percentile, however also slower.</p>
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">sround</span>(nb):
     
+    <a class="headerLink" href="#sround" title="cma.utilities.math.MathHelperFunctions.sround">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return stochastic round: int(nb) + (rand()&lt;remainder(nb))</div>
+    <div><p>return stochastic round: int(nb) + (rand()&lt;remainder(nb))</p>
+</div>
   </div>
 </div><div class="basestaticmethod">
   
@@ -569,9 +1228,13 @@ matplotlib.mlab.prctile or np.percentile, however also slower.</p>
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">standard_finite_cauchy</span>(size=1):
     
+    <a class="headerLink" href="#standard_finite_cauchy" title="cma.utilities.math.MathHelperFunctions.standard_finite_cauchy">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -588,26 +1251,63 @@ matplotlib.mlab.prctile or np.percentile, however also slower.</p>
     @staticmethod<br />
     <span class="py-keyword">def</span> <span class="py-defname">vequals_approximately</span>(a, b, eps=1e-12):
     
+    <a class="headerLink" href="#vequals_approximately" title="cma.utilities.math.MathHelperFunctions.vequals_approximately">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
     <div><p class="undocumented">Undocumented</p></div>
   </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="cma.utilities.math.MathHelperFunctions._chiN_dict">
+    
+  </a>
+  <a name="_chiN_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_chiN_dict</span>: <code>dict[<wbr></wbr>int, <wbr></wbr>float]</code> =
+    
+    <a class="headerLink" href="#_chiN_dict" title="cma.utilities.math.MathHelperFunctions._chiN_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

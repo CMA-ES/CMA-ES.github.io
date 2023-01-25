@@ -7,82 +7,387 @@
   <head>
     
     <title>cma.utilities.math</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code><wbr></wbr>.<code><a href="cma.utilities.math.html" class="internal-link" title="cma.utilities.math">math</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        module documentation
-      </div>
+    </div>
 
-      <div class="extrasDocstring">
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
         
-        <p></p>
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="cma.utilities.math.html" class="internal-link" title="This module">math</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions"><wbr></wbr>Math<wbr></wbr>Helper<wbr></wbr>Functions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.UpdatingAverage.html" class="internal-link" title="cma.utilities.math.UpdatingAverage"><wbr></wbr>Updating<wbr></wbr>Average</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#eig" class="internal-link" title="cma.utilities.math.eig">eig</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#geometric_sd" class="internal-link" title="cma.utilities.math.geometric_sd">geometric<wbr></wbr>_sd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Hessian" class="internal-link" title="cma.utilities.math.Hessian"><wbr></wbr>Hessian</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#moving_average" class="internal-link" title="cma.utilities.math.moving_average">moving<wbr></wbr>_average</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#randhss" class="internal-link" title="cma.utilities.math.randhss">randhss</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#randhss_mixin" class="internal-link" title="cma.utilities.math.randhss_mixin">randhss<wbr></wbr>_mixin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#to_correlation_matrix" class="internal-link" title="cma.utilities.math.to_correlation_matrix">to<wbr></wbr>_correlation<wbr></wbr>_matrix</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt<wbr></wbr>_len</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="cma.utilities.html" class="internal-link" title="The parent of this module">utilities</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.math.html" class="internal-link" title="cma.utilities.math">math</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.python3for2.html" class="internal-link" title="cma.utilities.python3for2">python3for2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.utils.html" class="internal-link" title="cma.utilities.utils">utils</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="moduleDocstring">
-        <div>various math utilities, notably <code><a href="#eig" class="internal-link" title="cma.utilities.math.eig">eig</a></code> and a collection of simple
-functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">Mh</a></code></div>
-      </div>
+      <div id="main" class="">
+        
 
-      <div id="splitTables">
-        <table class="children sortable" id="id534">
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code><wbr></wbr>.<code><a href="cma.utilities.math.html" class="internal-link" title="cma.utilities.math">math</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>various math utilities, notably <code><a href="#eig" class="internal-link" title="cma.utilities.math.eig">eig</a></code> and a collection of simple
+functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">Mh</a></code></p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id456">
   
   
   <tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">​Math​Helper​Functions</a></code></td>
+    <td><code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions"><wbr></wbr>Math<wbr></wbr>Helper<wbr></wbr>Functions</a></code></td>
     <td>static convenience math helper functions, if the function name is preceded with an "a", a numpy array is returned</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="cma.utilities.math.UpdatingAverage.html" class="internal-link" title="cma.utilities.math.UpdatingAverage"><wbr></wbr>Updating<wbr></wbr>Average</a></code></td>
+    <td>use instead of a <code>list</code> when too many values must be averaged</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -91,17 +396,17 @@ functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#geometric_sd" class="internal-link" title="cma.utilities.math.geometric_sd">geometric​_sd</a></code></td>
+    <td><code><a href="#geometric_sd" class="internal-link" title="cma.utilities.math.geometric_sd">geometric<wbr></wbr>_sd</a></code></td>
     <td>return geometric standard deviation of <code>vals</code>.</td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#Hessian" class="internal-link" title="cma.utilities.math.Hessian">​Hessian</a></code></td>
+    <td><code><a href="#Hessian" class="internal-link" title="cma.utilities.math.Hessian"><wbr></wbr>Hessian</a></code></td>
     <td>Hessian estimate for <code>f</code> at <code>x0</code></td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#moving_average" class="internal-link" title="cma.utilities.math.moving_average">moving​_average</a></code></td>
+    <td><code><a href="#moving_average" class="internal-link" title="cma.utilities.math.moving_average">moving<wbr></wbr>_average</a></code></td>
     <td>rolling average without biasing boundary effects.</td>
   </tr><tr class="function">
     
@@ -111,28 +416,27 @@ functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#randhss_mixin" class="internal-link" title="cma.utilities.math.randhss_mixin">randhss​_mixin</a></code></td>
+    <td><code><a href="#randhss_mixin" class="internal-link" title="cma.utilities.math.randhss_mixin">randhss<wbr></wbr>_mixin</a></code></td>
     <td><code>n</code> iid vectors uniformly distributed on the hypersphere surface with mixing in of normal distribution, which can be beneficial in smaller dimension.</td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#to_correlation_matrix" class="internal-link" title="cma.utilities.math.to_correlation_matrix">to​_correlation​_matrix</a></code></td>
+    <td><code><a href="#to_correlation_matrix" class="internal-link" title="cma.utilities.math.to_correlation_matrix">to<wbr></wbr>_correlation<wbr></wbr>_matrix</a></code></td>
     <td>change C in place into a correlation matrix, AKA whitening</td>
   </tr><tr class="function private">
     
     <td>Function</td>
-    <td><code><a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">​_sqrt​_len</a></code></td>
+    <td><code><a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt<wbr></wbr>_len</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basefunction">
+        <div id="childList">
+          <div class="basefunction">
   
   
   <a name="cma.utilities.math.eig">
@@ -145,9 +449,13 @@ functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="
     
     <span class="py-keyword">def</span> <span class="py-defname">eig</span>(C):
     
+    <a class="headerLink" href="#eig" title="cma.utilities.math.eig">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>eigendecomposition of a symmetric matrix, much slower than
 <code>numpy.linalg.eigh</code>, return <tt class="rst-docutils literal">(EVals, Basis)</tt>, the eigenvalues
@@ -175,9 +483,13 @@ and an orthonormal basis of the corresponding eigenvectors, where</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">geometric_sd</span>(vals, **kwargs):
     
+    <a class="headerLink" href="#geometric_sd" title="cma.utilities.math.geometric_sd">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return geometric standard deviation of <code>vals</code>.</p>
 <p>The gsd is invariant under linear scaling and independent
@@ -198,11 +510,16 @@ of the choice of the log-exp base.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">Hessian</span>(f, x0, eps=1e-06):
     
+    <a class="headerLink" href="#Hessian" title="cma.utilities.math.Hessian">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>Hessian estimate for <code>f</code> at <code>x0</code></div>
+    <div><p>Hessian estimate for <code>f</code> at <code>x0</code></p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -217,9 +534,13 @@ of the choice of the log-exp base.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">moving_average</span>(x, w=7):
     
+    <a class="headerLink" href="#moving_average" title="cma.utilities.math.moving_average">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>rolling average without biasing boundary effects.</p>
 <p>The first entries give the average over all first
@@ -246,9 +567,13 @@ scales quadratically with the length of <code>x</code>.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">randhss</span>(n, dim, norm_=<a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt_len</a>, randn=np.random.randn):
     
+    <a class="headerLink" href="#randhss" title="cma.utilities.math.randhss">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p><code>n</code> iid <code>dim</code>-dimensional vectors with length <tt class="rst-docutils literal">norm_(vector)</tt>.</p>
 <p>The vectors are uniformly distributed on a hypersphere surface.</p>
@@ -272,13 +597,18 @@ scales quadratically with the length of <code>x</code>.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">randhss_mixin</span>(n, dim, norm_=<a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt_len</a>, c=(lambda d: 1.0 / d), randn=np.random.randn):
     
+    <a class="headerLink" href="#randhss_mixin" title="cma.utilities.math.randhss_mixin">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div><code>n</code> iid vectors uniformly distributed on the hypersphere surface with
+    <div><p><code>n</code> iid vectors uniformly distributed on the hypersphere surface with
 mixing in of normal distribution, which can be beneficial in smaller
-dimension.</div>
+dimension.</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -293,11 +623,16 @@ dimension.</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">to_correlation_matrix</span>(c):
     
+    <a class="headerLink" href="#to_correlation_matrix" title="cma.utilities.math.to_correlation_matrix">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>change C in place into a correlation matrix, AKA whitening</div>
+    <div><p>change C in place into a correlation matrix, AKA whitening</p>
+</div>
   </div>
 </div><div class="basefunction private">
   
@@ -312,26 +647,39 @@ dimension.</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">_sqrt_len</span>(x):
     
+    <a class="headerLink" href="#_sqrt_len" title="cma.utilities.math._sqrt_len">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

@@ -7,70 +7,488 @@
   <head>
     
     <title>cma.fitness_models.SurrogatePopulation</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness_models</a></code><wbr></wbr>.<code><a href="cma.fitness_models.SurrogatePopulation.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation">SurrogatePopulation</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.fitness_models.SurrogatePopulation.html" class="internal-link" title="This class"><wbr></wbr>Surrogate<wbr></wbr>Population</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation.EvaluationManager"><wbr></wbr>Evaluation<wbr></wbr>Manager</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__call__" class="internal-link" title="cma.fitness_models.SurrogatePopulation.__call__">__call__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.fitness_models.SurrogatePopulation.__init__">__init__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#count" class="internal-link" title="cma.fitness_models.SurrogatePopulation.count">count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#evals" class="internal-link" title="cma.fitness_models.SurrogatePopulation.evals">evals</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#evaluations" class="internal-link" title="cma.fitness_models.SurrogatePopulation.evaluations">evaluations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fitness" class="internal-link" title="cma.fitness_models.SurrogatePopulation.fitness">fitness</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="cma.fitness_models.SurrogatePopulation.logger">logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger_eigenvalues" class="internal-link" title="cma.fitness_models.SurrogatePopulation.logger_eigenvalues">logger<wbr></wbr>_eigenvalues</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#model" class="internal-link" title="cma.fitness_models.SurrogatePopulation.model">model</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#settings" class="internal-link" title="cma.fitness_models.SurrogatePopulation.settings">settings</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.fitness_models.html" class="internal-link" title="The parent of this class">fitness<wbr></wbr>_models</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel"><wbr></wbr>LQModel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.LQModelSettings.html" class="internal-link" title="cma.fitness_models.LQModelSettings"><wbr></wbr>LQModel<wbr></wbr>Settings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.ModelInjectionCallback.html" class="internal-link" title="cma.fitness_models.ModelInjectionCallback"><wbr></wbr>Model<wbr></wbr>Injection<wbr></wbr>Callback</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.ModelInjectionCallbackSettings.html" class="internal-link" title="cma.fitness_models.ModelInjectionCallbackSettings"><wbr></wbr>Model<wbr></wbr>Injection<wbr></wbr>Callback<wbr></wbr>Settings</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.SurrogatePopulation.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation"><wbr></wbr>Surrogate<wbr></wbr>Population</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.SurrogatePopulationSettings.html" class="internal-link" title="cma.fitness_models.SurrogatePopulationSettings"><wbr></wbr>Surrogate<wbr></wbr>Population<wbr></wbr>Settings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.Tau.html" class="internal-link" title="cma.fitness_models.Tau"><wbr></wbr>Tau</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#kendall_tau" class="internal-link" title="cma.fitness_models.kendall_tau">kendall<wbr></wbr>_tau</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#_kendall_tau" class="internal-link" title="cma.fitness_models._kendall_tau">_kendall<wbr></wbr>_tau</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#_n_for_model_building_default" class="internal-link" title="cma.fitness_models._n_for_model_building_default">_n<wbr></wbr>_for<wbr></wbr>_model<wbr></wbr>_building<wbr></wbr>_default</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#_sorted_index_default" class="internal-link" title="cma.fitness_models._sorted_index_default">_sorted<wbr></wbr>_index<wbr></wbr>_default</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#___author__" class="internal-link" title="cma.fitness_models.___author__">__<wbr></wbr>_author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#__license__" class="internal-link" title="cma.fitness_models.__license__">__license__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">SurrogatePopulation</span>(object):</code></p>
-        <p><a href="classIndex.html#cma.fitness_models.SurrogatePopulation">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>surrogate f-values for a population.</p>
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness_models</a></code><wbr></wbr>.<code><a href="cma.fitness_models.SurrogatePopulation.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation">SurrogatePopulation</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">SurrogatePopulation</span>(object):</code></p>
+          <p><a href="classIndex.html#cma.fitness_models.SurrogatePopulation">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>surrogate f-values for a population.</p>
 <p>See also <code><a href="#__call__" class="internal-link" title="cma.fitness_models.SurrogatePopulation.__call__">__call__</a></code> method.</p>
 <p>What is new:</p>
 <ul class="rst-simple">
@@ -85,21 +503,27 @@
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># fm.Logger, Logger = fm.LoggerDummy, fm.Logger</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>surrogate = fm.SurrogatePopulation(cma.ff.elli)</pre><p>Example using the ask-and-tell interface:</p>
 <pre class="py-doctest">
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> fitfun <span class="py-keyword">in</span> [FFun(cma.ff.elli), FFun(cma.ff.sectorsphere)]:
-<span class="py-more">... </span>    es = cma.CMAEvolutionStrategy(5 * [1], 2.2,
-<span class="py-more">... </span>                   {<span class="py-string">'CMA_injections_threshold_keep_len'</span>: 1,
-<span class="py-more">... </span>                    <span class="py-string">'ftarget'</span>:1e-9, <span class="py-string">'verbose'</span>: -9, <span class="py-string">'seed'</span>:3})
-<span class="py-more">... </span>    surrogate = fm.SurrogatePopulation(fitfun)
-<span class="py-more">... </span>    <span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
-<span class="py-more">... </span>        X = es.ask()
-<span class="py-more">... </span>        es.tell(X, surrogate(X))  <span class="py-comment"># surrogate evaluation</span>
-<span class="py-more">... </span>        es.inject([surrogate.model.xopt])
-<span class="py-more">... </span>        <span class="py-comment"># es.disp(); es.logger.add()  # ineffective with verbose=-9</span>
-<span class="py-more">... </span>    <span class="py-builtin">print</span>(fitfun.evaluations)  <span class="py-comment"># was: (sig=2.2) 12 161, 18 131, 18 150, 18 82, 15 59, 15 87, 15 132, 18 83, 18 55, 18 68</span>
-<span class="py-more">... </span>    <span class="py-keyword">assert</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop()
-<span class="py-output">18</span>
-<span class="py-output">68</span>
-</pre><p>Example using the <tt class="rst-docutils literal">parallel_objective</tt> interface to <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">cma.fmin</a></code>:</p>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> ifun, fun <span class="py-keyword">in</span> <span class="py-builtin">enumerate</span>([cma.ff.elli, cma.ff.sectorsphere]):
+<span class="py-more">... </span>    <span class="py-keyword">for</span> irun <span class="py-keyword">in</span> <span class="py-builtin">range</span>(7):
+<span class="py-more">... </span>        <span class="py-keyword">assert</span> irun &lt; 4  <span class="py-comment"># measure best of four</span>
+<span class="py-more">... </span>        es = cma.CMAEvolutionStrategy(5 * [1], 2.2,
+<span class="py-more">... </span>                    {<span class="py-string">'CMA_injections_threshold_keep_len'</span>: 1,
+<span class="py-more">... </span>                        <span class="py-string">'ftarget'</span>:1e-9, <span class="py-string">'verbose'</span>: -9, <span class="py-string">'seed'</span>:3 + irun})
+<span class="py-more">... </span>        fitfun = FFun(fun)
+<span class="py-more">... </span>        surrogate = fm.SurrogatePopulation(fitfun)
+<span class="py-more">... </span>        <span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>            X = es.ask()
+<span class="py-more">... </span>            es.tell(X, surrogate(X))  <span class="py-comment"># surrogate evaluation</span>
+<span class="py-more">... </span>            es.inject([surrogate.model.xopt])
+<span class="py-more">... </span>            <span class="py-comment"># es.disp(); es.logger.add()  # ineffective with verbose=-9</span>
+<span class="py-more">... </span>        <span class="py-comment"># print(irun, fitfun.evaluations)  # was: (sig=2.2) 12 161, 18 131, 18 150, 18 82, 15 59, 15 87, 15 132, 18 83, 18 55, 18 68</span>
+<span class="py-more">... </span>        <span class="py-keyword">assert</span> <span class="py-string">'ftarget'</span> <span class="py-keyword">in</span> es.stop()
+<span class="py-more">... </span>        <span class="py-keyword">if</span> ifun == 0:
+<span class="py-more">... </span>            <span class="py-keyword">if</span> fitfun.evaluations &lt; 20:
+<span class="py-more">... </span>                <span class="py-keyword">break</span>
+<span class="py-more">... </span>        <span class="py-keyword">if</span> ifun == 1:
+<span class="py-more">... </span>            <span class="py-keyword">if</span> fitfun.evaluations &lt; 90:
+<span class="py-more">... </span>                <span class="py-keyword">break</span></pre><p>Example using the <tt class="rst-docutils literal">parallel_objective</tt> interface to <code>cma.fmin</code>:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> fitfun, evals <span class="py-keyword">in</span> [[FFun(cma.ff.elli), 22], [FFun(cma.ff.ellirot), 40]]:
 <span class="py-more">... </span>    surrogate = fm.SurrogatePopulation(fitfun)
@@ -114,16 +538,16 @@
 <span class="py-more">... </span>    <span class="py-keyword">assert</span> es.result[1] &lt; 1e-12
 <span class="py-more">... </span>    <span class="py-keyword">assert</span> es.result[2] &lt; evals
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># fm.Logger = Logger</span></pre></div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id415">
+        <div id="splitTables">
+          <table class="children sortable" id="id335">
   
   
   <tr class="class">
     
     <td>Class</td>
-    <td><code><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation.EvaluationManager">​Evaluation​Manager</a></code></td>
+    <td><code><a href="cma.fitness_models.SurrogatePopulation.EvaluationManager.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation.EvaluationManager"><wbr></wbr>Evaluation<wbr></wbr>Manager</a></code></td>
     <td>Manage incremental evaluation of a population of solutions.</td>
   </tr><tr class="method">
     
@@ -134,7 +558,7 @@
     
     <td>Method</td>
     <td><code><a href="#__init__" class="internal-link" title="cma.fitness_models.SurrogatePopulation.__init__">__init__</a></code></td>
-    <td>If <tt class="rst-docutils literal">model is None</tt>, a default <code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel">LQModel</a></code> instance is used. By setting <code>self.model</code> to <code>None</code>, only the <code><a href="#fitness" class="internal-link" title="cma.fitness_models.SurrogatePopulation.fitness">fitness</a></code> for each population member is evaluated in each call.</td>
+    <td>If <tt class="rst-docutils literal">model is None</tt>, a default <code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel">LQModel</a></code> instance is used. By setting <code>self.model</code> to <code>None</code>, only the <code><a href="cma.fitness_models.SurrogatePopulation.html#fitness" class="internal-link" title="cma.fitness_models.SurrogatePopulation.fitness">fitness</a></code> for each population member is evaluated in each call.</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
@@ -144,7 +568,7 @@
     
     <td>Instance Variable</td>
     <td><code><a href="#evals" class="internal-link" title="cma.fitness_models.SurrogatePopulation.evals">evals</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>multiply with 1.5 and take ceil [1, 2, 3, 5, 8, 12, 18, 27, 41, 62, 93, 140, 210, 315, 473] +[1, 1, 2, 3, 4,  6,  9, 14, 21, 31, 47,  70, 105, 158]</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
@@ -163,7 +587,7 @@
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#logger_eigenvalues" class="internal-link" title="cma.fitness_models.SurrogatePopulation.logger_eigenvalues">logger​_eigenvalues</a></code></td>
+    <td><code><a href="#logger_eigenvalues" class="internal-link" title="cma.fitness_models.SurrogatePopulation.logger_eigenvalues">logger<wbr></wbr>_eigenvalues</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -177,14 +601,13 @@
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.fitness_models.SurrogatePopulation.__call__">
@@ -197,9 +620,13 @@
     
     <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, X):
     
+    <a class="headerLink" href="#__call__" title="cma.fitness_models.SurrogatePopulation.__call__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return population f-values.</p>
 <p>Also update the underlying model. Evaluate at least one solution on the
@@ -225,13 +652,18 @@ zero for <tt class="rst-docutils literal">max_absolute_size</tt>.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, fitness, model=None, model_max_size_factor=None, tau_truth_threshold=None):
     
+    <a class="headerLink" href="#__init__" title="cma.fitness_models.SurrogatePopulation.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>If <tt class="rst-docutils literal">model is None</tt>, a default <code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel">LQModel</a></code> instance is used. By
+    <div><p>If <tt class="rst-docutils literal">model is None</tt>, a default <code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel">LQModel</a></code> instance is used. By
 setting <code>self.model</code> to <code>None</code>, only the <code><a href="#fitness" class="internal-link" title="cma.fitness_models.SurrogatePopulation.fitness">fitness</a></code> for each
-population member is evaluated in each call.</div>
+population member is evaluated in each call.</p>
+</div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -246,9 +678,13 @@ population member is evaluated in each call.</div>
     
     <span class="py-defname">count</span>: <code>int</code> =
     
+    <a class="headerLink" href="#count" title="cma.fitness_models.SurrogatePopulation.count">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -266,11 +702,18 @@ population member is evaluated in each call.</div>
     
     <span class="py-defname">evals</span> =
     
+    <a class="headerLink" href="#evals" title="cma.fitness_models.SurrogatePopulation.evals">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>multiply with 1.5 and take ceil
+[1, 2, 3, 5, 8, 12, 18, 27, 41, 62, 93, 140, 210, 315, 473]
++[1, 1, 2, 3, 4,  6,  9, 14, 21, 31, 47,  70, 105, 158]</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -286,9 +729,13 @@ population member is evaluated in each call.</div>
     
     <span class="py-defname">evaluations</span>: <code>float</code> =
     
+    <a class="headerLink" href="#evaluations" title="cma.fitness_models.SurrogatePopulation.evaluations">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -306,9 +753,13 @@ population member is evaluated in each call.</div>
     
     <span class="py-defname">fitness</span> =
     
+    <a class="headerLink" href="#fitness" title="cma.fitness_models.SurrogatePopulation.fitness">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -326,9 +777,13 @@ population member is evaluated in each call.</div>
     
     <span class="py-defname">logger</span> =
     
+    <a class="headerLink" href="#logger" title="cma.fitness_models.SurrogatePopulation.logger">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -346,9 +801,13 @@ population member is evaluated in each call.</div>
     
     <span class="py-defname">logger_eigenvalues</span> =
     
+    <a class="headerLink" href="#logger_eigenvalues" title="cma.fitness_models.SurrogatePopulation.logger_eigenvalues">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -366,9 +825,13 @@ population member is evaluated in each call.</div>
     
     <span class="py-defname">model</span> =
     
+    <a class="headerLink" href="#model" title="cma.fitness_models.SurrogatePopulation.model">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -386,27 +849,40 @@ population member is evaluated in each call.</div>
     
     <span class="py-defname">settings</span> =
     
+    <a class="headerLink" href="#settings" title="cma.fitness_models.SurrogatePopulation.settings">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

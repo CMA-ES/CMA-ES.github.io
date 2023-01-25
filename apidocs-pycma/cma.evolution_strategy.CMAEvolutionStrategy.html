@@ -7,70 +7,1680 @@
   <head>
     
     <title>cma.evolution_strategy.CMAEvolutionStrategy</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="This class"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy</a></code> 
+      </div>
+      
+      <div>
+         
+          <div class="childrenKindTitle">Contents</div>
+          <ul><li><a class="rst-reference internal" href="#rst-calling-sequences" id="rst-toc-entry-1">Calling Sequences</a></li>
+<li><a class="rst-reference internal" href="#rst-arguments" id="rst-toc-entry-2">Arguments</a></li>
+<li><a class="rst-reference internal" href="#rst-main-interface-usage" id="rst-toc-entry-3">Main interface / usage</a></li>
+<li><a class="rst-reference internal" href="#rst-attributes-and-properties" id="rst-toc-entry-4">Attributes and Properties</a></li>
+<li><a class="rst-reference internal" href="#rst-examples" id="rst-toc-entry-5">Examples</a></li>
+<li><a class="rst-reference internal" href="#rst-details" id="rst-toc-entry-6">Details</a></li>
+</ul>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#alleviate_conditioning" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning">alleviate<wbr></wbr>_conditioning</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#alleviate_conditioning_in_coordinates" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning_in_coordinates">alleviate<wbr></wbr>_conditioning<wbr></wbr>_in<wbr></wbr>_coordinates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ask_and_eval" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">ask<wbr></wbr>_and<wbr></wbr>_eval</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ask_geno" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_geno">ask<wbr></wbr>_geno</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#disp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp">disp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#disp_annotation" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp_annotation">disp<wbr></wbr>_annotation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#feed_for_resume" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.feed_for_resume">feed<wbr></wbr>_for<wbr></wbr>_resume</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_mirror" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.get_mirror">get<wbr></wbr>_mirror</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_selective_mirrors" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.get_selective_mirrors">get<wbr></wbr>_selective<wbr></wbr>_mirrors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#inject" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.inject">inject</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mahalanobis_norm" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mahalanobis_norm">mahalanobis<wbr></wbr>_norm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#manage_plateaus" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.manage_plateaus">manage<wbr></wbr>_plateaus</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pickle_dumps" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pickle_dumps">pickle<wbr></wbr>_dumps</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.plot">plot</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#random_rescale_to_mahalanobis" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.random_rescale_to_mahalanobis">random<wbr></wbr>_rescale<wbr></wbr>_to<wbr></wbr>_mahalanobis</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#repair_genotype" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.repair_genotype">repair<wbr></wbr>_genotype</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#result_pretty" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.result_pretty">result<wbr></wbr>_pretty</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#stop" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.stop">stop</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_copy_light" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._copy_light">_copy<wbr></wbr>_light</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_prepare_injection_directions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._prepare_injection_directions">_prepare<wbr></wbr>_injection<wbr></wbr>_directions</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_random_rescaling_factor_to_mahalanobis_size" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._random_rescaling_factor_to_mahalanobis_size">_random<wbr></wbr>_rescaling<wbr></wbr>_factor<wbr></wbr>_to<wbr></wbr>_mahalanobis<wbr></wbr>_size</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_record_rankings" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings">_record<wbr></wbr>_rankings</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_record_rankings_" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">_record<wbr></wbr>_rankings_</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_set_x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._set_x0">_set<wbr></wbr>_x0</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stds_into_limits" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stds_into_limits">_stds<wbr></wbr>_into<wbr></wbr>_limits</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_tfg" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._tfg">_tfg</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_tfp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._tfp">_tfp</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_try_update_sm_now" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._try_update_sm_now">_try<wbr></wbr>_update<wbr></wbr>_sm<wbr></wbr>_now</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_updateBDfromSM" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._updateBDfromSM">_update<wbr></wbr>BDfrom<wbr></wbr>SM</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.OOOptimizer.html#initialize" class="internal-link" title="cma.interfaces.OOOptimizer.initialize">initialize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.OOOptimizer.html#optimize" class="internal-link" title="cma.interfaces.OOOptimizer.optimize">optimize</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.OOOptimizer.html#_force_final_logging" class="internal-link" title="cma.interfaces.OOOptimizer._force_final_logging">_force<wbr></wbr>_final<wbr></wbr>_logging</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.OOOptimizer.html#_prepare_callback_list" class="internal-link" title="cma.interfaces.OOOptimizer._prepare_callback_list">_prepare<wbr></wbr>_callback<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#adapt_sigma" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.adapt_sigma">adapt<wbr></wbr>_sigma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.archive">archive</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ary" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ary">ary</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#B" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.B">B</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#best" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.best">best</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#boundary_handler" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.boundary_handler">boundary<wbr></wbr>_handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#callbackstop" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.callbackstop">callbackstop</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#const" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.const">const</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#count_eigen" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.count_eigen">count<wbr></wbr>_eigen</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#countevals" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.countevals">countevals</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#countiter" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.countiter">countiter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#D" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.D">D</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dC" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.dC">d<wbr></wbr>C</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#evaluations_per_f_value" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.evaluations_per_f_value">evaluations<wbr></wbr>_per<wbr></wbr>_f<wbr></wbr>_value</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fit" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.fit">fit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#gp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.gp">gp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hsiglist" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.hsiglist">hsiglist</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#inopts" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.inopts">inopts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#inputargs" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.inputargs">inputargs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#itereigenupdated" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.itereigenupdated">itereigenupdated</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#last_iteration_with_gradient" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.last_iteration_with_gradient">last<wbr></wbr>_iteration<wbr></wbr>_with<wbr></wbr>_gradient</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.logger">logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mean" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean">mean</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mean0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean0">mean0</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mean_after_tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_after_tell">mean<wbr></wbr>_after<wbr></wbr>_tell</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mean_old" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_old">mean<wbr></wbr>_old</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mean_old_old" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_old_old">mean<wbr></wbr>_old<wbr></wbr>_old</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mean_shift_samples" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_shift_samples">mean<wbr></wbr>_shift<wbr></wbr>_samples</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mirrors_idx" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mirrors_idx">mirrors<wbr></wbr>_idx</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#more_to_write" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.more_to_write">more<wbr></wbr>_to<wbr></wbr>_write</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#N" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.N">N</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#N_pheno" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.N_pheno"><wbr></wbr>N_pheno</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noiseS" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.noiseS">noise<wbr></wbr>S</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#number_of_injections" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_injections">number<wbr></wbr>_of<wbr></wbr>_injections</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#number_of_injections_delivered" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_injections_delivered">number<wbr></wbr>_of<wbr></wbr>_injections<wbr></wbr>_delivered</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#number_of_solutions_asked" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_solutions_asked">number<wbr></wbr>_of<wbr></wbr>_solutions<wbr></wbr>_asked</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#opts" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.opts">opts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pc" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pc">pc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pc2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pc2">pc2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pc_neg" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pc_neg">pc<wbr></wbr>_neg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pop" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop">pop</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pop_injection_directions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_injection_directions">pop<wbr></wbr>_injection<wbr></wbr>_directions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pop_injection_solutions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_injection_solutions">pop<wbr></wbr>_injection<wbr></wbr>_solutions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pop_sorted" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_sorted">pop<wbr></wbr>_sorted</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sent_solutions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sent_solutions">sent<wbr></wbr>_solutions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sigma" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma">sigma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sigma0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma0">sigma0</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sigma_vec" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec">sigma<wbr></wbr>_vec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sigma_vec0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec0">sigma<wbr></wbr>_vec0</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sm" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sm">sm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sp">sp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sp0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sp0">sp0</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#time_last_displayed" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.time_last_displayed">time<wbr></wbr>_last<wbr></wbr>_displayed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#timer" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.timer">timer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#times_displayed" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.times_displayed">times<wbr></wbr>_displayed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.x0">x0</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#condition_number" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.condition_number">condition<wbr></wbr>_number</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#isotropic_mean_shift" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.isotropic_mean_shift">isotropic<wbr></wbr>_mean<wbr></wbr>_shift</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#popsize" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.popsize">popsize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#result" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.result">result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#stds" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.stds">stds</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_flgtelldone" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._flgtelldone">_flgtelldone</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_indices_of_selective_mirrors" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._indices_of_selective_mirrors">_indices<wbr></wbr>_of<wbr></wbr>_selective<wbr></wbr>_mirrors</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_injected_solutions_archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._injected_solutions_archive">_injected<wbr></wbr>_solutions<wbr></wbr>_archive</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_mirrormethod1_done" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._mirrormethod1_done">_mirrormethod1<wbr></wbr>_done</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_recorded_rankings" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._recorded_rankings">_recorded<wbr></wbr>_rankings</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stopdict" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stopdict">_stopdict</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stds_geno" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stds_geno">_stds<wbr></wbr>_geno</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.OOOptimizer.html#more_mandatory_args" class="internal-link" title="cma.interfaces.OOOptimizer.more_mandatory_args">more<wbr></wbr>_mandatory<wbr></wbr>_args</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.OOOptimizer.html#optional_kwargs" class="internal-link" title="cma.interfaces.OOOptimizer.optional_kwargs">optional<wbr></wbr>_kwargs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.OOOptimizer.html#xcurrent" class="internal-link" title="cma.interfaces.OOOptimizer.xcurrent">xcurrent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.OOOptimizer.html#xstart" class="internal-link" title="cma.interfaces.OOOptimizer.xstart">xstart</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.evolution_strategy.html" class="internal-link" title="The parent of this class">evolution<wbr></wbr>_strategy</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions"><wbr></wbr>CMAOptions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.MetaParameters.html" class="internal-link" title="cma.evolution_strategy.MetaParameters"><wbr></wbr>Meta<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.InjectionWarning.html" class="internal-link" title="cma.evolution_strategy.InjectionWarning"><wbr></wbr>Injection<wbr></wbr>Warning</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy._CMAEvolutionStrategyResult">_<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMAParameters.html" class="internal-link" title="cma.evolution_strategy._CMAParameters">_<wbr></wbr>CMAParameters</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMASolutionDict_empty.html" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_empty">_<wbr></wbr>CMASolution<wbr></wbr>Dict_empty</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMASolutionDict_functional.html" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional">_<wbr></wbr>CMASolution<wbr></wbr>Dict_functional</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._CMAStopDict.html" class="internal-link" title="cma.evolution_strategy._CMAStopDict">_<wbr></wbr>CMAStop<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#cma_default_options_" class="internal-link" title="cma.evolution_strategy.cma_default_options_">cma<wbr></wbr>_default<wbr></wbr>_options_</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#fmin_con" class="internal-link" title="cma.evolution_strategy.fmin_con">fmin<wbr></wbr>_con</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin<wbr></wbr>_con2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#fmin_lq_surr" class="internal-link" title="cma.evolution_strategy.fmin_lq_surr">fmin<wbr></wbr>_lq<wbr></wbr>_surr</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#fmin_lq_surr2" class="internal-link" title="cma.evolution_strategy.fmin_lq_surr2">fmin<wbr></wbr>_lq<wbr></wbr>_surr2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#is_feasible" class="internal-link" title="cma.evolution_strategy.is_feasible">is<wbr></wbr>_feasible</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#no_constraints" class="internal-link" title="cma.evolution_strategy.no_constraints">no<wbr></wbr>_constraints</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#safe_str" class="internal-link" title="cma.evolution_strategy.safe_str">safe<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#_al_set_logging" class="internal-link" title="cma.evolution_strategy._al_set_logging">_al<wbr></wbr>_set<wbr></wbr>_logging</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#all_stoppings" class="internal-link" title="cma.evolution_strategy.all_stoppings">all<wbr></wbr>_stoppings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#cma_allowed_options_keys" class="internal-link" title="cma.evolution_strategy.cma_allowed_options_keys">cma<wbr></wbr>_allowed<wbr></wbr>_options<wbr></wbr>_keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#cma_default_options" class="internal-link" title="cma.evolution_strategy.cma_default_options">cma<wbr></wbr>_default<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#cma_versatile_options" class="internal-link" title="cma.evolution_strategy.cma_versatile_options">cma<wbr></wbr>_versatile<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#meta_parameters" class="internal-link" title="cma.evolution_strategy.meta_parameters">meta<wbr></wbr>_parameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#use_archives" class="internal-link" title="cma.evolution_strategy.use_archives">use<wbr></wbr>_archives</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#_assertions_cubic" class="internal-link" title="cma.evolution_strategy._assertions_cubic">_assertions<wbr></wbr>_cubic</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#_assertions_quadratic" class="internal-link" title="cma.evolution_strategy._assertions_quadratic">_assertions<wbr></wbr>_quadratic</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#_CMASolutionDict" class="internal-link" title="cma.evolution_strategy._CMASolutionDict">_<wbr></wbr>CMASolution<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#_debugging" class="internal-link" title="cma.evolution_strategy._debugging">_debugging</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#_depreciated" class="internal-link" title="cma.evolution_strategy._depreciated">_depreciated</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html#_new_injections" class="internal-link" title="cma.evolution_strategy._new_injections">_new<wbr></wbr>_injections</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">CMAEvolutionStrategy</span>(<a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">interfaces.OOOptimizer</a>):</code></p>
-        <p><a href="classIndex.html#cma.evolution_strategy.CMAEvolutionStrategy">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>CMA-ES stochastic optimizer class with ask-and-tell interface.</p>
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">CMAEvolutionStrategy</span>(<a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">interfaces.OOOptimizer</a>):</code></p>
+          <p><a href="classIndex.html#cma.evolution_strategy.CMAEvolutionStrategy">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>CMA-ES stochastic optimizer class with ask-and-tell interface.</p>
 <div class="rst-section" id="rst-calling-sequences">
 <h2 class="heading">Calling Sequences</h2>
 <ul>
@@ -116,7 +1726,7 @@ see class <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal
 </div>
 <div class="rst-section" id="rst-main-interface-usage">
 <h2 class="heading">Main interface / usage</h2>
-<p>The interface is inherited from the generic <code>OOOptimizer</code>
+<p>The interface is inherited from the generic <code><a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a></code>
 class (see also there). An object instance is generated from:</p>
 <pre class="rst-literal-block">
 es = cma.CMAEvolutionStrategy(8 * [0.5], 0.2)
@@ -138,7 +1748,7 @@ es.result_pretty()
 <p>where <code><a href="#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> delivers new candidate solutions and <code><a href="#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> updates
 the <code>optim</code> instance by passing the respective function values
 (the objective function <code>cma.ff.rosen</code> can be replaced by any
-properly defined objective function, see <code><a href="cma.fitness_functions.html#ff" class="internal-link" title="cma.fitness_functions.ff">cma.ff</a></code> for more
+properly defined objective function, see <code>cma.ff</code> for more
 examples).</p>
 <p>To change an option, for example a termination condition to
 continue the optimization, call:</p>
@@ -350,12 +1960,12 @@ systematically bad (see e.g. <a class="rst-reference external" href="https://git
 but may not be "optimal" for mirrors.</p>
 <p>References: Brockhoff et al, PPSN 2010, Auger et al, GECCO 2011.</p>
 </div>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> (), <code>OOOptimizer</code>, <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="#plot" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.plot">plot</a></code> (), <code><a href="#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> (),
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> (), <code><a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a></code>, <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="#plot" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.plot">plot</a></code> (), <code><a href="#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> (),
 <code><a href="#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> (), <code><a href="#ask_and_eval" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">ask_and_eval</a></code> ()</td></tr></table></div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id406">
+        <div id="splitTables">
+          <table class="children sortable" id="id326">
   
   
   <tr class="method">
@@ -366,13 +1976,13 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#alleviate_conditioning" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning">alleviate​_conditioning</a></code></td>
-    <td>pass conditioning of <code><a href="#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code> to linear transformation in <code>self.gp</code>.</td>
+    <td><code><a href="#alleviate_conditioning" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning">alleviate<wbr></wbr>_conditioning</a></code></td>
+    <td>pass conditioning of <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code> to linear transformation in <code>self.gp</code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#alleviate_conditioning_in_coordinates" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning_in_coordinates">alleviate​_conditioning​_in​_coordinates</a></code></td>
-    <td>pass scaling from <code><a href="#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code> to <code><a href="#sigma_vec" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec">sigma_vec</a></code>.</td>
+    <td><code><a href="#alleviate_conditioning_in_coordinates" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning_in_coordinates">alleviate<wbr></wbr>_conditioning<wbr></wbr>_in<wbr></wbr>_coordinates</a></code></td>
+    <td>pass scaling from <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code> to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#sigma_vec" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec">sigma_vec</a></code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -381,12 +1991,12 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#ask_and_eval" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">ask​_and​_eval</a></code></td>
+    <td><code><a href="#ask_and_eval" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">ask<wbr></wbr>_and<wbr></wbr>_eval</a></code></td>
     <td>sample <code>number</code> solutions and evaluate them on <code>func</code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#ask_geno" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_geno">ask​_geno</a></code></td>
+    <td><code><a href="#ask_geno" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_geno">ask<wbr></wbr>_geno</a></code></td>
     <td>get new candidate solutions in genotyp.</td>
   </tr><tr class="method">
     
@@ -396,22 +2006,22 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#disp_annotation" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp_annotation">disp​_annotation</a></code></td>
-    <td>print annotation line for <code><a href="#disp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp">disp</a></code> ()</td>
+    <td><code><a href="#disp_annotation" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp_annotation">disp<wbr></wbr>_annotation</a></code></td>
+    <td>print annotation line for <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#disp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp">disp</a></code> ()</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#feed_for_resume" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.feed_for_resume">feed​_for​_resume</a></code></td>
+    <td><code><a href="#feed_for_resume" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.feed_for_resume">feed<wbr></wbr>_for<wbr></wbr>_resume</a></code></td>
     <td>Resume a run using the solution history.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#get_mirror" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.get_mirror">get​_mirror</a></code></td>
+    <td><code><a href="#get_mirror" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.get_mirror">get<wbr></wbr>_mirror</a></code></td>
     <td>return <tt class="rst-docutils literal">pheno(self.mean - (geno(x) - self.mean))</tt>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#get_selective_mirrors" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.get_selective_mirrors">get​_selective​_mirrors</a></code></td>
+    <td><code><a href="#get_selective_mirrors" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.get_selective_mirrors">get<wbr></wbr>_selective<wbr></wbr>_mirrors</a></code></td>
     <td>get mirror genotypic directions from worst solutions.</td>
   </tr><tr class="method">
     
@@ -421,17 +2031,17 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#mahalanobis_norm" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mahalanobis_norm">mahalanobis​_norm</a></code></td>
+    <td><code><a href="#mahalanobis_norm" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mahalanobis_norm">mahalanobis<wbr></wbr>_norm</a></code></td>
     <td>return Mahalanobis norm based on the current sample distribution.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#manage_plateaus" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.manage_plateaus">manage​_plateaus</a></code></td>
-    <td>increase <code><a href="#sigma" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma">sigma</a></code> by <code>sigma_fac</code> in case of a plateau.</td>
+    <td><code><a href="#manage_plateaus" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.manage_plateaus">manage<wbr></wbr>_plateaus</a></code></td>
+    <td>increase <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#sigma" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma">sigma</a></code> by <code>sigma_fac</code> in case of a plateau.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#pickle_dumps" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pickle_dumps">pickle​_dumps</a></code></td>
+    <td><code><a href="#pickle_dumps" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pickle_dumps">pickle<wbr></wbr>_dumps</a></code></td>
     <td>return <tt class="rst-docutils literal">pickle.dumps(self)</tt>,</td>
   </tr><tr class="method">
     
@@ -441,17 +2051,17 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#random_rescale_to_mahalanobis" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.random_rescale_to_mahalanobis">random​_rescale​_to​_mahalanobis</a></code></td>
+    <td><code><a href="#random_rescale_to_mahalanobis" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.random_rescale_to_mahalanobis">random<wbr></wbr>_rescale<wbr></wbr>_to<wbr></wbr>_mahalanobis</a></code></td>
     <td>change <code>x</code> like for injection, all on genotypic level</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#repair_genotype" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.repair_genotype">repair​_genotype</a></code></td>
+    <td><code><a href="#repair_genotype" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.repair_genotype">repair<wbr></wbr>_genotype</a></code></td>
     <td>make sure that solutions fit to the sample distribution.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#result_pretty" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.result_pretty">result​_pretty</a></code></td>
+    <td><code><a href="#result_pretty" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.result_pretty">result<wbr></wbr>_pretty</a></code></td>
     <td>pretty print result.</td>
   </tr><tr class="method">
     
@@ -462,11 +2072,11 @@ but may not be "optimal" for mirrors.</p>
     
     <td>Method</td>
     <td><code><a href="#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code></td>
-    <td><span class="undocumented">No summary</span></td>
+    <td>pass objective function values to prepare for next iteration. This core procedure of the CMA-ES algorithm updates all state variables, in particular the two evolution paths, the distribution mean, the covariance matrix and a step-size.</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#adapt_sigma" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.adapt_sigma">adapt​_sigma</a></code></td>
+    <td><code><a href="#adapt_sigma" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.adapt_sigma">adapt<wbr></wbr>_sigma</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -491,7 +2101,7 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#boundary_handler" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.boundary_handler">boundary​_handler</a></code></td>
+    <td><code><a href="#boundary_handler" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.boundary_handler">boundary<wbr></wbr>_handler</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -511,7 +2121,7 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#count_eigen" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.count_eigen">count​_eigen</a></code></td>
+    <td><code><a href="#count_eigen" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.count_eigen">count<wbr></wbr>_eigen</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -531,12 +2141,12 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#dC" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.dC">d​C</a></code></td>
+    <td><code><a href="#dC" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.dC">d<wbr></wbr>C</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#evaluations_per_f_value" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.evaluations_per_f_value">evaluations​_per​_f​_value</a></code></td>
+    <td><code><a href="#evaluations_per_f_value" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.evaluations_per_f_value">evaluations<wbr></wbr>_per<wbr></wbr>_f<wbr></wbr>_value</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -571,7 +2181,7 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#last_iteration_with_gradient" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.last_iteration_with_gradient">last​_iteration​_with​_gradient</a></code></td>
+    <td><code><a href="#last_iteration_with_gradient" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.last_iteration_with_gradient">last<wbr></wbr>_iteration<wbr></wbr>_with<wbr></wbr>_gradient</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -591,27 +2201,32 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#mean_old" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_old">mean​_old</a></code></td>
+    <td><code><a href="#mean_after_tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_after_tell">mean<wbr></wbr>_after<wbr></wbr>_tell</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#mean_old_old" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_old_old">mean​_old​_old</a></code></td>
+    <td><code><a href="#mean_old" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_old">mean<wbr></wbr>_old</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#mean_shift_samples" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_shift_samples">mean​_shift​_samples</a></code></td>
+    <td><code><a href="#mean_old_old" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_old_old">mean<wbr></wbr>_old<wbr></wbr>_old</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#mirrors_idx" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mirrors_idx">mirrors​_idx</a></code></td>
+    <td><code><a href="#mean_shift_samples" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_shift_samples">mean<wbr></wbr>_shift<wbr></wbr>_samples</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#more_to_write" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.more_to_write">more​_to​_write</a></code></td>
+    <td><code><a href="#mirrors_idx" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mirrors_idx">mirrors<wbr></wbr>_idx</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#more_to_write" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.more_to_write">more<wbr></wbr>_to<wbr></wbr>_write</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -621,32 +2236,27 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#N_pheno" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.N_pheno">​N_pheno</a></code></td>
+    <td><code><a href="#N_pheno" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.N_pheno"><wbr></wbr>N_pheno</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#noiseS" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.noiseS">noise​S</a></code></td>
+    <td><code><a href="#noiseS" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.noiseS">noise<wbr></wbr>S</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#number_of_injections" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_injections">number​_of​_injections</a></code></td>
+    <td><code><a href="#number_of_injections" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_injections">number<wbr></wbr>_of<wbr></wbr>_injections</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#number_of_injections_delivered" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_injections_delivered">number​_of​_injections​_delivered</a></code></td>
+    <td><code><a href="#number_of_injections_delivered" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_injections_delivered">number<wbr></wbr>_of<wbr></wbr>_injections<wbr></wbr>_delivered</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#number_of_solutions_asked" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_solutions_asked">number​_of​_solutions​_asked</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="#objective_function" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.objective_function">objective​_function</a></code></td>
+    <td><code><a href="#number_of_solutions_asked" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_solutions_asked">number<wbr></wbr>_of<wbr></wbr>_solutions<wbr></wbr>_asked</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -661,7 +2271,12 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#pc_neg" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pc_neg">pc​_neg</a></code></td>
+    <td><code><a href="#pc2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pc2">pc2</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pc_neg" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pc_neg">pc<wbr></wbr>_neg</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -671,27 +2286,22 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#pop_injection_directions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_injection_directions">pop​_injection​_directions</a></code></td>
+    <td><code><a href="#pop_injection_directions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_injection_directions">pop<wbr></wbr>_injection<wbr></wbr>_directions</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#pop_injection_solutions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_injection_solutions">pop​_injection​_solutions</a></code></td>
+    <td><code><a href="#pop_injection_solutions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_injection_solutions">pop<wbr></wbr>_injection<wbr></wbr>_solutions</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#pop_sorted" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_sorted">pop​_sorted</a></code></td>
+    <td><code><a href="#pop_sorted" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_sorted">pop<wbr></wbr>_sorted</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#randn" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.randn">randn</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="#sent_solutions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sent_solutions">sent​_solutions</a></code></td>
+    <td><code><a href="#sent_solutions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sent_solutions">sent<wbr></wbr>_solutions</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -706,12 +2316,12 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#sigma_vec" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec">sigma​_vec</a></code></td>
+    <td><code><a href="#sigma_vec" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec">sigma<wbr></wbr>_vec</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#sigma_vec0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec0">sigma​_vec0</a></code></td>
+    <td><code><a href="#sigma_vec0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec0">sigma<wbr></wbr>_vec0</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -731,7 +2341,7 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#time_last_displayed" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.time_last_displayed">time​_last​_displayed</a></code></td>
+    <td><code><a href="#time_last_displayed" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.time_last_displayed">time<wbr></wbr>_last<wbr></wbr>_displayed</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -741,7 +2351,7 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#times_displayed" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.times_displayed">times​_displayed</a></code></td>
+    <td><code><a href="#times_displayed" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.times_displayed">times<wbr></wbr>_displayed</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -751,105 +2361,125 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#condition_number" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.condition_number">condition​_number</a></code></td>
+    <td><code><a href="#condition_number" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.condition_number">condition<wbr></wbr>_number</a></code></td>
     <td>condition number of the statistical-model sampler.</td>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#isotropic_mean_shift" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.isotropic_mean_shift">isotropic​_mean​_shift</a></code></td>
+    <td><code><a href="#isotropic_mean_shift" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.isotropic_mean_shift">isotropic<wbr></wbr>_mean<wbr></wbr>_shift</a></code></td>
     <td>normalized last mean shift, under random selection N(0,I)</td>
   </tr><tr class="property">
     
     <td>Property</td>
     <td><code><a href="#popsize" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.popsize">popsize</a></code></td>
-    <td>number of samples by default returned by <code><a href="#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> ()</td>
+    <td>number of samples by default returned by <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> ()</td>
   </tr><tr class="property">
     
     <td>Property</td>
     <td><code><a href="#result" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.result">result</a></code></td>
     <td>return a <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">CMAEvolutionStrategyResult</a></code> <code>namedtuple</code>.</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#stds" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.stds">stds</a></code></td>
+    <td>return array of coordinate-wise standard deviations (phenotypic).</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_copy_light" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._copy_light">​_copy​_light</a></code></td>
+    <td><code><a href="#_copy_light" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._copy_light">_copy<wbr></wbr>_light</a></code></td>
     <td>tentative copy of self, versatile (interface and functionalities may change).</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_prepare_injection_directions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._prepare_injection_directions">​_prepare​_injection​_directions</a></code></td>
+    <td><code><a href="#_prepare_injection_directions" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._prepare_injection_directions">_prepare<wbr></wbr>_injection<wbr></wbr>_directions</a></code></td>
     <td>provide genotypic directions for TPA and selective mirroring, with no specific length normalization, to be used in the coming iteration.</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_random_rescaling_factor_to_mahalanobis_size" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._random_rescaling_factor_to_mahalanobis_size">​_random​_rescaling​_factor​_to​_mahalanobis​_size</a></code></td>
+    <td><code><a href="#_random_rescaling_factor_to_mahalanobis_size" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._random_rescaling_factor_to_mahalanobis_size">_random<wbr></wbr>_rescaling<wbr></wbr>_factor<wbr></wbr>_to<wbr></wbr>_mahalanobis<wbr></wbr>_size</a></code></td>
     <td><tt class="rst-docutils literal">self.mean + self._random_rescaling_factor_to_mahalanobis_size(y) * y</tt> is guarantied to appear like from the sample distribution.</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_record_rankings" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings">​_record​_rankings</a></code></td>
-    <td>do nothing by default, otherwise assign to <code><a href="#_record_rankings_" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">_record_rankings_</a></code> after instantiation</td>
+    <td><code><a href="#_record_rankings" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings">_record<wbr></wbr>_rankings</a></code></td>
+    <td>do nothing by default, otherwise assign to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#_record_rankings_" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">_record_rankings_</a></code> after instantiation</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_record_rankings_" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">​_record​_rankings​_</a></code></td>
+    <td><code><a href="#_record_rankings_" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">_record<wbr></wbr>_rankings_</a></code></td>
     <td>compute ranks of <code>vals</code> in <code>function_values</code> and</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_set_x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._set_x0">​_set​_x0</a></code></td>
-    <td>Assign <code>self.x0</code> from argument <code><a href="#x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.x0">x0</a></code>.</td>
+    <td><code><a href="#_set_x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._set_x0">_set<wbr></wbr>_x0</a></code></td>
+    <td>Assign <code>self.x0</code> from argument <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.x0">x0</a></code>.</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_tfg" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._tfg">​_tfg</a></code></td>
+    <td><code><a href="#_stds_into_limits" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stds_into_limits">_stds<wbr></wbr>_into<wbr></wbr>_limits</a></code></td>
+    <td>set <tt class="rst-docutils literal">self.sigma_vec.scaling</tt> to respect <tt class="rst-docutils literal"><span class="pre">opts['max/minstd']</span></tt></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_tfg" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._tfg">_tfg</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_tfp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._tfp">​_tfp</a></code></td>
+    <td><code><a href="#_tfp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._tfp">_tfp</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_updateBDfromSM" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._updateBDfromSM">_update​BDfrom​SM</a></code></td>
+    <td><code><a href="#_try_update_sm_now" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._try_update_sm_now">_try<wbr></wbr>_update<wbr></wbr>_sm<wbr></wbr>_now</a></code></td>
+    <td>call sm.update_now like sm.sample would do.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_updateBDfromSM" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._updateBDfromSM">_update<wbr></wbr>BDfrom<wbr></wbr>SM</a></code></td>
     <td>helper function for a smooth transition to sampling classes.</td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_flgtelldone" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._flgtelldone">​_flgtelldone</a></code></td>
+    <td><code><a href="#_flgtelldone" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._flgtelldone">_flgtelldone</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_indices_of_selective_mirrors" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._indices_of_selective_mirrors">​_indices​_of​_selective​_mirrors</a></code></td>
+    <td><code><a href="#_indices_of_selective_mirrors" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._indices_of_selective_mirrors">_indices<wbr></wbr>_of<wbr></wbr>_selective<wbr></wbr>_mirrors</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_injected_solutions_archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._injected_solutions_archive">​_injected​_solutions​_archive</a></code></td>
+    <td><code><a href="#_injected_solutions_archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._injected_solutions_archive">_injected<wbr></wbr>_solutions<wbr></wbr>_archive</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_mirrormethod1_done" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._mirrormethod1_done">​_mirrormethod1​_done</a></code></td>
+    <td><code><a href="#_mirrormethod1_done" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._mirrormethod1_done">_mirrormethod1<wbr></wbr>_done</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_recorded_rankings" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._recorded_rankings">​_recorded​_rankings</a></code></td>
+    <td><code><a href="#_recorded_rankings" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._recorded_rankings">_recorded<wbr></wbr>_rankings</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_stopdict" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stopdict">​_stopdict</a></code></td>
+    <td><code><a href="#_stopdict" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stopdict">_stopdict</a></code></td>
     <td>attribute for stopping criteria in function stop</td>
+  </tr><tr class="property private">
+    
+    <td>Property</td>
+    <td><code><a href="#_stds_geno" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stds_geno">_stds<wbr></wbr>_geno</a></code></td>
+    <td>return array of coordinate-wise standard deviations (genotypic).</td>
   </tr>
 </table>
-        
-          <p class="inheritedFrom">
-            Inherited from <code><a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a></code>:
-          </p>
-          <table class="children sortable" id="id407">
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a></code>:
+            </p>
+            <table class="children sortable" id="id327">
   
   
   <tr class="basemethod">
@@ -865,12 +2495,12 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.interfaces.OOOptimizer.html#more_mandatory_args" class="internal-link" title="cma.interfaces.OOOptimizer.more_mandatory_args">more​_mandatory​_args</a></code></td>
+    <td><code><a href="cma.interfaces.OOOptimizer.html#more_mandatory_args" class="internal-link" title="cma.interfaces.OOOptimizer.more_mandatory_args">more<wbr></wbr>_mandatory<wbr></wbr>_args</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.interfaces.OOOptimizer.html#optional_kwargs" class="internal-link" title="cma.interfaces.OOOptimizer.optional_kwargs">optional​_kwargs</a></code></td>
+    <td><code><a href="cma.interfaces.OOOptimizer.html#optional_kwargs" class="internal-link" title="cma.interfaces.OOOptimizer.optional_kwargs">optional<wbr></wbr>_kwargs</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
@@ -885,23 +2515,22 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="basemethod private">
     
     <td>Method</td>
-    <td><code><a href="cma.interfaces.OOOptimizer.html#_force_final_logging" class="internal-link" title="cma.interfaces.OOOptimizer._force_final_logging">​_force​_final​_logging</a></code></td>
+    <td><code><a href="cma.interfaces.OOOptimizer.html#_force_final_logging" class="internal-link" title="cma.interfaces.OOOptimizer._force_final_logging">_force<wbr></wbr>_final<wbr></wbr>_logging</a></code></td>
     <td>try force the logger to log NOW</td>
   </tr><tr class="basemethod private">
     
     <td>Method</td>
-    <td><code><a href="cma.interfaces.OOOptimizer.html#_prepare_callback_list" class="internal-link" title="cma.interfaces.OOOptimizer._prepare_callback_list">​_prepare​_callback​_list</a></code></td>
+    <td><code><a href="cma.interfaces.OOOptimizer.html#_prepare_callback_list" class="internal-link" title="cma.interfaces.OOOptimizer._prepare_callback_list">_prepare<wbr></wbr>_callback<wbr></wbr>_list</a></code></td>
     <td>return a list of callbacks including <tt class="rst-docutils literal">self.logger.add</tt>.</td>
   </tr>
 </table>
-          
+            
 
-          
-      </div>
+            
+        </div>
 
-      <div id="childList">
-
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.evolution_strategy.CMAEvolutionStrategy.__init__">
@@ -914,11 +2543,16 @@ but may not be "optimal" for mirrors.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, x0, sigma0, inopts=None):
     
+    <a class="headerLink" href="#__init__" title="cma.evolution_strategy.CMAEvolutionStrategy.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#__init__" class="internal-link">cma.interfaces.OOOptimizer.__init__</a></code></div>
-    
-    <div>see class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></div>
+    <div><p>see class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -933,14 +2567,25 @@ but may not be "optimal" for mirrors.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">alleviate_conditioning</span>(self, condition=1000000000000.0):
     
+    <a class="headerLink" href="#alleviate_conditioning" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>pass conditioning of <code><a href="#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code> to linear transformation in <code>self.gp</code>.</p>
 <p>Argument <code>condition</code> defines the limit condition number above
 which the action is taken.</p>
-<p>Details: the action applies only if <code>self.gp.isidentity</code>. Then,
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> dd <span class="py-keyword">in</span> [0, 1]:
+<span class="py-more">... </span>    es = cma.CMA(2 * [1], 0.1, {<span class="py-string">'CMA_diagonal_decoding'</span> : dd, <span class="py-string">'verbose'</span>:-9})
+<span class="py-more">... </span>    es = es.optimize(cma.ff.elli, iterations=4)
+<span class="py-more">... </span>    es.alleviate_conditioning(1.1)  <span class="py-comment"># check that alleviation_conditioning "works"</span>
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> <span class="py-builtin">all</span>(es.sigma_vec.scaling == [1, 1]), es.sigma_vec.scaling
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> es.sm.condition_number &lt; 1.01, es.sm.C</pre><p>Details: the action applies only if <code>self.gp.isidentity</code>. Then,
 the covariance matrix <code><a href="#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code> is set (back) to identity and a
 respective linear transformation is "added" to <code>self.gp</code>.</p>
 </div>
@@ -958,9 +2603,13 @@ respective linear transformation is "added" to <code>self.gp</code>.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">alleviate_conditioning_in_coordinates</span>(self, condition=100000000.0):
     
+    <a class="headerLink" href="#alleviate_conditioning_in_coordinates" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning_in_coordinates">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>pass scaling from <code><a href="#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code> to <code><a href="#sigma_vec" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec">sigma_vec</a></code>.</p>
 <p>As a result, <code><a href="#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code> is a correlation matrix, i.e., all diagonal
@@ -980,10 +2629,14 @@ entries of <code><a href="#C" class="internal-link" title="cma.evolution_strateg
     
     <span class="py-keyword">def</span> <span class="py-defname">ask</span>(self, number=None, xmean=None, sigma_fac=1, gradf=None, args=(), **kwargs):
     
+    <a class="headerLink" href="#ask" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#ask" class="internal-link">cma.interfaces.OOOptimizer.ask</a></code></div>
-    
     <div><p>get/sample new candidate solutions.</p>
 <p>Solutions are sampled from a multi-variate
 normal distribution and transformed to f-representation
@@ -1039,9 +2692,13 @@ direction <tt class="rst-docutils literal">np.dot(C, gradf(xmean, *args))</tt>.<
     
     <span class="py-keyword">def</span> <span class="py-defname">ask_and_eval</span>(self, func, args=(), gradf=None, number=None, xmean=None, sigma_fac=1, evaluations=1, aggregation=np.median, kappa=1, parallel_mode=False):
     
+    <a class="headerLink" href="#ask_and_eval" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>sample <code>number</code> solutions and evaluate them on <code>func</code>.</p>
 <p>Each solution <tt class="rst-docutils literal">s</tt> is resampled until
@@ -1132,9 +2789,13 @@ while not es.stop():
     
     <span class="py-keyword">def</span> <span class="py-defname">ask_geno</span>(self, number=None, xmean=None, sigma_fac=1):
     
+    <a class="headerLink" href="#ask_geno" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_geno">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>get new candidate solutions in genotyp.</p>
 <p>Solutions are sampled from a multi-variate normal distribution.</p>
@@ -1169,14 +2830,19 @@ change the geno-pheno transformation during this update.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self, modulo=None):
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self, modulo=None, overwrite=None):
     
+    <a class="headerLink" href="#disp" title="cma.evolution_strategy.CMAEvolutionStrategy.disp">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#disp" class="internal-link">cma.interfaces.OOOptimizer.disp</a></code></div>
-    
     <div><p>print current state variables in a single-line.</p>
-<p>Prints only if <tt class="rst-docutils literal">iteration_counter % modulo == 0</tt>.</p>
+<p>Prints only if <tt class="rst-docutils literal">iteration_counter % modulo == 0</tt>.
+Overwrites the line after iteration <code>overwrite</code>.</p>
 <table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#disp_annotation" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp_annotation">disp_annotation</a></code>.</td></tr></table></div>
   </div>
 </div><div class="basemethod">
@@ -1192,11 +2858,16 @@ change the geno-pheno transformation during this update.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">disp_annotation</span>(self):
     
+    <a class="headerLink" href="#disp_annotation" title="cma.evolution_strategy.CMAEvolutionStrategy.disp_annotation">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>print annotation line for <code><a href="#disp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp">disp</a></code> ()</div>
+    <div><p>print annotation line for <code><a href="#disp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp">disp</a></code> ()</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -1211,9 +2882,13 @@ change the geno-pheno transformation during this update.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">feed_for_resume</span>(self, X, function_values):
     
+    <a class="headerLink" href="#feed_for_resume" title="cma.evolution_strategy.CMAEvolutionStrategy.feed_for_resume">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>Resume a run using the solution history.</p>
 <p>CAVEAT: this hasn't been thoroughly tested or in intensive use.</p>
@@ -1278,9 +2953,13 @@ to resume.</td></tr></table></div>
     
     <span class="py-keyword">def</span> <span class="py-defname">get_mirror</span>(self, x, preserve_length=False):
     
+    <a class="headerLink" href="#get_mirror" title="cma.evolution_strategy.CMAEvolutionStrategy.get_mirror">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return <tt class="rst-docutils literal">pheno(self.mean - (geno(x) - self.mean))</tt>.</p>
 <pre class="py-doctest">
@@ -1315,9 +2994,13 @@ mirrors that must be clearly suboptimal.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">get_selective_mirrors</span>(self, number=None):
     
+    <a class="headerLink" href="#get_selective_mirrors" title="cma.evolution_strategy.CMAEvolutionStrategy.get_selective_mirrors">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>get mirror genotypic directions from worst solutions.</p>
 <p>Details:</p>
@@ -1341,9 +3024,13 @@ previous mirror in order to not go endlessly back and forth.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">inject</span>(self, solutions, force=None):
     
+    <a class="headerLink" href="#inject" title="cma.evolution_strategy.CMAEvolutionStrategy.inject">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>inject list of one or several genotypic solution(s).</p>
 <p>This is the preferable way to pass outside proposal solutions
@@ -1383,9 +3070,13 @@ would decrease variance in the covariance matrix in this direction.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">mahalanobis_norm</span>(self, dx):
     
+    <a class="headerLink" href="#mahalanobis_norm" title="cma.evolution_strategy.CMAEvolutionStrategy.mahalanobis_norm">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return Mahalanobis norm based on the current sample
 distribution.</p>
@@ -1424,9 +3115,13 @@ close to <tt class="rst-docutils literal">sqrt(N)</tt> to the sample mean. In th
     
     <span class="py-keyword">def</span> <span class="py-defname">manage_plateaus</span>(self, sigma_fac=1.5, sample_fraction=0.5):
     
+    <a class="headerLink" href="#manage_plateaus" title="cma.evolution_strategy.CMAEvolutionStrategy.manage_plateaus">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>increase <code><a href="#sigma" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma">sigma</a></code> by <code>sigma_fac</code> in case of a plateau.</p>
 <p>A plateau is assumed to be present if the best sample and
@@ -1457,9 +3152,13 @@ fitness.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">pickle_dumps</span>(self):
     
+    <a class="headerLink" href="#pickle_dumps" title="cma.evolution_strategy.CMAEvolutionStrategy.pickle_dumps">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return <tt class="rst-docutils literal">pickle.dumps(self)</tt>,</p>
 <p>if necessary remove unpickleable (and also unnecessary) local
@@ -1497,9 +3196,13 @@ es.optimize(cma.ff.elli, iterations=22)  # continue optimizing
     
     <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, *args, **kwargs):
     
+    <a class="headerLink" href="#plot" title="cma.evolution_strategy.CMAEvolutionStrategy.plot">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>plot current state variables using <code>matplotlib</code>.</p>
 <p>Details: calls <code>self.logger.plot</code>.</p>
@@ -1518,11 +3221,16 @@ es.optimize(cma.ff.elli, iterations=22)  # continue optimizing
     
     <span class="py-keyword">def</span> <span class="py-defname">random_rescale_to_mahalanobis</span>(self, x):
     
+    <a class="headerLink" href="#random_rescale_to_mahalanobis" title="cma.evolution_strategy.CMAEvolutionStrategy.random_rescale_to_mahalanobis">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>change <code>x</code> like for injection, all on genotypic level</div>
+    <div><p>change <code>x</code> like for injection, all on genotypic level</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -1537,9 +3245,13 @@ es.optimize(cma.ff.elli, iterations=22)  # continue optimizing
     
     <span class="py-keyword">def</span> <span class="py-defname">repair_genotype</span>(self, x, copy_if_changed=False):
     
+    <a class="headerLink" href="#repair_genotype" title="cma.evolution_strategy.CMAEvolutionStrategy.repair_genotype">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>make sure that solutions fit to the sample distribution.</p>
 <p>This interface is versatile and likely to change.</p>
@@ -1561,9 +3273,13 @@ mechanism may change in future.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">result_pretty</span>(self, number_of_runs=0, time_str=None, fbestever=None):
     
+    <a class="headerLink" href="#result_pretty" title="cma.evolution_strategy.CMAEvolutionStrategy.result_pretty">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>pretty print result.</p>
 <p>Returns <code><a href="#result" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.result">result</a></code> of <tt class="rst-docutils literal">self</tt>.</p>
@@ -1582,10 +3298,14 @@ mechanism may change in future.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">stop</span>(self, check=True, ignore_list=(), check_in_same_iteration=False, get_value=None):
     
+    <a class="headerLink" href="#stop" title="cma.evolution_strategy.CMAEvolutionStrategy.stop">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#stop" class="internal-link">cma.interfaces.OOOptimizer.stop</a></code></div>
-    
     <div><p>return the termination status as dictionary.</p>
 <p>With <tt class="rst-docutils literal">check == False</tt>, the termination conditions are not checked
 and the status might not reflect the current situation.
@@ -1627,10 +3347,14 @@ is issued.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">tell</span>(self, solutions, function_values, check_points=None, copy=False):
     
+    <a class="headerLink" href="#tell" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#tell" class="internal-link">cma.interfaces.OOOptimizer.tell</a></code></div>
-    
     <div><p>pass objective function values to prepare for next
 iteration. This core procedure of the CMA-ES algorithm updates
 all state variables, in particular the two evolution paths, the
@@ -1703,9 +3427,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">adapt_sigma</span> =
     
+    <a class="headerLink" href="#adapt_sigma" title="cma.evolution_strategy.CMAEvolutionStrategy.adapt_sigma">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1723,9 +3451,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">archive</span> =
     
+    <a class="headerLink" href="#archive" title="cma.evolution_strategy.CMAEvolutionStrategy.archive">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1743,9 +3475,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">ary</span> =
     
+    <a class="headerLink" href="#ary" title="cma.evolution_strategy.CMAEvolutionStrategy.ary">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1763,9 +3499,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">B</span> =
     
+    <a class="headerLink" href="#B" title="cma.evolution_strategy.CMAEvolutionStrategy.B">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1783,9 +3523,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">best</span> =
     
+    <a class="headerLink" href="#best" title="cma.evolution_strategy.CMAEvolutionStrategy.best">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1803,9 +3547,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">boundary_handler</span> =
     
+    <a class="headerLink" href="#boundary_handler" title="cma.evolution_strategy.CMAEvolutionStrategy.boundary_handler">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1823,9 +3571,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">C</span> =
     
+    <a class="headerLink" href="#C" title="cma.evolution_strategy.CMAEvolutionStrategy.C">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1843,11 +3595,16 @@ solutions but might change in future.</p>
     
     <span class="py-defname">callbackstop</span>: <code>tuple</code> =
     
+    <a class="headerLink" href="#callbackstop" title="cma.evolution_strategy.CMAEvolutionStrategy.callbackstop">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>return values of callbacks, used like <tt class="rst-docutils literal">if any(callbackstop)</tt></div>
+    <div><p>return values of callbacks, used like <tt class="rst-docutils literal">if any(callbackstop)</tt></p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1863,9 +3620,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">const</span> =
     
+    <a class="headerLink" href="#const" title="cma.evolution_strategy.CMAEvolutionStrategy.const">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1883,9 +3644,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">count_eigen</span>: <code>int</code> =
     
+    <a class="headerLink" href="#count_eigen" title="cma.evolution_strategy.CMAEvolutionStrategy.count_eigen">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1903,9 +3668,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">countevals</span> =
     
+    <a class="headerLink" href="#countevals" title="cma.evolution_strategy.CMAEvolutionStrategy.countevals">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1923,10 +3692,14 @@ solutions but might change in future.</p>
     
     <span class="py-defname">countiter</span>: <code>int</code> =
     
+    <a class="headerLink" href="#countiter" title="cma.evolution_strategy.CMAEvolutionStrategy.countiter">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#countiter" class="internal-link">cma.interfaces.OOOptimizer.countiter</a></code></div>
-    
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
@@ -1943,9 +3716,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">D</span> =
     
+    <a class="headerLink" href="#D" title="cma.evolution_strategy.CMAEvolutionStrategy.D">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1963,9 +3740,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">dC</span> =
     
+    <a class="headerLink" href="#dC" title="cma.evolution_strategy.CMAEvolutionStrategy.dC">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1983,9 +3764,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">evaluations_per_f_value</span> =
     
+    <a class="headerLink" href="#evaluations_per_f_value" title="cma.evolution_strategy.CMAEvolutionStrategy.evaluations_per_f_value">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2003,9 +3788,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">fit</span> =
     
+    <a class="headerLink" href="#fit" title="cma.evolution_strategy.CMAEvolutionStrategy.fit">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2023,9 +3812,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">gp</span> =
     
+    <a class="headerLink" href="#gp" title="cma.evolution_strategy.CMAEvolutionStrategy.gp">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2043,9 +3836,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">hsiglist</span>: <code>list</code> =
     
+    <a class="headerLink" href="#hsiglist" title="cma.evolution_strategy.CMAEvolutionStrategy.hsiglist">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2063,9 +3860,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">inopts</span> =
     
+    <a class="headerLink" href="#inopts" title="cma.evolution_strategy.CMAEvolutionStrategy.inopts">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2083,9 +3884,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">inputargs</span> =
     
+    <a class="headerLink" href="#inputargs" title="cma.evolution_strategy.CMAEvolutionStrategy.inputargs">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2103,9 +3908,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">itereigenupdated</span> =
     
+    <a class="headerLink" href="#itereigenupdated" title="cma.evolution_strategy.CMAEvolutionStrategy.itereigenupdated">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2123,9 +3932,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">last_iteration_with_gradient</span> =
     
+    <a class="headerLink" href="#last_iteration_with_gradient" title="cma.evolution_strategy.CMAEvolutionStrategy.last_iteration_with_gradient">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2143,9 +3956,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">logger</span> =
     
+    <a class="headerLink" href="#logger" title="cma.evolution_strategy.CMAEvolutionStrategy.logger">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2163,9 +3980,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">mean</span> =
     
+    <a class="headerLink" href="#mean" title="cma.evolution_strategy.CMAEvolutionStrategy.mean">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2183,9 +4004,37 @@ solutions but might change in future.</p>
     
     <span class="py-defname">mean0</span> =
     
+    <a class="headerLink" href="#mean0" title="cma.evolution_strategy.CMAEvolutionStrategy.mean0">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy.mean_after_tell">
+    
+  </a>
+  <a name="mean_after_tell">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mean_after_tell</span> =
+    
+    <a class="headerLink" href="#mean_after_tell" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_after_tell">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2203,9 +4052,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">mean_old</span> =
     
+    <a class="headerLink" href="#mean_old" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_old">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2223,9 +4076,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">mean_old_old</span> =
     
+    <a class="headerLink" href="#mean_old_old" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_old_old">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2243,9 +4100,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">mean_shift_samples</span> =
     
+    <a class="headerLink" href="#mean_shift_samples" title="cma.evolution_strategy.CMAEvolutionStrategy.mean_shift_samples">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2263,9 +4124,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">mirrors_idx</span> =
     
+    <a class="headerLink" href="#mirrors_idx" title="cma.evolution_strategy.CMAEvolutionStrategy.mirrors_idx">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2283,9 +4148,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">more_to_write</span> =
     
+    <a class="headerLink" href="#more_to_write" title="cma.evolution_strategy.CMAEvolutionStrategy.more_to_write">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2303,9 +4172,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">N</span> =
     
+    <a class="headerLink" href="#N" title="cma.evolution_strategy.CMAEvolutionStrategy.N">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2323,9 +4196,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">N_pheno</span> =
     
+    <a class="headerLink" href="#N_pheno" title="cma.evolution_strategy.CMAEvolutionStrategy.N_pheno">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2343,9 +4220,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">noiseS</span>: <code>int</code> =
     
+    <a class="headerLink" href="#noiseS" title="cma.evolution_strategy.CMAEvolutionStrategy.noiseS">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2363,9 +4244,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">number_of_injections</span> =
     
+    <a class="headerLink" href="#number_of_injections" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_injections">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2383,9 +4268,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">number_of_injections_delivered</span>: <code>int</code> =
     
+    <a class="headerLink" href="#number_of_injections_delivered" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_injections_delivered">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2403,29 +4292,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">number_of_solutions_asked</span>: <code>int</code> =
     
+    <a class="headerLink" href="#number_of_solutions_asked" title="cma.evolution_strategy.CMAEvolutionStrategy.number_of_solutions_asked">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
-  </div>
-</div><div class="baseinstancevariable">
-  
-  
-  <a name="cma.evolution_strategy.CMAEvolutionStrategy.objective_function">
-    
-  </a>
-  <a name="objective_function">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">objective_function</span> =
-    
-  </div>
-  <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2443,9 +4316,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">opts</span> =
     
+    <a class="headerLink" href="#opts" title="cma.evolution_strategy.CMAEvolutionStrategy.opts">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2463,9 +4340,37 @@ solutions but might change in future.</p>
     
     <span class="py-defname">pc</span> =
     
+    <a class="headerLink" href="#pc" title="cma.evolution_strategy.CMAEvolutionStrategy.pc">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy.pc2">
+    
+  </a>
+  <a name="pc2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pc2</span> =
+    
+    <a class="headerLink" href="#pc2" title="cma.evolution_strategy.CMAEvolutionStrategy.pc2">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2483,9 +4388,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">pc_neg</span> =
     
+    <a class="headerLink" href="#pc_neg" title="cma.evolution_strategy.CMAEvolutionStrategy.pc_neg">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2503,9 +4412,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">pop</span>: <code>list</code> =
     
+    <a class="headerLink" href="#pop" title="cma.evolution_strategy.CMAEvolutionStrategy.pop">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2523,9 +4436,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">pop_injection_directions</span> =
     
+    <a class="headerLink" href="#pop_injection_directions" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_injection_directions">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2543,9 +4460,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">pop_injection_solutions</span>: <code>list</code> =
     
+    <a class="headerLink" href="#pop_injection_solutions" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_injection_solutions">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2563,29 +4484,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">pop_sorted</span> =
     
+    <a class="headerLink" href="#pop_sorted" title="cma.evolution_strategy.CMAEvolutionStrategy.pop_sorted">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
-  </div>
-</div><div class="baseinstancevariable">
-  
-  
-  <a name="cma.evolution_strategy.CMAEvolutionStrategy.randn">
-    
-  </a>
-  <a name="randn">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">randn</span> =
-    
-  </div>
-  <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2603,9 +4508,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">sent_solutions</span> =
     
+    <a class="headerLink" href="#sent_solutions" title="cma.evolution_strategy.CMAEvolutionStrategy.sent_solutions">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2623,9 +4532,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">sigma</span> =
     
+    <a class="headerLink" href="#sigma" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2643,9 +4556,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">sigma0</span> =
     
+    <a class="headerLink" href="#sigma0" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma0">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2663,9 +4580,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">sigma_vec</span> =
     
+    <a class="headerLink" href="#sigma_vec" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2683,9 +4604,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">sigma_vec0</span> =
     
+    <a class="headerLink" href="#sigma_vec0" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec0">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2703,9 +4628,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">sm</span> =
     
+    <a class="headerLink" href="#sm" title="cma.evolution_strategy.CMAEvolutionStrategy.sm">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2723,9 +4652,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">sp</span> =
     
+    <a class="headerLink" href="#sp" title="cma.evolution_strategy.CMAEvolutionStrategy.sp">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2743,9 +4676,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">sp0</span> =
     
+    <a class="headerLink" href="#sp0" title="cma.evolution_strategy.CMAEvolutionStrategy.sp0">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2763,9 +4700,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">time_last_displayed</span> =
     
+    <a class="headerLink" href="#time_last_displayed" title="cma.evolution_strategy.CMAEvolutionStrategy.time_last_displayed">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2783,9 +4724,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">timer</span> =
     
+    <a class="headerLink" href="#timer" title="cma.evolution_strategy.CMAEvolutionStrategy.timer">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2803,9 +4748,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">times_displayed</span>: <code>int</code> =
     
+    <a class="headerLink" href="#times_displayed" title="cma.evolution_strategy.CMAEvolutionStrategy.times_displayed">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2823,9 +4772,13 @@ solutions but might change in future.</p>
     
     <span class="py-defname">x0</span> =
     
+    <a class="headerLink" href="#x0" title="cma.evolution_strategy.CMAEvolutionStrategy.x0">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -2843,9 +4796,13 @@ solutions but might change in future.</p>
     @property<br />
     <span class="py-defname">condition_number</span> =
     
+    <a class="headerLink" href="#condition_number" title="cma.evolution_strategy.CMAEvolutionStrategy.condition_number">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p>condition number of the statistical-model sampler.</p>
 <p>Details: neither encoding/decoding from <code><a href="#sigma_vec" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma_vec">sigma_vec</a></code>-scaling nor
@@ -2866,9 +4823,13 @@ solutions but might change in future.</p>
     @property<br />
     <span class="py-defname">isotropic_mean_shift</span> =
     
+    <a class="headerLink" href="#isotropic_mean_shift" title="cma.evolution_strategy.CMAEvolutionStrategy.isotropic_mean_shift">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p>normalized last mean shift, under random selection N(0,I)</p>
 <p>distributed.</p>
@@ -2893,11 +4854,16 @@ care for large mueff.</p>
     @property<br />
     <span class="py-defname">popsize</span> =
     
+    <a class="headerLink" href="#popsize" title="cma.evolution_strategy.CMAEvolutionStrategy.popsize">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>number of samples by default returned by <code><a href="#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> ()</div>
+    <div><p>number of samples by default returned by <code><a href="#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> ()</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -2913,14 +4879,47 @@ care for large mueff.</p>
     @property<br />
     <span class="py-defname">result</span> =
     
+    <a class="headerLink" href="#result" title="cma.evolution_strategy.CMAEvolutionStrategy.result">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#result" class="internal-link">cma.interfaces.OOOptimizer.result</a></code></div>
-    
-    <div>return a <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">CMAEvolutionStrategyResult</a></code> <code>namedtuple</code>.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategyResult</a></code>
+    <div><p>return a <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">CMAEvolutionStrategyResult</a></code> <code>namedtuple</code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategyResult</a></code>
 or try <tt class="rst-docutils literal"><span class="pre">help(...result)</span></tt> on the <tt class="rst-docutils literal">result</tt> property
 of an <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> instance or on the
 <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">CMAEvolutionStrategyResult</a></code> instance itself.</td></tr></table></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy.stds">
+    
+  </a>
+  <a name="stds">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">stds</span> =
+    
+    <a class="headerLink" href="#stds" title="cma.evolution_strategy.CMAEvolutionStrategy.stds">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>return array of coordinate-wise standard deviations (phenotypic).</p>
+<p>Takes into account geno-phenotype transformation, step-size,
+diagonal decoding, and the covariance matrix. Only the latter three
+apply to <code>self.mean</code>.</p>
+</div>
     
   </div>
 </div><div class="basemethod private">
@@ -2936,9 +4935,13 @@ of an <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="in
     
     <span class="py-keyword">def</span> <span class="py-defname">_copy_light</span>(self, sigma=None, inopts=None):
     
+    <a class="headerLink" href="#_copy_light" title="cma.evolution_strategy.CMAEvolutionStrategy._copy_light">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>tentative copy of self, versatile (interface and functionalities may change).</p>
 <p><code><a href="#sigma" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma">sigma</a></code> overwrites the original initial <code><a href="#sigma" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.sigma">sigma</a></code>.
@@ -2971,9 +4974,13 @@ not copy evolution paths, termination status or other state variables.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">_prepare_injection_directions</span>(self):
     
+    <a class="headerLink" href="#_prepare_injection_directions" title="cma.evolution_strategy.CMAEvolutionStrategy._prepare_injection_directions">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>provide genotypic directions for TPA and selective mirroring,
 with no specific length normalization, to be used in the
@@ -2997,12 +5004,17 @@ assigned to <tt class="rst-docutils literal">self.pop_injection_directions</tt> 
     
     <span class="py-keyword">def</span> <span class="py-defname">_random_rescaling_factor_to_mahalanobis_size</span>(self, y):
     
+    <a class="headerLink" href="#_random_rescaling_factor_to_mahalanobis_size" title="cma.evolution_strategy.CMAEvolutionStrategy._random_rescaling_factor_to_mahalanobis_size">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div><tt class="rst-docutils literal">self.mean + self._random_rescaling_factor_to_mahalanobis_size(y) * y</tt>
-is guarantied to appear like from the sample distribution.</div>
+    <div><p><tt class="rst-docutils literal">self.mean + self._random_rescaling_factor_to_mahalanobis_size(y) * y</tt>
+is guarantied to appear like from the sample distribution.</p>
+</div>
   </div>
 </div><div class="basemethod private">
   
@@ -3017,11 +5029,16 @@ is guarantied to appear like from the sample distribution.</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">_record_rankings</span>(self, vals, function_values):
     
+    <a class="headerLink" href="#_record_rankings" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>do nothing by default, otherwise assign to <code><a href="#_record_rankings_" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">_record_rankings_</a></code> after instantiation</div>
+    <div><p>do nothing by default, otherwise assign to <code><a href="#_record_rankings_" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">_record_rankings_</a></code> after instantiation</p>
+</div>
   </div>
 </div><div class="basemethod private">
   
@@ -3036,9 +5053,13 @@ is guarantied to appear like from the sample distribution.</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">_record_rankings_</span>(self, vals, function_values):
     
+    <a class="headerLink" href="#_record_rankings_" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>compute ranks of <code>vals</code> in <code>function_values</code> and</p>
 <p>in <code>self.fit.fit</code> and store the results in <code><a href="#_recorded_rankings" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._recorded_rankings">_recorded_rankings</a></code>.
@@ -3059,9 +5080,13 @@ in the current and last iteration.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">_set_x0</span>(self, x0):
     
+    <a class="headerLink" href="#_set_x0" title="cma.evolution_strategy.CMAEvolutionStrategy._set_x0">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>Assign <code>self.x0</code> from argument <code><a href="#x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.x0">x0</a></code>.</p>
 <p>Input <code><a href="#x0" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.x0">x0</a></code> may be a <code>callable</code> or a <code>list</code> or <code>numpy.ndarray</code> of
@@ -3091,6 +5116,30 @@ succeeding calls``dimension * [0.01]``. Only the initial value of
 </div><div class="basemethod private">
   
   
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._stds_into_limits">
+    
+  </a>
+  <a name="_stds_into_limits">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_stds_into_limits</span>(self, warn=False):
+    
+    <a class="headerLink" href="#_stds_into_limits" title="cma.evolution_strategy.CMAEvolutionStrategy._stds_into_limits">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>set <tt class="rst-docutils literal">self.sigma_vec.scaling</tt> to respect <tt class="rst-docutils literal"><span class="pre">opts['max/minstd']</span></tt></p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
   <a name="cma.evolution_strategy.CMAEvolutionStrategy._tfg">
     
   </a>
@@ -3101,9 +5150,13 @@ succeeding calls``dimension * [0.01]``. Only the initial value of
     
     <span class="py-keyword">def</span> <span class="py-defname">_tfg</span>(self, x):
     
+    <a class="headerLink" href="#_tfg" title="cma.evolution_strategy.CMAEvolutionStrategy._tfg">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -3120,11 +5173,42 @@ succeeding calls``dimension * [0.01]``. Only the initial value of
     
     <span class="py-keyword">def</span> <span class="py-defname">_tfp</span>(self, x):
     
+    <a class="headerLink" href="#_tfp" title="cma.evolution_strategy.CMAEvolutionStrategy._tfp">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
     <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._try_update_sm_now">
+    
+  </a>
+  <a name="_try_update_sm_now">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_try_update_sm_now</span>(self):
+    
+    <a class="headerLink" href="#_try_update_sm_now" title="cma.evolution_strategy.CMAEvolutionStrategy._try_update_sm_now">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>call sm.update_now like sm.sample would do.</p>
+<p>This avoids a bias when using
+<code><a href="#_random_rescaling_factor_to_mahalanobis_size" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._random_rescaling_factor_to_mahalanobis_size">_random_rescaling_factor_to_mahalanobis_size</a></code> which was visible
+with TPA line samples.</p>
+</div>
   </div>
 </div><div class="basemethod private">
   
@@ -3139,9 +5223,13 @@ succeeding calls``dimension * [0.01]``. Only the initial value of
     
     <span class="py-keyword">def</span> <span class="py-defname">_updateBDfromSM</span>(self, sm_=None):
     
+    <a class="headerLink" href="#_updateBDfromSM" title="cma.evolution_strategy.CMAEvolutionStrategy._updateBDfromSM">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>helper function for a smooth transition to sampling classes.</p>
 <p>By now all tests run through without this method in effect.
@@ -3162,9 +5250,13 @@ non-documented attributes B and D in the sampler.</p>
     
     <span class="py-defname">_flgtelldone</span>: <code>bool</code> =
     
+    <a class="headerLink" href="#_flgtelldone" title="cma.evolution_strategy.CMAEvolutionStrategy._flgtelldone">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -3182,9 +5274,13 @@ non-documented attributes B and D in the sampler.</p>
     
     <span class="py-defname">_indices_of_selective_mirrors</span>: <code>list</code> =
     
+    <a class="headerLink" href="#_indices_of_selective_mirrors" title="cma.evolution_strategy.CMAEvolutionStrategy._indices_of_selective_mirrors">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -3202,9 +5298,13 @@ non-documented attributes B and D in the sampler.</p>
     
     <span class="py-defname">_injected_solutions_archive</span> =
     
+    <a class="headerLink" href="#_injected_solutions_archive" title="cma.evolution_strategy.CMAEvolutionStrategy._injected_solutions_archive">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -3222,9 +5322,13 @@ non-documented attributes B and D in the sampler.</p>
     
     <span class="py-defname">_mirrormethod1_done</span> =
     
+    <a class="headerLink" href="#_mirrormethod1_done" title="cma.evolution_strategy.CMAEvolutionStrategy._mirrormethod1_done">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -3242,9 +5346,13 @@ non-documented attributes B and D in the sampler.</p>
     
     <span class="py-defname">_recorded_rankings</span> =
     
+    <a class="headerLink" href="#_recorded_rankings" title="cma.evolution_strategy.CMAEvolutionStrategy._recorded_rankings">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -3262,27 +5370,69 @@ non-documented attributes B and D in the sampler.</p>
     
     <span class="py-defname">_stopdict</span> =
     
+    <a class="headerLink" href="#_stopdict" title="cma.evolution_strategy.CMAEvolutionStrategy._stopdict">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
+    <div><p>attribute for stopping criteria in function stop</p>
+</div>
     
-    <div>attribute for stopping criteria in function stop</div>
+  </div>
+</div><div class="baseproperty private">
+  
+  
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._stds_geno">
+    
+  </a>
+  <a name="_stds_geno">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">_stds_geno</span> =
+    
+    <a class="headerLink" href="#_stds_geno" title="cma.evolution_strategy.CMAEvolutionStrategy._stds_geno">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>return array of coordinate-wise standard deviations (genotypic).</p>
+<p>Takes into account step-size, diagonal decoding, and the covariance
+matrix but not the geno-phenotype transformation. Only the former
+three apply to <code>self.mean</code>.</p>
+</div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

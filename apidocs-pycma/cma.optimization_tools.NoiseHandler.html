@@ -7,70 +7,598 @@
   <head>
     
     <title>cma.optimization_tools.NoiseHandler</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization_tools</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.NoiseHandler.html" class="internal-link" title="cma.optimization_tools.NoiseHandler">NoiseHandler</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.optimization_tools.NoiseHandler.html" class="internal-link" title="This class"><wbr></wbr>Noise<wbr></wbr>Handler</a></code> 
+      </div>
+      
+      <div>
+         
+          <div class="childrenKindTitle">Contents</div>
+          <ul><li><a class="rst-reference internal" href="#rst-examples" id="rst-toc-entry-1">Examples</a></li>
+<li><a class="rst-reference internal" href="#rst-details" id="rst-toc-entry-2">Details</a></li>
+<li><a class="rst-reference internal" href="#rst-missing-features" id="rst-toc-entry-3">Missing Features</a></li>
+</ul>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__call__" class="internal-link" title="cma.optimization_tools.NoiseHandler.__call__">__call__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.optimization_tools.NoiseHandler.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#indices" class="internal-link" title="cma.optimization_tools.NoiseHandler.indices">indices</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.reeval">reeval</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#treat" class="internal-link" title="cma.optimization_tools.NoiseHandler.treat">treat</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update_measure" class="internal-link" title="cma.optimization_tools.NoiseHandler.update_measure">update<wbr></wbr>_measure</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#alphaevals" class="internal-link" title="cma.optimization_tools.NoiseHandler.alphaevals">alphaevals</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#alphaevalsdown" class="internal-link" title="cma.optimization_tools.NoiseHandler.alphaevalsdown">alphaevalsdown</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#alphasigma" class="internal-link" title="cma.optimization_tools.NoiseHandler.alphasigma">alphasigma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cum" class="internal-link" title="cma.optimization_tools.NoiseHandler.cum">cum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#epsilon" class="internal-link" title="cma.optimization_tools.NoiseHandler.epsilon">epsilon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#evaluations" class="internal-link" title="cma.optimization_tools.NoiseHandler.evaluations">evaluations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#evaluations_just_done" class="internal-link" title="cma.optimization_tools.NoiseHandler.evaluations_just_done">evaluations<wbr></wbr>_just<wbr></wbr>_done</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#f_aggregate" class="internal-link" title="cma.optimization_tools.NoiseHandler.f_aggregate">f<wbr></wbr>_aggregate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fit" class="internal-link" title="cma.optimization_tools.NoiseHandler.fit">fit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fitre" class="internal-link" title="cma.optimization_tools.NoiseHandler.fitre">fitre</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#idx" class="internal-link" title="cma.optimization_tools.NoiseHandler.idx">idx</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#lam_reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.lam_reeval">lam<wbr></wbr>_reeval</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#maxevals" class="internal-link" title="cma.optimization_tools.NoiseHandler.maxevals">maxevals</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#minevals" class="internal-link" title="cma.optimization_tools.NoiseHandler.minevals">minevals</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noiseS" class="internal-link" title="cma.optimization_tools.NoiseHandler.noiseS">noise<wbr></wbr>S</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#parallel" class="internal-link" title="cma.optimization_tools.NoiseHandler.parallel">parallel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#theta" class="internal-link" title="cma.optimization_tools.NoiseHandler.theta">theta</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.optimization_tools.html" class="internal-link" title="The parent of this class">optimization<wbr></wbr>_tools</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.BestSolution.html" class="internal-link" title="cma.optimization_tools.BestSolution"><wbr></wbr>Best<wbr></wbr>Solution</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.BestSolution2.html" class="internal-link" title="cma.optimization_tools.BestSolution2"><wbr></wbr>Best<wbr></wbr>Solution2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.BinaryEvolutionPath.html" class="internal-link" title="cma.optimization_tools.BinaryEvolutionPath"><wbr></wbr>Binary<wbr></wbr>Evolution<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.EvalParallel2.html" class="internal-link" title="cma.optimization_tools.EvalParallel2"><wbr></wbr>Eval<wbr></wbr>Parallel2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.EvolutionPath.html" class="internal-link" title="cma.optimization_tools.EvolutionPath"><wbr></wbr>Evolution<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.ExponentialSmoothing.html" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing"><wbr></wbr>Exponential<wbr></wbr>Smoothing</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.NoiseHandler.html" class="internal-link" title="cma.optimization_tools.NoiseHandler"><wbr></wbr>Noise<wbr></wbr>Handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.OldEvolutionPath.html" class="internal-link" title="cma.optimization_tools.OldEvolutionPath"><wbr></wbr>Old<wbr></wbr>Evolution<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.Sections.html" class="internal-link" title="cma.optimization_tools.Sections"><wbr></wbr>Sections</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.html#contour_data" class="internal-link" title="cma.optimization_tools.contour_data">contour<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.html#semilogy_signed" class="internal-link" title="cma.optimization_tools.semilogy_signed">semilogy<wbr></wbr>_signed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.html#step_data" class="internal-link" title="cma.optimization_tools.step_data">step<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">NoiseHandler</span>(object):</code></p>
-        <p><a href="classIndex.html#cma.optimization_tools.NoiseHandler">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>Noise handling according to [Hansen et al 2009, A Method for
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization_tools</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.NoiseHandler.html" class="internal-link" title="cma.optimization_tools.NoiseHandler">NoiseHandler</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">NoiseHandler</span>(object):</code></p>
+          <p><a href="classIndex.html#cma.optimization_tools.NoiseHandler">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Noise handling according to [Hansen et al 2009, A Method for
 Handling Uncertainty in Evolutionary Optimization...]</p>
 <p>The interface of this class is yet versatile and subject to changes.</p>
 <p>The noise handling follows closely [Hansen et al 2009] in the
@@ -84,11 +612,11 @@ the smallest element defines the minimal number and if the list has
 three elements, the median value is the start value for
 <tt class="rst-docutils literal">evaluations</tt>.</p>
 <p><code><a href="cma.optimization_tools.NoiseHandler.html" class="internal-link" title="cma.optimization_tools.NoiseHandler">NoiseHandler</a></code> serves to control the noise via steps-size
-increase and number of re-evaluations, for example via <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> or
+increase and number of re-evaluations, for example via <code>fmin</code> or
 with <code>ask_and_eval</code>.</p>
 <div class="rst-section" id="rst-examples">
 <h2 class="heading">Examples</h2>
-<p>Minimal example together with <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> on a non-noisy function:</p>
+<p>Minimal example together with <code>fmin</code> on a non-noisy function:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>res = cma.fmin(cma.ff.elli, 7 * [1], 1, noise_handler=cma.NoiseHandler(7))  <span class="py-comment">#doctest: +ELLIPSIS</span>
@@ -149,11 +677,11 @@ first call by a quantitative analysis of fitness values whether
 mode detection might also set the covariance matrix learning rates
 to smaller values.</p>
 </div>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">CMAEvolutionStrategy.ask_and_eval</a></code></td></tr></table></div>
-      </div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code>fmin</code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">CMAEvolutionStrategy.ask_and_eval</a></code></td></tr></table></div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id476">
+        <div id="splitTables">
+          <table class="children sortable" id="id396">
   
   
   <tr class="method">
@@ -175,7 +703,7 @@ to smaller values.</p>
     
     <td>Method</td>
     <td><code><a href="#reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.reeval">reeval</a></code></td>
-    <td><span class="undocumented">No summary</span></td>
+    <td>store two fitness lists, <code><a href="cma.optimization_tools.NoiseHandler.html#fit" class="internal-link" title="cma.optimization_tools.NoiseHandler.fit">fit</a></code> and <tt class="rst-docutils literal">fitre</tt> reevaluating some solutions in <code>X</code>. <tt class="rst-docutils literal">self.evaluations</tt> evaluations are done for each reevaluated fitness value. See <code><a href="cma.optimization_tools.NoiseHandler.html#__call__" class="internal-link" title="cma.optimization_tools.NoiseHandler.__call__">__call__</a></code>, where <code><a href="cma.optimization_tools.NoiseHandler.html#reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.reeval">reeval</a></code> is called.</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -184,7 +712,7 @@ to smaller values.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#update_measure" class="internal-link" title="cma.optimization_tools.NoiseHandler.update_measure">update​_measure</a></code></td>
+    <td><code><a href="#update_measure" class="internal-link" title="cma.optimization_tools.NoiseHandler.update_measure">update<wbr></wbr>_measure</a></code></td>
     <td>updated noise level measure using two fitness lists <tt class="rst-docutils literal">self.fit</tt> and <tt class="rst-docutils literal">self.fitre</tt>, return <tt class="rst-docutils literal">self.noiseS, all_individual_measures</tt>.</td>
   </tr><tr class="instancevariable">
     
@@ -219,12 +747,12 @@ to smaller values.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#evaluations_just_done" class="internal-link" title="cma.optimization_tools.NoiseHandler.evaluations_just_done">evaluations​_just​_done</a></code></td>
+    <td><code><a href="#evaluations_just_done" class="internal-link" title="cma.optimization_tools.NoiseHandler.evaluations_just_done">evaluations<wbr></wbr>_just<wbr></wbr>_done</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#f_aggregate" class="internal-link" title="cma.optimization_tools.NoiseHandler.f_aggregate">f​_aggregate</a></code></td>
+    <td><code><a href="#f_aggregate" class="internal-link" title="cma.optimization_tools.NoiseHandler.f_aggregate">f<wbr></wbr>_aggregate</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -244,7 +772,7 @@ to smaller values.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#lam_reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.lam_reeval">lam​_reeval</a></code></td>
+    <td><code><a href="#lam_reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.lam_reeval">lam<wbr></wbr>_reeval</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -259,7 +787,7 @@ to smaller values.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#noiseS" class="internal-link" title="cma.optimization_tools.NoiseHandler.noiseS">noise​S</a></code></td>
+    <td><code><a href="#noiseS" class="internal-link" title="cma.optimization_tools.NoiseHandler.noiseS">noise<wbr></wbr>S</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -273,14 +801,13 @@ to smaller values.</p>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.optimization_tools.NoiseHandler.__call__">
@@ -293,9 +820,13 @@ to smaller values.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, X, fit, func, ask=None, args=()):
     
+    <a class="headerLink" href="#__call__" title="cma.optimization_tools.NoiseHandler.__call__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>proceed with noise measurement, set anew attributes <tt class="rst-docutils literal">evaluations</tt>
 (proposed number of evaluations to "treat" noise) and <tt class="rst-docutils literal">evaluations_just_done</tt>
@@ -339,9 +870,13 @@ this order. ``self.evaluations</tt> is adapted within the method
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, N, maxevals=[<wbr></wbr>1, <wbr></wbr>1, <wbr></wbr>1], aggregate=np.median, reevals=None, epsilon=1e-07, parallel=False):
     
+    <a class="headerLink" href="#__init__" title="cma.optimization_tools.NoiseHandler.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>Parameters are:</p>
 <dl class="rst-docutils">
@@ -359,7 +894,7 @@ used to define minimal and initial value of
 reasonable, if also the original <tt class="rst-docutils literal">fit</tt> values (that
 are passed to <code><a href="#__call__" class="internal-link" title="cma.optimization_tools.NoiseHandler.__call__">__call__</a></code>) are computed by aggregation of
 <tt class="rst-docutils literal">self.evaluations</tt> values (otherwise the values are
-not comparable), as it is done within <code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code>.</dd>
+not comparable), as it is done within <code>fmin</code>.</dd>
 <dt><tt class="rst-docutils literal">aggregate</tt></dt>
 <dd>function to aggregate single f-values to a 'fitness', e.g.
 <tt class="rst-docutils literal">np.median</tt>.</dd>
@@ -373,7 +908,7 @@ popsize/20</tt>, where <tt class="rst-docutils literal">popsize = len(fit)</tt> 
 <dt><tt class="rst-docutils literal">parallel</tt></dt>
 <dd>a single f-call with all resampled solutions</dd>
 </dl>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code>, <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">CMAEvolutionStrategy.ask_and_eval</a></code></td></tr></table></div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code>fmin</code>, <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask_and_eval" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">CMAEvolutionStrategy.ask_and_eval</a></code></td></tr></table></div>
   </div>
 </div><div class="basemethod">
   
@@ -388,9 +923,13 @@ popsize/20</tt>, where <tt class="rst-docutils literal">popsize = len(fit)</tt> 
     
     <span class="py-keyword">def</span> <span class="py-defname">indices</span>(self, fit):
     
+    <a class="headerLink" href="#indices" title="cma.optimization_tools.NoiseHandler.indices">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return the set of indices to be reevaluated for noise
 measurement.</p>
@@ -411,15 +950,20 @@ also with a time changing objective.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">reeval</span>(self, X, fit, func, ask, args=()):
     
+    <a class="headerLink" href="#reeval" title="cma.optimization_tools.NoiseHandler.reeval">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>store two fitness lists, <code><a href="#fit" class="internal-link" title="cma.optimization_tools.NoiseHandler.fit">fit</a></code> and <tt class="rst-docutils literal">fitre</tt> reevaluating some
+    <div><p>store two fitness lists, <code><a href="#fit" class="internal-link" title="cma.optimization_tools.NoiseHandler.fit">fit</a></code> and <tt class="rst-docutils literal">fitre</tt> reevaluating some
 solutions in <code>X</code>.
 <tt class="rst-docutils literal">self.evaluations</tt> evaluations are done for each reevaluated
 fitness value.
-See <code><a href="#__call__" class="internal-link" title="cma.optimization_tools.NoiseHandler.__call__">__call__</a></code>, where <code><a href="#reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.reeval">reeval</a></code> is called.</div>
+See <code><a href="#__call__" class="internal-link" title="cma.optimization_tools.NoiseHandler.__call__">__call__</a></code>, where <code><a href="#reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.reeval">reeval</a></code> is called.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -434,12 +978,17 @@ See <code><a href="#__call__" class="internal-link" title="cma.optimization_tool
     
     <span class="py-keyword">def</span> <span class="py-defname">treat</span>(self):
     
+    <a class="headerLink" href="#treat" title="cma.optimization_tools.NoiseHandler.treat">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>adapt self.evaluations depending on the current measurement
-value and return <tt class="rst-docutils literal">sigma_fac in (1.0, self.alphasigma)</tt></div>
+    <div><p>adapt self.evaluations depending on the current measurement
+value and return <tt class="rst-docutils literal">sigma_fac in (1.0, self.alphasigma)</tt></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -454,9 +1003,13 @@ value and return <tt class="rst-docutils literal">sigma_fac in (1.0, self.alphas
     
     <span class="py-keyword">def</span> <span class="py-defname">update_measure</span>(self):
     
+    <a class="headerLink" href="#update_measure" title="cma.optimization_tools.NoiseHandler.update_measure">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>updated noise level measure using two fitness lists <tt class="rst-docutils literal">self.fit</tt> and
 <tt class="rst-docutils literal">self.fitre</tt>, return <tt class="rst-docutils literal">self.noiseS, all_individual_measures</tt>.</p>
@@ -477,9 +1030,13 @@ lists differ.</p>
     
     <span class="py-defname">alphaevals</span>: <code>float</code> =
     
+    <a class="headerLink" href="#alphaevals" title="cma.optimization_tools.NoiseHandler.alphaevals">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -497,9 +1054,13 @@ lists differ.</p>
     
     <span class="py-defname">alphaevalsdown</span> =
     
+    <a class="headerLink" href="#alphaevalsdown" title="cma.optimization_tools.NoiseHandler.alphaevalsdown">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -517,9 +1078,13 @@ lists differ.</p>
     
     <span class="py-defname">alphasigma</span> =
     
+    <a class="headerLink" href="#alphasigma" title="cma.optimization_tools.NoiseHandler.alphasigma">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -537,9 +1102,13 @@ lists differ.</p>
     
     <span class="py-defname">cum</span>: <code>float</code> =
     
+    <a class="headerLink" href="#cum" title="cma.optimization_tools.NoiseHandler.cum">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -557,9 +1126,13 @@ lists differ.</p>
     
     <span class="py-defname">epsilon</span> =
     
+    <a class="headerLink" href="#epsilon" title="cma.optimization_tools.NoiseHandler.epsilon">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -577,11 +1150,16 @@ lists differ.</p>
     
     <span class="py-defname">evaluations</span> =
     
+    <a class="headerLink" href="#evaluations" title="cma.optimization_tools.NoiseHandler.evaluations">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>number of f-evaluations to get a single measurement by aggregation</div>
+    <div><p>number of f-evaluations to get a single measurement by aggregation</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -597,9 +1175,13 @@ lists differ.</p>
     
     <span class="py-defname">evaluations_just_done</span> =
     
+    <a class="headerLink" href="#evaluations_just_done" title="cma.optimization_tools.NoiseHandler.evaluations_just_done">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -617,9 +1199,13 @@ lists differ.</p>
     
     <span class="py-defname">f_aggregate</span> =
     
+    <a class="headerLink" href="#f_aggregate" title="cma.optimization_tools.NoiseHandler.f_aggregate">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -637,9 +1223,13 @@ lists differ.</p>
     
     <span class="py-defname">fit</span> =
     
+    <a class="headerLink" href="#fit" title="cma.optimization_tools.NoiseHandler.fit">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -657,9 +1247,13 @@ lists differ.</p>
     
     <span class="py-defname">fitre</span> =
     
+    <a class="headerLink" href="#fitre" title="cma.optimization_tools.NoiseHandler.fitre">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -677,9 +1271,13 @@ lists differ.</p>
     
     <span class="py-defname">idx</span> =
     
+    <a class="headerLink" href="#idx" title="cma.optimization_tools.NoiseHandler.idx">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -697,9 +1295,13 @@ lists differ.</p>
     
     <span class="py-defname">lam_reeval</span> =
     
+    <a class="headerLink" href="#lam_reeval" title="cma.optimization_tools.NoiseHandler.lam_reeval">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -717,9 +1319,13 @@ lists differ.</p>
     
     <span class="py-defname">maxevals</span> =
     
+    <a class="headerLink" href="#maxevals" title="cma.optimization_tools.NoiseHandler.maxevals">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -737,9 +1343,13 @@ lists differ.</p>
     
     <span class="py-defname">minevals</span> =
     
+    <a class="headerLink" href="#minevals" title="cma.optimization_tools.NoiseHandler.minevals">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -757,9 +1367,13 @@ lists differ.</p>
     
     <span class="py-defname">noiseS</span>: <code>int</code> =
     
+    <a class="headerLink" href="#noiseS" title="cma.optimization_tools.NoiseHandler.noiseS">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -777,9 +1391,13 @@ lists differ.</p>
     
     <span class="py-defname">parallel</span> =
     
+    <a class="headerLink" href="#parallel" title="cma.optimization_tools.NoiseHandler.parallel">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -797,27 +1415,40 @@ lists differ.</p>
     
     <span class="py-defname">theta</span>: <code>float</code> =
     
+    <a class="headerLink" href="#theta" title="cma.optimization_tools.NoiseHandler.theta">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>

@@ -7,70 +7,1005 @@
   <head>
     
     <title>cma.fitness_models.LQModel</title>
-    <meta name="generator" content="pydoctor 22.2.2"> 
+    <meta name="generator" content="pydoctor 22.9.1"> 
         
     </meta>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=0.75" name="viewport" />
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="apidocs.css" rel="stylesheet" type="text/css" />
-    <link href="extra.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
 </head>
 
   <body>
 
     
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default mainnavbar">
+      
   
-  <div class="container">
+  <div class="container-fluid">
+
 
     <div class="navbar-header">
       
       <div class="navlinks">
-          <span class="navbar-brand">
-            cma <a href="index.html">API Documentation</a>
-          </span>
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
 
-          <a href="moduleIndex.html">
-            Modules
-          </a>
+        <a href="moduleIndex.html">
+          Modules
+        </a>
 
-          <a href="classIndex.html">
-            Classes
-          </a>
+        <a href="classIndex.html">
+          Classes
+        </a>
 
-          <a href="nameIndex.html">
-            Names
-          </a>
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</nav>
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
 
-    
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
 
-    <div class="container">
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
 
-      <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness_models</a></code><wbr></wbr>.<code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel">LQModel</a></code></code></h1>
-        <div id="showPrivate">
-          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
 
-      <div class="categoryHeader">
-        class documentation
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.fitness_models.LQModel.html" class="internal-link" title="This class"><wbr></wbr>LQModel</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.fitness_models.LQModel.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#adapt_max_relative_size" class="internal-link" title="cma.fitness_models.LQModel.adapt_max_relative_size">adapt<wbr></wbr>_max<wbr></wbr>_relative<wbr></wbr>_size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#add_data" class="internal-link" title="cma.fitness_models.LQModel.add_data">add<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#add_data_row" class="internal-link" title="cma.fitness_models.LQModel.add_data_row">add<wbr></wbr>_data<wbr></wbr>_row</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#eval" class="internal-link" title="cma.fitness_models.LQModel.eval">eval</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#evalpop" class="internal-link" title="cma.fitness_models.LQModel.evalpop">evalpop</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#expand_x" class="internal-link" title="cma.fitness_models.LQModel.expand_x">expand<wbr></wbr>_x</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#index" class="internal-link" title="cma.fitness_models.LQModel.index">index</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#isin" class="internal-link" title="cma.fitness_models.LQModel.isin">isin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#kendall" class="internal-link" title="cma.fitness_models.LQModel.kendall">kendall</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mahalanobis_norm_squared" class="internal-link" title="cma.fitness_models.LQModel.mahalanobis_norm_squared">mahalanobis<wbr></wbr>_norm<wbr></wbr>_squared</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#old_weighted_array" class="internal-link" title="cma.fitness_models.LQModel.old_weighted_array">old<wbr></wbr>_weighted<wbr></wbr>_array</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#optimize" class="internal-link" title="cma.fitness_models.LQModel.optimize">optimize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#prune" class="internal-link" title="cma.fitness_models.LQModel.prune">prune</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#reset" class="internal-link" title="cma.fitness_models.LQModel.reset">reset</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#reset_Z" class="internal-link" title="cma.fitness_models.LQModel.reset_Z">reset_<wbr></wbr>Z</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_xoffset" class="internal-link" title="cma.fitness_models.LQModel.set_xoffset">set<wbr></wbr>_xoffset</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sort" class="internal-link" title="cma.fitness_models.LQModel.sort">sort</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sorted_weights" class="internal-link" title="cma.fitness_models.LQModel.sorted_weights">sorted<wbr></wbr>_weights</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#type" class="internal-link" title="cma.fitness_models.LQModel.type">type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update_type" class="internal-link" title="cma.fitness_models.LQModel.update_type">update<wbr></wbr>_type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#weighted_array" class="internal-link" title="cma.fitness_models.LQModel.weighted_array">weighted<wbr></wbr>_array</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#xmean" class="internal-link" title="cma.fitness_models.LQModel.xmean">xmean</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_hash" class="internal-link" title="cma.fitness_models.LQModel._hash">_hash</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_prune" class="internal-link" title="cma.fitness_models.LQModel._prune">_prune</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_sort" class="internal-link" title="cma.fitness_models.LQModel._sort">_sort</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#complexity" class="internal-link" title="cma.fitness_models.LQModel.complexity">complexity</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#known_types" class="internal-link" title="cma.fitness_models.LQModel.known_types">known<wbr></wbr>_types</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#count" class="internal-link" title="cma.fitness_models.LQModel.count">count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#counts" class="internal-link" title="cma.fitness_models.LQModel.counts">counts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#F" class="internal-link" title="cma.fitness_models.LQModel.F">F</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hashes" class="internal-link" title="cma.fitness_models.LQModel.hashes">hashes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#log_eigenvalues" class="internal-link" title="cma.fitness_models.LQModel.log_eigenvalues">log<wbr></wbr>_eigenvalues</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="cma.fitness_models.LQModel.logger">logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#max_relative_size" class="internal-link" title="cma.fitness_models.LQModel.max_relative_size">max<wbr></wbr>_relative<wbr></wbr>_size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#number_of_data_last_added" class="internal-link" title="cma.fitness_models.LQModel.number_of_data_last_added">number<wbr></wbr>_of<wbr></wbr>_data<wbr></wbr>_last<wbr></wbr>_added</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#settings" class="internal-link" title="cma.fitness_models.LQModel.settings">settings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tau" class="internal-link" title="cma.fitness_models.LQModel.tau">tau</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#type_updates" class="internal-link" title="cma.fitness_models.LQModel.type_updates">type<wbr></wbr>_updates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#types" class="internal-link" title="cma.fitness_models.LQModel.types">types</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#X" class="internal-link" title="cma.fitness_models.LQModel.X">X</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Y" class="internal-link" title="cma.fitness_models.LQModel.Y">Y</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Z" class="internal-link" title="cma.fitness_models.LQModel.Z">Z</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#b" class="internal-link" title="cma.fitness_models.LQModel.b">b</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#coefficients" class="internal-link" title="cma.fitness_models.LQModel.coefficients">coefficients</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#current_complexity" class="internal-link" title="cma.fitness_models.LQModel.current_complexity">current<wbr></wbr>_complexity</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dim" class="internal-link" title="cma.fitness_models.LQModel.dim">dim</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#eigenvalues" class="internal-link" title="cma.fitness_models.LQModel.eigenvalues">eigenvalues</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hessian" class="internal-link" title="cma.fitness_models.LQModel.hessian">hessian</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logging_trace" class="internal-link" title="cma.fitness_models.LQModel.logging_trace">logging<wbr></wbr>_trace</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#max_df" class="internal-link" title="cma.fitness_models.LQModel.max_df">max<wbr></wbr>_df</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#max_size" class="internal-link" title="cma.fitness_models.LQModel.max_size">max<wbr></wbr>_size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#minY" class="internal-link" title="cma.fitness_models.LQModel.minY">min<wbr></wbr>Y</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pinv" class="internal-link" title="cma.fitness_models.LQModel.pinv">pinv</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#size" class="internal-link" title="cma.fitness_models.LQModel.size">size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#xopt" class="internal-link" title="cma.fitness_models.LQModel.xopt">xopt</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_complexities" class="internal-link" title="cma.fitness_models.LQModel._complexities">_complexities</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_coefficients_count" class="internal-link" title="cma.fitness_models.LQModel._coefficients_count">_coefficients<wbr></wbr>_count</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_current_type" class="internal-link" title="cma.fitness_models.LQModel._current_type">_current<wbr></wbr>_type</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_fieldnames" class="internal-link" title="cma.fitness_models.LQModel._fieldnames">_fieldnames</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_type" class="internal-link" title="cma.fitness_models.LQModel._type">_type</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_xoffset" class="internal-link" title="cma.fitness_models.LQModel._xoffset">_xoffset</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_xopt_count" class="internal-link" title="cma.fitness_models.LQModel._xopt_count">_xopt<wbr></wbr>_count</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.fitness_models.html" class="internal-link" title="The parent of this class">fitness<wbr></wbr>_models</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel"><wbr></wbr>LQModel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.LQModelSettings.html" class="internal-link" title="cma.fitness_models.LQModelSettings"><wbr></wbr>LQModel<wbr></wbr>Settings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.ModelInjectionCallback.html" class="internal-link" title="cma.fitness_models.ModelInjectionCallback"><wbr></wbr>Model<wbr></wbr>Injection<wbr></wbr>Callback</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.ModelInjectionCallbackSettings.html" class="internal-link" title="cma.fitness_models.ModelInjectionCallbackSettings"><wbr></wbr>Model<wbr></wbr>Injection<wbr></wbr>Callback<wbr></wbr>Settings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.SurrogatePopulation.html" class="internal-link" title="cma.fitness_models.SurrogatePopulation"><wbr></wbr>Surrogate<wbr></wbr>Population</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.SurrogatePopulationSettings.html" class="internal-link" title="cma.fitness_models.SurrogatePopulationSettings"><wbr></wbr>Surrogate<wbr></wbr>Population<wbr></wbr>Settings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.Tau.html" class="internal-link" title="cma.fitness_models.Tau"><wbr></wbr>Tau</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#kendall_tau" class="internal-link" title="cma.fitness_models.kendall_tau">kendall<wbr></wbr>_tau</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#_kendall_tau" class="internal-link" title="cma.fitness_models._kendall_tau">_kendall<wbr></wbr>_tau</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#_n_for_model_building_default" class="internal-link" title="cma.fitness_models._n_for_model_building_default">_n<wbr></wbr>_for<wbr></wbr>_model<wbr></wbr>_building<wbr></wbr>_default</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#_sorted_index_default" class="internal-link" title="cma.fitness_models._sorted_index_default">_sorted<wbr></wbr>_index<wbr></wbr>_default</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#___author__" class="internal-link" title="cma.fitness_models.___author__">__<wbr></wbr>_author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html#__license__" class="internal-link" title="cma.fitness_models.__license__">__license__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
       </div>
 
-      <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">LQModel</span>(object):</code></p>
-        <p><a href="classIndex.html#cma.fitness_models.LQModel">View In Hierarchy</a></p>
-      </div>
+      <div id="main" class="">
+        
 
-      <div class="moduleDocstring">
-        <div><p>Up to a full quadratic model using the pseudo inverse to compute
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness_models</a></code><wbr></wbr>.<code><a href="cma.fitness_models.LQModel.html" class="internal-link" title="cma.fitness_models.LQModel">LQModel</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">LQModel</span>(object):</code></p>
+          <p><a href="classIndex.html#cma.fitness_models.LQModel">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Up to a full quadratic model using the pseudo inverse to compute
 the model coefficients.</p>
 <p>The full model has 1 + 2n + n(n-1)/2 = n(n+3) + 1 parameters. Model
 building "works" with any number of data.</p>
@@ -139,10 +1074,10 @@ expected position (the Hessian matrix is chosen somewhat arbitrarily)</p>
 Computation Conference (GECCO 2019), Proceedings, ACM.</p>
 <p>lq-CMA-ES at <a class="rst-reference external" href="http://lq-cma.gforge.inria.fr/ppdata-archives/pap-gecco2019/figure5/" target="_top">http://lq-cma.gforge.inria.fr/ppdata-archives/pap-gecco2019/figure5/</a></p>
 </div>
-      </div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id422">
+        <div id="splitTables">
+          <table class="children sortable" id="id342">
   
   
   <tr class="method">
@@ -153,17 +1088,17 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#adapt_max_relative_size" class="internal-link" title="cma.fitness_models.LQModel.adapt_max_relative_size">adapt​_max​_relative​_size</a></code></td>
+    <td><code><a href="#adapt_max_relative_size" class="internal-link" title="cma.fitness_models.LQModel.adapt_max_relative_size">adapt<wbr></wbr>_max<wbr></wbr>_relative<wbr></wbr>_size</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#add_data" class="internal-link" title="cma.fitness_models.LQModel.add_data">add​_data</a></code></td>
+    <td><code><a href="#add_data" class="internal-link" title="cma.fitness_models.LQModel.add_data">add<wbr></wbr>_data</a></code></td>
     <td>add a sequence of x- and y-data, sorted by y-data (best last)</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#add_data_row" class="internal-link" title="cma.fitness_models.LQModel.add_data_row">add​_data​_row</a></code></td>
+    <td><code><a href="#add_data_row" class="internal-link" title="cma.fitness_models.LQModel.add_data_row">add<wbr></wbr>_data<wbr></wbr>_row</a></code></td>
     <td>add <code>x</code> to <code>self</code> <tt class="rst-docutils literal">if `force` or x not in self</tt></td>
   </tr><tr class="method">
     
@@ -178,7 +1113,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#expand_x" class="internal-link" title="cma.fitness_models.LQModel.expand_x">expand​_x</a></code></td>
+    <td><code><a href="#expand_x" class="internal-link" title="cma.fitness_models.LQModel.expand_x">expand<wbr></wbr>_x</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
@@ -198,12 +1133,12 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#mahalanobis_norm_squared" class="internal-link" title="cma.fitness_models.LQModel.mahalanobis_norm_squared">mahalanobis​_norm​_squared</a></code></td>
+    <td><code><a href="#mahalanobis_norm_squared" class="internal-link" title="cma.fitness_models.LQModel.mahalanobis_norm_squared">mahalanobis<wbr></wbr>_norm<wbr></wbr>_squared</a></code></td>
     <td>caveat: this can be negative because hessian is not guarantied to be pos def.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#old_weighted_array" class="internal-link" title="cma.fitness_models.LQModel.old_weighted_array">old​_weighted​_array</a></code></td>
+    <td><code><a href="#old_weighted_array" class="internal-link" title="cma.fitness_models.LQModel.old_weighted_array">old<wbr></wbr>_weighted<wbr></wbr>_array</a></code></td>
     <td>return weighted Z, worst entries are clipped if possible.</td>
   </tr><tr class="method">
     
@@ -223,12 +1158,12 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#reset_Z" class="internal-link" title="cma.fitness_models.LQModel.reset_Z">reset_​Z</a></code></td>
+    <td><code><a href="#reset_Z" class="internal-link" title="cma.fitness_models.LQModel.reset_Z">reset_<wbr></wbr>Z</a></code></td>
     <td>set x-values Z attribute</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#set_xoffset" class="internal-link" title="cma.fitness_models.LQModel.set_xoffset">set​_xoffset</a></code></td>
+    <td><code><a href="#set_xoffset" class="internal-link" title="cma.fitness_models.LQModel.set_xoffset">set<wbr></wbr>_xoffset</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
@@ -238,22 +1173,22 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#sorted_weights" class="internal-link" title="cma.fitness_models.LQModel.sorted_weights">sorted​_weights</a></code></td>
+    <td><code><a href="#sorted_weights" class="internal-link" title="cma.fitness_models.LQModel.sorted_weights">sorted<wbr></wbr>_weights</a></code></td>
     <td>regression weights in decreasing order</td>
   </tr><tr class="method">
     
     <td>Method</td>
     <td><code><a href="#type" class="internal-link" title="cma.fitness_models.LQModel.type">type</a></code></td>
-    <td>one of the model <code><a href="#known_types" class="internal-link" title="cma.fitness_models.LQModel.known_types">known_types</a></code>, depending on self.size.</td>
+    <td>one of the model <code><a href="cma.fitness_models.LQModel.html#known_types" class="internal-link" title="cma.fitness_models.LQModel.known_types">known_types</a></code>, depending on self.size.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#update_type" class="internal-link" title="cma.fitness_models.LQModel.update_type">update​_type</a></code></td>
+    <td><code><a href="#update_type" class="internal-link" title="cma.fitness_models.LQModel.update_type">update<wbr></wbr>_type</a></code></td>
     <td>model type/size depends on the number of observed data</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#weighted_array" class="internal-link" title="cma.fitness_models.LQModel.weighted_array">weighted​_array</a></code></td>
+    <td><code><a href="#weighted_array" class="internal-link" title="cma.fitness_models.LQModel.weighted_array">weighted<wbr></wbr>_array</a></code></td>
     <td>return weighted Z, worst entries are clipped if possible.</td>
   </tr><tr class="method">
     
@@ -268,7 +1203,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="classvariable">
     
     <td>Class Variable</td>
-    <td><code><a href="#known_types" class="internal-link" title="cma.fitness_models.LQModel.known_types">known​_types</a></code></td>
+    <td><code><a href="#known_types" class="internal-link" title="cma.fitness_models.LQModel.known_types">known<wbr></wbr>_types</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -293,7 +1228,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#log_eigenvalues" class="internal-link" title="cma.fitness_models.LQModel.log_eigenvalues">log​_eigenvalues</a></code></td>
+    <td><code><a href="#log_eigenvalues" class="internal-link" title="cma.fitness_models.LQModel.log_eigenvalues">log<wbr></wbr>_eigenvalues</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -303,12 +1238,12 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#max_relative_size" class="internal-link" title="cma.fitness_models.LQModel.max_relative_size">max​_relative​_size</a></code></td>
+    <td><code><a href="#max_relative_size" class="internal-link" title="cma.fitness_models.LQModel.max_relative_size">max<wbr></wbr>_relative<wbr></wbr>_size</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#number_of_data_last_added" class="internal-link" title="cma.fitness_models.LQModel.number_of_data_last_added">number​_of​_data​_last​_added</a></code></td>
+    <td><code><a href="#number_of_data_last_added" class="internal-link" title="cma.fitness_models.LQModel.number_of_data_last_added">number<wbr></wbr>_of<wbr></wbr>_data<wbr></wbr>_last<wbr></wbr>_added</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -323,7 +1258,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#type_updates" class="internal-link" title="cma.fitness_models.LQModel.type_updates">type​_updates</a></code></td>
+    <td><code><a href="#type_updates" class="internal-link" title="cma.fitness_models.LQModel.type_updates">type<wbr></wbr>_updates</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -358,7 +1293,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#current_complexity" class="internal-link" title="cma.fitness_models.LQModel.current_complexity">current​_complexity</a></code></td>
+    <td><code><a href="#current_complexity" class="internal-link" title="cma.fitness_models.LQModel.current_complexity">current<wbr></wbr>_complexity</a></code></td>
     <td>degrees of freedom (nb of parameters) of the current model</td>
   </tr><tr class="property">
     
@@ -378,22 +1313,22 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#logging_trace" class="internal-link" title="cma.fitness_models.LQModel.logging_trace">logging​_trace</a></code></td>
+    <td><code><a href="#logging_trace" class="internal-link" title="cma.fitness_models.LQModel.logging_trace">logging<wbr></wbr>_trace</a></code></td>
     <td>some data of the current state which may be interesting to display</td>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#max_df" class="internal-link" title="cma.fitness_models.LQModel.max_df">max​_df</a></code></td>
+    <td><code><a href="#max_df" class="internal-link" title="cma.fitness_models.LQModel.max_df">max<wbr></wbr>_df</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#max_size" class="internal-link" title="cma.fitness_models.LQModel.max_size">max​_size</a></code></td>
+    <td><code><a href="#max_size" class="internal-link" title="cma.fitness_models.LQModel.max_size">max<wbr></wbr>_size</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="property">
     
     <td>Property</td>
-    <td><code><a href="#minY" class="internal-link" title="cma.fitness_models.LQModel.minY">min​Y</a></code></td>
+    <td><code><a href="#minY" class="internal-link" title="cma.fitness_models.LQModel.minY">min<wbr></wbr>Y</a></code></td>
     <td>smallest f-values in data queue</td>
   </tr><tr class="property">
     
@@ -413,63 +1348,62 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_hash" class="internal-link" title="cma.fitness_models.LQModel._hash">​_hash</a></code></td>
+    <td><code><a href="#_hash" class="internal-link" title="cma.fitness_models.LQModel._hash">_hash</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_prune" class="internal-link" title="cma.fitness_models.LQModel._prune">​_prune</a></code></td>
+    <td><code><a href="#_prune" class="internal-link" title="cma.fitness_models.LQModel._prune">_prune</a></code></td>
     <td>deprecated</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_sort" class="internal-link" title="cma.fitness_models.LQModel._sort">​_sort</a></code></td>
+    <td><code><a href="#_sort" class="internal-link" title="cma.fitness_models.LQModel._sort">_sort</a></code></td>
     <td>old? sort last <code>number</code> entries TODO: for some reason this seems not to pass the doctest</td>
   </tr><tr class="classvariable private">
     
     <td>Class Variable</td>
-    <td><code><a href="#_complexities" class="internal-link" title="cma.fitness_models.LQModel._complexities">​_complexities</a></code></td>
+    <td><code><a href="#_complexities" class="internal-link" title="cma.fitness_models.LQModel._complexities">_complexities</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_coefficients_count" class="internal-link" title="cma.fitness_models.LQModel._coefficients_count">​_coefficients​_count</a></code></td>
+    <td><code><a href="#_coefficients_count" class="internal-link" title="cma.fitness_models.LQModel._coefficients_count">_coefficients<wbr></wbr>_count</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_current_type" class="internal-link" title="cma.fitness_models.LQModel._current_type">​_current​_type</a></code></td>
+    <td><code><a href="#_current_type" class="internal-link" title="cma.fitness_models.LQModel._current_type">_current<wbr></wbr>_type</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_fieldnames" class="internal-link" title="cma.fitness_models.LQModel._fieldnames">​_fieldnames</a></code></td>
+    <td><code><a href="#_fieldnames" class="internal-link" title="cma.fitness_models.LQModel._fieldnames">_fieldnames</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_type" class="internal-link" title="cma.fitness_models.LQModel._type">​_type</a></code></td>
+    <td><code><a href="#_type" class="internal-link" title="cma.fitness_models.LQModel._type">_type</a></code></td>
     <td>the model can have several types, for the time being</td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_xoffset" class="internal-link" title="cma.fitness_models.LQModel._xoffset">​_xoffset</a></code></td>
+    <td><code><a href="#_xoffset" class="internal-link" title="cma.fitness_models.LQModel._xoffset">_xoffset</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#_xopt_count" class="internal-link" title="cma.fitness_models.LQModel._xopt_count">​_xopt​_count</a></code></td>
+    <td><code><a href="#_xopt_count" class="internal-link" title="cma.fitness_models.LQModel._xopt_count">_xopt<wbr></wbr>_count</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
   
   
   <a name="cma.fitness_models.LQModel.__init__">
@@ -482,9 +1416,13 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, max_relative_size_init=None, max_relative_size_end=None, min_relative_size=None, max_absolute_size=None, sorted_index=None):
     
+    <a class="headerLink" href="#__init__" title="cma.fitness_models.LQModel.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>Increase model complexity if the number of data exceeds
 <tt class="rst-docutils literal">max(min_relative_size * df_biggest_model_type, self.min_absolute_size)</tt>.</p>
@@ -505,9 +1443,13 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">adapt_max_relative_size</span>(self, tau):
     
+    <a class="headerLink" href="#adapt_max_relative_size" title="cma.fitness_models.LQModel.adapt_max_relative_size">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -524,11 +1466,16 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">add_data</span>(self, X, Y, prune=True):
     
+    <a class="headerLink" href="#add_data" title="cma.fitness_models.LQModel.add_data">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>add a sequence of x- and y-data, sorted by y-data (best last)</div>
+    <div><p>add a sequence of x- and y-data, sorted by y-data (best last)</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -543,11 +1490,16 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">add_data_row</span>(self, x, f, prune=True, force=False):
     
+    <a class="headerLink" href="#add_data_row" title="cma.fitness_models.LQModel.add_data_row">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>add <code>x</code> to <code>self</code> <tt class="rst-docutils literal">if `force` or x not in self</tt></div>
+    <div><p>add <code>x</code> to <code>self</code> <tt class="rst-docutils literal">if `force` or x not in self</tt></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -562,11 +1514,16 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">eval</span>(self, x):
     
+    <a class="headerLink" href="#eval" title="cma.fitness_models.LQModel.eval">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return Model value of <code>x</code></div>
+    <div><p>return Model value of <code>x</code></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -581,11 +1538,16 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">evalpop</span>(self, X):
     
+    <a class="headerLink" href="#evalpop" title="cma.fitness_models.LQModel.evalpop">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>never used, return Model values of <tt class="rst-docutils literal">x for x in X</tt></div>
+    <div><p>never used, return Model values of <tt class="rst-docutils literal">x for x in X</tt></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -600,9 +1562,13 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">expand_x</span>(self, x):
     
+    <a class="headerLink" href="#expand_x" title="cma.fitness_models.LQModel.expand_x">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -619,9 +1585,13 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">index</span>(self, x):
     
+    <a class="headerLink" href="#index" title="cma.fitness_models.LQModel.index">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -638,11 +1608,16 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">isin</span>(self, x):
     
+    <a class="headerLink" href="#isin" title="cma.fitness_models.LQModel.isin">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return False if <code>x</code> is not (anymore) in the model archive</div>
+    <div><p>return False if <code>x</code> is not (anymore) in the model archive</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -657,11 +1632,16 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">kendall</span>(self, number, F_model=None):
     
+    <a class="headerLink" href="#kendall" title="cma.fitness_models.LQModel.kendall">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>return Kendall tau between true F-values (Y) and model values.</div>
+    <div><p>return Kendall tau between true F-values (Y) and model values.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -676,12 +1656,17 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
     
     <span class="py-keyword">def</span> <span class="py-defname">mahalanobis_norm_squared</span>(self, dx):
     
+    <a class="headerLink" href="#mahalanobis_norm_squared" title="cma.fitness_models.LQModel.mahalanobis_norm_squared">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>caveat: this can be negative because hessian is not guarantied
-to be pos def.</div>
+    <div><p>caveat: this can be negative because hessian is not guarantied
+to be pos def.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -696,9 +1681,13 @@ to be pos def.</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">old_weighted_array</span>(self, Z):
     
+    <a class="headerLink" href="#old_weighted_array" title="cma.fitness_models.LQModel.old_weighted_array">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return weighted Z, worst entries are clipped if possible.</p>
 <p>Z can be a vector or a matrix.</p>
@@ -717,9 +1706,13 @@ to be pos def.</div>
     
     <span class="py-keyword">def</span> <span class="py-defname">optimize</span>(self, fitness, x0, evals):
     
+    <a class="headerLink" href="#optimize" title="cma.fitness_models.LQModel.optimize">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>this works very poorly e.g. on Rosenbrock</p>
 <pre class="rst-literal-block">
@@ -741,11 +1734,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">prune</span>(self):
     
+    <a class="headerLink" href="#prune" title="cma.fitness_models.LQModel.prune">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>prune data depending on size parameters</div>
+    <div><p>prune data depending on size parameters</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -760,9 +1758,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">reset</span>(self):
     
+    <a class="headerLink" href="#reset" title="cma.fitness_models.LQModel.reset">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -779,11 +1781,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">reset_Z</span>(self):
     
+    <a class="headerLink" href="#reset_Z" title="cma.fitness_models.LQModel.reset_Z">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>set x-values Z attribute</div>
+    <div><p>set x-values Z attribute</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -798,9 +1805,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">set_xoffset</span>(self, offset):
     
+    <a class="headerLink" href="#set_xoffset" title="cma.fitness_models.LQModel.set_xoffset">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -817,11 +1828,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">sort</span>(self, number=None, argsort=np.argsort):
     
+    <a class="headerLink" href="#sort" title="cma.fitness_models.LQModel.sort">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>sort last <code>number</code> entries</div>
+    <div><p>sort last <code>number</code> entries</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -836,11 +1852,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">sorted_weights</span>(self, number=None):
     
+    <a class="headerLink" href="#sorted_weights" title="cma.fitness_models.LQModel.sorted_weights">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>regression weights in decreasing order</div>
+    <div><p>regression weights in decreasing order</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -855,9 +1876,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">type</span>(self):
     
+    <a class="headerLink" href="#type" title="cma.fitness_models.LQModel.type">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>one of the model <code><a href="#known_types" class="internal-link" title="cma.fitness_models.LQModel.known_types">known_types</a></code>, depending on self.size.</p>
 <p>This may replace <code><a href="#types" class="internal-link" title="cma.fitness_models.LQModel.types">types</a></code>, but is not in use yet.</p>
@@ -876,11 +1901,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">update_type</span>(self):
     
+    <a class="headerLink" href="#update_type" title="cma.fitness_models.LQModel.update_type">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>model type/size depends on the number of observed data</div>
+    <div><p>model type/size depends on the number of observed data</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -895,9 +1925,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">weighted_array</span>(self, Z):
     
+    <a class="headerLink" href="#weighted_array" title="cma.fitness_models.LQModel.weighted_array">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>return weighted Z, worst entries are clipped if possible.</p>
 <p>Z can be a vector or a matrix.</p>
@@ -916,9 +1950,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">xmean</span>(self):
     
+    <a class="headerLink" href="#xmean" title="cma.fitness_models.LQModel.xmean">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -935,9 +1973,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">complexity</span> =
     
+    <a class="headerLink" href="#complexity" title="cma.fitness_models.LQModel.complexity">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -955,9 +1997,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">known_types</span> =
     
+    <a class="headerLink" href="#known_types" title="cma.fitness_models.LQModel.known_types">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -975,9 +2021,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">count</span>: <code>int</code> =
     
+    <a class="headerLink" href="#count" title="cma.fitness_models.LQModel.count">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -995,9 +2045,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">counts</span> =
     
+    <a class="headerLink" href="#counts" title="cma.fitness_models.LQModel.counts">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1015,9 +2069,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">F</span> =
     
+    <a class="headerLink" href="#F" title="cma.fitness_models.LQModel.F">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1035,9 +2093,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">hashes</span> =
     
+    <a class="headerLink" href="#hashes" title="cma.fitness_models.LQModel.hashes">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1055,9 +2117,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">log_eigenvalues</span> =
     
+    <a class="headerLink" href="#log_eigenvalues" title="cma.fitness_models.LQModel.log_eigenvalues">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1075,9 +2141,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">logger</span> =
     
+    <a class="headerLink" href="#logger" title="cma.fitness_models.LQModel.logger">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1095,9 +2165,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">max_relative_size</span> =
     
+    <a class="headerLink" href="#max_relative_size" title="cma.fitness_models.LQModel.max_relative_size">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1115,9 +2189,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">number_of_data_last_added</span> =
     
+    <a class="headerLink" href="#number_of_data_last_added" title="cma.fitness_models.LQModel.number_of_data_last_added">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1135,9 +2213,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">settings</span> =
     
+    <a class="headerLink" href="#settings" title="cma.fitness_models.LQModel.settings">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1155,9 +2237,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">tau</span> =
     
+    <a class="headerLink" href="#tau" title="cma.fitness_models.LQModel.tau">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1175,9 +2261,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">type_updates</span> =
     
+    <a class="headerLink" href="#type_updates" title="cma.fitness_models.LQModel.type_updates">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1195,9 +2285,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">types</span>: <code>list</code> =
     
+    <a class="headerLink" href="#types" title="cma.fitness_models.LQModel.types">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1215,9 +2309,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">X</span> =
     
+    <a class="headerLink" href="#X" title="cma.fitness_models.LQModel.X">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1235,9 +2333,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">Y</span> =
     
+    <a class="headerLink" href="#Y" title="cma.fitness_models.LQModel.Y">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1255,9 +2357,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">Z</span> =
     
+    <a class="headerLink" href="#Z" title="cma.fitness_models.LQModel.Z">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1275,9 +2381,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">b</span> =
     
+    <a class="headerLink" href="#b" title="cma.fitness_models.LQModel.b">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1295,11 +2405,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">coefficients</span> =
     
+    <a class="headerLink" href="#coefficients" title="cma.fitness_models.LQModel.coefficients">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>model coefficients that are linear in self.expand(.)</div>
+    <div><p>model coefficients that are linear in self.expand(.)</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1315,11 +2430,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">current_complexity</span> =
     
+    <a class="headerLink" href="#current_complexity" title="cma.fitness_models.LQModel.current_complexity">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>degrees of freedom (nb of parameters) of the current model</div>
+    <div><p>degrees of freedom (nb of parameters) of the current model</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1335,9 +2455,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">dim</span> =
     
+    <a class="headerLink" href="#dim" title="cma.fitness_models.LQModel.dim">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1355,11 +2479,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">eigenvalues</span> =
     
+    <a class="headerLink" href="#eigenvalues" title="cma.fitness_models.LQModel.eigenvalues">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>eigenvalues of the Hessian of the model</div>
+    <div><p>eigenvalues of the Hessian of the model</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1375,9 +2504,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">hessian</span> =
     
+    <a class="headerLink" href="#hessian" title="cma.fitness_models.LQModel.hessian">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1395,11 +2528,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">logging_trace</span> =
     
+    <a class="headerLink" href="#logging_trace" title="cma.fitness_models.LQModel.logging_trace">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>some data of the current state which may be interesting to display</div>
+    <div><p>some data of the current state which may be interesting to display</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1415,9 +2553,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">max_df</span> =
     
+    <a class="headerLink" href="#max_df" title="cma.fitness_models.LQModel.max_df">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1435,9 +2577,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">max_size</span> =
     
+    <a class="headerLink" href="#max_size" title="cma.fitness_models.LQModel.max_size">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1455,11 +2601,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">minY</span> =
     
+    <a class="headerLink" href="#minY" title="cma.fitness_models.LQModel.minY">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>smallest f-values in data queue</div>
+    <div><p>smallest f-values in data queue</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1475,9 +2626,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">pinv</span> =
     
+    <a class="headerLink" href="#pinv" title="cma.fitness_models.LQModel.pinv">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p>return Pseudoinverse, computed unconditionally (not lazy).</p>
 <p><code><a href="#pinv" class="internal-link" title="cma.fitness_models.LQModel.pinv">pinv</a></code> is usually not used directly but via the <code><a href="#coefficients" class="internal-link" title="cma.fitness_models.LQModel.coefficients">coefficients</a></code> property.</p>
@@ -1498,11 +2653,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">size</span> =
     
+    <a class="headerLink" href="#size" title="cma.fitness_models.LQModel.size">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>number of data available to build the model</div>
+    <div><p>number of data available to build the model</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1518,9 +2678,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     @property<br />
     <span class="py-defname">xopt</span> =
     
+    <a class="headerLink" href="#xopt" title="cma.fitness_models.LQModel.xopt">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1538,9 +2702,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">_hash</span>(self, x):
     
+    <a class="headerLink" href="#_hash" title="cma.fitness_models.LQModel._hash">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
@@ -1557,11 +2725,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">_prune</span>(self):
     
+    <a class="headerLink" href="#_prune" title="cma.fitness_models.LQModel._prune">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>deprecated</div>
+    <div><p>deprecated</p>
+</div>
   </div>
 </div><div class="basemethod private">
   
@@ -1576,11 +2749,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-keyword">def</span> <span class="py-defname">_sort</span>(self, number=None, argsort=np.argsort):
     
+    <a class="headerLink" href="#_sort" title="cma.fitness_models.LQModel._sort">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
-    
-    <div>old? sort last <code>number</code> entries TODO: for some reason this seems not to pass the doctest</div>
+    <div><p>old? sort last <code>number</code> entries TODO: for some reason this seems not to pass the doctest</p>
+</div>
   </div>
 </div><div class="baseclassvariable private">
   
@@ -1595,9 +2773,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">_complexities</span> =
     
+    <a class="headerLink" href="#_complexities" title="cma.fitness_models.LQModel._complexities">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1615,9 +2797,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">_coefficients_count</span>: <code>int</code> =
     
+    <a class="headerLink" href="#_coefficients_count" title="cma.fitness_models.LQModel._coefficients_count">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1635,9 +2821,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">_current_type</span> =
     
+    <a class="headerLink" href="#_current_type" title="cma.fitness_models.LQModel._current_type">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1655,9 +2845,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">_fieldnames</span>: <code>list[<wbr></wbr>str]</code> =
     
+    <a class="headerLink" href="#_fieldnames" title="cma.fitness_models.LQModel._fieldnames">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1675,11 +2869,16 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">_type</span>: <code>str</code> =
     
+    <a class="headerLink" href="#_type" title="cma.fitness_models.LQModel._type">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
     
-    
-    <div>the model can have several types, for the time being</div>
+    <div><p>the model can have several types, for the time being</p>
+</div>
     
   </div>
 </div><div class="baseinstancevariable private">
@@ -1695,9 +2894,13 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">_xoffset</span> =
     
+    <a class="headerLink" href="#_xoffset" title="cma.fitness_models.LQModel._xoffset">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
@@ -1715,27 +2918,40 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
     
     <span class="py-defname">_xopt_count</span>: <code>int</code> =
     
+    <a class="headerLink" href="#_xopt_count" title="cma.fitness_models.LQModel._xopt_count">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="functionBody">
-    
     
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
-
+        </div>
+      
       </div>
     </div>
 
     <footer class="navbar navbar-default">
+
   
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.2.2 at 2022-03-19 17:09:59.
+    22.9.1 at 2023-01-25 19:17:38.
   </div>
-</footer>
 
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
     <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
