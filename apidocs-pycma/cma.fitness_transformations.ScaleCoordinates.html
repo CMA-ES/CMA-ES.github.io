@@ -146,6 +146,12 @@
       </div>
       
       <div>
+         
+          <div class="childrenKindTitle">Contents</div>
+          <ul><li><a class="rst-reference internal" href="#rst-domain-interface-lower-and-upper-variable-values" id="rst-toc-entry-1">Domain interface (lower and upper variable values)</a></li>
+<li><a class="rst-reference internal" href="#rst-scaling-interface" id="rst-toc-entry-2">Scaling interface</a></li>
+<li><a class="rst-reference internal" href="#rst-examples-and-doctest" id="rst-toc-entry-3">Examples and Doctest</a></li>
+</ul>
         
 
         
@@ -225,7 +231,47 @@
         
 
         
+            <div class="itemName"><code><a href="#from_lower_upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.from_lower_upper">from<wbr></wbr>_lower<wbr></wbr>_upper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#lower" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.lower">lower</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#multiplier" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.multiplier">multiplier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#transform" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.transform">transform</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.upper">upper</a></code>
             </div>
         
 
@@ -538,15 +584,56 @@
         </div>
 
         <div class="moduleDocstring">
-          <div><p>compose a (fitness) function with a scaling for each variable
-(more concisely, a coordinate-wise affine transformation).</p>
+          <div><p>compose a (fitness) function with a preceding scaling and offset.</p>
+<div class="rst-section" id="rst-domain-interface-lower-and-upper-variable-values">
+<h2 class="heading">Domain interface (lower and upper variable values)</h2>
+<p>Let <tt class="rst-docutils literal">u</tt> and <tt class="rst-docutils literal">l</tt> be vectors (or a scalar) of (approximate) lower and
+upper variable values, respectively. Assigning <tt class="rst-docutils literal">fun2</tt> from <tt class="rst-docutils literal">fun</tt>
+like:</p>
+<pre class="rst-literal-block">
+fun2 = cma.ScaleCoordinates(fun, upper=u, lower=l)
+</pre>
+<p>gets <tt class="rst-docutils literal">fun2(x) == fun(l + (u - l) * x)</tt>. Now, passing 0 as <tt class="rst-docutils literal">x[i]</tt> to
+<tt class="rst-docutils literal">fun2</tt> evaluates <tt class="rst-docutils literal">fun</tt> at <tt class="rst-docutils literal">l[i]</tt> while passing 1 evaluates
+<tt class="rst-docutils literal">fun</tt> at <tt class="rst-docutils literal">u[i]</tt>.</p>
+<p>To match the size of <tt class="rst-docutils literal">x</tt>, the sizes of <tt class="rst-docutils literal">u</tt> and <tt class="rst-docutils literal">l</tt> are shortened
+or their last entry is recycled if necessary.</p>
+<p>The default value for <code><a href="#lower" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.lower">lower</a></code> is zero in which case <code><a href="#upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.upper">upper</a></code> just
+becomes a scaling multiplier.</p>
+<p>Bounding the search domain of <tt class="rst-docutils literal">fun2</tt> to <tt class="rst-docutils literal">[0, 1]</tt> now bounds <tt class="rst-docutils literal">fun</tt>
+to the domain <tt class="rst-docutils literal">[l, u]</tt>. The <tt class="rst-docutils literal">'bounds'</tt> option of <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>
+allows to set these bounds.</p>
+<p>More general, the affine transformation is defined such that
+<tt class="rst-docutils literal"><span class="pre">x[i]==from_lower_upper[0]</span></tt> evaluates <tt class="rst-docutils literal">fun</tt> at <tt class="rst-docutils literal">l[i]</tt> and
+<tt class="rst-docutils literal"><span class="pre">x[i]==from_lower_upper[1]</span></tt> evaluates <tt class="rst-docutils literal">fun</tt> at <tt class="rst-docutils literal">u[i]</tt> where
+<tt class="rst-docutils literal">from_lower_upper == [0, 1]</tt> by default.</p>
+</div>
+<div class="rst-section" id="rst-scaling-interface">
+<h2 class="heading">Scaling interface</h2>
 <p>After <tt class="rst-docutils literal">fun2 = cma.ScaleCoordinates(fun, multipliers, zero)</tt>, we have
-<tt class="rst-docutils literal">fun2(x) == fun(multipliers * (x - zero))</tt>, where the size of
+<tt class="rst-docutils literal">fun2(x) == fun(multipliers * (x - zero))</tt>, where the vector size of
 <code>multipliers</code> and <code><a href="#zero" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.zero">zero</a></code> is adapated to the size of <code>x</code>, in case by
-recycling their last entry.</p>
+recycling their last entry. This awkwardly asks to pass the <code><a href="#zero" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.zero">zero</a></code>
+argument of the preimage space where it has little meaning. Hence more
+conveniently,
+<tt class="rst-docutils literal">fun2 = cma.ScaleCoordinates(fun, multipliers, lower=lower)</tt> gets
+<tt class="rst-docutils literal">fun2(x) == fun(multipliers * x + lower))</tt>.</p>
+</div>
+<div class="rst-section" id="rst-examples-and-doctest">
+<h2 class="heading">Examples and Doctest</h2>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>fun = cma.ScaleCoordinates(cma.ff.sphere, upper=[30, 1])
+<span class="py-prompt">&gt;&gt;&gt; </span>fun([1, 1]) == 30**2 + 1**2
+<span class="py-output">True</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">list</span>(fun.transform([1, 1])), <span class="py-builtin">list</span>(fun.transform([0.2, 0.2]))
+<span class="py-output">([30.0, 1.0], [6.0, 0.2])</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">list</span>(fun.inverse(fun.transform([0.1, 0.3])))
+<span class="py-output">[0.1, 0.3]</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>fun = cma.ScaleCoordinates(cma.ff.sphere, upper=[31, 3], lower=[1, 2])
+<span class="py-prompt">&gt;&gt;&gt; </span>-1e-9 &lt; fun([1, -1]) - (31**2 + 1**2) &lt; 1e-9
+<span class="py-output">True</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>f = cma.ScaleCoordinates(cma.ff.sphere, [100, 1])
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> f[0] == cma.ff.sphere  <span class="py-comment"># first element of f-composition</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> f(<span class="py-builtin">range</span>(1, 6)) == 100**2 + <span class="py-builtin">sum</span>([x**2 <span class="py-keyword">for</span> x <span class="py-keyword">in</span> <span class="py-builtin">range</span>(2, 6)])
@@ -557,7 +644,10 @@ recycling their last entry.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span>f = cma.ScaleCoordinates(f, [-2, 7], [2, 3, 4]) <span class="py-comment"># last is recycled</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>f([5, 6]) == <span class="py-builtin">sum</span>(x**2 <span class="py-keyword">for</span> x <span class="py-keyword">in</span> [100 * -2 * (5 - 2), 7 * (6 - 3)])
 <span class="py-output">True</span>
-</pre></div>
+</pre><p>See also these [Practical Hints](<a class="rst-reference external" href="https://cma-es.github.io/cmaes_sourcecode_page.html#practical" target="_top">https://cma-es.github.io/cmaes_sourcecode_page.html#practical</a>)
+for encoding variables.</p>
+</div>
+</div>
         </div>
 
         <div id="splitTables">
@@ -568,7 +658,7 @@ recycling their last entry.</p>
     
     <td>Method</td>
     <td><code><a href="#__init__" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.__init__">__init__</a></code></td>
-    <td>For both arguments, <tt class="rst-docutils literal">multipliers</tt> and <tt class="rst-docutils literal">zero</tt>, to fit the length of the given input, superfluous trailing elements are ignored and the last element is recycled if needed.</td>
+    <td>Only either <code>multipliers</code> or 'upper` can be passed. If <code><a href="cma.fitness_transformations.ScaleCoordinates.html#zero" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.zero">zero</a></code> is passed then <code><a href="cma.fitness_transformations.ScaleCoordinates.html#upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.upper">upper</a></code> and <code><a href="cma.fitness_transformations.ScaleCoordinates.html#lower" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.lower">lower</a></code> are ignored. The arguments <tt class="rst-docutils literal">multipliers</tt>, <tt class="rst-docutils literal">zero</tt>, <tt class="rst-docutils literal">upper</tt> and <tt class="rst-docutils literal">lower</tt> can be vectors or scalars, superfluous trailing elements are ignored and the last element is recycled if needed to fit the length of the later given input.</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -582,7 +672,27 @@ recycling their last entry.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
+    <td><code><a href="#from_lower_upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.from_lower_upper">from<wbr></wbr>_lower<wbr></wbr>_upper</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lower" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.lower">lower</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
     <td><code><a href="#multiplier" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.multiplier">multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#transform" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.transform">transform</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.upper">upper</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -676,7 +786,7 @@ recycling their last entry.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, fitness_function, multipliers=None, zero=None):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, fitness_function, multipliers=None, zero=None, upper=None, lower=None, from_lower_upper=(<wbr></wbr>0, <wbr></wbr>1)):
     
     <a class="headerLink" href="#__init__" title="cma.fitness_transformations.ScaleCoordinates.__init__">
       
@@ -686,13 +796,25 @@ recycling their last entry.</p>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.fitness_transformations.ComposedFunction.html#__init__" class="internal-link">cma.fitness_transformations.ComposedFunction.__init__</a></code></div>
-    <div><p>For both arguments, <tt class="rst-docutils literal">multipliers</tt> and <tt class="rst-docutils literal">zero</tt>, to fit
-the length of the given input, superfluous trailing
-elements are ignored and the last element is recycled
-if needed.</p>
+    <div><p>Only either <code>multipliers</code> or 'upper` can be passed. If <code><a href="#zero" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.zero">zero</a></code> is
+passed then <code><a href="#upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.upper">upper</a></code> and <code><a href="#lower" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.lower">lower</a></code> are ignored. The arguments
+<tt class="rst-docutils literal">multipliers</tt>, <tt class="rst-docutils literal">zero</tt>, <tt class="rst-docutils literal">upper</tt> and <tt class="rst-docutils literal">lower</tt> can be vectors
+or scalars, superfluous trailing elements are ignored and the last
+element is recycled if needed to fit the length of the later given
+input.</p>
+<p><code><a href="#from_lower_upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.from_lower_upper">from_lower_upper</a></code> is <code>(0, 1)</code> by default and defines the preimage
+values which are mapped to <code><a href="#lower" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.lower">lower</a></code> and <code><a href="#upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.upper">upper</a></code>, respectively
+(unless <code>multipliers</code> or <code><a href="#zero" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.zero">zero</a></code> are given). These two preimage
+values are always the same for all coordinates.</p>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p>The upper and lower and from_lower_upper parameters are used to
+assign multipliers and zero such that the transformation is then
+always computed from the latter two only.</p>
+</div>
 <table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fitness<wbr></wbr>_function</span></td><td class="fieldArgDesc">a <code><a href="cma.fitness_transformations.Expensify.html#callable" class="internal-link" title="cma.fitness_transformations.Expensify.callable">callable</a></code> object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">multipliers</span></td><td class="fieldArgDesc">coordinate-wise multipliers.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">zero</span></td><td class="fieldArgDesc">defines a new zero in preimage space, that is,
 calling the <code><a href="cma.fitness_transformations.ScaleCoordinates.html" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates">ScaleCoordinates</a></code> instance returns
-<tt class="rst-docutils literal">fitness_function(multipliers * (x - zero))</tt>.</td></tr></table></div>
+<tt class="rst-docutils literal">fitness_function(multipliers * (x - zero))</tt>.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">upper</span></td><td class="fieldArgDesc">variable value to which from_lower_upper[1] maps.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lower</span></td><td class="fieldArgDesc">variable value to which from_lower_upper[0] maps.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">from<wbr></wbr>_lower<wbr></wbr>_upper</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
   </div>
 </div><div class="basemethod">
   
@@ -745,6 +867,54 @@ calling the <code><a href="cma.fitness_transformations.ScaleCoordinates.html" cl
 </div><div class="baseinstancevariable">
   
   
+  <a name="cma.fitness_transformations.ScaleCoordinates.from_lower_upper">
+    
+  </a>
+  <a name="from_lower_upper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">from_lower_upper</span> =
+    
+    <a class="headerLink" href="#from_lower_upper" title="cma.fitness_transformations.ScaleCoordinates.from_lower_upper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_transformations.ScaleCoordinates.lower">
+    
+  </a>
+  <a name="lower">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lower</span> =
+    
+    <a class="headerLink" href="#lower" title="cma.fitness_transformations.ScaleCoordinates.lower">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
   <a name="cma.fitness_transformations.ScaleCoordinates.multiplier">
     
   </a>
@@ -756,6 +926,54 @@ calling the <code><a href="cma.fitness_transformations.ScaleCoordinates.html" cl
     <span class="py-defname">multiplier</span> =
     
     <a class="headerLink" href="#multiplier" title="cma.fitness_transformations.ScaleCoordinates.multiplier">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_transformations.ScaleCoordinates.transform">
+    
+  </a>
+  <a name="transform">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">transform</span> =
+    
+    <a class="headerLink" href="#transform" title="cma.fitness_transformations.ScaleCoordinates.transform">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.fitness_transformations.ScaleCoordinates.upper">
+    
+  </a>
+  <a name="upper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">upper</span> =
+    
+    <a class="headerLink" href="#upper" title="cma.fitness_transformations.ScaleCoordinates.upper">
       
       
       ¶
@@ -802,7 +1020,7 @@ calling the <code><a href="cma.fitness_transformations.ScaleCoordinates.html" cl
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-01-25 19:17:38.
+    22.9.1 at 2023-02-14 20:44:04.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

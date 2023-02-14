@@ -15652,7 +15652,7 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Class</div>
             <div class="kind">Class</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">compose a (fitness) function with a scaling for each variable (more concisely, a coordinate-wise affine transformation).</div>
+            <div class="summary">compose a (fitness) function with a preceding scaling and offset.</div>
           </li><li id="cma.fitness_transformations.ScaleCoordinates.__init__">
             
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_transformations<wbr></wbr>.<wbr></wbr>Scale<wbr></wbr>Coordinates<wbr></wbr>.__init__</div>
@@ -15660,7 +15660,15 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">For both arguments, <tt class="rst-docutils literal">multipliers</tt> and <tt class="rst-docutils literal">zero</tt>, to fit the length of the given input, superfluous trailing elements are ignored and the last element is recycled if needed.</div>
+            <div class="summary">Only either <code>multipliers</code> or 'upper` can be passed. If <code><a href="cma.fitness_transformations.ScaleCoordinates.html#zero" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.zero">zero</a></code> is passed then <code><a href="cma.fitness_transformations.ScaleCoordinates.html#upper" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.upper">upper</a></code> and <code><a href="cma.fitness_transformations.ScaleCoordinates.html#lower" class="internal-link" title="cma.fitness_transformations.ScaleCoordinates.lower">lower</a></code> are ignored. The arguments <tt class="rst-docutils literal">multipliers</tt>, <tt class="rst-docutils literal">zero</tt>, <tt class="rst-docutils literal">upper</tt> and <tt class="rst-docutils literal">lower</tt> can be vectors or scalars, superfluous trailing elements are ignored and the last element is recycled if needed to fit the length of the later given input.</div>
+          </li><li id="cma.fitness_transformations.ScaleCoordinates.transform">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_transformations<wbr></wbr>.<wbr></wbr>Scale<wbr></wbr>Coordinates<wbr></wbr>.transform</div>
+            <div class="url">cma.fitness_transformations.ScaleCoordinates.html#transform</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.fitness_transformations.ScaleCoordinates.multiplier">
             
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_transformations<wbr></wbr>.<wbr></wbr>Scale<wbr></wbr>Coordinates<wbr></wbr>.multiplier</div>
@@ -15673,6 +15681,30 @@ iterations, xmean, stds)</tt></div>
             
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_transformations<wbr></wbr>.<wbr></wbr>Scale<wbr></wbr>Coordinates<wbr></wbr>.zero</div>
             <div class="url">cma.fitness_transformations.ScaleCoordinates.html#zero</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_transformations.ScaleCoordinates.lower">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_transformations<wbr></wbr>.<wbr></wbr>Scale<wbr></wbr>Coordinates<wbr></wbr>.lower</div>
+            <div class="url">cma.fitness_transformations.ScaleCoordinates.html#lower</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_transformations.ScaleCoordinates.upper">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_transformations<wbr></wbr>.<wbr></wbr>Scale<wbr></wbr>Coordinates<wbr></wbr>.upper</div>
+            <div class="url">cma.fitness_transformations.ScaleCoordinates.html#upper</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_transformations.ScaleCoordinates.from_lower_upper">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_transformations<wbr></wbr>.<wbr></wbr>Scale<wbr></wbr>Coordinates<wbr></wbr>.from<wbr></wbr>_lower<wbr></wbr>_upper</div>
+            <div class="url">cma.fitness_transformations.ScaleCoordinates.html#from_lower_upper</div>
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
