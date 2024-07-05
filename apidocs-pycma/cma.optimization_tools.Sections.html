@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.optimization_tools.Sections</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -492,7 +492,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">Sections</span>(object):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Sections</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.optimization_tools.Sections.__init__">Sections(func, x, args, basis, ...)</a></code></p>
           <p><a href="classIndex.html#cma.optimization_tools.Sections">View In Hierarchy</a></p>
         </div>
 
@@ -536,7 +536,7 @@ value being a sequence of f-values. For example <tt class="rst-docutils literal"
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id397">
+          <table class="children sortable" id="id399">
   
   
   <tr class="method">
@@ -623,7 +623,8 @@ value being a sequence of f-values. For example <tt class="rst-docutils literal"
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, func, x, args=(), basis=None, name=None, plot_cmd=None, load=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, func, x, args=(), basis=None, name=None, plot_cmd=None, load=True)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.optimization_tools.Sections.__init__">
       
@@ -633,7 +634,7 @@ value being a sequence of f-values. For example <tt class="rst-docutils literal"
   </div>
   <div class="docstring functionBody">
     
-    <div><dl class="rst-docutils">
+    <div><p><dl class="rst-docutils">
 <dt><tt class="rst-docutils literal">func</tt></dt>
 <dd>objective function</dd>
 <dt><tt class="rst-docutils literal">x</tt></dt>
@@ -652,7 +653,7 @@ see <code><a href="#do" class="internal-link" title="cma.optimization_tools.Sect
 <dt><tt class="rst-docutils literal">load</tt></dt>
 <dd>load previous data from file <tt class="rst-docutils literal">str(func) + '.pkl'</tt></dd>
 </dl>
-</div>
+</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -665,7 +666,8 @@ see <code><a href="#do" class="internal-link" title="cma.optimization_tools.Sect
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">do</span>(self, repetitions=1, locations=np.arange(<wbr></wbr>-0.5, <wbr></wbr>0.6, <wbr></wbr>0.2), plot=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">do</span><span class="function-signature">(self, repetitions=1, locations=np.arange(<wbr></wbr>(-0.5), <wbr></wbr>0.6, <wbr></wbr>0.2), plot=True)</span>:
     
     <a class="headerLink" href="#do" title="cma.optimization_tools.Sections.do">
       
@@ -703,7 +705,8 @@ with (the weired) name <tt class="rst-docutils literal">str(func)</tt>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">flattened</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">flattened</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#flattened" title="cma.optimization_tools.Sections.flattened">
       
@@ -715,8 +718,7 @@ with (the weired) name <tt class="rst-docutils literal">str(func)</tt>.</p>
     
     <div><p>return flattened data <tt class="rst-docutils literal">(x, f)</tt> such that for the sweep
 through coordinate <tt class="rst-docutils literal">i</tt> we have for data point <tt class="rst-docutils literal">j</tt> that
-<tt class="rst-docutils literal"><span class="pre">f[i][j]</span> == <span class="pre">func(x[i][j])</span></tt></p>
-</div>
+<tt class="rst-docutils literal"><span class="pre">f[i][j]</span> == <span class="pre">func(x[i][j])</span></tt></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -729,7 +731,8 @@ through coordinate <tt class="rst-docutils literal">i</tt> we have for data poin
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">load</span>(self, name=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">load</span><span class="function-signature">(self, name=None)</span>:
     
     <a class="headerLink" href="#load" title="cma.optimization_tools.Sections.load">
       
@@ -739,8 +742,7 @@ through coordinate <tt class="rst-docutils literal">i</tt> we have for data poin
   </div>
   <div class="docstring functionBody">
     
-    <div><p>load from file</p>
-</div>
+    <div><p>load from file</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -753,7 +755,8 @@ through coordinate <tt class="rst-docutils literal">i</tt> we have for data poin
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, plot_cmd=None, tf=(lambda y: y)):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(self, plot_cmd=None, tf=(lambda y: y))</span>:
     
     <a class="headerLink" href="#plot" title="cma.optimization_tools.Sections.plot">
       
@@ -763,8 +766,7 @@ through coordinate <tt class="rst-docutils literal">i</tt> we have for data poin
   </div>
   <div class="docstring functionBody">
     
-    <div><p>plot the data we have, return <tt class="rst-docutils literal">self</tt></p>
-</div>
+    <div><p>plot the data we have, return <tt class="rst-docutils literal">self</tt></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -777,7 +779,8 @@ through coordinate <tt class="rst-docutils literal">i</tt> we have for data poin
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">save</span>(self, name=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">save</span><span class="function-signature">(self, name=None)</span>:
     
     <a class="headerLink" href="#save" title="cma.optimization_tools.Sections.save">
       
@@ -787,8 +790,7 @@ through coordinate <tt class="rst-docutils literal">i</tt> we have for data poin
   </div>
   <div class="docstring functionBody">
     
-    <div><p>save to file</p>
-</div>
+    <div><p>save to file</p></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -970,7 +972,7 @@ through coordinate <tt class="rst-docutils literal">i</tt> we have for data poin
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

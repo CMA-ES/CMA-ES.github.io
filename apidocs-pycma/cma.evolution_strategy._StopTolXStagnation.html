@@ -6,7 +6,7 @@
 
   <head>
     
-    <title>cma.evolution_strategy._CMASolutionDict_functional</title>
+    <title>cma.evolution_strategy._StopTolXStagnation</title>
     <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
@@ -142,7 +142,7 @@
 
       <div class="thingTitle">
         <span>Class</span>
-        <code class="thisobject"><a href="cma.evolution_strategy._CMASolutionDict_functional.html" class="internal-link" title="This class">_<wbr></wbr>CMASolution<wbr></wbr>Dict_functional</a></code> 
+        <code class="thisobject"><a href="cma.evolution_strategy._StopTolXStagnation.html" class="internal-link" title="This class">_<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation</a></code> 
       </div>
       
       <div>
@@ -163,7 +163,7 @@
         
 
         
-            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional.__init__">__init__</a></code>
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.__init__">__init__</a></code>
             </div>
         
 
@@ -173,98 +173,25 @@
         
 
         
-            <div class="itemName"><code><a href="#insert" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional.insert">insert</a></code>
+            <div class="itemName"><code><a href="#set_params" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.set_params">set<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.update">update</a></code>
             </div>
         
 
     </li>
 </ul> 
 
-        <div class="childrenKindTitle">Inherited Methods</div>
-        <ul>
-    
-    <li class="">
         
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.utilities.utils.DerivedDictBase.html#__iter__" class="internal-link" title="cma.utilities.utils.DerivedDictBase.__iter__">__iter__</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.utilities.utils.DerivedDictBase.html#__len__" class="internal-link" title="cma.utilities.utils.DerivedDictBase.__len__">__len__</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.utilities.utils.SolutionDict.html#__contains__" class="internal-link" title="cma.utilities.utils.SolutionDict.__contains__">__contains__</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.utilities.utils.SolutionDict.html#__delitem__" class="internal-link" title="cma.utilities.utils.SolutionDict.__delitem__">__delitem__</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.utilities.utils.SolutionDict.html#__getitem__" class="internal-link" title="cma.utilities.utils.SolutionDict.__getitem__">__getitem__</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.utilities.utils.SolutionDict.html#__setitem__" class="internal-link" title="cma.utilities.utils.SolutionDict.__setitem__">__setitem__</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.utilities.utils.SolutionDict.html#key" class="internal-link" title="cma.utilities.utils.SolutionDict.key">key</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.utilities.utils.SolutionDict.html#truncate" class="internal-link" title="cma.utilities.utils.SolutionDict.truncate">truncate</a></code>
-            </div>
-        
-
-    </li>
-</ul> 
+         
 
         <div class="childrenKindTitle">Attributes</div>
         <ul>
@@ -275,7 +202,7 @@
         
 
         
-            <div class="itemName"><code><a href="#last_iteration" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional.last_iteration">last<wbr></wbr>_iteration</a></code>
+            <div class="itemName"><code><a href="#count" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.count">count</a></code>
             </div>
         
 
@@ -285,23 +212,7 @@
         
 
         
-            <div class="itemName"><code><a href="#last_solution_index" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional.last_solution_index">last<wbr></wbr>_solution<wbr></wbr>_index</a></code>
-            </div>
-        
-
-    </li>
-</ul> 
-
-        <div class="childrenKindTitle">Inherited Attributes</div>
-        <ul>
-    
-    <li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.utilities.utils.DerivedDictBase.html#data" class="internal-link" title="cma.utilities.utils.DerivedDictBase.data">data</a></code>
+            <div class="itemName"><code><a href="#count_x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.count_x">count<wbr></wbr>_x</a></code>
             </div>
         
 
@@ -311,12 +222,75 @@
         
 
         
-            <div class="itemName"><code><a href="cma.utilities.utils.SolutionDict.html#data_with_same_key" class="internal-link" title="cma.utilities.utils.SolutionDict.data_with_same_key">data<wbr></wbr>_with<wbr></wbr>_same<wbr></wbr>_key</a></code>
+            <div class="itemName"><code><a href="#delta" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.delta">delta</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#time_delta_expo" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.time_delta_expo">time<wbr></wbr>_delta<wbr></wbr>_expo</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#time_delta_frac" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.time_delta_frac">time<wbr></wbr>_delta<wbr></wbr>_frac</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#time_delta_offset" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.time_delta_offset">time<wbr></wbr>_delta<wbr></wbr>_offset</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.x">x</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#stop" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.stop">stop</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#time_threshold" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.time_threshold">time<wbr></wbr>_threshold</a></code>
             </div>
         
 
     </li>
 </ul> 
+
+        
+         
         
       </div>
   </div><div>
@@ -415,7 +389,7 @@
             </div>
         
 
-    </li><li class="private thisobject">
+    </li><li class="private">
         
         
         
@@ -435,7 +409,7 @@
             </div>
         
 
-    </li><li class="private">
+    </li><li class="private thisobject">
         
         
         
@@ -715,7 +689,7 @@
         
 
         <div class="page-header">
-          <h1 class="class private"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy._CMASolutionDict_functional.html" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional">_CMASolutionDict_functional</a></code></code></h1>
+          <h1 class="class private"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution_strategy</a></code><wbr></wbr>.<code><a href="cma.evolution_strategy._StopTolXStagnation.html" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation">_StopTolXStagnation</a></code></code></h1>
           <div id="showPrivate">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -726,109 +700,90 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">_CMASolutionDict_functional</span>(<a href="cma.utilities.utils.SolutionDict.html" class="internal-link" title="cma.utilities.utils.SolutionDict">_SolutionDict</a>):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional.__init__">_CMASolutionDict_functional(*args, **kwargs)</a></code></p>
-          <p><a href="classIndex.html#cma.evolution_strategy._CMASolutionDict_functional">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">_StopTolXStagnation</span>:</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.__init__">_StopTolXStagnation(x)</a></code></p>
+          <p><a href="classIndex.html#cma.evolution_strategy._StopTolXStagnation">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p class="undocumented">Undocumented</p></div>
+          <div><p>Provide a termination signal depending on how much a vector has changed,</p>
+<p>typically applied to the distribution mean over several iterations.</p>
+<p>The <code><a href="#stop" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.stop">stop</a></code> property is the boolean termination signal, the <code><a href="#update" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.update">update</a></code>
+method needs to be called in each iteration with the (changing) vector.</p>
+<p><tt class="rst-docutils literal">self.stop is True</tt> iff
+- <tt class="rst-docutils literal">delta t &gt; threshold</tt> and
+- <tt class="rst-docutils literal">Delta x &lt; delta * max(1, sqrt(delta t / threshold))</tt> for at least delta t iterations.</p>
+<p>The (iteration) threshold is computed in property <code><a href="#time_threshold" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.time_threshold">time_threshold</a></code>
+based on the iteration count and three parameters as <tt class="rst-docutils literal">p1 + p2 * <span class="pre">count**p3</span></tt>.</p>
+</div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id320">
+          <table class="children sortable" id="id328">
   
   
   <tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__init__" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional.__init__">__init__</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.__init__">__init__</a></code></td>
+    <td><code><a href="cma.evolution_strategy._StopTolXStagnation.html#x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.x">x</a></code> is the initial vector (optional), default settings are taken from <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#insert" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional.insert">insert</a></code></td>
-    <td>insert an entry with key <tt class="rst-docutils literal">key</tt> and value <tt class="rst-docutils literal">value if value is not None else <span class="pre">{'geno':key}</span></tt> and <tt class="rst-docutils literal"><span class="pre">self[key]['kwarg']</span> = kwarg if kwarg is not None</tt> for the further kwargs.</td>
+    <td><code><a href="#set_params" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.set_params">set<wbr></wbr>_params</a></code></td>
+    <td><code>param_values</code> is a <code>list</code> conforming to <tt class="rst-docutils literal"><span class="pre">CMAOptions['tolxstagnation']</span></tt>.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#update" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.update">update</a></code></td>
+    <td>caveat: this stores x as a reference</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#last_iteration" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional.last_iteration">last<wbr></wbr>_iteration</a></code></td>
+    <td><code><a href="#count" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.count">count</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#last_solution_index" class="internal-link" title="cma.evolution_strategy._CMASolutionDict_functional.last_solution_index">last<wbr></wbr>_solution<wbr></wbr>_index</a></code></td>
+    <td><code><a href="#count_x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.count_x">count<wbr></wbr>_x</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#delta" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.delta">delta</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#time_delta_expo" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.time_delta_expo">time<wbr></wbr>_delta<wbr></wbr>_expo</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#time_delta_frac" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.time_delta_frac">time<wbr></wbr>_delta<wbr></wbr>_frac</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#time_delta_offset" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.time_delta_offset">time<wbr></wbr>_delta<wbr></wbr>_offset</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.x">x</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#stop" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.stop">stop</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#time_threshold" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.time_threshold">time<wbr></wbr>_threshold</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
           
-            <p class="inheritedFrom">
-              Inherited from <code><a href="cma.utilities.utils.SolutionDict.html" class="internal-link" title="cma.utilities.utils.SolutionDict">SolutionDict</a></code>:
-            </p>
-            <table class="children sortable" id="id321">
-  
-  
-  <tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.utilities.utils.SolutionDict.html#__contains__" class="internal-link" title="cma.utilities.utils.SolutionDict.__contains__">__contains__</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.utilities.utils.SolutionDict.html#__delitem__" class="internal-link" title="cma.utilities.utils.SolutionDict.__delitem__">__delitem__</a></code></td>
-    <td>remove only most current key-entry of list with same keys</td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.utilities.utils.SolutionDict.html#__getitem__" class="internal-link" title="cma.utilities.utils.SolutionDict.__getitem__">__getitem__</a></code></td>
-    <td>define access <tt class="rst-docutils literal">self[key]</tt></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.utilities.utils.SolutionDict.html#__setitem__" class="internal-link" title="cma.utilities.utils.SolutionDict.__setitem__">__setitem__</a></code></td>
-    <td>define <tt class="rst-docutils literal">self[key] = value</tt></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.utilities.utils.SolutionDict.html#key" class="internal-link" title="cma.utilities.utils.SolutionDict.key">key</a></code></td>
-    <td>compute key of <tt class="rst-docutils literal">x</tt></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.utilities.utils.SolutionDict.html#truncate" class="internal-link" title="cma.utilities.utils.SolutionDict.truncate">truncate</a></code></td>
-    <td>truncate to <tt class="rst-docutils literal">max_len/2</tt> when <tt class="rst-docutils literal">len(self) &gt; max_len</tt>.</td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.utilities.utils.SolutionDict.html#data_with_same_key" class="internal-link" title="cma.utilities.utils.SolutionDict.data_with_same_key">data<wbr></wbr>_with<wbr></wbr>_same<wbr></wbr>_key</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr>
-</table>
-            
-            <p class="inheritedFrom">
-              Inherited from <code><a href="cma.utilities.utils.DerivedDictBase.html" class="internal-link" title="cma.utilities.utils.DerivedDictBase">DerivedDictBase</a></code> (via <code><a href="cma.utilities.utils.SolutionDict.html" class="internal-link" title="cma.utilities.utils.SolutionDict">SolutionDict</a></code>):
-            </p>
-            <table class="children sortable" id="id322">
-  
-  
-  <tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.utilities.utils.DerivedDictBase.html#__iter__" class="internal-link" title="cma.utilities.utils.DerivedDictBase.__iter__">__iter__</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.utilities.utils.DerivedDictBase.html#__len__" class="internal-link" title="cma.utilities.utils.DerivedDictBase.__len__">__len__</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="cma.utilities.utils.DerivedDictBase.html#data" class="internal-link" title="cma.utilities.utils.DerivedDictBase.data">data</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr>
-</table>
-            
 
             
         </div>
@@ -837,7 +792,7 @@
           <div class="basemethod">
   
   
-  <a name="cma.evolution_strategy._CMASolutionDict_functional.__init__">
+  <a name="cma.evolution_strategy._StopTolXStagnation.__init__">
     
   </a>
   <a name="__init__">
@@ -846,33 +801,33 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, *args, **kwargs)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, x=None)</span>:
     
-    <a class="headerLink" href="#__init__" title="cma.evolution_strategy._CMASolutionDict_functional.__init__">
+    <a class="headerLink" href="#__init__" title="cma.evolution_strategy._StopTolXStagnation.__init__">
       
       
       ¶
     </a>
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <code><a href="cma.utilities.utils.SolutionDict.html#__init__" class="internal-link">cma.utilities.utils.SolutionDict.__init__</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    
+    <div><p><code><a href="#x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.x">x</a></code> is the initial vector (optional), default settings are taken from <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code></p></div>
   </div>
 </div><div class="basemethod">
   
   
-  <a name="cma.evolution_strategy._CMASolutionDict_functional.insert">
+  <a name="cma.evolution_strategy._StopTolXStagnation.set_params">
     
   </a>
-  <a name="insert">
+  <a name="set_params">
     
   </a>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">insert</span><span class="function-signature">(self, key, geno=None, iteration=None, fitness=None, value=None, cma_norm=None)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">set_params</span><span class="function-signature">(self, param_values, names=(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">delta</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">time_delta_offset</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">time_delta_frac</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">time_delta_expo</span><span class="rst-variable-quote">'</span>))</span>:
     
-    <a class="headerLink" href="#insert" title="cma.evolution_strategy._CMASolutionDict_functional.insert">
+    <a class="headerLink" href="#set_params" title="cma.evolution_strategy._StopTolXStagnation.set_params">
       
       
       ¶
@@ -880,48 +835,244 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>insert an entry with key <tt class="rst-docutils literal">key</tt> and value
-<tt class="rst-docutils literal">value if value is not None else <span class="pre">{'geno':key}</span></tt> and
-<tt class="rst-docutils literal"><span class="pre">self[key]['kwarg']</span> = kwarg if kwarg is not None</tt> for the further kwargs.</p></div>
+    <div><p><code>param_values</code> is a <code>list</code> conforming to <tt class="rst-docutils literal"><span class="pre">CMAOptions['tolxstagnation']</span></tt>.</p>
+<p>Do nothing if <tt class="rst-docutils literal">param_values in (None, True)</tt>, set <tt class="rst-docutils literal">delta = <span class="pre">-1</span></tt>
+if <tt class="rst-docutils literal">param_values is False</tt>.</p>
+<p><code>None</code> entries in <code>param_values</code> don't change the respective
+parameter and <tt class="rst-docutils literal">[0.12]</tt> is the same as <tt class="rst-docutils literal">[0.12, None, None, None]</tt>.</p>
+<p>Details: In principle, <code>'delta'</code> should be propto sqrt(mu/dimension).</p>
+</div>
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="basemethod">
   
   
-  <a name="cma.evolution_strategy._CMASolutionDict_functional.last_iteration">
+  <a name="cma.evolution_strategy._StopTolXStagnation.update">
     
   </a>
-  <a name="last_iteration">
+  <a name="update">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">last_iteration</span> =
     
-    <a class="headerLink" href="#last_iteration" title="cma.evolution_strategy._CMASolutionDict_functional.last_iteration">
+    <span class="py-keyword">def</span> <span class="py-defname">update</span><span class="function-signature">(self, x)</span>:
+    
+    <a class="headerLink" href="#update" title="cma.evolution_strategy._StopTolXStagnation.update">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>caveat: this stores x as a reference</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._StopTolXStagnation.count">
+    
+  </a>
+  <a name="count">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">count</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#count" title="cma.evolution_strategy._StopTolXStagnation.count">
       
       
       ¶
     </a>
   </div>
   <div class="functionBody">
-    <div class="interfaceinfo">overrides <code><a href="cma.utilities.utils.SolutionDict.html#last_iteration" class="internal-link">cma.utilities.utils.SolutionDict.last_iteration</a></code></div>
+    
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
   
   
-  <a name="cma.evolution_strategy._CMASolutionDict_functional.last_solution_index">
+  <a name="cma.evolution_strategy._StopTolXStagnation.count_x">
     
   </a>
-  <a name="last_solution_index">
+  <a name="count_x">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">last_solution_index</span>: <code>int</code> =
+    <span class="py-defname">count_x</span> =
     
-    <a class="headerLink" href="#last_solution_index" title="cma.evolution_strategy._CMASolutionDict_functional.last_solution_index">
+    <a class="headerLink" href="#count_x" title="cma.evolution_strategy._StopTolXStagnation.count_x">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._StopTolXStagnation.delta">
+    
+  </a>
+  <a name="delta">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">delta</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#delta" title="cma.evolution_strategy._StopTolXStagnation.delta">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._StopTolXStagnation.time_delta_expo">
+    
+  </a>
+  <a name="time_delta_expo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">time_delta_expo</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#time_delta_expo" title="cma.evolution_strategy._StopTolXStagnation.time_delta_expo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._StopTolXStagnation.time_delta_frac">
+    
+  </a>
+  <a name="time_delta_frac">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">time_delta_frac</span> =
+    
+    <a class="headerLink" href="#time_delta_frac" title="cma.evolution_strategy._StopTolXStagnation.time_delta_frac">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._StopTolXStagnation.time_delta_offset">
+    
+  </a>
+  <a name="time_delta_offset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">time_delta_offset</span> =
+    
+    <a class="headerLink" href="#time_delta_offset" title="cma.evolution_strategy._StopTolXStagnation.time_delta_offset">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.evolution_strategy._StopTolXStagnation.x">
+    
+  </a>
+  <a name="x">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">x</span> =
+    
+    <a class="headerLink" href="#x" title="cma.evolution_strategy._StopTolXStagnation.x">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.evolution_strategy._StopTolXStagnation.stop">
+    
+  </a>
+  <a name="stop">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">stop</span> =
+    
+    <a class="headerLink" href="#stop" title="cma.evolution_strategy._StopTolXStagnation.stop">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.evolution_strategy._StopTolXStagnation.time_threshold">
+    
+  </a>
+  <a name="time_threshold">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">time_threshold</span> =
+    
+    <a class="headerLink" href="#time_threshold" title="cma.evolution_strategy._StopTolXStagnation.time_threshold">
       
       
       ¶

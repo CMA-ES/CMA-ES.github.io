@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.logger</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -196,6 +196,16 @@
         
 
         
+            <div class="itemName"><code><a href="#custom_default_matplotlib" class="internal-link" title="cma.logger.custom_default_matplotlib">custom<wbr></wbr>_default<wbr></wbr>_matplotlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#disp" class="internal-link" title="cma.logger.disp">disp</a></code>
             </div>
         
@@ -216,7 +226,37 @@
         
 
         
+            <div class="itemName"><code><a href="#plot_zip" class="internal-link" title="cma.logger.plot_zip">plot<wbr></wbr>_zip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#smartlogygrid" class="internal-link" title="cma.logger.smartlogygrid">smartlogygrid</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_fix_lower_xlim_and_clipping" class="internal-link" title="cma.logger._fix_lower_xlim_and_clipping">_fix<wbr></wbr>_lower<wbr></wbr>_xlim<wbr></wbr>_and<wbr></wbr>_clipping</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_monotone_abscissa" class="internal-link" title="cma.logger._monotone_abscissa">_monotone<wbr></wbr>_abscissa</a></code>
             </div>
         
 
@@ -545,12 +585,11 @@
         </div>
 
         <div class="moduleDocstring">
-          <div><p>logger class mainly to be used with <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></p>
-</div>
+          <div><p>logger class mainly to be used with <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></p></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id380">
+          <table class="children sortable" id="id382">
   
   
   <tr class="class">
@@ -571,6 +610,11 @@
   </tr><tr class="function">
     
     <td>Function</td>
+    <td><code><a href="#custom_default_matplotlib" class="internal-link" title="cma.logger.custom_default_matplotlib">custom<wbr></wbr>_default<wbr></wbr>_matplotlib</a></code></td>
+    <td>reduce wasted margin area from 19.0% to 4.0% and make both grids default and</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
     <td><code><a href="#disp" class="internal-link" title="cma.logger.disp">disp</a></code></td>
     <td>displays selected data from (files written by) the class <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>.</td>
   </tr><tr class="function">
@@ -578,6 +622,11 @@
     <td>Function</td>
     <td><code><a href="#plot" class="internal-link" title="cma.logger.plot">plot</a></code></td>
     <td>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, the call <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a shortcut for <tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).plot(**argsdict)</span></tt></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_zip" class="internal-link" title="cma.logger.plot_zip">plot<wbr></wbr>_zip</a></code></td>
+    <td>create tar file <tt class="rst-docutils literal">filename [+ <span class="pre">...]</span> + '.tar.gz'</tt> of folder <code>name</code>.</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -593,6 +642,16 @@
     <td>Variable</td>
     <td><code><a href="#last_figure_number" class="internal-link" title="cma.logger.last_figure_number">last<wbr></wbr>_figure<wbr></wbr>_number</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_fix_lower_xlim_and_clipping" class="internal-link" title="cma.logger._fix_lower_xlim_and_clipping">_fix<wbr></wbr>_lower<wbr></wbr>_xlim<wbr></wbr>_and<wbr></wbr>_clipping</a></code></td>
+    <td>minimize space wasted below x=0</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_monotone_abscissa" class="internal-link" title="cma.logger._monotone_abscissa">_monotone<wbr></wbr>_abscissa</a></code></td>
+    <td>make x monotone if <tt class="rst-docutils literal">not iabscissa</tt>.</td>
   </tr>
 </table>
           
@@ -604,6 +663,32 @@
           <div class="basefunction">
   
   
+  <a name="cma.logger.custom_default_matplotlib">
+    
+  </a>
+  <a name="custom_default_matplotlib">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">custom_default_matplotlib</span><span class="function-signature">()</span>:
+    
+    <a class="headerLink" href="#custom_default_matplotlib" title="cma.logger.custom_default_matplotlib">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>reduce wasted margin area from 19.0% to 4.0% and make both grids default and</p>
+<p>show legend when labels are available.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="cma.logger.disp">
     
   </a>
@@ -612,7 +697,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(name=None, idx=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span><span class="function-signature">(name=None, idx=None)</span>:
     
     <a class="headerLink" href="#disp" title="cma.logger.disp">
       
@@ -664,7 +750,8 @@ cma.disp(idx=r_[0:int(1e9):1000, -10:0])
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(name=None, fig=None, abscissa=1, iteridx=None, plot_mean=False, foffset=1e-19, x_opt=None, fontsize=7, downsample_to=3000.0, xsemilog=None, xnormalize=None, addcols=None, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(name=None, fig=None, abscissa=0, iteridx=None, plot_mean=False, foffset=1e-19, x_opt=None, fontsize=7, downsample_to=3000.0, xsemilog=None, xnormalize=None, fshift=0, addcols=None, **kwargs)</span>:
     
     <a class="headerLink" href="#plot" title="cma.logger.plot">
       
@@ -682,7 +769,7 @@ the call <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a s
 <dl class="rst-docutils">
 <dt><code>name</code></dt>
 <dd>name of the logger, filename prefix, None evaluates to
-the default 'outcma/cma'</dd>
+the default 'outcmaes/'</dd>
 <dt><code>fig</code></dt>
 <dd>filename or figure number, or both as a tuple (any order)</dd>
 <dt><code>abscissa</code></dt>
@@ -691,12 +778,19 @@ the default 'outcma/cma'</dd>
 <dt><code>iteridx</code></dt>
 <dd>iteration indices to plot</dd>
 <dt><code>x_opt</code></dt>
-<dd>if <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is
+<dd>If <code>isscalar(x_opt)</code> it is interpreted as iteration number and the
+difference of <tt class="rst-docutils literal">x</tt> to the respective iteration is plotted. If it is
+a negative scalar the respective index rather than the iteration is used.
+Namely in particular, <tt class="rst-docutils literal">x_opt=0</tt> subtracts the initial solution <tt class="rst-docutils literal">X0</tt>
+and <tt class="rst-docutils literal"><span class="pre">x_opt=-1</span></tt> subtracts the final solution of the data.
+If <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is
 plotted, otherwise the first row of <tt class="rst-docutils literal">x_opt</tt> are the indices of
 the variables to be plotted and the second row, if present, is used
 to take the difference.</dd>
 <dt><code>xsemilog</code></dt>
 <dd>customized semilog plot for x-values</dd>
+<dt><code>fshift</code></dt>
+<dd>is added to plotted and shown f-values</dd>
 </dl>
 <p>Return <code>None</code></p>
 </div>
@@ -722,6 +816,44 @@ format and can be plotted just the same.</p>
 </div><div class="basefunction">
   
   
+  <a name="cma.logger.plot_zip">
+    
+  </a>
+  <a name="plot_zip">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_zip</span><span class="function-signature">(name=None, filename=None, unique=True)</span>:
+    
+    <a class="headerLink" href="#plot_zip" title="cma.logger.plot_zip">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>create tar file <tt class="rst-docutils literal">filename [+ <span class="pre">...]</span> + '.tar.gz'</tt> of folder <code>name</code>.</p>
+<p>The resulting tar file serves to recreate the current <code>cma.plot</code>
+elsewhere.</p>
+<p><code>name</code> defaults to the folder plotted with <code>cma.plot</code> by default.
+<code>filename</code> defaults to <code>name</code> while adding a unique time stamp if
+<code>unique</code> is true.</p>
+<p>Return the path of the created file (may be absolute or relative).</p>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p>This is a convenience replacement for executing <tt class="rst-docutils literal">tar <span class="pre">-czf</span>
+filename.tar.gz name</tt> in a system shell where <tt class="rst-docutils literal">name</tt> defaults to the
+default plot data folder and <tt class="rst-docutils literal">filename</tt> is created to be unique.</p>
+<p>This function calls <code><a href="cma.logger.CMADataLogger.html#zip" class="internal-link" title="cma.logger.CMADataLogger.zip">CMADataLogger.zip</a></code> to do the real work.</p>
+</div>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="cma.logger.smartlogygrid">
     
   </a>
@@ -730,7 +862,8 @@ format and can be plotted just the same.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">smartlogygrid</span>(**kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">smartlogygrid</span><span class="function-signature">(**kwargs)</span>:
     
     <a class="headerLink" href="#smartlogygrid" title="cma.logger.smartlogygrid">
       
@@ -740,8 +873,7 @@ format and can be plotted just the same.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>turn on grid and also minor grid depending on y-limits</p>
-</div>
+    <div><p>turn on grid and also minor grid depending on y-limits</p></div>
   </div>
 </div><div class="basevariable">
   
@@ -791,6 +923,59 @@ format and can be plotted just the same.</p>
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="cma.logger._fix_lower_xlim_and_clipping">
+    
+  </a>
+  <a name="_fix_lower_xlim_and_clipping">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_fix_lower_xlim_and_clipping</span><span class="function-signature">()</span>:
+    
+    <a class="headerLink" href="#_fix_lower_xlim_and_clipping" title="cma.logger._fix_lower_xlim_and_clipping">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>minimize space wasted below x=0</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="cma.logger._monotone_abscissa">
+    
+  </a>
+  <a name="_monotone_abscissa">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_monotone_abscissa</span><span class="function-signature">(x, iabscissa=0)</span>:
+    
+    <a class="headerLink" href="#_monotone_abscissa" title="cma.logger._monotone_abscissa">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>make x monotone if <tt class="rst-docutils literal">not iabscissa</tt>.</p>
+<p>Useful to plot restarted runs where the iteration is reset after
+each restart.</p>
+<p>TODO: handle same iteration number better, but how?
+Currently we assume it was written "on purpose" twice.</p>
+</div>
+  </div>
 </div>
         </div>
       
@@ -803,7 +988,7 @@ format and can be plotted just the same.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

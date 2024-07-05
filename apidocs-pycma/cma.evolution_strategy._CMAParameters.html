@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.evolution_strategy._CMAParameters</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -343,6 +343,16 @@
             </div>
         
 
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._StopTolXStagnation.html" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation">_<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation</a></code>
+            </div>
+        
+
     </li>
 </ul>
 
@@ -624,7 +634,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">_CMAParameters</span>(object):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">_CMAParameters</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.evolution_strategy._CMAParameters.__init__">_CMAParameters(N, opts, ccovfac, verbose)</a></code></p>
           <p><a href="classIndex.html#cma.evolution_strategy._CMAParameters">View In Hierarchy</a></p>
         </div>
 
@@ -649,12 +659,12 @@ a <code>collections.namedtuple</code>)</dd>
 <span class="py-output">{'CMA_on': True,</span>
 <span class="py-output"> 'N': 20,</span>
 <span class="py-output"> 'c1': 0.00437235...,</span>
-<span class="py-output"> 'c1_sep': 0.0343279...,</span>
+<span class="py-output"> 'c1_sep': ...0.0343279...,</span>
 <span class="py-output"> 'cc': 0.171767...,</span>
 <span class="py-output"> 'cc_sep': 0.252594...,</span>
 <span class="py-output"> 'cmean': array(1...,</span>
 <span class="py-output"> 'cmu': 0.00921656...,</span>
-<span class="py-output"> 'cmu_sep': 0.0565385...,</span>
+<span class="py-output"> 'cmu_sep': ...0.0565385...,</span>
 <span class="py-output"> 'lam_mirr': 0,</span>
 <span class="py-output"> 'mu': 6,</span>
 <span class="py-output"> 'popsize': 12,</span>
@@ -675,7 +685,7 @@ a <code>collections.namedtuple</code>)</dd>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id329">
+          <table class="children sortable" id="id330">
   
   
   <tr class="method">
@@ -722,7 +732,8 @@ a <code>collections.namedtuple</code>)</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, N, opts, ccovfac=1, verbose=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, N, opts, ccovfac=1, verbose=True)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.evolution_strategy._CMAParameters.__init__">
       
@@ -733,8 +744,7 @@ a <code>collections.namedtuple</code>)</dd>
   <div class="docstring functionBody">
     
     <div><p>Compute strategy parameters, mainly depending on
-dimension and population size, by calling <code><a href="#set" class="internal-link" title="cma.evolution_strategy._CMAParameters.set">set</a></code></p>
-</div>
+dimension and population size, by calling <code><a href="#set" class="internal-link" title="cma.evolution_strategy._CMAParameters.set">set</a></code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -747,7 +757,8 @@ dimension and population size, by calling <code><a href="#set" class="internal-l
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#disp" title="cma.evolution_strategy._CMAParameters.disp">
       
@@ -770,7 +781,8 @@ dimension and population size, by calling <code><a href="#set" class="internal-l
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set</span>(self, opts, popsize=None, ccovfac=1, verbose=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set</span><span class="function-signature">(self, opts, popsize=None, ccovfac=1, verbose=True)</span>:
     
     <a class="headerLink" href="#set" title="cma.evolution_strategy._CMAParameters.set">
       
@@ -781,8 +793,7 @@ dimension and population size, by calling <code><a href="#set" class="internal-l
   <div class="docstring functionBody">
     
     <div><p>Compute strategy parameters as a function
-of dimension and population size</p>
-</div>
+of dimension and population size</p></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -829,8 +840,7 @@ of dimension and population size</p>
   </div>
   <div class="functionBody">
     
-    <div><p>number of candidation solutions per iteration, AKA population size</p>
-</div>
+    <div><p>number of candidation solutions per iteration, AKA population size</p></div>
     
   </div>
 </div>
@@ -845,7 +855,7 @@ of dimension and population size</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

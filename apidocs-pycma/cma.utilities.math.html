@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.utilities.math</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -370,12 +370,11 @@
 
         <div class="moduleDocstring">
           <div><p>various math utilities, notably <code><a href="#eig" class="internal-link" title="cma.utilities.math.eig">eig</a></code> and a collection of simple
-functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">Mh</a></code></p>
-</div>
+functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="internal-link" title="cma.utilities.math.MathHelperFunctions">Mh</a></code></p></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id456">
+          <table class="children sortable" id="id458">
   
   
   <tr class="class">
@@ -447,7 +446,8 @@ functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">eig</span>(C):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">eig</span><span class="function-signature">(C)</span>:
     
     <a class="headerLink" href="#eig" title="cma.utilities.math.eig">
       
@@ -481,7 +481,8 @@ and an orthonormal basis of the corresponding eigenvectors, where</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">geometric_sd</span>(vals, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">geometric_sd</span><span class="function-signature">(vals, **kwargs)</span>:
     
     <a class="headerLink" href="#geometric_sd" title="cma.utilities.math.geometric_sd">
       
@@ -508,7 +509,8 @@ of the choice of the log-exp base.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">Hessian</span>(f, x0, eps=1e-06):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Hessian</span><span class="function-signature">(f, x0, eps=1e-06)</span>:
     
     <a class="headerLink" href="#Hessian" title="cma.utilities.math.Hessian">
       
@@ -518,8 +520,7 @@ of the choice of the log-exp base.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Hessian estimate for <code>f</code> at <code>x0</code></p>
-</div>
+    <div><p>Hessian estimate for <code>f</code> at <code>x0</code></p></div>
   </div>
 </div><div class="basefunction">
   
@@ -532,7 +533,8 @@ of the choice of the log-exp base.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">moving_average</span>(x, w=7):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">moving_average</span><span class="function-signature">(x, w=7)</span>:
     
     <a class="headerLink" href="#moving_average" title="cma.utilities.math.moving_average">
       
@@ -565,7 +567,8 @@ scales quadratically with the length of <code>x</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">randhss</span>(n, dim, norm_=<a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt_len</a>, randn=np.random.randn):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">randhss</span><span class="function-signature">(n, dim, norm_=<a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt_len</a>, randn=np.random.randn)</span>:
     
     <a class="headerLink" href="#randhss" title="cma.utilities.math.randhss">
       
@@ -595,7 +598,8 @@ scales quadratically with the length of <code>x</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">randhss_mixin</span>(n, dim, norm_=<a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt_len</a>, c=(lambda d: 1.0 / d), randn=np.random.randn):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">randhss_mixin</span><span class="function-signature">(n, dim, norm_=<a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt_len</a>, c=(lambda d: 1.0 / d), randn=np.random.randn)</span>:
     
     <a class="headerLink" href="#randhss_mixin" title="cma.utilities.math.randhss_mixin">
       
@@ -607,8 +611,7 @@ scales quadratically with the length of <code>x</code>.</p>
     
     <div><p><code>n</code> iid vectors uniformly distributed on the hypersphere surface with
 mixing in of normal distribution, which can be beneficial in smaller
-dimension.</p>
-</div>
+dimension.</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -621,7 +624,8 @@ dimension.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">to_correlation_matrix</span>(c):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">to_correlation_matrix</span><span class="function-signature">(c)</span>:
     
     <a class="headerLink" href="#to_correlation_matrix" title="cma.utilities.math.to_correlation_matrix">
       
@@ -631,8 +635,7 @@ dimension.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>change C in place into a correlation matrix, AKA whitening</p>
-</div>
+    <div><p>change C in place into a correlation matrix, AKA whitening</p></div>
   </div>
 </div><div class="basefunction private">
   
@@ -645,7 +648,8 @@ dimension.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_sqrt_len</span>(x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_sqrt_len</span><span class="function-signature">(x)</span>:
     
     <a class="headerLink" href="#_sqrt_len" title="cma.utilities.math._sqrt_len">
       
@@ -669,7 +673,7 @@ dimension.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

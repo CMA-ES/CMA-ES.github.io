@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.logger.CMADataLogger</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -372,6 +372,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#zip" class="internal-link" title="cma.logger.CMADataLogger.zip">zip</a></code>
+            </div>
+        
+
     </li><li class="private">
         
         
@@ -399,6 +409,16 @@
 
         
             <div class="itemName"><code><a href="#_plot_x" class="internal-link" title="cma.logger.CMADataLogger._plot_x">_plot<wbr></wbr>_x</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_unzip" class="internal-link" title="cma.logger.CMADataLogger._unzip">_unzip</a></code>
             </div>
         
 
@@ -769,6 +789,16 @@
         
 
         
+            <div class="itemName"><code><a href="cma.logger.html#custom_default_matplotlib" class="internal-link" title="cma.logger.custom_default_matplotlib">custom<wbr></wbr>_default<wbr></wbr>_matplotlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.logger.html#disp" class="internal-link" title="cma.logger.disp">disp</a></code>
             </div>
         
@@ -789,7 +819,37 @@
         
 
         
+            <div class="itemName"><code><a href="cma.logger.html#plot_zip" class="internal-link" title="cma.logger.plot_zip">plot<wbr></wbr>_zip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.logger.html#smartlogygrid" class="internal-link" title="cma.logger.smartlogygrid">smartlogygrid</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html#_fix_lower_xlim_and_clipping" class="internal-link" title="cma.logger._fix_lower_xlim_and_clipping">_fix<wbr></wbr>_lower<wbr></wbr>_xlim<wbr></wbr>_and<wbr></wbr>_clipping</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html#_monotone_abscissa" class="internal-link" title="cma.logger._monotone_abscissa">_monotone<wbr></wbr>_abscissa</a></code>
             </div>
         
 
@@ -858,7 +918,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">CMADataLogger</span>(<a href="cma.interfaces.BaseDataLogger.html" class="internal-link" title="cma.interfaces.BaseDataLogger">interfaces.BaseDataLogger</a>):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">CMADataLogger</span>(<a href="cma.interfaces.BaseDataLogger.html" class="internal-link" title="cma.interfaces.BaseDataLogger">interfaces.BaseDataLogger</a>):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.logger.CMADataLogger.__init__">CMADataLogger(name_prefix, modulo, append, expensive_modulo)</a></code></p>
           <p><a href="classIndex.html#cma.logger.CMADataLogger">View In Hierarchy</a></p>
         </div>
 
@@ -878,8 +938,8 @@ es = cma.CMAEvolutionStrategy(12 * [3], 4)
 es.optimize(cma.ff.elli, callback=es.logger.plot)
 </pre>
 <p>plots into the current <code>matplotlib</code> figure (or opens one if none
-exists) via a generic callback. <code>es.optimize</code> already adds by default
-<code>es.logger.add</code> to its callback list to add data to the logger. This
+exists) via a generic callback. <tt class="rst-docutils literal">es.optimize</tt> already adds by default
+<tt class="rst-docutils literal">es.logger.add</tt> to its callback list to add data to the logger. This
 call:</p>
 <pre class="rst-literal-block">
 x, es = cma.fmin2(cma.ff.elli, 12 * [3], 4, {'verb_plot': 1})
@@ -919,7 +979,7 @@ filename trails.</p>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id381">
+          <table class="children sortable" id="id383">
   
   
   <tr class="method">
@@ -1001,7 +1061,7 @@ filename trails.</p>
     
     <td>Method</td>
     <td><code><a href="#plot_stds" class="internal-link" title="cma.logger.CMADataLogger.plot_stds">plot<wbr></wbr>_stds</a></code></td>
-    <td><tt class="rst-docutils literal"><span class="pre">iabscissa==0</span></tt> means vs iterations, <code>idx</code> picks variables to plot</td>
+    <td><tt class="rst-docutils literal">iabscissa=1</tt> means vs function evaluations, <code>idx</code> picks variables to plot</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -1027,6 +1087,11 @@ filename trails.</p>
     <td>Method</td>
     <td><code><a href="#select_data" class="internal-link" title="cma.logger.CMADataLogger.select_data">select<wbr></wbr>_data</a></code></td>
     <td>keep only data of <code>iteration_indices</code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#zip" class="internal-link" title="cma.logger.CMADataLogger.zip">zip</a></code></td>
+    <td>write logger data to file <tt class="rst-docutils literal">filename [+ <span class="pre">...]</span> + '.tar.gz'</tt>.</td>
   </tr><tr class="classvariable">
     
     <td>Class Variable</td>
@@ -1156,7 +1221,12 @@ filename trails.</p>
     
     <td>Method</td>
     <td><code><a href="#_plot_x" class="internal-link" title="cma.logger.CMADataLogger._plot_x">_plot<wbr></wbr>_x</a></code></td>
-    <td>If <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is plotted. Otherwise, the first row of <tt class="rst-docutils literal">x_opt</tt> is taken as indices and the second row, if present, is used to take the difference.</td>
+    <td>see def plot(...</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_unzip" class="internal-link" title="cma.logger.CMADataLogger._unzip">_unzip</a></code></td>
+    <td>to unzip use "tar -xf filename" in a system shell</td>
   </tr><tr class="method private">
     
     <td>Method</td>
@@ -1178,7 +1248,7 @@ filename trails.</p>
             <p class="inheritedFrom">
               Inherited from <code><a href="cma.interfaces.BaseDataLogger.html" class="internal-link" title="cma.interfaces.BaseDataLogger">BaseDataLogger</a></code>:
             </p>
-            <table class="children sortable" id="id382">
+            <table class="children sortable" id="id384">
   
   
   <tr class="baseinstancevariable">
@@ -1215,7 +1285,8 @@ filename trails.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, name_prefix=<a href="#default_prefix" class="internal-link" title="cma.logger.CMADataLogger.default_prefix">default_prefix</a>, modulo=1, append=False, expensive_modulo=1):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, name_prefix=<a href="#default_prefix" class="internal-link" title="cma.logger.CMADataLogger.default_prefix">default_prefix</a>, modulo=1, append=False, expensive_modulo=1)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.logger.CMADataLogger.__init__">
       
@@ -1243,7 +1314,8 @@ allowed only every <code><a href="#expensive_modulo" class="internal-link" title
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">add</span>(self, es=None, more_data=(), modulo=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add</span><span class="function-signature">(self, es=None, more_data=(), modulo=None)</span>:
     
     <a class="headerLink" href="#add" title="cma.logger.CMADataLogger.add">
       
@@ -1273,7 +1345,8 @@ in the implemention.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self, idx=100):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span><span class="function-signature">(self, idx=100)</span>:
     
     <a class="headerLink" href="#disp" title="cma.logger.CMADataLogger.disp">
       
@@ -1343,7 +1416,8 @@ name.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp_header</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp_header</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#disp_header" title="cma.logger.CMADataLogger.disp_header">
       
@@ -1366,7 +1440,8 @@ name.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">downsampling</span>(self, factor=10, first=3, switch=True, verbose=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">downsampling</span><span class="function-signature">(self, factor=10, first=3, switch=True, verbose=False)</span>:
     
     <a class="headerLink" href="#downsampling" title="cma.logger.CMADataLogger.downsampling">
       
@@ -1418,7 +1493,8 @@ cma.plot('outcma/cmadown')
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">figclose</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">figclose</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#figclose" title="cma.logger.CMADataLogger.figclose">
       
@@ -1441,7 +1517,8 @@ cma.plot('outcma/cmadown')
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">initialize</span>(self, modulo=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">initialize</span><span class="function-signature">(self, modulo=None)</span>:
     
     <a class="headerLink" href="#initialize" title="cma.logger.CMADataLogger.initialize">
       
@@ -1451,8 +1528,7 @@ cma.plot('outcma/cmadown')
   </div>
   <div class="docstring functionBody">
     
-    <div><p>reset logger, overwrite original files, <code><a href="#modulo" class="internal-link" title="cma.logger.CMADataLogger.modulo">modulo</a></code>: log only every modulo call</p>
-</div>
+    <div><p>reset logger, overwrite original files, <code><a href="#modulo" class="internal-link" title="cma.logger.CMADataLogger.modulo">modulo</a></code>: log only every modulo call</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1465,7 +1541,8 @@ cma.plot('outcma/cmadown')
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">load</span>(self, filenameprefix=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">load</span><span class="function-signature">(self, filenameprefix=None)</span>:
     
     <a class="headerLink" href="#load" title="cma.logger.CMADataLogger.load">
       
@@ -1495,7 +1572,8 @@ for the OS-specific path seperator).</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, fig=None, iabscissa=1, iteridx=None, plot_mean=False, foffset=1e-19, x_opt=None, fontsize=7, downsample_to=10000000.0, xsemilog=False, xnormalize=False, addcols=None, load=True, message=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(self, fig=None, iabscissa=0, iteridx=None, plot_mean=False, foffset=1e-19, x_opt=None, fontsize=7, downsample_to=10000000.0, xsemilog=False, xnormalize=False, fshift=0, addcols=None, load=True, message=None)</span>:
     
     <a class="headerLink" href="#plot" title="cma.logger.CMADataLogger.plot">
       
@@ -1511,17 +1589,24 @@ by the logger).</p>
 <h2 class="heading">Arguments</h2>
 <dl class="rst-docutils">
 <dt><code>fig</code></dt>
-<dd>figure number, by default 325</dd>
+<dd>figure number, by default starting from 325</dd>
 <dt><code>iabscissa</code></dt>
 <dd><tt class="rst-docutils literal"><span class="pre">0==plot</span></tt> versus iteration count,
 <tt class="rst-docutils literal"><span class="pre">1==plot</span></tt> versus function evaluation number</dd>
 <dt><code>iteridx</code></dt>
 <dd>iteration indices to plot, e.g. <tt class="rst-docutils literal">range(100)</tt> for the first 100 evaluations.</dd>
 <dt><code>x_opt</code></dt>
-<dd>if <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is
+<dd>If <code>isscalar(x_opt)</code> it is interpreted as iteration number and the
+difference of <tt class="rst-docutils literal">x</tt> to the respective iteration is plotted. If it is
+a negative scalar the respective index rather than the iteration is used.
+Namely in particular, <tt class="rst-docutils literal">x_opt=0</tt> subtracts the initial solution <tt class="rst-docutils literal">X0</tt>
+and <tt class="rst-docutils literal"><span class="pre">x_opt=-1</span></tt> subtracts the final solution of the data.
+If <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is
 plotted, otherwise the first row of <tt class="rst-docutils literal">x_opt</tt> are the indices of
 the variables to be plotted and the second row, if present, is used
 to take the difference.</dd>
+<dt><code>fshift</code></dt>
+<dd>is added to all displayed fitness values</dd>
 </dl>
 <p>Return <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code> itself.</p>
 </div>
@@ -1552,7 +1637,8 @@ logger.figclose()
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_all</span>(self, fig=None, iabscissa=1, iteridx=None, foffset=1e-19, x_opt=None, fontsize=7):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_all</span><span class="function-signature">(self, fig=None, iabscissa=0, iteridx=None, foffset=1e-19, x_opt=None, fontsize=7)</span>:
     
     <a class="headerLink" href="#plot_all" title="cma.logger.CMADataLogger.plot_all">
       
@@ -1563,6 +1649,7 @@ logger.figclose()
   <div class="docstring functionBody">
     
     <div><p>plot data from a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code> (using the files written by the logger).</p>
+<p>Superseded by <code><a href="#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">plot</a></code>?</p>
 <div class="rst-section" id="rst-arguments">
 <h2 class="heading">Arguments</h2>
 <dl class="rst-docutils">
@@ -1574,7 +1661,12 @@ logger.figclose()
 <dt><code>iteridx</code></dt>
 <dd>iteration indices to plot</dd>
 <dt><code>x_opt</code></dt>
-<dd>if <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is
+<dd>If <code>isscalar(x_opt)</code> it is interpreted as iteration number and the
+difference of <tt class="rst-docutils literal">x</tt> to the respective iteration is plotted. If it is
+a negative scalar the respective index rather than the iteration is used.
+Namely in particular, <tt class="rst-docutils literal">x_opt=0</tt> subtracts the initial solution <tt class="rst-docutils literal">X0</tt>
+and <tt class="rst-docutils literal"><span class="pre">x_opt=-1</span></tt> subtracts the final solution of the data.
+If <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is
 plotted, otherwise the first row of <tt class="rst-docutils literal">x_opt</tt> are the indices of
 the variables to be plotted and the second row, if present, is used
 to take the difference.</dd>
@@ -1608,7 +1700,8 @@ logger.s.figclose()
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_axes_scaling</span>(self, iabscissa=1):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_axes_scaling</span><span class="function-signature">(self, iabscissa=0)</span>:
     
     <a class="headerLink" href="#plot_axes_scaling" title="cma.logger.CMADataLogger.plot_axes_scaling">
       
@@ -1631,7 +1724,8 @@ logger.s.figclose()
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_correlations</span>(self, iabscissa=1, name=<span class="rst-variable-quote">'</span><span class="rst-variable-string">corrspec</span><span class="rst-variable-quote">'</span>):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_correlations</span><span class="function-signature">(self, iabscissa=0, name=<span class="rst-variable-quote">'</span><span class="rst-variable-string">corrspec</span><span class="rst-variable-quote">'</span>)</span>:
     
     <a class="headerLink" href="#plot_correlations" title="cma.logger.CMADataLogger.plot_correlations">
       
@@ -1641,8 +1735,7 @@ logger.s.figclose()
   </div>
   <div class="docstring functionBody">
     
-    <div><p>spectrum of correlation or precision matrix and percentiles of off-diagonal entries</p>
-</div>
+    <div><p>spectrum of correlation or precision matrix and percentiles of off-diagonal entries</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1655,7 +1748,8 @@ logger.s.figclose()
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_divers</span>(self, iabscissa=1, foffset=1e-19, message=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_divers</span><span class="function-signature">(self, iabscissa=0, foffset=1e-19, fshift=0, message=None)</span>:
     
     <a class="headerLink" href="#plot_divers" title="cma.logger.CMADataLogger.plot_divers">
       
@@ -1665,8 +1759,7 @@ logger.s.figclose()
   </div>
   <div class="docstring functionBody">
     
-    <div><p>plot fitness, sigma, axis ratio...</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">iabscissa</span></td><td class="fieldArgDesc">0 means vs evaluations, 1 means vs iterations</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">foffset</span></td><td class="fieldArgDesc">added to f-value</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">message</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">plot</a></code></td></tr></table></div>
+    <div><p>plot fitness, sigma, axis ratio...</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">iabscissa</span></td><td class="fieldArgDesc">0 means vs evaluations, 1 means vs iterations</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">foffset</span></td><td class="fieldArgDesc">added to f-value after abs(f) is taken</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fshift</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">message</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">plot</a></code></td></tr></table></div>
   </div>
 </div><div class="basemethod">
   
@@ -1679,7 +1772,8 @@ logger.s.figclose()
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_mean</span>(self, iabscissa=1, x_opt=None, annotations=None, xsemilog=None, xnormalize=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_mean</span><span class="function-signature">(self, iabscissa=0, x_opt=None, annotations=None, xsemilog=None, xnormalize=None)</span>:
     
     <a class="headerLink" href="#plot_mean" title="cma.logger.CMADataLogger.plot_mean">
       
@@ -1702,7 +1796,8 @@ logger.s.figclose()
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_sigvec</span>(self, iabscissa=1, idx=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_sigvec</span><span class="function-signature">(self, iabscissa=0, idx=None)</span>:
     
     <a class="headerLink" href="#plot_sigvec" title="cma.logger.CMADataLogger.plot_sigvec">
       
@@ -1713,7 +1808,7 @@ logger.s.figclose()
   <div class="docstring functionBody">
     
     <div><p>plot (outer) scaling from diagonal decoding.</p>
-<p><tt class="rst-docutils literal">iabscissa=0</tt> plots vs iterations</p>
+<p><tt class="rst-docutils literal">iabscissa=1</tt> plots vs function evaluations</p>
 <p><code>idx</code> picks variables to plot if len(idx) &lt; N, otherwise it picks
 iteration indices (in case, after downsampling).</p>
 </div>
@@ -1729,7 +1824,8 @@ iteration indices (in case, after downsampling).</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_stds</span>(self, iabscissa=1, idx=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_stds</span><span class="function-signature">(self, iabscissa=0, idx=None)</span>:
     
     <a class="headerLink" href="#plot_stds" title="cma.logger.CMADataLogger.plot_stds">
       
@@ -1739,8 +1835,7 @@ iteration indices (in case, after downsampling).</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p><tt class="rst-docutils literal"><span class="pre">iabscissa==0</span></tt> means vs iterations, <code>idx</code> picks variables to plot</p>
-</div>
+    <div><p><tt class="rst-docutils literal">iabscissa=1</tt> means vs function evaluations, <code>idx</code> picks variables to plot</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1753,7 +1848,8 @@ iteration indices (in case, after downsampling).</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_xrecent</span>(self, iabscissa=1, x_opt=None, annotations=None, xsemilog=None, xnormalize=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_xrecent</span><span class="function-signature">(self, iabscissa=0, x_opt=None, annotations=None, xsemilog=None, xnormalize=None)</span>:
     
     <a class="headerLink" href="#plot_xrecent" title="cma.logger.CMADataLogger.plot_xrecent">
       
@@ -1776,7 +1872,8 @@ iteration indices (in case, after downsampling).</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">register</span>(self, es, append=None, modulo=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">register</span><span class="function-signature">(self, es, append=None, modulo=None)</span>:
     
     <a class="headerLink" href="#register" title="cma.logger.CMADataLogger.register">
       
@@ -1788,8 +1885,7 @@ iteration indices (in case, after downsampling).</p>
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.BaseDataLogger.html#register" class="internal-link">cma.interfaces.BaseDataLogger.register</a></code></div>
     <div><p>register a <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> instance for logging,
 <tt class="rst-docutils literal">append=True</tt> appends to previous data logged under the same name,
-by default previous data are overwritten.</p>
-</div>
+by default previous data are overwritten.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1802,7 +1898,8 @@ by default previous data are overwritten.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">save</span>(self, name=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">save</span><span class="function-signature">(self, name=None)</span>:
     
     <a class="headerLink" href="#save" title="cma.logger.CMADataLogger.save">
       
@@ -1812,8 +1909,7 @@ by default previous data are overwritten.</p>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.BaseDataLogger.html#save" class="internal-link">cma.interfaces.BaseDataLogger.save</a></code></div>
-    <div><p>data are saved to disk the moment they are added</p>
-</div>
+    <div><p>data are saved to disk the moment they are added</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1826,7 +1922,8 @@ by default previous data are overwritten.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">save_to</span>(self, nameprefix, switch=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">save_to</span><span class="function-signature">(self, nameprefix, switch=False)</span>:
     
     <a class="headerLink" href="#save_to" title="cma.logger.CMADataLogger.save_to">
       
@@ -1838,8 +1935,7 @@ by default previous data are overwritten.</p>
     
     <div><p>saves logger data to a different set of files, for
 <tt class="rst-docutils literal">switch=True</tt> also the loggers name prefix is switched to
-the new value</p>
-</div>
+the new value</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1852,7 +1948,8 @@ the new value</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">select_data</span>(self, iteration_indices):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">select_data</span><span class="function-signature">(self, iteration_indices)</span>:
     
     <a class="headerLink" href="#select_data" title="cma.logger.CMADataLogger.select_data">
       
@@ -1862,7 +1959,40 @@ the new value</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>keep only data of <code>iteration_indices</code></p>
+    <div><p>keep only data of <code>iteration_indices</code></p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.logger.CMADataLogger.zip">
+    
+  </a>
+  <a name="zip">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">zip</span><span class="function-signature">(self, filename=None, unique=True)</span>:
+    
+    <a class="headerLink" href="#zip" title="cma.logger.CMADataLogger.zip">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>write logger data to file <tt class="rst-docutils literal">filename [+ <span class="pre">...]</span> + '.tar.gz'</tt>.</p>
+<p><code>filename</code> defaults to <tt class="rst-docutils literal">self.name_prefix</tt>.</p>
+<p>When <code>unique</code> is true, <code>filename</code> is furnished with a unique time
+stamp.</p>
+<p>Return the path (relative or absolute) of the output file.</p>
+<p>This function does in essence just <tt class="rst-docutils literal">tar <span class="pre">-czf</span> filename.tar.gz folder</tt>
+where <tt class="rst-docutils literal">folder</tt> defaults to the current plot data folder and
+<tt class="rst-docutils literal">filename</tt> is created to be unique.</p>
+<p>TODO: we may want to be able to add a time stamp to the folder name
+too, to prevent conficts later?</p>
 </div>
   </div>
 </div><div class="baseclassvariable">
@@ -1910,8 +2040,7 @@ the new value</p>
   </div>
   <div class="functionBody">
     
-    <div><p>append to previous data</p>
-</div>
+    <div><p>append to previous data</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1935,8 +2064,7 @@ the new value</p>
   </div>
   <div class="functionBody">
     
-    <div><p>number of calls to <code><a href="#add" class="internal-link" title="cma.logger.CMADataLogger.add">add</a></code></p>
-</div>
+    <div><p>number of calls to <code><a href="#add" class="internal-link" title="cma.logger.CMADataLogger.add">add</a></code></p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1984,8 +2112,7 @@ the new value</p>
   </div>
   <div class="functionBody">
     
-    <div><p>log also values that need an eigendecomposition to be generated every <code>expensive</code> iteration</p>
-</div>
+    <div><p>log also values that need an eigendecomposition to be generated every <code>expensive</code> iteration</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -2033,8 +2160,7 @@ the new value</p>
   </div>
   <div class="functionBody">
     
-    <div><p>used in load, however hard-coded in add, because data must agree with name</p>
-</div>
+    <div><p>used in load, however hard-coded in add, because data must agree with name</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -2058,8 +2184,7 @@ the new value</p>
   </div>
   <div class="functionBody">
     
-    <div><p>used in load, however hard-coded in plot</p>
-</div>
+    <div><p>used in load, however hard-coded in plot</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -2179,8 +2304,7 @@ the new value</p>
   </div>
   <div class="functionBody">
     
-    <div><p>how often to record data, allows calling <code><a href="#add" class="internal-link" title="cma.logger.CMADataLogger.add">add</a></code> without args</p>
-</div>
+    <div><p>how often to record data, allows calling <code><a href="#add" class="internal-link" title="cma.logger.CMADataLogger.add">add</a></code> without args</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -2437,7 +2561,8 @@ the new value</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_enter_plotting</span>(self, fontsize=7):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_enter_plotting</span><span class="function-signature">(self, fontsize=7)</span>:
     
     <a class="headerLink" href="#_enter_plotting" title="cma.logger.CMADataLogger._enter_plotting">
       
@@ -2447,8 +2572,7 @@ the new value</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>assumes that a figure is open</p>
-</div>
+    <div><p>assumes that a figure is open</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -2461,7 +2585,8 @@ the new value</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_finalize_plotting</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_finalize_plotting</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_finalize_plotting" title="cma.logger.CMADataLogger._finalize_plotting">
       
@@ -2484,7 +2609,8 @@ the new value</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_plot_x</span>(self, iabscissa=1, x_opt=None, remark=None, annotations=None, xsemilog=None, xnormalize=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_plot_x</span><span class="function-signature">(self, iabscissa=0, x_opt=None, remark=None, annotations=None, xsemilog=None, xnormalize=False)</span>:
     
     <a class="headerLink" href="#_plot_x" title="cma.logger.CMADataLogger._plot_x">
       
@@ -2494,9 +2620,36 @@ the new value</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>If <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is plotted.
-Otherwise, the first row of <tt class="rst-docutils literal">x_opt</tt> is taken as indices and the second
-row, if present, is used to take the difference.</p>
+    <div><p>see def plot(...</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.logger.CMADataLogger._unzip">
+    
+  </a>
+  <a name="_unzip">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_unzip</span><span class="function-signature">(self, filename)</span>:
+    
+    <a class="headerLink" href="#_unzip" title="cma.logger.CMADataLogger._unzip">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>to unzip use "tar -xf filename" in a system shell</p>
+<p>and afterwards:</p>
+<pre class="rst-literal-block">
+logger = cma.CMADataLogger(extacted_folder_name).plot()
+</pre>
+<p>in a Python shell.</p>
 </div>
   </div>
 </div><div class="basemethod private">
@@ -2510,7 +2663,8 @@ row, if present, is used to take the difference.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_xlabel</span>(self, iabscissa=1):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_xlabel</span><span class="function-signature">(self, iabscissa=0)</span>:
     
     <a class="headerLink" href="#_xlabel" title="cma.logger.CMADataLogger._xlabel">
       
@@ -2567,8 +2721,7 @@ row, if present, is used to take the difference.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>used in load to add one data row to be modified in plot</p>
-</div>
+    <div><p>used in load to add one data row to be modified in plot</p></div>
     
   </div>
 </div>
@@ -2583,7 +2736,7 @@ row, if present, is used to take the difference.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

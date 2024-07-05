@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.constraints_handler.BoundTransform</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -593,7 +593,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">BoundTransform</span>(<a href="cma.constraints_handler.BoundaryHandlerBase.html" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase">BoundaryHandlerBase</a>):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BoundTransform</span>(<a href="cma.constraints_handler.BoundaryHandlerBase.html" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase">BoundaryHandlerBase</a>):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.constraints_handler.BoundTransform.__init__">BoundTransform(bounds)</a></code></p>
           <p><a href="classIndex.html#cma.constraints_handler.BoundTransform">View In Hierarchy</a></p>
         </div>
 
@@ -606,11 +606,11 @@ transformation into the feasible domain.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.constraints_handler <span class="py-keyword">import</span> BoundTransform
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma <span class="py-keyword">import</span> fitness_transformations <span class="py-keyword">as</span> ft
 <span class="py-prompt">&gt;&gt;&gt; </span>veq = cma.utilities.math.Mh.vequals_approximately
-<span class="py-prompt">&gt;&gt;&gt; </span>b = BoundTransform([<span class="py-builtin">None</span>, 1])
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> b.bounds == [[<span class="py-builtin">None</span>], [1]]
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> veq(b.repair([0, 1, 1.2]), np.array([ 0., 0.975, 0.975]))
+<span class="py-prompt">&gt;&gt;&gt; </span>b = BoundTransform([0, <span class="py-builtin">None</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> b.bounds == [[0], [<span class="py-builtin">None</span>]]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> veq(b.repair([-0.1, 0, 1, 1.2]), np.array([0.0125, 0.0125, 1, 1.2])), b.repair([-0.1, 0, 1, 1.2])
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> b.is_in_bounds([0, 0.5, 1])
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> veq(b.transform([0, 1, 2]), [ 0.   ,  0.975,  0.2  ])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> veq(b.transform([-1, 0, 1, 2]), [0.9, 0.0125,  1,  2  ]), b.transform([-1, 0, 1, 2])
 <span class="py-prompt">&gt;&gt;&gt; </span>bounded_sphere = ft.ComposedFunction([
 <span class="py-more">... </span>        cma.ff.sphere,
 <span class="py-more">... </span>        BoundTransform([[], 5 * [-1] + [np.inf]]).transform
@@ -632,7 +632,14 @@ transformation into the feasible domain.</p>
 <span class="py-more">... </span>    x3_to_b = b.repair(x3)
 <span class="py-more">... </span>    <span class="py-keyword">assert</span> veq(x_to_b, x2_to_b)
 <span class="py-more">... </span>    <span class="py-keyword">assert</span> veq(x2, x3)
-<span class="py-more">... </span>    <span class="py-keyword">assert</span> veq(x2_to_b, x3_to_b)</pre><p>Details: this class uses <tt class="rst-docutils literal">class BoxConstraintsLinQuadTransformation</tt></p>
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> veq(x2_to_b, x3_to_b)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> _ <span class="py-keyword">in</span> <span class="py-builtin">range</span>(5):
+<span class="py-more">... </span>    lb = np.random.randn(4)
+<span class="py-more">... </span>    ub = lb + 1e-7 + np.random.rand(4)
+<span class="py-more">... </span>    b = BoundTransform([lb, ub])
+<span class="py-more">... </span>    <span class="py-keyword">for</span> x <span class="py-keyword">in</span> [np.random.randn(4) / np.sqrt(np.random.rand(4)) <span class="py-keyword">for</span> _ <span class="py-keyword">in</span> <span class="py-builtin">range</span>(22)]:
+<span class="py-more">... </span>        <span class="py-keyword">assert</span> <span class="py-builtin">all</span>(lb &lt;= b.transform(x)), (lb, ub, b.__dict__)
+<span class="py-more">... </span>        <span class="py-keyword">assert</span> <span class="py-builtin">all</span>(b.transform(x) &lt;= ub), (lb, ub, b.__dict__)</pre><p>Details: this class uses <tt class="rst-docutils literal">class BoxConstraintsLinQuadTransformation</tt></p>
 </div>
         </div>
 
@@ -743,7 +750,8 @@ transformation into the feasible domain.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, bounds=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, bounds=None)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.constraints_handler.BoundTransform.__init__">
       
@@ -755,8 +763,7 @@ transformation into the feasible domain.</p>
     <div class="interfaceinfo">overrides <code><a href="cma.constraints_handler.BoundaryHandlerBase.html#__init__" class="internal-link">cma.constraints_handler.BoundaryHandlerBase.__init__</a></code></div>
     <div><p>Argument bounds can be <code>None</code> or <tt class="rst-docutils literal">bounds[0]</tt> and <tt class="rst-docutils literal">bounds[1]</tt>
 are lower and upper domain boundaries, each is either <code>None</code> or
-a scalar or a list or array of appropriate size.</p>
-</div>
+a scalar or a list or array of appropriate size.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -769,7 +776,8 @@ a scalar or a list or array of appropriate size.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">inverse</span>(self, x, copy_if_changed=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">inverse</span><span class="function-signature">(self, x, copy_if_changed=True)</span>:
     
     <a class="headerLink" href="#inverse" title="cma.constraints_handler.BoundTransform.inverse">
       
@@ -779,8 +787,7 @@ a scalar or a list or array of appropriate size.</p>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.constraints_handler.BoundaryHandlerBase.html#inverse" class="internal-link">cma.constraints_handler.BoundaryHandlerBase.inverse</a></code></div>
-    <div><p>inverse transform of <tt class="rst-docutils literal">x</tt> from the bounded domain.</p>
-</div>
+    <div><p>inverse transform of <tt class="rst-docutils literal">x</tt> from the bounded domain.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -793,7 +800,8 @@ a scalar or a list or array of appropriate size.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">repair</span>(self, x, copy_if_changed=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">repair</span><span class="function-signature">(self, x, copy_if_changed=True)</span>:
     
     <a class="headerLink" href="#repair" title="cma.constraints_handler.BoundTransform.repair">
       
@@ -803,8 +811,7 @@ a scalar or a list or array of appropriate size.</p>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.constraints_handler.BoundaryHandlerBase.html#repair" class="internal-link">cma.constraints_handler.BoundaryHandlerBase.repair</a></code></div>
-    <div><p>transforms <tt class="rst-docutils literal">x</tt> into the bounded domain.</p>
-</div>
+    <div><p>transforms <tt class="rst-docutils literal">x</tt> into the bounded domain.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -817,7 +824,8 @@ a scalar or a list or array of appropriate size.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">transform</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">transform</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#transform" title="cma.constraints_handler.BoundTransform.transform">
       
@@ -865,7 +873,7 @@ a scalar or a list or array of appropriate size.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

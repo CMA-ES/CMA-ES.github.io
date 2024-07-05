@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.fitness_models.LQModel</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -1000,7 +1000,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">LQModel</span>(object):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">LQModel</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.fitness_models.LQModel.__init__">LQModel(max_relative_size_init, max_relative_size_end, min_relative_size, max_absolute_size, sorted_index)</a></code></p>
           <p><a href="classIndex.html#cma.fitness_models.LQModel">View In Hierarchy</a></p>
         </div>
 
@@ -1077,7 +1077,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id342">
+          <table class="children sortable" id="id344">
   
   
   <tr class="method">
@@ -1414,7 +1414,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, max_relative_size_init=None, max_relative_size_end=None, min_relative_size=None, max_absolute_size=None, sorted_index=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, max_relative_size_init=None, max_relative_size_end=None, min_relative_size=None, max_absolute_size=None, sorted_index=None)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.fitness_models.LQModel.__init__">
       
@@ -1441,7 +1442,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">adapt_max_relative_size</span>(self, tau):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">adapt_max_relative_size</span><span class="function-signature">(self, tau)</span>:
     
     <a class="headerLink" href="#adapt_max_relative_size" title="cma.fitness_models.LQModel.adapt_max_relative_size">
       
@@ -1464,7 +1466,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">add_data</span>(self, X, Y, prune=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_data</span><span class="function-signature">(self, X, Y, prune=True)</span>:
     
     <a class="headerLink" href="#add_data" title="cma.fitness_models.LQModel.add_data">
       
@@ -1474,8 +1477,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>add a sequence of x- and y-data, sorted by y-data (best last)</p>
-</div>
+    <div><p>add a sequence of x- and y-data, sorted by y-data (best last)</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1488,7 +1490,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">add_data_row</span>(self, x, f, prune=True, force=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_data_row</span><span class="function-signature">(self, x, f, prune=True, force=False)</span>:
     
     <a class="headerLink" href="#add_data_row" title="cma.fitness_models.LQModel.add_data_row">
       
@@ -1498,8 +1501,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>add <code>x</code> to <code>self</code> <tt class="rst-docutils literal">if `force` or x not in self</tt></p>
-</div>
+    <div><p>add <code>x</code> to <code>self</code> <tt class="rst-docutils literal">if `force` or x not in self</tt></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1512,7 +1514,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">eval</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">eval</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#eval" title="cma.fitness_models.LQModel.eval">
       
@@ -1522,8 +1525,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return Model value of <code>x</code></p>
-</div>
+    <div><p>return Model value of <code>x</code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1536,7 +1538,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">evalpop</span>(self, X):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">evalpop</span><span class="function-signature">(self, X)</span>:
     
     <a class="headerLink" href="#evalpop" title="cma.fitness_models.LQModel.evalpop">
       
@@ -1546,8 +1549,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>never used, return Model values of <tt class="rst-docutils literal">x for x in X</tt></p>
-</div>
+    <div><p>never used, return Model values of <tt class="rst-docutils literal">x for x in X</tt></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1560,7 +1562,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">expand_x</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">expand_x</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#expand_x" title="cma.fitness_models.LQModel.expand_x">
       
@@ -1583,7 +1586,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">index</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">index</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#index" title="cma.fitness_models.LQModel.index">
       
@@ -1606,7 +1610,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">isin</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">isin</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#isin" title="cma.fitness_models.LQModel.isin">
       
@@ -1616,8 +1621,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return False if <code>x</code> is not (anymore) in the model archive</p>
-</div>
+    <div><p>return False if <code>x</code> is not (anymore) in the model archive</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1630,7 +1634,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">kendall</span>(self, number, F_model=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">kendall</span><span class="function-signature">(self, number, F_model=None)</span>:
     
     <a class="headerLink" href="#kendall" title="cma.fitness_models.LQModel.kendall">
       
@@ -1640,8 +1645,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return Kendall tau between true F-values (Y) and model values.</p>
-</div>
+    <div><p>return Kendall tau between true F-values (Y) and model values.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1654,7 +1658,8 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">mahalanobis_norm_squared</span>(self, dx):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">mahalanobis_norm_squared</span><span class="function-signature">(self, dx)</span>:
     
     <a class="headerLink" href="#mahalanobis_norm_squared" title="cma.fitness_models.LQModel.mahalanobis_norm_squared">
       
@@ -1665,8 +1670,7 @@ Computation Conference (GECCO 2019), Proceedings, ACM.</p>
   <div class="docstring functionBody">
     
     <div><p>caveat: this can be negative because hessian is not guarantied
-to be pos def.</p>
-</div>
+to be pos def.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1679,7 +1683,8 @@ to be pos def.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">old_weighted_array</span>(self, Z):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">old_weighted_array</span><span class="function-signature">(self, Z)</span>:
     
     <a class="headerLink" href="#old_weighted_array" title="cma.fitness_models.LQModel.old_weighted_array">
       
@@ -1704,7 +1709,8 @@ to be pos def.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">optimize</span>(self, fitness, x0, evals):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">optimize</span><span class="function-signature">(self, fitness, x0, evals)</span>:
     
     <a class="headerLink" href="#optimize" title="cma.fitness_models.LQModel.optimize">
       
@@ -1732,7 +1738,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">prune</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">prune</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#prune" title="cma.fitness_models.LQModel.prune">
       
@@ -1742,8 +1749,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>prune data depending on size parameters</p>
-</div>
+    <div><p>prune data depending on size parameters</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1756,7 +1762,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">reset</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">reset</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#reset" title="cma.fitness_models.LQModel.reset">
       
@@ -1779,7 +1786,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">reset_Z</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">reset_Z</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#reset_Z" title="cma.fitness_models.LQModel.reset_Z">
       
@@ -1789,8 +1797,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>set x-values Z attribute</p>
-</div>
+    <div><p>set x-values Z attribute</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1803,7 +1810,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_xoffset</span>(self, offset):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_xoffset</span><span class="function-signature">(self, offset)</span>:
     
     <a class="headerLink" href="#set_xoffset" title="cma.fitness_models.LQModel.set_xoffset">
       
@@ -1826,7 +1834,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">sort</span>(self, number=None, argsort=np.argsort):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sort</span><span class="function-signature">(self, number=None, argsort=np.argsort)</span>:
     
     <a class="headerLink" href="#sort" title="cma.fitness_models.LQModel.sort">
       
@@ -1836,8 +1845,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>sort last <code>number</code> entries</p>
-</div>
+    <div><p>sort last <code>number</code> entries</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1850,7 +1858,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">sorted_weights</span>(self, number=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sorted_weights</span><span class="function-signature">(self, number=None)</span>:
     
     <a class="headerLink" href="#sorted_weights" title="cma.fitness_models.LQModel.sorted_weights">
       
@@ -1860,8 +1869,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>regression weights in decreasing order</p>
-</div>
+    <div><p>regression weights in decreasing order</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1874,7 +1882,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">type</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">type</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#type" title="cma.fitness_models.LQModel.type">
       
@@ -1899,7 +1908,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">update_type</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update_type</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#update_type" title="cma.fitness_models.LQModel.update_type">
       
@@ -1909,8 +1919,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>model type/size depends on the number of observed data</p>
-</div>
+    <div><p>model type/size depends on the number of observed data</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1923,7 +1932,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">weighted_array</span>(self, Z):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">weighted_array</span><span class="function-signature">(self, Z)</span>:
     
     <a class="headerLink" href="#weighted_array" title="cma.fitness_models.LQModel.weighted_array">
       
@@ -1948,7 +1958,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">xmean</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">xmean</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#xmean" title="cma.fitness_models.LQModel.xmean">
       
@@ -2413,8 +2424,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="functionBody">
     
-    <div><p>model coefficients that are linear in self.expand(.)</p>
-</div>
+    <div><p>model coefficients that are linear in self.expand(.)</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2438,8 +2448,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="functionBody">
     
-    <div><p>degrees of freedom (nb of parameters) of the current model</p>
-</div>
+    <div><p>degrees of freedom (nb of parameters) of the current model</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2487,8 +2496,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="functionBody">
     
-    <div><p>eigenvalues of the Hessian of the model</p>
-</div>
+    <div><p>eigenvalues of the Hessian of the model</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2536,8 +2544,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="functionBody">
     
-    <div><p>some data of the current state which may be interesting to display</p>
-</div>
+    <div><p>some data of the current state which may be interesting to display</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2609,8 +2616,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="functionBody">
     
-    <div><p>smallest f-values in data queue</p>
-</div>
+    <div><p>smallest f-values in data queue</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2661,8 +2667,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="functionBody">
     
-    <div><p>number of data available to build the model</p>
-</div>
+    <div><p>number of data available to build the model</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2700,7 +2705,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_hash</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_hash</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#_hash" title="cma.fitness_models.LQModel._hash">
       
@@ -2723,7 +2729,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_prune</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_prune</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_prune" title="cma.fitness_models.LQModel._prune">
       
@@ -2733,8 +2740,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>deprecated</p>
-</div>
+    <div><p>deprecated</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -2747,7 +2753,8 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_sort</span>(self, number=None, argsort=np.argsort):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_sort</span><span class="function-signature">(self, number=None, argsort=np.argsort)</span>:
     
     <a class="headerLink" href="#_sort" title="cma.fitness_models.LQModel._sort">
       
@@ -2757,8 +2764,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>old? sort last <code>number</code> entries TODO: for some reason this seems not to pass the doctest</p>
-</div>
+    <div><p>old? sort last <code>number</code> entries TODO: for some reason this seems not to pass the doctest</p></div>
   </div>
 </div><div class="baseclassvariable private">
   
@@ -2877,8 +2883,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   </div>
   <div class="functionBody">
     
-    <div><p>the model can have several types, for the time being</p>
-</div>
+    <div><p>the model can have several types, for the time being</p></div>
     
   </div>
 </div><div class="baseinstancevariable private">
@@ -2941,7 +2946,7 @@ x, m = Model().optimize(cma.ff.rosen, [0.1, -0.1], 13)
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

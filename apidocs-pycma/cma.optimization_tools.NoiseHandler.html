@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.optimization_tools.NoiseHandler</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -593,7 +593,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">NoiseHandler</span>(object):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">NoiseHandler</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.optimization_tools.NoiseHandler.__init__">NoiseHandler(N, maxevals, aggregate, reevals, ...)</a></code></p>
           <p><a href="classIndex.html#cma.optimization_tools.NoiseHandler">View In Hierarchy</a></p>
         </div>
 
@@ -681,7 +681,7 @@ to smaller values.</p>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id396">
+          <table class="children sortable" id="id398">
   
   
   <tr class="method">
@@ -818,7 +818,8 @@ to smaller values.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, X, fit, func, ask=None, args=()):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, X, fit, func, ask=None, args=())</span>:
     
     <a class="headerLink" href="#__call__" title="cma.optimization_tools.NoiseHandler.__call__">
       
@@ -868,7 +869,8 @@ this order. ``self.evaluations</tt> is adapted within the method
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, N, maxevals=[<wbr></wbr>1, <wbr></wbr>1, <wbr></wbr>1], aggregate=np.median, reevals=None, epsilon=1e-07, parallel=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, N, maxevals=[<wbr></wbr>1, <wbr></wbr>1, <wbr></wbr>1], aggregate=np.median, reevals=None, epsilon=1e-07, parallel=False)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.optimization_tools.NoiseHandler.__init__">
       
@@ -921,7 +923,8 @@ popsize/20</tt>, where <tt class="rst-docutils literal">popsize = len(fit)</tt> 
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">indices</span>(self, fit):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">indices</span><span class="function-signature">(self, fit)</span>:
     
     <a class="headerLink" href="#indices" title="cma.optimization_tools.NoiseHandler.indices">
       
@@ -948,7 +951,8 @@ also with a time changing objective.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">reeval</span>(self, X, fit, func, ask, args=()):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">reeval</span><span class="function-signature">(self, X, fit, func, ask, args=())</span>:
     
     <a class="headerLink" href="#reeval" title="cma.optimization_tools.NoiseHandler.reeval">
       
@@ -962,8 +966,7 @@ also with a time changing objective.</p>
 solutions in <code>X</code>.
 <tt class="rst-docutils literal">self.evaluations</tt> evaluations are done for each reevaluated
 fitness value.
-See <code><a href="#__call__" class="internal-link" title="cma.optimization_tools.NoiseHandler.__call__">__call__</a></code>, where <code><a href="#reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.reeval">reeval</a></code> is called.</p>
-</div>
+See <code><a href="#__call__" class="internal-link" title="cma.optimization_tools.NoiseHandler.__call__">__call__</a></code>, where <code><a href="#reeval" class="internal-link" title="cma.optimization_tools.NoiseHandler.reeval">reeval</a></code> is called.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -976,7 +979,8 @@ See <code><a href="#__call__" class="internal-link" title="cma.optimization_tool
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">treat</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">treat</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#treat" title="cma.optimization_tools.NoiseHandler.treat">
       
@@ -987,8 +991,7 @@ See <code><a href="#__call__" class="internal-link" title="cma.optimization_tool
   <div class="docstring functionBody">
     
     <div><p>adapt self.evaluations depending on the current measurement
-value and return <tt class="rst-docutils literal">sigma_fac in (1.0, self.alphasigma)</tt></p>
-</div>
+value and return <tt class="rst-docutils literal">sigma_fac in (1.0, self.alphasigma)</tt></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1001,7 +1004,8 @@ value and return <tt class="rst-docutils literal">sigma_fac in (1.0, self.alphas
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">update_measure</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update_measure</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#update_measure" title="cma.optimization_tools.NoiseHandler.update_measure">
       
@@ -1158,8 +1162,7 @@ lists differ.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>number of f-evaluations to get a single measurement by aggregation</p>
-</div>
+    <div><p>number of f-evaluations to get a single measurement by aggregation</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1438,7 +1441,7 @@ lists differ.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

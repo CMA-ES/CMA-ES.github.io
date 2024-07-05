@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.constraints_handler.BoundPenalty</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -613,7 +613,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">BoundPenalty</span>(<a href="cma.constraints_handler.BoundaryHandlerBase.html" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase">BoundaryHandlerBase</a>):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BoundPenalty</span>(<a href="cma.constraints_handler.BoundaryHandlerBase.html" class="internal-link" title="cma.constraints_handler.BoundaryHandlerBase">BoundaryHandlerBase</a>):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.constraints_handler.BoundPenalty.__init__">BoundPenalty(bounds)</a></code></p>
           <p><a href="classIndex.html#cma.constraints_handler.BoundPenalty">View In Hierarchy</a></p>
         </div>
 
@@ -774,7 +774,8 @@ geno- to phenotype transformation.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, x, archive, gp):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, x, archive, gp)</span>:
     
     <a class="headerLink" href="#__call__" title="cma.constraints_handler.BoundPenalty.__call__">
       
@@ -785,8 +786,7 @@ geno- to phenotype transformation.</p>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.constraints_handler.BoundaryHandlerBase.html#__call__" class="internal-link">cma.constraints_handler.BoundaryHandlerBase.__call__</a></code></div>
     <div><p>returns the boundary violation penalty for <code>x</code>,
-where <code>x</code> is a single solution or a list or np.array of solutions.</p>
-</div>
+where <code>x</code> is a single solution or a list or np.array of solutions.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -799,7 +799,8 @@ where <code>x</code> is a single solution or a list or np.array of solutions.</p
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, bounds=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, bounds=None)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.constraints_handler.BoundPenalty.__init__">
       
@@ -811,8 +812,7 @@ where <code>x</code> is a single solution or a list or np.array of solutions.</p
     <div class="interfaceinfo">overrides <code><a href="cma.constraints_handler.BoundaryHandlerBase.html#__init__" class="internal-link">cma.constraints_handler.BoundaryHandlerBase.__init__</a></code></div>
     <div><p>Argument bounds can be <code>None</code> or <tt class="rst-docutils literal">bounds[0]</tt> and <tt class="rst-docutils literal">bounds[1]</tt>
 are lower  and upper domain boundaries, each is either <code>None</code> or
-a scalar or a <code>list</code> or <code>np.array</code> of appropriate size.</p>
-</div>
+a scalar or a <code>list</code> or <code>np.array</code> of appropriate size.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -825,7 +825,8 @@ a scalar or a <code>list</code> or <code>np.array</code> of appropriate size.</p
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">feasible_ratio</span>(self, solutions):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">feasible_ratio</span><span class="function-signature">(self, solutions)</span>:
     
     <a class="headerLink" href="#feasible_ratio" title="cma.constraints_handler.BoundPenalty.feasible_ratio">
       
@@ -837,8 +838,7 @@ a scalar or a <code>list</code> or <code>np.array</code> of appropriate size.</p
     
     <div><p>counts for each coordinate the number of feasible values in
 <tt class="rst-docutils literal">solutions</tt> and returns an <code>np.array</code> of length
-<tt class="rst-docutils literal">len(solutions[0])</tt> with the ratios.</p>
-</div>
+<tt class="rst-docutils literal">len(solutions[0])</tt> with the ratios.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -851,7 +851,8 @@ a scalar or a <code>list</code> or <code>np.array</code> of appropriate size.</p
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">repair</span>(self, x, copy_if_changed=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">repair</span><span class="function-signature">(self, x, copy_if_changed=True)</span>:
     
     <a class="headerLink" href="#repair" title="cma.constraints_handler.BoundPenalty.repair">
       
@@ -861,8 +862,7 @@ a scalar or a <code>list</code> or <code>np.array</code> of appropriate size.</p
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.constraints_handler.BoundaryHandlerBase.html#repair" class="internal-link">cma.constraints_handler.BoundaryHandlerBase.repair</a></code></div>
-    <div><p>sets out-of-bounds components of <tt class="rst-docutils literal">x</tt> on the bounds.</p>
-</div>
+    <div><p>sets out-of-bounds components of <tt class="rst-docutils literal">x</tt> on the bounds.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -875,7 +875,8 @@ a scalar or a <code>list</code> or <code>np.array</code> of appropriate size.</p
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, function_values, es):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span><span class="function-signature">(self, function_values, es)</span>:
     
     <a class="headerLink" href="#update" title="cma.constraints_handler.BoundPenalty.update">
       
@@ -983,7 +984,7 @@ mean and variances and the methods from the attribute
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

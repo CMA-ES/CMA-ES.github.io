@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.interfaces.OOOptimizer</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -429,7 +429,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">OOOptimizer</span>(object):</code></p><p>Known subclasses: <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">OOOptimizer</span>(object):</code></p><p>Known subclasses: <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.interfaces.OOOptimizer.__init__">OOOptimizer(xstart, *more_mandatory_args, **optional_kwargs)</a></code></p>
           <p><a href="classIndex.html#cma.interfaces.OOOptimizer">View In Hierarchy</a></p>
         </div>
 
@@ -493,7 +493,7 @@ optim.logger.plot()  # if matplotlib is available
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id377">
+          <table class="children sortable" id="id379">
   
   
   <tr class="method">
@@ -590,7 +590,8 @@ optim.logger.plot()  # if matplotlib is available
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, xstart, *more_mandatory_args, **optional_kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, xstart, *more_mandatory_args, **optional_kwargs)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.interfaces.OOOptimizer.__init__">
       
@@ -600,8 +601,7 @@ optim.logger.plot()  # if matplotlib is available
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
-    <div><p><tt class="rst-docutils literal">xstart</tt> is a mandatory argument</p>
-</div>
+    <div><p><tt class="rst-docutils literal">xstart</tt> is a mandatory argument</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -614,7 +614,8 @@ optim.logger.plot()  # if matplotlib is available
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ask</span>(self, **optional_kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ask</span><span class="function-signature">(self, **optional_kwargs)</span>:
     
     <a class="headerLink" href="#ask" title="cma.interfaces.OOOptimizer.ask">
       
@@ -625,8 +626,7 @@ optim.logger.plot()  # if matplotlib is available
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
     <div><p>abstract method, AKA "get" or "sample_distribution", deliver
-new candidate solution(s), a list of "vectors"</p>
-</div>
+new candidate solution(s), a list of "vectors"</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -639,7 +639,8 @@ new candidate solution(s), a list of "vectors"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self, modulo=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span><span class="function-signature">(self, modulo=None)</span>:
     
     <a class="headerLink" href="#disp" title="cma.interfaces.OOOptimizer.disp">
       
@@ -651,8 +652,7 @@ new candidate solution(s), a list of "vectors"</p>
     <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
     <div><p>abstract method, display some iteration info when
 <tt class="rst-docutils literal">self.iteration_counter % modulo &lt; 1</tt>, using a reasonable
-default for <code>modulo</code> if <tt class="rst-docutils literal">modulo is None</tt>.</p>
-</div>
+default for <code>modulo</code> if <tt class="rst-docutils literal">modulo is None</tt>.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -665,7 +665,8 @@ default for <code>modulo</code> if <tt class="rst-docutils literal">modulo is No
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">initialize</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">initialize</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#initialize" title="cma.interfaces.OOOptimizer.initialize">
       
@@ -675,8 +676,7 @@ default for <code>modulo</code> if <tt class="rst-docutils literal">modulo is No
   </div>
   <div class="docstring functionBody">
     
-    <div><p>(re-)set to the initial state</p>
-</div>
+    <div><p>(re-)set to the initial state</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -689,7 +689,8 @@ default for <code>modulo</code> if <tt class="rst-docutils literal">modulo is No
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">optimize</span>(self, objective_fct, maxfun=None, iterations=None, min_iterations=1, args=(), verb_disp=None, callback=None, n_jobs=0, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">optimize</span><span class="function-signature">(self, objective_fct, maxfun=None, iterations=None, min_iterations=1, args=(), verb_disp=None, callback=None, n_jobs=0, **kwargs)</span>:
     
     <a class="headerLink" href="#optimize" title="cma.interfaces.OOOptimizer.optimize">
       
@@ -767,7 +768,8 @@ both default to the number of available CPUs. The default
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">stop</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">stop</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#stop" title="cma.interfaces.OOOptimizer.stop">
       
@@ -795,7 +797,8 @@ would break backwards compatibility.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">tell</span>(self, solutions, function_values):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">tell</span><span class="function-signature">(self, solutions, function_values)</span>:
     
     <a class="headerLink" href="#tell" title="cma.interfaces.OOOptimizer.tell">
       
@@ -806,8 +809,7 @@ would break backwards compatibility.</p>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
     <div><p>abstract method, AKA "update", pass f-values and prepare for
-next iteration</p>
-</div>
+next iteration</p></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -951,8 +953,7 @@ next iteration</p>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
     <div><p>abstract property, contain <tt class="rst-docutils literal">(x, f(x), <span class="pre">...)</span></tt>, that is, the
-minimizer, its function value, ...</p>
-</div>
+minimizer, its function value, ...</p></div>
     
   </div>
 </div><div class="basemethod private">
@@ -966,7 +967,8 @@ minimizer, its function value, ...</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_force_final_logging</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_force_final_logging</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_force_final_logging" title="cma.interfaces.OOOptimizer._force_final_logging">
       
@@ -976,8 +978,7 @@ minimizer, its function value, ...</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>try force the logger to log NOW</p>
-</div>
+    <div><p>try force the logger to log NOW</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -990,7 +991,8 @@ minimizer, its function value, ...</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_prepare_callback_list</span>(self, callback):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_prepare_callback_list</span><span class="function-signature">(self, callback)</span>:
     
     <a class="headerLink" href="#_prepare_callback_list" title="cma.interfaces.OOOptimizer._prepare_callback_list">
       
@@ -1017,7 +1019,7 @@ callables. Otherwise a <code>ValueError</code> exception is raised.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

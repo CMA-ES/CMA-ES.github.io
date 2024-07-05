@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.purecma.CMAES</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -731,7 +731,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">CMAES</span>(<a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a>):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">CMAES</span>(<a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a>):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.purecma.CMAES.__init__">CMAES(xstart, sigma, popsize, ftarget, ...)</a></code></p>
           <p><a href="classIndex.html#cma.purecma.CMAES">View In Hierarchy</a></p>
         </div>
 
@@ -804,7 +804,7 @@ the loop is the implementation of function <code><a href="cma.purecma.html#fmin"
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id400">
+          <table class="children sortable" id="id402">
   
   
   <tr class="method">
@@ -909,7 +909,7 @@ iterations, xmean, stds)</tt></td>
             <p class="inheritedFrom">
               Inherited from <code><a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a></code>:
             </p>
-            <table class="children sortable" id="id401">
+            <table class="children sortable" id="id403">
   
   
   <tr class="basemethod">
@@ -976,7 +976,8 @@ iterations, xmean, stds)</tt></td>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, xstart, sigma, popsize=<a href="cma.purecma.CMAESParameters.html#default_popsize" class="internal-link" title="cma.purecma.CMAESParameters.default_popsize">CMAESParameters.default_popsize</a>, ftarget=None, maxfevals=<span class="rst-variable-quote">'</span><span class="rst-variable-string">100 * popsize + 150 * (N + 3)**2 * popsize**0.5</span><span class="rst-variable-quote">'</span>, randn=random_normalvariate):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, xstart, sigma, popsize=<a href="cma.purecma.CMAESParameters.html#default_popsize" class="internal-link" title="cma.purecma.CMAESParameters.default_popsize">CMAESParameters.default_popsize</a>, ftarget=None, maxfevals=<span class="rst-variable-quote">'</span><span class="rst-variable-string">100 * popsize + 150 * (N + 3)**2 * popsize**0.5</span><span class="rst-variable-quote">'</span>, randn=random_normalvariate)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.purecma.CMAES.__init__">
       
@@ -1024,7 +1025,8 @@ creates a <code><a href="cma.purecma.CMAESParameters.html" class="internal-link"
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ask</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ask</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#ask" title="cma.purecma.CMAES.ask">
       
@@ -1054,7 +1056,8 @@ m + sigma * Normal(0,C) = m + sigma * B * D * Normal(0,I)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self, verb_modulo=1):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span><span class="function-signature">(self, verb_modulo=1)</span>:
     
     <a class="headerLink" href="#disp" title="cma.purecma.CMAES.disp">
       
@@ -1064,8 +1067,7 @@ m + sigma * Normal(0,C) = m + sigma * B * D * Normal(0,I)
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#disp" class="internal-link">cma.interfaces.OOOptimizer.disp</a></code></div>
-    <div><p><code>print</code> some iteration info to <code>stdout</code></p>
-</div>
+    <div><p><code>print</code> some iteration info to <code>stdout</code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1078,7 +1080,8 @@ m + sigma * Normal(0,C) = m + sigma * B * D * Normal(0,I)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">stop</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">stop</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#stop" title="cma.purecma.CMAES.stop">
       
@@ -1104,7 +1107,8 @@ for example <tt class="rst-docutils literal"><span class="pre">{'tolfun':1e-12}<
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">tell</span>(self, arx, fitvals):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">tell</span><span class="function-signature">(self, arx, fitvals)</span>:
     
     <a class="headerLink" href="#tell" title="cma.purecma.CMAES.tell">
       
@@ -1466,8 +1470,7 @@ minimised</dd>
   <div class="functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#result" class="internal-link">cma.interfaces.OOOptimizer.result</a></code></div>
     <div><p>the <code>tuple</code> <tt class="rst-docutils literal">(xbest, f(xbest), evaluations_xbest, evaluations,
-iterations, xmean, stds)</tt></p>
-</div>
+iterations, xmean, stds)</tt></p></div>
     
   </div>
 </div>
@@ -1482,7 +1485,7 @@ iterations, xmean, stds)</tt></p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

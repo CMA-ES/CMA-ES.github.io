@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.evolution_strategy.CMAEvolutionStrategy</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -283,6 +283,16 @@
 
         
             <div class="itemName"><code><a href="#inject" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.inject">inject</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#limit_integer_relative_deltas" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.limit_integer_relative_deltas">limit<wbr></wbr>_integer<wbr></wbr>_relative<wbr></wbr>_deltas</a></code>
             </div>
         
 
@@ -1194,6 +1204,16 @@
         
 
         
+            <div class="itemName"><code><a href="#_isotropic_mean_shift_iteration" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._isotropic_mean_shift_iteration">_isotropic<wbr></wbr>_mean<wbr></wbr>_shift<wbr></wbr>_iteration</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_mirrormethod1_done" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._mirrormethod1_done">_mirrormethod1<wbr></wbr>_done</a></code>
             </div>
         
@@ -1214,7 +1234,37 @@
         
 
         
+            <div class="itemName"><code><a href="#_sigma_old" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._sigma_old">_sigma<wbr></wbr>_old</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stall_sigma_change_on_divergence_events" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stall_sigma_change_on_divergence_events">_stall<wbr></wbr>_sigma<wbr></wbr>_change<wbr></wbr>_on<wbr></wbr>_divergence<wbr></wbr>_events</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_stopdict" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stopdict">_stopdict</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stoptolxstagnation" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stoptolxstagnation">_stoptolxstagnation</a></code>
             </div>
         
 
@@ -1391,6 +1441,16 @@
 
         
             <div class="itemName"><code><a href="cma.evolution_strategy._CMAStopDict.html" class="internal-link" title="cma.evolution_strategy._CMAStopDict">_<wbr></wbr>CMAStop<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._StopTolXStagnation.html" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation">_<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation</a></code>
             </div>
         
 
@@ -1675,7 +1735,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">CMAEvolutionStrategy</span>(<a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">interfaces.OOOptimizer</a>):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">CMAEvolutionStrategy</span>(<a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">interfaces.OOOptimizer</a>):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.__init__">CMAEvolutionStrategy(x0, sigma0, inopts, options)</a></code></p>
           <p><a href="classIndex.html#cma.evolution_strategy.CMAEvolutionStrategy">View In Hierarchy</a></p>
         </div>
 
@@ -1793,8 +1853,8 @@ solutions returned by <code><a href="#ask" class="internal-link" title="cma.evol
 <span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(cma.ff.elli, verb_disp=1)  <span class="py-comment"># doctest: +ELLIPSIS</span>
 <span class="py-output">Iterat #Fevals   function value  axis ratio  sigma  min&amp;max std  t[m:s]</span>
 <span class="py-output">    1      8 2.09...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(es.result) == 8
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[1] &lt; 1e-9</pre><p>The optimization loop can also be written explicitly:</p>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(es.result) == 8, es.result
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[1] &lt; 1e-9, es.result</pre><p>The optimization loop can also be written explicitly:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(4 * [1], 1)  <span class="py-comment"># doctest: +ELLIPSIS</span>
 <span class="py-output">(4_w,8)-aCMA-ES (mu_w=2.6,w_1=52%) in dimension 4 (seed=...</span>
@@ -1816,9 +1876,9 @@ solutions:</p>
 <span class="py-more">... </span>    fit, X = [], []
 <span class="py-more">... </span>    <span class="py-keyword">while</span> <span class="py-builtin">len</span>(X) &lt; es.popsize:
 <span class="py-more">... </span>        curr_fit = <span class="py-builtin">None</span>
-<span class="py-more">... </span>        <span class="py-keyword">while</span> curr_fit <span class="py-keyword">in</span> (<span class="py-builtin">None</span>, np.NaN):
+<span class="py-more">... </span>        <span class="py-keyword">while</span> curr_fit <span class="py-keyword">in</span> (<span class="py-builtin">None</span>, np.nan):
 <span class="py-more">... </span>            x = es.ask(1)[0]
-<span class="py-more">... </span>            curr_fit = cma.ff.somenan(x, cma.ff.elli) <span class="py-comment"># might return np.NaN</span>
+<span class="py-more">... </span>            curr_fit = cma.ff.somenan(x, cma.ff.elli) <span class="py-comment"># might return np.nan</span>
 <span class="py-more">... </span>        X.append(x)
 <span class="py-more">... </span>        fit.append(curr_fit)
 <span class="py-more">... </span>    es.tell(X, fit)
@@ -1826,8 +1886,8 @@ solutions:</p>
 <span class="py-more">... </span>    es.disp()  <span class="py-comment">#doctest: +ELLIPSIS</span>
 <span class="py-output">Itera...</span>
 <span class="py-prompt">&gt;&gt;&gt;</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[1] &lt; 1e-9
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[2] &lt; 9000  <span class="py-comment"># by internal termination</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[1] &lt; 1e-9, es.result
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[2] &lt; 9000, es.result  <span class="py-comment"># by internal termination</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># es.logger.plot()  # will plot data</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># cma.s.figshow()  # display plot window</span></pre><p>An example with user-defined transformation, in this case to realize
 a lower bound of 2.</p>
@@ -1836,15 +1896,16 @@ a lower bound of 2.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">with</span> warnings.catch_warnings(record=<span class="py-builtin">True</span>) <span class="py-keyword">as</span> warns:
 <span class="py-more">... </span>    es = cma.CMAEvolutionStrategy(5 * [3], 0.1,
 <span class="py-more">... </span>                {<span class="py-string">"transformation"</span>: [<span class="py-keyword">lambda</span> x: x**2+1.2, <span class="py-builtin">None</span>],
+<span class="py-more">... </span>                 <span class="py-string">"ftarget"</span>: 1e-7 + 5.54781521192,
 <span class="py-more">... </span>                 <span class="py-string">"verbose"</span>: -2,})
 <span class="py-prompt">&gt;&gt;&gt; </span>warns[0].message  <span class="py-comment"># doctest:+ELLIPSIS</span>
-<span class="py-output">UserWarning('in class GenoPheno: user defined transformations have not been tested thoroughly ()'...</span>
+<span class="py-output">UserWarning('in class GenoPheno: user defined transformations have not been tested thoroughly (...</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>warns[1].message  <span class="py-comment"># doctest:+ELLIPSIS</span>
 <span class="py-output">UserWarning('computed initial point...</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(cma.ff.rosen, verb_disp=0)  <span class="py-comment">#doctest: +ELLIPSIS</span>
 <span class="py-output">&lt;cma...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> cma.ff.rosen(es.result[0]) &lt; 1e-7 + 5.54781521192
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[2] &lt; 3300</pre><p>The inverse transformation is (only) necessary if the <code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link" title="cma.constraints_handler.BoundPenalty">BoundPenalty</a></code>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> cma.ff.rosen(es.result[0]) &lt; 1e-7 + 5.54781521192, es.result
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[2] &lt; 3300, es.result</pre><p>The inverse transformation is (only) necessary if the <code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link" title="cma.constraints_handler.BoundPenalty">BoundPenalty</a></code>
 boundary handler is used at the same time.</p>
 <p>The <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> class also provides a default logger
 (cave: files are overwritten when the logger is used with the same
@@ -1889,7 +1950,7 @@ filename prefix):</p>
 <span class="py-more">... </span>    <span class="py-keyword">if</span> bestever.f &lt; 1e-8:  <span class="py-comment"># global optimum was hit</span>
 <span class="py-more">... </span>        <span class="py-keyword">break</span>  <span class="py-comment">#doctest: +ELLIPSIS</span>
 <span class="py-output">(5_w,...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[1] &lt; 1e-8</pre><p>On the Rastrigin function, usually after five restarts the global
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[1] &lt; 1e-8, es.result</pre><p>On the Rastrigin function, usually after five restarts the global
 optimum is located.</p>
 <p>Using the <code>multiprocessing</code> module, we can evaluate the function in
 parallel with a simple modification of the example (however
@@ -1924,9 +1985,9 @@ multiprocessing seems not always reliable):</p>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># resuming</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(cma.ff.rosen, verb_disp=200)  <span class="py-comment">#doctest: +ELLIPSIS</span>
 <span class="py-output">  200 ...</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[2] &lt; 15000
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> cma.s.Mh.vequals_approximately(es.result[0], 12 * [1], 1e-5)
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(es.result) == 8</pre></div>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[2] &lt; 15000, es.result
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> cma.s.Mh.vequals_approximately(es.result[0], 12 * [1], 1e-5), es.result
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(es.result) == 8, es.result</pre></div>
 <div class="rst-section" id="rst-details">
 <h2 class="heading">Details</h2>
 <p>The following two enhancements are implemented, the latter is only
@@ -2031,6 +2092,11 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="method">
     
     <td>Method</td>
+    <td><code><a href="#limit_integer_relative_deltas" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.limit_integer_relative_deltas">limit<wbr></wbr>_integer<wbr></wbr>_relative<wbr></wbr>_deltas</a></code></td>
+    <td>limit absolute values of int-coordinates in vector list <code>dX</code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
     <td><code><a href="#mahalanobis_norm" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.mahalanobis_norm">mahalanobis<wbr></wbr>_norm</a></code></td>
     <td>return Mahalanobis norm based on the current sample distribution.</td>
   </tr><tr class="method">
@@ -2052,7 +2118,7 @@ but may not be "optimal" for mirrors.</p>
     
     <td>Method</td>
     <td><code><a href="#random_rescale_to_mahalanobis" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.random_rescale_to_mahalanobis">random<wbr></wbr>_rescale<wbr></wbr>_to<wbr></wbr>_mahalanobis</a></code></td>
-    <td>change <code>x</code> like for injection, all on genotypic level</td>
+    <td>change <code><a href="cma.evolution_strategy._StopTolXStagnation.html#x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.x">x</a></code> like for injection, all on genotypic level</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -2456,6 +2522,11 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
+    <td><code><a href="#_isotropic_mean_shift_iteration" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._isotropic_mean_shift_iteration">_isotropic<wbr></wbr>_mean<wbr></wbr>_shift<wbr></wbr>_iteration</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
     <td><code><a href="#_mirrormethod1_done" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._mirrormethod1_done">_mirrormethod1<wbr></wbr>_done</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
@@ -2466,8 +2537,23 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
+    <td><code><a href="#_sigma_old" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._sigma_old">_sigma<wbr></wbr>_old</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_stall_sigma_change_on_divergence_events" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stall_sigma_change_on_divergence_events">_stall<wbr></wbr>_sigma<wbr></wbr>_change<wbr></wbr>_on<wbr></wbr>_divergence<wbr></wbr>_events</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
     <td><code><a href="#_stopdict" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stopdict">_stopdict</a></code></td>
     <td>attribute for stopping criteria in function stop</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_stoptolxstagnation" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._stoptolxstagnation">_stoptolxstagnation</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="property private">
     
     <td>Property</td>
@@ -2541,7 +2627,8 @@ but may not be "optimal" for mirrors.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, x0, sigma0, inopts=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, x0, sigma0, inopts=None, options=None)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.evolution_strategy.CMAEvolutionStrategy.__init__">
       
@@ -2552,6 +2639,8 @@ but may not be "optimal" for mirrors.</p>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#__init__" class="internal-link">cma.interfaces.OOOptimizer.__init__</a></code></div>
     <div><p>see class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></p>
+<p><code>options</code> is for consistency with <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> options and is only
+in effect if <tt class="rst-docutils literal">inopts is None</tt>.</p>
 </div>
   </div>
 </div><div class="basemethod">
@@ -2565,7 +2654,8 @@ but may not be "optimal" for mirrors.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">alleviate_conditioning</span>(self, condition=1000000000000.0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">alleviate_conditioning</span><span class="function-signature">(self, condition=1000000000000.0)</span>:
     
     <a class="headerLink" href="#alleviate_conditioning" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning">
       
@@ -2583,9 +2673,9 @@ which the action is taken.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> dd <span class="py-keyword">in</span> [0, 1]:
 <span class="py-more">... </span>    es = cma.CMA(2 * [1], 0.1, {<span class="py-string">'CMA_diagonal_decoding'</span> : dd, <span class="py-string">'verbose'</span>:-9})
 <span class="py-more">... </span>    es = es.optimize(cma.ff.elli, iterations=4)
-<span class="py-more">... </span>    es.alleviate_conditioning(1.1)  <span class="py-comment"># check that alleviation_conditioning "works"</span>
+<span class="py-more">... </span>    es.alleviate_conditioning(1.01)  <span class="py-comment"># check that alleviation_conditioning "works"</span>
 <span class="py-more">... </span>    <span class="py-keyword">assert</span> <span class="py-builtin">all</span>(es.sigma_vec.scaling == [1, 1]), es.sigma_vec.scaling
-<span class="py-more">... </span>    <span class="py-keyword">assert</span> es.sm.condition_number &lt; 1.01, es.sm.C</pre><p>Details: the action applies only if <code>self.gp.isidentity</code>. Then,
+<span class="py-more">... </span>    <span class="py-keyword">assert</span> es.sm.condition_number &lt;= 1.01, es.sm.C</pre><p>Details: the action applies only if <code>self.gp.isidentity</code>. Then,
 the covariance matrix <code><a href="#C" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.C">C</a></code> is set (back) to identity and a
 respective linear transformation is "added" to <code>self.gp</code>.</p>
 </div>
@@ -2601,7 +2691,8 @@ respective linear transformation is "added" to <code>self.gp</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">alleviate_conditioning_in_coordinates</span>(self, condition=100000000.0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">alleviate_conditioning_in_coordinates</span><span class="function-signature">(self, condition=100000000.0)</span>:
     
     <a class="headerLink" href="#alleviate_conditioning_in_coordinates" title="cma.evolution_strategy.CMAEvolutionStrategy.alleviate_conditioning_in_coordinates">
       
@@ -2627,7 +2718,8 @@ entries of <code><a href="#C" class="internal-link" title="cma.evolution_strateg
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ask</span>(self, number=None, xmean=None, sigma_fac=1, gradf=None, args=(), **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ask</span><span class="function-signature">(self, number=None, xmean=None, sigma_fac=1, gradf=None, args=(), **kwargs)</span>:
     
     <a class="headerLink" href="#ask" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">
       
@@ -2690,7 +2782,8 @@ direction <tt class="rst-docutils literal">np.dot(C, gradf(xmean, *args))</tt>.<
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ask_and_eval</span>(self, func, args=(), gradf=None, number=None, xmean=None, sigma_fac=1, evaluations=1, aggregation=np.median, kappa=1, parallel_mode=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ask_and_eval</span><span class="function-signature">(self, func, args=(), gradf=None, number=None, xmean=None, sigma_fac=1, evaluations=1, aggregation=np.median, kappa=1, parallel_mode=False)</span>:
     
     <a class="headerLink" href="#ask_and_eval" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_and_eval">
       
@@ -2745,7 +2838,7 @@ that <tt class="rst-docutils literal">func(m + <span class="pre">kappa*(x</span>
 <h2 class="heading">Details</h2>
 <p>While <tt class="rst-docutils literal">not self.is_feasible(x, func(x))</tt> new solutions are
 sampled. By default
-<tt class="rst-docutils literal">self.is_feasible == cma.feasible == lambda x, f: f not in (None, np.NaN)</tt>.
+<tt class="rst-docutils literal">self.is_feasible == cma.feasible == lambda x, f: f not in (None, np.nan)</tt>.
 The argument to <code>func</code> can be freely modified within <code>func</code>.</p>
 <p>Depending on the <tt class="rst-docutils literal">CMA_mirrors</tt> option, some solutions are not
 sampled independently but as mirrors of other bad solutions. This
@@ -2787,7 +2880,8 @@ while not es.stop():
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ask_geno</span>(self, number=None, xmean=None, sigma_fac=1):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ask_geno</span><span class="function-signature">(self, number=None, xmean=None, sigma_fac=1)</span>:
     
     <a class="headerLink" href="#ask_geno" title="cma.evolution_strategy.CMAEvolutionStrategy.ask_geno">
       
@@ -2830,7 +2924,8 @@ change the geno-pheno transformation during this update.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self, modulo=None, overwrite=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span><span class="function-signature">(self, modulo=None, overwrite=None)</span>:
     
     <a class="headerLink" href="#disp" title="cma.evolution_strategy.CMAEvolutionStrategy.disp">
       
@@ -2856,7 +2951,8 @@ Overwrites the line after iteration <code>overwrite</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp_annotation</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp_annotation</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#disp_annotation" title="cma.evolution_strategy.CMAEvolutionStrategy.disp_annotation">
       
@@ -2866,8 +2962,7 @@ Overwrites the line after iteration <code>overwrite</code>.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>print annotation line for <code><a href="#disp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp">disp</a></code> ()</p>
-</div>
+    <div><p>print annotation line for <code><a href="#disp" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.disp">disp</a></code> ()</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2880,7 +2975,8 @@ Overwrites the line after iteration <code>overwrite</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">feed_for_resume</span>(self, X, function_values):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">feed_for_resume</span><span class="function-signature">(self, X, function_values)</span>:
     
     <a class="headerLink" href="#feed_for_resume" title="cma.evolution_strategy.CMAEvolutionStrategy.feed_for_resume">
       
@@ -2951,7 +3047,8 @@ to resume.</td></tr></table></div>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">get_mirror</span>(self, x, preserve_length=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_mirror</span><span class="function-signature">(self, x, preserve_length=False)</span>:
     
     <a class="headerLink" href="#get_mirror" title="cma.evolution_strategy.CMAEvolutionStrategy.get_mirror">
       
@@ -2992,7 +3089,8 @@ mirrors that must be clearly suboptimal.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">get_selective_mirrors</span>(self, number=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_selective_mirrors</span><span class="function-signature">(self, number=None)</span>:
     
     <a class="headerLink" href="#get_selective_mirrors" title="cma.evolution_strategy.CMAEvolutionStrategy.get_selective_mirrors">
       
@@ -3022,7 +3120,8 @@ previous mirror in order to not go endlessly back and forth.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">inject</span>(self, solutions, force=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">inject</span><span class="function-signature">(self, solutions, force=None)</span>:
     
     <a class="headerLink" href="#inject" title="cma.evolution_strategy.CMAEvolutionStrategy.inject">
       
@@ -3060,6 +3159,38 @@ would decrease variance in the covariance matrix in this direction.</p>
 </div><div class="basemethod">
   
   
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy.limit_integer_relative_deltas">
+    
+  </a>
+  <a name="limit_integer_relative_deltas">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">limit_integer_relative_deltas</span><span class="function-signature">(self, dX, threshold=None, recombination_weight_condition=None)</span>:
+    
+    <a class="headerLink" href="#limit_integer_relative_deltas" title="cma.evolution_strategy.CMAEvolutionStrategy.limit_integer_relative_deltas">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>limit absolute values of int-coordinates in vector list <code>dX</code></p>
+<blockquote>
+relative to the current sample standard deviations and by default
+only when the respective recombination weight is negative.</blockquote>
+<p><tt class="rst-docutils literal">dX == pop_sorted - mold</tt> where <tt class="rst-docutils literal">pop_sorted</tt> is a genotype.</p>
+<p><tt class="rst-docutils literal">threshold=2.3</tt> by default.</p>
+<p>A 2.3-sigma threshold affects 2 x 1.1% of the unmodified
+(nonsorted) normal samples.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
   <a name="cma.evolution_strategy.CMAEvolutionStrategy.mahalanobis_norm">
     
   </a>
@@ -3068,7 +3199,8 @@ would decrease variance in the covariance matrix in this direction.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">mahalanobis_norm</span>(self, dx):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">mahalanobis_norm</span><span class="function-signature">(self, dx)</span>:
     
     <a class="headerLink" href="#mahalanobis_norm" title="cma.evolution_strategy.CMAEvolutionStrategy.mahalanobis_norm">
       
@@ -3113,7 +3245,8 @@ close to <tt class="rst-docutils literal">sqrt(N)</tt> to the sample mean. In th
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">manage_plateaus</span>(self, sigma_fac=1.5, sample_fraction=0.5):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">manage_plateaus</span><span class="function-signature">(self, sigma_fac=1.5, sample_fraction=0.5)</span>:
     
     <a class="headerLink" href="#manage_plateaus" title="cma.evolution_strategy.CMAEvolutionStrategy.manage_plateaus">
       
@@ -3150,7 +3283,8 @@ fitness.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">pickle_dumps</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">pickle_dumps</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#pickle_dumps" title="cma.evolution_strategy.CMAEvolutionStrategy.pickle_dumps">
       
@@ -3194,7 +3328,8 @@ es.optimize(cma.ff.elli, iterations=22)  # continue optimizing
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, *args, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(self, *args, **kwargs)</span>:
     
     <a class="headerLink" href="#plot" title="cma.evolution_strategy.CMAEvolutionStrategy.plot">
       
@@ -3219,7 +3354,8 @@ es.optimize(cma.ff.elli, iterations=22)  # continue optimizing
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">random_rescale_to_mahalanobis</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">random_rescale_to_mahalanobis</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#random_rescale_to_mahalanobis" title="cma.evolution_strategy.CMAEvolutionStrategy.random_rescale_to_mahalanobis">
       
@@ -3229,8 +3365,7 @@ es.optimize(cma.ff.elli, iterations=22)  # continue optimizing
   </div>
   <div class="docstring functionBody">
     
-    <div><p>change <code>x</code> like for injection, all on genotypic level</p>
-</div>
+    <div><p>change <code><a href="cma.evolution_strategy._StopTolXStagnation.html#x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.x">x</a></code> like for injection, all on genotypic level</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -3243,7 +3378,8 @@ es.optimize(cma.ff.elli, iterations=22)  # continue optimizing
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">repair_genotype</span>(self, x, copy_if_changed=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">repair_genotype</span><span class="function-signature">(self, x, copy_if_changed=False)</span>:
     
     <a class="headerLink" href="#repair_genotype" title="cma.evolution_strategy.CMAEvolutionStrategy.repair_genotype">
       
@@ -3271,7 +3407,8 @@ mechanism may change in future.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">result_pretty</span>(self, number_of_runs=0, time_str=None, fbestever=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">result_pretty</span><span class="function-signature">(self, number_of_runs=0, time_str=None, fbestever=None)</span>:
     
     <a class="headerLink" href="#result_pretty" title="cma.evolution_strategy.CMAEvolutionStrategy.result_pretty">
       
@@ -3296,7 +3433,8 @@ mechanism may change in future.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">stop</span>(self, check=True, ignore_list=(), check_in_same_iteration=False, get_value=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">stop</span><span class="function-signature">(self, check=True, ignore_list=(), check_in_same_iteration=False, get_value=None)</span>:
     
     <a class="headerLink" href="#stop" title="cma.evolution_strategy.CMAEvolutionStrategy.stop">
       
@@ -3345,7 +3483,8 @@ is issued.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">tell</span>(self, solutions, function_values, check_points=None, copy=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">tell</span><span class="function-signature">(self, solutions, function_values, check_points=None, copy=False)</span>:
     
     <a class="headerLink" href="#tell" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">
       
@@ -3603,8 +3742,7 @@ solutions but might change in future.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>return values of callbacks, used like <tt class="rst-docutils literal">if any(callbackstop)</tt></p>
-</div>
+    <div><p>return values of callbacks, used like <tt class="rst-docutils literal">if any(callbackstop)</tt></p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -4862,8 +5000,7 @@ care for large mueff.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>number of samples by default returned by <code><a href="#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> ()</p>
-</div>
+    <div><p>number of samples by default returned by <code><a href="#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> ()</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -4887,8 +5024,7 @@ care for large mueff.</p>
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.OOOptimizer.html#result" class="internal-link">cma.interfaces.OOOptimizer.result</a></code></div>
-    <div><p>return a <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">CMAEvolutionStrategyResult</a></code> <code>namedtuple</code>.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategyResult</a></code>
+    <div><p>return a <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">CMAEvolutionStrategyResult</a></code> <code>namedtuple</code>.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategyResult</a></code>
 or try <tt class="rst-docutils literal"><span class="pre">help(...result)</span></tt> on the <tt class="rst-docutils literal">result</tt> property
 of an <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> instance or on the
 <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult">CMAEvolutionStrategyResult</a></code> instance itself.</td></tr></table></div>
@@ -4933,7 +5069,8 @@ apply to <code>self.mean</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_copy_light</span>(self, sigma=None, inopts=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_copy_light</span><span class="function-signature">(self, sigma=None, inopts=None)</span>:
     
     <a class="headerLink" href="#_copy_light" title="cma.evolution_strategy.CMAEvolutionStrategy._copy_light">
       
@@ -4952,14 +5089,16 @@ not copy evolution paths, termination status or other state variables.</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(3 * [1], 0.1,
-<span class="py-more">... </span>         {<span class="py-string">'verbose'</span>:-9}).optimize(cma.ff.elli, iterations=10)
+<span class="py-more">... </span>         {<span class="py-string">'bounds'</span>:[0,9], <span class="py-string">'verbose'</span>:-9}).optimize(cma.ff.elli, iterations=10)
 <span class="py-prompt">&gt;&gt;&gt; </span>es2 = es._copy_light()
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es2.sigma == es.sigma
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">sum</span>((es.sm.C - es2.sm.C).flat &lt; 1e-12)
-<span class="py-prompt">&gt;&gt;&gt; </span>es3 = es._copy_light(sigma=10)
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es3.sigma == es3.sigma0 == 10
+<span class="py-prompt">&gt;&gt;&gt; </span>es3 = es._copy_light(sigma=3)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es3.sigma == es3.sigma0 == 3
+<span class="py-prompt">&gt;&gt;&gt; </span>es.mean[0] = -11
 <span class="py-prompt">&gt;&gt;&gt; </span>es4 = es._copy_light(inopts={<span class="py-string">'CMA_on'</span>: <span class="py-builtin">False</span>})
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es4.sp.c1 == es4.sp.cmu == 0</pre></div>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es4.sp.c1 == es4.sp.cmu == 0
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.mean[0] == -11 <span class="py-keyword">and</span> es4.mean[0] &gt;= -4.5</pre></div>
   </div>
 </div><div class="basemethod private">
   
@@ -4972,7 +5111,8 @@ not copy evolution paths, termination status or other state variables.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_prepare_injection_directions</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_prepare_injection_directions</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_prepare_injection_directions" title="cma.evolution_strategy.CMAEvolutionStrategy._prepare_injection_directions">
       
@@ -5002,7 +5142,8 @@ assigned to <tt class="rst-docutils literal">self.pop_injection_directions</tt> 
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_random_rescaling_factor_to_mahalanobis_size</span>(self, y):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_random_rescaling_factor_to_mahalanobis_size</span><span class="function-signature">(self, y)</span>:
     
     <a class="headerLink" href="#_random_rescaling_factor_to_mahalanobis_size" title="cma.evolution_strategy.CMAEvolutionStrategy._random_rescaling_factor_to_mahalanobis_size">
       
@@ -5013,8 +5154,7 @@ assigned to <tt class="rst-docutils literal">self.pop_injection_directions</tt> 
   <div class="docstring functionBody">
     
     <div><p><tt class="rst-docutils literal">self.mean + self._random_rescaling_factor_to_mahalanobis_size(y) * y</tt>
-is guarantied to appear like from the sample distribution.</p>
-</div>
+is guarantied to appear like from the sample distribution.</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -5027,7 +5167,8 @@ is guarantied to appear like from the sample distribution.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_record_rankings</span>(self, vals, function_values):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_record_rankings</span><span class="function-signature">(self, vals, function_values)</span>:
     
     <a class="headerLink" href="#_record_rankings" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings">
       
@@ -5037,8 +5178,7 @@ is guarantied to appear like from the sample distribution.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>do nothing by default, otherwise assign to <code><a href="#_record_rankings_" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">_record_rankings_</a></code> after instantiation</p>
-</div>
+    <div><p>do nothing by default, otherwise assign to <code><a href="#_record_rankings_" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">_record_rankings_</a></code> after instantiation</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -5051,7 +5191,8 @@ is guarantied to appear like from the sample distribution.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_record_rankings_</span>(self, vals, function_values):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_record_rankings_</span><span class="function-signature">(self, vals, function_values)</span>:
     
     <a class="headerLink" href="#_record_rankings_" title="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings_">
       
@@ -5078,7 +5219,8 @@ in the current and last iteration.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_set_x0</span>(self, x0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_set_x0</span><span class="function-signature">(self, x0)</span>:
     
     <a class="headerLink" href="#_set_x0" title="cma.evolution_strategy.CMAEvolutionStrategy._set_x0">
       
@@ -5124,7 +5266,8 @@ succeeding calls``dimension * [0.01]``. Only the initial value of
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_stds_into_limits</span>(self, warn=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_stds_into_limits</span><span class="function-signature">(self, warn=False)</span>:
     
     <a class="headerLink" href="#_stds_into_limits" title="cma.evolution_strategy.CMAEvolutionStrategy._stds_into_limits">
       
@@ -5134,8 +5277,7 @@ succeeding calls``dimension * [0.01]``. Only the initial value of
   </div>
   <div class="docstring functionBody">
     
-    <div><p>set <tt class="rst-docutils literal">self.sigma_vec.scaling</tt> to respect <tt class="rst-docutils literal"><span class="pre">opts['max/minstd']</span></tt></p>
-</div>
+    <div><p>set <tt class="rst-docutils literal">self.sigma_vec.scaling</tt> to respect <tt class="rst-docutils literal"><span class="pre">opts['max/minstd']</span></tt></p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -5148,7 +5290,8 @@ succeeding calls``dimension * [0.01]``. Only the initial value of
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_tfg</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_tfg</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#_tfg" title="cma.evolution_strategy.CMAEvolutionStrategy._tfg">
       
@@ -5171,7 +5314,8 @@ succeeding calls``dimension * [0.01]``. Only the initial value of
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_tfp</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_tfp</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#_tfp" title="cma.evolution_strategy.CMAEvolutionStrategy._tfp">
       
@@ -5194,7 +5338,8 @@ succeeding calls``dimension * [0.01]``. Only the initial value of
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_try_update_sm_now</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_try_update_sm_now</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_try_update_sm_now" title="cma.evolution_strategy.CMAEvolutionStrategy._try_update_sm_now">
       
@@ -5221,7 +5366,8 @@ with TPA line samples.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_updateBDfromSM</span>(self, sm_=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_updateBDfromSM</span><span class="function-signature">(self, sm_=None)</span>:
     
     <a class="headerLink" href="#_updateBDfromSM" title="cma.evolution_strategy.CMAEvolutionStrategy._updateBDfromSM">
       
@@ -5312,6 +5458,30 @@ non-documented attributes B and D in the sampler.</p>
 </div><div class="baseinstancevariable private">
   
   
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._isotropic_mean_shift_iteration">
+    
+  </a>
+  <a name="_isotropic_mean_shift_iteration">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_isotropic_mean_shift_iteration</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#_isotropic_mean_shift_iteration" title="cma.evolution_strategy.CMAEvolutionStrategy._isotropic_mean_shift_iteration">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
   <a name="cma.evolution_strategy.CMAEvolutionStrategy._mirrormethod1_done">
     
   </a>
@@ -5360,6 +5530,54 @@ non-documented attributes B and D in the sampler.</p>
 </div><div class="baseinstancevariable private">
   
   
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._sigma_old">
+    
+  </a>
+  <a name="_sigma_old">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_sigma_old</span> =
+    
+    <a class="headerLink" href="#_sigma_old" title="cma.evolution_strategy.CMAEvolutionStrategy._sigma_old">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._stall_sigma_change_on_divergence_events">
+    
+  </a>
+  <a name="_stall_sigma_change_on_divergence_events">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_stall_sigma_change_on_divergence_events</span> =
+    
+    <a class="headerLink" href="#_stall_sigma_change_on_divergence_events" title="cma.evolution_strategy.CMAEvolutionStrategy._stall_sigma_change_on_divergence_events">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
   <a name="cma.evolution_strategy.CMAEvolutionStrategy._stopdict">
     
   </a>
@@ -5378,8 +5596,31 @@ non-documented attributes B and D in the sampler.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>attribute for stopping criteria in function stop</p>
-</div>
+    <div><p>attribute for stopping criteria in function stop</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._stoptolxstagnation">
+    
+  </a>
+  <a name="_stoptolxstagnation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_stoptolxstagnation</span> =
+    
+    <a class="headerLink" href="#_stoptolxstagnation" title="cma.evolution_strategy.CMAEvolutionStrategy._stoptolxstagnation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div><div class="baseproperty private">
@@ -5422,7 +5663,7 @@ three apply to <code>self.mean</code>.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

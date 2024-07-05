@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.constraints_handler.ConstrainedFitnessAL</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -817,7 +817,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">ConstrainedFitnessAL</span>:</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ConstrainedFitnessAL</span>:</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL.__init__">ConstrainedFitnessAL(fun, constraints, dimension, which, ...)</a></code></p>
           <p><a href="classIndex.html#cma.constraints_handler.ConstrainedFitnessAL">View In Hierarchy</a></p>
         </div>
 
@@ -1109,7 +1109,8 @@ constraints.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#__call__" title="cma.constraints_handler.ConstrainedFitnessAL.__call__">
       
@@ -1134,7 +1135,8 @@ constraints.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, fun, constraints, dimension=None, which=<span class="rst-variable-quote">'</span><span class="rst-variable-string">best</span><span class="rst-variable-quote">'</span>, find_feasible_first=False, get_solution=<a href="cma.constraints_handler.html#_get_favorite_solution" class="internal-link" title="cma.constraints_handler._get_favorite_solution">_get_favorite_solution</a>, logging=None, archives=<a href="#archive_aggregators" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL.archive_aggregators">archive_aggregators</a>):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, fun, constraints, dimension=None, which=<span class="rst-variable-quote">'</span><span class="rst-variable-string">best</span><span class="rst-variable-quote">'</span>, find_feasible_first=False, get_solution=<a href="cma.constraints_handler.html#_get_favorite_solution" class="internal-link" title="cma.constraints_handler._get_favorite_solution">_get_favorite_solution</a>, logging=None, archives=<a href="#archive_aggregators" class="internal-link" title="cma.constraints_handler.ConstrainedFitnessAL.archive_aggregators">archive_aggregators</a>)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.constraints_handler.ConstrainedFitnessAL.__init__">
       
@@ -1172,7 +1174,8 @@ archives.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">find_feasible</span>(self, es, termination=(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">maxiter</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">maxfevals</span><span class="rst-variable-quote">'</span>), aggregator=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">find_feasible</span><span class="function-signature">(self, es, termination=(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">maxiter</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">maxfevals</span><span class="rst-variable-quote">'</span>), aggregator=None)</span>:
     
     <a class="headerLink" href="#find_feasible" title="cma.constraints_handler.ConstrainedFitnessAL.find_feasible">
       
@@ -1204,7 +1207,8 @@ of the <code>termination</code> keys is matched in <code>es.stop()</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">initialize</span>(self, dimension):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">initialize</span><span class="function-signature">(self, dimension)</span>:
     
     <a class="headerLink" href="#initialize" title="cma.constraints_handler.ConstrainedFitnessAL.initialize">
       
@@ -1214,8 +1218,7 @@ of the <code>termination</code> keys is matched in <code>es.stop()</code>.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>set search space dimension explicitely</p>
-</div>
+    <div><p>set search space dimension explicitely</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1228,7 +1231,8 @@ of the <code>termination</code> keys is matched in <code>es.stop()</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">log_in_es</span>(self, es, f, g):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">log_in_es</span><span class="function-signature">(self, es, f, g)</span>:
     
     <a class="headerLink" href="#log_in_es" title="cma.constraints_handler.ConstrainedFitnessAL.log_in_es">
       
@@ -1255,7 +1259,8 @@ constraints, displayed like 10**(number/10) (mapping [0, 10] to [1,
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">reset</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">reset</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#reset" title="cma.constraints_handler.ConstrainedFitnessAL.reset">
       
@@ -1265,8 +1270,7 @@ constraints, displayed like 10**(number/10) (mapping [0, 10] to [1,
   </div>
   <div class="docstring functionBody">
     
-    <div><p>reset dynamic components</p>
-</div>
+    <div><p>reset dynamic components</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1279,7 +1283,8 @@ constraints, displayed like 10**(number/10) (mapping [0, 10] to [1,
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_mu_lam</span>(self, mu, lam):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_mu_lam</span><span class="function-signature">(self, mu, lam)</span>:
     
     <a class="headerLink" href="#set_mu_lam" title="cma.constraints_handler.ConstrainedFitnessAL.set_mu_lam">
       
@@ -1289,8 +1294,7 @@ constraints, displayed like 10**(number/10) (mapping [0, 10] to [1,
   </div>
   <div class="docstring functionBody">
     
-    <div><p>set AL coefficients</p>
-</div>
+    <div><p>set AL coefficients</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1303,7 +1307,8 @@ constraints, displayed like 10**(number/10) (mapping [0, 10] to [1,
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, es):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span><span class="function-signature">(self, es)</span>:
     
     <a class="headerLink" href="#update" title="cma.constraints_handler.ConstrainedFitnessAL.update">
       
@@ -1549,7 +1554,7 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">F</span> =
+    <span class="py-defname">F</span>: <code>list</code> =
     
     <a class="headerLink" href="#F" title="cma.constraints_handler.ConstrainedFitnessAL.F">
       
@@ -1573,7 +1578,7 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">F_plus_sum_al_G</span> =
+    <span class="py-defname">F_plus_sum_al_G</span>: <code>list</code> =
     
     <a class="headerLink" href="#F_plus_sum_al_G" title="cma.constraints_handler.ConstrainedFitnessAL.F_plus_sum_al_G">
       
@@ -1693,7 +1698,7 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">G</span> =
+    <span class="py-defname">G</span>: <code>list</code> =
     
     <a class="headerLink" href="#G" title="cma.constraints_handler.ConstrainedFitnessAL.G">
       
@@ -1823,8 +1828,7 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </div>
   <div class="functionBody">
     
-    <div><p><code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian">AugmentedLagrangian</a></code> class instance</p>
-</div>
+    <div><p><code><a href="cma.constraints_handler.AugmentedLagrangian.html" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian">AugmentedLagrangian</a></code> class instance</p></div>
     
   </div>
 </div><div class="basemethod private">
@@ -1838,7 +1842,8 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_fg_values</span>(self, es):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_fg_values</span><span class="function-signature">(self, es)</span>:
     
     <a class="headerLink" href="#_fg_values" title="cma.constraints_handler.ConstrainedFitnessAL._fg_values">
       
@@ -1848,8 +1853,7 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>f, g values used to update the Augmented Lagrangian coefficients</p>
-</div>
+    <div><p>f, g values used to update the Augmented Lagrangian coefficients</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -1862,7 +1866,8 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_is_feasible</span>(self, gvals=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_is_feasible</span><span class="function-signature">(self, gvals=None)</span>:
     
     <a class="headerLink" href="#_is_feasible" title="cma.constraints_handler.ConstrainedFitnessAL._is_feasible">
       
@@ -1872,8 +1877,7 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return True if last evaluated solution (or <code>gvals</code>) was feasible</p>
-</div>
+    <div><p>return True if last evaluated solution (or <code>gvals</code>) was feasible</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -1886,7 +1890,8 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_reset</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_reset</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_reset" title="cma.constraints_handler.ConstrainedFitnessAL._reset">
       
@@ -1909,7 +1914,8 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_reset_archives</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_reset_archives</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_reset_archives" title="cma.constraints_handler.ConstrainedFitnessAL._reset_archives">
       
@@ -1932,7 +1938,8 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_reset_arrays</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_reset_arrays</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_reset_arrays" title="cma.constraints_handler.ConstrainedFitnessAL._reset_arrays">
       
@@ -1955,7 +1962,8 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_update_best</span>(self, x, f, g, g_al=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_update_best</span><span class="function-signature">(self, x, f, g, g_al=None)</span>:
     
     <a class="headerLink" href="#_update_best" title="cma.constraints_handler.ConstrainedFitnessAL._update_best">
       
@@ -1965,8 +1973,7 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>keep track of best solution and best feasible solution</p>
-</div>
+    <div><p>keep track of best solution and best feasible solution</p></div>
   </div>
 </div><div class="baseinstancevariable private">
   
@@ -2037,8 +2044,7 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   </div>
   <div class="functionBody">
     
-    <div><p>return current best f, g, where best is determined by the Augmented Lagrangian</p>
-</div>
+    <div><p>return current best f, g, where best is determined by the Augmented Lagrangian</p></div>
     
   </div>
 </div>
@@ -2053,7 +2059,7 @@ When method is not best, it should work without even call self(xfavorite).</dd>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

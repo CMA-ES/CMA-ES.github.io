@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.utilities.utils</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -549,6 +549,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#warnings_counter" class="internal-link" title="cma.utilities.utils.warnings_counter">warnings<wbr></wbr>_counter</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -652,12 +662,11 @@
         </div>
 
         <div class="moduleDocstring">
-          <div><p>various utilities not related to optimization</p>
-</div>
+          <div><p>various utilities not related to optimization</p></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id459">
+          <table class="children sortable" id="id461">
   
   
   <tr class="class">
@@ -809,7 +818,7 @@
     
     <td>Function</td>
     <td><code><a href="#print_warning" class="internal-link" title="cma.utilities.utils.print_warning">print<wbr></wbr>_warning</a></code></td>
-    <td>Poor man's maxwarns: warn only if <tt class="rst-docutils literal"><span class="pre">iteration&lt;=maxwarns</span></tt></td>
+    <td>Poor man's maxwarns: msg must match exactly</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -850,6 +859,11 @@
     <td>Variable</td>
     <td><code><a href="#global_verbosity" class="internal-link" title="cma.utilities.utils.global_verbosity">global<wbr></wbr>_verbosity</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#warnings_counter" class="internal-link" title="cma.utilities.utils.warnings_counter">warnings<wbr></wbr>_counter</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
           
@@ -869,7 +883,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">argsort</span>(a, reverse=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">argsort</span><span class="function-signature">(a, reverse=False)</span>:
     
     <a class="headerLink" href="#argsort" title="cma.utilities.utils.argsort">
       
@@ -882,8 +897,7 @@
     <div><p>return index list to get <code>a</code> in order, ie
 <tt class="rst-docutils literal"><span class="pre">a[argsort(a)[i]]</span> == <span class="pre">sorted(a)[i]</span></tt>, which leads to unexpected
 results with <code>np.nan</code> entries, because any comparison with <code>np.nan</code>
-is <code>False</code>.</p>
-</div>
+is <code>False</code>.</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -896,7 +910,8 @@ is <code>False</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">as_vector_list</span>(X):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">as_vector_list</span><span class="function-signature">(X)</span>:
     
     <a class="headerLink" href="#as_vector_list" title="cma.utilities.utils.as_vector_list">
       
@@ -948,7 +963,8 @@ res, ... = revert(res, ...)  # also allows to revert X, if desired
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">download_file</span>(url, target_dir=<span class="rst-variable-quote">'</span><span class="rst-variable-string">.</span><span class="rst-variable-quote">'</span>, target_name=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">download_file</span><span class="function-signature">(url, target_dir=<span class="rst-variable-quote">'</span><span class="rst-variable-string">.</span><span class="rst-variable-quote">'</span>, target_name=None)</span>:
     
     <a class="headerLink" href="#download_file" title="cma.utilities.utils.download_file">
       
@@ -971,7 +987,8 @@ res, ... = revert(res, ...)  # also allows to revert X, if desired
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">extract_targz</span>(tarname, filename=None, target_dir=<span class="rst-variable-quote">'</span><span class="rst-variable-string">.</span><span class="rst-variable-quote">'</span>):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">extract_targz</span><span class="function-signature">(tarname, filename=None, target_dir=<span class="rst-variable-quote">'</span><span class="rst-variable-string">.</span><span class="rst-variable-quote">'</span>)</span>:
     
     <a class="headerLink" href="#extract_targz" title="cma.utilities.utils.extract_targz">
       
@@ -981,8 +998,7 @@ res, ... = revert(res, ...)  # also allows to revert X, if desired
   </div>
   <div class="docstring functionBody">
     
-    <div><p>filename must be a valid path in the tar</p>
-</div>
+    <div><p>filename must be a valid path in the tar</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -995,7 +1011,8 @@ res, ... = revert(res, ...)  # also allows to revert X, if desired
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">format_message</span>(msg, es=None, spaces=6):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">format_message</span><span class="function-signature">(msg, es=None, spaces=6)</span>:
     
     <a class="headerLink" href="#format_message" title="cma.utilities.utils.format_message">
       
@@ -1005,8 +1022,7 @@ res, ... = revert(res, ...)  # also allows to revert X, if desired
   </div>
   <div class="docstring functionBody">
     
-    <div><p>put line breaks and trailing white spaces</p>
-</div>
+    <div><p>put line breaks and trailing white spaces</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -1019,7 +1035,8 @@ res, ... = revert(res, ...)  # also allows to revert X, if desired
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">is_</span>(var):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_</span><span class="function-signature">(var)</span>:
     
     <a class="headerLink" href="#is_" title="cma.utilities.utils.is_">
       
@@ -1053,7 +1070,8 @@ scalar <code>var</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">is_all</span>(var_list):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_all</span><span class="function-signature">(var_list)</span>:
     
     <a class="headerLink" href="#is_all" title="cma.utilities.utils.is_all">
       
@@ -1063,8 +1081,7 @@ scalar <code>var</code>.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return <tt class="rst-docutils literal">all(is_(v) for v in var_list)</tt></p>
-</div>
+    <div><p>return <tt class="rst-docutils literal">all(is_(v) for v in var_list)</tt></p></div>
   </div>
 </div><div class="basefunction">
   
@@ -1077,7 +1094,8 @@ scalar <code>var</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">is_any</span>(var_list):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_any</span><span class="function-signature">(var_list)</span>:
     
     <a class="headerLink" href="#is_any" title="cma.utilities.utils.is_any">
       
@@ -1087,8 +1105,7 @@ scalar <code>var</code>.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return <tt class="rst-docutils literal">any(is_(v) for v in var_list)</tt></p>
-</div>
+    <div><p>return <tt class="rst-docutils literal">any(is_(v) for v in var_list)</tt></p></div>
   </div>
 </div><div class="basefunction">
   
@@ -1101,7 +1118,8 @@ scalar <code>var</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">is_nan</span>(var):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_nan</span><span class="function-signature">(var)</span>:
     
     <a class="headerLink" href="#is_nan" title="cma.utilities.utils.is_nan">
       
@@ -1111,8 +1129,7 @@ scalar <code>var</code>.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return <tt class="rst-docutils literal">np.isnan(var)</tt> or <code>False</code> if <code>var</code> is not numeric</p>
-</div>
+    <div><p>return <tt class="rst-docutils literal">np.isnan(var)</tt> or <code>False</code> if <code>var</code> is not numeric</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -1125,7 +1142,8 @@ scalar <code>var</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">is_not</span>(var):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_not</span><span class="function-signature">(var)</span>:
     
     <a class="headerLink" href="#is_not" title="cma.utilities.utils.is_not">
       
@@ -1135,8 +1153,7 @@ scalar <code>var</code>.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>see <code><a href="#is_" class="internal-link" title="cma.utilities.utils.is_">is_</a></code></p>
-</div>
+    <div><p>see <code><a href="#is_" class="internal-link" title="cma.utilities.utils.is_">is_</a></code></p></div>
   </div>
 </div><div class="basefunction">
   
@@ -1149,7 +1166,8 @@ scalar <code>var</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">is_one</span>(var):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_one</span><span class="function-signature">(var)</span>:
     
     <a class="headerLink" href="#is_one" title="cma.utilities.utils.is_one">
       
@@ -1159,8 +1177,7 @@ scalar <code>var</code>.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return True if var == 1 or ones vector</p>
-</div>
+    <div><p>return True if var == 1 or ones vector</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -1173,7 +1190,8 @@ scalar <code>var</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">is_str</span>(var):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_str</span><span class="function-signature">(var)</span>:
     
     <a class="headerLink" href="#is_str" title="cma.utilities.utils.is_str">
       
@@ -1200,7 +1218,8 @@ scalar <code>var</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">is_vector_list</span>(x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_vector_list</span><span class="function-signature">(x)</span>:
     
     <a class="headerLink" href="#is_vector_list" title="cma.utilities.utils.is_vector_list">
       
@@ -1226,7 +1245,8 @@ scalar <code>var</code>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">num2str</span>(val, significant_digits=2, force_rounding=False, max_predecimal_digits=5, max_postdecimal_leading_zeros=1, remove_trailing_zeros=True, desired_length=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">num2str</span><span class="function-signature">(val, significant_digits=2, force_rounding=False, max_predecimal_digits=5, max_postdecimal_leading_zeros=1, remove_trailing_zeros=True, desired_length=None)</span>:
     
     <a class="headerLink" href="#num2str" title="cma.utilities.utils.num2str">
       
@@ -1262,7 +1282,8 @@ exactly.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">pprint</span>(to_be_printed):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">pprint</span><span class="function-signature">(to_be_printed)</span>:
     
     <a class="headerLink" href="#pprint" title="cma.utilities.utils.pprint">
       
@@ -1272,8 +1293,7 @@ exactly.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>nicely formated print</p>
-</div>
+    <div><p>nicely formated print</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -1286,7 +1306,8 @@ exactly.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">print_message</span>(msg, method_name=None, class_name=None, iteration=None, verbose=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">print_message</span><span class="function-signature">(msg, method_name=None, class_name=None, iteration=None, verbose=None)</span>:
     
     <a class="headerLink" href="#print_message" title="cma.utilities.utils.print_message">
       
@@ -1309,7 +1330,8 @@ exactly.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">print_warning</span>(msg, method_name=None, class_name=None, iteration=None, verbose=None, maxwarns=None, **kwargs_for_warn):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">print_warning</span><span class="function-signature">(msg, method_name=None, class_name=None, iteration=None, verbose=None, maxwarns=None, **kwargs_for_warn)</span>:
     
     <a class="headerLink" href="#print_warning" title="cma.utilities.utils.print_warning">
       
@@ -1319,8 +1341,7 @@ exactly.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Poor man's maxwarns: warn only if <tt class="rst-docutils literal"><span class="pre">iteration&lt;=maxwarns</span></tt></p>
-</div>
+    <div><p>Poor man's maxwarns: msg must match exactly</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -1333,7 +1354,8 @@ exactly.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ranks</span>(a, reverse=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ranks</span><span class="function-signature">(a, reverse=False)</span>:
     
     <a class="headerLink" href="#ranks" title="cma.utilities.utils.ranks">
       
@@ -1358,7 +1380,8 @@ exactly.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">recycled</span>(vec, dim=None, as_=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">recycled</span><span class="function-signature">(vec, dim=None, as_=None)</span>:
     
     <a class="headerLink" href="#recycled" title="cma.utilities.utils.recycled">
       
@@ -1385,7 +1408,8 @@ scalar is returned.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">rglen</span>(ar):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">rglen</span><span class="function-signature">(ar)</span>:
     
     <a class="headerLink" href="#rglen" title="cma.utilities.utils.rglen">
       
@@ -1395,8 +1419,7 @@ scalar is returned.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return generator <tt class="rst-docutils literal"><span class="pre">range(len(.))</span></tt> with shortcut <tt class="rst-docutils literal"><span class="pre">rglen(.)</span></tt></p>
-</div>
+    <div><p>return generator <tt class="rst-docutils literal"><span class="pre">range(len(.))</span></tt> with shortcut <tt class="rst-docutils literal"><span class="pre">rglen(.)</span></tt></p></div>
   </div>
 </div><div class="basefunction">
   
@@ -1409,7 +1432,8 @@ scalar is returned.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_attributes_from_dict</span>(self, dict_, initial_params_dict_name=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_attributes_from_dict</span><span class="function-signature">(self, dict_, initial_params_dict_name=None)</span>:
     
     <a class="headerLink" href="#set_attributes_from_dict" title="cma.utilities.utils.set_attributes_from_dict">
       
@@ -1460,7 +1484,8 @@ self.args.pop('self', None)  # not strictly necessary
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">seval</span>(s, *args, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">seval</span><span class="function-signature">(s, *args, **kwargs)</span>:
     
     <a class="headerLink" href="#seval" title="cma.utilities.utils.seval">
       
@@ -1483,7 +1508,8 @@ self.args.pop('self', None)  # not strictly necessary
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">zero_values_indices</span>(diffs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">zero_values_indices</span><span class="function-signature">(diffs)</span>:
     
     <a class="headerLink" href="#zero_values_indices" title="cma.utilities.utils.zero_values_indices">
       
@@ -1556,6 +1582,30 @@ spots/areas" in <code>diffs</code>.</p>
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.utilities.utils.warnings_counter">
+    
+  </a>
+  <a name="warnings_counter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">warnings_counter</span> =
+    
+    <a class="headerLink" href="#warnings_counter" title="cma.utilities.utils.warnings_counter">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
 </div>
         </div>
       
@@ -1568,7 +1618,7 @@ spots/areas" in <code>diffs</code>.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

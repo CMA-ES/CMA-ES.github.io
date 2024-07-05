@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.logger.Logger</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -541,6 +541,16 @@
         
 
         
+            <div class="itemName"><code><a href="cma.logger.html#custom_default_matplotlib" class="internal-link" title="cma.logger.custom_default_matplotlib">custom<wbr></wbr>_default<wbr></wbr>_matplotlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.logger.html#disp" class="internal-link" title="cma.logger.disp">disp</a></code>
             </div>
         
@@ -561,7 +571,37 @@
         
 
         
+            <div class="itemName"><code><a href="cma.logger.html#plot_zip" class="internal-link" title="cma.logger.plot_zip">plot<wbr></wbr>_zip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.logger.html#smartlogygrid" class="internal-link" title="cma.logger.smartlogygrid">smartlogygrid</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html#_fix_lower_xlim_and_clipping" class="internal-link" title="cma.logger._fix_lower_xlim_and_clipping">_fix<wbr></wbr>_lower<wbr></wbr>_xlim<wbr></wbr>_and<wbr></wbr>_clipping</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html#_monotone_abscissa" class="internal-link" title="cma.logger._monotone_abscissa">_monotone<wbr></wbr>_abscissa</a></code>
             </div>
         
 
@@ -630,7 +670,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">Logger</span>(object):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Logger</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.logger.Logger.__init__">Logger(obj_or_name, attributes, callables, path, ...)</a></code></p>
           <p><a href="classIndex.html#cma.logger.Logger">View In Hierarchy</a></p>
         </div>
 
@@ -677,7 +717,7 @@ testing purpose only):</p>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id384">
+          <table class="children sortable" id="id386">
   
   
   <tr class="method">
@@ -854,7 +894,8 @@ testing purpose only):</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, obj=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, obj=None)</span>:
     
     <a class="headerLink" href="#__call__" title="cma.logger.Logger.__call__">
       
@@ -880,7 +921,8 @@ an effective hack.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__del__</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__del__</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#__del__" title="cma.logger.Logger.__del__">
       
@@ -903,7 +945,8 @@ an effective hack.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, obj_or_name, attributes=None, callables=None, path=<span class="rst-variable-quote">'</span><span class="rst-variable-string">outcmaes/</span><span class="rst-variable-quote">'</span>, name=None, labels=None, delete=False, plot_transformations=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, obj_or_name, attributes=None, callables=None, path=<span class="rst-variable-quote">'</span><span class="rst-variable-string">outcmaes/</span><span class="rst-variable-quote">'</span>, name=None, labels=None, delete=False, plot_transformations=None)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.logger.Logger.__init__">
       
@@ -941,7 +984,8 @@ boolean <code><a href="#_delete" class="internal-link" title="cma.logger.Logger.
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">add</span>(self, data):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add</span><span class="function-signature">(self, data)</span>:
     
     <a class="headerLink" href="#add" title="cma.logger.Logger.add">
       
@@ -966,7 +1010,8 @@ boolean <code><a href="#_delete" class="internal-link" title="cma.logger.Logger.
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">delete</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">delete</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#delete" title="cma.logger.Logger.delete">
       
@@ -976,8 +1021,7 @@ boolean <code><a href="#_delete" class="internal-link" title="cma.logger.Logger.
   </div>
   <div class="docstring functionBody">
     
-    <div><p>delete current data file and reset count to zero</p>
-</div>
+    <div><p>delete current data file and reset count to zero</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -990,7 +1034,8 @@ boolean <code><a href="#_delete" class="internal-link" title="cma.logger.Logger.
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">load</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">load</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#load" title="cma.logger.Logger.load">
       
@@ -1013,7 +1058,8 @@ boolean <code><a href="#_delete" class="internal-link" title="cma.logger.Logger.
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, plot=None, clear=True, transformations=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(self, plot=None, clear=True, transformations=None)</span>:
     
     <a class="headerLink" href="#plot" title="cma.logger.Logger.plot">
       
@@ -1042,7 +1088,8 @@ data column like <tt class="rst-docutils literal">i_th_column = <span class="pre
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">push</span>(self, *args):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">push</span><span class="function-signature">(self, *args)</span>:
     
     <a class="headerLink" href="#push" title="cma.logger.Logger.push">
       
@@ -1053,8 +1100,7 @@ data column like <tt class="rst-docutils literal">i_th_column = <span class="pre
   <div class="docstring functionBody">
     
     <div><p>call <tt class="rst-docutils literal">stack()</tt> and finalize the current timestep, ignore
-input arguments.</p>
-</div>
+input arguments.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1067,7 +1113,8 @@ input arguments.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">push_header</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">push_header</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#push_header" title="cma.logger.Logger.push_header">
       
@@ -1124,8 +1171,7 @@ input arguments.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>names of attributes written to and read from file</p>
-</div>
+    <div><p>names of attributes written to and read from file</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1413,8 +1459,7 @@ input arguments.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>full filename as absolute path (stored in attribute <code><a href="#_name" class="internal-link" title="cma.logger.Logger._name">_name</a></code>)</p>
-</div>
+    <div><p>full filename as absolute path (stored in attribute <code><a href="#_name" class="internal-link" title="cma.logger.Logger._name">_name</a></code>)</p></div>
     
   </div>
 </div><div class="basemethod private">
@@ -1428,7 +1473,8 @@ input arguments.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_add_defaults</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_add_defaults</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_add_defaults" title="cma.logger.Logger._add_defaults">
       
@@ -1438,8 +1484,7 @@ input arguments.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>add data from registered attributes and callables, called by <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code></p>
-</div>
+    <div><p>add data from registered attributes and callables, called by <code><a href="#push" class="internal-link" title="cma.logger.Logger.push">push</a></code></p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -1452,7 +1497,8 @@ input arguments.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_autoname</span>(self, obj):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_autoname</span><span class="function-signature">(self, obj)</span>:
     
     <a class="headerLink" href="#_autoname" title="cma.logger.Logger._autoname">
       
@@ -1478,7 +1524,8 @@ input arguments.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_compose_name</span>(self, name, unique_id):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_compose_name</span><span class="function-signature">(self, name, unique_id)</span>:
     
     <a class="headerLink" href="#_compose_name" title="cma.logger.Logger._compose_name">
       
@@ -1488,8 +1535,7 @@ input arguments.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>add unique_id to name before ".logdata"</p>
-</div>
+    <div><p>add unique_id to name before ".logdata"</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -1502,7 +1548,8 @@ input arguments.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_create_path</span>(self, name_prefix=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_create_path</span><span class="function-signature">(self, name_prefix=None)</span>:
     
     <a class="headerLink" href="#_create_path" title="cma.logger.Logger._create_path">
       
@@ -1512,8 +1559,7 @@ input arguments.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return absolute path or '' if not <code><a href="cma.logger.CMADataLogger.html#name_prefix" class="internal-link" title="cma.logger.CMADataLogger.name_prefix">name_prefix</a></code></p>
-</div>
+    <div><p>return absolute path or '' if not <code><a href="cma.logger.CMADataLogger.html#name_prefix" class="internal-link" title="cma.logger.CMADataLogger.name_prefix">name_prefix</a></code></p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -1526,7 +1572,8 @@ input arguments.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_stack</span>(self, data):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_stack</span><span class="function-signature">(self, data)</span>:
     
     <a class="headerLink" href="#_stack" title="cma.logger.Logger._stack">
       
@@ -1551,7 +1598,8 @@ input arguments.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_unique_name_addition</span>(self, name=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_unique_name_addition</span><span class="function-signature">(self, name=None)</span>:
     
     <a class="headerLink" href="#_unique_name_addition" title="cma.logger.Logger._unique_name_addition">
       
@@ -1561,8 +1609,7 @@ input arguments.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return id:<code>str</code> that makes <tt class="rst-docutils literal">name or self._name</tt> unique</p>
-</div>
+    <div><p>return id:<code>str</code> that makes <tt class="rst-docutils literal">name or self._name</tt> unique</p></div>
   </div>
 </div><div class="baseinstancevariable private">
   
@@ -1624,7 +1671,7 @@ input arguments.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.evolution_strategy.CMAOptions</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -357,6 +357,36 @@
         
 
         
+            <div class="itemName"><code><a href="#_hsig" class="internal-link" title="cma.evolution_strategy.CMAOptions._hsig">_hsig</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ps_for_pc" class="internal-link" title="cma.evolution_strategy.CMAOptions._ps_for_pc">_ps<wbr></wbr>_for<wbr></wbr>_pc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stationary_sphere" class="internal-link" title="cma.evolution_strategy.CMAOptions._stationary_sphere">_stationary<wbr></wbr>_sphere</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_attributes" class="internal-link" title="cma.evolution_strategy.CMAOptions._attributes">_attributes</a></code>
             </div>
         
@@ -491,6 +521,16 @@
 
         
             <div class="itemName"><code><a href="cma.evolution_strategy._CMAStopDict.html" class="internal-link" title="cma.evolution_strategy._CMAStopDict">_<wbr></wbr>CMAStop<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy._StopTolXStagnation.html" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation">_<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation</a></code>
             </div>
         
 
@@ -775,7 +815,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">CMAOptions</span>(dict):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">CMAOptions</span>(dict):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.evolution_strategy.CMAOptions.__init__">CMAOptions(s, **kwargs)</a></code></p>
           <p><a href="classIndex.html#cma.evolution_strategy.CMAOptions">View In Hierarchy</a></p>
         </div>
 
@@ -917,6 +957,21 @@ with reduced functionality.</p>
     <td>Property</td>
     <td><code><a href="#to_namedtuple" class="internal-link" title="cma.evolution_strategy.CMAOptions.to_namedtuple">to<wbr></wbr>_namedtuple</a></code></td>
     <td>return options as const attributes of the returned object, only useful for inspection.</td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_hsig" class="internal-link" title="cma.evolution_strategy.CMAOptions._hsig">_hsig</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_ps_for_pc" class="internal-link" title="cma.evolution_strategy.CMAOptions._ps_for_pc">_ps<wbr></wbr>_for<wbr></wbr>_pc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_stationary_sphere" class="internal-link" title="cma.evolution_strategy.CMAOptions._stationary_sphere">_stationary<wbr></wbr>_sphere</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
@@ -945,8 +1000,9 @@ with reduced functionality.</p>
     
   </a>
   <div class="functionHeader">
+    
     @staticmethod<br />
-    <span class="py-keyword">def</span> <span class="py-defname">defaults</span>():
+    <span class="py-keyword">def</span> <span class="py-defname">defaults</span><span class="function-signature">()</span>:
     
     <a class="headerLink" href="#defaults" title="cma.evolution_strategy.CMAOptions.defaults">
       
@@ -956,8 +1012,7 @@ with reduced functionality.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return a dictionary with default option values and description</p>
-</div>
+    <div><p>return a dictionary with default option values and description</p></div>
   </div>
 </div><div class="basestaticmethod">
   
@@ -969,8 +1024,9 @@ with reduced functionality.</p>
     
   </a>
   <div class="functionHeader">
+    
     @staticmethod<br />
-    <span class="py-keyword">def</span> <span class="py-defname">versatile_options</span>():
+    <span class="py-keyword">def</span> <span class="py-defname">versatile_options</span><span class="function-signature">()</span>:
     
     <a class="headerLink" href="#versatile_options" title="cma.evolution_strategy.CMAOptions.versatile_options">
       
@@ -1000,7 +1056,8 @@ necessarily be evaluated again.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, key, default=None, loc=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, key, default=None, loc=None)</span>:
     
     <a class="headerLink" href="#__call__" title="cma.evolution_strategy.CMAOptions.__call__">
       
@@ -1032,7 +1089,8 @@ but this does not define <tt class="rst-docutils literal">N</tt>.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, s=None, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, s=None, **kwargs)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.evolution_strategy.CMAOptions.__init__">
       
@@ -1066,7 +1124,8 @@ not valid as an option setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">check</span>(self, options=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">check</span><span class="function-signature">(self, options=None)</span>:
     
     <a class="headerLink" href="#check" title="cma.evolution_strategy.CMAOptions.check">
       
@@ -1076,8 +1135,7 @@ not valid as an option setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>check for ambiguous keys and move attributes into dict</p>
-</div>
+    <div><p>check for ambiguous keys and move attributes into dict</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1090,7 +1148,8 @@ not valid as an option setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">check_attributes</span>(self, opts=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">check_attributes</span><span class="function-signature">(self, opts=None)</span>:
     
     <a class="headerLink" href="#check_attributes" title="cma.evolution_strategy.CMAOptions.check_attributes">
       
@@ -1100,8 +1159,7 @@ not valid as an option setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>check for attributes and moves them into the dictionary</p>
-</div>
+    <div><p>check for attributes and moves them into the dictionary</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1114,7 +1172,8 @@ not valid as an option setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">check_values</span>(self, options=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">check_values</span><span class="function-signature">(self, options=None)</span>:
     
     <a class="headerLink" href="#check_values" title="cma.evolution_strategy.CMAOptions.check_values">
       
@@ -1137,7 +1196,8 @@ not valid as an option setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">complement</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">complement</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#complement" title="cma.evolution_strategy.CMAOptions.complement">
       
@@ -1147,8 +1207,7 @@ not valid as an option setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>add all missing options with their default values</p>
-</div>
+    <div><p>add all missing options with their default values</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1161,7 +1220,8 @@ not valid as an option setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">corrected_key</span>(self, key):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">corrected_key</span><span class="function-signature">(self, key)</span>:
     
     <a class="headerLink" href="#corrected_key" title="cma.evolution_strategy.CMAOptions.corrected_key">
       
@@ -1172,8 +1232,7 @@ not valid as an option setting.</p>
   <div class="docstring functionBody">
     
     <div><p>return the matching valid key, if <tt class="rst-docutils literal">key.lower()</tt> is a unique
-starting sequence to identify the valid key, <tt class="rst-docutils literal">else None</tt></p>
-</div>
+starting sequence to identify the valid key, <tt class="rst-docutils literal">else None</tt></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1186,7 +1245,8 @@ starting sequence to identify the valid key, <tt class="rst-docutils literal">el
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">eval</span>(self, key, default=None, loc=None, correct_key=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">eval</span><span class="function-signature">(self, key, default=None, loc=None, correct_key=True)</span>:
     
     <a class="headerLink" href="#eval" title="cma.evolution_strategy.CMAOptions.eval">
       
@@ -1217,7 +1277,8 @@ For <code>loc</code> is None, the self-dict is used as environment</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">evalall</span>(self, loc=None, defaults=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">evalall</span><span class="function-signature">(self, loc=None, defaults=None)</span>:
     
     <a class="headerLink" href="#evalall" title="cma.evolution_strategy.CMAOptions.evalall">
       
@@ -1227,8 +1288,7 @@ For <code>loc</code> is None, the self-dict is used as environment</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Evaluates all option values in environment <code>loc</code>.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#eval" class="internal-link" title="cma.evolution_strategy.CMAOptions.eval">eval()</a></code></td></tr></table></div>
+    <div><p>Evaluates all option values in environment <code>loc</code>.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#eval" class="internal-link" title="cma.evolution_strategy.CMAOptions.eval">eval()</a></code></td></tr></table></div>
   </div>
 </div><div class="basemethod">
   
@@ -1241,7 +1301,8 @@ For <code>loc</code> is None, the self-dict is used as environment</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">from_namedtuple</span>(self, t):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">from_namedtuple</span><span class="function-signature">(self, t)</span>:
     
     <a class="headerLink" href="#from_namedtuple" title="cma.evolution_strategy.CMAOptions.from_namedtuple">
       
@@ -1252,8 +1313,7 @@ For <code>loc</code> is None, the self-dict is used as environment</p>
   <div class="docstring functionBody">
     
     <div><p>update options from a <code>collections.namedtuple</code>.
-:See also: <code><a href="#to_namedtuple" class="internal-link" title="cma.evolution_strategy.CMAOptions.to_namedtuple">to_namedtuple</a></code></p>
-</div>
+:See also: <code><a href="#to_namedtuple" class="internal-link" title="cma.evolution_strategy.CMAOptions.to_namedtuple">to_namedtuple</a></code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1266,7 +1326,8 @@ For <code>loc</code> is None, the self-dict is used as environment</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">init</span>(self, dict_or_str, val=None, warn=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">init</span><span class="function-signature">(self, dict_or_str, val=None, warn=True)</span>:
     
     <a class="headerLink" href="#init" title="cma.evolution_strategy.CMAOptions.init">
       
@@ -1306,7 +1367,8 @@ If <code>val</code> is provided <code>dict_or_str</code> must be a valid key.</d
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">match</span>(self, s=<span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">match</span><span class="function-signature">(self, s=<span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>)</span>:
     
     <a class="headerLink" href="#match" title="cma.evolution_strategy.CMAOptions.match">
       
@@ -1333,7 +1395,8 @@ options.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">pprint</span>(self, linebreak=80):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">pprint</span><span class="function-signature">(self, linebreak=80)</span>:
     
     <a class="headerLink" href="#pprint" title="cma.evolution_strategy.CMAOptions.pprint">
       
@@ -1356,7 +1419,8 @@ options.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set</span>(self, dic, val=None, force=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set</span><span class="function-signature">(self, dic, val=None, force=False)</span>:
     
     <a class="headerLink" href="#set" title="cma.evolution_strategy.CMAOptions.set">
       
@@ -1437,8 +1501,79 @@ list might be incomplete.</p>
   <div class="functionBody">
     
     <div><p>return options as const attributes of the returned object,
-only useful for inspection.</p>
-</div>
+only useful for inspection.</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="cma.evolution_strategy.CMAOptions._hsig">
+    
+  </a>
+  <a name="_hsig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_hsig</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#_hsig" title="cma.evolution_strategy.CMAOptions._hsig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="cma.evolution_strategy.CMAOptions._ps_for_pc">
+    
+  </a>
+  <a name="_ps_for_pc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ps_for_pc</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#_ps_for_pc" title="cma.evolution_strategy.CMAOptions._ps_for_pc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="cma.evolution_strategy.CMAOptions._stationary_sphere">
+    
+  </a>
+  <a name="_stationary_sphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_stationary_sphere</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#_stationary_sphere" title="cma.evolution_strategy.CMAOptions._stationary_sphere">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div><div class="baseinstancevariable private">
@@ -1501,7 +1636,7 @@ only useful for inspection.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

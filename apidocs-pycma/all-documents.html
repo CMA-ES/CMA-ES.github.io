@@ -6,7 +6,7 @@
   <head>
     
     <title>All Documents</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -500,6 +500,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">returns the shortest string representation.</div>
+          </li><li id="cma.utilities.utils.warnings_counter">
+            
+            <div class="fullName">cma<wbr></wbr>.utilities<wbr></wbr>.utils<wbr></wbr>.warnings<wbr></wbr>_counter</div>
+            <div class="url">cma.utilities.utils.html#warnings_counter</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.utilities.utils.print_warning">
             
             <div class="fullName">cma<wbr></wbr>.utilities<wbr></wbr>.utils<wbr></wbr>.print<wbr></wbr>_warning</div>
@@ -507,7 +515,7 @@
             <div class="type">Function</div>
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Poor man's maxwarns: warn only if <tt class="rst-docutils literal"><span class="pre">iteration&lt;=maxwarns</span></tt></div>
+            <div class="summary">Poor man's maxwarns: msg must match exactly</div>
           </li><li id="cma.utilities.utils.print_message">
             
             <div class="fullName">cma<wbr></wbr>.utilities<wbr></wbr>.utils<wbr></wbr>.print<wbr></wbr>_message</div>
@@ -8469,6 +8477,22 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.logger._fix_lower_xlim_and_clipping">
+            
+            <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>._fix<wbr></wbr>_lower<wbr></wbr>_xlim<wbr></wbr>_and<wbr></wbr>_clipping</div>
+            <div class="url">cma.logger.html#_fix_lower_xlim_and_clipping</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">minimize space wasted below x=0</div>
+          </li><li id="cma.logger._monotone_abscissa">
+            
+            <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>._monotone<wbr></wbr>_abscissa</div>
+            <div class="url">cma.logger.html#_monotone_abscissa</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">make x monotone if <tt class="rst-docutils literal">not iabscissa</tt>.</div>
           </li><li id="cma.logger.CMADataLogger">
             
             <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>.<wbr></wbr>CMAData<wbr></wbr>Logger</div>
@@ -8717,6 +8741,22 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">saves logger data to a different set of files, for <tt class="rst-docutils literal">switch=True</tt> also the loggers name prefix is switched to the new value</div>
+          </li><li id="cma.logger.CMADataLogger.zip">
+            
+            <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>.<wbr></wbr>CMAData<wbr></wbr>Logger<wbr></wbr>.zip</div>
+            <div class="url">cma.logger.CMADataLogger.html#zip</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">write logger data to file <tt class="rst-docutils literal">filename [+ <span class="pre">...]</span> + '.tar.gz'</tt>.</div>
+          </li><li id="cma.logger.CMADataLogger._unzip">
+            
+            <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>.<wbr></wbr>CMAData<wbr></wbr>Logger<wbr></wbr>._unzip</div>
+            <div class="url">cma.logger.CMADataLogger.html#_unzip</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">to unzip use "tar -xf filename" in a system shell</div>
           </li><li id="cma.logger.CMADataLogger.select_data">
             
             <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>.<wbr></wbr>CMAData<wbr></wbr>Logger<wbr></wbr>.select<wbr></wbr>_data</div>
@@ -8764,7 +8804,7 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary"><tt class="rst-docutils literal"><span class="pre">iabscissa==0</span></tt> means vs iterations, <code>idx</code> picks variables to plot</div>
+            <div class="summary"><tt class="rst-docutils literal">iabscissa=1</tt> means vs function evaluations, <code>idx</code> picks variables to plot</div>
           </li><li id="cma.logger.CMADataLogger.plot_sigvec">
             
             <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>.<wbr></wbr>CMAData<wbr></wbr>Logger<wbr></wbr>.plot<wbr></wbr>_sigvec</div>
@@ -8852,7 +8892,7 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PRIVATE</div>
-            <div class="summary">If <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is plotted. Otherwise, the first row of <tt class="rst-docutils literal">x_opt</tt> is taken as indices and the second row, if present, is used to take the difference.</div>
+            <div class="summary">see def plot(...</div>
           </li><li id="cma.logger.CMADataLogger.downsampling">
             
             <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>.<wbr></wbr>CMAData<wbr></wbr>Logger<wbr></wbr>.downsampling</div>
@@ -8893,6 +8933,14 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, the call <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a shortcut for <tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).plot(**argsdict)</span></tt></div>
+          </li><li id="cma.logger.plot_zip">
+            
+            <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>.plot<wbr></wbr>_zip</div>
+            <div class="url">cma.logger.html#plot_zip</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">create tar file <tt class="rst-docutils literal">filename [+ <span class="pre">...]</span> + '.tar.gz'</tt> of folder <code>name</code>.</div>
           </li><li id="cma.logger.disp">
             
             <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>.disp</div>
@@ -9293,6 +9341,14 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">turn on grid and also minor grid depending on y-limits</div>
+          </li><li id="cma.logger.custom_default_matplotlib">
+            
+            <div class="fullName">cma<wbr></wbr>.logger<wbr></wbr>.custom<wbr></wbr>_default<wbr></wbr>_matplotlib</div>
+            <div class="url">cma.logger.html#custom_default_matplotlib</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">reduce wasted margin area from 19.0% to 4.0% and make both grids default and</div>
           </li><li id="cma.transformations.ConstRandnShift">
             
             <div class="fullName">cma<wbr></wbr>.transformations<wbr></wbr>.<wbr></wbr>Const<wbr></wbr>Randn<wbr></wbr>Shift</div>
@@ -9557,6 +9613,22 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Class Variable</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.transformations.margin_width1">
+            
+            <div class="fullName">cma<wbr></wbr>.transformations<wbr></wbr>.margin<wbr></wbr>_width1</div>
+            <div class="url">cma.transformations.html#margin_width1</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">return quadratic domain image width <tt class="rst-docutils literal">(1 + abs(bound)) / 20</tt></div>
+          </li><li id="cma.transformations.margin_width2">
+            
+            <div class="fullName">cma<wbr></wbr>.transformations<wbr></wbr>.margin<wbr></wbr>_width2</div>
+            <div class="url">cma.transformations.html#margin_width2</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">return quadratic domain image width <tt class="rst-docutils literal">max(1, abs(bound)) / 20</tt></div>
           </li><li id="cma.transformations.BoxConstraintsLinQuadTransformation">
             
             <div class="fullName">cma<wbr></wbr>.transformations<wbr></wbr>.<wbr></wbr>Box<wbr></wbr>Constraints<wbr></wbr>Lin<wbr></wbr>Quad<wbr></wbr>Transformation</div>
@@ -9564,15 +9636,7 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Class</div>
             <div class="kind">Class</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">implement a bijective, monotonous transformation between <tt class="rst-docutils literal">[lb - al, ub + au]</tt> and <tt class="rst-docutils literal">[lb, ub]</tt>.</div>
-          </li><li id="cma.transformations.BoxConstraintsLinQuadTransformation.__init__">
-            
-            <div class="fullName">cma<wbr></wbr>.transformations<wbr></wbr>.<wbr></wbr>Box<wbr></wbr>Constraints<wbr></wbr>Lin<wbr></wbr>Quad<wbr></wbr>Transformation<wbr></wbr>.__init__</div>
-            <div class="url">cma.transformations.BoxConstraintsLinQuadTransformation.html#__init__</div>
-            <div class="type">Function</div>
-            <div class="kind">Method</div>
-            <div class="privacy">PUBLIC</div>
-            <div class="summary"><tt class="rst-docutils literal">x</tt> is defined in <tt class="rst-docutils literal">[lb - 3*al, ub + au + r - 2*al]</tt> with <tt class="rst-docutils literal">r = ub - lb + al + au</tt>, and <tt class="rst-docutils literal">x == transformation(x)</tt> in <tt class="rst-docutils literal">[lb + al, ub - au]</tt>.</div>
+            <div class="summary">implement a periodic transformation that is bijective from</div>
           </li><li id="cma.transformations.BoxConstraintsLinQuadTransformation.initialize">
             
             <div class="fullName">cma<wbr></wbr>.transformations<wbr></wbr>.<wbr></wbr>Box<wbr></wbr>Constraints<wbr></wbr>Lin<wbr></wbr>Quad<wbr></wbr>Transformation<wbr></wbr>.initialize</div>
@@ -12205,6 +12269,14 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Class Variable</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_models.SurrogatePopulationSettings.logging_push">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_models<wbr></wbr>.<wbr></wbr>Surrogate<wbr></wbr>Population<wbr></wbr>Settings<wbr></wbr>.logging<wbr></wbr>_push</div>
+            <div class="url">cma.fitness_models.SurrogatePopulationSettings.html#logging_push</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.fitness_models.SurrogatePopulation">
             
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_models<wbr></wbr>.<wbr></wbr>Surrogate<wbr></wbr>Population</div>
@@ -14141,6 +14213,30 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Class</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">a dictionary with the available options and their default values for class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>.</div>
+          </li><li id="cma.evolution_strategy.CMAOptions._ps_for_pc">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAOptions<wbr></wbr>._ps<wbr></wbr>_for<wbr></wbr>_pc</div>
+            <div class="url">cma.evolution_strategy.CMAOptions.html#_ps_for_pc</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy.CMAOptions._hsig">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAOptions<wbr></wbr>._hsig</div>
+            <div class="url">cma.evolution_strategy.CMAOptions.html#_hsig</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy.CMAOptions._stationary_sphere">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAOptions<wbr></wbr>._stationary<wbr></wbr>_sphere</div>
+            <div class="url">cma.evolution_strategy.CMAOptions.html#_stationary_sphere</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.evolution_strategy.CMAOptions.defaults">
             
             <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAOptions<wbr></wbr>.defaults</div>
@@ -14501,6 +14597,14 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy.CMAEvolutionStrategy._isotropic_mean_shift_iteration">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>._isotropic<wbr></wbr>_mean<wbr></wbr>_shift<wbr></wbr>_iteration</div>
+            <div class="url">cma.evolution_strategy.CMAEvolutionStrategy.html#_isotropic_mean_shift_iteration</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.evolution_strategy.CMAEvolutionStrategy.countevals">
             
             <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>.countevals</div>
@@ -14701,6 +14805,14 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary">attribute for stopping criteria in function stop</div>
+          </li><li id="cma.evolution_strategy.CMAEvolutionStrategy._stoptolxstagnation">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>._stoptolxstagnation</div>
+            <div class="url">cma.evolution_strategy.CMAEvolutionStrategy.html#_stoptolxstagnation</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.evolution_strategy.CMAEvolutionStrategy.fit">
             
             <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>.fit</div>
@@ -14812,7 +14924,7 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">change <code>x</code> like for injection, all on genotypic level</div>
+            <div class="summary">change <code><a href="cma.evolution_strategy._StopTolXStagnation.html#x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.x">x</a></code> like for injection, all on genotypic level</div>
           </li><li id="cma.evolution_strategy.CMAEvolutionStrategy._random_rescaling_factor_to_mahalanobis_size">
             
             <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>._random<wbr></wbr>_rescaling<wbr></wbr>_factor<wbr></wbr>_to<wbr></wbr>_mahalanobis<wbr></wbr>_size</div>
@@ -14877,6 +14989,14 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">get mirror genotypic directions from worst solutions.</div>
+          </li><li id="cma.evolution_strategy.CMAEvolutionStrategy.limit_integer_relative_deltas">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>.limit<wbr></wbr>_integer<wbr></wbr>_relative<wbr></wbr>_deltas</div>
+            <div class="url">cma.evolution_strategy.CMAEvolutionStrategy.html#limit_integer_relative_deltas</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">limit absolute values of int-coordinates in vector list <code>dX</code></div>
           </li><li id="cma.evolution_strategy.CMAEvolutionStrategy.tell">
             
             <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>.tell</div>
@@ -14916,6 +15036,22 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy.CMAEvolutionStrategy._sigma_old">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>._sigma<wbr></wbr>_old</div>
+            <div class="url">cma.evolution_strategy.CMAEvolutionStrategy.html#_sigma_old</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy.CMAEvolutionStrategy._stall_sigma_change_on_divergence_events">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>.<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>._stall<wbr></wbr>_sigma<wbr></wbr>_change<wbr></wbr>_on<wbr></wbr>_divergence<wbr></wbr>_events</div>
+            <div class="url">cma.evolution_strategy.CMAEvolutionStrategy.html#_stall_sigma_change_on_divergence_events</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.evolution_strategy.CMAEvolutionStrategy._record_rankings">
             
@@ -15141,6 +15277,110 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">plot current state variables using <code>matplotlib</code>.</div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Provide a termination signal depending on how much a vector has changed,</div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.__init__">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.__init__</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><code><a href="cma.evolution_strategy._StopTolXStagnation.html#x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.x">x</a></code> is the initial vector (optional), default settings are taken from <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code></div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.delta">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.delta</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#delta</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.time_delta_offset">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.time<wbr></wbr>_delta<wbr></wbr>_offset</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#time_delta_offset</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.time_delta_frac">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.time<wbr></wbr>_delta<wbr></wbr>_frac</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#time_delta_frac</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.time_delta_expo">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.time<wbr></wbr>_delta<wbr></wbr>_expo</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#time_delta_expo</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.count">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.count</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#count</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.count_x">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.count<wbr></wbr>_x</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#count_x</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.x">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.x</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#x</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.set_params">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.set<wbr></wbr>_params</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#set_params</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><code>param_values</code> is a <code>list</code> conforming to <tt class="rst-docutils literal"><span class="pre">CMAOptions['tolxstagnation']</span></tt>.</div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.update">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.update</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#update</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">caveat: this stores x as a reference</div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.time_threshold">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.time<wbr></wbr>_threshold</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#time_threshold</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.evolution_strategy._StopTolXStagnation.stop">
+            
+            <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>Stop<wbr></wbr>Tol<wbr></wbr>XStagnation<wbr></wbr>.stop</div>
+            <div class="url">cma.evolution_strategy._StopTolXStagnation.html#stop</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.evolution_strategy._CMAStopDict">
             
             <div class="fullName">cma<wbr></wbr>.evolution<wbr></wbr>_strategy<wbr></wbr>._<wbr></wbr>CMAStop<wbr></wbr>Dict</div>
@@ -15986,7 +16226,7 @@ iterations, xmean, stds)</tt></div>
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.BBOB</div>
             <div class="url">cma.fitness_functions.FitnessFunctions.html#BBOB</div>
             <div class="type">Attribute</div>
-            <div class="kind">Instance Variable</div>
+            <div class="kind">Property</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.fitness_functions.FitnessFunctions.rot">
@@ -15996,7 +16236,7 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code>fun</code> applied to a rotated argument</div>
+            <div class="summary">returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code><a href="cma.fitness_functions._F_0.html#fun" class="internal-link" title="cma.fitness_functions._F_0.fun">fun</a></code> applied to a rotated argument</div>
           </li><li id="cma.fitness_functions.FitnessFunctions.somenan">
             
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.somenan</div>
@@ -16004,7 +16244,7 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">returns sometimes np.NaN, otherwise fun(x)</div>
+            <div class="summary">returns sometimes np.nan, otherwise fun(x)</div>
           </li><li id="cma.fitness_functions.FitnessFunctions.epslow">
             
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.epslow</div>
@@ -16340,7 +16580,15 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Rosenbrock test objective function</div>
+            <div class="summary">Rosenbrock test objective function, x0=0</div>
+          </li><li id="cma.fitness_functions.FitnessFunctions.rosen0">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.rosen0</div>
+            <div class="url">cma.fitness_functions.FitnessFunctions.html#rosen0</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Rosenbrock test objective function with optimum in all-zeros, x0=-1</div>
           </li><li id="cma.fitness_functions.FitnessFunctions.grad_rosen">
             
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.grad<wbr></wbr>_rosen</div>
@@ -16549,14 +16797,22 @@ iterations, xmean, stds)</tt></div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">a multimodal function which is rather unsolvable in larger dimension.</div>
-          </li><li id="cma.fitness_functions.FitnessFunctions.leadingones">
+          </li><li id="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">
             
-            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.leadingones</div>
-            <div class="url">cma.fitness_functions.FitnessFunctions.html#leadingones</div>
-            <div class="type">Function</div>
-            <div class="kind">Static Method</div>
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.binary<wbr></wbr>_optimum<wbr></wbr>_interval</div>
+            <div class="url">cma.fitness_functions.FitnessFunctions.html#binary_optimum_interval</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">return len(x) - nb of leading-ones-in-x, where only</div>
+            <div class="summary">default interval where the optimum is assumed on binary functions.</div>
+          </li><li id="cma.fitness_functions.FitnessFunctions.binary_foffset">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.binary<wbr></wbr>_foffset</div>
+            <div class="url">cma.fitness_functions.FitnessFunctions.html#binary_foffset</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">default f-offset for binary functions at the optimum.</div>
           </li><li id="cma.fitness_functions.FitnessFunctions.binval">
             
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.binval</div>
@@ -16564,23 +16820,135 @@ iterations, xmean, stds)</tt></div>
             <div class="type">Function</div>
             <div class="kind">Static Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">return sum_i(0 if (1 &lt;= x[i] &lt; 2) else 2**i)**(1/n)</div>
-          </li><li id="cma.fitness_functions.FitnessFunctions._fetch_bbob_fcts">
+            <div class="summary">return <tt class="rst-docutils literal">sum_i(0 if (optimum[0] &lt;= x[i] &lt;= optimum[1]) else <span class="pre">2**i)</span></tt></div>
+          </li><li id="cma.fitness_functions.FitnessFunctions.leadingones">
             
-            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>._fetch<wbr></wbr>_bbob<wbr></wbr>_fcts</div>
-            <div class="url">cma.fitness_functions.FitnessFunctions.html#_fetch_bbob_fcts</div>
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.leadingones</div>
+            <div class="url">cma.fitness_functions.FitnessFunctions.html#leadingones</div>
             <div class="type">Function</div>
-            <div class="kind">Method</div>
-            <div class="privacy">PRIVATE</div>
-            <div class="summary">Fetch GECCO BBOB 2009 functions from WWW and set as <code>self.BBOB</code>.</div>
-          </li><li id="cma.fitness_functions.FitnessFunctions.fetch_bbob_fcts">
+            <div class="kind">Static Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">return <tt class="rst-docutils literal">len(x) - nb of <span class="pre">leading-ones-in-x</span></tt> to be minimized,</div>
+          </li><li id="cma.fitness_functions.FitnessFunctions.onemax">
             
-            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.fetch<wbr></wbr>_bbob<wbr></wbr>_fcts</div>
-            <div class="url">cma.fitness_functions.FitnessFunctions.html#fetch_bbob_fcts</div>
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.<wbr></wbr>Fitness<wbr></wbr>Functions<wbr></wbr>.onemax</div>
+            <div class="url">cma.fitness_functions.FitnessFunctions.html#onemax</div>
+            <div class="type">Function</div>
+            <div class="kind">Static Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">return <tt class="rst-docutils literal">sum_i(0 if (optimum[0] &lt;= x[i] &lt;= optimum[1]) else 1)</tt></div>
+          </li><li id="cma.fitness_functions._F_0">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0</div>
+            <div class="url">cma.fitness_functions._F_0.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">return a "normalized" BBOB function, funID=1..24 when suite='bbob'.</div>
+          </li><li id="cma.fitness_functions._F_0.__init__">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.__init__</div>
+            <div class="url">cma.fitness_functions._F_0.html#__init__</div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Fetch GECCO BBOB 2009 functions from WWW and set as <code>self.BBOB</code>.</div>
+            <div class="summary">initialize or re-initialize <tt class="rst-docutils literal">self</tt></div>
+          </li><li id="cma.fitness_functions._F_0._input_parameters">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>._input<wbr></wbr>_parameters</div>
+            <div class="url">cma.fitness_functions._F_0.html#_input_parameters</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.suite">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.suite</div>
+            <div class="url">cma.fitness_functions._F_0.html#suite</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.fun">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.fun</div>
+            <div class="url">cma.fitness_functions._F_0.html#fun</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.set_opt">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.set<wbr></wbr>_opt</div>
+            <div class="url">cma.fitness_functions._F_0.html#set_opt</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.x_opt">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.x<wbr></wbr>_opt</div>
+            <div class="url">cma.fitness_functions._F_0.html#x_opt</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.x_add">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.x<wbr></wbr>_add</div>
+            <div class="url">cma.fitness_functions._F_0.html#x_add</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.f_opt">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.f<wbr></wbr>_opt</div>
+            <div class="url">cma.fitness_functions._F_0.html#f_opt</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.__call__">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.__call__</div>
+            <div class="url">cma.fitness_functions._F_0.html#__call__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.lower_bounds">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.lower<wbr></wbr>_bounds</div>
+            <div class="url">cma.fitness_functions._F_0.html#lower_bounds</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.upper_bounds">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.upper<wbr></wbr>_bounds</div>
+            <div class="url">cma.fitness_functions._F_0.html#upper_bounds</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.initial_solution">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.initial<wbr></wbr>_solution</div>
+            <div class="url">cma.fitness_functions._F_0.html#initial_solution</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="cma.fitness_functions._F_0.initial_solution_proposal">
+            
+            <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>._F<wbr></wbr>_0<wbr></wbr>.initial<wbr></wbr>_solution<wbr></wbr>_proposal</div>
+            <div class="url">cma.fitness_functions._F_0.html#initial_solution_proposal</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
           </li><li id="cma.fitness_functions.ff">
             
             <div class="fullName">cma<wbr></wbr>.fitness<wbr></wbr>_functions<wbr></wbr>.ff</div>

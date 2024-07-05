@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.constraints_handler.AugmentedLagrangian</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -917,7 +917,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">AugmentedLagrangian</span>(object):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">AugmentedLagrangian</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.__init__">AugmentedLagrangian(dimension, equality)</a></code></p>
           <p><a href="classIndex.html#cma.constraints_handler.AugmentedLagrangian">View In Hierarchy</a></p>
         </div>
 
@@ -1247,7 +1247,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, g):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, g)</span>:
     
     <a class="headerLink" href="#__call__" title="cma.constraints_handler.AugmentedLagrangian.__call__">
       
@@ -1273,7 +1274,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, dimension, equality=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, dimension, equality=False)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.constraints_handler.AugmentedLagrangian.__init__">
       
@@ -1283,8 +1285,7 @@ default seems to give better results than the original setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>use <code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set_algorithm()</a></code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</p>
-</div>
+    <div><p>use <code><a href="#set_algorithm" class="internal-link" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">set_algorithm()</a></code> and <tt class="rst-docutils literal"><span class="pre">set_...()</span></tt> methods to change defaults</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1297,7 +1298,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">muminus2</span>(self, g, i, threshold=0.05):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">muminus2</span><span class="function-signature">(self, g, i, threshold=0.05)</span>:
     
     <a class="headerLink" href="#muminus2" title="cma.constraints_handler.AugmentedLagrangian.muminus2">
       
@@ -1307,8 +1309,7 @@ default seems to give better results than the original setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>provisorial function to correct mu minus condition, original is <code>True</code></p>
-</div>
+    <div><p>provisorial function to correct mu minus condition, original is <code>True</code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1321,7 +1322,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">muminus3</span>(self, g, i, threshold=0.9):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">muminus3</span><span class="function-signature">(self, g, i, threshold=0.9)</span>:
     
     <a class="headerLink" href="#muminus3" title="cma.constraints_handler.AugmentedLagrangian.muminus3">
       
@@ -1331,8 +1333,7 @@ default seems to give better results than the original setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return <code>True</code> if mu should be reduced, else <code>False</code></p>
-</div>
+    <div><p>return <code>True</code> if mu should be reduced, else <code>False</code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1345,7 +1346,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">muminus4</span>(self, g, i, threshold=0.9):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">muminus4</span><span class="function-signature">(self, g, i, threshold=0.9)</span>:
     
     <a class="headerLink" href="#muminus4" title="cma.constraints_handler.AugmentedLagrangian.muminus4">
       
@@ -1355,8 +1357,7 @@ default seems to give better results than the original setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return <code>True</code> if mu should be reduced, else <code>False</code></p>
-</div>
+    <div><p>return <code>True</code> if mu should be reduced, else <code>False</code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1369,7 +1370,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">muplus2</span>(self, g, i, threshold=0.4):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">muplus2</span><span class="function-signature">(self, g, i, threshold=0.4)</span>:
     
     <a class="headerLink" href="#muplus2" title="cma.constraints_handler.AugmentedLagrangian.muplus2">
       
@@ -1379,8 +1381,7 @@ default seems to give better results than the original setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>provisorial function to correct mu plus condition, original is <code>True</code></p>
-</div>
+    <div><p>provisorial function to correct mu plus condition, original is <code>True</code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1393,7 +1394,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">muplus3</span>(self, g, i, threshold=0.95):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">muplus3</span><span class="function-signature">(self, g, i, threshold=0.95)</span>:
     
     <a class="headerLink" href="#muplus3" title="cma.constraints_handler.AugmentedLagrangian.muplus3">
       
@@ -1403,8 +1405,7 @@ default seems to give better results than the original setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return <code>True</code> if mu should be increased, else <code>False</code></p>
-</div>
+    <div><p>return <code>True</code> if mu should be increased, else <code>False</code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1417,7 +1418,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">muplus4</span>(self, g, i, threshold=0.95):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">muplus4</span><span class="function-signature">(self, g, i, threshold=0.95)</span>:
     
     <a class="headerLink" href="#muplus4" title="cma.constraints_handler.AugmentedLagrangian.muplus4">
       
@@ -1427,8 +1429,7 @@ default seems to give better results than the original setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return <code>True</code> if mu should be increased, else <code>False</code></p>
-</div>
+    <div><p>return <code>True</code> if mu should be increased, else <code>False</code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1441,7 +1442,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_algorithm</span>(self, algorithm=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_algorithm</span><span class="function-signature">(self, algorithm=None)</span>:
     
     <a class="headerLink" href="#set_algorithm" title="cma.constraints_handler.AugmentedLagrangian.set_algorithm">
       
@@ -1467,7 +1469,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_atamna2017</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_atamna2017</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#set_atamna2017" title="cma.constraints_handler.AugmentedLagrangian.set_atamna2017">
       
@@ -1477,8 +1480,7 @@ default seems to give better results than the original setting.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Atamna et al 2017 parameter settings</p>
-</div>
+    <div><p>Atamna et al 2017 parameter settings</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1491,7 +1493,8 @@ default seems to give better results than the original setting.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_coefficients</span>(self, F, G):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_coefficients</span><span class="function-signature">(self, F, G)</span>:
     
     <a class="headerLink" href="#set_coefficients" title="cma.constraints_handler.AugmentedLagrangian.set_coefficients">
       
@@ -1504,7 +1507,7 @@ default seems to give better results than the original setting.</p>
     <div><p>compute initial coefficients based on some f- and g-values.</p>
 <p>The formulas to set the coefficients:</p>
 <pre class="rst-literal-block">
-lam = iqr(f) / (sqrt(n) * iqr(g))
+lam = iqr(f) / (n * iqr(g))
 mu = 2 * iqr(f) / (5 * n * (iqr(g) + iqr(g**2)))
 </pre>
 <p>are taken out of thin air and not thoroughly tested. They are
@@ -1525,7 +1528,8 @@ and more than 10% feasible at the same time. Afterwards, this at least...?...</p
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_dufosse2020</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_dufosse2020</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#set_dufosse2020" title="cma.constraints_handler.AugmentedLagrangian.set_dufosse2020">
       
@@ -1535,8 +1539,7 @@ and more than 10% feasible at the same time. Afterwards, this at least...?...</p
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Dufosse &amp; Hansen 2020 parameter settings</p>
-</div>
+    <div><p>Dufosse &amp; Hansen 2020 parameter settings</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1549,7 +1552,8 @@ and more than 10% feasible at the same time. Afterwards, this at least...?...</p
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_m</span>(self, m):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_m</span><span class="function-signature">(self, m)</span>:
     
     <a class="headerLink" href="#set_m" title="cma.constraints_handler.AugmentedLagrangian.set_m">
       
@@ -1575,7 +1579,8 @@ previously set or adapted <code><a href="#mu" class="internal-link" title="cma.c
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">update</span>(self, f, g):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span><span class="function-signature">(self, f, g)</span>:
     
     <a class="headerLink" href="#update" title="cma.constraints_handler.AugmentedLagrangian.update">
       
@@ -1708,8 +1713,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>number of times g induced a penality in __call__ since last update</p>
-</div>
+    <div><p>number of times g induced a penality in __call__ since last update</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1733,8 +1737,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>number of same changes of mu, -3 means it decreased in all last three iterations</p>
-</div>
+    <div><p>number of same changes of mu, -3 means it decreased in all last three iterations</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1926,8 +1929,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>all g-values from calling the class, recorded but not in use</p>
-</div>
+    <div><p>all g-values from calling the class, recorded but not in use</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1951,8 +1953,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>g-values from calling update</p>
-</div>
+    <div><p>g-values from calling update</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -2168,8 +2169,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>number of data to compute cdf for mu adaptation</p>
-</div>
+    <div><p>number of data to compute cdf for mu adaptation</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2193,8 +2193,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>number of constraints with initialized coefficients</p>
-</div>
+    <div><p>number of constraints with initialized coefficients</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2218,8 +2217,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>or bias for equality constraints, versatile interface may change</p>
-</div>
+    <div><p>or bias for equality constraints, versatile interface may change</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2267,8 +2265,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>bool array, <code>True</code> if <code>i</code>-th constraint is an equality constraint</p>
-</div>
+    <div><p>bool array, <code>True</code> if <code>i</code>-th constraint is an equality constraint</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -2292,8 +2289,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>number of constraints, raise <code>TypeError</code> if not set yet</p>
-</div>
+    <div><p>number of constraints, raise <code>TypeError</code> if not set yet</p></div>
     
   </div>
 </div><div class="basemethod private">
@@ -2307,7 +2303,8 @@ supposed to have been computed from the distribution mean.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_check_dtypes</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_check_dtypes</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_check_dtypes" title="cma.constraints_handler.AugmentedLagrangian._check_dtypes">
       
@@ -2317,8 +2314,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>in case the user set the attributes</p>
-</div>
+    <div><p>in case the user set the attributes</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -2331,7 +2327,8 @@ supposed to have been computed from the distribution mean.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_init_</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_init_</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_init_" title="cma.constraints_handler.AugmentedLagrangian._init_">
       
@@ -2341,8 +2338,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>allow to reset the logger with a single call</p>
-</div>
+    <div><p>allow to reset the logger with a single call</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -2355,7 +2351,8 @@ supposed to have been computed from the distribution mean.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_set_parameters</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_set_parameters</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_set_parameters" title="cma.constraints_handler.AugmentedLagrangian._set_parameters">
       
@@ -2365,8 +2362,7 @@ supposed to have been computed from the distribution mean.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>set parameters based on the value of <code>self.algorithm</code></p>
-</div>
+    <div><p>set parameters based on the value of <code>self.algorithm</code></p></div>
   </div>
 </div><div class="baseinstancevariable private">
   
@@ -2428,7 +2424,7 @@ supposed to have been computed from the distribution mean.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

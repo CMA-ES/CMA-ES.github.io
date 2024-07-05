@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.optimization_tools.EvalParallel2</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -447,7 +447,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">EvalParallel2</span>(object):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">EvalParallel2</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__init__">EvalParallel2(fitness_function, number_of_processes)</a></code></p>
           <p><a href="classIndex.html#cma.optimization_tools.EvalParallel2">View In Hierarchy</a></p>
         </div>
 
@@ -486,7 +486,7 @@ to call), <code><a href="cma.optimization_tools.Sections.html#args" class="inter
 <span class="py-more">... </span>        res = eval_all([[1,2], [3,4]])
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># class usage, don't forget to call terminate</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>ep = EvalParallel2(cma.fitness_functions.elli, 4)
-<span class="py-prompt">&gt;&gt;&gt; </span>ep([[1,2], [3,4], [4, 5]])  <span class="py-comment"># doctest:+ELLIPSIS</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>[<span class="py-builtin">float</span>(v) <span class="py-keyword">for</span> v <span class="py-keyword">in</span> ep([[1,2], [3,4], [4, 5]])]  <span class="py-comment"># doctest:+ELLIPSIS</span>
 <span class="py-output">[4000000.944...</span>
 <span class="py-prompt">&gt;&gt;&gt; </span>ep.terminate()
 <span class="py-more">...</span>
@@ -516,7 +516,7 @@ as for example in previous tests done with test suites from coco/bbob.</p>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id386">
+          <table class="children sortable" id="id388">
   
   
   <tr class="method">
@@ -583,7 +583,8 @@ as for example in previous tests done with test suites from coco/bbob.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, solutions, fitness_function=None, args=(), timeout=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, solutions, fitness_function=None, args=(), timeout=None)</span>:
     
     <a class="headerLink" href="#__call__" title="cma.optimization_tools.EvalParallel2.__call__">
       
@@ -613,7 +614,8 @@ exceeded.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__del__</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__del__</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#__del__" title="cma.optimization_tools.EvalParallel2.__del__">
       
@@ -623,8 +625,7 @@ exceeded.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>though generally not recommended <code><a href="#__del__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__del__">__del__</a></code> should be OK here</p>
-</div>
+    <div><p>though generally not recommended <code><a href="#__del__" class="internal-link" title="cma.optimization_tools.EvalParallel2.__del__">__del__</a></code> should be OK here</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -637,7 +638,8 @@ exceeded.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__enter__</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__enter__</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#__enter__" title="cma.optimization_tools.EvalParallel2.__enter__">
       
@@ -660,7 +662,8 @@ exceeded.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__exit__</span>(self, exc_type, exc_value, traceback):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__exit__</span><span class="function-signature">(self, exc_type, exc_value, traceback)</span>:
     
     <a class="headerLink" href="#__exit__" title="cma.optimization_tools.EvalParallel2.__exit__">
       
@@ -683,7 +686,8 @@ exceeded.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, fitness_function=None, number_of_processes=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, fitness_function=None, number_of_processes=None)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.optimization_tools.EvalParallel2.__init__">
       
@@ -706,7 +710,8 @@ exceeded.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">terminate</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">terminate</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#terminate" title="cma.optimization_tools.EvalParallel2.terminate">
       
@@ -716,8 +721,7 @@ exceeded.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>free allocated processing pool</p>
-</div>
+    <div><p>free allocated processing pool</p></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -803,7 +807,7 @@ exceeded.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

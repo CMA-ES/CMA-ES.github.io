@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.sampler.GaussSampler</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -543,7 +543,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">GaussSampler</span>(<a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a>):</code></p><p>Known subclasses: <code><a href="cma.sampler.GaussDiagonalSampler.html" class="internal-link">cma.sampler.GaussDiagonalSampler</a></code>, <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code>, <code><a href="cma.sampler.GaussStandardConstant.html" class="internal-link">cma.sampler.GaussStandardConstant</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">GaussSampler</span>(<a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a>):</code></p><p>Known subclasses: <code><a href="cma.sampler.GaussDiagonalSampler.html" class="internal-link">cma.sampler.GaussDiagonalSampler</a></code>, <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code>, <code><a href="cma.sampler.GaussStandardConstant.html" class="internal-link">cma.sampler.GaussStandardConstant</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.sampler.GaussSampler.__init__">GaussSampler()</a></code></p>
           <p><a href="classIndex.html#cma.sampler.GaussSampler">View In Hierarchy</a></p>
         </div>
 
@@ -552,7 +552,7 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id419">
+          <table class="children sortable" id="id421">
   
   
   <tr class="method">
@@ -606,7 +606,7 @@
             <p class="inheritedFrom">
               Inherited from <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a></code>:
             </p>
-            <table class="children sortable" id="id420">
+            <table class="children sortable" id="id422">
   
   
   <tr class="basemethod">
@@ -708,7 +708,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.sampler.GaussSampler.__init__">
       
@@ -718,8 +719,7 @@
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#__init__" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.__init__</a></code></div><div class="interfaceinfo">overridden in <code><a href="cma.sampler.GaussDiagonalSampler.html" class="internal-link">cma.sampler.GaussDiagonalSampler</a></code>, <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code>, <code><a href="cma.sampler.GaussStandardConstant.html" class="internal-link">cma.sampler.GaussStandardConstant</a></code></div>
-    <div><p>declarative init, doesn't need to be executed</p>
-</div>
+    <div><p>declarative init, doesn't need to be executed</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -732,7 +732,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_H</span>(self, H):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_H</span><span class="function-signature">(self, H)</span>:
     
     <a class="headerLink" href="#set_H" title="cma.sampler.GaussSampler.set_H">
       
@@ -742,8 +743,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>set Hessian w.r.t. which to compute the eigen spectrum.</p>
-</div>
+    <div><p>set Hessian w.r.t. which to compute the eigen spectrum.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -756,7 +756,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_H_by_f</span>(self, f, x0, eps=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_H_by_f</span><span class="function-signature">(self, f, x0, eps=None)</span>:
     
     <a class="headerLink" href="#set_H_by_f" title="cma.sampler.GaussSampler.set_H_by_f">
       
@@ -850,8 +851,7 @@ return 2**0.5 * gamma((self.dimension+1) / 2) / gamma(self.dimension / 2)
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code></div>
-    <div><p>condition number of the correlation matrix</p>
-</div>
+    <div><p>condition number of the correlation matrix</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -875,8 +875,7 @@ return 2**0.5 * gamma((self.dimension+1) / 2) / gamma(self.dimension / 2)
   </div>
   <div class="functionBody">
     
-    <div><p>return eigen spectrum w.r.t. H like sqrt(H) C sqrt(H)</p>
-</div>
+    <div><p>return eigen spectrum w.r.t. H like sqrt(H) C sqrt(H)</p></div>
     
   </div>
 </div><div class="baseinstancevariable private">
@@ -939,7 +938,7 @@ return 2**0.5 * gamma((self.dimension+1) / 2) / gamma(self.dimension / 2)
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

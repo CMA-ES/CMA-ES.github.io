@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.fitness_transformations.ComposedFunction</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -503,7 +503,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">ComposedFunction</span>(<a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a>, list):</code></p><p>Known subclasses: <code><a href="cma.fitness_transformations.FBoundTransform.html" class="internal-link">cma.fitness_transformations.FBoundTransform</a></code>, <code><a href="cma.fitness_transformations.FixVariables.html" class="internal-link">cma.fitness_transformations.FixVariables</a></code>, <code><a href="cma.fitness_transformations.IntegerMixedFunction.html" class="internal-link">cma.fitness_transformations.IntegerMixedFunction</a></code>, <code><a href="cma.fitness_transformations.Rotated.html" class="internal-link">cma.fitness_transformations.Rotated</a></code>, <code><a href="cma.fitness_transformations.ScaleCoordinates.html" class="internal-link">cma.fitness_transformations.ScaleCoordinates</a></code>, <code><a href="cma.fitness_transformations.Shifted.html" class="internal-link">cma.fitness_transformations.Shifted</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ComposedFunction</span>(<a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a>, list):</code></p><p>Known subclasses: <code><a href="cma.fitness_transformations.FBoundTransform.html" class="internal-link">cma.fitness_transformations.FBoundTransform</a></code>, <code><a href="cma.fitness_transformations.FixVariables.html" class="internal-link">cma.fitness_transformations.FixVariables</a></code>, <code><a href="cma.fitness_transformations.IntegerMixedFunction.html" class="internal-link">cma.fitness_transformations.IntegerMixedFunction</a></code>, <code><a href="cma.fitness_transformations.Rotated.html" class="internal-link">cma.fitness_transformations.Rotated</a></code>, <code><a href="cma.fitness_transformations.ScaleCoordinates.html" class="internal-link">cma.fitness_transformations.ScaleCoordinates</a></code>, <code><a href="cma.fitness_transformations.Shifted.html" class="internal-link">cma.fitness_transformations.Shifted</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.fitness_transformations.ComposedFunction.__init__">ComposedFunction(list_of_functions, list_of_inverses)</a></code></p>
           <p><a href="classIndex.html#cma.fitness_transformations.ComposedFunction">View In Hierarchy</a></p>
         </div>
 
@@ -547,7 +547,7 @@ declarative than funtional and could be omitted.</li>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id345">
+          <table class="children sortable" id="id347">
   
   
   <tr class="method">
@@ -576,7 +576,7 @@ declarative than funtional and could be omitted.</li>
             <p class="inheritedFrom">
               Inherited from <code><a href="cma.fitness_transformations.Function.html" class="internal-link" title="cma.fitness_transformations.Function">Function</a></code>:
             </p>
-            <table class="children sortable" id="id346">
+            <table class="children sortable" id="id348">
   
   
   <tr class="basemethod">
@@ -638,7 +638,8 @@ declarative than funtional and could be omitted.</li>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, x, *args, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, x, *args, **kwargs)</span>:
     
     <a class="headerLink" href="#__call__" title="cma.fitness_transformations.ComposedFunction.__call__">
       
@@ -661,7 +662,8 @@ declarative than funtional and could be omitted.</li>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, list_of_functions, list_of_inverses=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, list_of_functions, list_of_inverses=None)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.fitness_transformations.ComposedFunction.__init__">
       
@@ -673,8 +675,7 @@ declarative than funtional and could be omitted.</li>
     <div class="interfaceinfo">overrides <code><a href="cma.fitness_transformations.Function.html#__init__" class="internal-link">cma.fitness_transformations.Function.__init__</a></code></div><div class="interfaceinfo">overridden in <code><a href="cma.fitness_transformations.FBoundTransform.html" class="internal-link">cma.fitness_transformations.FBoundTransform</a></code>, <code><a href="cma.fitness_transformations.FixVariables.html" class="internal-link">cma.fitness_transformations.FixVariables</a></code>, <code><a href="cma.fitness_transformations.IntegerMixedFunction.html" class="internal-link">cma.fitness_transformations.IntegerMixedFunction</a></code>, <code><a href="cma.fitness_transformations.Rotated.html" class="internal-link">cma.fitness_transformations.Rotated</a></code>, <code><a href="cma.fitness_transformations.ScaleCoordinates.html" class="internal-link">cma.fitness_transformations.ScaleCoordinates</a></code>, <code><a href="cma.fitness_transformations.Shifted.html" class="internal-link">cma.fitness_transformations.Shifted</a></code></div>
     <div><p>Caveat: to remain consistent, the <tt class="rst-docutils literal">list_of_inverses</tt> must be
 updated explicitly, if the list of function was updated after
-initialization.</p>
-</div>
+initialization.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -687,7 +688,8 @@ initialization.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">inverse</span>(self, x, *args, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">inverse</span><span class="function-signature">(self, x, *args, **kwargs)</span>:
     
     <a class="headerLink" href="#inverse" title="cma.fitness_transformations.ComposedFunction.inverse">
       
@@ -737,7 +739,7 @@ initialization.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

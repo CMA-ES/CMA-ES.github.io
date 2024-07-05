@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.recombination_weights.RecombinationWeights</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -434,7 +434,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">RecombinationWeights</span>(list):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">RecombinationWeights</span>(list):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.recombination_weights.RecombinationWeights.__init__">RecombinationWeights(len_, exponent)</a></code></p>
           <p><a href="classIndex.html#cma.recombination_weights.RecombinationWeights">View In Hierarchy</a></p>
         </div>
 
@@ -567,7 +567,7 @@ to exponent 0.75:</p>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id410">
+          <table class="children sortable" id="id412">
   
   
   <tr class="method">
@@ -684,7 +684,8 @@ to exponent 0.75:</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(self, lambda_):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, lambda_)</span>:
     
     <a class="headerLink" href="#__call__" title="cma.recombination_weights.RecombinationWeights.__call__">
       
@@ -694,8 +695,7 @@ to exponent 0.75:</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return a cut or expanded weight list with similar mueff if possible</p>
-</div>
+    <div><p>return a cut or expanded weight list with similar mueff if possible</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -708,7 +708,8 @@ to exponent 0.75:</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, len_, exponent=1):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, len_, exponent=1)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.recombination_weights.RecombinationWeights.__init__">
       
@@ -740,7 +741,8 @@ Alternatively, a list of "raw" weights can be provided.</td></tr><tr><td class="
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">do_asserts</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">do_asserts</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#do_asserts" title="cma.recombination_weights.RecombinationWeights.do_asserts">
       
@@ -771,7 +773,8 @@ Alternatively, a list of "raw" weights can be provided.</td></tr><tr><td class="
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">finalize_negative_weights</span>(self, dimension, c1, cmu, pos_def=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">finalize_negative_weights</span><span class="function-signature">(self, dimension, c1, cmu, pos_def=True)</span>:
     
     <a class="headerLink" href="#finalize_negative_weights" title="cma.recombination_weights.RecombinationWeights.finalize_negative_weights">
       
@@ -821,7 +824,8 @@ is not supported.</li>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">set_attributes_from_weights</span>(self, weights=None, do_asserts=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_attributes_from_weights</span><span class="function-signature">(self, weights=None, do_asserts=True)</span>:
     
     <a class="headerLink" href="#set_attributes_from_weights" title="cma.recombination_weights.RecombinationWeights.set_attributes_from_weights">
       
@@ -854,7 +858,8 @@ positive weights sum to one.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">zero_negative_weights</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">zero_negative_weights</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#zero_negative_weights" title="cma.recombination_weights.RecombinationWeights.zero_negative_weights">
       
@@ -864,8 +869,7 @@ positive weights sum to one.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>finalize by setting all negative weights to zero</p>
-</div>
+    <div><p>finalize by setting all negative weights to zero</p></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -1008,8 +1012,7 @@ positive weights sum to one.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>return weights as numpy array</p>
-</div>
+    <div><p>return weights as numpy array</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -1033,8 +1036,7 @@ positive weights sum to one.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>alias for <tt class="rst-docutils literal">len(self)</tt></p>
-</div>
+    <div><p>alias for <tt class="rst-docutils literal">len(self)</tt></p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -1098,7 +1100,8 @@ positive weights sum to one.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_negative_weights_limit_sum</span>(self, value):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_negative_weights_limit_sum</span><span class="function-signature">(self, value)</span>:
     
     <a class="headerLink" href="#_negative_weights_limit_sum" title="cma.recombination_weights.RecombinationWeights._negative_weights_limit_sum">
       
@@ -1108,8 +1111,7 @@ positive weights sum to one.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>lower bound the sum of negative weights to <tt class="rst-docutils literal"><span class="pre">-abs(value)</span></tt>.</p>
-</div>
+    <div><p>lower bound the sum of negative weights to <tt class="rst-docutils literal"><span class="pre">-abs(value)</span></tt>.</p></div>
   </div>
 </div><div class="basemethod private">
   
@@ -1122,7 +1124,8 @@ positive weights sum to one.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_negative_weights_set_sum</span>(self, value):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_negative_weights_set_sum</span><span class="function-signature">(self, value)</span>:
     
     <a class="headerLink" href="#_negative_weights_set_sum" title="cma.recombination_weights.RecombinationWeights._negative_weights_set_sum">
       
@@ -1198,7 +1201,7 @@ lambda / 2 or greater become uniformely negative.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

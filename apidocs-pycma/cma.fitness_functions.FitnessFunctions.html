@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.fitness_functions.FitnessFunctions</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -174,6 +174,16 @@
 
         
             <div class="itemName"><code><a href="#leadingones" class="internal-link" title="cma.fitness_functions.FitnessFunctions.leadingones">leadingones</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#onemax" class="internal-link" title="cma.fitness_functions.FitnessFunctions.onemax">onemax</a></code>
             </div>
         
 
@@ -364,16 +374,6 @@
 
         
             <div class="itemName"><code><a href="#epslowsphere" class="internal-link" title="cma.fitness_functions.FitnessFunctions.epslowsphere">epslowsphere</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#fetch_bbob_fcts" class="internal-link" title="cma.fitness_functions.FitnessFunctions.fetch_bbob_fcts">fetch<wbr></wbr>_bbob<wbr></wbr>_fcts</a></code>
             </div>
         
 
@@ -693,6 +693,16 @@
         
 
         
+            <div class="itemName"><code><a href="#rosen0" class="internal-link" title="cma.fitness_functions.FitnessFunctions.rosen0">rosen0</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#rosen_chained" class="internal-link" title="cma.fitness_functions.FitnessFunctions.rosen_chained">rosen<wbr></wbr>_chained</a></code>
             </div>
         
@@ -897,16 +907,6 @@
             </div>
         
 
-    </li><li class="private">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#_fetch_bbob_fcts" class="internal-link" title="cma.fitness_functions.FitnessFunctions._fetch_bbob_fcts">_fetch<wbr></wbr>_bbob<wbr></wbr>_fcts</a></code>
-            </div>
-        
-
     </li>
 </ul> 
 
@@ -917,6 +917,26 @@
         <ul>
     
     <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary<wbr></wbr>_foffset</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary<wbr></wbr>_optimum<wbr></wbr>_interval</a></code>
+            </div>
+        
+
+    </li><li class="">
         
         
         
@@ -966,6 +986,16 @@
 
         
             <div class="itemName"><code><a href="cma.fitness_functions.FitnessFunctions.html" class="internal-link" title="cma.fitness_functions.FitnessFunctions"><wbr></wbr>Fitness<wbr></wbr>Functions</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_functions._F_0.html" class="internal-link" title="cma.fitness_functions._F_0">_F<wbr></wbr>_0</a></code>
             </div>
         
 
@@ -1060,29 +1090,33 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">FitnessFunctions</span>(object):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">FitnessFunctions</span>(object):</code></p>
           <p><a href="classIndex.html#cma.fitness_functions.FitnessFunctions">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>collection of objective functions.</p>
-</div>
+          <div><p>collection of objective functions.</p></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id331">
+          <table class="children sortable" id="id332">
   
   
   <tr class="staticmethod">
     
     <td>Static Method</td>
     <td><code><a href="#binval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binval">binval</a></code></td>
-    <td>return sum_i(0 if (1 &lt;= x[i] &lt; 2) else 2**i)**(1/n)</td>
+    <td>return <tt class="rst-docutils literal">sum_i(0 if (optimum[0] &lt;= x[i] &lt;= optimum[1]) else <span class="pre">2**i)</span></tt></td>
   </tr><tr class="staticmethod">
     
     <td>Static Method</td>
     <td><code><a href="#leadingones" class="internal-link" title="cma.fitness_functions.FitnessFunctions.leadingones">leadingones</a></code></td>
-    <td>return len(x) - nb of leading-ones-in-x, where only</td>
+    <td>return <tt class="rst-docutils literal">len(x) - nb of <span class="pre">leading-ones-in-x</span></tt> to be minimized,</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#onemax" class="internal-link" title="cma.fitness_functions.FitnessFunctions.onemax">onemax</a></code></td>
+    <td>return <tt class="rst-docutils literal">sum_i(0 if (optimum[0] &lt;= x[i] &lt;= optimum[1]) else 1)</tt></td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -1178,11 +1212,6 @@
     <td>Method</td>
     <td><code><a href="#epslowsphere" class="internal-link" title="cma.fitness_functions.FitnessFunctions.epslowsphere">epslowsphere</a></code></td>
     <td>TODO: define as wrapper</td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><code><a href="#fetch_bbob_fcts" class="internal-link" title="cma.fitness_functions.FitnessFunctions.fetch_bbob_fcts">fetch<wbr></wbr>_bbob<wbr></wbr>_fcts</a></code></td>
-    <td>Fetch GECCO BBOB 2009 functions from WWW and set as <code>self.BBOB</code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -1337,7 +1366,12 @@
     
     <td>Method</td>
     <td><code><a href="#rosen" class="internal-link" title="cma.fitness_functions.FitnessFunctions.rosen">rosen</a></code></td>
-    <td>Rosenbrock test objective function</td>
+    <td>Rosenbrock test objective function, x0=0</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#rosen0" class="internal-link" title="cma.fitness_functions.FitnessFunctions.rosen0">rosen0</a></code></td>
+    <td>Rosenbrock test objective function with optimum in all-zeros, x0=-1</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -1357,7 +1391,7 @@
     
     <td>Method</td>
     <td><code><a href="#rot" class="internal-link" title="cma.fitness_functions.FitnessFunctions.rot">rot</a></code></td>
-    <td>returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code>fun</code> applied to a rotated argument</td>
+    <td>returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code><a href="cma.fitness_functions._F_0.html#fun" class="internal-link" title="cma.fitness_functions._F_0.fun">fun</a></code> applied to a rotated argument</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -1387,7 +1421,7 @@
     
     <td>Method</td>
     <td><code><a href="#somenan" class="internal-link" title="cma.fitness_functions.FitnessFunctions.somenan">somenan</a></code></td>
-    <td>returns sometimes np.NaN, otherwise fun(x)</td>
+    <td>returns sometimes np.nan, otherwise fun(x)</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -1446,18 +1480,23 @@
   </tr><tr class="classvariable">
     
     <td>Class Variable</td>
+    <td><code><a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary<wbr></wbr>_foffset</a></code></td>
+    <td>default f-offset for binary functions at the optimum.</td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary<wbr></wbr>_optimum<wbr></wbr>_interval</a></code></td>
+    <td>default interval where the optimum is assumed on binary functions.</td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
     <td><code><a href="#evaluations" class="internal-link" title="cma.fitness_functions.FitnessFunctions.evaluations">evaluations</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="property">
     
-    <td>Instance Variable</td>
+    <td>Property</td>
     <td><code><a href="#BBOB" class="internal-link" title="cma.fitness_functions.FitnessFunctions.BBOB">BBOB</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method private">
-    
-    <td>Method</td>
-    <td><code><a href="#_fetch_bbob_fcts" class="internal-link" title="cma.fitness_functions.FitnessFunctions._fetch_bbob_fcts">_fetch<wbr></wbr>_bbob<wbr></wbr>_fcts</a></code></td>
-    <td>Fetch GECCO BBOB 2009 functions from WWW and set as <code>self.BBOB</code>.</td>
   </tr>
 </table>
           
@@ -1476,8 +1515,9 @@
     
   </a>
   <div class="functionHeader">
+    
     @staticmethod<br />
-    <span class="py-keyword">def</span> <span class="py-defname">binval</span>(x, foffset=0.01-1e-05):
+    <span class="py-keyword">def</span> <span class="py-defname">binval</span><span class="function-signature">(x, foffset=<a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary_foffset</a>, optimum=<a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary_optimum_interval</a>)</span>:
     
     <a class="headerLink" href="#binval" title="cma.fitness_functions.FitnessFunctions.binval">
       
@@ -1487,7 +1527,12 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return sum_i(0 if (1 &lt;= x[i] &lt; 2) else 2**i)**(1/n)</p>
+    <div><p>return <tt class="rst-docutils literal">sum_i(0 if (optimum[0] &lt;= x[i] &lt;= optimum[1]) else <span class="pre">2**i)</span></tt></p>
+<p>to be minimized.</p>
+<p>Details: the result is computed as <code>int</code>, because in dimension &gt; 54
+a <code>float</code> representation can not account for the least sensitive
+bit anymore. Because we minimize, this is not necessarily a big
+problem.</p>
 </div>
   </div>
 </div><div class="basestaticmethod">
@@ -1500,8 +1545,9 @@
     
   </a>
   <div class="functionHeader">
+    
     @staticmethod<br />
-    <span class="py-keyword">def</span> <span class="py-defname">leadingones</span>(x, foffset=0.01-1e-05):
+    <span class="py-keyword">def</span> <span class="py-defname">leadingones</span><span class="function-signature">(x, foffset=<a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary_foffset</a>, optimum=<a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary_optimum_interval</a>)</span>:
     
     <a class="headerLink" href="#leadingones" title="cma.fitness_functions.FitnessFunctions.leadingones">
       
@@ -1511,8 +1557,34 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return len(x) - nb of leading-ones-in-x, where only</p>
-<p>values in [1, 2) are considered to be "equal to" 1.</p>
+    <div><p>return <tt class="rst-docutils literal">len(x) - nb of <span class="pre">leading-ones-in-x</span></tt> to be minimized,</p>
+<p>where only values in [optimum[0], optimum[1]] are considered to be "equal to" 1.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="cma.fitness_functions.FitnessFunctions.onemax">
+    
+  </a>
+  <a name="onemax">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">onemax</span><span class="function-signature">(x, foffset=<a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary_foffset</a>, optimum=<a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary_optimum_interval</a>)</span>:
+    
+    <a class="headerLink" href="#onemax" title="cma.fitness_functions.FitnessFunctions.onemax">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return <tt class="rst-docutils literal">sum_i(0 if (optimum[0] &lt;= x[i] &lt;= optimum[1]) else 1)</tt></p>
+<p>to be minimized.</p>
 </div>
   </div>
 </div><div class="basemethod">
@@ -1526,7 +1598,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.fitness_functions.FitnessFunctions.__init__">
       
@@ -1549,7 +1622,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">absplussin</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">absplussin</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#absplussin" title="cma.fitness_functions.FitnessFunctions.absplussin">
       
@@ -1559,8 +1633,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>multimodal function with the global optimum at x_i = -1.152740846</p>
-</div>
+    <div><p>multimodal function with the global optimum at x_i = -1.152740846</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1573,7 +1646,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">branin</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">branin</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#branin" title="cma.fitness_functions.FitnessFunctions.branin">
       
@@ -1596,7 +1670,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">bukin</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">bukin</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#bukin" title="cma.fitness_functions.FitnessFunctions.bukin">
       
@@ -1621,7 +1696,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">cigar</span>(self, x, rot=0, cond=1000000.0, noise=0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">cigar</span><span class="function-signature">(self, x, rot=0, cond=1000000.0, noise=0)</span>:
     
     <a class="headerLink" href="#cigar" title="cma.fitness_functions.FitnessFunctions.cigar">
       
@@ -1631,8 +1707,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Cigar test objective function</p>
-</div>
+    <div><p>Cigar test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1645,7 +1720,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">cigtab</span>(self, y):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">cigtab</span><span class="function-signature">(self, y)</span>:
     
     <a class="headerLink" href="#cigtab" title="cma.fitness_functions.FitnessFunctions.cigtab">
       
@@ -1655,8 +1731,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Cigtab test objective function</p>
-</div>
+    <div><p>Cigtab test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1669,7 +1744,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">cigtab2</span>(self, x, condition=100000000.0, n_axes=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">cigtab2</span><span class="function-signature">(self, x, condition=100000000.0, n_axes=None)</span>:
     
     <a class="headerLink" href="#cigtab2" title="cma.fitness_functions.FitnessFunctions.cigtab2">
       
@@ -1695,7 +1771,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">cornerelli</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">cornerelli</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#cornerelli" title="cma.fitness_functions.FitnessFunctions.cornerelli">
       
@@ -1718,7 +1795,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">cornerellirot</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">cornerellirot</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#cornerellirot" title="cma.fitness_functions.FitnessFunctions.cornerellirot">
       
@@ -1741,7 +1819,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">cornersphere</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">cornersphere</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#cornersphere" title="cma.fitness_functions.FitnessFunctions.cornersphere">
       
@@ -1751,8 +1830,7 @@ axes to <code>n_axes</code>, respectively.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Sphere (squared norm) test objective function constraint to the corner</p>
-</div>
+    <div><p>Sphere (squared norm) test objective function constraint to the corner</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1765,7 +1843,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">diagonal_cigar</span>(self, x, cond=1000000.0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">diagonal_cigar</span><span class="function-signature">(self, x, cond=1000000.0)</span>:
     
     <a class="headerLink" href="#diagonal_cigar" title="cma.fitness_functions.FitnessFunctions.diagonal_cigar">
       
@@ -1788,7 +1867,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">diffpow</span>(self, x, rot=0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">diffpow</span><span class="function-signature">(self, x, rot=0)</span>:
     
     <a class="headerLink" href="#diffpow" title="cma.fitness_functions.FitnessFunctions.diffpow">
       
@@ -1798,8 +1878,7 @@ axes to <code>n_axes</code>, respectively.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Diffpow test objective function</p>
-</div>
+    <div><p>Diffpow test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1812,7 +1891,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">elli</span>(self, x, rot=0, xoffset=0, cond=1000000.0, actuator_noise=0.0, both=False):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">elli</span><span class="function-signature">(self, x, rot=0, xoffset=0, cond=1000000.0, actuator_noise=0.0, both=False)</span>:
     
     <a class="headerLink" href="#elli" title="cma.fitness_functions.FitnessFunctions.elli">
       
@@ -1822,8 +1902,7 @@ axes to <code>n_axes</code>, respectively.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Ellipsoid test objective function</p>
-</div>
+    <div><p>Ellipsoid test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1836,7 +1915,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">elliconstraint</span>(self, x, cfac=100000000.0, tough=True, cond=1000000.0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">elliconstraint</span><span class="function-signature">(self, x, cfac=100000000.0, tough=True, cond=1000000.0)</span>:
     
     <a class="headerLink" href="#elliconstraint" title="cma.fitness_functions.FitnessFunctions.elliconstraint">
       
@@ -1846,8 +1926,7 @@ axes to <code>n_axes</code>, respectively.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>ellipsoid test objective function with "constraints"</p>
-</div>
+    <div><p>ellipsoid test objective function with "constraints"</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1860,7 +1939,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ellihalfrot</span>(self, x, frac=0.5, cond1=1000000.0, cond2=1000000.0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ellihalfrot</span><span class="function-signature">(self, x, frac=0.5, cond1=1000000.0, cond2=1000000.0)</span>:
     
     <a class="headerLink" href="#ellihalfrot" title="cma.fitness_functions.FitnessFunctions.ellihalfrot">
       
@@ -1870,8 +1950,7 @@ axes to <code>n_axes</code>, respectively.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return ellirot(x[:N2]) + elli(x[N2:]) where <tt class="rst-docutils literal">N2</tt> is roughly <tt class="rst-docutils literal">frac*len(x)</tt></p>
-</div>
+    <div><p>return ellirot(x[:N2]) + elli(x[N2:]) where <tt class="rst-docutils literal">N2</tt> is roughly <tt class="rst-docutils literal">frac*len(x)</tt></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -1884,7 +1963,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ellirot</span>(self, x, cond=1000000.0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ellirot</span><span class="function-signature">(self, x, cond=1000000.0)</span>:
     
     <a class="headerLink" href="#ellirot" title="cma.fitness_functions.FitnessFunctions.ellirot">
       
@@ -1907,7 +1987,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">elliwithoneconstraint</span>(self, x, idx=[<wbr></wbr>-1]):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">elliwithoneconstraint</span><span class="function-signature">(self, x, idx=[<wbr></wbr>(-1)])</span>:
     
     <a class="headerLink" href="#elliwithoneconstraint" title="cma.fitness_functions.FitnessFunctions.elliwithoneconstraint">
       
@@ -1930,7 +2011,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">epslow</span>(self, fun, eps=1e-07, Neff=(lambda x: int(len(x) ** 0.5))):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">epslow</span><span class="function-signature">(self, fun, eps=1e-07, Neff=(lambda x: int(len(x) ** 0.5)))</span>:
     
     <a class="headerLink" href="#epslow" title="cma.fitness_functions.FitnessFunctions.epslow">
       
@@ -1953,7 +2035,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">epslowsphere</span>(self, x, eps=1e-07, Neff=(lambda x: int(len(x) ** 0.5))):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">epslowsphere</span><span class="function-signature">(self, x, eps=1e-07, Neff=(lambda x: int(len(x) ** 0.5)))</span>:
     
     <a class="headerLink" href="#epslowsphere" title="cma.fitness_functions.FitnessFunctions.epslowsphere">
       
@@ -1963,32 +2046,7 @@ axes to <code>n_axes</code>, respectively.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>TODO: define as wrapper</p>
-</div>
-  </div>
-</div><div class="basemethod">
-  
-  
-  <a name="cma.fitness_functions.FitnessFunctions.fetch_bbob_fcts">
-    
-  </a>
-  <a name="fetch_bbob_fcts">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-keyword">def</span> <span class="py-defname">fetch_bbob_fcts</span>(self):
-    
-    <a class="headerLink" href="#fetch_bbob_fcts" title="cma.fitness_functions.FitnessFunctions.fetch_bbob_fcts">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p>Fetch GECCO BBOB 2009 functions from WWW and set as <code>self.BBOB</code>.</p>
-</div>
+    <div><p>TODO: define as wrapper</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2001,7 +2059,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">flat</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">flat</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#flat" title="cma.fitness_functions.FitnessFunctions.flat">
       
@@ -2024,7 +2083,8 @@ axes to <code>n_axes</code>, respectively.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">fun_as_arg</span>(self, x, *args):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">fun_as_arg</span><span class="function-signature">(self, x, *args)</span>:
     
     <a class="headerLink" href="#fun_as_arg" title="cma.fitness_functions.FitnessFunctions.fun_as_arg">
       
@@ -2053,7 +2113,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">goldsteinprice</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">goldsteinprice</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#goldsteinprice" title="cma.fitness_functions.FitnessFunctions.goldsteinprice">
       
@@ -2076,7 +2137,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">grad_cigar</span>(self, x, *args):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">grad_cigar</span><span class="function-signature">(self, x, *args)</span>:
     
     <a class="headerLink" href="#grad_cigar" title="cma.fitness_functions.FitnessFunctions.grad_cigar">
       
@@ -2099,7 +2161,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">grad_elli</span>(self, x, *args):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">grad_elli</span><span class="function-signature">(self, x, *args)</span>:
     
     <a class="headerLink" href="#grad_elli" title="cma.fitness_functions.FitnessFunctions.grad_elli">
       
@@ -2122,7 +2185,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">grad_numerical</span>(self, x, func, epsilon=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">grad_numerical</span><span class="function-signature">(self, x, func, epsilon=None)</span>:
     
     <a class="headerLink" href="#grad_numerical" title="cma.fitness_functions.FitnessFunctions.grad_numerical">
       
@@ -2132,8 +2196,7 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>symmetric gradient</p>
-</div>
+    <div><p>symmetric gradient</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2146,7 +2209,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">grad_rosen</span>(self, x, *args):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">grad_rosen</span><span class="function-signature">(self, x, *args)</span>:
     
     <a class="headerLink" href="#grad_rosen" title="cma.fitness_functions.FitnessFunctions.grad_rosen">
       
@@ -2169,7 +2233,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">grad_sphere</span>(self, x, *args):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">grad_sphere</span><span class="function-signature">(self, x, *args)</span>:
     
     <a class="headerLink" href="#grad_sphere" title="cma.fitness_functions.FitnessFunctions.grad_sphere">
       
@@ -2192,7 +2257,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">grad_tablet</span>(self, x, *args):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">grad_tablet</span><span class="function-signature">(self, x, *args)</span>:
     
     <a class="headerLink" href="#grad_tablet" title="cma.fitness_functions.FitnessFunctions.grad_tablet">
       
@@ -2215,7 +2281,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">grad_to_one</span>(self, x, *args):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">grad_to_one</span><span class="function-signature">(self, x, *args)</span>:
     
     <a class="headerLink" href="#grad_to_one" title="cma.fitness_functions.FitnessFunctions.grad_to_one">
       
@@ -2238,7 +2305,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">griewank</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">griewank</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#griewank" title="cma.fitness_functions.FitnessFunctions.griewank">
       
@@ -2261,7 +2329,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">halfelli</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">halfelli</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#halfelli" title="cma.fitness_functions.FitnessFunctions.halfelli">
       
@@ -2284,7 +2353,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">happycat</span>(self, x, alpha=1.0/8):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">happycat</span><span class="function-signature">(self, x, alpha=1.0/8)</span>:
     
     <a class="headerLink" href="#happycat" title="cma.fitness_functions.FitnessFunctions.happycat">
       
@@ -2309,7 +2379,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">hyperelli</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">hyperelli</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#hyperelli" title="cma.fitness_functions.FitnessFunctions.hyperelli">
       
@@ -2332,7 +2403,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">levy</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">levy</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#levy" title="cma.fitness_functions.FitnessFunctions.levy">
       
@@ -2357,7 +2429,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">lincon</span>(self, x, theta=0.01):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">lincon</span><span class="function-signature">(self, x, theta=0.01)</span>:
     
     <a class="headerLink" href="#lincon" title="cma.fitness_functions.FitnessFunctions.lincon">
       
@@ -2367,8 +2440,7 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>ridge like linear function with one linear constraint</p>
-</div>
+    <div><p>ridge like linear function with one linear constraint</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2381,7 +2453,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">linear</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">linear</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#linear" title="cma.fitness_functions.FitnessFunctions.linear">
       
@@ -2404,7 +2477,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">lineard</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">lineard</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#lineard" title="cma.fitness_functions.FitnessFunctions.lineard">
       
@@ -2427,7 +2501,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">noise</span>(self, x, func=<a href="#sphere" class="internal-link" title="cma.fitness_functions.FitnessFunctions.sphere">sphere</a>, fac=10, expon=1):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">noise</span><span class="function-signature">(self, x, func=<a href="#sphere" class="internal-link" title="cma.fitness_functions.FitnessFunctions.sphere">sphere</a>, fac=10, expon=1)</span>:
     
     <a class="headerLink" href="#noise" title="cma.fitness_functions.FitnessFunctions.noise">
       
@@ -2450,7 +2525,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">noiseC</span>(self, x, func=<a href="#sphere" class="internal-link" title="cma.fitness_functions.FitnessFunctions.sphere">sphere</a>, fac=10, expon=0.8):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">noiseC</span><span class="function-signature">(self, x, func=<a href="#sphere" class="internal-link" title="cma.fitness_functions.FitnessFunctions.sphere">sphere</a>, fac=10, expon=0.8)</span>:
     
     <a class="headerLink" href="#noiseC" title="cma.fitness_functions.FitnessFunctions.noiseC">
       
@@ -2473,7 +2549,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">noisysphere</span>(self, x, noise=2.1e-09, cond=1.0, noise_offset=0.1):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">noisysphere</span><span class="function-signature">(self, x, noise=2.1e-09, cond=1.0, noise_offset=0.1)</span>:
     
     <a class="headerLink" href="#noisysphere" title="cma.fitness_functions.FitnessFunctions.noisysphere">
       
@@ -2483,8 +2560,7 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>noise=10 does not work with default popsize, <tt class="rst-docutils literal">cma.NoiseHandler(dimension, 1e7)</tt> helps</p>
-</div>
+    <div><p>noise=10 does not work with default popsize, <tt class="rst-docutils literal">cma.NoiseHandler(dimension, 1e7)</tt> helps</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2497,7 +2573,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">normalSkew</span>(self, f):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">normalSkew</span><span class="function-signature">(self, f)</span>:
     
     <a class="headerLink" href="#normalSkew" title="cma.fitness_functions.FitnessFunctions.normalSkew">
       
@@ -2520,7 +2597,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">optprob</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">optprob</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#optprob" title="cma.fitness_functions.FitnessFunctions.optprob">
       
@@ -2543,7 +2621,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">partsphere</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">partsphere</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#partsphere" title="cma.fitness_functions.FitnessFunctions.partsphere">
       
@@ -2553,8 +2632,7 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Sphere (squared norm) test objective function</p>
-</div>
+    <div><p>Sphere (squared norm) test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2567,7 +2645,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">pnorm</span>(self, x, p=0.5):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">pnorm</span><span class="function-signature">(self, x, p=0.5)</span>:
     
     <a class="headerLink" href="#pnorm" title="cma.fitness_functions.FitnessFunctions.pnorm">
       
@@ -2590,7 +2669,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">powel_singular</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">powel_singular</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#powel_singular" title="cma.fitness_functions.FitnessFunctions.powel_singular">
       
@@ -2613,7 +2693,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">rand</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">rand</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#rand" title="cma.fitness_functions.FitnessFunctions.rand">
       
@@ -2623,8 +2704,7 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Random test objective function</p>
-</div>
+    <div><p>Random test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2637,7 +2717,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">rastrigin</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">rastrigin</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#rastrigin" title="cma.fitness_functions.FitnessFunctions.rastrigin">
       
@@ -2647,8 +2728,7 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Rastrigin test objective function</p>
-</div>
+    <div><p>Rastrigin test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2661,7 +2741,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ridge</span>(self, x, expo=2):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ridge</span><span class="function-signature">(self, x, expo=2)</span>:
     
     <a class="headerLink" href="#ridge" title="cma.fitness_functions.FitnessFunctions.ridge">
       
@@ -2684,7 +2765,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">ridgecircle</span>(self, x, expo=0.5):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ridgecircle</span><span class="function-signature">(self, x, expo=0.5)</span>:
     
     <a class="headerLink" href="#ridgecircle" title="cma.fitness_functions.FitnessFunctions.ridgecircle">
       
@@ -2709,7 +2791,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">rosen</span>(self, x, alpha=100.0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">rosen</span><span class="function-signature">(self, x, alpha=100.0)</span>:
     
     <a class="headerLink" href="#rosen" title="cma.fitness_functions.FitnessFunctions.rosen">
       
@@ -2719,8 +2802,31 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Rosenbrock test objective function</p>
-</div>
+    <div><p>Rosenbrock test objective function, x0=0</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.fitness_functions.FitnessFunctions.rosen0">
+    
+  </a>
+  <a name="rosen0">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">rosen0</span><span class="function-signature">(self, x, alpha=100.0)</span>:
+    
+    <a class="headerLink" href="#rosen0" title="cma.fitness_functions.FitnessFunctions.rosen0">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Rosenbrock test objective function with optimum in all-zeros, x0=-1</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2733,7 +2839,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">rosen_chained</span>(self, x, alpha=100.0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">rosen_chained</span><span class="function-signature">(self, x, alpha=100.0)</span>:
     
     <a class="headerLink" href="#rosen_chained" title="cma.fitness_functions.FitnessFunctions.rosen_chained">
       
@@ -2756,7 +2863,8 @@ fmin(cma.fun_as_arg, args=(fun,), gradf=grad_numerical)
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">rosen_nesterov</span>(self, x, rho=100):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">rosen_nesterov</span><span class="function-signature">(self, x, rho=100)</span>:
     
     <a class="headerLink" href="#rosen_nesterov" title="cma.fitness_functions.FitnessFunctions.rosen_nesterov">
       
@@ -2784,7 +2892,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">rosenelli</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">rosenelli</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#rosenelli" title="cma.fitness_functions.FitnessFunctions.rosenelli">
       
@@ -2807,7 +2916,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">rot</span>(self, x, fun, rot=1, args=()):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">rot</span><span class="function-signature">(self, x, fun, rot=1, args=())</span>:
     
     <a class="headerLink" href="#rot" title="cma.fitness_functions.FitnessFunctions.rot">
       
@@ -2817,8 +2927,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code>fun</code> applied to a rotated argument</p>
-</div>
+    <div><p>returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code><a href="cma.fitness_functions._F_0.html#fun" class="internal-link" title="cma.fitness_functions._F_0.fun">fun</a></code> applied to a rotated argument</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2831,7 +2940,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">schaffer</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">schaffer</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#schaffer" title="cma.fitness_functions.FitnessFunctions.schaffer">
       
@@ -2841,8 +2951,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Schaffer function x0 in [-100..100]</p>
-</div>
+    <div><p>Schaffer function x0 in [-100..100]</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2855,7 +2964,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">schwefel2_22</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">schwefel2_22</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#schwefel2_22" title="cma.fitness_functions.FitnessFunctions.schwefel2_22">
       
@@ -2865,8 +2975,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Schwefel 2.22 function</p>
-</div>
+    <div><p>Schwefel 2.22 function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2879,7 +2988,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">schwefelelli</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">schwefelelli</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#schwefelelli" title="cma.fitness_functions.FitnessFunctions.schwefelelli">
       
@@ -2902,7 +3012,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">schwefelmult</span>(self, x, pen_fac=10000.0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">schwefelmult</span><span class="function-signature">(self, x, pen_fac=10000.0)</span>:
     
     <a class="headerLink" href="#schwefelmult" title="cma.fitness_functions.FitnessFunctions.schwefelmult">
       
@@ -2912,8 +3023,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>multimodal Schwefel function with domain -500..500</p>
-</div>
+    <div><p>multimodal Schwefel function with domain -500..500</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2926,7 +3036,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">sectorsphere</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sectorsphere</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#sectorsphere" title="cma.fitness_functions.FitnessFunctions.sectorsphere">
       
@@ -2936,8 +3047,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>asymmetric Sphere (squared norm) test objective function</p>
-</div>
+    <div><p>asymmetric Sphere (squared norm) test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2950,7 +3060,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">somenan</span>(self, x, fun, p=0.1):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">somenan</span><span class="function-signature">(self, x, fun, p=0.1)</span>:
     
     <a class="headerLink" href="#somenan" title="cma.fitness_functions.FitnessFunctions.somenan">
       
@@ -2960,8 +3071,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>returns sometimes np.NaN, otherwise fun(x)</p>
-</div>
+    <div><p>returns sometimes np.nan, otherwise fun(x)</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2974,7 +3084,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">sphere</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sphere</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#sphere" title="cma.fitness_functions.FitnessFunctions.sphere">
       
@@ -2984,8 +3095,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Sphere (squared norm) test objective function</p>
-</div>
+    <div><p>Sphere (squared norm) test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -2998,7 +3108,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">sphere_pos</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sphere_pos</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#sphere_pos" title="cma.fitness_functions.FitnessFunctions.sphere_pos">
       
@@ -3008,8 +3119,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Sphere (squared norm) test objective function</p>
-</div>
+    <div><p>Sphere (squared norm) test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -3022,7 +3132,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">spherew</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">spherew</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#spherew" title="cma.fitness_functions.FitnessFunctions.spherew">
       
@@ -3032,8 +3143,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Sphere (squared norm) with sum x_i = 1 test objective function</p>
-</div>
+    <div><p>Sphere (squared norm) with sum x_i = 1 test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -3046,7 +3156,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">spherewithnconstraints</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">spherewithnconstraints</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#spherewithnconstraints" title="cma.fitness_functions.FitnessFunctions.spherewithnconstraints">
       
@@ -3069,7 +3180,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">spherewithoneconstraint</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">spherewithoneconstraint</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#spherewithoneconstraint" title="cma.fitness_functions.FitnessFunctions.spherewithoneconstraint">
       
@@ -3092,7 +3204,8 @@ Function"</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">styblinski_tang</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">styblinski_tang</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#styblinski_tang" title="cma.fitness_functions.FitnessFunctions.styblinski_tang">
       
@@ -3103,8 +3216,7 @@ Function"</p>
   <div class="docstring functionBody">
     
     <div><p>in [-5, 5]
-found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p>
-</div>
+found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -3117,7 +3229,8 @@ found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">subspace_sphere</span>(self, x, visible_ratio=1/2):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">subspace_sphere</span><span class="function-signature">(self, x, visible_ratio=1/2)</span>:
     
     <a class="headerLink" href="#subspace_sphere" title="cma.fitness_functions.FitnessFunctions.subspace_sphere">
       
@@ -3140,7 +3253,8 @@ found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">tablet</span>(self, x, cond=1000000.0, rot=0):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">tablet</span><span class="function-signature">(self, x, cond=1000000.0, rot=0)</span>:
     
     <a class="headerLink" href="#tablet" title="cma.fitness_functions.FitnessFunctions.tablet">
       
@@ -3150,8 +3264,7 @@ found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Tablet test objective function</p>
-</div>
+    <div><p>Tablet test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -3164,7 +3277,8 @@ found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">trid</span>(self, x):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">trid</span><span class="function-signature">(self, x)</span>:
     
     <a class="headerLink" href="#trid" title="cma.fitness_functions.FitnessFunctions.trid">
       
@@ -3187,7 +3301,8 @@ found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">twoaxes</span>(self, y):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">twoaxes</span><span class="function-signature">(self, y, cond=1000000.0)</span>:
     
     <a class="headerLink" href="#twoaxes" title="cma.fitness_functions.FitnessFunctions.twoaxes">
       
@@ -3197,8 +3312,7 @@ found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Cigtab test objective function</p>
-</div>
+    <div><p>Cigtab test objective function</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -3211,7 +3325,8 @@ found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">xinsheyang2</span>(self, x, termination_friendly=True):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">xinsheyang2</span><span class="function-signature">(self, x, termination_friendly=True)</span>:
     
     <a class="headerLink" href="#xinsheyang2" title="cma.fitness_functions.FitnessFunctions.xinsheyang2">
       
@@ -3234,7 +3349,7 @@ found also in Lazar and Jarre 2016, optimum in f(-2.903534...)=0</p>
 <span class="py-output">[0, 0, 1.24, 1.24]</span>
 <span class="py-output">[0, 0, 0, 1.24]</span>
 <span class="py-output">[0, 0, 0, 0]</span>
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-string">' '</span>.join([<span class="py-string">'{:.3}'</span>.format(f(x)) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])  <span class="py-comment"># [np.round(f(x), 3) for x in X]</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-string">' '</span>.join([<span class="py-string">'{0:.3}'</span>.format(f(x)) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X])  <span class="py-comment"># [np.round(f(x), 3) for x in X]</span>
 <span class="py-output">'0.091 0.186 0.336 0.456 0.0'</span>
 </pre><p>One needs to solve a trinary deceptive function where f-value (to
 be minimized) is monotonuously decreasing with increasing distance
@@ -3245,6 +3360,64 @@ further they are away from the global optimum.</p>
 optimum of this function in larger dimension.</p>
 <p>See also <a class="rst-reference external" href="http://benchmarkfcns.xyz/benchmarkfcns/xinsheyangn2fcn.html" target="_top">http://benchmarkfcns.xyz/benchmarkfcns/xinsheyangn2fcn.html</a></p>
 </div>
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="cma.fitness_functions.FitnessFunctions.binary_foffset">
+    
+  </a>
+  <a name="binary_foffset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">binary_foffset</span> =
+    
+    <a class="headerLink" href="#binary_foffset" title="cma.fitness_functions.FitnessFunctions.binary_foffset">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>default f-offset for binary functions at the optimum.</p>
+<p>Changing this <em>default</em> is only effective <em>before</em> import.</p>
+</div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">
+    
+  </a>
+  <a name="binary_optimum_interval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">binary_optimum_interval</span>: <code>tuple[<wbr></wbr>float, <wbr></wbr><span class="rst-variable-ellipsis">...</span>]</code> =
+    
+    <a class="headerLink" href="#binary_optimum_interval" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>default interval where the optimum is assumed on binary functions.</p>
+<blockquote>
+The interval is chosen such that the value from round(.) or floor(.
++ 1/2) or int(. + 1/2) is in the interval middle. This prevents
+some unexpected outcomes with algorithms that search on the
+continuous values. The most logical domain boundary values are now
+[-0.5, 1.5] or [0, 1].</blockquote>
+<p>Details: Changing this <em>default</em> is only effective <em>before</em> import.</p>
+</div>
+    
   </div>
 </div><div class="baseclassvariable">
   
@@ -3270,7 +3443,7 @@ optimum of this function in larger dimension.</p>
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseproperty">
   
   
   <a name="cma.fitness_functions.FitnessFunctions.BBOB">
@@ -3294,32 +3467,6 @@ optimum of this function in larger dimension.</p>
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="basemethod private">
-  
-  
-  <a name="cma.fitness_functions.FitnessFunctions._fetch_bbob_fcts">
-    
-  </a>
-  <a name="_fetch_bbob_fcts">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-keyword">def</span> <span class="py-defname">_fetch_bbob_fcts</span>(self):
-    
-    <a class="headerLink" href="#_fetch_bbob_fcts" title="cma.fitness_functions.FitnessFunctions._fetch_bbob_fcts">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p>Fetch GECCO BBOB 2009 functions from WWW and set as <code>self.BBOB</code>.</p>
-<p>Side effects in the current folder: two files are added and folder
-"._tmp_" is removed.</p>
-</div>
-  </div>
 </div>
         </div>
       
@@ -3332,7 +3479,7 @@ optimum of this function in larger dimension.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

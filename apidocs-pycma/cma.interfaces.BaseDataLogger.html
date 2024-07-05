@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.interfaces.BaseDataLogger</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -384,7 +384,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">BaseDataLogger</span>(object):</code></p><p>Known subclasses: <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code>, <code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link">cma.purecma.CMAESDataLogger</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BaseDataLogger</span>(object):</code></p><p>Known subclasses: <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code>, <code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link">cma.purecma.CMAESDataLogger</a></code></p>
           <p><a href="classIndex.html#cma.interfaces.BaseDataLogger">View In Hierarchy</a></p>
         </div>
 
@@ -396,7 +396,7 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id379">
+          <table class="children sortable" id="id381">
   
   
   <tr class="method">
@@ -473,7 +473,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.interfaces.BaseDataLogger.__init__">
       
@@ -496,7 +497,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">add</span>(self, optim=None, more_data=None, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add</span><span class="function-signature">(self, optim=None, more_data=None, **kwargs)</span>:
     
     <a class="headerLink" href="#add" title="cma.interfaces.BaseDataLogger.add">
       
@@ -523,7 +525,8 @@ into the logger.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">disp</span>(self, *args, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span><span class="function-signature">(self, *args, **kwargs)</span>:
     
     <a class="headerLink" href="#disp" title="cma.interfaces.BaseDataLogger.disp">
       
@@ -533,8 +536,7 @@ into the logger.</p>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
-    <div><p>abstract method, display some data trace</p>
-</div>
+    <div><p>abstract method, display some data trace</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -547,7 +549,8 @@ into the logger.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">load</span>(self, name=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">load</span><span class="function-signature">(self, name=None)</span>:
     
     <a class="headerLink" href="#load" title="cma.interfaces.BaseDataLogger.load">
       
@@ -557,8 +560,7 @@ into the logger.</p>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code>, <code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link">cma.purecma.CMAESDataLogger</a></code></div>
-    <div><p>load data from file <code>name</code> or <code>self.filename</code></p>
-</div>
+    <div><p>load data from file <code>name</code> or <code>self.filename</code></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -571,7 +573,8 @@ into the logger.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, *args, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(self, *args, **kwargs)</span>:
     
     <a class="headerLink" href="#plot" title="cma.interfaces.BaseDataLogger.plot">
       
@@ -581,8 +584,7 @@ into the logger.</p>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code>, <code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link">cma.purecma.CMAESDataLogger</a></code></div>
-    <div><p>abstract method, plot data</p>
-</div>
+    <div><p>abstract method, plot data</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -595,7 +597,8 @@ into the logger.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">register</span>(self, optim, *args, **kwargs):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">register</span><span class="function-signature">(self, optim, *args, **kwargs)</span>:
     
     <a class="headerLink" href="#register" title="cma.interfaces.BaseDataLogger.register">
       
@@ -606,8 +609,7 @@ into the logger.</p>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
     <div><p>register an optimizer <tt class="rst-docutils literal">optim</tt>, only needed if method <code><a href="#add" class="internal-link" title="cma.interfaces.BaseDataLogger.add">add</a></code> is
-called without passing the <tt class="rst-docutils literal">optim</tt> argument</p>
-</div>
+called without passing the <tt class="rst-docutils literal">optim</tt> argument</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -620,7 +622,8 @@ called without passing the <tt class="rst-docutils literal">optim</tt> argument<
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">save</span>(self, name=None):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">save</span><span class="function-signature">(self, name=None)</span>:
     
     <a class="headerLink" href="#save" title="cma.interfaces.BaseDataLogger.save">
       
@@ -630,8 +633,7 @@ called without passing the <tt class="rst-docutils literal">optim</tt> argument<
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code>, <code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link">cma.purecma.CMAESDataLogger</a></code></div>
-    <div><p>save data to file <code>name</code> or <code>self.filename</code></p>
-</div>
+    <div><p>save data to file <code>name</code> or <code>self.filename</code></p></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -654,8 +656,7 @@ called without passing the <tt class="rst-docutils literal">optim</tt> argument<
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link">cma.purecma.CMAESDataLogger</a></code></div>
-    <div><p>file to save to or load from unless specified otherwise</p>
-</div>
+    <div><p>file to save to or load from unless specified otherwise</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -679,8 +680,7 @@ called without passing the <tt class="rst-docutils literal">optim</tt> argument<
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link">cma.purecma.CMAESDataLogger</a></code></div>
-    <div><p>object instance to be logging data from</p>
-</div>
+    <div><p>object instance to be logging data from</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -704,8 +704,7 @@ called without passing the <tt class="rst-docutils literal">optim</tt> argument<
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.logger.CMADataLogger.html" class="internal-link">cma.logger.CMADataLogger</a></code></div>
-    <div><p>logged data in a dictionary</p>
-</div>
+    <div><p>logged data in a dictionary</p></div>
     
   </div>
 </div><div class="baseinstancevariable private">
@@ -729,8 +728,7 @@ called without passing the <tt class="rst-docutils literal">optim</tt> argument<
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.purecma.CMAESDataLogger.html" class="internal-link">cma.purecma.CMAESDataLogger</a></code></div>
-    <div><p><code>dict</code> of logged data</p>
-</div>
+    <div><p><code>dict</code> of logged data</p></div>
     
   </div>
 </div>
@@ -745,7 +743,7 @@ called without passing the <tt class="rst-docutils literal">optim</tt> argument<
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

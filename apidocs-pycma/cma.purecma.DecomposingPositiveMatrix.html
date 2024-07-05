@@ -7,7 +7,7 @@
   <head>
     
     <title>cma.purecma.DecomposingPositiveMatrix</title>
-    <meta name="generator" content="pydoctor 22.9.1"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -566,7 +566,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">DecomposingPositiveMatrix</span>(<a href="cma.purecma.SquareMatrix.html" class="internal-link" title="cma.purecma.SquareMatrix">SquareMatrix</a>):</code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">DecomposingPositiveMatrix</span>(<a href="cma.purecma.SquareMatrix.html" class="internal-link" title="cma.purecma.SquareMatrix">SquareMatrix</a>):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.purecma.DecomposingPositiveMatrix.__init__">DecomposingPositiveMatrix(dimension)</a></code></p>
           <p><a href="classIndex.html#cma.purecma.DecomposingPositiveMatrix">View In Hierarchy</a></p>
         </div>
 
@@ -588,7 +588,7 @@ C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id407">
+          <table class="children sortable" id="id409">
   
   
   <tr class="method">
@@ -642,7 +642,7 @@ C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
             <p class="inheritedFrom">
               Inherited from <code><a href="cma.purecma.SquareMatrix.html" class="internal-link" title="cma.purecma.SquareMatrix">SquareMatrix</a></code>:
             </p>
-            <table class="children sortable" id="id408">
+            <table class="children sortable" id="id410">
   
   
   <tr class="basemethod">
@@ -679,7 +679,8 @@ C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, dimension):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, dimension)</span>:
     
     <a class="headerLink" href="#__init__" title="cma.purecma.DecomposingPositiveMatrix.__init__">
       
@@ -689,8 +690,7 @@ C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="cma.purecma.SquareMatrix.html#__init__" class="internal-link">cma.purecma.SquareMatrix.__init__</a></code></div>
-    <div><p>initialize with identity matrix</p>
-</div>
+    <div><p>initialize with identity matrix</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -703,7 +703,8 @@ C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">mahalanobis_norm</span>(self, dx):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">mahalanobis_norm</span><span class="function-signature">(self, dx)</span>:
     
     <a class="headerLink" href="#mahalanobis_norm" title="cma.purecma.DecomposingPositiveMatrix.mahalanobis_norm">
       
@@ -713,8 +714,7 @@ C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
   </div>
   <div class="docstring functionBody">
     
-    <div><p>return <tt class="rst-docutils literal">(dx^T * <span class="pre">C^-1</span> * <span class="pre">dx)**0.5</span></tt></p>
-</div>
+    <div><p>return <tt class="rst-docutils literal">(dx^T * <span class="pre">C^-1</span> * <span class="pre">dx)**0.5</span></tt></p></div>
   </div>
 </div><div class="basemethod">
   
@@ -727,7 +727,8 @@ C = C.eigenbasis x diag(C.eigenvalues) x C.eigenbasis^T
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">update_eigensystem</span>(self, current_eval, lazy_gap_evals):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update_eigensystem</span><span class="function-signature">(self, current_eval, lazy_gap_evals)</span>:
     
     <a class="headerLink" href="#update_eigensystem" title="cma.purecma.DecomposingPositiveMatrix.update_eigensystem">
       
@@ -874,7 +875,8 @@ definite and hence raises a <code>RuntimeError</code> otherwise.</p>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_enforce_symmetry</span>(self):
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_enforce_symmetry</span><span class="function-signature">(self)</span>:
     
     <a class="headerLink" href="#_enforce_symmetry" title="cma.purecma.DecomposingPositiveMatrix._enforce_symmetry">
       
@@ -898,7 +900,7 @@ definite and hence raises a <code>RuntimeError</code> otherwise.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.1 at 2023-02-14 20:44:04.
+    23.9.1 at 2024-07-05 16:10:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
