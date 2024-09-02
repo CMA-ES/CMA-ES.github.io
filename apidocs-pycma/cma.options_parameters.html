@@ -1,0 +1,1190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>cma.options_parameters</title>
+    <meta name="generator" content="pydoctor 23.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="cma.options_parameters.html" class="internal-link" title="This module">options<wbr></wbr>_parameters</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions"><wbr></wbr>CMAOptions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.CMAParameters.html" class="internal-link" title="cma.options_parameters.CMAParameters"><wbr></wbr>CMAParameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.MetaParameters.html" class="internal-link" title="cma.options_parameters.MetaParameters"><wbr></wbr>Meta<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#amend_restarts_parameter" class="internal-link" title="cma.options_parameters.amend_restarts_parameter">amend<wbr></wbr>_restarts<wbr></wbr>_parameter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_default_options_" class="internal-link" title="cma.options_parameters.cma_default_options_">cma<wbr></wbr>_default<wbr></wbr>_options_</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#integer_lower_bound_target_probability" class="internal-link" title="cma.options_parameters.integer_lower_bound_target_probability">integer<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_target<wbr></wbr>_probability</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_feasible" class="internal-link" title="cma.options_parameters.is_feasible">is<wbr></wbr>_feasible</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#safe_str" class="internal-link" title="cma.options_parameters.safe_str">safe<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_allowed_options_keys" class="internal-link" title="cma.options_parameters.cma_allowed_options_keys">cma<wbr></wbr>_allowed<wbr></wbr>_options<wbr></wbr>_keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_default_options" class="internal-link" title="cma.options_parameters.cma_default_options">cma<wbr></wbr>_default<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_versatile_options" class="internal-link" title="cma.options_parameters.cma_versatile_options">cma<wbr></wbr>_versatile<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#default_restart_number_if_not_zero" class="internal-link" title="cma.options_parameters.default_restart_number_if_not_zero">default<wbr></wbr>_restart<wbr></wbr>_number<wbr></wbr>_if<wbr></wbr>_not<wbr></wbr>_zero</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#integer_active_limit_recombination_weight_condition" class="internal-link" title="cma.options_parameters.integer_active_limit_recombination_weight_condition">integer<wbr></wbr>_active<wbr></wbr>_limit<wbr></wbr>_recombination<wbr></wbr>_weight<wbr></wbr>_condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#integer_std_lower_bound_factor1" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor1">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#integer_std_lower_bound_factor2" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor2">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#integer_std_lower_bound_limit" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_limit">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_limit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#options_environment" class="internal-link" title="cma.options_parameters.options_environment">options<wbr></wbr>_environment</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this module">cma</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints<wbr></wbr>_handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution<wbr></wbr>_strategy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_functions.html" class="internal-link" title="cma.fitness_functions">fitness<wbr></wbr>_functions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_models.html" class="internal-link" title="cma.fitness_models">fitness<wbr></wbr>_models</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_transformations.html" class="internal-link" title="cma.fitness_transformations">fitness<wbr></wbr>_transformations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.integer_centering.html" class="internal-link" title="cma.integer_centering">integer<wbr></wbr>_centering</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.interfaces.html" class="internal-link" title="cma.interfaces">interfaces</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html" class="internal-link" title="cma.logger">logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization<wbr></wbr>_tools</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html" class="internal-link" title="cma.options_parameters">options<wbr></wbr>_parameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.recombination_weights.html" class="internal-link" title="cma.recombination_weights">recombination<wbr></wbr>_weights</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.restricted_gaussian_sampler.html" class="internal-link" title="cma.restricted_gaussian_sampler">restricted<wbr></wbr>_gaussian<wbr></wbr>_sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sampler.html" class="internal-link" title="cma.sampler">sampler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html" class="internal-link" title="cma.sigma_adaptation">sigma<wbr></wbr>_adaptation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.test.html" class="internal-link" title="cma.test">test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.wrapper.html" class="internal-link" title="cma.wrapper">wrapper</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#___author__" class="internal-link" title="cma.___author__">__<wbr></wbr>_author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__license__" class="internal-link" title="cma.__license__">__license__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__version__" class="internal-link" title="cma.__version__">__version__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.options_parameters.html" class="internal-link" title="cma.options_parameters">options_parameters</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Parameters and Options for CMA-ES.</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id402">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions"><wbr></wbr>CMAOptions</a></code></td>
+    <td>a dictionary with the available options and their default values for class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="cma.options_parameters.CMAParameters.html" class="internal-link" title="cma.options_parameters.CMAParameters"><wbr></wbr>CMAParameters</a></code></td>
+    <td>strategy parameters like population size and learning rates.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="cma.options_parameters.MetaParameters.html" class="internal-link" title="cma.options_parameters.MetaParameters"><wbr></wbr>Meta<wbr></wbr>Parameters</a></code></td>
+    <td>collection of many meta parameters.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#amend_restarts_parameter" class="internal-link" title="cma.options_parameters.amend_restarts_parameter">amend<wbr></wbr>_restarts<wbr></wbr>_parameter</a></code></td>
+    <td>return a <code>dict</code> with <tt class="rst-docutils literal">'maxrestarts'</tt> and <tt class="rst-docutils literal">'maxfevals'</tt> as keys.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#cma_default_options_" class="internal-link" title="cma.options_parameters.cma_default_options_">cma<wbr></wbr>_default<wbr></wbr>_options_</a></code></td>
+    <td>use this function to get keyword completion for <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#integer_lower_bound_target_probability" class="internal-link" title="cma.options_parameters.integer_lower_bound_target_probability">integer<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_target<wbr></wbr>_probability</a></code></td>
+    <td>target probability for an integer mutation assuming a centered mean</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound</a></code></td>
+    <td>can be reassigned/overwritten like a global "parameter setting"</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#is_feasible" class="internal-link" title="cma.options_parameters.is_feasible">is<wbr></wbr>_feasible</a></code></td>
+    <td>default to check feasibility of f-values.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#safe_str" class="internal-link" title="cma.options_parameters.safe_str">safe<wbr></wbr>_str</a></code></td>
+    <td>return a string safe to <code><a href="cma.options_parameters.CMAOptions.html#eval" class="internal-link" title="cma.options_parameters.CMAOptions.eval">eval</a></code> or raise an exception.</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#cma_allowed_options_keys" class="internal-link" title="cma.options_parameters.cma_allowed_options_keys">cma<wbr></wbr>_allowed<wbr></wbr>_options<wbr></wbr>_keys</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#cma_default_options" class="internal-link" title="cma.options_parameters.cma_default_options">cma<wbr></wbr>_default<wbr></wbr>_options</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#cma_versatile_options" class="internal-link" title="cma.options_parameters.cma_versatile_options">cma<wbr></wbr>_versatile<wbr></wbr>_options</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#default_restart_number_if_not_zero" class="internal-link" title="cma.options_parameters.default_restart_number_if_not_zero">default<wbr></wbr>_restart<wbr></wbr>_number<wbr></wbr>_if<wbr></wbr>_not<wbr></wbr>_zero</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#integer_active_limit_recombination_weight_condition" class="internal-link" title="cma.options_parameters.integer_active_limit_recombination_weight_condition">integer<wbr></wbr>_active<wbr></wbr>_limit<wbr></wbr>_recombination<wbr></wbr>_weight<wbr></wbr>_condition</a></code></td>
+    <td>None or True or a function float-&gt;bool, None -&gt; limit only negative updates</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#integer_std_lower_bound_factor1" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor1">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor1</a></code></td>
+    <td>factor used in <code><a href="cma.options_parameters.html#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer_std_lower_bound</a></code> as multiplier to <tt class="rst-docutils literal">mueff/N</tt></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#integer_std_lower_bound_factor2" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor2">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor2</a></code></td>
+    <td>factor used in <code><a href="cma.options_parameters.html#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer_std_lower_bound</a></code> as multiplier to <code>integer_std_lower_bound_limit_when_mu_is_large</code></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#integer_std_lower_bound_limit" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_limit">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_limit</a></code></td>
+    <td>limit coordinate stds of solutions in C update, by default off, may go away</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#options_environment" class="internal-link" title="cma.options_parameters.options_environment">options<wbr></wbr>_environment</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="cma.options_parameters.amend_restarts_parameter">
+    
+  </a>
+  <a name="amend_restarts_parameter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">amend_restarts_parameter</span><span class="function-signature">(restarts)</span>:
+    
+    <a class="headerLink" href="#amend_restarts_parameter" title="cma.options_parameters.amend_restarts_parameter">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return a <code>dict</code> with <tt class="rst-docutils literal">'maxrestarts'</tt> and <tt class="rst-docutils literal">'maxfevals'</tt> as keys.</p>
+<p><code><a href="cma.options_parameters.MetaParameters.html#restarts" class="internal-link" title="cma.options_parameters.MetaParameters.restarts">restarts</a></code> is a parameter to <tt class="rst-docutils literal">cma.fmin*</tt>, see <code>cma.fmin</code>.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.options_parameters.cma_default_options_">
+    
+  </a>
+  <a name="cma_default_options_">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">cma_default_options_</span><span class="function-signature">(AdaptSigma=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  # or False or any CMAAdaptSigmaBase class e.g. CMAAdaptSigmaTPA, CMAAdaptSigmaCSA</span><span class="rst-variable-quote">'</span>, CMA_active=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  # negative update, conducted after the original update</span><span class="rst-variable-quote">'</span>, CMA_active_injected=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v weight multiplier for negative weights of injected solutions</span><span class="rst-variable-quote">'</span>, CMA_cmean=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  # learning rate for the mean value</span><span class="rst-variable-quote">'</span>, CMA_const_trace=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  # normalize trace, 1, True, "arithm", "geom", "aeig", "geig" are valid</span><span class="rst-variable-quote">'</span>, CMA_diagonal=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0*100*N/popsize**0.5  # nb of iterations with diagonal covariance matrix, True for always</span><span class="rst-variable-quote">'</span>, CMA_diagonal_decoding=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  # learning rate multiplier for additional diagonal update</span><span class="rst-variable-quote">'</span>, CMA_eigenmethod=<span class="rst-variable-quote">'</span><span class="rst-variable-string">np.linalg.eigh  # or cma.utilities.math.eig or pygsl.eigen.eigenvectors</span><span class="rst-variable-quote">'</span>, CMA_elitist=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v or "initial" or True, elitism likely impairs global search performance</span><span class="rst-variable-quote">'</span>, CMA_injections_threshold_keep_len=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v keep length if Mahalanobis length is below the given relative threshold</span><span class="rst-variable-quote">'</span>, CMA_mirrors=<span class="rst-variable-quote">'</span><span class="rst-variable-string">popsize &lt; 6  # values &lt;0.5 are interpreted as fraction, values &gt;1 as numbers (rounded), for `True` about 0.16 is used</span><span class="rst-variable-quote">'</span>, CMA_mirrormethod=<span class="rst-variable-quote">'</span><span class="rst-variable-string">2  # 0=unconditional, 1=selective, 2=selective with delay</span><span class="rst-variable-quote">'</span>, CMA_mu=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # parents selection parameter, default is popsize // 2</span><span class="rst-variable-quote">'</span>, CMA_on=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  # multiplier for all covariance matrix updates</span><span class="rst-variable-quote">'</span>, CMA_sampler=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # a class or instance that implements the interface of `cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass`</span><span class="rst-variable-quote">'</span>, CMA_sampler_options=<span class="rst-variable-quote">'</span><span class="rst-variable-string">{}  # options passed to `CMA_sampler` class init as keyword arguments</span><span class="rst-variable-quote">'</span>, CMA_rankmu=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1.0  # multiplier for rank-mu update learning rate of covariance matrix</span><span class="rst-variable-quote">'</span>, CMA_rankone=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1.0  # multiplier for rank-one update learning rate of covariance matrix</span><span class="rst-variable-quote">'</span>, CMA_recombination_weights=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # a list, see class RecombinationWeights, overwrites CMA_mu and popsize options</span><span class="rst-variable-quote">'</span>, CMA_dampsvec_fac=<span class="rst-variable-quote">'</span><span class="rst-variable-string">np.inf  # tentative and subject to changes, 0.5 would be a "default" damping for sigma vector update</span><span class="rst-variable-quote">'</span>, CMA_dampsvec_fade=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0.1  # tentative fading out parameter for sigma vector update</span><span class="rst-variable-quote">'</span>, CMA_teststds=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # factors for non-isotropic initial distr. of C, mainly for test purpose, see CMA_stds for production</span><span class="rst-variable-quote">'</span>, CMA_stds=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # multipliers for sigma0 in each coordinate (not represented in C), or use `cma.ScaleCoordinates` instead</span><span class="rst-variable-quote">'</span>, CSA_dampfac=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v positive multiplier for step-size damping, 0.3 is close to optimal on the sphere</span><span class="rst-variable-quote">'</span>, CSA_damp_mueff_exponent=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # exponent for mueff/N, by default 0.5 and 1 if CSA_squared, zero means no dependency of damping on mueff, useful with CSA_disregard_length option</span><span class="rst-variable-quote">'</span>, CSA_disregard_length=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v True is untested, also changes respective parameters</span><span class="rst-variable-quote">'</span>, CSA_clip_length_value=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  #v poorly tested, [0, 0] means const length N**0.5, [-1, 1] allows a variation of +- N/(N+2), etc.</span><span class="rst-variable-quote">'</span>, CSA_squared=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v use squared length for sigma-adaptation </span><span class="rst-variable-quote">'</span>, CSA_invariant_path=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v pc is invariant and ps (default) is unbiased</span><span class="rst-variable-quote">'</span>, stall_sigma_change_on_divergence_iterations=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False  #v number of iterations of median worsenings threshold at which the sigma change is stalled; the default may become 2</span><span class="rst-variable-quote">'</span>, BoundaryHandler=<span class="rst-variable-quote">'</span><span class="rst-variable-string">BoundTransform  # or BoundPenalty, unused when ``bounds in (None, [None, None])``</span><span class="rst-variable-quote">'</span>, bounds=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[None, None]  # lower (=bounds[0]) and upper domain boundaries, each a scalar or a list/vector</span><span class="rst-variable-quote">'</span>, conditioncov_alleviate=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[1e8, 1e12]  # when to alleviate the condition in the coordinates and in main axes</span><span class="rst-variable-quote">'</span>, eval_final_mean=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  # evaluate the final mean, which is a favorite return candidate</span><span class="rst-variable-quote">'</span>, fixed_variables=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # dictionary with index-value pairs like {0:1.1, 2:0.1} that are not optimized</span><span class="rst-variable-quote">'</span>, ftarget=<span class="rst-variable-quote">'</span><span class="rst-variable-string">-inf  #v target function value, minimization</span><span class="rst-variable-quote">'</span>, integer_variables=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[]  # index list, invokes basic integer handling by setting minstd of integer variables if it was not given and by integer centering</span><span class="rst-variable-quote">'</span>, is_feasible=<span class="rst-variable-quote">'</span><span class="rst-variable-string">is_feasible  #v a function that computes feasibility, by default lambda x, f: f not in (None, np.nan)</span><span class="rst-variable-quote">'</span>, maxfevals=<span class="rst-variable-quote">'</span><span class="rst-variable-string">inf  #v maximum number of function evaluations</span><span class="rst-variable-quote">'</span>, maxiter=<span class="rst-variable-quote">'</span><span class="rst-variable-string">100 + 150 * (N+3)**2 // popsize**0.5  #v maximum number of iterations</span><span class="rst-variable-quote">'</span>, mean_shift_line_samples=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False #v sample two new solutions colinear to previous mean shift</span><span class="rst-variable-quote">'</span>, mindx=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v minimal std in any arbitrary direction, cave interference with tol*</span><span class="rst-variable-quote">'</span>, minstd=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v minimal std (scalar or vector) in any coordinate direction, cave interference with tol*</span><span class="rst-variable-quote">'</span>, maxstd=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  #v maximal std (scalar or vector) in any coordinate direction</span><span class="rst-variable-quote">'</span>, maxstd_boundrange=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1/3  # maximal std relative to bound_range per coordinate, overruled by maxstd</span><span class="rst-variable-quote">'</span>, pc_line_samples=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False #v one line sample along the evolution path pc</span><span class="rst-variable-quote">'</span>, popsize=<span class="rst-variable-quote">'</span><span class="rst-variable-string">4 + 3 * np.log(N)  # population size, AKA lambda, int(popsize) is the number of new solution per iteration</span><span class="rst-variable-quote">'</span>, popsize_factor=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  # multiplier for popsize, convenience option to increase default popsize</span><span class="rst-variable-quote">'</span>, randn=<span class="rst-variable-quote">'</span><span class="rst-variable-string">np.random.randn  #v randn(lam, N) must return an np.array of shape (lam, N), see also cma.utilities.math.randhss</span><span class="rst-variable-quote">'</span>, scaling_of_variables=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # deprecated, rather use fitness_transformations.ScaleCoordinates instead (or CMA_stds). WAS: Scale for each variable in that effective_sigma0 = sigma0*scaling. Internally the variables are divided by scaling_of_variables and sigma is unchanged, default is `np.ones(N)`</span><span class="rst-variable-quote">'</span>, seed=<span class="rst-variable-quote">'</span><span class="rst-variable-string">time  # random number seed for `numpy.random`; `None` and `0` equate to `time`, `np.nan` means "do nothing", see also option "randn"</span><span class="rst-variable-quote">'</span>, signals_filename=<span class="rst-variable-quote">'</span><span class="rst-variable-string">cma_signals.in  # read versatile options from this file (use `None` or `""` for no file) which contains a single options dict, e.g. ``{"timeout": 0}`` to stop, string-values are evaluated, e.g. "np.inf" is valid</span><span class="rst-variable-quote">'</span>, termination_callback=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[]  #v a function or list of functions returning True for termination, called in `stop` with `self` as argument, could be abused for side effects</span><span class="rst-variable-quote">'</span>, timeout=<span class="rst-variable-quote">'</span><span class="rst-variable-string">inf  #v stop if timeout seconds are exceeded, the string "2.5 * 60**2" evaluates to 2 hours and 30 minutes</span><span class="rst-variable-quote">'</span>, tolconditioncov=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e14  #v stop if the condition of the covariance matrix is above `tolconditioncov`</span><span class="rst-variable-quote">'</span>, tolfacupx=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e3  #v termination when step-size increases by tolfacupx (diverges). That is, the initial step-size was chosen far too small and better solutions were found far away from the initial solution x0</span><span class="rst-variable-quote">'</span>, tolupsigma=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e20  #v sigma/sigma0 &gt; tolupsigma * max(eivenvals(C)**0.5) indicates "creeping behavior" with usually minor improvements</span><span class="rst-variable-quote">'</span>, tolflatfitness=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v iterations tolerated with flat fitness before termination</span><span class="rst-variable-quote">'</span>, tolfun=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e-11  #v termination criterion: tolerance in function value, quite useful</span><span class="rst-variable-quote">'</span>, tolfunhist=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e-12  #v termination criterion: tolerance in function value history</span><span class="rst-variable-quote">'</span>, tolfunrel=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v termination criterion: relative tolerance in function value: Delta f current &lt; tolfunrel * (median0 - median_min)</span><span class="rst-variable-quote">'</span>, tolstagnation=<span class="rst-variable-quote">'</span><span class="rst-variable-string">int(100 + 100 * N**1.5 / popsize)  #v termination if no improvement over tolstagnation iterations</span><span class="rst-variable-quote">'</span>, tolxstagnation=<span class="rst-variable-quote">'</span><span class="rst-variable-string">[1e-9, 20, 0.1]  #v termination thresholds for Delta of [mean, iterations, iterations fraction], the latter two are summed; trigger termination if Dmean stays below the threshold over Diter iterations, pass `False` or a negative value to turn off tolxstagnation</span><span class="rst-variable-quote">'</span>, tolx=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1e-11  #v termination criterion: tolerance in x-changes</span><span class="rst-variable-quote">'</span>, transformation=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # deprecated, use a wrapper like those in cma.fitness_transformations instead.</span><span class="rst-variable-quote">'</span>, typical_x=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  # deprecated, use `cma.fitness_transformations.Shifted` instead</span><span class="rst-variable-quote">'</span>, updatecovwait=<span class="rst-variable-quote">'</span><span class="rst-variable-string">None  #v number of iterations without distribution update, name is subject to future changes</span><span class="rst-variable-quote">'</span>, verbose=<span class="rst-variable-quote">'</span><span class="rst-variable-string">3  #v verbosity e.g. of initial/final message, -1 is very quiet, -9 maximally quiet, may not be fully implemented</span><span class="rst-variable-quote">'</span>, verb_append=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  # initial evaluation counter, if append, do not overwrite output files</span><span class="rst-variable-quote">'</span>, verb_disp=<span class="rst-variable-quote">'</span><span class="rst-variable-string">100  #v verbosity: display console output every verb_disp iteration</span><span class="rst-variable-quote">'</span>, verb_disp_overwrite=<span class="rst-variable-quote">'</span><span class="rst-variable-string">inf  #v start overwriting after given iteration</span><span class="rst-variable-quote">'</span>, verb_filenameprefix=<a href="cma.logger.CMADataLogger.html#default_prefix" class="internal-link" title="cma.logger.CMADataLogger.default_prefix">CMADataLogger.default_prefix</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">  # output path (folder) and filenames prefix</span><span class="rst-variable-quote">'</span>, verb_log=<span class="rst-variable-quote">'</span><span class="rst-variable-string">1  #v verbosity: write data to files every verb_log iteration, writing can be time critical on fast to evaluate functions</span><span class="rst-variable-quote">'</span>, verb_log_expensive=<span class="rst-variable-quote">'</span><span class="rst-variable-string">N * (N &lt;= 50)  # allow to execute eigendecomposition for logging every verb_log_expensive iteration, 0 or False for never</span><span class="rst-variable-quote">'</span>, verb_plot=<span class="rst-variable-quote">'</span><span class="rst-variable-string">0  #v in fmin2(): plot() is called every verb_plot iteration</span><span class="rst-variable-quote">'</span>, verb_time=<span class="rst-variable-quote">'</span><span class="rst-variable-string">True  #v output timings on console</span><span class="rst-variable-quote">'</span>, vv=<span class="rst-variable-quote">'</span><span class="rst-variable-string">{}  #? versatile set or dictionary for hacking purposes, value found in self.opts["vv"]</span><span class="rst-variable-quote">'</span>)</span>:
+    
+    <a class="headerLink" href="#cma_default_options_" title="cma.options_parameters.cma_default_options_">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>use this function to get keyword completion for <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code>.</p>
+<p><tt class="rst-docutils literal"><span class="pre">cma.CMAOptions('substr')</span></tt> provides even substring search.</p>
+<p>returns default options as a <code>dict</code> (not a <code>cma.CMAOptions</code> <code>dict</code>).</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.options_parameters.integer_lower_bound_target_probability">
+    
+  </a>
+  <a name="integer_lower_bound_target_probability">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">integer_lower_bound_target_probability</span><span class="function-signature">(N, N_int)</span>:
+    
+    <a class="headerLink" href="#integer_lower_bound_target_probability" title="cma.options_parameters.integer_lower_bound_target_probability">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>target probability for an integer mutation assuming a centered mean</p>
+<p>and no boundaries (two-tailed).</p>
+<p><tt class="rst-docutils literal">2 / (N + N_int)</tt> should keep at least 37% of the solutions unaffected.</p>
+<p>Details: from <tt class="rst-docutils literal">ptarget</tt> we can compute <tt class="rst-docutils literal">sigma = 1 / PPF(ptarget/2) /
+2</tt> where <tt class="rst-docutils literal">PPF</tt> is the quantile function of the standard normal
+distribution and the first <tt class="rst-docutils literal">2</tt> accounts for two-sided sampling of the
+tails and the second <tt class="rst-docutils literal">2</tt> is needed because the distance to the value
+domain bound is 1/2.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.options_parameters.integer_std_lower_bound">
+    
+  </a>
+  <a name="integer_std_lower_bound">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">integer_std_lower_bound</span><span class="function-signature">(N, mueff, N_int=None, binary=False)</span>:
+    
+    <a class="headerLink" href="#integer_std_lower_bound" title="cma.options_parameters.integer_std_lower_bound">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>can be reassigned/overwritten like a global "parameter setting"</p>
+<p>This function returns the minimum of three bounds, an absolute bound
+(default 0.2), mueff / N, and a bound computed from the normal quantile
+(when the mean is assumed to be in the domain middle) which takes
+<tt class="rst-docutils literal">ptarget=integer_lower_bound_target_probability(N, N_int)</tt> (which
+should be roughly 1/N) as input. This bound becomes &lt; 0.2 only when
+ptarget &lt; 1/152 (==&gt; &lt; -2.5-sigma).</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.options_parameters.is_feasible">
+    
+  </a>
+  <a name="is_feasible">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_feasible</span><span class="function-signature">(x, f)</span>:
+    
+    <a class="headerLink" href="#is_feasible" title="cma.options_parameters.is_feasible">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>default to check feasibility of f-values.</p>
+<p>Used for rejection sampling in method <code>ask_and_eval</code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2">CMAOptions, <tt class="rst-docutils literal"><span class="pre">CMAOptions('feas')</span></tt>.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.options_parameters.safe_str">
+    
+  </a>
+  <a name="safe_str">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">safe_str</span><span class="function-signature">(s)</span>:
+    
+    <a class="headerLink" href="#safe_str" title="cma.options_parameters.safe_str">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return a string safe to <code><a href="cma.options_parameters.CMAOptions.html#eval" class="internal-link" title="cma.options_parameters.CMAOptions.eval">eval</a></code> or raise an exception.</p>
+<p>Selected words and chars are considered safe such that all default
+string-type option values from <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions()</a></code> pass. This function is
+implemented for convenience, to keep the default option format
+backwards compatible, and to be able to pass, for example, <code>3 * N</code>.
+Function or class names other than those from the default values cannot
+be passed as strings (any more) but only as the function or class
+themselves.</p>
+</div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.options_parameters.cma_allowed_options_keys">
+    
+  </a>
+  <a name="cma_allowed_options_keys">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cma_allowed_options_keys</span> =
+    
+    <a class="headerLink" href="#cma_allowed_options_keys" title="cma.options_parameters.cma_allowed_options_keys">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.options_parameters.cma_default_options">
+    
+  </a>
+  <a name="cma_default_options">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cma_default_options</span> =
+    
+    <a class="headerLink" href="#cma_default_options" title="cma.options_parameters.cma_default_options">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.options_parameters.cma_versatile_options">
+    
+  </a>
+  <a name="cma_versatile_options">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cma_versatile_options</span> =
+    
+    <a class="headerLink" href="#cma_versatile_options" title="cma.options_parameters.cma_versatile_options">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.options_parameters.default_restart_number_if_not_zero">
+    
+  </a>
+  <a name="default_restart_number_if_not_zero">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">default_restart_number_if_not_zero</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#default_restart_number_if_not_zero" title="cma.options_parameters.default_restart_number_if_not_zero">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.options_parameters.integer_active_limit_recombination_weight_condition">
+    
+  </a>
+  <a name="integer_active_limit_recombination_weight_condition">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">integer_active_limit_recombination_weight_condition</span> =
+    
+    <a class="headerLink" href="#integer_active_limit_recombination_weight_condition" title="cma.options_parameters.integer_active_limit_recombination_weight_condition">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>None or True or a function float-&gt;bool, None -&gt; limit only negative updates</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.options_parameters.integer_std_lower_bound_factor1">
+    
+  </a>
+  <a name="integer_std_lower_bound_factor1">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">integer_std_lower_bound_factor1</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#integer_std_lower_bound_factor1" title="cma.options_parameters.integer_std_lower_bound_factor1">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>factor used in <code><a href="#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer_std_lower_bound</a></code> as multiplier to <tt class="rst-docutils literal">mueff/N</tt></p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.options_parameters.integer_std_lower_bound_factor2">
+    
+  </a>
+  <a name="integer_std_lower_bound_factor2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">integer_std_lower_bound_factor2</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#integer_std_lower_bound_factor2" title="cma.options_parameters.integer_std_lower_bound_factor2">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>factor used in <code><a href="#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer_std_lower_bound</a></code> as multiplier to
+<code>integer_std_lower_bound_limit_when_mu_is_large</code></p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.options_parameters.integer_std_lower_bound_limit">
+    
+  </a>
+  <a name="integer_std_lower_bound_limit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">integer_std_lower_bound_limit</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#integer_std_lower_bound_limit" title="cma.options_parameters.integer_std_lower_bound_limit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>limit coordinate stds of solutions in C update, by default off, may go away</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.options_parameters.options_environment">
+    
+  </a>
+  <a name="options_environment">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">options_environment</span> =
+    
+    <a class="headerLink" href="#options_environment" title="cma.options_parameters.options_environment">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.1 at 2024-09-02 23:31:09.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

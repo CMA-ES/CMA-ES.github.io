@@ -233,6 +233,16 @@
         
 
         
+            <div class="itemName"><code><a href="cma.integer_centering.html" class="internal-link" title="cma.integer_centering">integer<wbr></wbr>_centering</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.interfaces.html" class="internal-link" title="cma.interfaces">interfaces</a></code>
             </div>
         
@@ -254,6 +264,16 @@
 
         
             <div class="itemName"><code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization<wbr></wbr>_tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html" class="internal-link" title="cma.options_parameters">options<wbr></wbr>_parameters</a></code>
             </div>
         
 
@@ -518,7 +538,7 @@ x, es.result[0]  # best evaluated solution
 es.result[5]  # mean solution, presumably better with noise
 </pre>
 </div>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Authors</td></tr><tr><td colspan="2">Nikolaus Hansen, 2008-</td></tr><tr><td colspan="2">Petr Baudis, 2014</td></tr><tr><td colspan="2">Youhei Akimoto, 2017-</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code>fmin</code> (), <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Unknown Field: license</td></tr><tr><td colspan="2">BSD 3-Clause, see LICENSE file.</td></tr></table></div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Authors</td></tr><tr><td colspan="2">Nikolaus Hansen, 2008-</td></tr><tr><td colspan="2">Petr Baudis, 2014</td></tr><tr><td colspan="2">Youhei Akimoto, 2017-</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code>fmin</code> (), <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Unknown Field: license</td></tr><tr><td colspan="2">BSD 3-Clause, see LICENSE file.</td></tr></table></div>
         </div>
 
         <div id="splitTables">
@@ -539,7 +559,7 @@ es.result[5]  # mean solution, presumably better with noise
     
     <td>Module</td>
     <td><code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution<wbr></wbr>_strategy</a></code></td>
-    <td>CMA-ES (evolution strategy), the main sub-module of <code><a href="index.html" class="internal-link">cma</a></code> providing in particular <code><a href="cma.evolution_strategy.CMAOptions.html" class="internal-link" title="cma.evolution_strategy.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, and <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code></td>
+    <td>CMA-ES (evolution strategy), the main sub-module of <code><a href="index.html" class="internal-link">cma</a></code> implementing in particular <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> and further <tt class="rst-docutils literal">fmin_*</tt> functions.</td>
   </tr><tr class="module">
     
     <td>Module</td>
@@ -558,6 +578,11 @@ es.result[5]  # mean solution, presumably better with noise
   </tr><tr class="module">
     
     <td>Module</td>
+    <td><code><a href="cma.integer_centering.html" class="internal-link" title="cma.integer_centering">integer<wbr></wbr>_centering</a></code></td>
+    <td>Integer handling class <code><a href="cma.integer_centering.IntegerCentering.html" class="internal-link" title="cma.integer_centering.IntegerCentering">IntegerCentering</a></code> to be used in combination with CMA-ES.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
     <td><code><a href="cma.interfaces.html" class="internal-link" title="cma.interfaces">interfaces</a></code></td>
     <td>Very few interface defining base class definitions</td>
   </tr><tr class="module">
@@ -570,6 +595,11 @@ es.result[5]  # mean solution, presumably better with noise
     <td>Module</td>
     <td><code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization<wbr></wbr>_tools</a></code></td>
     <td>Utility classes and functionalities loosely related to optimization</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.options_parameters.html" class="internal-link" title="cma.options_parameters">options<wbr></wbr>_parameters</a></code></td>
+    <td>Parameters and Options for CMA-ES.</td>
   </tr><tr class="module">
     
     <td>Module</td>
@@ -731,7 +761,7 @@ es.result[5]  # mean solution, presumably better with noise
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-07-05 16:10:24.
+    23.9.1 at 2024-09-02 23:31:09.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

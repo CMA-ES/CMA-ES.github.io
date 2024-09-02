@@ -1,0 +1,2288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>cma.options_parameters.MetaParameters</title>
+    <meta name="generator" content="pydoctor 23.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.options_parameters.MetaParameters.html" class="internal-link" title="This class"><wbr></wbr>Meta<wbr></wbr>Parameters</a></code> 
+      </div>
+      
+      <div>
+         
+          <div class="childrenKindTitle">Contents</div>
+          <ul><li><a class="rst-reference internal" href="#rst-details" id="rst-toc-entry-1">Details</a></li>
+<li><a class="rst-reference internal" href="#rst-caveat" id="rst-toc-entry-2">CAVEAT</a></li>
+</ul>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.options_parameters.MetaParameters.__init__">__init__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#c1_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.c1_exponent">c1<wbr></wbr>_exponent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#c1_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.c1_multiplier">c1<wbr></wbr>_multiplier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cact_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.cact_exponent">cact<wbr></wbr>_exponent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cc_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.cc_exponent">cc<wbr></wbr>_exponent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cc_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.cc_multiplier">cc<wbr></wbr>_multiplier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CMA_active" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_active"><wbr></wbr>CMA_active</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CMA_cmean" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_cmean"><wbr></wbr>CMA_cmean</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CMA_dampsvec_fac" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_dampsvec_fac"><wbr></wbr>CMA_dampsvec_fac</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CMA_dampsvec_fade" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_dampsvec_fade"><wbr></wbr>CMA_dampsvec_fade</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CMA_elitist" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_elitist"><wbr></wbr>CMA_elitist</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CMA_mirrors" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_mirrors"><wbr></wbr>CMA_mirrors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cmu_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.cmu_exponent">cmu<wbr></wbr>_exponent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cmu_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.cmu_multiplier">cmu<wbr></wbr>_multiplier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cs_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.cs_exponent">cs<wbr></wbr>_exponent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cs_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.cs_multiplier">cs<wbr></wbr>_multiplier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CSA_clip_length_value" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_clip_length_value"><wbr></wbr>CSA_clip_length_value</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CSA_damp_mueff_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_damp_mueff_exponent"><wbr></wbr>CSA_damp_mueff_exponent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CSA_dampfac" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_dampfac"><wbr></wbr>CSA_dampfac</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CSA_disregard_length" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_disregard_length"><wbr></wbr>CSA_disregard_length</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CSA_squared" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_squared"><wbr></wbr>CSA_squared</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#incpopsize" class="internal-link" title="cma.options_parameters.MetaParameters.incpopsize">incpopsize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#lambda_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.lambda_exponent">lambda<wbr></wbr>_exponent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#maxiter_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.maxiter_multiplier">maxiter<wbr></wbr>_multiplier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#maxstd" class="internal-link" title="cma.options_parameters.MetaParameters.maxstd">maxstd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mean_shift_line_samples" class="internal-link" title="cma.options_parameters.MetaParameters.mean_shift_line_samples">mean<wbr></wbr>_shift<wbr></wbr>_line<wbr></wbr>_samples</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mindx" class="internal-link" title="cma.options_parameters.MetaParameters.mindx">mindx</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#minstd" class="internal-link" title="cma.options_parameters.MetaParameters.minstd">minstd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noise_aggregate" class="internal-link" title="cma.options_parameters.MetaParameters.noise_aggregate">noise<wbr></wbr>_aggregate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noise_alphaevals" class="internal-link" title="cma.options_parameters.MetaParameters.noise_alphaevals">noise<wbr></wbr>_alphaevals</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noise_alphaevalsdown_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.noise_alphaevalsdown_exponent">noise<wbr></wbr>_alphaevalsdown<wbr></wbr>_exponent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noise_alphasigma" class="internal-link" title="cma.options_parameters.MetaParameters.noise_alphasigma">noise<wbr></wbr>_alphasigma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noise_choose_reeval" class="internal-link" title="cma.options_parameters.MetaParameters.noise_choose_reeval">noise<wbr></wbr>_choose<wbr></wbr>_reeval</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noise_reeval_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.noise_reeval_multiplier">noise<wbr></wbr>_reeval<wbr></wbr>_multiplier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noise_theta" class="internal-link" title="cma.options_parameters.MetaParameters.noise_theta">noise<wbr></wbr>_theta</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pc_line_samples" class="internal-link" title="cma.options_parameters.MetaParameters.pc_line_samples">pc<wbr></wbr>_line<wbr></wbr>_samples</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#restart_from_best" class="internal-link" title="cma.options_parameters.MetaParameters.restart_from_best">restart<wbr></wbr>_from<wbr></wbr>_best</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#restarts" class="internal-link" title="cma.options_parameters.MetaParameters.restarts">restarts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sigma0" class="internal-link" title="cma.options_parameters.MetaParameters.sigma0">sigma0</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tolfacupx" class="internal-link" title="cma.options_parameters.MetaParameters.tolfacupx">tolfacupx</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tolfun" class="internal-link" title="cma.options_parameters.MetaParameters.tolfun">tolfun</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tolfunhist" class="internal-link" title="cma.options_parameters.MetaParameters.tolfunhist">tolfunhist</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tolfunrel" class="internal-link" title="cma.options_parameters.MetaParameters.tolfunrel">tolfunrel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tolstagnation_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.tolstagnation_multiplier">tolstagnation<wbr></wbr>_multiplier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tolupsigma" class="internal-link" title="cma.options_parameters.MetaParameters.tolupsigma">tolupsigma</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tolx" class="internal-link" title="cma.options_parameters.MetaParameters.tolx">tolx</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.options_parameters.html" class="internal-link" title="The parent of this class">options<wbr></wbr>_parameters</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions"><wbr></wbr>CMAOptions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.CMAParameters.html" class="internal-link" title="cma.options_parameters.CMAParameters"><wbr></wbr>CMAParameters</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.MetaParameters.html" class="internal-link" title="cma.options_parameters.MetaParameters"><wbr></wbr>Meta<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#amend_restarts_parameter" class="internal-link" title="cma.options_parameters.amend_restarts_parameter">amend<wbr></wbr>_restarts<wbr></wbr>_parameter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_default_options_" class="internal-link" title="cma.options_parameters.cma_default_options_">cma<wbr></wbr>_default<wbr></wbr>_options_</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_lower_bound_target_probability" class="internal-link" title="cma.options_parameters.integer_lower_bound_target_probability">integer<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_target<wbr></wbr>_probability</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#is_feasible" class="internal-link" title="cma.options_parameters.is_feasible">is<wbr></wbr>_feasible</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#safe_str" class="internal-link" title="cma.options_parameters.safe_str">safe<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_allowed_options_keys" class="internal-link" title="cma.options_parameters.cma_allowed_options_keys">cma<wbr></wbr>_allowed<wbr></wbr>_options<wbr></wbr>_keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_default_options" class="internal-link" title="cma.options_parameters.cma_default_options">cma<wbr></wbr>_default<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_versatile_options" class="internal-link" title="cma.options_parameters.cma_versatile_options">cma<wbr></wbr>_versatile<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#default_restart_number_if_not_zero" class="internal-link" title="cma.options_parameters.default_restart_number_if_not_zero">default<wbr></wbr>_restart<wbr></wbr>_number<wbr></wbr>_if<wbr></wbr>_not<wbr></wbr>_zero</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_active_limit_recombination_weight_condition" class="internal-link" title="cma.options_parameters.integer_active_limit_recombination_weight_condition">integer<wbr></wbr>_active<wbr></wbr>_limit<wbr></wbr>_recombination<wbr></wbr>_weight<wbr></wbr>_condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound_factor1" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor1">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound_factor2" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor2">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound_limit" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_limit">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_limit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#options_environment" class="internal-link" title="cma.options_parameters.options_environment">options<wbr></wbr>_environment</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.options_parameters.html" class="internal-link" title="cma.options_parameters">options_parameters</a></code><wbr></wbr>.<code><a href="cma.options_parameters.MetaParameters.html" class="internal-link" title="cma.options_parameters.MetaParameters">MetaParameters</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">MetaParameters</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.options_parameters.MetaParameters.__init__">MetaParameters()</a></code></p>
+          <p><a href="classIndex.html#cma.options_parameters.MetaParameters">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>collection of many meta parameters.</p>
+<p>Meta parameters are either annotated constants or refer to
+options from <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code> or are arguments to <code>fmin</code> or to the
+<code><a href="cma.optimization_tools.NoiseHandler.html" class="internal-link" title="cma.optimization_tools.NoiseHandler">NoiseHandler</a></code> class constructor.</p>
+<p><code><a href="cma.options_parameters.MetaParameters.html" class="internal-link" title="cma.options_parameters.MetaParameters">MetaParameters</a></code> take only effect if the source code is modified by
+a meta parameter weaver module searching for ## meta_parameters....
+and modifying the next line.</p>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p>This code contains a single class instance <code>meta_parameters</code></p>
+<p>Some interfaces rely on parameters being either <code>int</code> or
+<code>float</code> only. More sophisticated choices are implemented via
+<tt class="rst-docutils literal">choice_value = {1: 'this', 2: 'or <span class="pre">that'}[int_param_value]</span></tt> here.</p>
+</div>
+<div class="rst-section" id="rst-caveat">
+<h2 class="heading">CAVEAT</h2>
+<p><code>meta_parameters</code> should not be used to determine default
+arguments, because these are assigned only once and for all during
+module import.</p>
+</div>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id405">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.options_parameters.MetaParameters.__init__">__init__</a></code></td>
+    <td>assign settings to be used</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#c1_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.c1_exponent">c1<wbr></wbr>_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#c1_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.c1_multiplier">c1<wbr></wbr>_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cact_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.cact_exponent">cact<wbr></wbr>_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cc_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.cc_exponent">cc<wbr></wbr>_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cc_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.cc_multiplier">cc<wbr></wbr>_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_active" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_active"><wbr></wbr>CMA_active</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_cmean" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_cmean"><wbr></wbr>CMA_cmean</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_dampsvec_fac" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_dampsvec_fac"><wbr></wbr>CMA_dampsvec_fac</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_dampsvec_fade" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_dampsvec_fade"><wbr></wbr>CMA_dampsvec_fade</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_elitist" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_elitist"><wbr></wbr>CMA_elitist</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CMA_mirrors" class="internal-link" title="cma.options_parameters.MetaParameters.CMA_mirrors"><wbr></wbr>CMA_mirrors</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cmu_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.cmu_exponent">cmu<wbr></wbr>_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cmu_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.cmu_multiplier">cmu<wbr></wbr>_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cs_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.cs_exponent">cs<wbr></wbr>_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cs_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.cs_multiplier">cs<wbr></wbr>_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_clip_length_value" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_clip_length_value"><wbr></wbr>CSA_clip_length_value</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_damp_mueff_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_damp_mueff_exponent"><wbr></wbr>CSA_damp_mueff_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_dampfac" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_dampfac"><wbr></wbr>CSA_dampfac</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_disregard_length" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_disregard_length"><wbr></wbr>CSA_disregard_length</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#CSA_squared" class="internal-link" title="cma.options_parameters.MetaParameters.CSA_squared"><wbr></wbr>CSA_squared</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#incpopsize" class="internal-link" title="cma.options_parameters.MetaParameters.incpopsize">incpopsize</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lambda_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.lambda_exponent">lambda<wbr></wbr>_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#maxiter_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.maxiter_multiplier">maxiter<wbr></wbr>_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#maxstd" class="internal-link" title="cma.options_parameters.MetaParameters.maxstd">maxstd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mean_shift_line_samples" class="internal-link" title="cma.options_parameters.MetaParameters.mean_shift_line_samples">mean<wbr></wbr>_shift<wbr></wbr>_line<wbr></wbr>_samples</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mindx" class="internal-link" title="cma.options_parameters.MetaParameters.mindx">mindx</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#minstd" class="internal-link" title="cma.options_parameters.MetaParameters.minstd">minstd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_aggregate" class="internal-link" title="cma.options_parameters.MetaParameters.noise_aggregate">noise<wbr></wbr>_aggregate</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_alphaevals" class="internal-link" title="cma.options_parameters.MetaParameters.noise_alphaevals">noise<wbr></wbr>_alphaevals</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_alphaevalsdown_exponent" class="internal-link" title="cma.options_parameters.MetaParameters.noise_alphaevalsdown_exponent">noise<wbr></wbr>_alphaevalsdown<wbr></wbr>_exponent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_alphasigma" class="internal-link" title="cma.options_parameters.MetaParameters.noise_alphasigma">noise<wbr></wbr>_alphasigma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_choose_reeval" class="internal-link" title="cma.options_parameters.MetaParameters.noise_choose_reeval">noise<wbr></wbr>_choose<wbr></wbr>_reeval</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_reeval_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.noise_reeval_multiplier">noise<wbr></wbr>_reeval<wbr></wbr>_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noise_theta" class="internal-link" title="cma.options_parameters.MetaParameters.noise_theta">noise<wbr></wbr>_theta</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pc_line_samples" class="internal-link" title="cma.options_parameters.MetaParameters.pc_line_samples">pc<wbr></wbr>_line<wbr></wbr>_samples</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#restart_from_best" class="internal-link" title="cma.options_parameters.MetaParameters.restart_from_best">restart<wbr></wbr>_from<wbr></wbr>_best</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#restarts" class="internal-link" title="cma.options_parameters.MetaParameters.restarts">restarts</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#sigma0" class="internal-link" title="cma.options_parameters.MetaParameters.sigma0">sigma0</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolfacupx" class="internal-link" title="cma.options_parameters.MetaParameters.tolfacupx">tolfacupx</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolfun" class="internal-link" title="cma.options_parameters.MetaParameters.tolfun">tolfun</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolfunhist" class="internal-link" title="cma.options_parameters.MetaParameters.tolfunhist">tolfunhist</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolfunrel" class="internal-link" title="cma.options_parameters.MetaParameters.tolfunrel">tolfunrel</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolstagnation_multiplier" class="internal-link" title="cma.options_parameters.MetaParameters.tolstagnation_multiplier">tolstagnation<wbr></wbr>_multiplier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolupsigma" class="internal-link" title="cma.options_parameters.MetaParameters.tolupsigma">tolupsigma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tolx" class="internal-link" title="cma.options_parameters.MetaParameters.tolx">tolx</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#__init__" title="cma.options_parameters.MetaParameters.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>assign settings to be used</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.c1_exponent">
+    
+  </a>
+  <a name="c1_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">c1_exponent</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#c1_exponent" title="cma.options_parameters.MetaParameters.c1_exponent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.c1_multiplier">
+    
+  </a>
+  <a name="c1_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">c1_multiplier</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#c1_multiplier" title="cma.options_parameters.MetaParameters.c1_multiplier">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.cact_exponent">
+    
+  </a>
+  <a name="cact_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cact_exponent</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#cact_exponent" title="cma.options_parameters.MetaParameters.cact_exponent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.cc_exponent">
+    
+  </a>
+  <a name="cc_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cc_exponent</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#cc_exponent" title="cma.options_parameters.MetaParameters.cc_exponent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.cc_multiplier">
+    
+  </a>
+  <a name="cc_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cc_multiplier</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#cc_multiplier" title="cma.options_parameters.MetaParameters.cc_multiplier">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CMA_active">
+    
+  </a>
+  <a name="CMA_active">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_active</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#CMA_active" title="cma.options_parameters.MetaParameters.CMA_active">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CMA_cmean">
+    
+  </a>
+  <a name="CMA_cmean">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_cmean</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#CMA_cmean" title="cma.options_parameters.MetaParameters.CMA_cmean">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CMA_dampsvec_fac">
+    
+  </a>
+  <a name="CMA_dampsvec_fac">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_dampsvec_fac</span> =
+    
+    <a class="headerLink" href="#CMA_dampsvec_fac" title="cma.options_parameters.MetaParameters.CMA_dampsvec_fac">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CMA_dampsvec_fade">
+    
+  </a>
+  <a name="CMA_dampsvec_fade">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_dampsvec_fade</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#CMA_dampsvec_fade" title="cma.options_parameters.MetaParameters.CMA_dampsvec_fade">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CMA_elitist">
+    
+  </a>
+  <a name="CMA_elitist">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_elitist</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#CMA_elitist" title="cma.options_parameters.MetaParameters.CMA_elitist">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CMA_mirrors">
+    
+  </a>
+  <a name="CMA_mirrors">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CMA_mirrors</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#CMA_mirrors" title="cma.options_parameters.MetaParameters.CMA_mirrors">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.cmu_exponent">
+    
+  </a>
+  <a name="cmu_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cmu_exponent</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#cmu_exponent" title="cma.options_parameters.MetaParameters.cmu_exponent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.cmu_multiplier">
+    
+  </a>
+  <a name="cmu_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cmu_multiplier</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#cmu_multiplier" title="cma.options_parameters.MetaParameters.cmu_multiplier">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.cs_exponent">
+    
+  </a>
+  <a name="cs_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cs_exponent</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#cs_exponent" title="cma.options_parameters.MetaParameters.cs_exponent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.cs_multiplier">
+    
+  </a>
+  <a name="cs_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cs_multiplier</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#cs_multiplier" title="cma.options_parameters.MetaParameters.cs_multiplier">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CSA_clip_length_value">
+    
+  </a>
+  <a name="CSA_clip_length_value">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_clip_length_value</span> =
+    
+    <a class="headerLink" href="#CSA_clip_length_value" title="cma.options_parameters.MetaParameters.CSA_clip_length_value">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CSA_damp_mueff_exponent">
+    
+  </a>
+  <a name="CSA_damp_mueff_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_damp_mueff_exponent</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#CSA_damp_mueff_exponent" title="cma.options_parameters.MetaParameters.CSA_damp_mueff_exponent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CSA_dampfac">
+    
+  </a>
+  <a name="CSA_dampfac">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_dampfac</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#CSA_dampfac" title="cma.options_parameters.MetaParameters.CSA_dampfac">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CSA_disregard_length">
+    
+  </a>
+  <a name="CSA_disregard_length">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_disregard_length</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#CSA_disregard_length" title="cma.options_parameters.MetaParameters.CSA_disregard_length">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.CSA_squared">
+    
+  </a>
+  <a name="CSA_squared">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CSA_squared</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#CSA_squared" title="cma.options_parameters.MetaParameters.CSA_squared">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.incpopsize">
+    
+  </a>
+  <a name="incpopsize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">incpopsize</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#incpopsize" title="cma.options_parameters.MetaParameters.incpopsize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.lambda_exponent">
+    
+  </a>
+  <a name="lambda_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lambda_exponent</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#lambda_exponent" title="cma.options_parameters.MetaParameters.lambda_exponent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.maxiter_multiplier">
+    
+  </a>
+  <a name="maxiter_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">maxiter_multiplier</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#maxiter_multiplier" title="cma.options_parameters.MetaParameters.maxiter_multiplier">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.maxstd">
+    
+  </a>
+  <a name="maxstd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">maxstd</span> =
+    
+    <a class="headerLink" href="#maxstd" title="cma.options_parameters.MetaParameters.maxstd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.mean_shift_line_samples">
+    
+  </a>
+  <a name="mean_shift_line_samples">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mean_shift_line_samples</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#mean_shift_line_samples" title="cma.options_parameters.MetaParameters.mean_shift_line_samples">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.mindx">
+    
+  </a>
+  <a name="mindx">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mindx</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#mindx" title="cma.options_parameters.MetaParameters.mindx">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.minstd">
+    
+  </a>
+  <a name="minstd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">minstd</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#minstd" title="cma.options_parameters.MetaParameters.minstd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.noise_aggregate">
+    
+  </a>
+  <a name="noise_aggregate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_aggregate</span> =
+    
+    <a class="headerLink" href="#noise_aggregate" title="cma.options_parameters.MetaParameters.noise_aggregate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.noise_alphaevals">
+    
+  </a>
+  <a name="noise_alphaevals">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_alphaevals</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#noise_alphaevals" title="cma.options_parameters.MetaParameters.noise_alphaevals">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.noise_alphaevalsdown_exponent">
+    
+  </a>
+  <a name="noise_alphaevalsdown_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_alphaevalsdown_exponent</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#noise_alphaevalsdown_exponent" title="cma.options_parameters.MetaParameters.noise_alphaevalsdown_exponent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.noise_alphasigma">
+    
+  </a>
+  <a name="noise_alphasigma">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_alphasigma</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#noise_alphasigma" title="cma.options_parameters.MetaParameters.noise_alphasigma">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.noise_choose_reeval">
+    
+  </a>
+  <a name="noise_choose_reeval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_choose_reeval</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#noise_choose_reeval" title="cma.options_parameters.MetaParameters.noise_choose_reeval">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.noise_reeval_multiplier">
+    
+  </a>
+  <a name="noise_reeval_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_reeval_multiplier</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#noise_reeval_multiplier" title="cma.options_parameters.MetaParameters.noise_reeval_multiplier">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.noise_theta">
+    
+  </a>
+  <a name="noise_theta">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noise_theta</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#noise_theta" title="cma.options_parameters.MetaParameters.noise_theta">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.pc_line_samples">
+    
+  </a>
+  <a name="pc_line_samples">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pc_line_samples</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#pc_line_samples" title="cma.options_parameters.MetaParameters.pc_line_samples">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.restart_from_best">
+    
+  </a>
+  <a name="restart_from_best">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">restart_from_best</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#restart_from_best" title="cma.options_parameters.MetaParameters.restart_from_best">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.restarts">
+    
+  </a>
+  <a name="restarts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">restarts</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#restarts" title="cma.options_parameters.MetaParameters.restarts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.sigma0">
+    
+  </a>
+  <a name="sigma0">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">sigma0</span> =
+    
+    <a class="headerLink" href="#sigma0" title="cma.options_parameters.MetaParameters.sigma0">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.tolfacupx">
+    
+  </a>
+  <a name="tolfacupx">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolfacupx</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#tolfacupx" title="cma.options_parameters.MetaParameters.tolfacupx">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.tolfun">
+    
+  </a>
+  <a name="tolfun">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolfun</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#tolfun" title="cma.options_parameters.MetaParameters.tolfun">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.tolfunhist">
+    
+  </a>
+  <a name="tolfunhist">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolfunhist</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#tolfunhist" title="cma.options_parameters.MetaParameters.tolfunhist">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.tolfunrel">
+    
+  </a>
+  <a name="tolfunrel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolfunrel</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#tolfunrel" title="cma.options_parameters.MetaParameters.tolfunrel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.tolstagnation_multiplier">
+    
+  </a>
+  <a name="tolstagnation_multiplier">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolstagnation_multiplier</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#tolstagnation_multiplier" title="cma.options_parameters.MetaParameters.tolstagnation_multiplier">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.tolupsigma">
+    
+  </a>
+  <a name="tolupsigma">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolupsigma</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#tolupsigma" title="cma.options_parameters.MetaParameters.tolupsigma">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.MetaParameters.tolx">
+    
+  </a>
+  <a name="tolx">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tolx</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#tolx" title="cma.options_parameters.MetaParameters.tolx">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.1 at 2024-09-02 23:31:09.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

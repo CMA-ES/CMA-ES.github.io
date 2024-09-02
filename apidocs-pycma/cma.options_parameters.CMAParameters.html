@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>cma.options_parameters.CMAParameters</title>
+    <meta name="generator" content="pydoctor 23.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.options_parameters.CMAParameters.html" class="internal-link" title="This class"><wbr></wbr>CMAParameters</a></code> 
+      </div>
+      
+      <div>
+         
+          <div class="childrenKindTitle">Contents</div>
+          <ul><li><a class="rst-reference internal" href="#rst-example" id="rst-toc-entry-1">Example</a></li>
+</ul>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.options_parameters.CMAParameters.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#disp" class="internal-link" title="cma.options_parameters.CMAParameters.disp">disp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set" class="internal-link" title="cma.options_parameters.CMAParameters.set">set</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#N" class="internal-link" title="cma.options_parameters.CMAParameters.N">N</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#popsize" class="internal-link" title="cma.options_parameters.CMAParameters.popsize">popsize</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.options_parameters.html" class="internal-link" title="The parent of this class">options<wbr></wbr>_parameters</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions"><wbr></wbr>CMAOptions</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.CMAParameters.html" class="internal-link" title="cma.options_parameters.CMAParameters"><wbr></wbr>CMAParameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.MetaParameters.html" class="internal-link" title="cma.options_parameters.MetaParameters"><wbr></wbr>Meta<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#amend_restarts_parameter" class="internal-link" title="cma.options_parameters.amend_restarts_parameter">amend<wbr></wbr>_restarts<wbr></wbr>_parameter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_default_options_" class="internal-link" title="cma.options_parameters.cma_default_options_">cma<wbr></wbr>_default<wbr></wbr>_options_</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_lower_bound_target_probability" class="internal-link" title="cma.options_parameters.integer_lower_bound_target_probability">integer<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_target<wbr></wbr>_probability</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#is_feasible" class="internal-link" title="cma.options_parameters.is_feasible">is<wbr></wbr>_feasible</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#safe_str" class="internal-link" title="cma.options_parameters.safe_str">safe<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_allowed_options_keys" class="internal-link" title="cma.options_parameters.cma_allowed_options_keys">cma<wbr></wbr>_allowed<wbr></wbr>_options<wbr></wbr>_keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_default_options" class="internal-link" title="cma.options_parameters.cma_default_options">cma<wbr></wbr>_default<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_versatile_options" class="internal-link" title="cma.options_parameters.cma_versatile_options">cma<wbr></wbr>_versatile<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#default_restart_number_if_not_zero" class="internal-link" title="cma.options_parameters.default_restart_number_if_not_zero">default<wbr></wbr>_restart<wbr></wbr>_number<wbr></wbr>_if<wbr></wbr>_not<wbr></wbr>_zero</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_active_limit_recombination_weight_condition" class="internal-link" title="cma.options_parameters.integer_active_limit_recombination_weight_condition">integer<wbr></wbr>_active<wbr></wbr>_limit<wbr></wbr>_recombination<wbr></wbr>_weight<wbr></wbr>_condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound_factor1" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor1">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound_factor2" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor2">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound_limit" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_limit">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_limit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#options_environment" class="internal-link" title="cma.options_parameters.options_environment">options<wbr></wbr>_environment</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.options_parameters.html" class="internal-link" title="cma.options_parameters">options_parameters</a></code><wbr></wbr>.<code><a href="cma.options_parameters.CMAParameters.html" class="internal-link" title="cma.options_parameters.CMAParameters">CMAParameters</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">CMAParameters</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.options_parameters.CMAParameters.__init__">CMAParameters(N, opts, ccovfac, verbose)</a></code></p>
+          <p><a href="classIndex.html#cma.options_parameters.CMAParameters">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>strategy parameters like population size and learning rates.</p>
+<dl class="rst-docutils">
+<dt>Note:</dt>
+<dd>contrary to <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code>, <code><a href="cma.options_parameters.CMAParameters.html" class="internal-link" title="cma.options_parameters.CMAParameters">CMAParameters</a></code> is not (yet) part of the
+"user-interface" and subject to future changes (it might become
+a <code>collections.namedtuple</code>)</dd>
+</dl>
+<div class="rst-section" id="rst-example">
+<h2 class="heading">Example</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(20 * [0.1], 1)  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">(6_w,12)-aCMA-ES (mu_w=3.7,w_1=40%) in dimension 20 (seed=...)</span>
+<span class="py-prompt">&gt;&gt;&gt;</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">type</span>(es.sp)  <span class="py-comment"># sp contains the strategy parameters</span>
+<span class="py-output">&lt;class 'cma.options_parameters.CMAParameters'&gt;</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>es.sp.disp()  <span class="py-comment">#doctest: +ELLIPSIS</span>
+<span class="py-output">{'CMA_on': True,</span>
+<span class="py-output"> 'N': 20,</span>
+<span class="py-output"> 'c1': 0.00437235...,</span>
+<span class="py-output"> 'c1_sep': ...0.0343279...,</span>
+<span class="py-output"> 'cc': 0.171767...,</span>
+<span class="py-output"> 'cc_sep': 0.252594...,</span>
+<span class="py-output"> 'cmean': array(1...,</span>
+<span class="py-output"> 'cmu': 0.00921656...,</span>
+<span class="py-output"> 'cmu_sep': ...0.0565385...,</span>
+<span class="py-output"> 'lam_mirr': 0,</span>
+<span class="py-output"> 'mu': 6,</span>
+<span class="py-output"> 'popsize': 12,</span>
+<span class="py-output"> 'weights': [0.4024029428...,</span>
+<span class="py-output">             0.2533890840...,</span>
+<span class="py-output">             0.1662215645...,</span>
+<span class="py-output">             0.1043752252...,</span>
+<span class="py-output">             0.05640347757...,</span>
+<span class="py-output">             0.01720770576...,</span>
+<span class="py-output">             -0.05018713636...,</span>
+<span class="py-output">             -0.1406167894...,</span>
+<span class="py-output">             -0.2203813963...,</span>
+<span class="py-output">             -0.2917332686...,</span>
+<span class="py-output">             -0.3562788884...,</span>
+<span class="py-output">             -0.4152044225...]}</span>
+<span class="py-prompt">&gt;&gt;&gt;</span></pre></div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></td></tr></table></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id404">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.options_parameters.CMAParameters.__init__">__init__</a></code></td>
+    <td>Compute strategy parameters, mainly depending on dimension and population size, by calling <code><a href="cma.options_parameters.CMAParameters.html#set" class="internal-link" title="cma.options_parameters.CMAParameters.set">set</a></code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#disp" class="internal-link" title="cma.options_parameters.CMAParameters.disp">disp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set" class="internal-link" title="cma.options_parameters.CMAParameters.set">set</a></code></td>
+    <td>Compute strategy parameters as a function of dimension and population size</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#N" class="internal-link" title="cma.options_parameters.CMAParameters.N">N</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#popsize" class="internal-link" title="cma.options_parameters.CMAParameters.popsize">popsize</a></code></td>
+    <td>number of candidation solutions per iteration, AKA population size</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAParameters.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, N, opts, ccovfac=1, verbose=True)</span>:
+    
+    <a class="headerLink" href="#__init__" title="cma.options_parameters.CMAParameters.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute strategy parameters, mainly depending on
+dimension and population size, by calling <code><a href="#set" class="internal-link" title="cma.options_parameters.CMAParameters.set">set</a></code></p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAParameters.disp">
+    
+  </a>
+  <a name="disp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disp</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#disp" title="cma.options_parameters.CMAParameters.disp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAParameters.set">
+    
+  </a>
+  <a name="set">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set</span><span class="function-signature">(self, opts, popsize=None, ccovfac=1, verbose=True)</span>:
+    
+    <a class="headerLink" href="#set" title="cma.options_parameters.CMAParameters.set">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute strategy parameters as a function
+of dimension and population size</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.CMAParameters.N">
+    
+  </a>
+  <a name="N">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">N</span> =
+    
+    <a class="headerLink" href="#N" title="cma.options_parameters.CMAParameters.N">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.options_parameters.CMAParameters.popsize">
+    
+  </a>
+  <a name="popsize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">popsize</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#popsize" title="cma.options_parameters.CMAParameters.popsize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>number of candidation solutions per iteration, AKA population size</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.1 at 2024-09-02 23:31:09.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

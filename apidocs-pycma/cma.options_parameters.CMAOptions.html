@@ -1,0 +1,1613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>cma.options_parameters.CMAOptions</title>
+    <meta name="generator" content="pydoctor 23.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="This class"><wbr></wbr>CMAOptions</a></code> 
+      </div>
+      
+      <div>
+         
+          <div class="childrenKindTitle">Contents</div>
+          <ul><li><a class="rst-reference internal" href="#rst-details" id="rst-toc-entry-1">Details</a></li>
+<li><a class="rst-reference internal" href="#rst-example" id="rst-toc-entry-2">Example</a></li>
+</ul>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#defaults" class="internal-link" title="cma.options_parameters.CMAOptions.defaults">defaults</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#versatile_options" class="internal-link" title="cma.options_parameters.CMAOptions.versatile_options">versatile<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__call__" class="internal-link" title="cma.options_parameters.CMAOptions.__call__">__call__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.options_parameters.CMAOptions.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#amend_integer_options" class="internal-link" title="cma.options_parameters.CMAOptions.amend_integer_options">amend<wbr></wbr>_integer<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#amend_integer_variables" class="internal-link" title="cma.options_parameters.CMAOptions.amend_integer_variables">amend<wbr></wbr>_integer<wbr></wbr>_variables</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check" class="internal-link" title="cma.options_parameters.CMAOptions.check">check</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_attributes" class="internal-link" title="cma.options_parameters.CMAOptions.check_attributes">check<wbr></wbr>_attributes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_values" class="internal-link" title="cma.options_parameters.CMAOptions.check_values">check<wbr></wbr>_values</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#complement" class="internal-link" title="cma.options_parameters.CMAOptions.complement">complement</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#corrected_key" class="internal-link" title="cma.options_parameters.CMAOptions.corrected_key">corrected<wbr></wbr>_key</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#eval" class="internal-link" title="cma.options_parameters.CMAOptions.eval">eval</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#evalall" class="internal-link" title="cma.options_parameters.CMAOptions.evalall">evalall</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#from_namedtuple" class="internal-link" title="cma.options_parameters.CMAOptions.from_namedtuple">from<wbr></wbr>_namedtuple</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#init" class="internal-link" title="cma.options_parameters.CMAOptions.init">init</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#match" class="internal-link" title="cma.options_parameters.CMAOptions.match">match</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pprint" class="internal-link" title="cma.options_parameters.CMAOptions.pprint">pprint</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set" class="internal-link" title="cma.options_parameters.CMAOptions.set">set</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_integer_min_std" class="internal-link" title="cma.options_parameters.CMAOptions.set_integer_min_std">set<wbr></wbr>_integer<wbr></wbr>_min<wbr></wbr>_std</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#settable" class="internal-link" title="cma.options_parameters.CMAOptions.settable">settable</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#to_namedtuple" class="internal-link" title="cma.options_parameters.CMAOptions.to_namedtuple">to<wbr></wbr>_namedtuple</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_hsig" class="internal-link" title="cma.options_parameters.CMAOptions._hsig">_hsig</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ps_for_pc" class="internal-link" title="cma.options_parameters.CMAOptions._ps_for_pc">_ps<wbr></wbr>_for<wbr></wbr>_pc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stationary_sphere" class="internal-link" title="cma.options_parameters.CMAOptions._stationary_sphere">_stationary<wbr></wbr>_sphere</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_attributes" class="internal-link" title="cma.options_parameters.CMAOptions._attributes">_attributes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_lock_setting" class="internal-link" title="cma.options_parameters.CMAOptions._lock_setting">_lock<wbr></wbr>_setting</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.options_parameters.html" class="internal-link" title="The parent of this class">options<wbr></wbr>_parameters</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions"><wbr></wbr>CMAOptions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.CMAParameters.html" class="internal-link" title="cma.options_parameters.CMAParameters"><wbr></wbr>CMAParameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.MetaParameters.html" class="internal-link" title="cma.options_parameters.MetaParameters"><wbr></wbr>Meta<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#amend_restarts_parameter" class="internal-link" title="cma.options_parameters.amend_restarts_parameter">amend<wbr></wbr>_restarts<wbr></wbr>_parameter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_default_options_" class="internal-link" title="cma.options_parameters.cma_default_options_">cma<wbr></wbr>_default<wbr></wbr>_options_</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_lower_bound_target_probability" class="internal-link" title="cma.options_parameters.integer_lower_bound_target_probability">integer<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_target<wbr></wbr>_probability</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#is_feasible" class="internal-link" title="cma.options_parameters.is_feasible">is<wbr></wbr>_feasible</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#safe_str" class="internal-link" title="cma.options_parameters.safe_str">safe<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_allowed_options_keys" class="internal-link" title="cma.options_parameters.cma_allowed_options_keys">cma<wbr></wbr>_allowed<wbr></wbr>_options<wbr></wbr>_keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_default_options" class="internal-link" title="cma.options_parameters.cma_default_options">cma<wbr></wbr>_default<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#cma_versatile_options" class="internal-link" title="cma.options_parameters.cma_versatile_options">cma<wbr></wbr>_versatile<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#default_restart_number_if_not_zero" class="internal-link" title="cma.options_parameters.default_restart_number_if_not_zero">default<wbr></wbr>_restart<wbr></wbr>_number<wbr></wbr>_if<wbr></wbr>_not<wbr></wbr>_zero</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_active_limit_recombination_weight_condition" class="internal-link" title="cma.options_parameters.integer_active_limit_recombination_weight_condition">integer<wbr></wbr>_active<wbr></wbr>_limit<wbr></wbr>_recombination<wbr></wbr>_weight<wbr></wbr>_condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound_factor1" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor1">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound_factor2" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_factor2">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_factor2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#integer_std_lower_bound_limit" class="internal-link" title="cma.options_parameters.integer_std_lower_bound_limit">integer<wbr></wbr>_std<wbr></wbr>_lower<wbr></wbr>_bound<wbr></wbr>_limit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.options_parameters.html#options_environment" class="internal-link" title="cma.options_parameters.options_environment">options<wbr></wbr>_environment</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.options_parameters.html" class="internal-link" title="cma.options_parameters">options_parameters</a></code><wbr></wbr>.<code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">CMAOptions</span>(dict):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.options_parameters.CMAOptions.__init__">CMAOptions(s, **kwargs)</a></code></p>
+          <p><a href="classIndex.html#cma.options_parameters.CMAOptions">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>a dictionary with the available options and their default values
+for class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>.</p>
+<p><tt class="rst-docutils literal">CMAOptions()</tt> returns a <code>dict</code> with all available options and their
+default values with a comment string.</p>
+<p><tt class="rst-docutils literal"><span class="pre">CMAOptions('verb')</span></tt> returns a subset of recognized options that
+contain 'verb' in there keyword name or (default) value or
+description.</p>
+<p><tt class="rst-docutils literal">CMAOptions(opts)</tt> returns the subset of recognized options in
+<tt class="rst-docutils literal">dict(opts)</tt>.</p>
+<p>Option values can be "written" in a string and, when passed to <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code>
+or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, are evaluated using "N" and "popsize" as
+known values for dimension and population size (sample size, number
+of new solutions per iteration). All default option values are given
+as such a string.</p>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p><code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code> entries starting with <tt class="rst-docutils literal">tol</tt> are termination
+"tolerances".</p>
+<p>For <code>tolstagnation</code>, the median over the first and the second half
+of at least <code>tolstagnation</code> iterations are compared for both, the
+per-iteration best and per-iteration median function value.</p>
+</div>
+<div class="rst-section" id="rst-example">
+<h2 class="heading">Example</h2>
+<pre class="rst-literal-block">
+import cma
+cma.CMAOptions('tol')
+</pre>
+<p>is a shortcut for <tt class="rst-docutils literal"><span class="pre">cma.CMAOptions().match('tol')</span></tt> that returns all
+options that contain 'tol' in their name or description.</p>
+<p>To set an option:</p>
+<pre class="rst-literal-block">
+import cma
+opts = cma.CMAOptions()
+opts.set('tolfun', 1e-12)
+opts['tolx'] = 1e-11
+</pre>
+<p>todo: this class is overly complex and should be re-written, possibly
+with reduced functionality.</p>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> (), <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, <code><a href="cma.options_parameters.CMAParameters.html" class="internal-link" title="cma.options_parameters.CMAParameters">CMAParameters</a></code></td></tr></table></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id403">
+  
+  
+  <tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#defaults" class="internal-link" title="cma.options_parameters.CMAOptions.defaults">defaults</a></code></td>
+    <td>return a dictionary with default option values and description</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#versatile_options" class="internal-link" title="cma.options_parameters.CMAOptions.versatile_options">versatile<wbr></wbr>_options</a></code></td>
+    <td>return list of options that can be changed at any time (not only be initialized).</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__call__" class="internal-link" title="cma.options_parameters.CMAOptions.__call__">__call__</a></code></td>
+    <td>evaluate and return the value of option <code>key</code> on the fly, or return those options whose name or description contains <code>key</code>, case disregarded.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.options_parameters.CMAOptions.__init__">__init__</a></code></td>
+    <td>return an <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code> instance.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#amend_integer_options" class="internal-link" title="cma.options_parameters.CMAOptions.amend_integer_options">amend<wbr></wbr>_integer<wbr></wbr>_options</a></code></td>
+    <td>amend options when integer variables are indicated</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#amend_integer_variables" class="internal-link" title="cma.options_parameters.CMAOptions.amend_integer_variables">amend<wbr></wbr>_integer<wbr></wbr>_variables</a></code></td>
+    <td>removed fixed variables from the integer variable index values</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#check" class="internal-link" title="cma.options_parameters.CMAOptions.check">check</a></code></td>
+    <td>check for ambiguous keys and move attributes into dict</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#check_attributes" class="internal-link" title="cma.options_parameters.CMAOptions.check_attributes">check<wbr></wbr>_attributes</a></code></td>
+    <td>check for attributes and moves them into the dictionary</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#check_values" class="internal-link" title="cma.options_parameters.CMAOptions.check_values">check<wbr></wbr>_values</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#complement" class="internal-link" title="cma.options_parameters.CMAOptions.complement">complement</a></code></td>
+    <td>add all missing options with their default values</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#corrected_key" class="internal-link" title="cma.options_parameters.CMAOptions.corrected_key">corrected<wbr></wbr>_key</a></code></td>
+    <td>return the matching valid key, if <tt class="rst-docutils literal">key.lower()</tt> is a unique starting sequence to identify the valid key, <tt class="rst-docutils literal">else None</tt></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#eval" class="internal-link" title="cma.options_parameters.CMAOptions.eval">eval</a></code></td>
+    <td>Evaluates and sets the specified option value in environment <code>loc</code>. Many options need <tt class="rst-docutils literal">N</tt> to be defined in <code>loc</code>, some need <code><a href="cma.options_parameters.CMAParameters.html#popsize" class="internal-link" title="cma.options_parameters.CMAParameters.popsize">popsize</a></code>.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#evalall" class="internal-link" title="cma.options_parameters.CMAOptions.evalall">evalall</a></code></td>
+    <td>Evaluates all option values in environment <code>loc</code>.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#from_namedtuple" class="internal-link" title="cma.options_parameters.CMAOptions.from_namedtuple">from<wbr></wbr>_namedtuple</a></code></td>
+    <td>update options from a <code>collections.namedtuple</code>. :See also: <code><a href="cma.options_parameters.CMAOptions.html#to_namedtuple" class="internal-link" title="cma.options_parameters.CMAOptions.to_namedtuple">to_namedtuple</a></code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#init" class="internal-link" title="cma.options_parameters.CMAOptions.init">init</a></code></td>
+    <td>initialize one or several options.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#match" class="internal-link" title="cma.options_parameters.CMAOptions.match">match</a></code></td>
+    <td>return all options that match, in the name or the description, with string <code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code>, case is disregarded.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#pprint" class="internal-link" title="cma.options_parameters.CMAOptions.pprint">pprint</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set" class="internal-link" title="cma.options_parameters.CMAOptions.set">set</a></code></td>
+    <td>assign versatile options.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_integer_min_std" class="internal-link" title="cma.options_parameters.CMAOptions.set_integer_min_std">set<wbr></wbr>_integer<wbr></wbr>_min<wbr></wbr>_std</a></code></td>
+    <td>set lower std bounds for integer variables.</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#settable" class="internal-link" title="cma.options_parameters.CMAOptions.settable">settable</a></code></td>
+    <td>return the subset of those options that are settable at any time.</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#to_namedtuple" class="internal-link" title="cma.options_parameters.CMAOptions.to_namedtuple">to<wbr></wbr>_namedtuple</a></code></td>
+    <td>return options as const attributes of the returned object, only useful for inspection.</td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_hsig" class="internal-link" title="cma.options_parameters.CMAOptions._hsig">_hsig</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_ps_for_pc" class="internal-link" title="cma.options_parameters.CMAOptions._ps_for_pc">_ps<wbr></wbr>_for<wbr></wbr>_pc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_stationary_sphere" class="internal-link" title="cma.options_parameters.CMAOptions._stationary_sphere">_stationary<wbr></wbr>_sphere</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_attributes" class="internal-link" title="cma.options_parameters.CMAOptions._attributes">_attributes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_lock_setting" class="internal-link" title="cma.options_parameters.CMAOptions._lock_setting">_lock<wbr></wbr>_setting</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basestaticmethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.defaults">
+    
+  </a>
+  <a name="defaults">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">defaults</span><span class="function-signature">()</span>:
+    
+    <a class="headerLink" href="#defaults" title="cma.options_parameters.CMAOptions.defaults">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return a dictionary with default option values and description</p></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.versatile_options">
+    
+  </a>
+  <a name="versatile_options">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">versatile_options</span><span class="function-signature">()</span>:
+    
+    <a class="headerLink" href="#versatile_options" title="cma.options_parameters.CMAOptions.versatile_options">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return list of options that can be changed at any time (not
+only be initialized).</p>
+<p>Consider that this list might not be entirely up
+to date.</p>
+<p>The string ' #v ' in the default value indicates a versatile
+option that can be changed any time, however a string will not
+necessarily be evaluated again.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span><span class="function-signature">(self, key, default=None, loc=None)</span>:
+    
+    <a class="headerLink" href="#__call__" title="cma.options_parameters.CMAOptions.__call__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>evaluate and return the value of option <code>key</code> on the fly, or
+return those options whose name or description contains <code>key</code>,
+case disregarded.</p>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p>Keys that contain <code>filename</code> are not evaluated.
+For <tt class="rst-docutils literal"><span class="pre">loc==None</span></tt>, <code>self</code> is used as environment
+but this does not define <tt class="rst-docutils literal">N</tt>.</p>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#eval" class="internal-link" title="cma.options_parameters.CMAOptions.eval">eval()</a></code>, <code><a href="#evalall" class="internal-link" title="cma.options_parameters.CMAOptions.evalall">evalall()</a></code></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, s=None, **kwargs)</span>:
+    
+    <a class="headerLink" href="#__init__" title="cma.options_parameters.CMAOptions.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return an <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code> instance.</p>
+<p>Return default options if <tt class="rst-docutils literal">s is None and not kwargs</tt>,
+or all options whose name or description contains <code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code>, if
+<code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code> is a (search) string (case is disregarded in the match),
+or with entries from dictionary <code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code> as options,
+or with kwargs as options if <tt class="rst-docutils literal">s is None</tt>,
+in any of the latter cases not complemented with default options
+or settings.</p>
+<p>Returns: see above.</p>
+<p>Details: as several options start with <tt class="rst-docutils literal">'s'</tt>, <tt class="rst-docutils literal">s=value</tt> is
+not valid as an option setting.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.amend_integer_options">
+    
+  </a>
+  <a name="amend_integer_options">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">amend_integer_options</span><span class="function-signature">(self, dimension, inopts)</span>:
+    
+    <a class="headerLink" href="#amend_integer_options" title="cma.options_parameters.CMAOptions.amend_integer_options">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>amend options when integer variables are indicated</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.amend_integer_variables">
+    
+  </a>
+  <a name="amend_integer_variables">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">amend_integer_variables</span><span class="function-signature">(self, dimension)</span>:
+    
+    <a class="headerLink" href="#amend_integer_variables" title="cma.options_parameters.CMAOptions.amend_integer_variables">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>removed fixed variables from the integer variable index values</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.check">
+    
+  </a>
+  <a name="check">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">check</span><span class="function-signature">(self, options=None)</span>:
+    
+    <a class="headerLink" href="#check" title="cma.options_parameters.CMAOptions.check">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>check for ambiguous keys and move attributes into dict</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.check_attributes">
+    
+  </a>
+  <a name="check_attributes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">check_attributes</span><span class="function-signature">(self, opts=None)</span>:
+    
+    <a class="headerLink" href="#check_attributes" title="cma.options_parameters.CMAOptions.check_attributes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>check for attributes and moves them into the dictionary</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.check_values">
+    
+  </a>
+  <a name="check_values">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">check_values</span><span class="function-signature">(self, options=None)</span>:
+    
+    <a class="headerLink" href="#check_values" title="cma.options_parameters.CMAOptions.check_values">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.complement">
+    
+  </a>
+  <a name="complement">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">complement</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#complement" title="cma.options_parameters.CMAOptions.complement">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>add all missing options with their default values</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.corrected_key">
+    
+  </a>
+  <a name="corrected_key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">corrected_key</span><span class="function-signature">(self, key)</span>:
+    
+    <a class="headerLink" href="#corrected_key" title="cma.options_parameters.CMAOptions.corrected_key">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return the matching valid key, if <tt class="rst-docutils literal">key.lower()</tt> is a unique
+starting sequence to identify the valid key, <tt class="rst-docutils literal">else None</tt></p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.eval">
+    
+  </a>
+  <a name="eval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">eval</span><span class="function-signature">(self, key, default=None, loc=None, correct_key=True)</span>:
+    
+    <a class="headerLink" href="#eval" title="cma.options_parameters.CMAOptions.eval">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Evaluates and sets the specified option value in
+environment <code>loc</code>. Many options need <tt class="rst-docutils literal">N</tt> to be defined in
+<code>loc</code>, some need <code><a href="cma.options_parameters.CMAParameters.html#popsize" class="internal-link" title="cma.options_parameters.CMAParameters.popsize">popsize</a></code>.</p>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p>Keys that contain 'filename' are not evaluated.
+For <code>loc</code> is None, the self-dict is used as environment</p>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#evalall" class="internal-link" title="cma.options_parameters.CMAOptions.evalall">evalall()</a></code>, <code><a href="#__call__" class="internal-link" title="cma.options_parameters.CMAOptions.__call__">__call__</a></code></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.evalall">
+    
+  </a>
+  <a name="evalall">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">evalall</span><span class="function-signature">(self, loc=None, defaults=None)</span>:
+    
+    <a class="headerLink" href="#evalall" title="cma.options_parameters.CMAOptions.evalall">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Evaluates all option values in environment <code>loc</code>.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#eval" class="internal-link" title="cma.options_parameters.CMAOptions.eval">eval()</a></code></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.from_namedtuple">
+    
+  </a>
+  <a name="from_namedtuple">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">from_namedtuple</span><span class="function-signature">(self, t)</span>:
+    
+    <a class="headerLink" href="#from_namedtuple" title="cma.options_parameters.CMAOptions.from_namedtuple">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>update options from a <code>collections.namedtuple</code>.
+:See also: <code><a href="#to_namedtuple" class="internal-link" title="cma.options_parameters.CMAOptions.to_namedtuple">to_namedtuple</a></code></p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.init">
+    
+  </a>
+  <a name="init">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">init</span><span class="function-signature">(self, dict_or_str, val=None, warn=True)</span>:
+    
+    <a class="headerLink" href="#init" title="cma.options_parameters.CMAOptions.init">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>initialize one or several options.</p>
+<div class="rst-section" id="rst-arguments">
+<h2 class="heading">Arguments</h2>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code>dict_or_str</code></dt>
+<dd>a dictionary if <tt class="rst-docutils literal">val is None</tt>, otherwise a key.
+If <code>val</code> is provided <code>dict_or_str</code> must be a valid key.</dd>
+<dt><code>val</code></dt>
+<dd>value for key</dd>
+</dl>
+</blockquote>
+</div>
+<div class="rst-section" id="rst-details">
+<h2 class="heading">Details</h2>
+<p>Only known keys are accepted. Known keys are in <code><a href="#defaults" class="internal-link" title="cma.options_parameters.CMAOptions.defaults">CMAOptions.defaults()</a></code></p>
+</div>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.match">
+    
+  </a>
+  <a name="match">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">match</span><span class="function-signature">(self, s=<span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>)</span>:
+    
+    <a class="headerLink" href="#match" title="cma.options_parameters.CMAOptions.match">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return all options that match, in the name or the description,
+with string <code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code>, case is disregarded.</p>
+<p>Example: <tt class="rst-docutils literal"><span class="pre">cma.CMAOptions().match('verb')</span></tt> returns the verbosity
+options.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.pprint">
+    
+  </a>
+  <a name="pprint">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">pprint</span><span class="function-signature">(self, linebreak=80)</span>:
+    
+    <a class="headerLink" href="#pprint" title="cma.options_parameters.CMAOptions.pprint">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.set">
+    
+  </a>
+  <a name="set">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set</span><span class="function-signature">(self, dic, val=None, force=False)</span>:
+    
+    <a class="headerLink" href="#set" title="cma.options_parameters.CMAOptions.set">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>assign versatile options.</p>
+<p>Method <code><a href="#versatile_options" class="internal-link" title="cma.options_parameters.CMAOptions.versatile_options">CMAOptions.versatile_options</a></code> () gives the versatile
+options, use <code><a href="#init" class="internal-link" title="cma.options_parameters.CMAOptions.init">init()</a></code> to set the others.</p>
+<div class="rst-section" id="rst-arguments">
+<h2 class="heading">Arguments</h2>
+<blockquote>
+<dl class="rst-docutils">
+<dt><code>dic</code></dt>
+<dd>either a dictionary or a key. In the latter
+case, <code>val</code> must be provided</dd>
+<dt><code>val</code></dt>
+<dd>value for <code>key</code>, approximate match is sufficient</dd>
+<dt><code>force</code></dt>
+<dd>force setting of non-versatile options, use with caution</dd>
+</dl>
+</blockquote>
+<p>This method will be most probably used with the <tt class="rst-docutils literal">opts</tt> attribute of
+a <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> instance.</p>
+</div>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.set_integer_min_std">
+    
+  </a>
+  <a name="set_integer_min_std">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_integer_min_std</span><span class="function-signature">(self, N, mueff)</span>:
+    
+    <a class="headerLink" href="#set_integer_min_std" title="cma.options_parameters.CMAOptions.set_integer_min_std">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>set lower std bounds for integer variables.</p>
+<p>Uses the above defined <code><a href="cma.options_parameters.html#integer_std_lower_bound" class="internal-link" title="cma.options_parameters.integer_std_lower_bound">integer_std_lower_bound</a></code> function which can
+be reassigned.</p>
+</div>
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.settable">
+    
+  </a>
+  <a name="settable">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">settable</span> =
+    
+    <a class="headerLink" href="#settable" title="cma.options_parameters.CMAOptions.settable">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>return the subset of those options that are settable at any
+time.</p>
+<p>Settable options are in <code><a href="#versatile_options" class="internal-link" title="cma.options_parameters.CMAOptions.versatile_options">versatile_options</a></code> (), but the
+list might be incomplete.</p>
+</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.options_parameters.CMAOptions.to_namedtuple">
+    
+  </a>
+  <a name="to_namedtuple">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">to_namedtuple</span> =
+    
+    <a class="headerLink" href="#to_namedtuple" title="cma.options_parameters.CMAOptions.to_namedtuple">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>return options as const attributes of the returned object,
+only useful for inspection.</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="cma.options_parameters.CMAOptions._hsig">
+    
+  </a>
+  <a name="_hsig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_hsig</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#_hsig" title="cma.options_parameters.CMAOptions._hsig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="cma.options_parameters.CMAOptions._ps_for_pc">
+    
+  </a>
+  <a name="_ps_for_pc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ps_for_pc</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#_ps_for_pc" title="cma.options_parameters.CMAOptions._ps_for_pc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="cma.options_parameters.CMAOptions._stationary_sphere">
+    
+  </a>
+  <a name="_stationary_sphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_stationary_sphere</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#_stationary_sphere" title="cma.options_parameters.CMAOptions._stationary_sphere">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.options_parameters.CMAOptions._attributes">
+    
+  </a>
+  <a name="_attributes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_attributes</span> =
+    
+    <a class="headerLink" href="#_attributes" title="cma.options_parameters.CMAOptions._attributes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.options_parameters.CMAOptions._lock_setting">
+    
+  </a>
+  <a name="_lock_setting">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_lock_setting</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#_lock_setting" title="cma.options_parameters.CMAOptions._lock_setting">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.1 at 2024-09-02 23:31:09.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

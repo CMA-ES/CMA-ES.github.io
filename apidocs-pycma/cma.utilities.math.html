@@ -226,6 +226,16 @@
         
 
         
+            <div class="itemName"><code><a href="#normal_ppf" class="internal-link" title="cma.utilities.math.normal_ppf">normal<wbr></wbr>_ppf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#randhss" class="internal-link" title="cma.utilities.math.randhss">randhss</a></code>
             </div>
         
@@ -374,7 +384,7 @@ functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id458">
+          <table class="children sortable" id="id464">
   
   
   <tr class="class">
@@ -407,6 +417,11 @@ functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="
     <td>Function</td>
     <td><code><a href="#moving_average" class="internal-link" title="cma.utilities.math.moving_average">moving<wbr></wbr>_average</a></code></td>
     <td>rolling average without biasing boundary effects.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#normal_ppf" class="internal-link" title="cma.utilities.math.normal_ppf">normal<wbr></wbr>_ppf</a></code></td>
+    <td>return an approximation of the inverse cdf value of a standard normal distribution,</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -559,6 +574,108 @@ scales quadratically with the length of <code>x</code>.</p>
 </div><div class="basefunction">
   
   
+  <a name="cma.utilities.math.normal_ppf">
+    
+  </a>
+  <a name="normal_ppf">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">normal_ppf</span><span class="function-signature">(p)</span>:
+    
+    <a class="headerLink" href="#normal_ppf" title="cma.utilities.math.normal_ppf">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return an approximation of the inverse cdf value of a standard normal distribution,</p>
+<p>assuming 0 &lt; p &lt;= 1/2. This is the "sigma" for which the tail
+distribution has probability <code>p</code> (AKA quantile or percentile point
+function).</p>
+<p>For <tt class="rst-docutils literal">p=1/2</tt> we have <tt class="rst-docutils literal">sigma = 0</tt>. The approximation <tt class="rst-docutils literal">0.79 + 1.49 x
+<span class="pre">sqrt(-log(p))</span> + alpha x sqrt(p)</tt>, where alpha=0.637... is such that
+p=1/2 maps to sigma=0, has a sigma error within [-0.02, 0.029] for <tt class="rst-docutils literal">p
+&gt;= <span class="pre">1e-12</span></tt> and for <tt class="rst-docutils literal">p &gt;= <span class="pre">1e-22</span></tt> with an additional correction as
+applied. The error is less than 0.0121 for all p &lt;= 0.1. The relative
+sigma error for p-&gt;1/2 and hence sigma-&gt;0 is &lt; 0.11.</p>
+<p>The input <code>p</code> may be an <code>np.array</code>.</p>
+<p>The following is the Python code to assess the accuracy:</p>
+<pre class="rst-literal-block">
+%pylab
+import scipy
+from scipy import stats
+import cma
+
+normal_ppf = cma.utilities.math.normal_ppf
+
+pp = np.logspace(-15, np.log10(0.5), 5400)  # target tail probabilities
+
+if 1 &lt; 3:  # sigma vs p
+    figure(53)
+    gcf().clear()
+    grid(True, which='both')
+    xlabel('tail probability')
+    ylabel('sigma')
+    semilogx(pp, normal_ppf(pp), label='approximation')
+    semilogx(pp, scipy.stats.norm.ppf(pp), label='true')
+    legend()
+    # semilogx(pp, -sqrt(7 * log(1/pp/4 + pp)) / 2)
+    # semilogx(pp, -scipy.stats.norm.ppf(pp/2))
+    # semilogx(pp, sqrt(7 * log((1/pp + pp) / 2)) / 2)
+if 1 &lt; 3:  # Delta sigma vs p
+    figure(54)
+    gcf().clear()
+    grid(True, which='both')
+    xlabel('tail probability')
+    ylabel('sigma difference (error)')
+    semilogx(pp, normal_ppf(pp) - scipy.stats.norm.ppf(pp),
+            label='absolute')
+    abs_error = max(np.abs(normal_ppf(pp) - scipy.stats.norm.ppf(pp)))
+    semilogx(pp, (normal_ppf(pp) - scipy.stats.norm.ppf(pp)) / np.maximum(1e-12, -scipy.stats.norm.ppf(pp)),
+            label='relative')
+    rel_error = max((normal_ppf(pp) - scipy.stats.norm.ppf(pp))
+                      / np.maximum(1e-12, -scipy.stats.norm.ppf(pp)))
+    ylim(-max(np.abs(ylim())), max(np.abs(ylim())))
+    text(xlim()[0], ylim()[0] * 0.98,
+        ' the largest absolute and relative errors are {} and {}'
+        .format(np.round(abs_error, 6), np.round(rel_error, 6)))
+    legend()
+if 11 &lt; 3:
+    figure(55)
+    gcf().clear()
+    grid(True, which='both')
+    xlabel('tail probability')
+    ylabel('sigma ratio')
+    semilogx(pp, normal_ppf(pp) / scipy.stats.norm.ppf(pp))
+if 11 &lt; 3:
+    figure(56)
+    gcf().clear()
+    ylabel('probability ratio')
+    xlabel('sigma')
+    plot(stats.norm.ppf(pp), stats.norm.cdf(normal_ppf(pp)) / pp)
+    grid(True, which='both')
+if 1 &lt; 3:  # true p of sigma vs p input
+    figure(56)
+    gcf().clear()
+    ylabel('true probability ratio')
+    xlabel('tail probability (input)')
+    semilogx(pp, pp / stats.norm.cdf(normal_ppf(pp)))
+    grid(True, which='both')
+</pre>
+<p>The approximation is by construction exact for p=1/2. For small
+probabilities (sigma &lt; -7), the probability is quite sensitive: roughly
+speaking, a Delta sigma of 0.05 / 0.25 / 1 changes the probability by a
+factor of 1.4 / 3 / 50, respectively.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="cma.utilities.math.randhss">
     
   </a>
@@ -673,7 +790,7 @@ dimension.</p></div>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-07-05 16:10:24.
+    23.9.1 at 2024-09-02 23:31:09.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
