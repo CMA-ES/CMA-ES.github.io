@@ -309,7 +309,7 @@ optimization is still running.</P>
 Lu&iacute;s Correia for the advise). </P>
 
 <H2><A name="python">Python</A></H2>
-<A HREF="https://pypi.python.org/pypi/cma"><code>pycma</code></A> is a production code with a functional interface <code>cma.fmin()</code> and the class <code>cma.CMAEvolutionStrategy</code> with <i>ask-and-tell</i> interface (see <A href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#collette2010">Collette et al 2010</A> and <A HREF="#OOOptimizer">below</A>). An improved boundary handling is implemented and many more features that are useful in practice: a variety of termination and verbosity options, variable scaling, variable shading.
+<A HREF="https://pypi.python.org/pypi/cma"><code>pycma</code></A> is a production code with a functional interface <code>cma.fmin2()</code> and the class <code>cma.CMAEvolutionStrategy</code> with <i>ask-and-tell</i> interface (see <A href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/publications.html#collette2010">Collette et al 2010</A> and <A HREF="#OOOptimizer">below</A>). An improved boundary handling is implemented and many more features that are useful in practice: a variety of termination and verbosity options, variable scaling, variable masking...
 <UL>
     <LI>Installation of the latest release from <A HREF="https://pypi.python.org/pypi/cma">PyPI/cma</A> 
     at the <A HREF="https://pypi.python.org/pypi">Python Package Index</A>:
@@ -338,6 +338,13 @@ The <A HREF="https://pypi.python.org/pypi/cma"><code>pycma</code></A> module inc
 
 
 <H3><A name="python-remarks">Remarks about Python (as of 2013)</H3>
+
+[EDIT 2024] Installing (a recent) Python using <A HREF="https://docs.conda.io/projects/conda/en/stable/user-guide/install">conda</A>, by creating a new python environment/installation (downloading ~140MB), named py312, and activating the environment in the current shell and installing the <A HREF="https://pypi.python.org/pypi/cma">pycma</A> package:
+<pre>
+    conda create --name py312 python=3.12 scipy matplotlib jupyter ipython pandas scikit-learn
+    conda activate py312
+    pip install cma
+</pre>
 
 Python is (arguably) the <A HREF="http://pypl.github.io/PYPL.html">
 <!--"https://sites.google.com/site/pydatalog/pypl/PyPL-PopularitY-of-Programming-Language"-->
