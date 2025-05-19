@@ -313,6 +313,16 @@
         
 
         
+            <div class="itemName"><code><a href="#dixonprice" class="internal-link" title="cma.fitness_functions.FitnessFunctions.dixonprice">dixonprice</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#elli" class="internal-link" title="cma.fitness_functions.FitnessFunctions.elli">elli</a></code>
             </div>
         
@@ -995,7 +1005,7 @@
         
 
         
-            <div class="itemName"><code><a href="cma.fitness_functions._F_0.html" class="internal-link" title="cma.fitness_functions._F_0">_F<wbr></wbr>_0</a></code>
+            <div class="itemName"><code><a href="cma.fitness_functions._coco_F_0.html" class="internal-link" title="cma.fitness_functions._coco_F_0">_coco_<wbr></wbr>F_0</a></code>
             </div>
         
 
@@ -1099,7 +1109,7 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id329">
+          <table class="children sortable" id="id332">
   
   
   <tr class="staticmethod">
@@ -1177,6 +1187,11 @@
     <td>Method</td>
     <td><code><a href="#diffpow" class="internal-link" title="cma.fitness_functions.FitnessFunctions.diffpow">diffpow</a></code></td>
     <td>Diffpow test objective function</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#dixonprice" class="internal-link" title="cma.fitness_functions.FitnessFunctions.dixonprice">dixonprice</a></code></td>
+    <td>Dixon-Price function.</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -1391,7 +1406,7 @@
     
     <td>Method</td>
     <td><code><a href="#rot" class="internal-link" title="cma.fitness_functions.FitnessFunctions.rot">rot</a></code></td>
-    <td>returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code><a href="cma.fitness_functions._F_0.html#fun" class="internal-link" title="cma.fitness_functions._F_0.fun">fun</a></code> applied to a rotated argument</td>
+    <td>returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code><a href="cma.fitness_functions._coco_F_0.html#fun" class="internal-link" title="cma.fitness_functions._coco_F_0.fun">fun</a></code> applied to a rotated argument</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -1879,6 +1894,40 @@ axes to <code>n_axes</code>, respectively.</p>
   <div class="docstring functionBody">
     
     <div><p>Diffpow test objective function</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.fitness_functions.FitnessFunctions.dixonprice">
+    
+  </a>
+  <a name="dixonprice">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">dixonprice</span><span class="function-signature">(self, x)</span>:
+    
+    <a class="headerLink" href="#dixonprice" title="cma.fitness_functions.FitnessFunctions.dixonprice">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Dixon-Price function.</p>
+<p>The function has a local attractor at <tt class="rst-docutils literal">[1/3, 0, <span class="pre">...,</span> 0]</tt> which
+starts to dominate for dimensions larger than about five. The
+global optimum is <tt class="rst-docutils literal">[1, 0.70710678, <span class="pre">...]</span></tt> with the limit of 1/2
+for increasing index.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">xstar</span>(n):
+<span class="py-more">... </span>    <span class="py-keyword">return</span> [2**-((2**i - 2) / 2**i) <span class="py-keyword">for</span> i <span class="py-keyword">in</span> <span class="py-builtin">range</span>(1, n + 1)]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> cma.ff.dixonprice(xstar(4)) &lt; 1e-11, cma.ff.dixonprice(xstar(4))</pre><p>see <a class="rst-reference external" href="https://al-roomi.org/benchmarks/unconstrained/n-dimensions/236-dixon-price-s-function" target="_top">https://al-roomi.org/benchmarks/unconstrained/n-dimensions/236-dixon-price-s-function</a></p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -2927,7 +2976,7 @@ Function"</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code><a href="cma.fitness_functions._F_0.html#fun" class="internal-link" title="cma.fitness_functions._F_0.fun">fun</a></code> applied to a rotated argument</p></div>
+    <div><p>returns <tt class="rst-docutils literal">fun(rotation(x), *args)</tt>, ie. <code><a href="cma.fitness_functions._coco_F_0.html#fun" class="internal-link" title="cma.fitness_functions._coco_F_0.fun">fun</a></code> applied to a rotated argument</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -3479,7 +3528,7 @@ continuous values. The most logical domain boundary values are now
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-09-02 23:31:09.
+    23.9.1 at 2025-05-19 11:18:36.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

@@ -475,6 +475,16 @@
         
 
         
+            <div class="itemName"><code><a href="cma.boundary_handler.html" class="internal-link" title="cma.boundary_handler">boundary<wbr></wbr>_handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints<wbr></wbr>_handler</a></code>
             </div>
         
@@ -751,7 +761,7 @@ functions.</p></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id318">
+          <table class="children sortable" id="id321">
   
   
   <tr class="class">
@@ -904,7 +914,7 @@ functions.</p></div>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">fmin</span><span class="function-signature">(objective_function, x0, sigma0, options=None, args=(), gradf=None, restarts=0, restart_from_best=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False</span><span class="rst-variable-quote">'</span>, incpopsize=2, eval_initial_x=False, parallel_objective=None, noise_handler=None, noise_change_sigma_exponent=1, noise_kappa_exponent=0, bipop=False, callback=None, init_callback=None)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">fmin</span><span class="function-signature">(objective_function, x0, sigma0, options=None, args=(), gradf=None, restarts=0, restart_from_best=False, incpopsize=2, eval_initial_x=False, parallel_objective=None, noise_handler=None, noise_change_sigma_exponent=1, noise_kappa_exponent=0, bipop=False, callback=None, init_callback=None)</span>:
     
     <a class="headerLink" href="#fmin" title="cma.evolution_strategy.fmin">
       
@@ -1172,7 +1182,7 @@ of solutions as input:</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">fmin2</span><span class="function-signature">(objective_function, x0, sigma0, options=None, args=(), gradf=None, restarts=0, restart_from_best=<span class="rst-variable-quote">'</span><span class="rst-variable-string">False</span><span class="rst-variable-quote">'</span>, incpopsize=2, eval_initial_x=False, parallel_objective=None, noise_handler=None, noise_change_sigma_exponent=1, noise_kappa_exponent=0, bipop=False, callback=None, init_callback=None)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">fmin2</span><span class="function-signature">(objective_function, x0, sigma0, options=None, args=(), gradf=None, restarts=0, restart_from_best=False, incpopsize=2, eval_initial_x=False, parallel_objective=None, noise_handler=None, noise_change_sigma_exponent=1, noise_kappa_exponent=0, bipop=False, callback=None, init_callback=None)</span>:
     
     <a class="headerLink" href="#fmin2" title="cma.evolution_strategy.fmin2">
       
@@ -1183,19 +1193,20 @@ of solutions as input:</p>
   <div class="docstring functionBody">
     
     <div><p>wrapper around <code>cma.fmin</code> returning the tuple <tt class="rst-docutils literal">(xbest, es)</tt>,</p>
-<p>and with the same in input arguments as <code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code>. Hence a typical
-calling pattern may be:</p>
+<p>and with the same input arguments as <code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code>. Possible calling patterns
+are:</p>
 <pre class="rst-literal-block">
 x, es = cma.fmin2(...)  # recommended pattern
 es = cma.fmin2(...)[1]  # `es` contains all available information
 x = cma.fmin2(...)[0]   # keep only the best evaluated solution
 </pre>
-<p><code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> is an alias for:</p>
+<p>and <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> is an alias for:</p>
 <pre class="rst-literal-block">
 res = fmin(...)
 return res[0], res[-2]
 </pre>
-<p><code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> from <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> is:</p>
+<p>For descriptions of the input arguments see <code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code>.</p>
+<p>For completness, recovering the output of <code><a href="#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> from <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code>:</p>
 <pre class="rst-literal-block">
 es = fmin2(...)[1]  # fmin2(...)[0] is es.result[0]
 return es.result + (es.stop(), es, es.logger)
@@ -1764,7 +1775,7 @@ not sure what happens if set to <tt class="rst-docutils literal">False</tt>.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-09-02 23:31:09.
+    23.9.1 at 2025-05-19 11:18:36.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

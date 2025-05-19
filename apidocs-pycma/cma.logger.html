@@ -289,6 +289,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#last_plot_arguments" class="internal-link" title="cma.logger.last_plot_arguments">last<wbr></wbr>_plot<wbr></wbr>_arguments</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -326,6 +336,16 @@
 
         
             <div class="itemName"><code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.boundary_handler.html" class="internal-link" title="cma.boundary_handler">boundary<wbr></wbr>_handler</a></code>
             </div>
         
 
@@ -609,7 +629,7 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id384">
+          <table class="children sortable" id="id387">
   
   
   <tr class="class">
@@ -641,7 +661,7 @@
     
     <td>Function</td>
     <td><code><a href="#plot" class="internal-link" title="cma.logger.plot">plot</a></code></td>
-    <td>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, the call <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a shortcut for <tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).plot(**argsdict)</span></tt></td>
+    <td>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, see <code><a href="cma.logger.CMADataLogger.html#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">CMADataLogger.plot</a></code>.</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -661,6 +681,11 @@
     
     <td>Variable</td>
     <td><code><a href="#last_figure_number" class="internal-link" title="cma.logger.last_figure_number">last<wbr></wbr>_figure<wbr></wbr>_number</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#last_plot_arguments" class="internal-link" title="cma.logger.last_plot_arguments">last<wbr></wbr>_plot<wbr></wbr>_arguments</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="function private">
     
@@ -771,7 +796,7 @@ cma.disp(idx=r_[0:int(1e9):1000, -10:0])
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(name=None, fig=None, abscissa=0, iteridx=None, plot_mean=False, foffset=1e-19, x_opt=None, fontsize=7, downsample_to=3000.0, xsemilog=None, xnormalize=None, fshift=0, addcols=None, **kwargs)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(name=None, fig=None, abscissa=0, downsample_to=3000.0, xsemilog=None, xnormalize=None, **kwargs)</span>:
     
     <a class="headerLink" href="#plot" title="cma.logger.plot">
       
@@ -781,57 +806,16 @@ cma.disp(idx=r_[0:int(1e9):1000, -10:0])
   </div>
   <div class="docstring functionBody">
     
-    <div><p>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>,
-the call <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a shortcut for
-<tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).plot(**argsdict)</span></tt></p>
-<div class="rst-section" id="rst-arguments">
-<h2 class="heading">Arguments</h2>
-<dl class="rst-docutils">
-<dt><code>name</code></dt>
-<dd>name of the logger, filename prefix, None evaluates to
-the default 'outcmaes/'</dd>
-<dt><code>fig</code></dt>
-<dd>filename or figure number, or both as a tuple (any order)</dd>
-<dt><code>abscissa</code></dt>
-<dd>0==plot versus iteration count,
-1==plot versus function evaluation number</dd>
-<dt><code>iteridx</code></dt>
-<dd>iteration indices to plot</dd>
-<dt><code>x_opt</code></dt>
-<dd>If <code>isscalar(x_opt)</code> it is interpreted as iteration number and the
-difference of <tt class="rst-docutils literal">x</tt> to the respective iteration is plotted. If it is
-a negative scalar the respective index rather than the iteration is used.
-Namely in particular, <tt class="rst-docutils literal">x_opt=0</tt> subtracts the initial solution <tt class="rst-docutils literal">X0</tt>
-and <tt class="rst-docutils literal"><span class="pre">x_opt=-1</span></tt> subtracts the final solution of the data.
-If <tt class="rst-docutils literal">len(x_opt) == dimension</tt>, the difference to <code>x_opt</code> is
-plotted, otherwise the first row of <tt class="rst-docutils literal">x_opt</tt> are the indices of
-the variables to be plotted and the second row, if present, is used
-to take the difference.</dd>
-<dt><code>xsemilog</code></dt>
-<dd>customized semilog plot for x-values</dd>
-<dt><code>fshift</code></dt>
-<dd>is added to plotted and shown f-values</dd>
-</dl>
-<p>Return <code>None</code></p>
+    <div><p>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, see <code><a href="cma.logger.CMADataLogger.html#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">CMADataLogger.plot</a></code>.</p>
+<p><tt class="rst-docutils literal">cma.plot()</tt> plots the data from the default output folder (which is
+by default always overwritten). <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a
+shortcut for <tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).plot(**argsdict)</span></tt>.</p>
+<p><code>name</code> is the filename prefix of the logger, <code>None</code> evaluates to the
+default <tt class="rst-docutils literal">'outcmaes/'</tt> (hence writing in a subfolder).</p>
+<p>The explictly given arguments are for backwards compatibility of their
+default setting and may disappear. All arguments are documented in
+<code><a href="cma.logger.CMADataLogger.html#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">CMADataLogger.plot</a></code>.</p>
 </div>
-<div class="rst-section" id="rst-examples">
-<h2 class="heading">Examples</h2>
-<pre class="rst-literal-block">
-cma.plot()  # the optimization might be still
-            # running in a different shell
-cma.s.figsave('fig325.png')
-cma.s.figclose()
-
-cdl = cma.CMADataLogger().downsampling().plot()
-# in case the file sizes are large
-</pre>
-</div>
-<div class="rst-section" id="rst-details">
-<h2 class="heading">Details</h2>
-<p>Data from codes in other languages (C, Java, Matlab, Scilab) have the same
-format and can be plotted just the same.</p>
-</div>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, <code><a href="cma.logger.CMADataLogger.html#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">CMADataLogger.plot</a></code></td></tr></table></div>
   </div>
 </div><div class="basefunction">
   
@@ -943,6 +927,30 @@ default plot data folder and <tt class="rst-docutils literal">filename</tt> is c
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.logger.last_plot_arguments">
+    
+  </a>
+  <a name="last_plot_arguments">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">last_plot_arguments</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#last_plot_arguments" title="cma.logger.last_plot_arguments">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
 </div><div class="basefunction private">
   
   
@@ -1008,7 +1016,7 @@ Currently we assume it was written "on purpose" twice.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-09-02 23:31:09.
+    23.9.1 at 2025-05-19 11:18:36.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

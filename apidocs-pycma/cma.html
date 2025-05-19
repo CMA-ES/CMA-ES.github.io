@@ -148,9 +148,8 @@
       <div>
          
           <div class="childrenKindTitle">Contents</div>
-          <ul><li><a class="rst-reference internal" href="#rst-install" id="rst-toc-entry-1">Install</a></li>
-<li><a class="rst-reference internal" href="#rst-testing" id="rst-toc-entry-2">Testing</a></li>
-<li><a class="rst-reference internal" href="#rst-example" id="rst-toc-entry-3">Example</a></li>
+          <ul><li><a class="rst-reference internal" href="#rst-testing" id="rst-toc-entry-1">Testing</a></li>
+<li><a class="rst-reference internal" href="#rst-example" id="rst-toc-entry-2">Example</a></li>
 </ul>
         
 
@@ -174,6 +173,16 @@
 
         
             <div class="itemName"><code><a href="cma.bbobbenchmarks.html" class="internal-link" title="cma.bbobbenchmarks">bbobbenchmarks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.boundary_handler.html" class="internal-link" title="cma.boundary_handler">boundary<wbr></wbr>_handler</a></code>
             </div>
         
 
@@ -457,15 +466,15 @@
 Evolution Strategy).</p>
 <p>CMA-ES is a stochastic optimizer for robust non-linear non-convex
 derivative- and function-value-free numerical optimization.</p>
-<p>This implementation can be used with Python versions &gt;= 2.7, namely,
-it was tested with 2.7, 3.5, 3.6, 3.7, 3.8.</p>
+<p>This release was tested with Python versions 3.8 to 3.13. The
+implementation is intended to be compatible with Python &gt;= 2.7.</p>
 <p>CMA-ES searches for a minimizer (a solution x in <span class="rst-formula"><i>R</i><sup><i>n</i></sup></span>) of an
-objective function f (cost function), such that f(x) is minimal.
-Regarding f, only a passably reliable ranking of the candidate
-solutions in each iteration is necessary. Neither the function values
-itself, nor the gradient of f need to be available or do matter (like
-in the downhill simplex Nelder-Mead algorithm). Some termination
-criteria however depend on actual f-values.</p>
+objective function f (cost function), such that f(x) is minimal. Regarding
+f, only a passably reliable ranking of the candidate solutions in each
+iteration is necessary. Neither the function values themselves, nor the
+gradient of f need to be available or do matter, like in the downhill
+simplex Nelder-Mead algorithm. Some termination criteria however depend on
+actual Delta f-values.</p>
 <p>The <code><a href="index.html" class="internal-link">cma</a></code> module provides two independent implementations of the
 CMA-ES algorithm in the classes <code>cma.CMAEvolutionStrategy</code> and
 <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code>.</p>
@@ -474,37 +483,23 @@ CMA-ES algorithm in the classes <code>cma.CMAEvolutionStrategy</code> and
 <li><dl class="rst-first rst-docutils">
 <dt>functions <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> and <code><a href="cma.purecma.html#fmin" class="internal-link" title="cma.purecma.fmin">purecma.fmin</a></code>:</dt>
 <dd>run a complete minimization of the passed objective function with
-CMA-ES. <code>fmin</code> also provides optional restarts and noise handling.</dd>
+CMA-ES. <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> also provides optional restarts and noise handling.</dd>
 </dl>
 </li>
 <li><dl class="rst-first rst-docutils">
-<dt>class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> and <code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">purecma.CMAES</a></code>:</dt>
-<dd>allow for minimization such that the control of the iteration
-loop remains with the user.</dd>
+<dt>class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> (and the alias <code>CMA</code>) and <code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">purecma.CMAES</a></code>:</dt>
+<dd>allow for minimization such that the control of the iteration loop
+remains with the user. <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> returns an instance of
+<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>.</dd>
 </dl>
 </li>
 </ul>
-<p>The <code><a href="index.html" class="internal-link">cma</a></code> package root provides shortcuts to these and other classes and
-functions.</p>
-<p>Used external packages are <code>numpy</code> (only <code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code> does not depend on
-<code>numpy</code>) and <code>matplotlib.pyplot</code> (for <code><a href="cma.logger.html#plot" class="internal-link" title="cma.logger.plot">plot</a></code> etc., optional but highly
-recommended).</p>
-<div class="rst-section" id="rst-install">
-<h2 class="heading">Install</h2>
-<p>To install the package from <a class="rst-reference external" href="https://pypi.org/project/cma" target="_top">PyPI</a> with <a class="rst-reference external" href="https://pip.pypa.io" target="_top">pip</a>, type:</p>
-<pre class="rst-literal-block">
-pip install cma
-</pre>
-<p>from the command line.</p>
-<p>To install the package from a <tt class="rst-docutils literal">cma</tt> folder:</p>
-<pre class="rst-literal-block">
-pip install -e cma
-</pre>
-<p>To upgrade the currently installed version use additionally the <tt class="rst-docutils literal"><span class="pre">-U</span></tt>
-option.</p>
-<p>To use the package <a class="rst-reference external" href="https://github.com/CMA-ES/pycma" target="_top">from source</a>, only the source folder <tt class="rst-docutils literal">cma</tt> needs to
-be visible in the python path, e.g. in the current working directory.</p>
-</div>
+<p>Additionally, <code><a href="cma.evolution_strategy.html#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code> provides constrained optimization.</p>
+<p>For a quick start see below or confer to the notebook(s) <a class="rst-reference external" href="https://github.com/CMA-ES/pycma/blob/development/notebooks/notebook-usecases-basics.ipynb" target="_top">https://github.com/CMA-ES/pycma/blob/development/notebooks/notebook-usecases-basics.ipynb</a></p>
+<p><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> relies, in contrast to <code><a href="cma.purecma.html" class="internal-link">cma.purecma</a></code>, heavily on
+<code>numpy</code> and optionally on <code>matplotlib.pyplot</code> (for <code><a href="cma.logger.html#plot" class="internal-link" title="cma.logger.plot">plot</a></code> etc., optional
+but highly recommended).</p>
+<p>The source code is available at <a class="rst-reference external" href="https://github.com/CMA-ES/pycma" target="_top">https://github.com/CMA-ES/pycma</a>.</p>
 <div class="rst-section" id="rst-testing">
 <h2 class="heading">Testing</h2>
 <p>From the system shell:</p>
@@ -553,8 +548,13 @@ es.result[5]  # mean solution, presumably better with noise
   </tr><tr class="module">
     
     <td>Module</td>
+    <td><code><a href="cma.boundary_handler.html" class="internal-link" title="cma.boundary_handler">boundary<wbr></wbr>_handler</a></code></td>
+    <td>A collection of boundary (AKA box constraints) handling classes.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
     <td><code><a href="cma.constraints_handler.html" class="internal-link" title="cma.constraints_handler">constraints<wbr></wbr>_handler</a></code></td>
-    <td>A collection of boundary and (in future) constraints handling classes.</td>
+    <td>A collection of (nonlinear) constraints handling classes and helper functions.</td>
   </tr><tr class="module">
     
     <td>Module</td>
@@ -761,7 +761,7 @@ es.result[5]  # mean solution, presumably better with noise
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-09-02 23:31:09.
+    23.9.1 at 2025-05-19 11:18:36.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

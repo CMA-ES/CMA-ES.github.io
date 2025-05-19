@@ -392,6 +392,16 @@
         
 
         
+            <div class="itemName"><code><a href="#_clean_injected_solutions_archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._clean_injected_solutions_archive">_clean<wbr></wbr>_injected<wbr></wbr>_solutions<wbr></wbr>_archive</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_copy_light" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._copy_light">_copy<wbr></wbr>_light</a></code>
             </div>
         
@@ -1224,6 +1234,16 @@
         
 
         
+            <div class="itemName"><code><a href="#_is_independent_sample" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._is_independent_sample">_is<wbr></wbr>_independent<wbr></wbr>_sample</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_isotropic_mean_shift_iteration" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._isotropic_mean_shift_iteration">_isotropic<wbr></wbr>_mean<wbr></wbr>_shift<wbr></wbr>_iteration</a></code>
             </div>
         
@@ -1845,7 +1865,7 @@ a lower bound of 2.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span>es.optimize(cma.ff.rosen, verb_disp=0)  <span class="py-comment">#doctest: +ELLIPSIS</span>
 <span class="py-output">&lt;cma...</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> cma.ff.rosen(es.result[0]) &lt; 1e-7 + 5.54781521192, es.result
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[2] &lt; 3300, es.result</pre><p>The inverse transformation is (only) necessary if the <code><a href="cma.constraints_handler.BoundPenalty.html" class="internal-link" title="cma.constraints_handler.BoundPenalty">BoundPenalty</a></code>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result[2] &lt; 3300, es.result</pre><p>The inverse transformation is (only) necessary if the <code><a href="cma.boundary_handler.BoundPenalty.html" class="internal-link" title="cma.boundary_handler.BoundPenalty">BoundPenalty</a></code>
 boundary handler is used at the same time.</p>
 <p>The <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> class also provides a default logger
 (cave: files are overwritten when the logger is used with the same
@@ -1966,7 +1986,7 @@ but may not be "optimal" for mirrors.</p>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id324">
+          <table class="children sortable" id="id327">
   
   
   <tr class="method">
@@ -2397,6 +2417,11 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="method private">
     
     <td>Method</td>
+    <td><code><a href="#_clean_injected_solutions_archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._clean_injected_solutions_archive">_clean<wbr></wbr>_injected<wbr></wbr>_solutions<wbr></wbr>_archive</a></code></td>
+    <td>return indices of <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#pop" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop">pop</a></code> which are in <tt class="rst-docutils literal">self._injected_solutions_archive</tt> and</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
     <td><code><a href="#_copy_light" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._copy_light">_copy<wbr></wbr>_light</a></code></td>
     <td>tentative copy of self, versatile (interface and functionalities may change).</td>
   </tr><tr class="method private">
@@ -2472,6 +2497,11 @@ but may not be "optimal" for mirrors.</p>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
+    <td><code><a href="#_is_independent_sample" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._is_independent_sample">_is<wbr></wbr>_independent<wbr></wbr>_sample</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
     <td><code><a href="#_isotropic_mean_shift_iteration" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._isotropic_mean_shift_iteration">_isotropic<wbr></wbr>_mean<wbr></wbr>_shift<wbr></wbr>_iteration</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
@@ -2515,7 +2545,7 @@ but may not be "optimal" for mirrors.</p>
             <p class="inheritedFrom">
               Inherited from <code><a href="cma.interfaces.OOOptimizer.html" class="internal-link" title="cma.interfaces.OOOptimizer">OOOptimizer</a></code>:
             </p>
-            <table class="children sortable" id="id325">
+            <table class="children sortable" id="id328">
   
   
   <tr class="basemethod">
@@ -5037,6 +5067,33 @@ apply to <code>self.mean</code>.</p>
 </div><div class="basemethod private">
   
   
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._clean_injected_solutions_archive">
+    
+  </a>
+  <a name="_clean_injected_solutions_archive">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_clean_injected_solutions_archive</span><span class="function-signature">(self, pop)</span>:
+    
+    <a class="headerLink" href="#_clean_injected_solutions_archive" title="cma.evolution_strategy.CMAEvolutionStrategy._clean_injected_solutions_archive">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return indices of <code><a href="#pop" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.pop">pop</a></code> which are in <tt class="rst-docutils literal">self._injected_solutions_archive</tt> and</p>
+<p>were "externally" injected (non-TPA).</p>
+<p>Remove old entries from <tt class="rst-docutils literal">self._injected_solutions_archive</tt> and warn in case.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
   <a name="cma.evolution_strategy.CMAEvolutionStrategy._copy_light">
     
   </a>
@@ -5463,6 +5520,30 @@ non-documented attributes B and D in the sampler.</p>
 </div><div class="baseinstancevariable private">
   
   
+  <a name="cma.evolution_strategy.CMAEvolutionStrategy._is_independent_sample">
+    
+  </a>
+  <a name="_is_independent_sample">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_is_independent_sample</span> =
+    
+    <a class="headerLink" href="#_is_independent_sample" title="cma.evolution_strategy.CMAEvolutionStrategy._is_independent_sample">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
   <a name="cma.evolution_strategy.CMAEvolutionStrategy._isotropic_mean_shift_iteration">
     
   </a>
@@ -5668,7 +5749,7 @@ three apply to <code>self.mean</code>.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-09-02 23:31:09.
+    23.9.1 at 2025-05-19 11:18:36.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
