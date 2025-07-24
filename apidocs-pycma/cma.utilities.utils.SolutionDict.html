@@ -227,6 +227,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#truncate_to" class="internal-link" title="cma.utilities.utils.SolutionDict.truncate_to">truncate<wbr></wbr>_to</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -276,6 +286,16 @@
 
         
             <div class="itemName"><code><a href="#last_iteration" class="internal-link" title="cma.utilities.utils.SolutionDict.last_iteration">last<wbr></wbr>_iteration</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_unhashed_keys" class="internal-link" title="cma.utilities.utils.SolutionDict._unhashed_keys">_unhashed<wbr></wbr>_keys</a></code>
             </div>
         
 
@@ -667,7 +687,27 @@
         
 
         
+            <div class="itemName"><code><a href="cma.utilities.utils.html#round_indices" class="internal-link" title="cma.utilities.utils.round_indices">round<wbr></wbr>_indices</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.utilities.utils.html#set_attributes_from_dict" class="internal-link" title="cma.utilities.utils.set_attributes_from_dict">set<wbr></wbr>_attributes<wbr></wbr>_from<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.utils.html#tolist" class="internal-link" title="cma.utilities.utils.tolist">tolist</a></code>
             </div>
         
 
@@ -777,10 +817,14 @@ to store additional information related to the solution.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> d[y][<span class="py-string">'iteration'</span>] == 1
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> d.get(y) == (d[y] <span class="py-keyword">if</span> d.key(y) <span class="py-keyword">in</span> d.keys() <span class="py-keyword">else</span> <span class="py-builtin">None</span>)
 <span class="py-prompt">&gt;&gt;&gt; </span>d[2] = 3
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> d[2] == 3</pre><p>TODO: data_with_same_key behaves like a stack (see setitem and
-delitem), but rather should behave like a queue?! A queue is less
-consistent with the operation self[key] = ..., if
-self.data_with_same_key[key] is not empty.</p>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> d[2] == 3</pre><p><code><a href="#data_with_same_key" class="internal-link" title="cma.utilities.utils.SolutionDict.data_with_same_key">data_with_same_key</a></code> behaves (in contrast to the order of <tt class="rst-docutils literal">keys()</tt>)
+like a stack (see setitem and delitem). Thereby the last assignment
+<tt class="rst-docutils literal">self[key] = ...</tt> determines, as to be expected, the value of
+<tt class="rst-docutils literal">self[key]</tt> even when <tt class="rst-docutils literal">self.data_with_same_key[key]</tt> is not empty.</p>
+<p>CAVEAT: after a same-key item was removed, <tt class="rst-docutils literal">self[key]</tt> returns the
+previous value, however <tt class="rst-docutils literal">self._unhashed_keys[key]</tt> raises a
+<code>ValueError</code> as the unhashed entries for the remaining items with this
+key are not available as unhashed keys are not stacked.</p>
 <p>TODO: iteration key is used to clean up without error management</p>
 </div>
         </div>
@@ -824,6 +868,11 @@ self.data_with_same_key[key] is not empty.</p>
     <td>Method</td>
     <td><code><a href="#truncate" class="internal-link" title="cma.utilities.utils.SolutionDict.truncate">truncate</a></code></td>
     <td>truncate to <tt class="rst-docutils literal">max_len/2</tt> when <tt class="rst-docutils literal">len(self) &gt; max_len</tt>.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#truncate_to" class="internal-link" title="cma.utilities.utils.SolutionDict.truncate_to">truncate<wbr></wbr>_to</a></code></td>
+    <td>truncate to length <code>len_</code> removing the oldest entries</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
@@ -833,6 +882,11 @@ self.data_with_same_key[key] is not empty.</p>
     
     <td>Instance Variable</td>
     <td><code><a href="#last_iteration" class="internal-link" title="cma.utilities.utils.SolutionDict.last_iteration">last<wbr></wbr>_iteration</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_unhashed_keys" class="internal-link" title="cma.utilities.utils.SolutionDict._unhashed_keys">_unhashed<wbr></wbr>_keys</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -1035,7 +1089,33 @@ self.data_with_same_key[key] is not empty.</p>
     <div><p>truncate to <tt class="rst-docutils literal">max_len/2</tt> when <tt class="rst-docutils literal">len(self) &gt; max_len</tt>.</p>
 <p>Only truncate entries with <tt class="rst-docutils literal">'iteration'</tt> key smaller than
 <code>min_iter</code> if given.</p>
+<p>This looks overdesigned given the <code>dict</code> is ordered and chunk
+deletion is not available. See also <code><a href="#truncate_to" class="internal-link" title="cma.utilities.utils.SolutionDict.truncate_to">truncate_to</a></code>.</p>
 </div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.utilities.utils.SolutionDict.truncate_to">
+    
+  </a>
+  <a name="truncate_to">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">truncate_to</span><span class="function-signature">(self, len_)</span>:
+    
+    <a class="headerLink" href="#truncate_to" title="cma.utilities.utils.SolutionDict.truncate_to">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>truncate to length <code>len_</code> removing the oldest entries</p></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -1085,6 +1165,30 @@ self.data_with_same_key[key] is not empty.</p>
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.utilities.utils.SolutionDict._unhashed_keys">
+    
+  </a>
+  <a name="_unhashed_keys">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_unhashed_keys</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#_unhashed_keys" title="cma.utilities.utils.SolutionDict._unhashed_keys">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
 </div>
         </div>
       
@@ -1097,7 +1201,7 @@ self.data_with_same_key[key] is not empty.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2025-05-19 11:18:36.
+    23.9.1 at 2025-07-24 13:11:31.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
