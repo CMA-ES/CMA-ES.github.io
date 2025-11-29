@@ -302,6 +302,16 @@
         
 
         
+            <div class="itemName"><code><a href="#centering_on" class="internal-link" title="cma.integer_centering.IntegerCentering.centering_on">centering<wbr></wbr>_on</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#int_indices" class="internal-link" title="cma.integer_centering.IntegerCentering.int_indices">int<wbr></wbr>_indices</a></code>
             </div>
         
@@ -468,8 +478,21 @@
         
          
 
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
         
-         
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.integer_centering.html#centering_on" class="internal-link" title="cma.integer_centering.centering_on">centering<wbr></wbr>_on</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
 
         
          
@@ -535,38 +558,43 @@ in place. The call tries to access the (phenotypic) bounds as defined
 in <tt class="rst-docutils literal">es.boundary_handler</tt> from the constructor argument. Hence it is
 expected to fail with a combination of <tt class="rst-docutils literal">bounds</tt> and
 <tt class="rst-docutils literal">fixed_variables</tt> set in <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code>.</p>
-<p>Pseudocode usage hints:</p>
-<pre class="rst-literal-block">
-&gt;&gt; es = cma.CMA(...)
-&gt;&gt; ic = cma.integer_centering.IntegerCentering(es)
-&gt;&gt; [...]
-&gt;&gt; ic(es.pop_sorted[0:es.sp.weights.mu], es.mean)  # before the mean update, use es.mean_old after
-&gt;&gt; es.mean = np.dot(es.sp.weights.positive_weights,  # (re-)assign mean
-..                  es.pop_sorted[0:es.sp.weights.mu])
-</pre>
-<p>Pseudocode example via ask-and-tell:</p>
-<pre class="rst-literal-block">
-&gt;&gt; es = cma.CMA(...)  # set integer_variables option here
-&gt;&gt; ic = cma.integer_centering.IntegerCentering(es)  # read integer_variables
-&gt;&gt; while not es.stop():
-&gt;&gt;     X = es.ask()
-&gt;&gt;     F = [fun(x) for x in X]
-&gt;&gt;     ic([X[i] for i in np.argsort(F)[:es.sp.weights.mu]], es.mean)
-&gt;&gt;     es.tell(X, F)
-&gt;&gt;     es.logger.add()
-&gt;&gt;     es.disp()
-</pre>
-<p>Working code example:</p>
+<p>By default, integer centering is applied, e.g. with <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> or
+<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, when the integer variable indices are given
+via the <tt class="rst-docutils literal">'integer_variables'</tt> option. Since v4.3.0, candidate
+solutions delivered by <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">CMAEvolutionStrategy.ask</a></code> have rounded values
+in all integer variable positions which can be switched off by setting
+<code><a href="cma.evolution_strategy.html#round_integer_variables" class="internal-link">cma.evolution_strategy.round_integer_variables</a></code> to <code>False</code>.</p>
+<p>A simple example code:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt;</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">int1_sphere</span>(x):
-<span class="py-more">... </span>    <span class="py-keyword">return</span> <span class="py-builtin">int</span>(x[0] + 0.5 - (x[0] &lt; 0))**2 + 1000 * (<span class="py-builtin">sum</span>(xi**2 <span class="py-keyword">for</span> xi <span class="py-keyword">in</span> x[1:]))
-<span class="py-prompt">&gt;&gt;&gt;</span>
-<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMA([2, 0.1], 0.22, {<span class="py-string">'integer_variables'</span>: [0],
-<span class="py-more">... </span>        <span class="py-string">'tolfun'</span>: 0, <span class="py-string">'tolfunhist'</span>: 0, <span class="py-string">'tolflatfitness'</span>: 60, <span class="py-string">'verbose'</span>: -9})
-<span class="py-prompt">&gt;&gt;&gt; </span>_ = es.optimize(int1_sphere)
-<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> int1_sphere(es.mean) &lt; 1e-6, es.stop()</pre><p>Details: The default <code><a href="#method2" class="internal-link" title="cma.integer_centering.IntegerCentering.method2">method2</a></code> was used in the below reference and, as
+<span class="py-more">... </span>    <span class="py-keyword">return</span> <span class="py-builtin">int</span>(x[0] + 0.5 - (x[0] &lt; 0))**2 + 1000 * (<span class="py-builtin">sum</span>(xi**2 <span class="py-keyword">for</span> xi <span class="py-keyword">in</span> x[1:]))</pre><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(2 * [2], 0.5,
+<span class="py-more">... </span>            {<span class="py-string">'integer_variables'</span>: [0], <span class="py-string">'ftarget'</span>: 1e-9, <span class="py-string">'verbose'</span>: -9})
+<span class="py-prompt">&gt;&gt;&gt; </span>es = es.optimize(int1_sphere)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># assert 'ftarget' in es.stop(), es.stop()  # fails sometimes (like 1%-ish)</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># failure is less likely with options ``'tolfun': 0, 'tolfunhist': 0, 'tolflatfitness': 60``</span></pre><p>The following pseudocode shows a direct use case to explicitly see
+how/where integer centering is applied, namely before the state
+variables are updated in <code>tell</code>:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np</pre><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># set dimension dependent lower bound on sample standard deviations</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>es = cma.CMAEvolutionStrategy(2 * [2], 0.5,
+<span class="py-more">... </span>            {<span class="py-string">'minstd'</span>: [0.2, 0], <span class="py-string">'popsize_factor'</span>: 1.5, <span class="py-string">'ftarget'</span>: 1e-9, <span class="py-string">'verbose'</span>: -9})
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># when integer_variables were passed in the above options,</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># we can inactivate the internal integer centering like</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>es.integer_centering = <span class="py-keyword">lambda</span> *args: args[0] <span class="py-keyword">if</span> args <span class="py-keyword">else</span> <span class="py-builtin">None</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>ic = cma.integer_centering.IntegerCentering([0])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">while</span> <span class="py-keyword">not</span> es.stop():
+<span class="py-more">... </span>    X = es.ask()
+<span class="py-more">... </span>    F = [int1_sphere(x) <span class="py-keyword">for</span> x <span class="py-keyword">in</span> X]
+<span class="py-more">... </span>    <span class="py-comment"># change the mu best solutions in place</span>
+<span class="py-more">... </span>    _ = ic([X[i] <span class="py-keyword">for</span> i <span class="py-keyword">in</span> np.argsort(F)[:es.sp.weights.mu]], es.mean)
+<span class="py-more">... </span>    es.tell(X, F, check_points=<span class="py-builtin">False</span>)  <span class="py-comment"># don't check for changes in X</span>
+<span class="py-more">... </span>    <span class="py-comment"># es.logger.add()</span>
+<span class="py-more">... </span>    <span class="py-comment"># es.disp()</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># assert 'ftarget' in es.stop(), es.stop()  # fails sometimes (like 1%-ish)</span></pre><p>Details: The default <code><a href="#method2" class="internal-link" title="cma.integer_centering.IntegerCentering.method2">method2</a></code> was used in the below reference and, as
 of version 4.0.0, is activated in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> when
 <code>integer_variables</code> are given as option.</p>
 <p>Reference: Marty et al, LB+IC-CMA-ES: Two simple modiﬁcations of
@@ -575,14 +603,14 @@ CMA-ES to handle mixed-integer problems. PPSN 2024.</p>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id381">
+          <table class="children sortable" id="id382">
   
   
   <tr class="method">
     
     <td>Method</td>
     <td><code><a href="#__call__" class="internal-link" title="cma.integer_centering.IntegerCentering.__call__">__call__</a></code></td>
-    <td>round values of int-variables in <code>solution_list</code> ideally without bias to the mean</td>
+    <td>round values of int-variables in <code>solution_list</code> and correct for bias.</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -637,6 +665,11 @@ CMA-ES to handle mixed-integer problems. PPSN 2024.</p>
     
     <td>Instance Variable</td>
     <td><code><a href="#center" class="internal-link" title="cma.integer_centering.IntegerCentering.center">center</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#centering_on" class="internal-link" title="cma.integer_centering.IntegerCentering.centering_on">centering<wbr></wbr>_on</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -738,7 +771,20 @@ CMA-ES to handle mixed-integer problems. PPSN 2024.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>round values of int-variables in <code>solution_list</code> ideally without bias to the mean</p></div>
+    <div><p>round values of int-variables in <code>solution_list</code> and correct for bias.</p>
+<p>Return <code>solution_list</code>, however assignment is deprecated as
+<code>solution_list</code> is changed in place and, in particular, because we
+center usually only the first half of the population.</p>
+<p>Variables are only rounded if their rounded value is different from
+the mean. Bias correction is only applied if the rounded value is
+the same as the rounded value of the mean and only towards the
+rounded value of the mean, not away from it.</p>
+<p>None of these changes change the rounded variable value.</p>
+<p>Details: The bias correction could be applied directly to the mean
+after the mean update, as it probably does not have any relevant
+effect on the C update. This would require another call or passing
+the Delta mean in the return value.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -1037,6 +1083,30 @@ the <tt class="rst-docutils literal">_upper_bounds</tt> attribute is reset to <c
     <span class="py-defname">center</span> =
     
     <a class="headerLink" href="#center" title="cma.integer_centering.IntegerCentering.center">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.integer_centering.IntegerCentering.centering_on">
+    
+  </a>
+  <a name="centering_on">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">centering_on</span> =
+    
+    <a class="headerLink" href="#centering_on" title="cma.integer_centering.IntegerCentering.centering_on">
       
       
       ¶
@@ -1397,7 +1467,7 @@ set on a <tt class="rst-docutils literal"><span class="pre">int+-1/2</span></tt>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2025-09-20 22:35:02.
+    23.9.1 at 2025-11-29 21:20:03.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

@@ -6,7 +6,7 @@
 
   <head>
     
-    <title>cma.utilities.utils.DataDict</title>
+    <title>cma.utilities.utils.DictClass2</title>
     <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
@@ -142,7 +142,7 @@
 
       <div class="thingTitle">
         <span>Class</span>
-        <code class="thisobject"><a href="cma.utilities.utils.DataDict.html" class="internal-link" title="This class"><wbr></wbr>Data<wbr></wbr>Dict</a></code> 
+        <code class="thisobject"><a href="cma.utilities.utils.DictClass2.html" class="internal-link" title="This class"><wbr></wbr>Dict<wbr></wbr>Class2</a></code> 
       </div>
       
       <div>
@@ -163,57 +163,7 @@
         
 
         
-            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.utilities.utils.DataDict.__init__">__init__</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#clear" class="internal-link" title="cma.utilities.utils.DataDict.clear">clear</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#load" class="internal-link" title="cma.utilities.utils.DataDict.load">load</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#replace" class="internal-link" title="cma.utilities.utils.DataDict.replace">replace</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#save" class="internal-link" title="cma.utilities.utils.DataDict.save">save</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#update" class="internal-link" title="cma.utilities.utils.DataDict.update">update</a></code>
+            <div class="itemName"><code><a href="#__getattr__" class="internal-link" title="cma.utilities.utils.DictClass2.__getattr__">__getattr__</a></code>
             </div>
         
 
@@ -223,21 +173,8 @@
         
          
 
-        <div class="childrenKindTitle">Attributes</div>
-        <ul>
-    
-    <li class="">
         
-        
-        
-
-        
-            <div class="itemName"><code><a href="#filename" class="internal-link" title="cma.utilities.utils.DataDict.filename">filename</a></code>
-            </div>
-        
-
-    </li>
-</ul> 
+         
 
         
          
@@ -269,7 +206,7 @@
             </div>
         
 
-    </li><li class=" thisobject">
+    </li><li class="">
         
         
         
@@ -309,7 +246,7 @@
             </div>
         
 
-    </li><li class="">
+    </li><li class=" thisobject">
         
         
         
@@ -729,7 +666,7 @@
         
 
         <div class="page-header">
-          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code><wbr></wbr>.<code><a href="cma.utilities.utils.html" class="internal-link" title="cma.utilities.utils">utils</a></code><wbr></wbr>.<code><a href="cma.utilities.utils.DataDict.html" class="internal-link" title="cma.utilities.utils.DataDict">DataDict</a></code></code></h1>
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code><wbr></wbr>.<code><a href="cma.utilities.utils.html" class="internal-link" title="cma.utilities.utils">utils</a></code><wbr></wbr>.<code><a href="cma.utilities.utils.DictClass2.html" class="internal-link" title="cma.utilities.utils.DictClass2">DictClass2</a></code></code></h1>
           <div id="showPrivate">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -740,53 +677,51 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">DataDict</span>(collections.defaultdict):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.utilities.utils.DataDict.__init__">DataDict(filename)</a></code></p>
-          <p><a href="classIndex.html#cma.utilities.utils.DataDict">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">DictClass2</span>(dict):</code></p>
+          <p><a href="classIndex.html#cma.utilities.utils.DictClass2">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>a dictionary of lists (of data)</p></div>
+          <div><p>A dictionary that allows <code>.</code> attribute read access of its entries.</p>
+<p>Assigning an attribute instead of the dictionary entry does not assign
+(or create) a dictionary value and separates the attribute value from
+the dictionary value permanently (in contrast to <code><a href="cma.utilities.utils.DictClass.html" class="internal-link" title="cma.utilities.utils.DictClass">DictClass</a></code>). This may
+be useful to let the dictionary entry store the initial value and work
+with the attribute value only, to access the current and possibly
+changed value.</p>
+<p>If neither the attribute nor the dictionary entry exist, an attempted
+attribute access raises an <code>AttributeError</code> as to be expected.</p>
+<p>By design, this class DOES NOT HAVE INTERACTIVE TAB COMPLETION for
+attributes derived from the dictionary!?</p>
+<p>Implementation detail: this class is less "intrusive" than <code><a href="cma.utilities.utils.DictClass.html" class="internal-link" title="cma.utilities.utils.DictClass">DictClass</a></code>
+and should be entirely safe from under-the-hood surprises. It only
+relies on the behavior of <code><a href="#__getattr__" class="internal-link" title="cma.utilities.utils.DictClass2.__getattr__">__getattr__</a></code>: access of a nonexisting
+attribute triggers (by Python convention) a call of <code><a href="#__getattr__" class="internal-link" title="cma.utilities.utils.DictClass2.__getattr__">__getattr__</a></code>
+which is here defined to return the dictionary entry value.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> cma.utilities.utils <span class="py-keyword">import</span> DictClass2
+<span class="py-prompt">&gt;&gt;&gt; </span>d = DictClass2((2 * char, char) <span class="py-keyword">for</span> char <span class="py-keyword">in</span> <span class="py-string">'abcd'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">list</span>(d)
+<span class="py-output">['aa', 'bb', 'cc', 'dd']</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> d.aa == <span class="py-string">'a'</span> <span class="py-keyword">and</span> <span class="py-builtin">len</span>(d) == 4, (<span class="py-builtin">list</span>(d.values()), d.__dict__)
+<span class="py-prompt">&gt;&gt;&gt; </span>d.new = 33  <span class="py-comment"># does not go in the dict</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-string">'new'</span> <span class="py-keyword">not</span> <span class="py-keyword">in</span> d <span class="py-keyword">and</span> <span class="py-builtin">len</span>(d) == 4, (<span class="py-builtin">list</span>(d.values()), d.__dict__)
+<span class="py-prompt">&gt;&gt;&gt; </span>d[<span class="py-string">'new'</span>] = 55
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> (d.new, d[<span class="py-string">'new'</span>]) == (33, 55)
+<span class="py-prompt">&gt;&gt;&gt; </span>d[<span class="py-string">'nnew'</span>] = 44
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> d.nnew == 44
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> <span class="py-builtin">len</span>(d) == 6</pre></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id480">
+          <table class="children sortable" id="id476">
   
   
   <tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__init__" class="internal-link" title="cma.utilities.utils.DataDict.__init__">__init__</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><code><a href="#clear" class="internal-link" title="cma.utilities.utils.DataDict.clear">clear</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><code><a href="#load" class="internal-link" title="cma.utilities.utils.DataDict.load">load</a></code></td>
-    <td>element-wise append/merge data of loaded <code>dict</code> to self,</td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><code><a href="#replace" class="internal-link" title="cma.utilities.utils.DataDict.replace">replace</a></code></td>
-    <td>replace all entries with the return value of <code>replace_function</code>.</td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><code><a href="#save" class="internal-link" title="cma.utilities.utils.DataDict.save">save</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><code><a href="#update" class="internal-link" title="cma.utilities.utils.DataDict.update">update</a></code></td>
-    <td>append data of entries in <code>dict_</code> to entries in self</td>
-  </tr><tr class="instancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="#filename" class="internal-link" title="cma.utilities.utils.DataDict.filename">filename</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td><code><a href="#__getattr__" class="internal-link" title="cma.utilities.utils.DictClass2.__getattr__">__getattr__</a></code></td>
+    <td>called when <tt class="rst-docutils literal">self.name</tt> would raise an attribute error</td>
   </tr>
 </table>
           
@@ -798,18 +733,18 @@
           <div class="basemethod">
   
   
-  <a name="cma.utilities.utils.DataDict.__init__">
+  <a name="cma.utilities.utils.DictClass2.__getattr__">
     
   </a>
-  <a name="__init__">
+  <a name="__getattr__">
     
   </a>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, filename=<span class="rst-variable-quote">'</span><span class="rst-variable-string">_data.py</span><span class="rst-variable-quote">'</span>)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">__getattr__</span><span class="function-signature">(self, name)</span>:
     
-    <a class="headerLink" href="#__init__" title="cma.utilities.utils.DataDict.__init__">
+    <a class="headerLink" href="#__getattr__" title="cma.utilities.utils.DictClass2.__getattr__">
       
       
       ¶
@@ -817,158 +752,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
-  </div>
-</div><div class="basemethod">
-  
-  
-  <a name="cma.utilities.utils.DataDict.clear">
-    
-  </a>
-  <a name="clear">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span> <span class="py-defname">clear</span><span class="function-signature">(self)</span>:
-    
-    <a class="headerLink" href="#clear" title="cma.utilities.utils.DataDict.clear">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
-  </div>
-</div><div class="basemethod">
-  
-  
-  <a name="cma.utilities.utils.DataDict.load">
-    
-  </a>
-  <a name="load">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span> <span class="py-defname">load</span><span class="function-signature">(self)</span>:
-    
-    <a class="headerLink" href="#load" title="cma.utilities.utils.DataDict.load">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p>element-wise append/merge data of loaded <code>dict</code> to self,</p>
-<p>by calling <code><a href="#update" class="internal-link" title="cma.utilities.utils.DataDict.update">update</a></code>.</p>
-<p>To load cleanly without merge use <code><a href="#clear" class="internal-link" title="cma.utilities.utils.DataDict.clear">clear</a></code> + <code><a href="#load" class="internal-link" title="cma.utilities.utils.DataDict.load">load</a></code> or the class
-constructor with a new <code><a href="#filename" class="internal-link" title="cma.utilities.utils.DataDict.filename">filename</a></code>.</p>
-</div>
-  </div>
-</div><div class="basemethod">
-  
-  
-  <a name="cma.utilities.utils.DataDict.replace">
-    
-  </a>
-  <a name="replace">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span> <span class="py-defname">replace</span><span class="function-signature">(self, replace_function=<a href="cma.utilities.utils.html#_id" class="internal-link" title="cma.utilities.utils._id">_id</a>)</span>:
-    
-    <a class="headerLink" href="#replace" title="cma.utilities.utils.DataDict.replace">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p>replace all entries with the return value of <code>replace_function</code>.</p>
-<p>The <code>replace_function</code> gets the original value, the key, and the
-list index as arguments.</p>
-</div>
-  </div>
-</div><div class="basemethod">
-  
-  
-  <a name="cma.utilities.utils.DataDict.save">
-    
-  </a>
-  <a name="save">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span> <span class="py-defname">save</span><span class="function-signature">(self)</span>:
-    
-    <a class="headerLink" href="#save" title="cma.utilities.utils.DataDict.save">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
-  </div>
-</div><div class="basemethod">
-  
-  
-  <a name="cma.utilities.utils.DataDict.update">
-    
-  </a>
-  <a name="update">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span> <span class="py-defname">update</span><span class="function-signature">(self, dict_)</span>:
-    
-    <a class="headerLink" href="#update" title="cma.utilities.utils.DataDict.update">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p>append data of entries in <code>dict_</code> to entries in self</p></div>
-  </div>
-</div><div class="baseinstancevariable">
-  
-  
-  <a name="cma.utilities.utils.DataDict.filename">
-    
-  </a>
-  <a name="filename">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">filename</span> =
-    
-    <a class="headerLink" href="#filename" title="cma.utilities.utils.DataDict.filename">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
+    <div><p>called when <tt class="rst-docutils literal">self.name</tt> would raise an attribute error</p></div>
   </div>
 </div>
         </div>

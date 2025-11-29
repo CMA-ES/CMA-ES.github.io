@@ -275,6 +275,16 @@
         
 
         
+            <div class="itemName"><code><a href="#behave_as_queue" class="internal-link" title="cma.utilities.utils.SolutionDict.behave_as_queue">behave<wbr></wbr>_as<wbr></wbr>_queue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#data_with_same_key" class="internal-link" title="cma.utilities.utils.SolutionDict.data_with_same_key">data<wbr></wbr>_with<wbr></wbr>_same<wbr></wbr>_key</a></code>
             </div>
         
@@ -382,6 +392,16 @@
 
         
             <div class="itemName"><code><a href="cma.utilities.utils.DictClass.html" class="internal-link" title="cma.utilities.utils.DictClass"><wbr></wbr>Dict<wbr></wbr>Class</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.utils.DictClass2.html" class="internal-link" title="cma.utilities.utils.DictClass2"><wbr></wbr>Dict<wbr></wbr>Class2</a></code>
             </div>
         
 
@@ -731,6 +751,16 @@
             </div>
         
 
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.utils.html#_id" class="internal-link" title="cma.utilities.utils._id">_id</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -820,17 +850,24 @@ to store additional information related to the solution.</p>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> d[2] == 3</pre><p><code><a href="#data_with_same_key" class="internal-link" title="cma.utilities.utils.SolutionDict.data_with_same_key">data_with_same_key</a></code> behaves (in contrast to the order of <tt class="rst-docutils literal">keys()</tt>)
 like a stack (see setitem and delitem). Thereby the last assignment
 <tt class="rst-docutils literal">self[key] = ...</tt> determines, as to be expected, the value of
-<tt class="rst-docutils literal">self[key]</tt> even when <tt class="rst-docutils literal">self.data_with_same_key[key]</tt> is not empty.</p>
-<p>CAVEAT: after a same-key item was removed, <tt class="rst-docutils literal">self[key]</tt> returns the
-previous value, however <tt class="rst-docutils literal">self._unhashed_keys[key]</tt> raises a
-<code>ValueError</code> as the unhashed entries for the remaining items with this
-key are not available as unhashed keys are not stacked.</p>
-<p>TODO: iteration key is used to clean up without error management</p>
+<tt class="rst-docutils literal">self[key]</tt> even when <tt class="rst-docutils literal">self.data_with_same_key[key]</tt> is not empty.
+If the attribute <code><a href="#behave_as_queue" class="internal-link" title="cma.utilities.utils.SolutionDict.behave_as_queue">behave_as_queue</a></code> is set to True, it behaves like a
+queue (FIFO).</p>
+<p>Technical detail: after a same-key item was removed, <tt class="rst-docutils literal">self[key]</tt>
+returns the stacked (or queued) previous value, however
+<tt class="rst-docutils literal">self._unhashed_keys[key]</tt> still returns the last unhashed key which
+could be a different object than the previous but with the same hash
+key. However, the object has most likely the correct content because
+the hash was the same. This happens because only the last unhashed key
+is kept. As long as the content of <tt class="rst-docutils literal">self._unhashed_keys[key]</tt> is not
+changed, this should be fine.</p>
+<p>TODO: in <code>.truncate</code>, the iteration key is used to clean up without
+error management.</p>
 </div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id473">
+          <table class="children sortable" id="id478">
   
   
   <tr class="method">
@@ -876,6 +913,11 @@ key are not available as unhashed keys are not stacked.</p>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
+    <td><code><a href="#behave_as_queue" class="internal-link" title="cma.utilities.utils.SolutionDict.behave_as_queue">behave<wbr></wbr>_as<wbr></wbr>_queue</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
     <td><code><a href="#data_with_same_key" class="internal-link" title="cma.utilities.utils.SolutionDict.data_with_same_key">data<wbr></wbr>_with<wbr></wbr>_same<wbr></wbr>_key</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
@@ -894,7 +936,7 @@ key are not available as unhashed keys are not stacked.</p>
             <p class="inheritedFrom">
               Inherited from <code><a href="cma.utilities.utils.DerivedDictBase.html" class="internal-link" title="cma.utilities.utils.DerivedDictBase">DerivedDictBase</a></code>:
             </p>
-            <table class="children sortable" id="id474">
+            <table class="children sortable" id="id479">
   
   
   <tr class="basemethod">
@@ -1120,6 +1162,30 @@ deletion is not available. See also <code><a href="#truncate_to" class="internal
 </div><div class="baseinstancevariable">
   
   
+  <a name="cma.utilities.utils.SolutionDict.behave_as_queue">
+    
+  </a>
+  <a name="behave_as_queue">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">behave_as_queue</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#behave_as_queue" title="cma.utilities.utils.SolutionDict.behave_as_queue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
   <a name="cma.utilities.utils.SolutionDict.data_with_same_key">
     
   </a>
@@ -1201,7 +1267,7 @@ deletion is not available. See also <code><a href="#truncate_to" class="internal
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2025-09-20 22:35:02.
+    23.9.1 at 2025-11-29 21:20:03.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

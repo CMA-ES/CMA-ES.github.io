@@ -180,6 +180,16 @@
         
 
         
+            <div class="itemName"><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult2.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult2"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.evolution_strategy.InjectionWarning.html" class="internal-link" title="cma.evolution_strategy.InjectionWarning"><wbr></wbr>Injection<wbr></wbr>Warning</a></code>
             </div>
         
@@ -395,7 +405,7 @@
         
 
         
-            <div class="itemName"><code><a href="#ask_phenotype_archive_revert_changes" class="internal-link" title="cma.evolution_strategy.ask_phenotype_archive_revert_changes">ask<wbr></wbr>_phenotype<wbr></wbr>_archive<wbr></wbr>_revert<wbr></wbr>_changes</a></code>
+            <div class="itemName"><code><a href="#round_integer_variables" class="internal-link" title="cma.evolution_strategy.round_integer_variables">round<wbr></wbr>_integer<wbr></wbr>_variables</a></code>
             </div>
         
 
@@ -405,7 +415,57 @@
         
 
         
-            <div class="itemName"><code><a href="#round_integer_variables" class="internal-link" title="cma.evolution_strategy.round_integer_variables">round<wbr></wbr>_integer<wbr></wbr>_variables</a></code>
+            <div class="itemName"><code><a href="#round_integer_variables_revert_changes" class="internal-link" title="cma.evolution_strategy.round_integer_variables_revert_changes">round<wbr></wbr>_integer<wbr></wbr>_variables<wbr></wbr>_revert<wbr></wbr>_changes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tell_augmented_lagrangian_logging" class="internal-link" title="cma.evolution_strategy.tell_augmented_lagrangian_logging">tell<wbr></wbr>_augmented<wbr></wbr>_lagrangian<wbr></wbr>_logging</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tell_constraints_archives" class="internal-link" title="cma.evolution_strategy.tell_constraints_archives">tell<wbr></wbr>_constraints<wbr></wbr>_archives</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tell_find_feasible_first" class="internal-link" title="cma.evolution_strategy.tell_find_feasible_first">tell<wbr></wbr>_find<wbr></wbr>_feasible<wbr></wbr>_first</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tell_find_feasible_only" class="internal-link" title="cma.evolution_strategy.tell_find_feasible_only">tell<wbr></wbr>_find<wbr></wbr>_feasible<wbr></wbr>_only</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tell_initial_infeasibility_foffset" class="internal-link" title="cma.evolution_strategy.tell_initial_infeasibility_foffset">tell<wbr></wbr>_initial<wbr></wbr>_infeasibility<wbr></wbr>_foffset</a></code>
             </div>
         
 
@@ -824,6 +884,11 @@ functions.</p></div>
     <td>Class</td>
     <td><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result</a></code></td>
     <td>A results tuple from <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> property <tt class="rst-docutils literal">result</tt>.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult2.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult2"><wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result2</a></code></td>
+    <td>A results class.</td>
   </tr><tr class="exception">
     
     <td>Exception</td>
@@ -887,13 +952,38 @@ functions.</p></div>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#ask_phenotype_archive_revert_changes" class="internal-link" title="cma.evolution_strategy.ask_phenotype_archive_revert_changes">ask<wbr></wbr>_phenotype<wbr></wbr>_archive<wbr></wbr>_revert<wbr></wbr>_changes</a></code></td>
-    <td>When detected, ignore inplace changes of solutions delivered by <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> for updating in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code>. Currently, solutions are (only) archived in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#_ask_phenotype_archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._ask_phenotype_archive">_ask_phenotype_archive</a></code> when integer variables were rounded at the end of ...</td>
+    <td><code><a href="#round_integer_variables" class="internal-link" title="cma.evolution_strategy.round_integer_variables">round<wbr></wbr>_integer<wbr></wbr>_variables</a></code></td>
+    <td>round integer variables of sampled candidate solutions (at the end of <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code>) for the evaluation on the objective function. This takes about 15% CPU time with option <tt class="rst-docutils literal"><span class="pre">verbose=-9</span></tt>, partly due to array copies?...</td>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#round_integer_variables" class="internal-link" title="cma.evolution_strategy.round_integer_variables">round<wbr></wbr>_integer<wbr></wbr>_variables</a></code></td>
-    <td>round integer variables of sampled candidate solutions (at the end of <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code>) for the evaluation on the objective function. This takes about 15% CPU time with option <tt class="rst-docutils literal"><span class="pre">verbose=-9</span></tt>, partly due to array copies?...</td>
+    <td><code><a href="#round_integer_variables_revert_changes" class="internal-link" title="cma.evolution_strategy.round_integer_variables_revert_changes">round<wbr></wbr>_integer<wbr></wbr>_variables<wbr></wbr>_revert<wbr></wbr>_changes</a></code></td>
+    <td>When detected, try to ignore inplace changes of solutions delivered by <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> for updating in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code>. Solutions are reverted from <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.archive">_round_integer_variables.archive</a></code> which stores solutions before integer variables are rounded at the end of ...</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#tell_augmented_lagrangian_logging" class="internal-link" title="cma.evolution_strategy.tell_augmented_lagrangian_logging">tell<wbr></wbr>_augmented<wbr></wbr>_lagrangian<wbr></wbr>_logging</a></code></td>
+    <td>only used when constraints values are passed to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="cma.evolution_strategy.html#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#tell_constraints_archives" class="internal-link" title="cma.evolution_strategy.tell_constraints_archives">tell<wbr></wbr>_constraints<wbr></wbr>_archives</a></code></td>
+    <td>only used when constraints values are passed to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="cma.evolution_strategy.html#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#tell_find_feasible_first" class="internal-link" title="cma.evolution_strategy.tell_find_feasible_first">tell<wbr></wbr>_find<wbr></wbr>_feasible<wbr></wbr>_first</a></code></td>
+    <td>number of initial iterations to minimize positive (violated) constraints, only used when constraints values are passed to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="cma.evolution_strategy.html#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#tell_find_feasible_only" class="internal-link" title="cma.evolution_strategy.tell_find_feasible_only">tell<wbr></wbr>_find<wbr></wbr>_feasible<wbr></wbr>_only</a></code></td>
+    <td>only used when constraints values are passed to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="cma.evolution_strategy.html#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#tell_initial_infeasibility_foffset" class="internal-link" title="cma.evolution_strategy.tell_initial_infeasibility_foffset">tell<wbr></wbr>_initial<wbr></wbr>_infeasibility<wbr></wbr>_foffset</a></code></td>
+    <td>added to penalized and displayed function values before any feasible solution was found, only used when constraints values are passed to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="cma.evolution_strategy.html#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></td>
   </tr><tr class="variable">
     
     <td>Variable</td>
@@ -903,7 +993,7 @@ functions.</p></div>
     
     <td>Class</td>
     <td><code><a href="cma.evolution_strategy._CMAEvolutionStrategyResult.html" class="internal-link" title="cma.evolution_strategy._CMAEvolutionStrategyResult">_<wbr></wbr>CMAEvolution<wbr></wbr>Strategy<wbr></wbr>Result</a></code></td>
-    <td>A results tuple from <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> property <tt class="rst-docutils literal">result</tt>.</td>
+    <td>Deprecated: A results tuple from <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> property <tt class="rst-docutils literal">result</tt>.</td>
   </tr><tr class="class private">
     
     <td>Class</td>
@@ -1060,7 +1150,7 @@ options are specified for the usage with the <code>doctest</code> module.</p>
 <span class="py-output">   Covariance matrix is diagonal for 100 iterations (1/ccov=26...</span>
 <span class="py-output">Iterat #Fevals   function value  axis ratio  sigma ...</span>
 <span class="py-output">    1     10 ...</span>
-<span class="py-output">termination on tolfun=1e-11 ...</span>
+<span class="py-output">termination on {'tolfun': 1e-11} ...</span>
 <span class="py-output">final/bestever f-value = ...</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> res[1] &lt; 1e-12  <span class="py-comment"># f-value of best found solution</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> res[2] &lt; 8000  <span class="py-comment"># evaluations</span></pre><p>The above call is pretty much equivalent with the slightly more
@@ -1129,7 +1219,7 @@ of solutions as input:</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">fmin2</span><span class="function-signature">(objective_function, x0, sigma0, options=None, args=(), gradf=None, restarts=0, restart_from_best=False, incpopsize=2, eval_initial_x=False, parallel_objective=None, noise_handler=None, noise_change_sigma_exponent=1, noise_kappa_exponent=0, bipop=False, callback=None, init_callback=None)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">fmin2</span><span class="function-signature">(objective_function, x0, sigma0, options=None, args=(), gradf=None, restarts=0, restart_from_best=False, incpopsize=2, eval_initial_x=False, parallel_objective=None, noise_handler=None, noise_change_sigma_exponent=1, noise_kappa_exponent=0, bipop=False, callback=None, init_callback=None, constraints=None)</span>:
     
     <a class="headerLink" href="#fmin2" title="cma.evolution_strategy.fmin2">
       
@@ -1170,17 +1260,18 @@ x = cma.fmin2(...)[0]   # keep only the best evaluated solution
 </div>
 <div class="rst-section" id="rst-arguments">
 <h2 class="heading">Arguments</h2>
+<p>The order of arguments is kept for historical reasons.</p>
 <dl class="rst-docutils">
 <dt><tt class="rst-docutils literal">objective_function</tt></dt>
-<dd>called as <tt class="rst-docutils literal">objective_function(x, *args)</tt> to be minimized.
-<tt class="rst-docutils literal">x</tt> is a one-dimensional <code>numpy.ndarray</code>. See also the
-<code>parallel_objective</code> argument.
-<tt class="rst-docutils literal">objective_function</tt> can return <code>numpy.NaN</code>, which is
-interpreted as outright rejection of solution <tt class="rst-docutils literal">x</tt> and invokes
-an immediate resampling and (re-)evaluation of a new solution
-not counting as function evaluation. The attribute
+<dd>called as <tt class="rst-docutils literal">objective_function(x, *args)</tt> to be minimized. <tt class="rst-docutils literal">x</tt>
+is a one-dimensional <code>numpy.ndarray</code>. See also the
+<code>parallel_objective</code> argument. <tt class="rst-docutils literal">objective_function</tt> can return
+<code>numpy.NaN</code>, which is interpreted as outright rejection of solution
+<tt class="rst-docutils literal">x</tt> and invokes an immediate resampling and (re-)evaluation of a
+new solution not counting as function evaluation. The attribute
 <tt class="rst-docutils literal">variable_annotations</tt> is passed into the
-<tt class="rst-docutils literal">CMADataLogger.persistent_communication_dict</tt>.</dd>
+<tt class="rst-docutils literal">CMADataLogger.persistent_communication_dict</tt>. See also
+<tt class="rst-docutils literal">constraints</tt> below.</dd>
 <dt><tt class="rst-docutils literal">x0</tt></dt>
 <dd>list or <code>numpy.ndarray</code>, initial guess of minimum solution
 before the application of the geno-phenotype transformation
@@ -1275,6 +1366,9 @@ centering (which is enabled by default when <tt class="rst-docutils literal">int
 are given in the <code>options</code>) or <tt class="rst-docutils literal">es.integer_centering =
 cma.integer_centering.IntCentering(es, correct_bias=False)</tt>
 disables its bias correction.</dd>
+<dt><tt class="rst-docutils literal">constraints</tt></dt>
+<dd>A function that takes a solution <code><a href="cma.evolution_strategy._StopTolXStagnation.html#x" class="internal-link" title="cma.evolution_strategy._StopTolXStagnation.x">x</a></code> as input and returns a list of
+constraint values desired to become &lt;= 0.</dd>
 </dl>
 </div>
 <div class="rst-section" id="rst-optional-arguments">
@@ -1311,7 +1405,7 @@ options are specified for the usage with the <code>doctest</code> module.</p>
 <span class="py-output">   Covariance matrix is diagonal for 100 iterations (1/ccov=26...</span>
 <span class="py-output">Iterat #Fevals   function value  axis ratio  sigma ...</span>
 <span class="py-output">    1     10 ...</span>
-<span class="py-output">termination on tolfun=1e-11 ...</span>
+<span class="py-output">termination on {'tolfun': 1e-11} ...</span>
 <span class="py-output">final/bestever f-value = ...</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result.fbest &lt; 1e-12  <span class="py-comment"># f-value of best found solution</span>
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">assert</span> es.result.evaluations &lt; 8000  <span class="py-comment"># evaluations</span></pre><p>The above call is pretty much equivalent with the slightly more
@@ -1520,7 +1614,7 @@ to <code>cma.fmin2</code>.</p>
 <p>See <tt class="rst-docutils literal">help(cma.fmin)</tt> for the input parameter descriptions where
 <code>parallel_objective</code> is not available and noise-related options may
 fail.</p>
-<p>Returns the tuple <tt class="rst-docutils literal">xbest, es</tt> similar to <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code>, however <code>xbest</code>
+<p>Returns the tuple <tt class="rst-docutils literal">xbest, es</tt> similar to <code><a href="#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code>, however <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult2.html#xbest" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult2.xbest">xbest</a></code>
 takes into account only some of the recent history and not all
 evaluations. <code>es.result</code> is partly based on surrogate f-values and may
 hence be confusing. In particular, <code>es.best</code> contains the solution with
@@ -1549,7 +1643,7 @@ argument. The model is kept the same for each restart. Use
 adding <code>False</code> as an element of the callback list (see also <code>cma.fmin</code>).</p>
 <p><tt class="rst-docutils literal">parallel_objective</tt> is assigned to a surrogate model instance of
 <tt class="rst-docutils literal">cma.fitness_models.SurrogatePopulation</tt>.</p>
-<p><code>es.countevals</code> is updated from the <code>evaluations</code> attribute of the
+<p><code>es.countevals</code> is updated from the <code><a href="cma.evolution_strategy.CMAEvolutionStrategyResult2.html#evaluations" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategyResult2.evaluations">evaluations</a></code> attribute of the
 constructed surrogate to count only "true" evaluations.</p>
 <p>See <a class="rst-reference external" href="https://cma-es.github.io/lq-cma" target="_top">https://cma-es.github.io/lq-cma</a> for references and details about
 the algorithm.</p>
@@ -1745,33 +1839,6 @@ optimization_tools, restricted_gaussian_sampler, transformations</tt></p></div>
 </div><div class="basevariable">
   
   
-  <a name="cma.evolution_strategy.ask_phenotype_archive_revert_changes">
-    
-  </a>
-  <a name="ask_phenotype_archive_revert_changes">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">ask_phenotype_archive_revert_changes</span>: <code>bool</code> =
-    
-    <a class="headerLink" href="#ask_phenotype_archive_revert_changes" title="cma.evolution_strategy.ask_phenotype_archive_revert_changes">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="functionBody">
-    
-    <div><p>When detected, ignore inplace changes of solutions delivered by <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code>
-for updating in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code>. Currently, solutions are (only) archived in
-<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#_ask_phenotype_archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy._ask_phenotype_archive">_ask_phenotype_archive</a></code> when integer variables were rounded at the end
-of <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code>.</p></div>
-    
-  </div>
-</div><div class="basevariable">
-  
-  
   <a name="cma.evolution_strategy.round_integer_variables">
     
   </a>
@@ -1793,6 +1860,157 @@ of <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="i
     <div><p>round integer variables of sampled candidate solutions (at the end of
 <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code>) for the evaluation on the objective function. This takes about
 15% CPU time with option <tt class="rst-docutils literal"><span class="pre">verbose=-9</span></tt>, partly due to array copies?</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.evolution_strategy.round_integer_variables_revert_changes">
+    
+  </a>
+  <a name="round_integer_variables_revert_changes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">round_integer_variables_revert_changes</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#round_integer_variables_revert_changes" title="cma.evolution_strategy.round_integer_variables_revert_changes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>When detected, try to ignore inplace changes of solutions delivered by
+<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code> for updating in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code>. Solutions are reverted from
+<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#archive" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.archive">_round_integer_variables.archive</a></code> which stores solutions before integer
+variables are rounded at the end of <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.ask">ask</a></code>. Renamed from
+<code>ask_phenotype_archive_revert_changes</code> since v4.3.1.</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.evolution_strategy.tell_augmented_lagrangian_logging">
+    
+  </a>
+  <a name="tell_augmented_lagrangian_logging">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tell_augmented_lagrangian_logging</span> =
+    
+    <a class="headerLink" href="#tell_augmented_lagrangian_logging" title="cma.evolution_strategy.tell_augmented_lagrangian_logging">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>only used when constraints values are passed to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.evolution_strategy.tell_constraints_archives">
+    
+  </a>
+  <a name="tell_constraints_archives">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tell_constraints_archives</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#tell_constraints_archives" title="cma.evolution_strategy.tell_constraints_archives">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>only used when constraints values are passed to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.evolution_strategy.tell_find_feasible_first">
+    
+  </a>
+  <a name="tell_find_feasible_first">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tell_find_feasible_first</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#tell_find_feasible_first" title="cma.evolution_strategy.tell_find_feasible_first">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>number of initial iterations to minimize positive (violated) constraints,
+only used when constraints values are passed to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.evolution_strategy.tell_find_feasible_only">
+    
+  </a>
+  <a name="tell_find_feasible_only">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tell_find_feasible_only</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#tell_find_feasible_only" title="cma.evolution_strategy.tell_find_feasible_only">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>only used when constraints values are passed to <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.evolution_strategy.tell_initial_infeasibility_foffset">
+    
+  </a>
+  <a name="tell_initial_infeasibility_foffset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tell_initial_infeasibility_foffset</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#tell_initial_infeasibility_foffset" title="cma.evolution_strategy.tell_initial_infeasibility_foffset">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>added to penalized and displayed function values before any feasible
+solution was found, only used when constraints values are passed to
+<code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell">tell</a></code> or <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#tell2" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy.tell2">tell2</a></code>, not in <code><a href="#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code></p></div>
     
   </div>
 </div><div class="basevariable">
@@ -2025,7 +2243,7 @@ of <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html#ask" class="i
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2025-09-20 22:35:02.
+    23.9.1 at 2025-11-29 21:20:03.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

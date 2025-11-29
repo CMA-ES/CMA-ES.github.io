@@ -6,7 +6,7 @@
 
   <head>
     
-    <title>cma.optimization_tools.BinaryEvolutionPath</title>
+    <title>cma.optimization_tools.BestFeasibleSolution</title>
     <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
@@ -142,7 +142,7 @@
 
       <div class="thingTitle">
         <span>Class</span>
-        <code class="thisobject"><a href="cma.optimization_tools.BinaryEvolutionPath.html" class="internal-link" title="This class"><wbr></wbr>Binary<wbr></wbr>Evolution<wbr></wbr>Path</a></code> 
+        <code class="thisobject"><a href="cma.optimization_tools.BestFeasibleSolution.html" class="internal-link" title="This class"><wbr></wbr>Best<wbr></wbr>Feasible<wbr></wbr>Solution</a></code> 
       </div>
       
       <div>
@@ -163,7 +163,17 @@
         
 
         
-            <div class="itemName"><code><a href="#binary_s" class="internal-link" title="cma.optimization_tools.BinaryEvolutionPath.binary_s">binary<wbr></wbr>_s</a></code>
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.optimization_tools.BestFeasibleSolution.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update" class="internal-link" title="cma.optimization_tools.BestFeasibleSolution.update">update</a></code>
             </div>
         
 
@@ -179,37 +189,7 @@
         
 
         
-            <div class="itemName"><code><a href="cma.optimization_tools.EvolutionPath.html#__init__" class="internal-link" title="cma.optimization_tools.EvolutionPath.__init__">__init__</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.optimization_tools.ExponentialSmoothing.html#__call__" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.__call__">__call__</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.optimization_tools.ExponentialSmoothing.html#__getitem__" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.__getitem__">__getitem__</a></code>
-            </div>
-        
-
-    </li><li class="private">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.optimization_tools.ExponentialSmoothing.html#_init_" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing._init_">_init_</a></code>
+            <div class="itemName"><code><a href="cma.optimization_tools.BestSolution2.html#__str__" class="internal-link" title="cma.optimization_tools.BestSolution2.__str__">__str__</a></code>
             </div>
         
 
@@ -225,7 +205,7 @@
         
 
         
-            <div class="itemName"><code><a href="#probability_larger_than_one_from_binary" class="internal-link" title="cma.optimization_tools.BinaryEvolutionPath.probability_larger_than_one_from_binary">probability<wbr></wbr>_larger<wbr></wbr>_than<wbr></wbr>_one<wbr></wbr>_from<wbr></wbr>_binary</a></code>
+            <div class="itemName"><code><a href="#al_penalties" class="internal-link" title="cma.optimization_tools.BestFeasibleSolution.al_penalties">al<wbr></wbr>_penalties</a></code>
             </div>
         
 
@@ -235,7 +215,7 @@
         
 
         
-            <div class="itemName"><code><a href="#raw_binary_s" class="internal-link" title="cma.optimization_tools.BinaryEvolutionPath.raw_binary_s">raw<wbr></wbr>_binary<wbr></wbr>_s</a></code>
+            <div class="itemName"><code><a href="#g" class="internal-link" title="cma.optimization_tools.BestFeasibleSolution.g">g</a></code>
             </div>
         
 
@@ -251,7 +231,7 @@
         
 
         
-            <div class="itemName"><code><a href="cma.optimization_tools.ExponentialSmoothing.html#count" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.count">count</a></code>
+            <div class="itemName"><code><a href="cma.optimization_tools.BestSolution2.html#count" class="internal-link" title="cma.optimization_tools.BestSolution2.count">count</a></code>
             </div>
         
 
@@ -261,7 +241,7 @@
         
 
         
-            <div class="itemName"><code><a href="cma.optimization_tools.ExponentialSmoothing.html#normalizer" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.normalizer">normalizer</a></code>
+            <div class="itemName"><code><a href="cma.optimization_tools.BestSolution2.html#count_saved" class="internal-link" title="cma.optimization_tools.BestSolution2.count_saved">count<wbr></wbr>_saved</a></code>
             </div>
         
 
@@ -271,7 +251,7 @@
         
 
         
-            <div class="itemName"><code><a href="cma.optimization_tools.ExponentialSmoothing.html#time_constant" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.time_constant">time<wbr></wbr>_constant</a></code>
+            <div class="itemName"><code><a href="cma.optimization_tools.BestSolution2.html#f" class="internal-link" title="cma.optimization_tools.BestSolution2.f">f</a></code>
             </div>
         
 
@@ -281,7 +261,7 @@
         
 
         
-            <div class="itemName"><code><a href="cma.optimization_tools.ExponentialSmoothing.html#values" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.values">values</a></code>
+            <div class="itemName"><code><a href="cma.optimization_tools.BestSolution2.html#info" class="internal-link" title="cma.optimization_tools.BestSolution2.info">info</a></code>
             </div>
         
 
@@ -291,7 +271,17 @@
         
 
         
-            <div class="itemName"><code><a href="cma.optimization_tools.EvolutionPath.html#path" class="internal-link" title="cma.optimization_tools.EvolutionPath.path">path</a></code>
+            <div class="itemName"><code><a href="cma.optimization_tools.BestSolution2.html#previous" class="internal-link" title="cma.optimization_tools.BestSolution2.previous">previous</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.optimization_tools.BestSolution2.html#x" class="internal-link" title="cma.optimization_tools.BestSolution2.x">x</a></code>
             </div>
         
 
@@ -315,7 +305,7 @@
         <div class="childrenKindTitle">Classes</div>
         <ul>
     
-    <li class="">
+    <li class=" thisobject">
         
         
         
@@ -345,7 +335,7 @@
             </div>
         
 
-    </li><li class=" thisobject">
+    </li><li class="">
         
         
         
@@ -482,7 +472,7 @@
         
 
         <div class="page-header">
-          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization_tools</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.BinaryEvolutionPath.html" class="internal-link" title="cma.optimization_tools.BinaryEvolutionPath">BinaryEvolutionPath</a></code></code></h1>
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.html" class="internal-link" title="cma.optimization_tools">optimization_tools</a></code><wbr></wbr>.<code><a href="cma.optimization_tools.BestFeasibleSolution.html" class="internal-link" title="cma.optimization_tools.BestFeasibleSolution">BestFeasibleSolution</a></code></code></h1>
           <div id="showPrivate">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -493,8 +483,8 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BinaryEvolutionPath</span>(<a href="cma.optimization_tools.EvolutionPath.html" class="internal-link" title="cma.optimization_tools.EvolutionPath">EvolutionPath</a>):</code></p><p>Constructor: <code><a href="cma.optimization_tools.EvolutionPath.html#__init__" class="internal-link" title="cma.optimization_tools.EvolutionPath.__init__">BinaryEvolutionPath(time_constant)</a></code></p>
-          <p><a href="classIndex.html#cma.optimization_tools.BinaryEvolutionPath">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BestFeasibleSolution</span>(<a href="cma.optimization_tools.BestSolution2.html" class="internal-link" title="cma.optimization_tools.BestSolution2">BestSolution2</a>):</code></p>
+          <p><a href="classIndex.html#cma.optimization_tools.BestFeasibleSolution">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -502,86 +492,72 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id402">
+          <table class="children sortable" id="id397">
   
   
   <tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#binary_s" class="internal-link" title="cma.optimization_tools.BinaryEvolutionPath.binary_s">binary<wbr></wbr>_s</a></code></td>
-    <td>how many increments for one decrement in stationary state</td>
-  </tr><tr class="property">
+    <td><code><a href="#__init__" class="internal-link" title="cma.optimization_tools.BestFeasibleSolution.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
     
-    <td>Property</td>
-    <td><code><a href="#probability_larger_than_one_from_binary" class="internal-link" title="cma.optimization_tools.BinaryEvolutionPath.probability_larger_than_one_from_binary">probability<wbr></wbr>_larger<wbr></wbr>_than<wbr></wbr>_one<wbr></wbr>_from<wbr></wbr>_binary</a></code></td>
-    <td>propability of path entries to be larger than one,</td>
-  </tr><tr class="property">
+    <td>Method</td>
+    <td><code><a href="#update" class="internal-link" title="cma.optimization_tools.BestFeasibleSolution.update">update</a></code></td>
+    <td>g and al_penalties are lists of constraint and penalty values</td>
+  </tr><tr class="instancevariable">
     
-    <td>Property</td>
-    <td><code><a href="#raw_binary_s" class="internal-link" title="cma.optimization_tools.BinaryEvolutionPath.raw_binary_s">raw<wbr></wbr>_binary<wbr></wbr>_s</a></code></td>
-    <td>return one of two possible values with expectation of zero.</td>
+    <td>Instance Variable</td>
+    <td><code><a href="#al_penalties" class="internal-link" title="cma.optimization_tools.BestFeasibleSolution.al_penalties">al<wbr></wbr>_penalties</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#g" class="internal-link" title="cma.optimization_tools.BestFeasibleSolution.g">g</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
           
             <p class="inheritedFrom">
-              Inherited from <code><a href="cma.optimization_tools.EvolutionPath.html" class="internal-link" title="cma.optimization_tools.EvolutionPath">EvolutionPath</a></code>:
+              Inherited from <code><a href="cma.optimization_tools.BestSolution2.html" class="internal-link" title="cma.optimization_tools.BestSolution2">BestSolution2</a></code>:
             </p>
-            <table class="children sortable" id="id403">
+            <table class="children sortable" id="id398">
   
   
   <tr class="basemethod">
     
     <td>Method</td>
-    <td><code><a href="cma.optimization_tools.EvolutionPath.html#__init__" class="internal-link" title="cma.optimization_tools.EvolutionPath.__init__">__init__</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="baseproperty">
-    
-    <td>Property</td>
-    <td><code><a href="cma.optimization_tools.EvolutionPath.html#path" class="internal-link" title="cma.optimization_tools.EvolutionPath.path">path</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr>
-</table>
-            
-            <p class="inheritedFrom">
-              Inherited from <code><a href="cma.optimization_tools.ExponentialSmoothing.html" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing">ExponentialSmoothing</a></code> (via <code><a href="cma.optimization_tools.EvolutionPath.html" class="internal-link" title="cma.optimization_tools.EvolutionPath">EvolutionPath</a></code>):
-            </p>
-            <table class="children sortable" id="id404">
-  
-  
-  <tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.optimization_tools.ExponentialSmoothing.html#__call__" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.__call__">__call__</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.optimization_tools.ExponentialSmoothing.html#__getitem__" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.__getitem__">__getitem__</a></code></td>
+    <td><code><a href="cma.optimization_tools.BestSolution2.html#__str__" class="internal-link" title="cma.optimization_tools.BestSolution2.__str__">__str__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.optimization_tools.ExponentialSmoothing.html#count" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.count">count</a></code></td>
+    <td><code><a href="cma.optimization_tools.BestSolution2.html#count" class="internal-link" title="cma.optimization_tools.BestSolution2.count">count</a></code></td>
+    <td>number of overall compared values</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="cma.optimization_tools.BestSolution2.html#count_saved" class="internal-link" title="cma.optimization_tools.BestSolution2.count_saved">count<wbr></wbr>_saved</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.optimization_tools.ExponentialSmoothing.html#normalizer" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.normalizer">normalizer</a></code></td>
+    <td><code><a href="cma.optimization_tools.BestSolution2.html#f" class="internal-link" title="cma.optimization_tools.BestSolution2.f">f</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.optimization_tools.ExponentialSmoothing.html#time_constant" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.time_constant">time<wbr></wbr>_constant</a></code></td>
+    <td><code><a href="cma.optimization_tools.BestSolution2.html#info" class="internal-link" title="cma.optimization_tools.BestSolution2.info">info</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="cma.optimization_tools.ExponentialSmoothing.html#values" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing.values">values</a></code></td>
+    <td><code><a href="cma.optimization_tools.BestSolution2.html#previous" class="internal-link" title="cma.optimization_tools.BestSolution2.previous">previous</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod private">
+  </tr><tr class="baseinstancevariable">
     
-    <td>Method</td>
-    <td><code><a href="cma.optimization_tools.ExponentialSmoothing.html#_init_" class="internal-link" title="cma.optimization_tools.ExponentialSmoothing._init_">_init_</a></code></td>
+    <td>Instance Variable</td>
+    <td><code><a href="cma.optimization_tools.BestSolution2.html#x" class="internal-link" title="cma.optimization_tools.BestSolution2.x">x</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -594,41 +570,65 @@
           <div class="basemethod">
   
   
-  <a name="cma.optimization_tools.BinaryEvolutionPath.binary_s">
+  <a name="cma.optimization_tools.BestFeasibleSolution.__init__">
     
   </a>
-  <a name="binary_s">
+  <a name="__init__">
     
   </a>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">binary_s</span><span class="function-signature">(self, odds_of_increment=1)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self)</span>:
     
-    <a class="headerLink" href="#binary_s" title="cma.optimization_tools.BinaryEvolutionPath.binary_s">
+    <a class="headerLink" href="#__init__" title="cma.optimization_tools.BestFeasibleSolution.__init__">
       
       
       ¶
     </a>
   </div>
   <div class="docstring functionBody">
-    
-    <div><p>how many increments for one decrement in stationary state</p></div>
+    <div class="interfaceinfo">overrides <code><a href="cma.optimization_tools.BestSolution2.html#__init__" class="internal-link">cma.optimization_tools.BestSolution2.__init__</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
-</div><div class="baseproperty">
+</div><div class="basemethod">
   
   
-  <a name="cma.optimization_tools.BinaryEvolutionPath.probability_larger_than_one_from_binary">
+  <a name="cma.optimization_tools.BestFeasibleSolution.update">
     
   </a>
-  <a name="probability_larger_than_one_from_binary">
+  <a name="update">
     
   </a>
   <div class="functionHeader">
-    @property<br />
-    <span class="py-defname">probability_larger_than_one_from_binary</span> =
     
-    <a class="headerLink" href="#probability_larger_than_one_from_binary" title="cma.optimization_tools.BinaryEvolutionPath.probability_larger_than_one_from_binary">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span><span class="function-signature">(self, f, g, al_penalties=None, x=None, info=None, info_construct=None)</span>:
+    
+    <a class="headerLink" href="#update" title="cma.optimization_tools.BestFeasibleSolution.update">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.optimization_tools.BestSolution2.html#update" class="internal-link">cma.optimization_tools.BestSolution2.update</a></code></div>
+    <div><p>g and al_penalties are lists of constraint and penalty values</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.optimization_tools.BestFeasibleSolution.al_penalties">
+    
+  </a>
+  <a name="al_penalties">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">al_penalties</span> =
+    
+    <a class="headerLink" href="#al_penalties" title="cma.optimization_tools.BestFeasibleSolution.al_penalties">
       
       
       ¶
@@ -636,36 +636,23 @@
   </div>
   <div class="functionBody">
     
-    <div><p>propability of path entries to be larger than one,</p>
-<p>given the input is <tt class="rst-docutils literal"><span class="pre">sign(randn())</span></tt>. Check out:</p>
-<pre class="rst-literal-block">
-n = int(1e4)
-greater_than_one = []
-ar_tc = [1.2, 1.5, 1.9, 2, 4, 8, 16, 32, 100]
-for tc in ar_tc:
-    p = cma.optimization_tools.EvolutionPath(tc)
-    for i in range(int(10 * tc)):
-        p(np.sign(np.random.randn(n)))
-    # plot(*step_data(p.path))
-    greater_than_one += [(np.mean(p.path &gt; 1) + np.mean(p.path &lt; -1)) / 2]
-</pre>
-</div>
+    <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseproperty">
+</div><div class="baseinstancevariable">
   
   
-  <a name="cma.optimization_tools.BinaryEvolutionPath.raw_binary_s">
+  <a name="cma.optimization_tools.BestFeasibleSolution.g">
     
   </a>
-  <a name="raw_binary_s">
+  <a name="g">
     
   </a>
   <div class="functionHeader">
-    @property<br />
-    <span class="py-defname">raw_binary_s</span> =
     
-    <a class="headerLink" href="#raw_binary_s" title="cma.optimization_tools.BinaryEvolutionPath.raw_binary_s">
+    <span class="py-defname">g</span> =
+    
+    <a class="headerLink" href="#g" title="cma.optimization_tools.BestFeasibleSolution.g">
       
       
       ¶
@@ -673,9 +660,7 @@ for tc in ar_tc:
   </div>
   <div class="functionBody">
     
-    <div><p>return one of two possible values with expectation of zero.</p>
-<p>the maximum for the larger value is 1 - 0.15865525393145707 for tc to infty.</p>
-</div>
+    <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>

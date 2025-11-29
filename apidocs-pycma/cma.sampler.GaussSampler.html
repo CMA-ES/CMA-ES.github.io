@@ -187,6 +187,26 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update" class="internal-link" title="cma.sampler.GaussSampler.update">update</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update_now" class="internal-link" title="cma.sampler.GaussSampler.update_now">update<wbr></wbr>_now</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -280,16 +300,6 @@
 
         
             <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse">transform<wbr></wbr>_inverse</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#update" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.update">update</a></code>
             </div>
         
 
@@ -552,7 +562,7 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id430">
+          <table class="children sortable" id="id433">
   
   
   <tr class="method">
@@ -570,6 +580,16 @@
     <td>Method</td>
     <td><code><a href="#set_H_by_f" class="internal-link" title="cma.sampler.GaussSampler.set_H_by_f">set_<wbr></wbr>H_by_f</a></code></td>
     <td>set Hessian from f at x0.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#update" class="internal-link" title="cma.sampler.GaussSampler.update">update</a></code></td>
+    <td>do nothing by default</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#update_now" class="internal-link" title="cma.sampler.GaussSampler.update_now">update<wbr></wbr>_now</a></code></td>
+    <td>do nothing by default</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
@@ -606,7 +626,7 @@
             <p class="inheritedFrom">
               Inherited from <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass">StatisticalModelSamplerWithZeroMeanBaseClass</a></code>:
             </p>
-            <table class="children sortable" id="id431">
+            <table class="children sortable" id="id434">
   
   
   <tr class="basemethod">
@@ -654,11 +674,6 @@
     <td>Method</td>
     <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#transform_inverse" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.transform_inverse">transform<wbr></wbr>_inverse</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
-    <td><code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#update" class="internal-link" title="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.update">update</a></code></td>
-    <td><tt class="rst-docutils literal">vectors</tt> is a list of samples, <tt class="rst-docutils literal">weights</tt> a corrsponding list of learning rates</td>
   </tr><tr class="baseproperty">
     
     <td>Property</td>
@@ -774,6 +789,54 @@
 <span class="py-prompt">&gt;&gt;&gt; </span>es.sm.set_H_by_f(cma.ff.elli, 3 * [0])  <span class="py-comment"># Hessian of cma.ff.elli</span></pre><p>Now the eigen spectrum of H^1/2 C H^1/2 where H is the Hessian of <tt class="rst-docutils literal">cma.ff.elli</tt>
 is given by the <code>spectrum</code> property.</p>
 </div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussSampler.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span><span class="function-signature">(self, *args, **kwargs)</span>:
+    
+    <a class="headerLink" href="#update" title="cma.sampler.GaussSampler.update">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.html#update" class="internal-link">cma.interfaces.StatisticalModelSamplerWithZeroMeanBaseClass.update</a></code></div><div class="interfaceinfo">overridden in <code><a href="cma.sampler.GaussDiagonalSampler.html" class="internal-link">cma.sampler.GaussDiagonalSampler</a></code>, <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code></div>
+    <div><p>do nothing by default</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.sampler.GaussSampler.update_now">
+    
+  </a>
+  <a name="update_now">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update_now</span><span class="function-signature">(self, *args, **kwargs)</span>:
+    
+    <a class="headerLink" href="#update_now" title="cma.sampler.GaussSampler.update_now">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cma.sampler.GaussFullSampler.html" class="internal-link">cma.sampler.GaussFullSampler</a></code></div>
+    <div><p>do nothing by default</p></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -938,7 +1001,7 @@ return 2**0.5 * gamma((self.dimension+1) / 2) / gamma(self.dimension / 2)
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2025-09-20 22:35:02.
+    23.9.1 at 2025-11-29 21:20:03.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

@@ -266,6 +266,46 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#wallclock" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.wallclock">wallclock</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_last_toc" class="internal-link" title="cma.utilities.utils.ElapsedWCTime._last_toc">_last<wbr></wbr>_toc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_time_at_creation" class="internal-link" title="cma.utilities.utils.ElapsedWCTime._time_at_creation">_time<wbr></wbr>_at<wbr></wbr>_creation</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_time_at_reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime._time_at_reset">_time<wbr></wbr>_at<wbr></wbr>_reset</a></code>
+            </div>
+        
+
     </li><li class="private">
         
         
@@ -346,6 +386,16 @@
 
         
             <div class="itemName"><code><a href="cma.utilities.utils.DictClass.html" class="internal-link" title="cma.utilities.utils.DictClass"><wbr></wbr>Dict<wbr></wbr>Class</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.utils.DictClass2.html" class="internal-link" title="cma.utilities.utils.DictClass2"><wbr></wbr>Dict<wbr></wbr>Class2</a></code>
             </div>
         
 
@@ -695,6 +745,16 @@
             </div>
         
 
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.utilities.utils.html#_id" class="internal-link" title="cma.utilities.utils._id">_id</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -765,11 +825,10 @@
         </div>
 
         <div class="moduleDocstring">
-          <div><p>measure elapsed cumulative time while not paused and elapsed time
-since last tic.</p>
-<p>Use attribute <code><a href="#tic" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.tic">tic</a></code> and methods <code><a href="#pause" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.pause">pause</a></code> () and <code><a href="#reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.reset">reset</a></code> ()
-to control the timer. Use attributes <code><a href="#toc" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.toc">toc</a></code> and <code><a href="#elapsed" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.elapsed">elapsed</a></code> to see
-timing results.</p>
+          <div><p>measure elapsed cumulative time while not paused since creation.</p>
+<p>To control the timer, use attribute <code><a href="#tic" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.tic">tic</a></code> and methods <code><a href="#pause" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.pause">pause</a></code> () and
+<code><a href="#reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.reset">reset</a></code> (). To see timing results, use attributes <code><a href="#toc" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.toc">toc</a></code> (since last
+<code><a href="#tic" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.tic">tic</a></code>) and <code><a href="#elapsed" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.elapsed">elapsed</a></code> (since creation).</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cma
 <span class="py-prompt">&gt;&gt;&gt; </span>e = cma.utilities.utils.ElapsedWCTime().pause()  <span class="py-comment"># (re)start later</span>
@@ -782,7 +841,7 @@ to zero when the timer is running.</p>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id477">
+          <table class="children sortable" id="id482">
   
   
   <tr class="method">
@@ -824,7 +883,7 @@ to zero when the timer is running.</p>
     
     <td>Property</td>
     <td><code><a href="#elapsed" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.elapsed">elapsed</a></code></td>
-    <td>elapsed time while not paused, measured since creation or last <code><a href="cma.utilities.utils.ElapsedWCTime.html#reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.reset">reset</a></code></td>
+    <td>elapsed time since last <code><a href="cma.utilities.utils.ElapsedWCTime.html#reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.reset">reset</a></code> while not paused.</td>
   </tr><tr class="property">
     
     <td>Property</td>
@@ -834,7 +893,27 @@ to zero when the timer is running.</p>
     
     <td>Property</td>
     <td><code><a href="#toc" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.toc">toc</a></code></td>
-    <td>return elapsed time since last <code><a href="cma.utilities.utils.ElapsedWCTime.html#tic" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.tic">tic</a></code></td>
+    <td>elapsed time since last <code><a href="cma.utilities.utils.ElapsedWCTime.html#tic" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.tic">tic</a></code> or <code><a href="cma.utilities.utils.ElapsedWCTime.html#pause" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.pause">pause</a></code> call</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#wallclock" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.wallclock">wallclock</a></code></td>
+    <td>never used: time between last <code><a href="cma.utilities.utils.ElapsedWCTime.html#reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.reset">reset</a></code> and last <code><a href="cma.utilities.utils.ElapsedWCTime.html#toc" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.toc">toc</a></code> (i.e. last usage)</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_last_toc" class="internal-link" title="cma.utilities.utils.ElapsedWCTime._last_toc">_last<wbr></wbr>_toc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_time_at_creation" class="internal-link" title="cma.utilities.utils.ElapsedWCTime._time_at_creation">_time<wbr></wbr>_at<wbr></wbr>_creation</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_time_at_reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime._time_at_reset">_time<wbr></wbr>_at<wbr></wbr>_reset</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
@@ -1037,8 +1116,9 @@ to zero when the timer is running.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>elapsed time while not paused, measured since creation or last
-<code><a href="#reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.reset">reset</a></code></p></div>
+    <div><p>elapsed time since last <code><a href="#reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.reset">reset</a></code> while not paused.</p>
+<p>Details: this triggers a <code><a href="#toc" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.toc">toc</a></code> call.</p>
+</div>
     
   </div>
 </div><div class="baseproperty">
@@ -1088,7 +1168,103 @@ to zero when the timer is running.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>return elapsed time since last <code><a href="#tic" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.tic">tic</a></code></p></div>
+    <div><p>elapsed time since last <code><a href="#tic" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.tic">tic</a></code> or <code><a href="#pause" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.pause">pause</a></code> call</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.utilities.utils.ElapsedWCTime.wallclock">
+    
+  </a>
+  <a name="wallclock">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">wallclock</span> =
+    
+    <a class="headerLink" href="#wallclock" title="cma.utilities.utils.ElapsedWCTime.wallclock">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>never used: time between last <code><a href="#reset" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.reset">reset</a></code> and last <code><a href="#toc" class="internal-link" title="cma.utilities.utils.ElapsedWCTime.toc">toc</a></code> (i.e. last usage)</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.utilities.utils.ElapsedWCTime._last_toc">
+    
+  </a>
+  <a name="_last_toc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_last_toc</span> =
+    
+    <a class="headerLink" href="#_last_toc" title="cma.utilities.utils.ElapsedWCTime._last_toc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.utilities.utils.ElapsedWCTime._time_at_creation">
+    
+  </a>
+  <a name="_time_at_creation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_time_at_creation</span> =
+    
+    <a class="headerLink" href="#_time_at_creation" title="cma.utilities.utils.ElapsedWCTime._time_at_creation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="cma.utilities.utils.ElapsedWCTime._time_at_reset">
+    
+  </a>
+  <a name="_time_at_reset">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_time_at_reset</span> =
+    
+    <a class="headerLink" href="#_time_at_reset" title="cma.utilities.utils.ElapsedWCTime._time_at_reset">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div><div class="baseinstancevariable private">
@@ -1127,7 +1303,7 @@ to zero when the timer is running.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2025-09-20 22:35:02.
+    23.9.1 at 2025-11-29 21:20:03.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

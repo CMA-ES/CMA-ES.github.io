@@ -932,26 +932,6 @@
         
 
         
-            <div class="itemName"><code><a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary<wbr></wbr>_foffset</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary<wbr></wbr>_optimum<wbr></wbr>_interval</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
             <div class="itemName"><code><a href="#evaluations" class="internal-link" title="cma.fitness_functions.FitnessFunctions.evaluations">evaluations</a></code>
             </div>
         
@@ -1060,6 +1040,26 @@
         
 
         
+            <div class="itemName"><code><a href="cma.fitness_functions.html#binary_foffset" class="internal-link" title="cma.fitness_functions.binary_foffset">binary<wbr></wbr>_foffset</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.fitness_functions.html#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.binary_optimum_interval">binary<wbr></wbr>_optimum<wbr></wbr>_interval</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.fitness_functions.html#ff" class="internal-link" title="cma.fitness_functions.ff">ff</a></code>
             </div>
         
@@ -1109,7 +1109,7 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id332">
+          <table class="children sortable" id="id333">
   
   
   <tr class="staticmethod">
@@ -1495,16 +1495,6 @@
   </tr><tr class="classvariable">
     
     <td>Class Variable</td>
-    <td><code><a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary<wbr></wbr>_foffset</a></code></td>
-    <td>default f-offset for binary functions at the optimum.</td>
-  </tr><tr class="classvariable">
-    
-    <td>Class Variable</td>
-    <td><code><a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary<wbr></wbr>_optimum<wbr></wbr>_interval</a></code></td>
-    <td>default interval where the optimum is assumed on binary functions.</td>
-  </tr><tr class="classvariable">
-    
-    <td>Class Variable</td>
     <td><code><a href="#evaluations" class="internal-link" title="cma.fitness_functions.FitnessFunctions.evaluations">evaluations</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="property">
@@ -1532,7 +1522,7 @@
   <div class="functionHeader">
     
     @staticmethod<br />
-    <span class="py-keyword">def</span> <span class="py-defname">binval</span><span class="function-signature">(x, foffset=<a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary_foffset</a>, optimum=<a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary_optimum_interval</a>)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">binval</span><span class="function-signature">(x, foffset=None)</span>:
     
     <a class="headerLink" href="#binval" title="cma.fitness_functions.FitnessFunctions.binval">
       
@@ -1562,7 +1552,7 @@ problem.</p>
   <div class="functionHeader">
     
     @staticmethod<br />
-    <span class="py-keyword">def</span> <span class="py-defname">leadingones</span><span class="function-signature">(x, foffset=<a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary_foffset</a>, optimum=<a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary_optimum_interval</a>)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">leadingones</span><span class="function-signature">(x, foffset=None)</span>:
     
     <a class="headerLink" href="#leadingones" title="cma.fitness_functions.FitnessFunctions.leadingones">
       
@@ -1588,7 +1578,7 @@ problem.</p>
   <div class="functionHeader">
     
     @staticmethod<br />
-    <span class="py-keyword">def</span> <span class="py-defname">onemax</span><span class="function-signature">(x, foffset=<a href="#binary_foffset" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_foffset">binary_foffset</a>, optimum=<a href="#binary_optimum_interval" class="internal-link" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">binary_optimum_interval</a>)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">onemax</span><span class="function-signature">(x, foffset=None)</span>:
     
     <a class="headerLink" href="#onemax" title="cma.fitness_functions.FitnessFunctions.onemax">
       
@@ -3413,64 +3403,6 @@ optimum of this function in larger dimension.</p>
 </div><div class="baseclassvariable">
   
   
-  <a name="cma.fitness_functions.FitnessFunctions.binary_foffset">
-    
-  </a>
-  <a name="binary_foffset">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">binary_foffset</span> =
-    
-    <a class="headerLink" href="#binary_foffset" title="cma.fitness_functions.FitnessFunctions.binary_foffset">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="functionBody">
-    
-    <div><p>default f-offset for binary functions at the optimum.</p>
-<p>Changing this <em>default</em> is only effective <em>before</em> import.</p>
-</div>
-    
-  </div>
-</div><div class="baseclassvariable">
-  
-  
-  <a name="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">
-    
-  </a>
-  <a name="binary_optimum_interval">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">binary_optimum_interval</span>: <code>tuple[<wbr></wbr>float, <wbr></wbr><span class="rst-variable-ellipsis">...</span>]</code> =
-    
-    <a class="headerLink" href="#binary_optimum_interval" title="cma.fitness_functions.FitnessFunctions.binary_optimum_interval">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="functionBody">
-    
-    <div><p>default interval where the optimum is assumed on binary functions.</p>
-<blockquote>
-The interval is chosen such that the value from round(.) or floor(.
-+ 1/2) or int(. + 1/2) is in the interval middle. This prevents
-some unexpected outcomes with algorithms that search on the
-continuous values. The most logical domain boundary values are now
-[-0.5, 1.5] or [0, 1].</blockquote>
-<p>Details: Changing this <em>default</em> is only effective <em>before</em> import.</p>
-</div>
-    
-  </div>
-</div><div class="baseclassvariable">
-  
-  
   <a name="cma.fitness_functions.FitnessFunctions.evaluations">
     
   </a>
@@ -3528,7 +3460,7 @@ continuous values. The most logical domain boundary values are now
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2025-09-20 22:35:02.
+    23.9.1 at 2025-11-29 21:20:03.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
