@@ -973,6 +973,16 @@
             </div>
         
 
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html#_remove_trailing" class="internal-link" title="cma.logger._remove_trailing">_remove<wbr></wbr>_trailing</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -989,6 +999,46 @@
 
         
             <div class="itemName"><code><a href="cma.logger.html#__author__" class="internal-link" title="cma.logger.__author__">__author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html#clip_on" class="internal-link" title="cma.logger.clip_on">clip<wbr></wbr>_on</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html#cma_logger_plot_x_annotate_idx" class="internal-link" title="cma.logger.cma_logger_plot_x_annotate_idx">cma<wbr></wbr>_logger<wbr></wbr>_plot<wbr></wbr>_x<wbr></wbr>_annotate<wbr></wbr>_idx</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html#cma_logger_plot_x_annotation_lines_limit" class="internal-link" title="cma.logger.cma_logger_plot_x_annotation_lines_limit">cma<wbr></wbr>_logger<wbr></wbr>_plot<wbr></wbr>_x<wbr></wbr>_annotation<wbr></wbr>_lines<wbr></wbr>_limit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.logger.html#corr_in_plot_divers_color" class="internal-link" title="cma.logger.corr_in_plot_divers_color">corr<wbr></wbr>_in<wbr></wbr>_plot<wbr></wbr>_divers<wbr></wbr>_color</a></code>
             </div>
         
 
@@ -1753,7 +1803,7 @@ for the OS-specific path seperator).</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(self, fig=None, iabscissa=0, iteridx=None, plot_mean=False, foffset=1e-19, x_opt=None, fontsize=7, downsample_to=10000000.0, xsemilog=False, xnormalize=False, xtransform=None, fshift=0, addcols=None, load=True, message=<span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>, **kwargs)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span><span class="function-signature">(self, fig=None, iabscissa=0, iteridx=None, plot_mean=False, foffset=1e-19, x_opt=None, fontsize=7, downsample_to=10000000.0, xsemilog=False, xnormalize=False, xtransform=None, fshift=0, addcols=None, load=True, message=<span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>, remove_sigma=True, normalize_scaling=False, **kwargs)</span>:
     
     <a class="headerLink" href="#plot" title="cma.logger.CMADataLogger.plot">
       
@@ -1801,6 +1851,10 @@ applied before <code>x_opt</code> is subtracted and <code>xnormalize</code> is d
 <p><code>load:bool=True</code>: load/reload data before to try plotting. Useful
 as a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code> instance itself does not load data by default.</p>
 <p><code>message:str</code>: a message text appearing in the plot</p>
+<p><code>remove_sigma</code>: disregard <code>sigma</code> when plotting individual standard
+deviations.</p>
+<p><code>normalize_scaling</code>: plot axis scaling normalized with the geometric
+average in each iteration.</p>
 <p>Return <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code> itself.</p>
 </div>
 <div class="rst-section" id="rst-example">
@@ -1864,7 +1918,7 @@ format and can be plotted just the same.</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_axes_scaling</span><span class="function-signature">(self, iabscissa=0)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">plot_axes_scaling</span><span class="function-signature">(self, iabscissa=0, normalize=False)</span>:
     
     <a class="headerLink" href="#plot_axes_scaling" title="cma.logger.CMADataLogger.plot_axes_scaling">
       
@@ -2045,7 +2099,7 @@ iteration indices (in case, after downsampling).</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_stds</span><span class="function-signature">(self, iabscissa=0, idx=None)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">plot_stds</span><span class="function-signature">(self, iabscissa=0, idx=None, remove_sigma=True)</span>:
     
     <a class="headerLink" href="#plot_stds" title="cma.logger.CMADataLogger.plot_stds">
       
@@ -3148,7 +3202,7 @@ logger = cma.CMADataLogger(extacted_folder_name).plot()
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2025-11-29 21:20:03.
+    23.9.1 at 2026-01-23 22:39:22.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

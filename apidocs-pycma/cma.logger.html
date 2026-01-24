@@ -280,6 +280,16 @@
             </div>
         
 
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_remove_trailing" class="internal-link" title="cma.logger._remove_trailing">_remove<wbr></wbr>_trailing</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -296,6 +306,46 @@
 
         
             <div class="itemName"><code><a href="#__author__" class="internal-link" title="cma.logger.__author__">__author__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#clip_on" class="internal-link" title="cma.logger.clip_on">clip<wbr></wbr>_on</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_logger_plot_x_annotate_idx" class="internal-link" title="cma.logger.cma_logger_plot_x_annotate_idx">cma<wbr></wbr>_logger<wbr></wbr>_plot<wbr></wbr>_x<wbr></wbr>_annotate<wbr></wbr>_idx</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cma_logger_plot_x_annotation_lines_limit" class="internal-link" title="cma.logger.cma_logger_plot_x_annotation_lines_limit">cma<wbr></wbr>_logger<wbr></wbr>_plot<wbr></wbr>_x<wbr></wbr>_annotation<wbr></wbr>_lines<wbr></wbr>_limit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#corr_in_plot_divers_color" class="internal-link" title="cma.logger.corr_in_plot_divers_color">corr<wbr></wbr>_in<wbr></wbr>_plot<wbr></wbr>_divers<wbr></wbr>_color</a></code>
             </div>
         
 
@@ -691,7 +741,7 @@
     
     <td>Function</td>
     <td><code><a href="#plot" class="internal-link" title="cma.logger.plot">plot</a></code></td>
-    <td>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, see <code><a href="cma.logger.CMADataLogger.html#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">CMADataLogger.plot</a></code>.</td>
+    <td>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>,</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -712,6 +762,26 @@
     <td>Variable</td>
     <td><code><a href="#__author__" class="internal-link" title="cma.logger.__author__">__author__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#clip_on" class="internal-link" title="cma.logger.clip_on">clip<wbr></wbr>_on</a></code></td>
+    <td>plot option, sometimes <code>True</code> is useful to get a good frame</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#cma_logger_plot_x_annotate_idx" class="internal-link" title="cma.logger.cma_logger_plot_x_annotate_idx">cma<wbr></wbr>_logger<wbr></wbr>_plot<wbr></wbr>_x<wbr></wbr>_annotate<wbr></wbr>_idx</a></code></td>
+    <td>iterable of variable indices or last index which will be annotated</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#cma_logger_plot_x_annotation_lines_limit" class="internal-link" title="cma.logger.cma_logger_plot_x_annotation_lines_limit">cma<wbr></wbr>_logger<wbr></wbr>_plot<wbr></wbr>_x<wbr></wbr>_annotation<wbr></wbr>_lines<wbr></wbr>_limit</a></code></td>
+    <td>number of variables above annotations are omitted</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#corr_in_plot_divers_color" class="internal-link" title="cma.logger.corr_in_plot_divers_color">corr<wbr></wbr>_in<wbr></wbr>_plot<wbr></wbr>_divers<wbr></wbr>_color</a></code></td>
+    <td>plot format string to plot correlation in <code><a href="cma.logger.CMADataLogger.html#plot_divers" class="internal-link" title="cma.logger.CMADataLogger.plot_divers">plot_divers</a></code>, was <code>'c'</code>, could be <code>'gray'</code> or <code>'C5'</code> or <code>'#008000'</code> or <code>'.--c'</code>, <code>''</code> means to plot nothing</td>
   </tr><tr class="variable">
     
     <td>Variable</td>
@@ -737,6 +807,11 @@
     <td>Function</td>
     <td><code><a href="#_monotone_abscissa" class="internal-link" title="cma.logger._monotone_abscissa">_monotone<wbr></wbr>_abscissa</a></code></td>
     <td>make x monotone if <tt class="rst-docutils literal">not iabscissa</tt>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_remove_trailing" class="internal-link" title="cma.logger._remove_trailing">_remove<wbr></wbr>_trailing</a></code></td>
+    <td>remove trailing sequence repeatedly</td>
   </tr>
 </table>
           
@@ -846,7 +921,8 @@ cma.disp(idx=r_[0:int(1e9):1000, -10:0])
   </div>
   <div class="docstring functionBody">
     
-    <div><p>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>, see <code><a href="cma.logger.CMADataLogger.html#plot" class="internal-link" title="cma.logger.CMADataLogger.plot">CMADataLogger.plot</a></code>.</p>
+    <div><p>plot data from files written by a <code><a href="cma.logger.CMADataLogger.html" class="internal-link" title="cma.logger.CMADataLogger">CMADataLogger</a></code>,</p>
+<p>see <code>cma.CMADataLogger.plot</code> to see all valid keyword arguments.</p>
 <p><tt class="rst-docutils literal">cma.plot()</tt> plots the data from the default output folder (which is
 by default always overwritten). <tt class="rst-docutils literal">cma.plot(name, **argsdict)</tt> is a
 shortcut for <tt class="rst-docutils literal"><span class="pre">cma.CMADataLogger(name).plot(**argsdict)</span></tt>.</p>
@@ -965,6 +1041,103 @@ default plot data folder and <tt class="rst-docutils literal">filename</tt> is c
   <div class="functionBody">
     
     <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.logger.clip_on">
+    
+  </a>
+  <a name="clip_on">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">clip_on</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#clip_on" title="cma.logger.clip_on">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>plot option, sometimes <code>True</code> is useful to get a good frame</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.logger.cma_logger_plot_x_annotate_idx">
+    
+  </a>
+  <a name="cma_logger_plot_x_annotate_idx">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cma_logger_plot_x_annotate_idx</span> =
+    
+    <a class="headerLink" href="#cma_logger_plot_x_annotate_idx" title="cma.logger.cma_logger_plot_x_annotate_idx">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>iterable of variable indices or last index which will be annotated</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.logger.cma_logger_plot_x_annotation_lines_limit">
+    
+  </a>
+  <a name="cma_logger_plot_x_annotation_lines_limit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cma_logger_plot_x_annotation_lines_limit</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#cma_logger_plot_x_annotation_lines_limit" title="cma.logger.cma_logger_plot_x_annotation_lines_limit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>number of variables above annotations are omitted</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="cma.logger.corr_in_plot_divers_color">
+    
+  </a>
+  <a name="corr_in_plot_divers_color">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">corr_in_plot_divers_color</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#corr_in_plot_divers_color" title="cma.logger.corr_in_plot_divers_color">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>plot format string to plot correlation in <code><a href="cma.logger.CMADataLogger.html#plot_divers" class="internal-link" title="cma.logger.CMADataLogger.plot_divers">plot_divers</a></code>, was <code>'c'</code>, could be <code>'gray'</code>
+or <code>'C5'</code> or <code>'#008000'</code> or <code>'.--c'</code>, <code>''</code> means to plot nothing</p></div>
     
   </div>
 </div><div class="basevariable">
@@ -1092,6 +1265,30 @@ each restart.</p>
 Currently we assume it was written "on purpose" twice.</p>
 </div>
   </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="cma.logger._remove_trailing">
+    
+  </a>
+  <a name="_remove_trailing">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_remove_trailing</span><span class="function-signature">(s, end=<span class="rst-variable-quote">'</span><span class="rst-variable-string">down</span><span class="rst-variable-quote">'</span>)</span>:
+    
+    <a class="headerLink" href="#_remove_trailing" title="cma.logger._remove_trailing">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>remove trailing sequence repeatedly</p></div>
+  </div>
 </div>
         </div>
       
@@ -1104,7 +1301,7 @@ Currently we assume it was written "on purpose" twice.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2025-11-29 21:20:03.
+    23.9.1 at 2026-01-23 22:39:22.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
