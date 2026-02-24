@@ -2,58 +2,519 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>cma.experimentation.DataDict : API documentation</title>
+  
 
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="apidocs.css" rel="stylesheet" />
-  </head>
+  <head>
+    
+    <title>cma.experimentation.DataDict</title>
+    <meta name="generator" content="pydoctor 23.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">
-            cma API Documentation
-          </a>
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          cma <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
         </div>
       </div>
-    </nav>
 
-    <div id="showPrivate">
-      <button onclick="togglePrivate()" class="btn btn-link">Toggle Private API</button>
     </div>
 
-    <div class="container">
 
-      <div class="page-header">
-        <h1 class="class"><code>cma.experimentation.DataDict(<span title="collections.defaultdict">defaultdict</span>)</code> <small>class documentation</small></h1>
+  </div>
+</nav>
+    
+    <div class="container-fluid">
 
-        <span id="partOf">
-          Part of <code><a href="cma.html" data-type="Package" class="code">cma</a>.<a href="cma.experimentation.html" data-type="Module" class="code">experimentation</a></code>
-          
-          <a href="classIndex.html#cma.experimentation.DataDict">(View In Hierarchy)</a>
-        </span>
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="cma.experimentation.DataDict.html" class="internal-link" title="This class"><wbr></wbr>Data<wbr></wbr>Dict</a></code> 
       </div>
+      
+      <div>
+        
 
-      <div class="extrasDocstring">
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="cma.experimentation.DataDict.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="cma.experimentation.DataDict.__repr__">__repr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#aggregated" class="internal-link" title="cma.experimentation.DataDict.aggregated">aggregated</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#argmin" class="internal-link" title="cma.experimentation.DataDict.argmin">argmin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#clean" class="internal-link" title="cma.experimentation.DataDict.clean">clean</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#clean_key" class="internal-link" title="cma.experimentation.DataDict.clean_key">clean<wbr></wbr>_key</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_near" class="internal-link" title="cma.experimentation.DataDict.get_near">get<wbr></wbr>_near</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#percentile" class="internal-link" title="cma.experimentation.DataDict.percentile">percentile</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#samples" class="internal-link" title="cma.experimentation.DataDict.samples">samples</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_clean" class="internal-link" title="cma.experimentation.DataDict.set_clean">set<wbr></wbr>_clean</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#test" class="internal-link" title="cma.experimentation.DataDict.test">test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tests" class="internal-link" title="cma.experimentation.DataDict.tests">tests</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#update" class="internal-link" title="cma.experimentation.DataDict.update">update</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#xy_arrays" class="internal-link" title="cma.experimentation.DataDict.xy_arrays">xy<wbr></wbr>_arrays</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_near_key" class="internal-link" title="cma.experimentation.DataDict._near_key">_near<wbr></wbr>_key</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#meta_data" class="internal-link" title="cma.experimentation.DataDict.meta_data">meta<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#successes" class="internal-link" title="cma.experimentation.DataDict.successes">successes</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
         
       </div>
+  </div><div>
 
-      <div class="moduleDocstring">
-        <div><p>A dictionary with a parameter value, e.g. dimension, as keys and
-a list/sequence of results, e.g. runtimes, as value for each key.</p>
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="cma.experimentation.html" class="internal-link" title="The parent of this class">experimentation</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.ClassFromDict.html" class="internal-link" title="cma.experimentation.ClassFromDict"><wbr></wbr>Class<wbr></wbr>From<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.DataDict.html" class="internal-link" title="cma.experimentation.DataDict"><wbr></wbr>Data<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.Results.html" class="internal-link" title="cma.experimentation.Results"><wbr></wbr>Results</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.ResultsPandas.html" class="internal-link" title="cma.experimentation.ResultsPandas"><wbr></wbr>Results<wbr></wbr>Pandas</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.TimeWarner.html" class="internal-link" title="cma.experimentation.TimeWarner"><wbr></wbr>Time<wbr></wbr>Warner</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.html#copy_file" class="internal-link" title="cma.experimentation.copy_file">copy<wbr></wbr>_file</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.html#down_sample" class="internal-link" title="cma.experimentation.down_sample">down<wbr></wbr>_sample</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.html#sp1" class="internal-link" title="cma.experimentation.sp1">sp1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.html#unique_time_stamp" class="internal-link" title="cma.experimentation.unique_time_stamp">unique<wbr></wbr>_time<wbr></wbr>_stamp</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">cma</a></code><wbr></wbr>.<code><a href="cma.experimentation.html" class="internal-link" title="cma.experimentation">experimentation</a></code><wbr></wbr>.<code><a href="cma.experimentation.DataDict.html" class="internal-link" title="cma.experimentation.DataDict">DataDict</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">DataDict</span>(defaultdict):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.experimentation.DataDict.__init__">DataDict(dict_)</a></code></p>
+          <p><a href="classIndex.html#cma.experimentation.DataDict">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>A (default) dictionary like <tt class="rst-docutils literal">parameter_value: list_of_measures</tt>,</p>
+<p>e.g. with float parameter or dimension as key and runtimes as value. This
+class is used under the hood in the <code><a href="cma.experimentation.Results.html" class="internal-link" title="cma.experimentation.Results">Results</a></code> class.</p>
+<p>A main functionality is the method <code><a href="#clean" class="internal-link" title="cma.experimentation.DataDict.clean">clean</a></code>, which joins all entries
+which have almost equal keys. This allows to have a <code>float</code> parameter
+as key.</p>
 <p>This class provides simple computations on this kind of data,
 like <tt class="rst-docutils literal">x, y = .xy_arrays() == sorted(keys), sp1(values)</tt>.</p>
-<p>A main functionality is the method <a href="cma.experimentation.DataDict.html#clean"><code>clean</code></a>, which joins all entries
-which have almost equal keys. This allows to have a <a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a> parameter
-as key.</p>
 <p>If the dictionary values are not lists, one may get rather unexpected
 results or exceptions.</p>
-<p>Details: this class allows to use <a href="http://docs.python.org/library/stdtypes.html#float"><code>float</code></a> values as keys when
-<a href="cma.experimentation.DataDict.html#clean_key"><code>clean_key</code></a> and <a href="cma.experimentation.DataDict.html#set_clean"><code>set_clean</code></a> are used to access the data in the
-<a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>. Inheriting from <a href="http://docs.python.org/library/collections.html#collections.defaultdict"><code>defaultdict</code></a> with <tt class="rst-docutils literal">[]</tt> as default value,
+<p>Details: this class allows to use <code>float</code> values as keys when
+<code><a href="#clean_key" class="internal-link" title="cma.experimentation.DataDict.clean_key">clean_key</a></code> and <code><a href="#set_clean" class="internal-link" title="cma.experimentation.DataDict.set_clean">set_clean</a></code> are used to access the data in the
+<code>dict</code>. Inheriting from <code>defaultdict</code> with <code>list</code> as default value,
 the syntax:</p>
 <pre class="rst-literal-block">
 data = DataDict()
@@ -63,77 +524,109 @@ data[first_key] += [first_data_point]
 <p>Caveat: small values are considered as the same key, even if they are
 close to zero. Either use a different comparison via the <code>equal</code>
 keyword parameter, or use <tt class="rst-docutils literal">1 / key_value</tt> or <code>log(key_value)`</code>.</p>
-<p>TODO: consider <code>numpy.allclose</code> for almost equal comparison</p><table class="fieldTable"></table></div>
-      </div>
+<p>TODO: consider <code>numpy.allclose</code> for almost equal comparison?</p>
+</div>
+        </div>
 
-      <div id="splitTables">
-        <table class="children sortable" id="id391">
+        <div id="splitTables">
+          <table class="children sortable" id="id336">
+  
   
   <tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#__init__" data-type="Method" class="code">__init__</a></td>
-    <td><span>Use <tt class="rst-docutils literal">dict(dict_.data or dict_)</tt>, and <code>dict_.meta_data</code> for initialization.</span></td>
+    <td><code><a href="#__init__" class="internal-link" title="cma.experimentation.DataDict.__init__">__init__</a></code></td>
+    <td>Use <tt class="rst-docutils literal">dict(dict_.data or dict_)</tt>, and <code>dict_.meta_data</code> for initialization.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#xy_arrays" data-type="Method" class="code">xy_arrays</a></td>
-    <td><span>return an array of sorted keys and an array of the respectively aggregated values of this <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>.</span></td>
-  </tr><tr class="method">
-    
-    <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#argmin" data-type="Method" class="code">argmin</a></td>
+    <td><code><a href="#__repr__" class="internal-link" title="cma.experimentation.DataDict.__repr__">__repr__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#clean" data-type="Method" class="code">clean</a></td>
-    <td><span>merge keys which have almost the same value</span></td>
+    <td><code><a href="#aggregated" class="internal-link" title="cma.experimentation.DataDict.aggregated">aggregated</a></code></td>
+    <td>WIP return a <code>dict</code> with <tt class="rst-docutils literal">(agg(data), number_of_samples)</tt> per key.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#clean_key" data-type="Method" class="code">clean_key</a></td>
-    <td><span>set similar key values all to be <code>key</code>, return <code>key</code>.</span></td>
+    <td><code><a href="#argmin" class="internal-link" title="cma.experimentation.DataDict.argmin">argmin</a></code></td>
+    <td>slack_index_shift can be +-1, looking to the right/left of argmin</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#get_near" data-type="Method" class="code">get_near</a></td>
-    <td><span>get the merged values list of all nearby keys.</span></td>
+    <td><code><a href="#clean" class="internal-link" title="cma.experimentation.DataDict.clean">clean</a></code></td>
+    <td>merge keys which have almost the same value</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#set_clean" data-type="Method" class="code">set_clean</a></td>
-    <td><span>join all entries with similar <code>key</code> and return the new value, a joined list of all respective values.</span></td>
+    <td><code><a href="#clean_key" class="internal-link" title="cma.experimentation.DataDict.clean_key">clean<wbr></wbr>_key</a></code></td>
+    <td>set similar key values all to be <code>key</code>, return <code>key</code>.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#successes" data-type="Method" class="code">successes</a></td>
-    <td><span>return a class instance with attributes <code>x</code> (i.e. keys), <code>n</code>, <code>nsucc</code>, and <code>rate</code>.</span></td>
+    <td><code><a href="#get_near" class="internal-link" title="cma.experimentation.DataDict.get_near">get<wbr></wbr>_near</a></code></td>
+    <td>get the merged values list of all nearby keys.</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#percentile" data-type="Method" class="code">percentile</a></td>
-    <td><span>percentile based on bootstrapping</span></td>
+    <td><code><a href="#percentile" class="internal-link" title="cma.experimentation.DataDict.percentile">percentile</a></code></td>
+    <td>TODO:review percentile based on bootstrapping</td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#__repr__" data-type="Method" class="code">__repr__</a></td>
+    <td><code><a href="#samples" class="internal-link" title="cma.experimentation.DataDict.samples">samples</a></code></td>
+    <td>return a <code>dict</code> with the number of values per key</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_clean" class="internal-link" title="cma.experimentation.DataDict.set_clean">set<wbr></wbr>_clean</a></code></td>
+    <td>join all entries with similar <code>key</code> and return the new value, a joined list of all respective values.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#test" class="internal-link" title="cma.experimentation.DataDict.test">test</a></code></td>
+    <td>return p-value of the <code>mannwhitneyu</code> test</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#tests" class="internal-link" title="cma.experimentation.DataDict.tests">tests</a></code></td>
+    <td>return p-values of the <code>mannwhitneyu</code> test of entries adjacent with <code>gap</code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#update" class="internal-link" title="cma.experimentation.DataDict.update">update</a></code></td>
+    <td>update data lists from a <code>dict</code> of lists (and only a <code>dict</code>)</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#xy_arrays" class="internal-link" title="cma.experimentation.DataDict.xy_arrays">xy<wbr></wbr>_arrays</a></code></td>
+    <td>return two arrays ready to be plotted like <tt class="rst-docutils literal"><span class="pre">plot(*xy_arrays)</span></tt>.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#meta_data" class="internal-link" title="cma.experimentation.DataDict.meta_data">meta<wbr></wbr>_data</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#successes" class="internal-link" title="cma.experimentation.DataDict.successes">successes</a></code></td>
+    <td>return a class instance with attributes <code>x</code> (i.e. keys), <code>n</code>, <code>nsucc</code>, and <code>rate</code> as arrays.</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><a href="cma.experimentation.DataDict.html#_near_key" data-type="Method" class="code">_near_key</a></td>
-    <td><span>return a key in self which is <tt class="rst-docutils literal">equal</tt> to <tt class="rst-docutils literal">key</tt> and otherwise <tt class="rst-docutils literal">key</tt>.</span></td>
+    <td><code><a href="#_near_key" class="internal-link" title="cma.experimentation.DataDict._near_key">_near<wbr></wbr>_key</a></code></td>
+    <td>return a key in self which is <tt class="rst-docutils literal">equal</tt> to <tt class="rst-docutils literal">key</tt> and otherwise <tt class="rst-docutils literal">key</tt>.</td>
   </tr>
 </table>
-        
-
           
-      </div>
 
-      <div id="childList">
+            
+        </div>
 
-        <div class="basemethod">
+        <div id="childList">
+          <div class="basemethod">
+  
   
   <a name="cma.experimentation.DataDict.__init__">
     
@@ -143,210 +636,24 @@ keyword parameter, or use <tt class="rst-docutils literal">1 / key_value</tt> or
   </a>
   <div class="functionHeader">
     
-    def
-    __init__(self, dict_=None):
     
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, dict_=None)</span>:
+    
+    <a class="headerLink" href="#__init__" title="cma.experimentation.DataDict.__init__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
-    
     
     <div><p>Use <tt class="rst-docutils literal">dict(dict_.data or dict_)</tt>, and <code>dict_.meta_data</code> for
 initialization.</p>
-<p>Details: <code>dict_.meta_data</code> are not copied.</p><table class="fieldTable"></table></div>
+<p>Details: <code>dict_.meta_data</code> are assigned as a reference.</p>
+</div>
   </div>
 </div><div class="basemethod">
   
-  <a name="cma.experimentation.DataDict.xy_arrays">
-    
-  </a>
-  <a name="xy_arrays">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    xy_arrays(self, agg=sp1):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>return an array of sorted keys and an array of the respectively
-aggregated values of this <a href="http://docs.python.org/library/stdtypes.html#dict"><code>dict</code></a>.</p>
-<p>For example to be used as
-<tt class="rst-docutils literal"><span class="pre">plot(*Sweep('data-sweep-dim').sorted_arrays())</span></tt>.</p>
-<p>Parameter <code>agg</code> determines the function to be used to aggregate
-data values, by default <a href="cma.experimentation.html#sp1"><code>sp1</code></a></p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.experimentation.DataDict.argmin">
-    
-  </a>
-  <a name="argmin">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    argmin(self, agg=sp1, slack=1.0, slack_index_shift=1):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div class="undocumented">Undocumented</div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.experimentation.DataDict.clean">
-    
-  </a>
-  <a name="clean">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    clean(self, equal=lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>merge keys which have almost the same value<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.experimentation.DataDict.clean_key">
-    
-  </a>
-  <a name="clean_key">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    clean_key(self, key, equal=lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>set similar key values all to be <code>key</code>, return <code>key</code>.</p>
-<p>Use method <a href="cma.experimentation.DataDict.html#set_clean"><code>set_clean</code></a> to access and change the clean-key
-dictionary <em>value</em> more conveniently.</p><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.experimentation.DataDict.get_near">
-    
-  </a>
-  <a name="get_near">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    get_near(self, key, equal=lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>get the merged values list of all nearby keys.</p>
-<p>Caveat: the returned value is a new list</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">See Also</td><td colspan="2"><a href="cma.experimentation.DataDict.html#clean"><code>clean</code></a>, <a href="cma.experimentation.DataDict.html#set_clean"><code>set_clean</code></a>.</td></tr></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.experimentation.DataDict.set_clean">
-    
-  </a>
-  <a name="set_clean">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    set_clean(self, key):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div><p>join all entries with similar <code>key</code> and return the new value,
-a joined list of all respective values.</p>
-<p>Example:</p>
-<pre class="rst-literal-block">
-data.set_clean(key) += [new_data_point]
-
-# same as
-data[data.clean_key(key)] += [new_data_point]
-
-# similar as
-data[key] += [new_data_point]
-data.clean()  # cleans *all* keys
-</pre><table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod private">
-  
-  <a name="cma.experimentation.DataDict._near_key">
-    
-  </a>
-  <a name="_near_key">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    _near_key(self, key, equal=lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06, exclude=None):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return a key in self which is <tt class="rst-docutils literal">equal</tt> to <tt class="rst-docutils literal">key</tt> and otherwise <tt class="rst-docutils literal">key</tt>.<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.experimentation.DataDict.successes">
-    
-  </a>
-  <a name="successes">
-    
-  </a>
-  <div class="functionHeader">
-    @property<br />
-    def
-    successes(self):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>return a class instance with attributes <code>x</code> (i.e. keys), <code>n</code>,
-<code>nsucc</code>, and <code>rate</code>.<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
-  
-  <a name="cma.experimentation.DataDict.percentile">
-    
-  </a>
-  <a name="percentile">
-    
-  </a>
-  <div class="functionHeader">
-    
-    def
-    percentile(self, prctile, agg=sp1, samples=100):
-    
-  </div>
-  <div class="docstring functionBody">
-    
-    
-    <div>percentile based on bootstrapping<table class="fieldTable"></table></div>
-  </div>
-</div><div class="basemethod">
   
   <a name="cma.experimentation.DataDict.__repr__">
     
@@ -356,25 +663,446 @@ data.clean()  # cleans *all* keys
   </a>
   <div class="functionHeader">
     
-    def
-    __repr__(self):
     
+    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#__repr__" title="cma.experimentation.DataDict.__repr__">
+      
+      
+      ¶
+    </a>
   </div>
   <div class="docstring functionBody">
     
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.aggregated">
     
-    <div class="undocumented">Undocumented</div>
+  </a>
+  <a name="aggregated">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">aggregated</span><span class="function-signature">(self, agg=<a href="cma.experimentation.html#sp1" class="internal-link" title="cma.experimentation.sp1">sp1</a>, relative=False, by=None)</span>:
+    
+    <a class="headerLink" href="#aggregated" title="cma.experimentation.DataDict.aggregated">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>WIP return a <code>dict</code> with <tt class="rst-docutils literal">(agg(data), number_of_samples)</tt> per key.</p>
+<p>For example, to get the 10%tile:</p>
+<pre class="rst-literal-block">
+.aggregated(lambda x: np.percentile(x, 10))
+</pre>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.argmin">
+    
+  </a>
+  <a name="argmin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">argmin</span><span class="function-signature">(self, agg=<a href="cma.experimentation.html#sp1" class="internal-link" title="cma.experimentation.sp1">sp1</a>, slack=1.0, slack_index_shift=+1)</span>:
+    
+    <a class="headerLink" href="#argmin" title="cma.experimentation.DataDict.argmin">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>slack_index_shift can be +-1, looking to the right/left of argmin</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.clean">
+    
+  </a>
+  <a name="clean">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">clean</span><span class="function-signature">(self, equal=(lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06))</span>:
+    
+    <a class="headerLink" href="#clean" title="cma.experimentation.DataDict.clean">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>merge keys which have almost the same value</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.clean_key">
+    
+  </a>
+  <a name="clean_key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">clean_key</span><span class="function-signature">(self, key, equal=(lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06))</span>:
+    
+    <a class="headerLink" href="#clean_key" title="cma.experimentation.DataDict.clean_key">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>set similar key values all to be <code>key</code>, return <code>key</code>.</p>
+<p>Use method <code><a href="#set_clean" class="internal-link" title="cma.experimentation.DataDict.set_clean">set_clean</a></code> to access and change the clean-key
+dictionary <em>value</em> more conveniently.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.get_near">
+    
+  </a>
+  <a name="get_near">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_near</span><span class="function-signature">(self, key, equal=(lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06))</span>:
+    
+    <a class="headerLink" href="#get_near" title="cma.experimentation.DataDict.get_near">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>get the merged values list of all nearby keys.</p>
+<p>Caveat: the returned value is a new list</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#clean" class="internal-link" title="cma.experimentation.DataDict.clean">clean</a></code>, <code><a href="#set_clean" class="internal-link" title="cma.experimentation.DataDict.set_clean">set_clean</a></code>.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.percentile">
+    
+  </a>
+  <a name="percentile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">percentile</span><span class="function-signature">(self, prctile, agg=<a href="cma.experimentation.html#sp1" class="internal-link" title="cma.experimentation.sp1">sp1</a>, samples=100)</span>:
+    
+    <a class="headerLink" href="#percentile" title="cma.experimentation.DataDict.percentile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>TODO:review percentile based on bootstrapping</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.samples">
+    
+  </a>
+  <a name="samples">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">samples</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#samples" title="cma.experimentation.DataDict.samples">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return a <code>dict</code> with the number of values per key</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.set_clean">
+    
+  </a>
+  <a name="set_clean">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_clean</span><span class="function-signature">(self, key)</span>:
+    
+    <a class="headerLink" href="#set_clean" title="cma.experimentation.DataDict.set_clean">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>join all entries with similar <code>key</code> and return the new value,
+a joined list of all respective values.</p>
+<p>This is the same as <code><a href="#clean_key" class="internal-link" title="cma.experimentation.DataDict.clean_key">clean_key</a></code> which however returns the new key, not
+the values.</p>
+<p>Example:</p>
+<pre class="rst-literal-block">
+data.set_clean(key) += [new_data_point]
+
+# same as
+data[data.clean_key(key)] += [new_data_point]
+
+# or more explicite, however with a different order of the data
+data[key] += [new_data_point]
+data.clean_key(key)  # joins data, however in the "wrong" order
+
+# similar as
+data[key] += [new_data_point]
+data.clean()  # cleans *all* keys
+</pre>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.test">
+    
+  </a>
+  <a name="test">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">test</span><span class="function-signature">(self, key, key2=None, method=<span class="rst-variable-quote">'</span><span class="rst-variable-string">auto</span><span class="rst-variable-quote">'</span>)</span>:
+    
+    <a class="headerLink" href="#test" title="cma.experimentation.DataDict.test">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return p-value of the <code>mannwhitneyu</code> test</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.tests">
+    
+  </a>
+  <a name="tests">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">tests</span><span class="function-signature">(self, gap=1, method=<span class="rst-variable-quote">'</span><span class="rst-variable-string">auto</span><span class="rst-variable-quote">'</span>)</span>:
+    
+    <a class="headerLink" href="#tests" title="cma.experimentation.DataDict.tests">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return p-values of the <code>mannwhitneyu</code> test of entries adjacent with <code>gap</code></p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.update">
+    
+  </a>
+  <a name="update">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">update</span><span class="function-signature">(self, dict_)</span>:
+    
+    <a class="headerLink" href="#update" title="cma.experimentation.DataDict.update">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>update data lists from a <code>dict</code> of lists (and only a <code>dict</code>)</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="cma.experimentation.DataDict.xy_arrays">
+    
+  </a>
+  <a name="xy_arrays">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">xy_arrays</span><span class="function-signature">(self, agg=<a href="cma.experimentation.html#sp1" class="internal-link" title="cma.experimentation.sp1">sp1</a>, type_=np.asarray)</span>:
+    
+    <a class="headerLink" href="#xy_arrays" title="cma.experimentation.DataDict.xy_arrays">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return two arrays ready to be plotted like <tt class="rst-docutils literal"><span class="pre">plot(*xy_arrays)</span></tt>.</p>
+<p>The x-array contains the sorted keys, the y-array contains the
+respectively aggregated values.</p>
+<p>For example to be used like:</p>
+<pre class="rst-literal-block">
+``plot(*self.xy_arrays())``.
+</pre>
+<p>Parameter <code>agg</code> determines the function to aggregate data values, by
+default <code><a href="cma.experimentation.html#sp1" class="internal-link" title="cma.experimentation.sp1">sp1</a></code> which is the mean corrected for missing data. To show
+dispersion, we can use <tt class="rst-docutils literal">agg=lambda x: np.percentile(x, 10)</tt> and <tt class="rst-docutils literal"><span class="pre">...,</span>
+90)</tt>.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="cma.experimentation.DataDict.meta_data">
+    
+  </a>
+  <a name="meta_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">meta_data</span> =
+    
+    <a class="headerLink" href="#meta_data" title="cma.experimentation.DataDict.meta_data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="cma.experimentation.DataDict.successes">
+    
+  </a>
+  <a name="successes">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">successes</span> =
+    
+    <a class="headerLink" href="#successes" title="cma.experimentation.DataDict.successes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>return a class instance with attributes <code>x</code> (i.e. keys), <code>n</code>,
+<code>nsucc</code>, and <code>rate</code> as arrays.</p>
+<p>TODO: consider using cma.utilities.utils.DictClass2 instead namedtuple?</p>
+</div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="cma.experimentation.DataDict._near_key">
+    
+  </a>
+  <a name="_near_key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_near_key</span><span class="function-signature">(self, key, equal=(lambda x, y: x - 1e-06 &lt; y &lt; x + 1e-06), exclude=None)</span>:
+    
+    <a class="headerLink" href="#_near_key" title="cma.experimentation.DataDict._near_key">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return a key in self which is <tt class="rst-docutils literal">equal</tt> to <tt class="rst-docutils literal">key</tt> and otherwise <tt class="rst-docutils literal">key</tt>.</p></div>
   </div>
 </div>
-
+        </div>
+      
       </div>
-      <address>
-        <a href="index.html">API Documentation</a> for cma, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> at 2020-04-17 12:18:17.
-      </address>
-
     </div>
 
-    <script type="text/javascript" src="pydoctor.js"></script>
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for cma,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.1 at 2026-02-24 22:02:24.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
 
   </body>
 </html>

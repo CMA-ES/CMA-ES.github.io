@@ -429,7 +429,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">OOOptimizer</span>(object):</code></p><p>Known subclasses: <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.interfaces.OOOptimizer.__init__">OOOptimizer(xstart, *more_mandatory_args, **optional_kwargs)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">OOOptimizer</span>(object):</code></p><p>Known subclasses: <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="cma.interfaces.OOOptimizer.__init__">OOOptimizer(xstart, *more_mandatory_args, **optional_kwargs)</a></code></p>
           <p><a href="classIndex.html#cma.interfaces.OOOptimizer">View In Hierarchy</a></p>
         </div>
 
@@ -493,7 +493,7 @@ optim.logger.plot()  # if matplotlib is available
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id385">
+          <table class="children sortable" id="id391">
   
   
   <tr class="method">
@@ -600,7 +600,7 @@ optim.logger.plot()  # if matplotlib is available
     </a>
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code></div>
     <div><p><tt class="rst-docutils literal">xstart</tt> is a mandatory argument</p></div>
   </div>
 </div><div class="basemethod">
@@ -624,7 +624,7 @@ optim.logger.plot()  # if matplotlib is available
     </a>
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code></div>
     <div><p>abstract method, AKA "get" or "sample_distribution", deliver
 new candidate solution(s), a list of "vectors"</p></div>
   </div>
@@ -649,7 +649,7 @@ new candidate solution(s), a list of "vectors"</p></div>
     </a>
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code></div>
     <div><p>abstract method, display some iteration info when
 <tt class="rst-docutils literal">self.iteration_counter % modulo &lt; 1</tt>, using a reasonable
 default for <code>modulo</code> if <tt class="rst-docutils literal">modulo is None</tt>.</p></div>
@@ -778,7 +778,7 @@ both default to the number of available CPUs. The default
     </a>
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code></div>
     <div><p>abstract method, return satisfied termination conditions in a
 dictionary like <tt class="rst-docutils literal">{'termination reason': value, <span class="pre">...}</span></tt> or <tt class="rst-docutils literal">{}</tt>.</p>
 <p>For example <tt class="rst-docutils literal">{'tolfun': <span class="pre">1e-12}</span></tt>, or the empty dictionary <tt class="rst-docutils literal">{}</tt>.</p>
@@ -807,7 +807,7 @@ would break backwards compatibility.</p>
     </a>
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code></div>
     <div><p>abstract method, AKA "update", pass f-values and prepare for
 next iteration</p></div>
   </div>
@@ -951,7 +951,7 @@ next iteration</p></div>
     </a>
   </div>
   <div class="functionBody">
-    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code>, <code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link">cma.evolution_strategy.CMAEvolutionStrategy</a></code></div>
     <div><p>abstract property, contain <tt class="rst-docutils literal">(x, f(x), <span class="pre">...)</span></tt>, that is, the
 minimizer, its function value, ...</p></div>
     
@@ -1019,7 +1019,7 @@ callables. Otherwise a <code>ValueError</code> exception is raised.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2026-01-23 22:39:22.
+    23.9.1 at 2026-02-24 22:02:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

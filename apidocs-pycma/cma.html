@@ -162,6 +162,16 @@
         
 
         
+            <div class="itemName"><code><a href="cma.more_algorithms.html" class="internal-link" title="cma.more_algorithms">more<wbr></wbr>_algorithms</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code>
             </div>
         
@@ -203,6 +213,16 @@
 
         
             <div class="itemName"><code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution<wbr></wbr>_strategy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.experimentation.html" class="internal-link" title="cma.experimentation">experimentation</a></code>
             </div>
         
 
@@ -292,16 +312,6 @@
         
 
         
-            <div class="itemName"><code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
             <div class="itemName"><code><a href="cma.recombination_weights.html" class="internal-link" title="cma.recombination_weights">recombination<wbr></wbr>_weights</a></code>
             </div>
         
@@ -363,6 +373,16 @@
 
         
             <div class="itemName"><code><a href="cma.transformations.html" class="internal-link" title="cma.transformations">transformations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.warnings_and_exceptions.html" class="internal-link" title="cma.warnings_and_exceptions">warnings<wbr></wbr>_and<wbr></wbr>_exceptions</a></code>
             </div>
         
 
@@ -487,17 +507,17 @@ simplex Nelder-Mead algorithm. Some termination criteria however depend on
 actual Delta f-values.</p>
 <p>The <code><a href="index.html" class="internal-link">cma</a></code> module provides two independent implementations of the
 CMA-ES algorithm in the classes <code>cma.CMAEvolutionStrategy</code> and
-<code><a href="cma.purecma.CMAES.html" class="internal-link">cma.purecma.CMAES</a></code>.</p>
+<code><a href="cma.more_algorithms.purecma.CMAES.html" class="internal-link" title="cma.more_algorithms.purecma.CMAES">cma.purecma.CMAES</a></code>.</p>
 <p>In each implementation two interfaces are provided:</p>
 <ul class="rst-simple">
 <li><dl class="rst-first rst-docutils">
-<dt>functions <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> and <code><a href="cma.purecma.html#fmin" class="internal-link" title="cma.purecma.fmin">purecma.fmin</a></code>:</dt>
+<dt>functions <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> and <code><a href="cma.more_algorithms.purecma.html#fmin" class="internal-link" title="cma.more_algorithms.purecma.fmin">purecma.fmin</a></code>:</dt>
 <dd>run a complete minimization of the passed objective function with
 CMA-ES. <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> also provides optional restarts and noise handling.</dd>
 </dl>
 </li>
 <li><dl class="rst-first rst-docutils">
-<dt>class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> (and the alias <code>CMA</code>) and <code><a href="cma.purecma.CMAES.html" class="internal-link" title="cma.purecma.CMAES">purecma.CMAES</a></code>:</dt>
+<dt>class <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> (and the alias <code>CMA</code>) and <code><a href="cma.more_algorithms.purecma.CMAES.html" class="internal-link" title="cma.more_algorithms.purecma.CMAES">purecma.CMAES</a></code>:</dt>
 <dd>allow for minimization such that the control of the iteration loop
 remains with the user. <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> returns an instance of
 <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>.</dd>
@@ -506,7 +526,7 @@ remains with the user. <code><a href="cma.evolution_strategy.html#fmin2" class="
 </ul>
 <p>Additionally, <code><a href="cma.evolution_strategy.html#fmin_con2" class="internal-link" title="cma.evolution_strategy.fmin_con2">fmin_con2</a></code> provides constrained optimization.</p>
 <p>For a quick start see below or confer to the notebook(s) <a class="rst-reference external" href="https://github.com/CMA-ES/pycma/blob/development/notebooks/notebook-usecases-basics.ipynb" target="_top">https://github.com/CMA-ES/pycma/blob/development/notebooks/notebook-usecases-basics.ipynb</a></p>
-<p><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> relies, in contrast to <code><a href="cma.purecma.html" class="internal-link">cma.purecma</a></code>, heavily on
+<p><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> relies, in contrast to <code><a href="cma.more_algorithms.purecma.html" class="internal-link" title="cma.more_algorithms.purecma">cma.purecma</a></code>, heavily on
 <code>numpy</code> and optionally on <code>matplotlib.pyplot</code> (for <code><a href="cma.logger.html#plot" class="internal-link" title="cma.logger.plot">plot</a></code> etc., optional
 but highly recommended).</p>
 <p>The source code is available at <a class="rst-reference external" href="https://github.com/CMA-ES/pycma" target="_top">https://github.com/CMA-ES/pycma</a>.</p>
@@ -543,7 +563,7 @@ x, es.result[0]  # best evaluated solution
 es.result[5]  # mean solution, presumably better with noise
 </pre>
 </div>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Authors</td></tr><tr><td colspan="2">Nikolaus Hansen, 2008-</td></tr><tr><td colspan="2">Petr Baudis, 2014</td></tr><tr><td colspan="2">Youhei Akimoto, 2017-</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code>fmin</code> (), <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Unknown Field: license</td></tr><tr><td colspan="2">BSD 3-Clause, see LICENSE file.</td></tr></table></div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Authors</td></tr><tr><td colspan="2">Nikolaus Hansen, 2008-</td></tr><tr><td colspan="2">Petr Baudis, 2014</td></tr><tr><td colspan="2">Youhei Akimoto, 2017-</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="cma.evolution_strategy.html#fmin" class="internal-link" title="cma.evolution_strategy.fmin">fmin</a></code> (), <code><a href="cma.options_parameters.CMAOptions.html" class="internal-link" title="cma.options_parameters.CMAOptions">CMAOptions</a></code>, <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Unknown Field: license</td></tr><tr><td colspan="2">BSD 3-Clause, see LICENSE file.</td></tr></table></div>
         </div>
 
         <div id="splitTables">
@@ -570,6 +590,11 @@ es.result[5]  # mean solution, presumably better with noise
     <td>Module</td>
     <td><code><a href="cma.evolution_strategy.html" class="internal-link" title="cma.evolution_strategy">evolution<wbr></wbr>_strategy</a></code></td>
     <td>CMA-ES (evolution strategy), the main sub-module of <code><a href="index.html" class="internal-link">cma</a></code> implementing in particular <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code>, <code><a href="cma.evolution_strategy.html#fmin2" class="internal-link" title="cma.evolution_strategy.fmin2">fmin2</a></code> and further <tt class="rst-docutils literal">fmin_*</tt> functions.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.experimentation.html" class="internal-link" title="cma.experimentation">experimentation</a></code></td>
+    <td>Tools for (lean) experimentation and collecting data.</td>
   </tr><tr class="module">
     
     <td>Module</td>
@@ -600,6 +625,11 @@ es.result[5]  # mean solution, presumably better with noise
     <td>Module</td>
     <td><code><a href="cma.logger.html" class="internal-link" title="cma.logger">logger</a></code></td>
     <td>logger class mainly to be used with <code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code></td>
+  </tr><tr class="package">
+    
+    <td>Package</td>
+    <td><code><a href="cma.more_algorithms.html" class="internal-link" title="cma.more_algorithms">more<wbr></wbr>_algorithms</a></code></td>
+    <td>Basic implementations of some optimization algorithms namely</td>
   </tr><tr class="module">
     
     <td>Module</td>
@@ -610,11 +640,6 @@ es.result[5]  # mean solution, presumably better with noise
     <td>Module</td>
     <td><code><a href="cma.options_parameters.html" class="internal-link" title="cma.options_parameters">options<wbr></wbr>_parameters</a></code></td>
     <td>Parameters and Options for CMA-ES.</td>
-  </tr><tr class="module">
-    
-    <td>Module</td>
-    <td><code><a href="cma.purecma.html" class="internal-link" title="cma.purecma">purecma</a></code></td>
-    <td>A minimalistic implemention of CMA-ES without using <code>numpy</code>.</td>
   </tr><tr class="module">
     
     <td>Module</td>
@@ -629,7 +654,7 @@ es.result[5]  # mean solution, presumably better with noise
     
     <td>Module</td>
     <td><code><a href="cma.s.html" class="internal-link" title="cma.s">s</a></code></td>
-    <td>versatile shortcuts for quick typing in an (i)python shell or even <tt class="rst-docutils literal">from cma.s import *</tt> in interactive sessions.</td>
+    <td>versatile shortcuts for quick typing in an (i)python shell,</td>
   </tr><tr class="module">
     
     <td>Module</td>
@@ -655,6 +680,11 @@ es.result[5]  # mean solution, presumably better with noise
     <td>Package</td>
     <td><code><a href="cma.utilities.html" class="internal-link" title="cma.utilities">utilities</a></code></td>
     <td>various unspecific utilities</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="cma.warnings_and_exceptions.html" class="internal-link" title="cma.warnings_and_exceptions">warnings<wbr></wbr>_and<wbr></wbr>_exceptions</a></code></td>
+    <td><span class="undocumented">No module docstring; 1/1 function, 1/1 exception documented</span></td>
   </tr><tr class="module">
     
     <td>Module</td>
@@ -800,7 +830,7 @@ es.result[5]  # mean solution, presumably better with noise
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2026-01-23 22:39:22.
+    23.9.1 at 2026-02-24 22:02:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

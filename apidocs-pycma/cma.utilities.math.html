@@ -276,6 +276,26 @@
         
 
         
+            <div class="itemName"><code><a href="#testchisquare" class="internal-link" title="cma.utilities.math.testchisquare">testchisquare</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#testranksum" class="internal-link" title="cma.utilities.math.testranksum">testranksum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#to_correlation_matrix" class="internal-link" title="cma.utilities.math.to_correlation_matrix">to<wbr></wbr>_correlation<wbr></wbr>_matrix</a></code>
             </div>
         
@@ -296,8 +316,21 @@
         
          
 
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
         
-         
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_testranksum_method_exact_threshold" class="internal-link" title="cma.utilities.math._testranksum_method_exact_threshold">_testranksum<wbr></wbr>_method<wbr></wbr>_exact<wbr></wbr>_threshold</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
 
         
          
@@ -404,7 +437,7 @@ functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id471">
+          <table class="children sortable" id="id482">
   
   
   <tr class="class">
@@ -465,12 +498,27 @@ functions in <code><a href="cma.utilities.math.MathHelperFunctions.html" class="
   </tr><tr class="function">
     
     <td>Function</td>
+    <td><code><a href="#testchisquare" class="internal-link" title="cma.utilities.math.testchisquare">testchisquare</a></code></td>
+    <td>test (success) frequency nsucc1 of n1 against nsucc2 of n2.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#testranksum" class="internal-link" title="cma.utilities.math.testranksum">testranksum</a></code></td>
+    <td>return p-value computed with <code>mannwhitneyu</code> from <code>scipy.stats</code>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
     <td><code><a href="#to_correlation_matrix" class="internal-link" title="cma.utilities.math.to_correlation_matrix">to<wbr></wbr>_correlation<wbr></wbr>_matrix</a></code></td>
     <td>change C in place into a correlation matrix, AKA whitening</td>
   </tr><tr class="function private">
     
     <td>Function</td>
     <td><code><a href="#_sqrt_len" class="internal-link" title="cma.utilities.math._sqrt_len">_sqrt<wbr></wbr>_len</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable private">
+    
+    <td>Variable</td>
+    <td><code><a href="#_testranksum_method_exact_threshold" class="internal-link" title="cma.utilities.math._testranksum_method_exact_threshold">_testranksum<wbr></wbr>_method<wbr></wbr>_exact<wbr></wbr>_threshold</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -817,6 +865,149 @@ dimension.</p></div>
 </div><div class="basefunction">
   
   
+  <a name="cma.utilities.math.testchisquare">
+    
+  </a>
+  <a name="testchisquare">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">testchisquare</span><span class="function-signature">(nsucc1, n1, nsucc2, n2=None, **kwargs)</span>:
+    
+    <a class="headerLink" href="#testchisquare" title="cma.utilities.math.testchisquare">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>test (success) frequency nsucc1 of n1 against nsucc2 of n2.</p>
+<p>By default, <tt class="rst-docutils literal">n2 = n1</tt>, hence <code>n2</code> can be omitted in this case. The
+frequency data <tt class="rst-docutils literal">nsucc1, n1, nsucc2, n2</tt> and the <code>kwargs</code> are passed to
+<code>scipy.stats.contingency.chi2_contingency</code> for a chi-square test of
+independence.</p>
+<p>Return the probability that both success "frequencies" stem from the same
+underlying distribution (H0). More specifically, return the probability
+(upper bound) to observe the given or a greater discrepancy between the two
+success frequency data, given the data stem from the same distribution
+(formally, are independent of the "row" index (1, 2), hence "test of
+independence").</p>
+<p>Example: when testing 3 versus 8 successes observed in 25 trials
+respectively, we find that p=0.17 under H0:</p>
+<pre class="rst-literal-block">
+import cma
+cma.utilities.math.testchisquare(3, 25, 8)
+
+0.17207161769462614
+</pre>
+<p>Details: testing the successes <tt class="rst-docutils literal">nsucc1, nsucc2</tt> is equivalent to testing the
+respective failures <tt class="rst-docutils literal">n1 - nsucc1, n2 - nsucc2</tt>.</p>
+<p>With <tt class="rst-docutils literal">n1 = n2 = 15</tt>, we test <tt class="rst-docutils literal">nsucc1 = [0, 1, <span class="pre">...]</span></tt> against several <tt class="rst-docutils literal">nsucc2</tt>:</p>
+<pre class="rst-literal-block">
+import cma
+t = cma.utilities.math.testchisquare  # scipy needs to be installed
+
+n = 15
+print('nsucc   nfail   p')
+for p1 in range(6):
+    for delta in [4, 5, 6]:
+        p2 = p1 + (p1 &gt; 1) + delta
+        print(' {} {} (= {} {}) {:.2}'.format(
+                p1, p2, n-p1, n-p2, t(p1, n, p2)))
+    print(' ')
+
+nsucc   nfail   p
+ 0 4 (= 15 11) 0.11
+ 0 5 (= 15 10) 0.05
+ 0 6 (= 15 9) 0.022
+
+ 1 5 (= 14 10) 0.17
+ 1 6 (= 14 9) 0.084
+ 1 7 (= 14 8) 0.039
+
+ 2 7 (= 13 8) 0.11
+ 2 8 (= 13 7) 0.053
+ 2 9 (= 13 6) 0.023
+
+ 3 8 (= 12 7) 0.13
+ 3 9 (= 12 6) 0.062
+ 3 10 (= 12 5) 0.027
+
+ 4 9 (= 11 6) 0.14
+ 4 10 (= 11 5) 0.067
+ 4 11 (= 11 4) 0.028
+
+ 5 10 (= 10 5) 0.14
+ 5 11 (= 10 4) 0.067
+ 5 12 (= 10 3) 0.027
+</pre>
+<p>Testing 1 (of n=15) versus 6 yields p=0.084 (4-th row), testing 1 versus 7
+yields p=0.039. The shown p-values are monotonuously increasing(!) with
+increasing n: with n = 7, the mentioned p-values are smaller (about 0.033
+and 0.007, respectively), with <tt class="rst-docutils literal">n <span class="pre">-&gt;</span> infinity</tt> they reach about 0.13 and
+0.077, respectively.</p>
+<p>Remark: under H0, p~U[0,1], hence E ln(p) = -1 and the geometric average p
+equals 1/e.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="cma.utilities.math.testranksum">
+    
+  </a>
+  <a name="testranksum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">testranksum</span><span class="function-signature">(data1, data2, **kwargs)</span>:
+    
+    <a class="headerLink" href="#testranksum" title="cma.utilities.math.testranksum">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return p-value computed with <code>mannwhitneyu</code> from <code>scipy.stats</code>.</p>
+<p><tt class="rst-docutils literal">testranksum(data1, data2)</tt> returns the probability that <code>data1</code> and
+<code>data2</code>, or more discrepant data, are generated while P(d1 &lt; d2) = P(d1 &gt;
+d2) = 1/2 is true (AKA H0).</p>
+<p>This function calls <code>scipy.stats.mannwhitneyu</code> passing data and <code>kwargs</code>,
+setting by default <tt class="rst-docutils literal"><span class="pre">alternative='two-sided'</span></tt> and <tt class="rst-docutils literal"><span class="pre">method='exact'</span> if
+len(data1) * len(data2) &lt; 55000 else 'auto'</tt>. Pass <tt class="rst-docutils literal"><span class="pre">method='auto'</span></tt> when
+execution speed is an issue.</p>
+<p>The minimal data sizes to possibly get p &lt; 1% two-sided are:</p>
+<pre class="rst-literal-block">
+import cma
+ranksum = cma.utilities.math.testranksum
+[(n, 1e-4 * int(0.5 + 1e4 *  # round and remove np type
+     ranksum(range(n[0]), range(n[0], n[0] + n[1]))))
+        for n in [[5, 5], [4, 6], [3, 9], [2, 19], [1, 200]]]
+# n1, n2, p-value
+[([5, 5], 0.0079),
+ ([4, 6], 0.0095),
+ ([3, 9], 0.0091),
+ ([2, 19], 0.0095),
+ ([1, 200], 0.01)]
+</pre>
+<p>The probabilities are exactly doubled with <tt class="rst-docutils literal"><span class="pre">'alterative='less'</span></tt> passed as
+argument.</p>
+<p>Details: the above threshold for <tt class="rst-docutils literal"><span class="pre">method='exact'</span></tt> can be changed by
+assigning <code><a href="#_testranksum_method_exact_threshold" class="internal-link">cma.utilities.math._testranksum_method_exact_threshold</a></code>.</p>
+<p>Remark: under H0, p~U[0,1], hence E ln(p) = -1 and the geometric average p
+equals 1/e.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="cma.utilities.math.to_correlation_matrix">
     
   </a>
@@ -862,6 +1053,30 @@ dimension.</p></div>
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
+</div><div class="basevariable private">
+  
+  
+  <a name="cma.utilities.math._testranksum_method_exact_threshold">
+    
+  </a>
+  <a name="_testranksum_method_exact_threshold">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_testranksum_method_exact_threshold</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#_testranksum_method_exact_threshold" title="cma.utilities.math._testranksum_method_exact_threshold">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
 </div>
         </div>
       
@@ -874,7 +1089,7 @@ dimension.</p></div>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2026-01-23 22:39:22.
+    23.9.1 at 2026-02-24 22:02:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

@@ -410,7 +410,57 @@
         
 
         
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html#CSA_dampfac_mueff" class="internal-link" title="cma.sigma_adaptation.CSA_dampfac_mueff"><wbr></wbr>CSA_dampfac_mueff</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html#CSA_dampfac_mueff_attenuation_dimension" class="internal-link" title="cma.sigma_adaptation.CSA_dampfac_mueff_attenuation_dimension"><wbr></wbr>CSA_dampfac_mueff_attenuation_dimension</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html#CSA_dampfac_mueff_inner" class="internal-link" title="cma.sigma_adaptation.CSA_dampfac_mueff_inner"><wbr></wbr>CSA_dampfac_mueff_inner</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="cma.sigma_adaptation.html#tpa_dampdown_fac" class="internal-link" title="cma.sigma_adaptation.tpa_dampdown_fac">tpa<wbr></wbr>_dampdown<wbr></wbr>_fac</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html#_inner_threshold" class="internal-link" title="cma.sigma_adaptation._inner_threshold">_inner<wbr></wbr>_threshold</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="cma.sigma_adaptation.html#_true_inner" class="internal-link" title="cma.sigma_adaptation._true_inner">_true<wbr></wbr>_inner</a></code>
             </div>
         
 
@@ -464,7 +514,7 @@ distribution is changed. <code><a href="#_update_ps" class="internal-link" title
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id445">
+          <table class="children sortable" id="id456">
   
   
   <tr class="method">
@@ -491,7 +541,7 @@ distribution is changed. <code><a href="#_update_ps" class="internal-link" title
     
     <td>Method</td>
     <td><code><a href="#update" class="internal-link" title="cma.sigma_adaptation.CMAAdaptSigmaBase.update">update</a></code></td>
-    <td>update <tt class="rst-docutils literal">es.sigma</tt></td>
+    <td>change <code>es.sigma</code> in place, deprecated?</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -656,8 +706,7 @@ mueff and possibly further options.</p></div>
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaMedianImprovement</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaNone.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaNone</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaTPA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaTPA</a></code></div>
-    <div><p>update <tt class="rst-docutils literal">es.sigma</tt></p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">es</span></td><td class="fieldArgDesc"><code><a href="cma.evolution_strategy.CMAEvolutionStrategy.html" class="internal-link" title="cma.evolution_strategy.CMAEvolutionStrategy">CMAEvolutionStrategy</a></code> class instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">whatever else is needed to update <tt class="rst-docutils literal">es.sigma</tt>,
-which should be none.</td></tr></table></div>
+    <div><p>change <code>es.sigma</code> in place, deprecated?</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -680,7 +729,7 @@ which should be none.</td></tr></table></div>
     </a>
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code></div>
+    <div class="interfaceinfo">overridden in <code><a href="cma.sigma_adaptation.CMAAdaptSigmaCSA.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaCSA</a></code>, <code><a href="cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional.html" class="internal-link">cma.sigma_adaptation.CMAAdaptSigmaDistanceProportional</a></code></div>
     <div><p>return sigma change factor and update self.delta.</p>
 <p><tt class="rst-docutils literal">self.delta == sigma/sigma0</tt> accumulates all past changes
 starting from <code>1.0</code>.</p>
@@ -848,7 +897,7 @@ in <code>es</code>, specifically it should not change <code>es.sigma</code>.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for cma,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2026-01-23 22:39:22.
+    23.9.1 at 2026-02-24 22:02:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
